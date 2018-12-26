@@ -1,6 +1,6 @@
 package org.nix.zhangpei.account.service;
 
-import org.nix.zhangpei.account.dao.LoginMapping;
+import org.nix.zhangpei.account.dao.LoginMapper;
 import org.nix.zhangpei.account.model.LoginPO;
 import org.nix.zhangpei.account.service.vo.LoginVO;
 import org.springframework.stereotype.Service;
@@ -18,17 +18,36 @@ public class LoginService {
     /**
      * 判断用户输入是否是手机号码
      */
-    private static final String IS_PHONE = "";
+    private static final String IS_PHONE = "^1\\d{10}$";
     /**
      * 判断用户输入是否是邮箱
      */
-    private static final String IS_EMAIL = "";
+    private static final String IS_EMAIL = "^^(\\w-*\\.*)+@(\\w-?)+(\\.\\w{2,})+$";
     /**
      * 判断用户输入是否是用户名
      */
-    private static final String IS_ACCOUNT_NAME = "";
+    private static final String IS_ACCOUNT_NAME = "^[a-zA-Z]\\w{6,15}$";
+
     @Resource
-    private LoginMapping loginMapping;
+    private LoginMapper loginMapping;
+
+    public static void main(String[] args) {
+        String phone = "18203085236";
+        String email = "zhangpe0312@qq.com";
+        String accountName = "zhangpei";
+        System.out.println(phone.matches(IS_PHONE));
+        System.out.println(phone.matches(IS_EMAIL));
+        System.out.println(phone.matches(IS_ACCOUNT_NAME));
+
+        System.out.println(email.matches(IS_PHONE));
+        System.out.println(email.matches(IS_EMAIL));
+        System.out.println(email.matches(IS_ACCOUNT_NAME));
+
+        System.out.println(accountName.matches(IS_PHONE));
+        System.out.println(accountName.matches(IS_EMAIL));
+        System.out.println(accountName.matches(IS_ACCOUNT_NAME));
+
+    }
 
     /**
      * 处理用户账号和密码验证
@@ -78,7 +97,7 @@ public class LoginService {
                 throw new ServiceException(String.format("%s输入不符合要求", input));
         }
 
-        loginMapping.insertLogin(loginPO);
+
     }
 
     /**
