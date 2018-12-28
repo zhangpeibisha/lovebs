@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
 @SpringBootTest(classes = RecordingApplication.class)
 public class UserServiceTest {
 
-    private Digester digester = new Digester(DigestAlgorithm.MD5);
+    private static Digester digester = new Digester(DigestAlgorithm.MD5);
 
     @Resource
     private UserService userService;
@@ -35,6 +35,11 @@ public class UserServiceTest {
     @Before
     public void setUp(){
 
+    }
+
+    public static void main(String[] args) {
+        String password = digester.digestHex("bisha520");
+        System.out.println(password);
     }
 
     @Test
