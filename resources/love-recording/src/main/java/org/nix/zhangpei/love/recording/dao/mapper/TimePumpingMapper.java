@@ -1,5 +1,7 @@
 package org.nix.zhangpei.love.recording.dao.mapper;
 
+import org.nix.zhangpei.love.recording.dao.po.UserPO;
+import org.nix.zhangpei.love.recording.dao.tx.CommentMapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @date 2018/12/27
  */
 @Repository
-public interface TimePumpingMapper {
+public interface TimePumpingMapper extends CommentMapper<UserPO> {
 }

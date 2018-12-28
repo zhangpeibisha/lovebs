@@ -12,6 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper extends CommentMapper<UserPO> {
 
-    void add(UserPO user);
 
 }
