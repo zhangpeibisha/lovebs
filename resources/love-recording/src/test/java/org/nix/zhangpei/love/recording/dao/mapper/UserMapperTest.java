@@ -43,6 +43,7 @@ public class UserMapperTest {
         UserPO userPO = userMapper.selectByPrimaryKey(1);
         assertEquals( 1L,(long)userPO.getId());
         userPO.setPhone("zhangpeipei");
+        userPO.baseUpdate();
         int i = userMapper.updateByPrimaryKey(userPO);
         assertEquals(1,i);
     }

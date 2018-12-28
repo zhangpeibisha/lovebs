@@ -8,6 +8,8 @@
     <settings>
         <!-- 在本项目中开启二级缓存 -->
         <setting name="cacheEnabled" value="true"/>
+        <!--配置日志打印-->
+        <setting name="logImpl" value="LOG4J"/>
     </settings>
 
 </configuration>

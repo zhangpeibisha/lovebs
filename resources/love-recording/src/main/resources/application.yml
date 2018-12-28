@@ -28,5 +28,5 @@ mapper:
   style: normal
 #log
 logging:
-  file: logger.log
+  file: resources/love-recording/src/log/logger.log
   level: debug
