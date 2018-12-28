@@ -3,9 +3,5 @@
 <mapper namespace="org.nix.zhangpei.love.recording.dao.mapper.UserMapper">
 
 
-    <insert id="add" parameterType="org.nix.zhangpei.love.recording.dao.po.UserPO">
-       INSERT INTO `user`(username,phone,password,createTime,updateTime)
-           VALUES(#{username},#{phone},#{password},unix_timestamp(now()),unix_timestamp(now()));
-    </insert>
 
 </mapper>

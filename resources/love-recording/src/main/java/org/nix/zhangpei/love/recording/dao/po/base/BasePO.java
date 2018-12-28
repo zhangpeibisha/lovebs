@@ -2,6 +2,8 @@ package org.nix.zhangpei.love.recording.dao.po.base;
 
 import org.nix.zhangpei.love.recording.service.vo.base.BaseVo;
 
+import javax.persistence.Id;
+
 /**
  * @author zhangpei
  * @version 1.0
@@ -9,11 +11,31 @@ import org.nix.zhangpei.love.recording.service.vo.base.BaseVo;
  */
 public class BasePO {
 
+    @Id
     protected Long id;
 
     protected Long createTime;
 
     protected Long updateTime;
+
+    /**
+     * 创建的时候方便设置创建时间和更新时间
+     * @return 当前对象
+     */
+    public BasePO baseCreate(){
+        createTime = System.currentTimeMillis();
+        updateTime = System.currentTimeMillis();
+        return this;
+    }
+
+    /**
+     * 更新的时候方便设置更新时间
+     * @return 当前对象
+     */
+    public BasePO baseUpdate(){
+        updateTime = System.currentTimeMillis();
+        return this;
+    }
 
     public BasePO getBasePO(){
         return this;

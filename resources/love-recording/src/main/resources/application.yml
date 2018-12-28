@@ -24,3 +24,9 @@ mybatis:
   mapper-locations: classpath:mybatis/mapping/*.xml
   type-aliases-package: org.nix.zhangpei.love.recording.dao.po
   config-location:  classpath:mybatis/mybatis.cfg.xml
+mapper:
+  style: normal
+#log
+logging:
+  file: logger.log
+  level: debug

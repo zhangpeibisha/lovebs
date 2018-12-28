@@ -1,5 +1,6 @@
 package org.nix.zhangpei.love.recording.dao.mapper;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.zhangpei.love.recording.RecordingApplication;
@@ -9,8 +10,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = RecordingApplication.class)
 public class UserMapperTest {
@@ -18,12 +21,29 @@ public class UserMapperTest {
     @Resource
     private UserMapper userMapper;
 
+    private UserPO user;
+
+    @Before
+    public void setUp() throws Exception {
+        user = new UserPO();
+        user.setPassword("123456");
+        user.setUsername("wifi");
+        user.setPhone("18084040317");
+        user.baseCreate();
+    }
+
     @Test
-    public void add() {
-        UserPO userPO = new UserPO();
-        userPO.setUsername("bisha");
-        userPO.setPhone("15334503852");
-        userPO.setPassword("zhangpei520");
-        userMapper.add(userPO);
+    public void insert(){
+        int insert = userMapper.insert(user);
+        assertEquals(1,insert);
+    }
+
+    @Test
+    public void update(){
+        UserPO userPO = userMapper.selectByPrimaryKey(1);
+        assertEquals( 1L,(long)userPO.getId());
+        userPO.setPhone("zhangpeipei");
+        int i = userMapper.updateByPrimaryKey(userPO);
+        assertEquals(1,i);
     }
 }

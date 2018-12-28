@@ -2,12 +2,15 @@ package org.nix.zhangpei.love.recording.dao.po;
 
 import org.nix.zhangpei.love.recording.dao.po.base.BasePO;
 
+import javax.persistence.Table;
+
 /**
  * 留言板
  * @author zhangpei
  * @version 1.0
  * @date 2018/12/27
  */
+@Table(name = "message_board")
 public class MessageBoardPO extends BasePO {
 
     private String message;

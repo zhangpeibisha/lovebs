@@ -1,8 +1,9 @@
 package org.nix.zhangpei.love.recording;
 
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @author zhangpei
@@ -10,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2018/12/27
  */
 @SpringBootApplication
-@MapperScan(value = "org.nix.zhangpei.love.recording.dao.mapper")
+@MapperScan(basePackages = "org.nix.zhangpei.love.recording.dao.mapper")
 public class RecordingApplication {
     public static void main(String[] args) {
         SpringApplication.run(RecordingApplication.class,args);

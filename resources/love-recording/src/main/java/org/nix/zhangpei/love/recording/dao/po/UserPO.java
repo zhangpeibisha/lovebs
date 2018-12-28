@@ -2,6 +2,7 @@ package org.nix.zhangpei.love.recording.dao.po;
 
 import org.nix.zhangpei.love.recording.dao.po.base.BasePO;
 
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -9,6 +10,7 @@ import java.util.List;
  * @version 1.0
  * @date 2018/12/27
  */
+@Table(name = "user")
 public class UserPO extends BasePO {
 
     private String username;
