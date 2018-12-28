@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zhangpei.love.recording.dao.mapper.UserMapper">
+
+
+    <insert id="add" parameterType="org.nix.zhangpei.love.recording.dao.po.UserPO">
+       INSERT INTO `user`(username,phone,password,createTime,updateTime)
+           VALUES(#{username},#{phone},#{password},unix_timestamp(now()),unix_timestamp(now()));
+    </insert>
+
+</mapper>

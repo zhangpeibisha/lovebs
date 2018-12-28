@@ -17,6 +17,7 @@
     <url>http://www.example.com</url>
     <modules>
         <module>account</module>
+        <module>love-recording</module>
     </modules>
 
     <properties>
