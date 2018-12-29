@@ -18,6 +18,7 @@
     <modules>
         <module>account</module>
         <module>love-recording</module>
+        <module>url-service</module>
     </modules>
 
     <properties>

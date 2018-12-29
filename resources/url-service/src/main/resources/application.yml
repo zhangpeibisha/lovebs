@@ -18,11 +18,6 @@ spring:
       initial-size: 5  #  初始化提供的连接数
       max-total: 20 #  最大连接数
       max-wait-millis: 200 # 等待连接获取的最大超时时间
-#  thymeleaf:
-#    prefix: classpath:/templates/
-#  resources:
-#    static-locations: classpath:/META-INF/resources/,classpath:/resources/,\
-#                        classpath:/static/,classpath:/public/
 server:
   port: 8080
 mybatis:

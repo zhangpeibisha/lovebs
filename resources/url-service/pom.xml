@@ -2,27 +2,22 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>love-recording</artifactId>
-
-    <name>love-recording</name>
-    <url>http://www.example.com</url>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-parent</artifactId>
         <version>1.5.7.RELEASE</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>url-service</artifactId>
+
+    <name>url-service</name>
+    <url>http://www.example.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <springboot.version>1.5.7.RELEASE</springboot.version>
-        <!--指定themleaft版本-->
-        <thymeleaf-layout-dialect.version>2.0.5</thymeleaf-layout-dialect.version>
     </properties>
 
     <dependencies>
@@ -78,6 +73,11 @@
 
         <!--日志工具-->
         <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.25</version>
@@ -109,14 +109,7 @@
             <artifactId>hutool-all</artifactId>
             <version>4.3.2</version>
         </dependency>
-
-        <!--静态模板-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
@@ -125,14 +118,5 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resource</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-            </resource>
-        </resources>
     </build>
-
 </project>

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="account" />
         <module name="loverecording" />
+        <module name="urlservice" />
       </profile>
     </annotationProcessing>
   </component>
