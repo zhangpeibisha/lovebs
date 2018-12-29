@@ -1,5 +1,6 @@
 package org.nix.zhangpei.love.recording.controller.dto.user;
 
+import com.alibaba.fastjson.JSON;
 import org.nix.zhangpei.love.recording.controller.dto.CheckException;
 import org.nix.zhangpei.love.recording.controller.dto.CheckRequest;
 
@@ -17,6 +18,17 @@ public class UserUpdateDTO implements CheckRequest {
     private String newPhone;
 
     private String newPassword;
+
+    public static void main(String[] args) {
+        UserUpdateDTO userUpdateDTO = new UserUpdateDTO();
+        userUpdateDTO.setNewUsername("zhangpei520");
+        UserLoginDTO loginDTO = new UserLoginDTO();
+        loginDTO.setPhone("18203085236");
+        loginDTO.setPassword("ee8b691327f83ccca32c4b85370d6c31");
+        userUpdateDTO.setLogin(loginDTO);
+
+        System.out.println(JSON.toJSONString(userUpdateDTO));
+    }
 
     @Override
     public boolean pass() throws CheckException {
