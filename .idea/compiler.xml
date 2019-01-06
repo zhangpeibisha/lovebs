@@ -9,6 +9,7 @@
         <module name="loveblog" />
         <module name="lovedb" />
         <module name="loveeureka" />
+        <module name="loveoauth2service" />
         <module name="lovezuul" />
       </profile>
     </annotationProcessing>

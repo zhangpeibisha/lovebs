@@ -13,6 +13,7 @@
       <module>love-eureka</module>
       <module>love-zuul</module>
       <module>love-blog</module>
+      <module>love-oauth2-service</module>
   </modules>
 
   <name>love</name>
