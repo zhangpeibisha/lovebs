@@ -11,6 +11,8 @@
   <modules>
     <module>love-db</module>
       <module>love-eureka</module>
+      <module>love-zuul</module>
+      <module>love-blog</module>
   </modules>
 
   <name>love</name>
