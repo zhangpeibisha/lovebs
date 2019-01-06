@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: love-eureka-service
+server:
+  port: 9000
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+#  server:
+#    wait-time-in-ms-when-sync-empty: 5
