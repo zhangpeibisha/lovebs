@@ -5,6 +5,7 @@
 | love-eureka-service | 9000 | 注册中心|
 | love-zuul-service | 9010 | 网管ZUUL|
 | love-blog-application | 9020 | 博客应用|
+| love-oauth2-service | 9030 | 授权中心|
 
 
 

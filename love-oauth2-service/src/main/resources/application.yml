@@ -1,0 +1,10 @@
+server:
+  port: 9030
+spring:
+  application:
+    name: love-oauth2-service
+  datasource:
+    username: root
+    password: kiss4400
+    url: jdbc:mysql://59.110.234.213:3306/love?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
