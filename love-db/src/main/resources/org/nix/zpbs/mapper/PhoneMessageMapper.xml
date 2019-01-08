@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.PhoneMessageMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.PhoneMessage">
+    <id column="phone_id" jdbcType="INTEGER" property="phoneId" />
+    <result column="phone_num" jdbcType="VARCHAR" property="phoneNum" />
+    <result column="contents" jdbcType="VARCHAR" property="contents" />
+    <result column="send_time" jdbcType="INTEGER" property="sendTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    phone_id, phone_num, contents, send_time, user_id
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.PhoneMessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from phone_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from phone_message
+    where phone_id = #{phoneId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from phone_message
+    where phone_id = #{phoneId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.PhoneMessageExample">
+    delete from phone_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.PhoneMessage">
+    insert into phone_message (phone_id, phone_num, contents, 
+      send_time, user_id)
+    values (#{phoneId,jdbcType=INTEGER}, #{phoneNum,jdbcType=VARCHAR}, #{contents,jdbcType=VARCHAR}, 
+      #{sendTime,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.PhoneMessage">
+    insert into phone_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="phoneId != null">
+        phone_id,
+      </if>
+      <if test="phoneNum != null">
+        phone_num,
+      </if>
+      <if test="contents != null">
+        contents,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="phoneId != null">
+        #{phoneId,jdbcType=INTEGER},
+      </if>
+      <if test="phoneNum != null">
+        #{phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="contents != null">
+        #{contents,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.PhoneMessageExample" resultType="java.lang.Integer">
+    select count(*) from phone_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update phone_message
+    <set>
+      <if test="record.phoneId != null">
+        phone_id = #{record.phoneId,jdbcType=INTEGER},
+      </if>
+      <if test="record.phoneNum != null">
+        phone_num = #{record.phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contents != null">
+        contents = #{record.contents,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendTime != null">
+        send_time = #{record.sendTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update phone_message
+    set phone_id = #{record.phoneId,jdbcType=INTEGER},
+      phone_num = #{record.phoneNum,jdbcType=VARCHAR},
+      contents = #{record.contents,jdbcType=VARCHAR},
+      send_time = #{record.sendTime,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.PhoneMessage">
+    update phone_message
+    <set>
+      <if test="phoneNum != null">
+        phone_num = #{phoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="contents != null">
+        contents = #{contents,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where phone_id = #{phoneId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.PhoneMessage">
+    update phone_message
+    set phone_num = #{phoneNum,jdbcType=VARCHAR},
+      contents = #{contents,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER}
+    where phone_id = #{phoneId,jdbcType=INTEGER}
+  </update>
+</mapper>

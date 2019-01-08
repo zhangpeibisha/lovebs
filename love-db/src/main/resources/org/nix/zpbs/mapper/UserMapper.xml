@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_phone" jdbcType="INTEGER" property="userPhone" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_qq" jdbcType="INTEGER" property="userQq" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    <result column="user_mark" jdbcType="INTEGER" property="userMark" />
+    <result column="user_rank_id" jdbcType="TINYINT" property="userRankId" />
+    <result column="user_last_login_ip" jdbcType="VARCHAR" property="userLastLoginIp" />
+    <result column="user_birthday" jdbcType="INTEGER" property="userBirthday" />
+    <result column="user_description" jdbcType="VARCHAR" property="userDescription" />
+    <result column="user_image_url" jdbcType="VARCHAR" property="userImageUrl" />
+    <result column="user_school" jdbcType="VARCHAR" property="userSchool" />
+    <result column="user_register_time" jdbcType="INTEGER" property="userRegisterTime" />
+    <result column="user_register_ip" jdbcType="VARCHAR" property="userRegisterIp" />
+    <result column="user_last_update_time" jdbcType="INTEGER" property="userLastUpdateTime" />
+    <result column="user_weibo" jdbcType="VARCHAR" property="userWeibo" />
+    <result column="user_blood_type" jdbcType="CHAR" property="userBloodType" />
+    <result column="user_says" jdbcType="VARCHAR" property="userSays" />
+    <result column="user_lock" jdbcType="TINYINT" property="userLock" />
+    <result column="user_freeze" jdbcType="TINYINT" property="userFreeze" />
+    <result column="user_power" jdbcType="VARCHAR" property="userPower" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    user_id, group_id, user_name, user_pwd, user_phone, user_sex, user_qq, user_email, 
+    user_address, user_mark, user_rank_id, user_last_login_ip, user_birthday, user_description, 
+    user_image_url, user_school, user_register_time, user_register_ip, user_last_update_time, 
+    user_weibo, user_blood_type, user_says, user_lock, user_freeze, user_power
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserExample">
+    delete from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.User">
+    insert into user (user_id, group_id, user_name, 
+      user_pwd, user_phone, user_sex, 
+      user_qq, user_email, user_address, 
+      user_mark, user_rank_id, user_last_login_ip, 
+      user_birthday, user_description, user_image_url, 
+      user_school, user_register_time, user_register_ip, 
+      user_last_update_time, user_weibo, user_blood_type, 
+      user_says, user_lock, user_freeze, 
+      user_power)
+    values (#{userId,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+      #{userPwd,jdbcType=VARCHAR}, #{userPhone,jdbcType=INTEGER}, #{userSex,jdbcType=VARCHAR}, 
+      #{userQq,jdbcType=INTEGER}, #{userEmail,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, 
+      #{userMark,jdbcType=INTEGER}, #{userRankId,jdbcType=TINYINT}, #{userLastLoginIp,jdbcType=VARCHAR}, 
+      #{userBirthday,jdbcType=INTEGER}, #{userDescription,jdbcType=VARCHAR}, #{userImageUrl,jdbcType=VARCHAR}, 
+      #{userSchool,jdbcType=VARCHAR}, #{userRegisterTime,jdbcType=INTEGER}, #{userRegisterIp,jdbcType=VARCHAR}, 
+      #{userLastUpdateTime,jdbcType=INTEGER}, #{userWeibo,jdbcType=VARCHAR}, #{userBloodType,jdbcType=CHAR}, 
+      #{userSays,jdbcType=VARCHAR}, #{userLock,jdbcType=TINYINT}, #{userFreeze,jdbcType=TINYINT}, 
+      #{userPower,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPwd != null">
+        user_pwd,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userQq != null">
+        user_qq,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="userAddress != null">
+        user_address,
+      </if>
+      <if test="userMark != null">
+        user_mark,
+      </if>
+      <if test="userRankId != null">
+        user_rank_id,
+      </if>
+      <if test="userLastLoginIp != null">
+        user_last_login_ip,
+      </if>
+      <if test="userBirthday != null">
+        user_birthday,
+      </if>
+      <if test="userDescription != null">
+        user_description,
+      </if>
+      <if test="userImageUrl != null">
+        user_image_url,
+      </if>
+      <if test="userSchool != null">
+        user_school,
+      </if>
+      <if test="userRegisterTime != null">
+        user_register_time,
+      </if>
+      <if test="userRegisterIp != null">
+        user_register_ip,
+      </if>
+      <if test="userLastUpdateTime != null">
+        user_last_update_time,
+      </if>
+      <if test="userWeibo != null">
+        user_weibo,
+      </if>
+      <if test="userBloodType != null">
+        user_blood_type,
+      </if>
+      <if test="userSays != null">
+        user_says,
+      </if>
+      <if test="userLock != null">
+        user_lock,
+      </if>
+      <if test="userFreeze != null">
+        user_freeze,
+      </if>
+      <if test="userPower != null">
+        user_power,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=INTEGER},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        #{userQq,jdbcType=INTEGER},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userMark != null">
+        #{userMark,jdbcType=INTEGER},
+      </if>
+      <if test="userRankId != null">
+        #{userRankId,jdbcType=TINYINT},
+      </if>
+      <if test="userLastLoginIp != null">
+        #{userLastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null">
+        #{userBirthday,jdbcType=INTEGER},
+      </if>
+      <if test="userDescription != null">
+        #{userDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userImageUrl != null">
+        #{userImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null">
+        #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null">
+        #{userRegisterTime,jdbcType=INTEGER},
+      </if>
+      <if test="userRegisterIp != null">
+        #{userRegisterIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastUpdateTime != null">
+        #{userLastUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="userWeibo != null">
+        #{userWeibo,jdbcType=VARCHAR},
+      </if>
+      <if test="userBloodType != null">
+        #{userBloodType,jdbcType=CHAR},
+      </if>
+      <if test="userSays != null">
+        #{userSays,jdbcType=VARCHAR},
+      </if>
+      <if test="userLock != null">
+        #{userLock,jdbcType=TINYINT},
+      </if>
+      <if test="userFreeze != null">
+        #{userFreeze,jdbcType=TINYINT},
+      </if>
+      <if test="userPower != null">
+        #{userPower,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.UserExample" resultType="java.lang.Integer">
+    select count(*) from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user
+    <set>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPwd != null">
+        user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhone != null">
+        user_phone = #{record.userPhone,jdbcType=INTEGER},
+      </if>
+      <if test="record.userSex != null">
+        user_sex = #{record.userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userQq != null">
+        user_qq = #{record.userQq,jdbcType=INTEGER},
+      </if>
+      <if test="record.userEmail != null">
+        user_email = #{record.userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userAddress != null">
+        user_address = #{record.userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userMark != null">
+        user_mark = #{record.userMark,jdbcType=INTEGER},
+      </if>
+      <if test="record.userRankId != null">
+        user_rank_id = #{record.userRankId,jdbcType=TINYINT},
+      </if>
+      <if test="record.userLastLoginIp != null">
+        user_last_login_ip = #{record.userLastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userBirthday != null">
+        user_birthday = #{record.userBirthday,jdbcType=INTEGER},
+      </if>
+      <if test="record.userDescription != null">
+        user_description = #{record.userDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userImageUrl != null">
+        user_image_url = #{record.userImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSchool != null">
+        user_school = #{record.userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userRegisterTime != null">
+        user_register_time = #{record.userRegisterTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.userRegisterIp != null">
+        user_register_ip = #{record.userRegisterIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userLastUpdateTime != null">
+        user_last_update_time = #{record.userLastUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.userWeibo != null">
+        user_weibo = #{record.userWeibo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userBloodType != null">
+        user_blood_type = #{record.userBloodType,jdbcType=CHAR},
+      </if>
+      <if test="record.userSays != null">
+        user_says = #{record.userSays,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userLock != null">
+        user_lock = #{record.userLock,jdbcType=TINYINT},
+      </if>
+      <if test="record.userFreeze != null">
+        user_freeze = #{record.userFreeze,jdbcType=TINYINT},
+      </if>
+      <if test="record.userPower != null">
+        user_power = #{record.userPower,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      user_phone = #{record.userPhone,jdbcType=INTEGER},
+      user_sex = #{record.userSex,jdbcType=VARCHAR},
+      user_qq = #{record.userQq,jdbcType=INTEGER},
+      user_email = #{record.userEmail,jdbcType=VARCHAR},
+      user_address = #{record.userAddress,jdbcType=VARCHAR},
+      user_mark = #{record.userMark,jdbcType=INTEGER},
+      user_rank_id = #{record.userRankId,jdbcType=TINYINT},
+      user_last_login_ip = #{record.userLastLoginIp,jdbcType=VARCHAR},
+      user_birthday = #{record.userBirthday,jdbcType=INTEGER},
+      user_description = #{record.userDescription,jdbcType=VARCHAR},
+      user_image_url = #{record.userImageUrl,jdbcType=VARCHAR},
+      user_school = #{record.userSchool,jdbcType=VARCHAR},
+      user_register_time = #{record.userRegisterTime,jdbcType=INTEGER},
+      user_register_ip = #{record.userRegisterIp,jdbcType=VARCHAR},
+      user_last_update_time = #{record.userLastUpdateTime,jdbcType=INTEGER},
+      user_weibo = #{record.userWeibo,jdbcType=VARCHAR},
+      user_blood_type = #{record.userBloodType,jdbcType=CHAR},
+      user_says = #{record.userSays,jdbcType=VARCHAR},
+      user_lock = #{record.userLock,jdbcType=TINYINT},
+      user_freeze = #{record.userFreeze,jdbcType=TINYINT},
+      user_power = #{record.userPower,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.User">
+    update user
+    <set>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=INTEGER},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        user_qq = #{userQq,jdbcType=INTEGER},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userAddress != null">
+        user_address = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userMark != null">
+        user_mark = #{userMark,jdbcType=INTEGER},
+      </if>
+      <if test="userRankId != null">
+        user_rank_id = #{userRankId,jdbcType=TINYINT},
+      </if>
+      <if test="userLastLoginIp != null">
+        user_last_login_ip = #{userLastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null">
+        user_birthday = #{userBirthday,jdbcType=INTEGER},
+      </if>
+      <if test="userDescription != null">
+        user_description = #{userDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userImageUrl != null">
+        user_image_url = #{userImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userSchool != null">
+        user_school = #{userSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegisterTime != null">
+        user_register_time = #{userRegisterTime,jdbcType=INTEGER},
+      </if>
+      <if test="userRegisterIp != null">
+        user_register_ip = #{userRegisterIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastUpdateTime != null">
+        user_last_update_time = #{userLastUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="userWeibo != null">
+        user_weibo = #{userWeibo,jdbcType=VARCHAR},
+      </if>
+      <if test="userBloodType != null">
+        user_blood_type = #{userBloodType,jdbcType=CHAR},
+      </if>
+      <if test="userSays != null">
+        user_says = #{userSays,jdbcType=VARCHAR},
+      </if>
+      <if test="userLock != null">
+        user_lock = #{userLock,jdbcType=TINYINT},
+      </if>
+      <if test="userFreeze != null">
+        user_freeze = #{userFreeze,jdbcType=TINYINT},
+      </if>
+      <if test="userPower != null">
+        user_power = #{userPower,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.User">
+    update user
+    set group_id = #{groupId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=INTEGER},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_qq = #{userQq,jdbcType=INTEGER},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      user_mark = #{userMark,jdbcType=INTEGER},
+      user_rank_id = #{userRankId,jdbcType=TINYINT},
+      user_last_login_ip = #{userLastLoginIp,jdbcType=VARCHAR},
+      user_birthday = #{userBirthday,jdbcType=INTEGER},
+      user_description = #{userDescription,jdbcType=VARCHAR},
+      user_image_url = #{userImageUrl,jdbcType=VARCHAR},
+      user_school = #{userSchool,jdbcType=VARCHAR},
+      user_register_time = #{userRegisterTime,jdbcType=INTEGER},
+      user_register_ip = #{userRegisterIp,jdbcType=VARCHAR},
+      user_last_update_time = #{userLastUpdateTime,jdbcType=INTEGER},
+      user_weibo = #{userWeibo,jdbcType=VARCHAR},
+      user_blood_type = #{userBloodType,jdbcType=CHAR},
+      user_says = #{userSays,jdbcType=VARCHAR},
+      user_lock = #{userLock,jdbcType=TINYINT},
+      user_freeze = #{userFreeze,jdbcType=TINYINT},
+      user_power = #{userPower,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

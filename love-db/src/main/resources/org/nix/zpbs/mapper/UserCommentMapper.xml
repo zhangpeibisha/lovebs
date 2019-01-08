@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.UserCommentMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserComment">
+    <id column="c_id" jdbcType="INTEGER" property="cId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="type_id" jdbcType="TINYINT" property="typeId" />
+    <result column="commit_id" jdbcType="INTEGER" property="commitId" />
+    <result column="commit_content" jdbcType="VARCHAR" property="commitContent" />
+    <result column="commit_user_id" jdbcType="INTEGER" property="commitUserId" />
+    <result column="commit_time" jdbcType="INTEGER" property="commitTime" />
+    <result column="commit_ip" jdbcType="VARCHAR" property="commitIp" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    c_id, user_id, type_id, commit_id, commit_content, commit_user_id, commit_time, commit_ip
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.UserCommentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_comment
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_comment
+    where c_id = #{cId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserCommentExample">
+    delete from user_comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.UserComment">
+    insert into user_comment (c_id, user_id, type_id, 
+      commit_id, commit_content, commit_user_id, 
+      commit_time, commit_ip)
+    values (#{cId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{typeId,jdbcType=TINYINT}, 
+      #{commitId,jdbcType=INTEGER}, #{commitContent,jdbcType=VARCHAR}, #{commitUserId,jdbcType=INTEGER}, 
+      #{commitTime,jdbcType=INTEGER}, #{commitIp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserComment">
+    insert into user_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="commitId != null">
+        commit_id,
+      </if>
+      <if test="commitContent != null">
+        commit_content,
+      </if>
+      <if test="commitUserId != null">
+        commit_user_id,
+      </if>
+      <if test="commitTime != null">
+        commit_time,
+      </if>
+      <if test="commitIp != null">
+        commit_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cId != null">
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=TINYINT},
+      </if>
+      <if test="commitId != null">
+        #{commitId,jdbcType=INTEGER},
+      </if>
+      <if test="commitContent != null">
+        #{commitContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commitUserId != null">
+        #{commitUserId,jdbcType=INTEGER},
+      </if>
+      <if test="commitTime != null">
+        #{commitTime,jdbcType=INTEGER},
+      </if>
+      <if test="commitIp != null">
+        #{commitIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.UserCommentExample" resultType="java.lang.Integer">
+    select count(*) from user_comment
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_comment
+    <set>
+      <if test="record.cId != null">
+        c_id = #{record.cId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeId != null">
+        type_id = #{record.typeId,jdbcType=TINYINT},
+      </if>
+      <if test="record.commitId != null">
+        commit_id = #{record.commitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commitContent != null">
+        commit_content = #{record.commitContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commitUserId != null">
+        commit_user_id = #{record.commitUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commitTime != null">
+        commit_time = #{record.commitTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.commitIp != null">
+        commit_ip = #{record.commitIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_comment
+    set c_id = #{record.cId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      type_id = #{record.typeId,jdbcType=TINYINT},
+      commit_id = #{record.commitId,jdbcType=INTEGER},
+      commit_content = #{record.commitContent,jdbcType=VARCHAR},
+      commit_user_id = #{record.commitUserId,jdbcType=INTEGER},
+      commit_time = #{record.commitTime,jdbcType=INTEGER},
+      commit_ip = #{record.commitIp,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.UserComment">
+    update user_comment
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=TINYINT},
+      </if>
+      <if test="commitId != null">
+        commit_id = #{commitId,jdbcType=INTEGER},
+      </if>
+      <if test="commitContent != null">
+        commit_content = #{commitContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commitUserId != null">
+        commit_user_id = #{commitUserId,jdbcType=INTEGER},
+      </if>
+      <if test="commitTime != null">
+        commit_time = #{commitTime,jdbcType=INTEGER},
+      </if>
+      <if test="commitIp != null">
+        commit_ip = #{commitIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserComment">
+    update user_comment
+    set user_id = #{userId,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=TINYINT},
+      commit_id = #{commitId,jdbcType=INTEGER},
+      commit_content = #{commitContent,jdbcType=VARCHAR},
+      commit_user_id = #{commitUserId,jdbcType=INTEGER},
+      commit_time = #{commitTime,jdbcType=INTEGER},
+      commit_ip = #{commitIp,jdbcType=VARCHAR}
+    where c_id = #{cId,jdbcType=INTEGER}
+  </update>
+</mapper>

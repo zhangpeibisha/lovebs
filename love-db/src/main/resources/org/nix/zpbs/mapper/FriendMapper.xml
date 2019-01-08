@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.FriendMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Friend">
+    <id column="f_id" jdbcType="SMALLINT" property="fId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="friend_id" jdbcType="INTEGER" property="friendId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    f_id, user_id, friend_id
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.FriendExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from friend
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from friend
+    where f_id = #{fId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from friend
+    where f_id = #{fId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.FriendExample">
+    delete from friend
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.Friend">
+    insert into friend (f_id, user_id, friend_id
+      )
+    values (#{fId,jdbcType=SMALLINT}, #{userId,jdbcType=INTEGER}, #{friendId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.Friend">
+    insert into friend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fId != null">
+        f_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="friendId != null">
+        friend_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fId != null">
+        #{fId,jdbcType=SMALLINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="friendId != null">
+        #{friendId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.FriendExample" resultType="java.lang.Integer">
+    select count(*) from friend
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update friend
+    <set>
+      <if test="record.fId != null">
+        f_id = #{record.fId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.friendId != null">
+        friend_id = #{record.friendId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update friend
+    set f_id = #{record.fId,jdbcType=SMALLINT},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      friend_id = #{record.friendId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.Friend">
+    update friend
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="friendId != null">
+        friend_id = #{friendId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where f_id = #{fId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Friend">
+    update friend
+    set user_id = #{userId,jdbcType=INTEGER},
+      friend_id = #{friendId,jdbcType=INTEGER}
+    where f_id = #{fId,jdbcType=SMALLINT}
+  </update>
+</mapper>

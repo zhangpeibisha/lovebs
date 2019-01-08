@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.ArticleMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Article">
+    <id column="article_id" jdbcType="SMALLINT" property="articleId" />
+    <result column="article_name" jdbcType="VARCHAR" property="articleName" />
+    <result column="article_time" jdbcType="INTEGER" property="articleTime" />
+    <result column="article_ip" jdbcType="VARCHAR" property="articleIp" />
+    <result column="article_click" jdbcType="INTEGER" property="articleClick" />
+    <result column="sort_article_id" jdbcType="INTEGER" property="sortArticleId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="type_id" jdbcType="TINYINT" property="typeId" />
+    <result column="article_type" jdbcType="INTEGER" property="articleType" />
+    <result column="article_up" jdbcType="TINYINT" property="articleUp" />
+    <result column="article_support" jdbcType="TINYINT" property="articleSupport" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.zpbs.model.Article">
+    <result column="article_content" jdbcType="LONGVARCHAR" property="articleContent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    article_id, article_name, article_time, article_ip, article_click, sort_article_id, 
+    user_id, type_id, article_type, article_up, article_support
+  </sql>
+  <sql id="Blob_Column_List">
+    article_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="org.nix.zpbs.model.ArticleExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.ArticleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where article_id = #{articleId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from article
+    where article_id = #{articleId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.ArticleExample">
+    delete from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.Article">
+    insert into article (article_id, article_name, article_time, 
+      article_ip, article_click, sort_article_id, 
+      user_id, type_id, article_type, 
+      article_up, article_support, article_content
+      )
+    values (#{articleId,jdbcType=SMALLINT}, #{articleName,jdbcType=VARCHAR}, #{articleTime,jdbcType=INTEGER}, 
+      #{articleIp,jdbcType=VARCHAR}, #{articleClick,jdbcType=INTEGER}, #{sortArticleId,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{typeId,jdbcType=TINYINT}, #{articleType,jdbcType=INTEGER}, 
+      #{articleUp,jdbcType=TINYINT}, #{articleSupport,jdbcType=TINYINT}, #{articleContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.Article">
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="articleName != null">
+        article_name,
+      </if>
+      <if test="articleTime != null">
+        article_time,
+      </if>
+      <if test="articleIp != null">
+        article_ip,
+      </if>
+      <if test="articleClick != null">
+        article_click,
+      </if>
+      <if test="sortArticleId != null">
+        sort_article_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="articleType != null">
+        article_type,
+      </if>
+      <if test="articleUp != null">
+        article_up,
+      </if>
+      <if test="articleSupport != null">
+        article_support,
+      </if>
+      <if test="articleContent != null">
+        article_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        #{articleId,jdbcType=SMALLINT},
+      </if>
+      <if test="articleName != null">
+        #{articleName,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTime != null">
+        #{articleTime,jdbcType=INTEGER},
+      </if>
+      <if test="articleIp != null">
+        #{articleIp,jdbcType=VARCHAR},
+      </if>
+      <if test="articleClick != null">
+        #{articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="sortArticleId != null">
+        #{sortArticleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=TINYINT},
+      </if>
+      <if test="articleType != null">
+        #{articleType,jdbcType=INTEGER},
+      </if>
+      <if test="articleUp != null">
+        #{articleUp,jdbcType=TINYINT},
+      </if>
+      <if test="articleSupport != null">
+        #{articleSupport,jdbcType=TINYINT},
+      </if>
+      <if test="articleContent != null">
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.ArticleExample" resultType="java.lang.Integer">
+    select count(*) from article
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update article
+    <set>
+      <if test="record.articleId != null">
+        article_id = #{record.articleId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.articleName != null">
+        article_name = #{record.articleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articleTime != null">
+        article_time = #{record.articleTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleIp != null">
+        article_ip = #{record.articleIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articleClick != null">
+        article_click = #{record.articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="record.sortArticleId != null">
+        sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeId != null">
+        type_id = #{record.typeId,jdbcType=TINYINT},
+      </if>
+      <if test="record.articleType != null">
+        article_type = #{record.articleType,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleUp != null">
+        article_up = #{record.articleUp,jdbcType=TINYINT},
+      </if>
+      <if test="record.articleSupport != null">
+        article_support = #{record.articleSupport,jdbcType=TINYINT},
+      </if>
+      <if test="record.articleContent != null">
+        article_content = #{record.articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update article
+    set article_id = #{record.articleId,jdbcType=SMALLINT},
+      article_name = #{record.articleName,jdbcType=VARCHAR},
+      article_time = #{record.articleTime,jdbcType=INTEGER},
+      article_ip = #{record.articleIp,jdbcType=VARCHAR},
+      article_click = #{record.articleClick,jdbcType=INTEGER},
+      sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      type_id = #{record.typeId,jdbcType=TINYINT},
+      article_type = #{record.articleType,jdbcType=INTEGER},
+      article_up = #{record.articleUp,jdbcType=TINYINT},
+      article_support = #{record.articleSupport,jdbcType=TINYINT},
+      article_content = #{record.articleContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update article
+    set article_id = #{record.articleId,jdbcType=SMALLINT},
+      article_name = #{record.articleName,jdbcType=VARCHAR},
+      article_time = #{record.articleTime,jdbcType=INTEGER},
+      article_ip = #{record.articleIp,jdbcType=VARCHAR},
+      article_click = #{record.articleClick,jdbcType=INTEGER},
+      sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      type_id = #{record.typeId,jdbcType=TINYINT},
+      article_type = #{record.articleType,jdbcType=INTEGER},
+      article_up = #{record.articleUp,jdbcType=TINYINT},
+      article_support = #{record.articleSupport,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.Article">
+    update article
+    <set>
+      <if test="articleName != null">
+        article_name = #{articleName,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTime != null">
+        article_time = #{articleTime,jdbcType=INTEGER},
+      </if>
+      <if test="articleIp != null">
+        article_ip = #{articleIp,jdbcType=VARCHAR},
+      </if>
+      <if test="articleClick != null">
+        article_click = #{articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="sortArticleId != null">
+        sort_article_id = #{sortArticleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=TINYINT},
+      </if>
+      <if test="articleType != null">
+        article_type = #{articleType,jdbcType=INTEGER},
+      </if>
+      <if test="articleUp != null">
+        article_up = #{articleUp,jdbcType=TINYINT},
+      </if>
+      <if test="articleSupport != null">
+        article_support = #{articleSupport,jdbcType=TINYINT},
+      </if>
+      <if test="articleContent != null">
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.nix.zpbs.model.Article">
+    update article
+    set article_name = #{articleName,jdbcType=VARCHAR},
+      article_time = #{articleTime,jdbcType=INTEGER},
+      article_ip = #{articleIp,jdbcType=VARCHAR},
+      article_click = #{articleClick,jdbcType=INTEGER},
+      sort_article_id = #{sortArticleId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=TINYINT},
+      article_type = #{articleType,jdbcType=INTEGER},
+      article_up = #{articleUp,jdbcType=TINYINT},
+      article_support = #{articleSupport,jdbcType=TINYINT},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Article">
+    update article
+    set article_name = #{articleName,jdbcType=VARCHAR},
+      article_time = #{articleTime,jdbcType=INTEGER},
+      article_ip = #{articleIp,jdbcType=VARCHAR},
+      article_click = #{articleClick,jdbcType=INTEGER},
+      sort_article_id = #{sortArticleId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=TINYINT},
+      article_type = #{articleType,jdbcType=INTEGER},
+      article_up = #{articleUp,jdbcType=TINYINT},
+      article_support = #{articleSupport,jdbcType=TINYINT}
+    where article_id = #{articleId,jdbcType=SMALLINT}
+  </update>
+</mapper>

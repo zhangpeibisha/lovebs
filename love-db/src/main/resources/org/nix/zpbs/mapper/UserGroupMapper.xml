@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.UserGroupMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserGroup">
+    <id column="g_id" jdbcType="TINYINT" property="gId" />
+    <result column="group_id" jdbcType="TINYINT" property="groupId" />
+    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="group_power" jdbcType="VARCHAR" property="groupPower" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    g_id, group_id, group_name, group_power
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.UserGroupExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_group
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_group
+    where g_id = #{gId,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
+    delete from user_group
+    where g_id = #{gId,jdbcType=TINYINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserGroupExample">
+    delete from user_group
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.UserGroup">
+    insert into user_group (g_id, group_id, group_name, 
+      group_power)
+    values (#{gId,jdbcType=TINYINT}, #{groupId,jdbcType=TINYINT}, #{groupName,jdbcType=VARCHAR}, 
+      #{groupPower,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserGroup">
+    insert into user_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gId != null">
+        g_id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="groupName != null">
+        group_name,
+      </if>
+      <if test="groupPower != null">
+        group_power,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gId != null">
+        #{gId,jdbcType=TINYINT},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=TINYINT},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupPower != null">
+        #{groupPower,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.UserGroupExample" resultType="java.lang.Integer">
+    select count(*) from user_group
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_group
+    <set>
+      <if test="record.gId != null">
+        g_id = #{record.gId,jdbcType=TINYINT},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=TINYINT},
+      </if>
+      <if test="record.groupName != null">
+        group_name = #{record.groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupPower != null">
+        group_power = #{record.groupPower,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_group
+    set g_id = #{record.gId,jdbcType=TINYINT},
+      group_id = #{record.groupId,jdbcType=TINYINT},
+      group_name = #{record.groupName,jdbcType=VARCHAR},
+      group_power = #{record.groupPower,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.UserGroup">
+    update user_group
+    <set>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=TINYINT},
+      </if>
+      <if test="groupName != null">
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupPower != null">
+        group_power = #{groupPower,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where g_id = #{gId,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserGroup">
+    update user_group
+    set group_id = #{groupId,jdbcType=TINYINT},
+      group_name = #{groupName,jdbcType=VARCHAR},
+      group_power = #{groupPower,jdbcType=VARCHAR}
+    where g_id = #{gId,jdbcType=TINYINT}
+  </update>
+</mapper>

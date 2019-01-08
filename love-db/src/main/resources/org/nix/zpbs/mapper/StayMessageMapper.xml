@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.StayMessageMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.StayMessage">
+    <id column="stay_id" jdbcType="SMALLINT" property="stayId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="stay_user_id" jdbcType="INTEGER" property="stayUserId" />
+    <result column="message_content" jdbcType="VARCHAR" property="messageContent" />
+    <result column="stay_user_ip" jdbcType="VARCHAR" property="stayUserIp" />
+    <result column="message_stay_time" jdbcType="INTEGER" property="messageStayTime" />
+    <result column="place" jdbcType="VARCHAR" property="place" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    stay_id, user_id, stay_user_id, message_content, stay_user_ip, message_stay_time, 
+    place
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.StayMessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from stay_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stay_message
+    where stay_id = #{stayId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from stay_message
+    where stay_id = #{stayId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.StayMessageExample">
+    delete from stay_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.StayMessage">
+    insert into stay_message (stay_id, user_id, stay_user_id, 
+      message_content, stay_user_ip, message_stay_time, 
+      place)
+    values (#{stayId,jdbcType=SMALLINT}, #{userId,jdbcType=INTEGER}, #{stayUserId,jdbcType=INTEGER}, 
+      #{messageContent,jdbcType=VARCHAR}, #{stayUserIp,jdbcType=VARCHAR}, #{messageStayTime,jdbcType=INTEGER}, 
+      #{place,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.StayMessage">
+    insert into stay_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stayId != null">
+        stay_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="stayUserId != null">
+        stay_user_id,
+      </if>
+      <if test="messageContent != null">
+        message_content,
+      </if>
+      <if test="stayUserIp != null">
+        stay_user_ip,
+      </if>
+      <if test="messageStayTime != null">
+        message_stay_time,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stayId != null">
+        #{stayId,jdbcType=SMALLINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="stayUserId != null">
+        #{stayUserId,jdbcType=INTEGER},
+      </if>
+      <if test="messageContent != null">
+        #{messageContent,jdbcType=VARCHAR},
+      </if>
+      <if test="stayUserIp != null">
+        #{stayUserIp,jdbcType=VARCHAR},
+      </if>
+      <if test="messageStayTime != null">
+        #{messageStayTime,jdbcType=INTEGER},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.StayMessageExample" resultType="java.lang.Integer">
+    select count(*) from stay_message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update stay_message
+    <set>
+      <if test="record.stayId != null">
+        stay_id = #{record.stayId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.stayUserId != null">
+        stay_user_id = #{record.stayUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.messageContent != null">
+        message_content = #{record.messageContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stayUserIp != null">
+        stay_user_ip = #{record.stayUserIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messageStayTime != null">
+        message_stay_time = #{record.messageStayTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.place != null">
+        place = #{record.place,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update stay_message
+    set stay_id = #{record.stayId,jdbcType=SMALLINT},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      stay_user_id = #{record.stayUserId,jdbcType=INTEGER},
+      message_content = #{record.messageContent,jdbcType=VARCHAR},
+      stay_user_ip = #{record.stayUserIp,jdbcType=VARCHAR},
+      message_stay_time = #{record.messageStayTime,jdbcType=INTEGER},
+      place = #{record.place,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.StayMessage">
+    update stay_message
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="stayUserId != null">
+        stay_user_id = #{stayUserId,jdbcType=INTEGER},
+      </if>
+      <if test="messageContent != null">
+        message_content = #{messageContent,jdbcType=VARCHAR},
+      </if>
+      <if test="stayUserIp != null">
+        stay_user_ip = #{stayUserIp,jdbcType=VARCHAR},
+      </if>
+      <if test="messageStayTime != null">
+        message_stay_time = #{messageStayTime,jdbcType=INTEGER},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stay_id = #{stayId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.StayMessage">
+    update stay_message
+    set user_id = #{userId,jdbcType=INTEGER},
+      stay_user_id = #{stayUserId,jdbcType=INTEGER},
+      message_content = #{messageContent,jdbcType=VARCHAR},
+      stay_user_ip = #{stayUserIp,jdbcType=VARCHAR},
+      message_stay_time = #{messageStayTime,jdbcType=INTEGER},
+      place = #{place,jdbcType=VARCHAR}
+    where stay_id = #{stayId,jdbcType=SMALLINT}
+  </update>
+</mapper>

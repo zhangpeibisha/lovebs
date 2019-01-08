@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.PhotosMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Photos">
+    <id column="photo_id" jdbcType="INTEGER" property="photoId" />
+    <result column="photo_name" jdbcType="VARCHAR" property="photoName" />
+    <result column="photo_src" jdbcType="VARCHAR" property="photoSrc" />
+    <result column="photo_description" jdbcType="VARCHAR" property="photoDescription" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="sort_id" jdbcType="INTEGER" property="sortId" />
+    <result column="upload_time" jdbcType="INTEGER" property="uploadTime" />
+    <result column="upload_ip" jdbcType="VARCHAR" property="uploadIp" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    photo_id, photo_name, photo_src, photo_description, user_id, sort_id, upload_time, 
+    upload_ip
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.PhotosExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from photos
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from photos
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from photos
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.PhotosExample">
+    delete from photos
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.Photos">
+    insert into photos (photo_id, photo_name, photo_src, 
+      photo_description, user_id, sort_id, 
+      upload_time, upload_ip)
+    values (#{photoId,jdbcType=INTEGER}, #{photoName,jdbcType=VARCHAR}, #{photoSrc,jdbcType=VARCHAR}, 
+      #{photoDescription,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{sortId,jdbcType=INTEGER}, 
+      #{uploadTime,jdbcType=INTEGER}, #{uploadIp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.Photos">
+    insert into photos
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="photoId != null">
+        photo_id,
+      </if>
+      <if test="photoName != null">
+        photo_name,
+      </if>
+      <if test="photoSrc != null">
+        photo_src,
+      </if>
+      <if test="photoDescription != null">
+        photo_description,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sortId != null">
+        sort_id,
+      </if>
+      <if test="uploadTime != null">
+        upload_time,
+      </if>
+      <if test="uploadIp != null">
+        upload_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="photoId != null">
+        #{photoId,jdbcType=INTEGER},
+      </if>
+      <if test="photoName != null">
+        #{photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="photoSrc != null">
+        #{photoSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="photoDescription != null">
+        #{photoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="sortId != null">
+        #{sortId,jdbcType=INTEGER},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=INTEGER},
+      </if>
+      <if test="uploadIp != null">
+        #{uploadIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.PhotosExample" resultType="java.lang.Integer">
+    select count(*) from photos
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update photos
+    <set>
+      <if test="record.photoId != null">
+        photo_id = #{record.photoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.photoName != null">
+        photo_name = #{record.photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoSrc != null">
+        photo_src = #{record.photoSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoDescription != null">
+        photo_description = #{record.photoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sortId != null">
+        sort_id = #{record.sortId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadTime != null">
+        upload_time = #{record.uploadTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.uploadIp != null">
+        upload_ip = #{record.uploadIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update photos
+    set photo_id = #{record.photoId,jdbcType=INTEGER},
+      photo_name = #{record.photoName,jdbcType=VARCHAR},
+      photo_src = #{record.photoSrc,jdbcType=VARCHAR},
+      photo_description = #{record.photoDescription,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      sort_id = #{record.sortId,jdbcType=INTEGER},
+      upload_time = #{record.uploadTime,jdbcType=INTEGER},
+      upload_ip = #{record.uploadIp,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.Photos">
+    update photos
+    <set>
+      <if test="photoName != null">
+        photo_name = #{photoName,jdbcType=VARCHAR},
+      </if>
+      <if test="photoSrc != null">
+        photo_src = #{photoSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="photoDescription != null">
+        photo_description = #{photoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="sortId != null">
+        sort_id = #{sortId,jdbcType=INTEGER},
+      </if>
+      <if test="uploadTime != null">
+        upload_time = #{uploadTime,jdbcType=INTEGER},
+      </if>
+      <if test="uploadIp != null">
+        upload_ip = #{uploadIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Photos">
+    update photos
+    set photo_name = #{photoName,jdbcType=VARCHAR},
+      photo_src = #{photoSrc,jdbcType=VARCHAR},
+      photo_description = #{photoDescription,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      sort_id = #{sortId,jdbcType=INTEGER},
+      upload_time = #{uploadTime,jdbcType=INTEGER},
+      upload_ip = #{uploadIp,jdbcType=VARCHAR}
+    where photo_id = #{photoId,jdbcType=INTEGER}
+  </update>
+</mapper>

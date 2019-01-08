@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.AdMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Ad">
+    <id column="ad_id" jdbcType="SMALLINT" property="adId" />
+    <result column="position_id" jdbcType="SMALLINT" property="positionId" />
+    <result column="media_type" jdbcType="TINYINT" property="mediaType" />
+    <result column="ad_name" jdbcType="VARCHAR" property="adName" />
+    <result column="ad_link" jdbcType="VARCHAR" property="adLink" />
+    <result column="start_time" jdbcType="INTEGER" property="startTime" />
+    <result column="end_time" jdbcType="INTEGER" property="endTime" />
+    <result column="link_man" jdbcType="VARCHAR" property="linkMan" />
+    <result column="link_email" jdbcType="VARCHAR" property="linkEmail" />
+    <result column="link_phone" jdbcType="VARCHAR" property="linkPhone" />
+    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.zpbs.model.Ad">
+    <result column="ad_code" jdbcType="LONGVARCHAR" property="adCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ad_id, position_id, media_type, ad_name, ad_link, start_time, end_time, link_man, 
+    link_email, link_phone, click_count, enabled
+  </sql>
+  <sql id="Blob_Column_List">
+    ad_code
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="org.nix.zpbs.model.AdExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.AdExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ad
+    where ad_id = #{adId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from ad
+    where ad_id = #{adId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.AdExample">
+    delete from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.Ad">
+    insert into ad (ad_id, position_id, media_type, 
+      ad_name, ad_link, start_time, 
+      end_time, link_man, link_email, 
+      link_phone, click_count, enabled, 
+      ad_code)
+    values (#{adId,jdbcType=SMALLINT}, #{positionId,jdbcType=SMALLINT}, #{mediaType,jdbcType=TINYINT}, 
+      #{adName,jdbcType=VARCHAR}, #{adLink,jdbcType=VARCHAR}, #{startTime,jdbcType=INTEGER}, 
+      #{endTime,jdbcType=INTEGER}, #{linkMan,jdbcType=VARCHAR}, #{linkEmail,jdbcType=VARCHAR}, 
+      #{linkPhone,jdbcType=VARCHAR}, #{clickCount,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT}, 
+      #{adCode,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.Ad">
+    insert into ad
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adId != null">
+        ad_id,
+      </if>
+      <if test="positionId != null">
+        position_id,
+      </if>
+      <if test="mediaType != null">
+        media_type,
+      </if>
+      <if test="adName != null">
+        ad_name,
+      </if>
+      <if test="adLink != null">
+        ad_link,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="linkMan != null">
+        link_man,
+      </if>
+      <if test="linkEmail != null">
+        link_email,
+      </if>
+      <if test="linkPhone != null">
+        link_phone,
+      </if>
+      <if test="clickCount != null">
+        click_count,
+      </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
+      <if test="adCode != null">
+        ad_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adId != null">
+        #{adId,jdbcType=SMALLINT},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=SMALLINT},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=TINYINT},
+      </if>
+      <if test="adName != null">
+        #{adName,jdbcType=VARCHAR},
+      </if>
+      <if test="adLink != null">
+        #{adLink,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=INTEGER},
+      </if>
+      <if test="linkMan != null">
+        #{linkMan,jdbcType=VARCHAR},
+      </if>
+      <if test="linkEmail != null">
+        #{linkEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=TINYINT},
+      </if>
+      <if test="adCode != null">
+        #{adCode,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.AdExample" resultType="java.lang.Integer">
+    select count(*) from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ad
+    <set>
+      <if test="record.adId != null">
+        ad_id = #{record.adId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.positionId != null">
+        position_id = #{record.positionId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.mediaType != null">
+        media_type = #{record.mediaType,jdbcType=TINYINT},
+      </if>
+      <if test="record.adName != null">
+        ad_name = #{record.adName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adLink != null">
+        ad_link = #{record.adLink,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null">
+        start_time = #{record.startTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.endTime != null">
+        end_time = #{record.endTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.linkMan != null">
+        link_man = #{record.linkMan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkEmail != null">
+        link_email = #{record.linkEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkPhone != null">
+        link_phone = #{record.linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clickCount != null">
+        click_count = #{record.clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.enabled != null">
+        enabled = #{record.enabled,jdbcType=TINYINT},
+      </if>
+      <if test="record.adCode != null">
+        ad_code = #{record.adCode,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update ad
+    set ad_id = #{record.adId,jdbcType=SMALLINT},
+      position_id = #{record.positionId,jdbcType=SMALLINT},
+      media_type = #{record.mediaType,jdbcType=TINYINT},
+      ad_name = #{record.adName,jdbcType=VARCHAR},
+      ad_link = #{record.adLink,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=INTEGER},
+      end_time = #{record.endTime,jdbcType=INTEGER},
+      link_man = #{record.linkMan,jdbcType=VARCHAR},
+      link_email = #{record.linkEmail,jdbcType=VARCHAR},
+      link_phone = #{record.linkPhone,jdbcType=VARCHAR},
+      click_count = #{record.clickCount,jdbcType=INTEGER},
+      enabled = #{record.enabled,jdbcType=TINYINT},
+      ad_code = #{record.adCode,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ad
+    set ad_id = #{record.adId,jdbcType=SMALLINT},
+      position_id = #{record.positionId,jdbcType=SMALLINT},
+      media_type = #{record.mediaType,jdbcType=TINYINT},
+      ad_name = #{record.adName,jdbcType=VARCHAR},
+      ad_link = #{record.adLink,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=INTEGER},
+      end_time = #{record.endTime,jdbcType=INTEGER},
+      link_man = #{record.linkMan,jdbcType=VARCHAR},
+      link_email = #{record.linkEmail,jdbcType=VARCHAR},
+      link_phone = #{record.linkPhone,jdbcType=VARCHAR},
+      click_count = #{record.clickCount,jdbcType=INTEGER},
+      enabled = #{record.enabled,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.Ad">
+    update ad
+    <set>
+      <if test="positionId != null">
+        position_id = #{positionId,jdbcType=SMALLINT},
+      </if>
+      <if test="mediaType != null">
+        media_type = #{mediaType,jdbcType=TINYINT},
+      </if>
+      <if test="adName != null">
+        ad_name = #{adName,jdbcType=VARCHAR},
+      </if>
+      <if test="adLink != null">
+        ad_link = #{adLink,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=INTEGER},
+      </if>
+      <if test="linkMan != null">
+        link_man = #{linkMan,jdbcType=VARCHAR},
+      </if>
+      <if test="linkEmail != null">
+        link_email = #{linkEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        link_phone = #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="clickCount != null">
+        click_count = #{clickCount,jdbcType=INTEGER},
+      </if>
+      <if test="enabled != null">
+        enabled = #{enabled,jdbcType=TINYINT},
+      </if>
+      <if test="adCode != null">
+        ad_code = #{adCode,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ad_id = #{adId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.nix.zpbs.model.Ad">
+    update ad
+    set position_id = #{positionId,jdbcType=SMALLINT},
+      media_type = #{mediaType,jdbcType=TINYINT},
+      ad_name = #{adName,jdbcType=VARCHAR},
+      ad_link = #{adLink,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=INTEGER},
+      end_time = #{endTime,jdbcType=INTEGER},
+      link_man = #{linkMan,jdbcType=VARCHAR},
+      link_email = #{linkEmail,jdbcType=VARCHAR},
+      link_phone = #{linkPhone,jdbcType=VARCHAR},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      enabled = #{enabled,jdbcType=TINYINT},
+      ad_code = #{adCode,jdbcType=LONGVARCHAR}
+    where ad_id = #{adId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Ad">
+    update ad
+    set position_id = #{positionId,jdbcType=SMALLINT},
+      media_type = #{mediaType,jdbcType=TINYINT},
+      ad_name = #{adName,jdbcType=VARCHAR},
+      ad_link = #{adLink,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=INTEGER},
+      end_time = #{endTime,jdbcType=INTEGER},
+      link_man = #{linkMan,jdbcType=VARCHAR},
+      link_email = #{linkEmail,jdbcType=VARCHAR},
+      link_phone = #{linkPhone,jdbcType=VARCHAR},
+      click_count = #{clickCount,jdbcType=INTEGER},
+      enabled = #{enabled,jdbcType=TINYINT}
+    where ad_id = #{adId,jdbcType=SMALLINT}
+  </update>
+</mapper>
