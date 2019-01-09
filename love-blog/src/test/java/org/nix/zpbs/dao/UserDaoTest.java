@@ -36,12 +36,30 @@ public class UserDaoTest {
         User record = new User();
         record.setGroupId(1L);
         record.setUserName("zhangpei");
-        record.setUserEmail("zhangpe0312@qq.com");
+        record.setUserEmail("bisha0312@qq.com");
         record.setUserPwd("bisha520");
         record.setUserPhone(18203085236L);
         record.setUserRegisterTime(System.currentTimeMillis());
         record.setUserRegisterIp("127.0.0.1");
         int insert = userMapper.insert(record);
         assertEquals(1, insert);
+
+
+    }
+
+    /**
+     * 注册使用这个方法
+     */
+    @Test
+    public void inserSelective() {
+        User record = new User();
+        record.setGroupId(1L);
+        record.setUserName("bisha");
+        record.setUserEmail("bisha0312@qq.com");
+        record.setUserPwd("bisha520");
+        record.setUserPhone(18203085236L);
+        record.setUserRegisterTime(System.currentTimeMillis());
+        record.setUserRegisterIp("127.0.0.1");
+        userMapper.insertSelective(record);
     }
 }
