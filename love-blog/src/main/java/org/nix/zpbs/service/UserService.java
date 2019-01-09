@@ -2,6 +2,8 @@ package org.nix.zpbs.service;
 
 import org.nix.zpbs.dto.response.UserResponseDetailDTO;
 
+import java.util.List;
+
 /**
  * 针对于用户信息的一些业务操作
  * @author zhangpei
@@ -16,5 +18,12 @@ public interface UserService {
      * @return 用户信息
      */
     UserResponseDetailDTO getUserByAccount(String account);
+
+    /**
+     * 通过用户id获取到用户权限列表
+     * @param userId 用户id
+     * @return 用户可访问资源id集合
+     */
+    List<Long> getPowersByUserId(Long userId);
 
 }

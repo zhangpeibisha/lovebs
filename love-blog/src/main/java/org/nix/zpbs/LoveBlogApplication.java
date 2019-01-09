@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @date 2019/1/6
  */
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 @MapperScan(basePackages = {"org.nix.zpbs.dao","org.nix.zpbs.mapper"})
 public class LoveBlogApplication {
     public static void main(String[] args) {
