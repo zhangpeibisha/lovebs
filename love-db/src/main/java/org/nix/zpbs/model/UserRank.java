@@ -8,7 +8,7 @@ public class UserRank implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer rankId;
+    private Long rankId;
 
     /**
      * 等级ID
@@ -22,7 +22,7 @@ public class UserRank implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer rankMark;
+    private Long rankMark;
 
     /**
      * 等级名称
@@ -33,11 +33,11 @@ public class UserRank implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getRankId() {
+    public Long getRankId() {
         return rankId;
     }
 
-    public void setRankId(Integer rankId) {
+    public void setRankId(Long rankId) {
         this.rankId = rankId;
     }
 
@@ -49,11 +49,11 @@ public class UserRank implements Serializable {
         this.userRankId = userRankId;
     }
 
-    public Integer getRankMark() {
+    public Long getRankMark() {
         return rankMark;
     }
 
-    public void setRankMark(Integer rankMark) {
+    public void setRankMark(Long rankMark) {
         this.rankMark = rankMark;
     }
 

@@ -174,52 +174,52 @@ public class FriendExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -234,52 +234,52 @@ public class FriendExample {
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdEqualTo(Integer value) {
+        public Criteria andFriendIdEqualTo(Long value) {
             addCriterion("friend_id =", value, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdNotEqualTo(Integer value) {
+        public Criteria andFriendIdNotEqualTo(Long value) {
             addCriterion("friend_id <>", value, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdGreaterThan(Integer value) {
+        public Criteria andFriendIdGreaterThan(Long value) {
             addCriterion("friend_id >", value, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFriendIdGreaterThanOrEqualTo(Long value) {
             addCriterion("friend_id >=", value, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdLessThan(Integer value) {
+        public Criteria andFriendIdLessThan(Long value) {
             addCriterion("friend_id <", value, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdLessThanOrEqualTo(Integer value) {
+        public Criteria andFriendIdLessThanOrEqualTo(Long value) {
             addCriterion("friend_id <=", value, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdIn(List<Integer> values) {
+        public Criteria andFriendIdIn(List<Long> values) {
             addCriterion("friend_id in", values, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdNotIn(List<Integer> values) {
+        public Criteria andFriendIdNotIn(List<Long> values) {
             addCriterion("friend_id not in", values, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdBetween(Integer value1, Integer value2) {
+        public Criteria andFriendIdBetween(Long value1, Long value2) {
             addCriterion("friend_id between", value1, value2, "friendId");
             return (Criteria) this;
         }
 
-        public Criteria andFriendIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andFriendIdNotBetween(Long value1, Long value2) {
             addCriterion("friend_id not between", value1, value2, "friendId");
             return (Criteria) this;
         }

@@ -8,7 +8,7 @@ public class PhotoSort implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer sortImgId;
+    private Long sortImgId;
 
     /**
      * 相册名
@@ -36,7 +36,7 @@ public class PhotoSort implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 访问问题
@@ -64,15 +64,15 @@ public class PhotoSort implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer topPicSrc;
+    private Long topPicSrc;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getSortImgId() {
+    public Long getSortImgId() {
         return sortImgId;
     }
 
-    public void setSortImgId(Integer sortImgId) {
+    public void setSortImgId(Long sortImgId) {
         this.sortImgId = sortImgId;
     }
 
@@ -100,11 +100,11 @@ public class PhotoSort implements Serializable {
         this.imgPassword = imgPassword;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -132,11 +132,11 @@ public class PhotoSort implements Serializable {
         this.typeId = typeId;
     }
 
-    public Integer getTopPicSrc() {
+    public Long getTopPicSrc() {
         return topPicSrc;
     }
 
-    public void setTopPicSrc(Integer topPicSrc) {
+    public void setTopPicSrc(Long topPicSrc) {
         this.topPicSrc = topPicSrc;
     }
 

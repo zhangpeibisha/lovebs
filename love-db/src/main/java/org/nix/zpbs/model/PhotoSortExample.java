@@ -114,52 +114,52 @@ public class PhotoSortExample {
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdEqualTo(Integer value) {
+        public Criteria andSortImgIdEqualTo(Long value) {
             addCriterion("sort_img_id =", value, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdNotEqualTo(Integer value) {
+        public Criteria andSortImgIdNotEqualTo(Long value) {
             addCriterion("sort_img_id <>", value, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdGreaterThan(Integer value) {
+        public Criteria andSortImgIdGreaterThan(Long value) {
             addCriterion("sort_img_id >", value, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSortImgIdGreaterThanOrEqualTo(Long value) {
             addCriterion("sort_img_id >=", value, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdLessThan(Integer value) {
+        public Criteria andSortImgIdLessThan(Long value) {
             addCriterion("sort_img_id <", value, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSortImgIdLessThanOrEqualTo(Long value) {
             addCriterion("sort_img_id <=", value, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdIn(List<Integer> values) {
+        public Criteria andSortImgIdIn(List<Long> values) {
             addCriterion("sort_img_id in", values, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdNotIn(List<Integer> values) {
+        public Criteria andSortImgIdNotIn(List<Long> values) {
             addCriterion("sort_img_id not in", values, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdBetween(Integer value1, Integer value2) {
+        public Criteria andSortImgIdBetween(Long value1, Long value2) {
             addCriterion("sort_img_id between", value1, value2, "sortImgId");
             return (Criteria) this;
         }
 
-        public Criteria andSortImgIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSortImgIdNotBetween(Long value1, Long value2) {
             addCriterion("sort_img_id not between", value1, value2, "sortImgId");
             return (Criteria) this;
         }
@@ -384,52 +384,52 @@ public class PhotoSortExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -644,52 +644,52 @@ public class PhotoSortExample {
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcEqualTo(Integer value) {
+        public Criteria andTopPicSrcEqualTo(Long value) {
             addCriterion("top_pic_src =", value, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcNotEqualTo(Integer value) {
+        public Criteria andTopPicSrcNotEqualTo(Long value) {
             addCriterion("top_pic_src <>", value, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcGreaterThan(Integer value) {
+        public Criteria andTopPicSrcGreaterThan(Long value) {
             addCriterion("top_pic_src >", value, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcGreaterThanOrEqualTo(Integer value) {
+        public Criteria andTopPicSrcGreaterThanOrEqualTo(Long value) {
             addCriterion("top_pic_src >=", value, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcLessThan(Integer value) {
+        public Criteria andTopPicSrcLessThan(Long value) {
             addCriterion("top_pic_src <", value, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcLessThanOrEqualTo(Integer value) {
+        public Criteria andTopPicSrcLessThanOrEqualTo(Long value) {
             addCriterion("top_pic_src <=", value, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcIn(List<Integer> values) {
+        public Criteria andTopPicSrcIn(List<Long> values) {
             addCriterion("top_pic_src in", values, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcNotIn(List<Integer> values) {
+        public Criteria andTopPicSrcNotIn(List<Long> values) {
             addCriterion("top_pic_src not in", values, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcBetween(Integer value1, Integer value2) {
+        public Criteria andTopPicSrcBetween(Long value1, Long value2) {
             addCriterion("top_pic_src between", value1, value2, "topPicSrc");
             return (Criteria) this;
         }
 
-        public Criteria andTopPicSrcNotBetween(Integer value1, Integer value2) {
+        public Criteria andTopPicSrcNotBetween(Long value1, Long value2) {
             addCriterion("top_pic_src not between", value1, value2, "topPicSrc");
             return (Criteria) this;
         }

@@ -15,14 +15,14 @@ public class StayMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 留言者ID
      *
      * @mbggenerated
      */
-    private Integer stayUserId;
+    private Long stayUserId;
 
     /**
      * 留言内容
@@ -43,7 +43,7 @@ public class StayMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer messageStayTime;
+    private Long messageStayTime;
 
     /**
      * 地区
@@ -62,19 +62,19 @@ public class StayMessage implements Serializable {
         this.stayId = stayId;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getStayUserId() {
+    public Long getStayUserId() {
         return stayUserId;
     }
 
-    public void setStayUserId(Integer stayUserId) {
+    public void setStayUserId(Long stayUserId) {
         this.stayUserId = stayUserId;
     }
 
@@ -94,11 +94,11 @@ public class StayMessage implements Serializable {
         this.stayUserIp = stayUserIp;
     }
 
-    public Integer getMessageStayTime() {
+    public Long getMessageStayTime() {
         return messageStayTime;
     }
 
-    public void setMessageStayTime(Integer messageStayTime) {
+    public void setMessageStayTime(Long messageStayTime) {
         this.messageStayTime = messageStayTime;
     }
 

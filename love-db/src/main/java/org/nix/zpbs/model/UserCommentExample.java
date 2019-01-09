@@ -114,52 +114,52 @@ public class UserCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCIdEqualTo(Integer value) {
+        public Criteria andCIdEqualTo(Long value) {
             addCriterion("c_id =", value, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdNotEqualTo(Integer value) {
+        public Criteria andCIdNotEqualTo(Long value) {
             addCriterion("c_id <>", value, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdGreaterThan(Integer value) {
+        public Criteria andCIdGreaterThan(Long value) {
             addCriterion("c_id >", value, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCIdGreaterThanOrEqualTo(Long value) {
             addCriterion("c_id >=", value, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdLessThan(Integer value) {
+        public Criteria andCIdLessThan(Long value) {
             addCriterion("c_id <", value, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdLessThanOrEqualTo(Integer value) {
+        public Criteria andCIdLessThanOrEqualTo(Long value) {
             addCriterion("c_id <=", value, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdIn(List<Integer> values) {
+        public Criteria andCIdIn(List<Long> values) {
             addCriterion("c_id in", values, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdNotIn(List<Integer> values) {
+        public Criteria andCIdNotIn(List<Long> values) {
             addCriterion("c_id not in", values, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdBetween(Integer value1, Integer value2) {
+        public Criteria andCIdBetween(Long value1, Long value2) {
             addCriterion("c_id between", value1, value2, "cId");
             return (Criteria) this;
         }
 
-        public Criteria andCIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andCIdNotBetween(Long value1, Long value2) {
             addCriterion("c_id not between", value1, value2, "cId");
             return (Criteria) this;
         }
@@ -174,52 +174,52 @@ public class UserCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -294,52 +294,52 @@ public class UserCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdEqualTo(Integer value) {
+        public Criteria andCommitIdEqualTo(Long value) {
             addCriterion("commit_id =", value, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdNotEqualTo(Integer value) {
+        public Criteria andCommitIdNotEqualTo(Long value) {
             addCriterion("commit_id <>", value, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdGreaterThan(Integer value) {
+        public Criteria andCommitIdGreaterThan(Long value) {
             addCriterion("commit_id >", value, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCommitIdGreaterThanOrEqualTo(Long value) {
             addCriterion("commit_id >=", value, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdLessThan(Integer value) {
+        public Criteria andCommitIdLessThan(Long value) {
             addCriterion("commit_id <", value, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdLessThanOrEqualTo(Integer value) {
+        public Criteria andCommitIdLessThanOrEqualTo(Long value) {
             addCriterion("commit_id <=", value, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdIn(List<Integer> values) {
+        public Criteria andCommitIdIn(List<Long> values) {
             addCriterion("commit_id in", values, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdNotIn(List<Integer> values) {
+        public Criteria andCommitIdNotIn(List<Long> values) {
             addCriterion("commit_id not in", values, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdBetween(Integer value1, Integer value2) {
+        public Criteria andCommitIdBetween(Long value1, Long value2) {
             addCriterion("commit_id between", value1, value2, "commitId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andCommitIdNotBetween(Long value1, Long value2) {
             addCriterion("commit_id not between", value1, value2, "commitId");
             return (Criteria) this;
         }
@@ -424,52 +424,52 @@ public class UserCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdEqualTo(Integer value) {
+        public Criteria andCommitUserIdEqualTo(Long value) {
             addCriterion("commit_user_id =", value, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdNotEqualTo(Integer value) {
+        public Criteria andCommitUserIdNotEqualTo(Long value) {
             addCriterion("commit_user_id <>", value, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdGreaterThan(Integer value) {
+        public Criteria andCommitUserIdGreaterThan(Long value) {
             addCriterion("commit_user_id >", value, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCommitUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("commit_user_id >=", value, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdLessThan(Integer value) {
+        public Criteria andCommitUserIdLessThan(Long value) {
             addCriterion("commit_user_id <", value, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andCommitUserIdLessThanOrEqualTo(Long value) {
             addCriterion("commit_user_id <=", value, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdIn(List<Integer> values) {
+        public Criteria andCommitUserIdIn(List<Long> values) {
             addCriterion("commit_user_id in", values, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdNotIn(List<Integer> values) {
+        public Criteria andCommitUserIdNotIn(List<Long> values) {
             addCriterion("commit_user_id not in", values, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andCommitUserIdBetween(Long value1, Long value2) {
             addCriterion("commit_user_id between", value1, value2, "commitUserId");
             return (Criteria) this;
         }
 
-        public Criteria andCommitUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andCommitUserIdNotBetween(Long value1, Long value2) {
             addCriterion("commit_user_id not between", value1, value2, "commitUserId");
             return (Criteria) this;
         }
@@ -484,52 +484,52 @@ public class UserCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeEqualTo(Integer value) {
+        public Criteria andCommitTimeEqualTo(Long value) {
             addCriterion("commit_time =", value, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeNotEqualTo(Integer value) {
+        public Criteria andCommitTimeNotEqualTo(Long value) {
             addCriterion("commit_time <>", value, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeGreaterThan(Integer value) {
+        public Criteria andCommitTimeGreaterThan(Long value) {
             addCriterion("commit_time >", value, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCommitTimeGreaterThanOrEqualTo(Long value) {
             addCriterion("commit_time >=", value, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeLessThan(Integer value) {
+        public Criteria andCommitTimeLessThan(Long value) {
             addCriterion("commit_time <", value, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andCommitTimeLessThanOrEqualTo(Long value) {
             addCriterion("commit_time <=", value, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeIn(List<Integer> values) {
+        public Criteria andCommitTimeIn(List<Long> values) {
             addCriterion("commit_time in", values, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeNotIn(List<Integer> values) {
+        public Criteria andCommitTimeNotIn(List<Long> values) {
             addCriterion("commit_time not in", values, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeBetween(Integer value1, Integer value2) {
+        public Criteria andCommitTimeBetween(Long value1, Long value2) {
             addCriterion("commit_time between", value1, value2, "commitTime");
             return (Criteria) this;
         }
 
-        public Criteria andCommitTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andCommitTimeNotBetween(Long value1, Long value2) {
             addCriterion("commit_time not between", value1, value2, "commitTime");
             return (Criteria) this;
         }

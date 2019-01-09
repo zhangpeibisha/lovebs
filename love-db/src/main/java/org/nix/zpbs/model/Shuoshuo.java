@@ -8,21 +8,21 @@ public class Shuoshuo implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer shuoId;
+    private Long shuoId;
 
     /**
      * 用户ID
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 发布时间
      *
      * @mbggenerated
      */
-    private Integer shuoTime;
+    private Long shuoTime;
 
     /**
      * 说说发布时的IP地址
@@ -47,27 +47,27 @@ public class Shuoshuo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getShuoId() {
+    public Long getShuoId() {
         return shuoId;
     }
 
-    public void setShuoId(Integer shuoId) {
+    public void setShuoId(Long shuoId) {
         this.shuoId = shuoId;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getShuoTime() {
+    public Long getShuoTime() {
         return shuoTime;
     }
 
-    public void setShuoTime(Integer shuoTime) {
+    public void setShuoTime(Long shuoTime) {
         this.shuoTime = shuoTime;
     }
 

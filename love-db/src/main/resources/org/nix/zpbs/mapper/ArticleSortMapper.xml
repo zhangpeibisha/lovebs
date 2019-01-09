@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.ArticleSortMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.ArticleSort">
-    <id column="sort_article_id" jdbcType="INTEGER" property="sortArticleId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="sort_article_id" jdbcType="BIGINT" property="sortArticleId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="sort_article_name" jdbcType="VARCHAR" property="sortArticleName" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -81,15 +81,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from article_sort
-    where sort_article_id = #{sortArticleId,jdbcType=INTEGER}
+    where sort_article_id = #{sortArticleId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from article_sort
-    where sort_article_id = #{sortArticleId,jdbcType=INTEGER}
+    where sort_article_id = #{sortArticleId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.ArticleSortExample">
     delete from article_sort
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="org.nix.zpbs.model.ArticleSort">
     insert into article_sort (sort_article_id, user_id, sort_article_name
       )
-    values (#{sortArticleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{sortArticleName,jdbcType=VARCHAR}
+    values (#{sortArticleId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{sortArticleName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.ArticleSort">
@@ -118,10 +118,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sortArticleId != null">
-        #{sortArticleId,jdbcType=INTEGER},
+        #{sortArticleId,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="sortArticleName != null">
         #{sortArticleName,jdbcType=VARCHAR},
@@ -138,10 +138,10 @@
     update article_sort
     <set>
       <if test="record.sortArticleId != null">
-        sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
+        sort_article_id = #{record.sortArticleId,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.sortArticleName != null">
         sort_article_name = #{record.sortArticleName,jdbcType=VARCHAR},
@@ -153,8 +153,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update article_sort
-    set sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+    set sort_article_id = #{record.sortArticleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       sort_article_name = #{record.sortArticleName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -164,18 +164,18 @@
     update article_sort
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="sortArticleName != null">
         sort_article_name = #{sortArticleName,jdbcType=VARCHAR},
       </if>
     </set>
-    where sort_article_id = #{sortArticleId,jdbcType=INTEGER}
+    where sort_article_id = #{sortArticleId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.ArticleSort">
     update article_sort
-    set user_id = #{userId,jdbcType=INTEGER},
+    set user_id = #{userId,jdbcType=BIGINT},
       sort_article_name = #{sortArticleName,jdbcType=VARCHAR}
-    where sort_article_id = #{sortArticleId,jdbcType=INTEGER}
+    where sort_article_id = #{sortArticleId,jdbcType=BIGINT}
   </update>
 </mapper>

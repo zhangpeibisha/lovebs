@@ -114,52 +114,52 @@ public class PhotosExample {
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdEqualTo(Integer value) {
+        public Criteria andPhotoIdEqualTo(Long value) {
             addCriterion("photo_id =", value, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdNotEqualTo(Integer value) {
+        public Criteria andPhotoIdNotEqualTo(Long value) {
             addCriterion("photo_id <>", value, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdGreaterThan(Integer value) {
+        public Criteria andPhotoIdGreaterThan(Long value) {
             addCriterion("photo_id >", value, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andPhotoIdGreaterThanOrEqualTo(Long value) {
             addCriterion("photo_id >=", value, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdLessThan(Integer value) {
+        public Criteria andPhotoIdLessThan(Long value) {
             addCriterion("photo_id <", value, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdLessThanOrEqualTo(Integer value) {
+        public Criteria andPhotoIdLessThanOrEqualTo(Long value) {
             addCriterion("photo_id <=", value, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdIn(List<Integer> values) {
+        public Criteria andPhotoIdIn(List<Long> values) {
             addCriterion("photo_id in", values, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdNotIn(List<Integer> values) {
+        public Criteria andPhotoIdNotIn(List<Long> values) {
             addCriterion("photo_id not in", values, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdBetween(Integer value1, Integer value2) {
+        public Criteria andPhotoIdBetween(Long value1, Long value2) {
             addCriterion("photo_id between", value1, value2, "photoId");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andPhotoIdNotBetween(Long value1, Long value2) {
             addCriterion("photo_id not between", value1, value2, "photoId");
             return (Criteria) this;
         }
@@ -384,52 +384,52 @@ public class PhotosExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -444,52 +444,52 @@ public class PhotosExample {
             return (Criteria) this;
         }
 
-        public Criteria andSortIdEqualTo(Integer value) {
+        public Criteria andSortIdEqualTo(Long value) {
             addCriterion("sort_id =", value, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdNotEqualTo(Integer value) {
+        public Criteria andSortIdNotEqualTo(Long value) {
             addCriterion("sort_id <>", value, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdGreaterThan(Integer value) {
+        public Criteria andSortIdGreaterThan(Long value) {
             addCriterion("sort_id >", value, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSortIdGreaterThanOrEqualTo(Long value) {
             addCriterion("sort_id >=", value, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdLessThan(Integer value) {
+        public Criteria andSortIdLessThan(Long value) {
             addCriterion("sort_id <", value, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSortIdLessThanOrEqualTo(Long value) {
             addCriterion("sort_id <=", value, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdIn(List<Integer> values) {
+        public Criteria andSortIdIn(List<Long> values) {
             addCriterion("sort_id in", values, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdNotIn(List<Integer> values) {
+        public Criteria andSortIdNotIn(List<Long> values) {
             addCriterion("sort_id not in", values, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdBetween(Integer value1, Integer value2) {
+        public Criteria andSortIdBetween(Long value1, Long value2) {
             addCriterion("sort_id between", value1, value2, "sortId");
             return (Criteria) this;
         }
 
-        public Criteria andSortIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSortIdNotBetween(Long value1, Long value2) {
             addCriterion("sort_id not between", value1, value2, "sortId");
             return (Criteria) this;
         }
@@ -504,52 +504,52 @@ public class PhotosExample {
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeEqualTo(Integer value) {
+        public Criteria andUploadTimeEqualTo(Long value) {
             addCriterion("upload_time =", value, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeNotEqualTo(Integer value) {
+        public Criteria andUploadTimeNotEqualTo(Long value) {
             addCriterion("upload_time <>", value, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeGreaterThan(Integer value) {
+        public Criteria andUploadTimeGreaterThan(Long value) {
             addCriterion("upload_time >", value, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUploadTimeGreaterThanOrEqualTo(Long value) {
             addCriterion("upload_time >=", value, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeLessThan(Integer value) {
+        public Criteria andUploadTimeLessThan(Long value) {
             addCriterion("upload_time <", value, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andUploadTimeLessThanOrEqualTo(Long value) {
             addCriterion("upload_time <=", value, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeIn(List<Integer> values) {
+        public Criteria andUploadTimeIn(List<Long> values) {
             addCriterion("upload_time in", values, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeNotIn(List<Integer> values) {
+        public Criteria andUploadTimeNotIn(List<Long> values) {
             addCriterion("upload_time not in", values, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeBetween(Integer value1, Integer value2) {
+        public Criteria andUploadTimeBetween(Long value1, Long value2) {
             addCriterion("upload_time between", value1, value2, "uploadTime");
             return (Criteria) this;
         }
 
-        public Criteria andUploadTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andUploadTimeNotBetween(Long value1, Long value2) {
             addCriterion("upload_time not between", value1, value2, "uploadTime");
             return (Criteria) this;
         }

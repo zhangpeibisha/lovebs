@@ -114,52 +114,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -174,52 +174,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdEqualTo(Integer value) {
+        public Criteria andGroupIdEqualTo(Long value) {
             addCriterion("group_id =", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotEqualTo(Integer value) {
+        public Criteria andGroupIdNotEqualTo(Long value) {
             addCriterion("group_id <>", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdGreaterThan(Integer value) {
+        public Criteria andGroupIdGreaterThan(Long value) {
             addCriterion("group_id >", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andGroupIdGreaterThanOrEqualTo(Long value) {
             addCriterion("group_id >=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdLessThan(Integer value) {
+        public Criteria andGroupIdLessThan(Long value) {
             addCriterion("group_id <", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdLessThanOrEqualTo(Integer value) {
+        public Criteria andGroupIdLessThanOrEqualTo(Long value) {
             addCriterion("group_id <=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdIn(List<Integer> values) {
+        public Criteria andGroupIdIn(List<Long> values) {
             addCriterion("group_id in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotIn(List<Integer> values) {
+        public Criteria andGroupIdNotIn(List<Long> values) {
             addCriterion("group_id not in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdBetween(Integer value1, Integer value2) {
+        public Criteria andGroupIdBetween(Long value1, Long value2) {
             addCriterion("group_id between", value1, value2, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andGroupIdNotBetween(Long value1, Long value2) {
             addCriterion("group_id not between", value1, value2, "groupId");
             return (Criteria) this;
         }
@@ -374,52 +374,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneEqualTo(Integer value) {
+        public Criteria andUserPhoneEqualTo(Long value) {
             addCriterion("user_phone =", value, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneNotEqualTo(Integer value) {
+        public Criteria andUserPhoneNotEqualTo(Long value) {
             addCriterion("user_phone <>", value, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneGreaterThan(Integer value) {
+        public Criteria andUserPhoneGreaterThan(Long value) {
             addCriterion("user_phone >", value, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserPhoneGreaterThanOrEqualTo(Long value) {
             addCriterion("user_phone >=", value, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneLessThan(Integer value) {
+        public Criteria andUserPhoneLessThan(Long value) {
             addCriterion("user_phone <", value, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneLessThanOrEqualTo(Integer value) {
+        public Criteria andUserPhoneLessThanOrEqualTo(Long value) {
             addCriterion("user_phone <=", value, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneIn(List<Integer> values) {
+        public Criteria andUserPhoneIn(List<Long> values) {
             addCriterion("user_phone in", values, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneNotIn(List<Integer> values) {
+        public Criteria andUserPhoneNotIn(List<Long> values) {
             addCriterion("user_phone not in", values, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneBetween(Integer value1, Integer value2) {
+        public Criteria andUserPhoneBetween(Long value1, Long value2) {
             addCriterion("user_phone between", value1, value2, "userPhone");
             return (Criteria) this;
         }
 
-        public Criteria andUserPhoneNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserPhoneNotBetween(Long value1, Long value2) {
             addCriterion("user_phone not between", value1, value2, "userPhone");
             return (Criteria) this;
         }
@@ -504,52 +504,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserQqEqualTo(Integer value) {
+        public Criteria andUserQqEqualTo(Long value) {
             addCriterion("user_qq =", value, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqNotEqualTo(Integer value) {
+        public Criteria andUserQqNotEqualTo(Long value) {
             addCriterion("user_qq <>", value, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqGreaterThan(Integer value) {
+        public Criteria andUserQqGreaterThan(Long value) {
             addCriterion("user_qq >", value, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserQqGreaterThanOrEqualTo(Long value) {
             addCriterion("user_qq >=", value, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqLessThan(Integer value) {
+        public Criteria andUserQqLessThan(Long value) {
             addCriterion("user_qq <", value, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqLessThanOrEqualTo(Integer value) {
+        public Criteria andUserQqLessThanOrEqualTo(Long value) {
             addCriterion("user_qq <=", value, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqIn(List<Integer> values) {
+        public Criteria andUserQqIn(List<Long> values) {
             addCriterion("user_qq in", values, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqNotIn(List<Integer> values) {
+        public Criteria andUserQqNotIn(List<Long> values) {
             addCriterion("user_qq not in", values, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqBetween(Integer value1, Integer value2) {
+        public Criteria andUserQqBetween(Long value1, Long value2) {
             addCriterion("user_qq between", value1, value2, "userQq");
             return (Criteria) this;
         }
 
-        public Criteria andUserQqNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserQqNotBetween(Long value1, Long value2) {
             addCriterion("user_qq not between", value1, value2, "userQq");
             return (Criteria) this;
         }
@@ -704,52 +704,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkEqualTo(Integer value) {
+        public Criteria andUserMarkEqualTo(Long value) {
             addCriterion("user_mark =", value, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkNotEqualTo(Integer value) {
+        public Criteria andUserMarkNotEqualTo(Long value) {
             addCriterion("user_mark <>", value, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkGreaterThan(Integer value) {
+        public Criteria andUserMarkGreaterThan(Long value) {
             addCriterion("user_mark >", value, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserMarkGreaterThanOrEqualTo(Long value) {
             addCriterion("user_mark >=", value, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkLessThan(Integer value) {
+        public Criteria andUserMarkLessThan(Long value) {
             addCriterion("user_mark <", value, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkLessThanOrEqualTo(Integer value) {
+        public Criteria andUserMarkLessThanOrEqualTo(Long value) {
             addCriterion("user_mark <=", value, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkIn(List<Integer> values) {
+        public Criteria andUserMarkIn(List<Long> values) {
             addCriterion("user_mark in", values, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkNotIn(List<Integer> values) {
+        public Criteria andUserMarkNotIn(List<Long> values) {
             addCriterion("user_mark not in", values, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkBetween(Integer value1, Integer value2) {
+        public Criteria andUserMarkBetween(Long value1, Long value2) {
             addCriterion("user_mark between", value1, value2, "userMark");
             return (Criteria) this;
         }
 
-        public Criteria andUserMarkNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserMarkNotBetween(Long value1, Long value2) {
             addCriterion("user_mark not between", value1, value2, "userMark");
             return (Criteria) this;
         }
@@ -894,52 +894,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayEqualTo(Integer value) {
+        public Criteria andUserBirthdayEqualTo(Long value) {
             addCriterion("user_birthday =", value, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayNotEqualTo(Integer value) {
+        public Criteria andUserBirthdayNotEqualTo(Long value) {
             addCriterion("user_birthday <>", value, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayGreaterThan(Integer value) {
+        public Criteria andUserBirthdayGreaterThan(Long value) {
             addCriterion("user_birthday >", value, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserBirthdayGreaterThanOrEqualTo(Long value) {
             addCriterion("user_birthday >=", value, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayLessThan(Integer value) {
+        public Criteria andUserBirthdayLessThan(Long value) {
             addCriterion("user_birthday <", value, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayLessThanOrEqualTo(Integer value) {
+        public Criteria andUserBirthdayLessThanOrEqualTo(Long value) {
             addCriterion("user_birthday <=", value, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayIn(List<Integer> values) {
+        public Criteria andUserBirthdayIn(List<Long> values) {
             addCriterion("user_birthday in", values, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayNotIn(List<Integer> values) {
+        public Criteria andUserBirthdayNotIn(List<Long> values) {
             addCriterion("user_birthday not in", values, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayBetween(Integer value1, Integer value2) {
+        public Criteria andUserBirthdayBetween(Long value1, Long value2) {
             addCriterion("user_birthday between", value1, value2, "userBirthday");
             return (Criteria) this;
         }
 
-        public Criteria andUserBirthdayNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserBirthdayNotBetween(Long value1, Long value2) {
             addCriterion("user_birthday not between", value1, value2, "userBirthday");
             return (Criteria) this;
         }
@@ -1164,52 +1164,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeEqualTo(Integer value) {
+        public Criteria andUserRegisterTimeEqualTo(Long value) {
             addCriterion("user_register_time =", value, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeNotEqualTo(Integer value) {
+        public Criteria andUserRegisterTimeNotEqualTo(Long value) {
             addCriterion("user_register_time <>", value, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeGreaterThan(Integer value) {
+        public Criteria andUserRegisterTimeGreaterThan(Long value) {
             addCriterion("user_register_time >", value, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserRegisterTimeGreaterThanOrEqualTo(Long value) {
             addCriterion("user_register_time >=", value, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeLessThan(Integer value) {
+        public Criteria andUserRegisterTimeLessThan(Long value) {
             addCriterion("user_register_time <", value, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andUserRegisterTimeLessThanOrEqualTo(Long value) {
             addCriterion("user_register_time <=", value, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeIn(List<Integer> values) {
+        public Criteria andUserRegisterTimeIn(List<Long> values) {
             addCriterion("user_register_time in", values, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeNotIn(List<Integer> values) {
+        public Criteria andUserRegisterTimeNotIn(List<Long> values) {
             addCriterion("user_register_time not in", values, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeBetween(Integer value1, Integer value2) {
+        public Criteria andUserRegisterTimeBetween(Long value1, Long value2) {
             addCriterion("user_register_time between", value1, value2, "userRegisterTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserRegisterTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserRegisterTimeNotBetween(Long value1, Long value2) {
             addCriterion("user_register_time not between", value1, value2, "userRegisterTime");
             return (Criteria) this;
         }
@@ -1294,52 +1294,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeEqualTo(Integer value) {
+        public Criteria andUserLastUpdateTimeEqualTo(Long value) {
             addCriterion("user_last_update_time =", value, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeNotEqualTo(Integer value) {
+        public Criteria andUserLastUpdateTimeNotEqualTo(Long value) {
             addCriterion("user_last_update_time <>", value, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeGreaterThan(Integer value) {
+        public Criteria andUserLastUpdateTimeGreaterThan(Long value) {
             addCriterion("user_last_update_time >", value, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserLastUpdateTimeGreaterThanOrEqualTo(Long value) {
             addCriterion("user_last_update_time >=", value, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeLessThan(Integer value) {
+        public Criteria andUserLastUpdateTimeLessThan(Long value) {
             addCriterion("user_last_update_time <", value, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andUserLastUpdateTimeLessThanOrEqualTo(Long value) {
             addCriterion("user_last_update_time <=", value, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeIn(List<Integer> values) {
+        public Criteria andUserLastUpdateTimeIn(List<Long> values) {
             addCriterion("user_last_update_time in", values, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeNotIn(List<Integer> values) {
+        public Criteria andUserLastUpdateTimeNotIn(List<Long> values) {
             addCriterion("user_last_update_time not in", values, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeBetween(Integer value1, Integer value2) {
+        public Criteria andUserLastUpdateTimeBetween(Long value1, Long value2) {
             addCriterion("user_last_update_time between", value1, value2, "userLastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUserLastUpdateTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserLastUpdateTimeNotBetween(Long value1, Long value2) {
             addCriterion("user_last_update_time not between", value1, value2, "userLastUpdateTime");
             return (Criteria) this;
         }

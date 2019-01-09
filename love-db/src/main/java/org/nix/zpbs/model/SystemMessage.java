@@ -8,14 +8,14 @@ public class SystemMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer systemId;
+    private Long systemId;
 
     /**
      * 接受者ID
      *
      * @mbggenerated
      */
-    private Integer sendId;
+    private Long sendId;
 
     /**
      * 用户组ID
@@ -29,7 +29,7 @@ public class SystemMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer sendDefault;
+    private Long sendDefault;
 
     /**
      * 通知内容
@@ -47,19 +47,19 @@ public class SystemMessage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getSystemId() {
+    public Long getSystemId() {
         return systemId;
     }
 
-    public void setSystemId(Integer systemId) {
+    public void setSystemId(Long systemId) {
         this.systemId = systemId;
     }
 
-    public Integer getSendId() {
+    public Long getSendId() {
         return sendId;
     }
 
-    public void setSendId(Integer sendId) {
+    public void setSendId(Long sendId) {
         this.sendId = sendId;
     }
 
@@ -71,11 +71,11 @@ public class SystemMessage implements Serializable {
         this.groupId = groupId;
     }
 
-    public Integer getSendDefault() {
+    public Long getSendDefault() {
         return sendDefault;
     }
 
-    public void setSendDefault(Integer sendDefault) {
+    public void setSendDefault(Long sendDefault) {
         this.sendDefault = sendDefault;
     }
 

@@ -43,14 +43,14 @@ public class Ad implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer startTime;
+    private Long startTime;
 
     /**
      * 广告结束时间
      *
      * @mbggenerated
      */
-    private Integer endTime;
+    private Long endTime;
 
     /**
      * 广告联系人
@@ -78,7 +78,7 @@ public class Ad implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer clickCount;
+    private Long clickCount;
 
     /**
      * 该广告是否关闭;1开启; 0关闭; 关闭后广告将不再有效
@@ -136,19 +136,19 @@ public class Ad implements Serializable {
         this.adLink = adLink;
     }
 
-    public Integer getStartTime() {
+    public Long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Integer startTime) {
+    public void setStartTime(Long startTime) {
         this.startTime = startTime;
     }
 
-    public Integer getEndTime() {
+    public Long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Integer endTime) {
+    public void setEndTime(Long endTime) {
         this.endTime = endTime;
     }
 
@@ -176,11 +176,11 @@ public class Ad implements Serializable {
         this.linkPhone = linkPhone;
     }
 
-    public Integer getClickCount() {
+    public Long getClickCount() {
         return clickCount;
     }
 
-    public void setClickCount(Integer clickCount) {
+    public void setClickCount(Long clickCount) {
         this.clickCount = clickCount;
     }
 

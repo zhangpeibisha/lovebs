@@ -15,14 +15,14 @@ public class Friend implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 好友ID
      *
      * @mbggenerated
      */
-    private Integer friendId;
+    private Long friendId;
 
     private static final long serialVersionUID = 1L;
 
@@ -34,19 +34,19 @@ public class Friend implements Serializable {
         this.fId = fId;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getFriendId() {
+    public Long getFriendId() {
         return friendId;
     }
 
-    public void setFriendId(Integer friendId) {
+    public void setFriendId(Long friendId) {
         this.friendId = friendId;
     }
 

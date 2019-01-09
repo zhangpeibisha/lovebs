@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.AboutBlogMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.AboutBlog">
-    <id column="blog_id" jdbcType="INTEGER" property="blogId" />
+    <id column="blog_id" jdbcType="BIGINT" property="blogId" />
     <result column="blog_keyword" jdbcType="VARCHAR" property="blogKeyword" />
     <result column="blog_description" jdbcType="VARCHAR" property="blogDescription" />
     <result column="blog_name" jdbcType="VARCHAR" property="blogName" />
@@ -83,15 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from about_blog
-    where blog_id = #{blogId,jdbcType=INTEGER}
+    where blog_id = #{blogId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from about_blog
-    where blog_id = #{blogId,jdbcType=INTEGER}
+    where blog_id = #{blogId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.AboutBlogExample">
     delete from about_blog
@@ -102,7 +102,7 @@
   <insert id="insert" parameterType="org.nix.zpbs.model.AboutBlog">
     insert into about_blog (blog_id, blog_keyword, blog_description, 
       blog_name, blog_title)
-    values (#{blogId,jdbcType=INTEGER}, #{blogKeyword,jdbcType=VARCHAR}, #{blogDescription,jdbcType=VARCHAR}, 
+    values (#{blogId,jdbcType=BIGINT}, #{blogKeyword,jdbcType=VARCHAR}, #{blogDescription,jdbcType=VARCHAR}, 
       #{blogName,jdbcType=VARCHAR}, #{blogTitle,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.AboutBlog">
@@ -126,7 +126,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="blogId != null">
-        #{blogId,jdbcType=INTEGER},
+        #{blogId,jdbcType=BIGINT},
       </if>
       <if test="blogKeyword != null">
         #{blogKeyword,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
     update about_blog
     <set>
       <if test="record.blogId != null">
-        blog_id = #{record.blogId,jdbcType=INTEGER},
+        blog_id = #{record.blogId,jdbcType=BIGINT},
       </if>
       <if test="record.blogKeyword != null">
         blog_keyword = #{record.blogKeyword,jdbcType=VARCHAR},
@@ -173,7 +173,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update about_blog
-    set blog_id = #{record.blogId,jdbcType=INTEGER},
+    set blog_id = #{record.blogId,jdbcType=BIGINT},
       blog_keyword = #{record.blogKeyword,jdbcType=VARCHAR},
       blog_description = #{record.blogDescription,jdbcType=VARCHAR},
       blog_name = #{record.blogName,jdbcType=VARCHAR},
@@ -198,7 +198,7 @@
         blog_title = #{blogTitle,jdbcType=VARCHAR},
       </if>
     </set>
-    where blog_id = #{blogId,jdbcType=INTEGER}
+    where blog_id = #{blogId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.AboutBlog">
     update about_blog
@@ -206,6 +206,6 @@
       blog_description = #{blogDescription,jdbcType=VARCHAR},
       blog_name = #{blogName,jdbcType=VARCHAR},
       blog_title = #{blogTitle,jdbcType=VARCHAR}
-    where blog_id = #{blogId,jdbcType=INTEGER}
+    where blog_id = #{blogId,jdbcType=BIGINT}
   </update>
 </mapper>

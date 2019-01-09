@@ -7,12 +7,12 @@
     <result column="media_type" jdbcType="TINYINT" property="mediaType" />
     <result column="ad_name" jdbcType="VARCHAR" property="adName" />
     <result column="ad_link" jdbcType="VARCHAR" property="adLink" />
-    <result column="start_time" jdbcType="INTEGER" property="startTime" />
-    <result column="end_time" jdbcType="INTEGER" property="endTime" />
+    <result column="start_time" jdbcType="BIGINT" property="startTime" />
+    <result column="end_time" jdbcType="BIGINT" property="endTime" />
     <result column="link_man" jdbcType="VARCHAR" property="linkMan" />
     <result column="link_email" jdbcType="VARCHAR" property="linkEmail" />
     <result column="link_phone" jdbcType="VARCHAR" property="linkPhone" />
-    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="click_count" jdbcType="BIGINT" property="clickCount" />
     <result column="enabled" jdbcType="TINYINT" property="enabled" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.zpbs.model.Ad">
@@ -138,9 +138,9 @@
       link_phone, click_count, enabled, 
       ad_code)
     values (#{adId,jdbcType=SMALLINT}, #{positionId,jdbcType=SMALLINT}, #{mediaType,jdbcType=TINYINT}, 
-      #{adName,jdbcType=VARCHAR}, #{adLink,jdbcType=VARCHAR}, #{startTime,jdbcType=INTEGER}, 
-      #{endTime,jdbcType=INTEGER}, #{linkMan,jdbcType=VARCHAR}, #{linkEmail,jdbcType=VARCHAR}, 
-      #{linkPhone,jdbcType=VARCHAR}, #{clickCount,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT}, 
+      #{adName,jdbcType=VARCHAR}, #{adLink,jdbcType=VARCHAR}, #{startTime,jdbcType=BIGINT}, 
+      #{endTime,jdbcType=BIGINT}, #{linkMan,jdbcType=VARCHAR}, #{linkEmail,jdbcType=VARCHAR}, 
+      #{linkPhone,jdbcType=VARCHAR}, #{clickCount,jdbcType=BIGINT}, #{enabled,jdbcType=TINYINT}, 
       #{adCode,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.Ad">
@@ -203,10 +203,10 @@
         #{adLink,jdbcType=VARCHAR},
       </if>
       <if test="startTime != null">
-        #{startTime,jdbcType=INTEGER},
+        #{startTime,jdbcType=BIGINT},
       </if>
       <if test="endTime != null">
-        #{endTime,jdbcType=INTEGER},
+        #{endTime,jdbcType=BIGINT},
       </if>
       <if test="linkMan != null">
         #{linkMan,jdbcType=VARCHAR},
@@ -218,7 +218,7 @@
         #{linkPhone,jdbcType=VARCHAR},
       </if>
       <if test="clickCount != null">
-        #{clickCount,jdbcType=INTEGER},
+        #{clickCount,jdbcType=BIGINT},
       </if>
       <if test="enabled != null">
         #{enabled,jdbcType=TINYINT},
@@ -253,10 +253,10 @@
         ad_link = #{record.adLink,jdbcType=VARCHAR},
       </if>
       <if test="record.startTime != null">
-        start_time = #{record.startTime,jdbcType=INTEGER},
+        start_time = #{record.startTime,jdbcType=BIGINT},
       </if>
       <if test="record.endTime != null">
-        end_time = #{record.endTime,jdbcType=INTEGER},
+        end_time = #{record.endTime,jdbcType=BIGINT},
       </if>
       <if test="record.linkMan != null">
         link_man = #{record.linkMan,jdbcType=VARCHAR},
@@ -268,7 +268,7 @@
         link_phone = #{record.linkPhone,jdbcType=VARCHAR},
       </if>
       <if test="record.clickCount != null">
-        click_count = #{record.clickCount,jdbcType=INTEGER},
+        click_count = #{record.clickCount,jdbcType=BIGINT},
       </if>
       <if test="record.enabled != null">
         enabled = #{record.enabled,jdbcType=TINYINT},
@@ -288,12 +288,12 @@
       media_type = #{record.mediaType,jdbcType=TINYINT},
       ad_name = #{record.adName,jdbcType=VARCHAR},
       ad_link = #{record.adLink,jdbcType=VARCHAR},
-      start_time = #{record.startTime,jdbcType=INTEGER},
-      end_time = #{record.endTime,jdbcType=INTEGER},
+      start_time = #{record.startTime,jdbcType=BIGINT},
+      end_time = #{record.endTime,jdbcType=BIGINT},
       link_man = #{record.linkMan,jdbcType=VARCHAR},
       link_email = #{record.linkEmail,jdbcType=VARCHAR},
       link_phone = #{record.linkPhone,jdbcType=VARCHAR},
-      click_count = #{record.clickCount,jdbcType=INTEGER},
+      click_count = #{record.clickCount,jdbcType=BIGINT},
       enabled = #{record.enabled,jdbcType=TINYINT},
       ad_code = #{record.adCode,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
@@ -307,12 +307,12 @@
       media_type = #{record.mediaType,jdbcType=TINYINT},
       ad_name = #{record.adName,jdbcType=VARCHAR},
       ad_link = #{record.adLink,jdbcType=VARCHAR},
-      start_time = #{record.startTime,jdbcType=INTEGER},
-      end_time = #{record.endTime,jdbcType=INTEGER},
+      start_time = #{record.startTime,jdbcType=BIGINT},
+      end_time = #{record.endTime,jdbcType=BIGINT},
       link_man = #{record.linkMan,jdbcType=VARCHAR},
       link_email = #{record.linkEmail,jdbcType=VARCHAR},
       link_phone = #{record.linkPhone,jdbcType=VARCHAR},
-      click_count = #{record.clickCount,jdbcType=INTEGER},
+      click_count = #{record.clickCount,jdbcType=BIGINT},
       enabled = #{record.enabled,jdbcType=TINYINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -334,10 +334,10 @@
         ad_link = #{adLink,jdbcType=VARCHAR},
       </if>
       <if test="startTime != null">
-        start_time = #{startTime,jdbcType=INTEGER},
+        start_time = #{startTime,jdbcType=BIGINT},
       </if>
       <if test="endTime != null">
-        end_time = #{endTime,jdbcType=INTEGER},
+        end_time = #{endTime,jdbcType=BIGINT},
       </if>
       <if test="linkMan != null">
         link_man = #{linkMan,jdbcType=VARCHAR},
@@ -349,7 +349,7 @@
         link_phone = #{linkPhone,jdbcType=VARCHAR},
       </if>
       <if test="clickCount != null">
-        click_count = #{clickCount,jdbcType=INTEGER},
+        click_count = #{clickCount,jdbcType=BIGINT},
       </if>
       <if test="enabled != null">
         enabled = #{enabled,jdbcType=TINYINT},
@@ -366,12 +366,12 @@
       media_type = #{mediaType,jdbcType=TINYINT},
       ad_name = #{adName,jdbcType=VARCHAR},
       ad_link = #{adLink,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=INTEGER},
-      end_time = #{endTime,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=BIGINT},
+      end_time = #{endTime,jdbcType=BIGINT},
       link_man = #{linkMan,jdbcType=VARCHAR},
       link_email = #{linkEmail,jdbcType=VARCHAR},
       link_phone = #{linkPhone,jdbcType=VARCHAR},
-      click_count = #{clickCount,jdbcType=INTEGER},
+      click_count = #{clickCount,jdbcType=BIGINT},
       enabled = #{enabled,jdbcType=TINYINT},
       ad_code = #{adCode,jdbcType=LONGVARCHAR}
     where ad_id = #{adId,jdbcType=SMALLINT}
@@ -382,12 +382,12 @@
       media_type = #{mediaType,jdbcType=TINYINT},
       ad_name = #{adName,jdbcType=VARCHAR},
       ad_link = #{adLink,jdbcType=VARCHAR},
-      start_time = #{startTime,jdbcType=INTEGER},
-      end_time = #{endTime,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=BIGINT},
+      end_time = #{endTime,jdbcType=BIGINT},
       link_man = #{linkMan,jdbcType=VARCHAR},
       link_email = #{linkEmail,jdbcType=VARCHAR},
       link_phone = #{linkPhone,jdbcType=VARCHAR},
-      click_count = #{clickCount,jdbcType=INTEGER},
+      click_count = #{clickCount,jdbcType=BIGINT},
       enabled = #{enabled,jdbcType=TINYINT}
     where ad_id = #{adId,jdbcType=SMALLINT}
   </update>

@@ -3,8 +3,8 @@
 <mapper namespace="org.nix.zpbs.mapper.UserAttentionMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserAttention">
     <id column="a_id" jdbcType="SMALLINT" property="aId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="attention_id" jdbcType="INTEGER" property="attentionId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="attention_id" jdbcType="BIGINT" property="attentionId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="org.nix.zpbs.model.UserAttention">
     insert into user_attention (a_id, user_id, attention_id
       )
-    values (#{aId,jdbcType=SMALLINT}, #{userId,jdbcType=INTEGER}, #{attentionId,jdbcType=INTEGER}
+    values (#{aId,jdbcType=SMALLINT}, #{userId,jdbcType=BIGINT}, #{attentionId,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserAttention">
@@ -121,10 +121,10 @@
         #{aId,jdbcType=SMALLINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="attentionId != null">
-        #{attentionId,jdbcType=INTEGER},
+        #{attentionId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -141,10 +141,10 @@
         a_id = #{record.aId,jdbcType=SMALLINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.attentionId != null">
-        attention_id = #{record.attentionId,jdbcType=INTEGER},
+        attention_id = #{record.attentionId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -154,8 +154,8 @@
   <update id="updateByExample" parameterType="map">
     update user_attention
     set a_id = #{record.aId,jdbcType=SMALLINT},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      attention_id = #{record.attentionId,jdbcType=INTEGER}
+      user_id = #{record.userId,jdbcType=BIGINT},
+      attention_id = #{record.attentionId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -164,18 +164,18 @@
     update user_attention
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="attentionId != null">
-        attention_id = #{attentionId,jdbcType=INTEGER},
+        attention_id = #{attentionId,jdbcType=BIGINT},
       </if>
     </set>
     where a_id = #{aId,jdbcType=SMALLINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserAttention">
     update user_attention
-    set user_id = #{userId,jdbcType=INTEGER},
-      attention_id = #{attentionId,jdbcType=INTEGER}
+    set user_id = #{userId,jdbcType=BIGINT},
+      attention_id = #{attentionId,jdbcType=BIGINT}
     where a_id = #{aId,jdbcType=SMALLINT}
   </update>
 </mapper>

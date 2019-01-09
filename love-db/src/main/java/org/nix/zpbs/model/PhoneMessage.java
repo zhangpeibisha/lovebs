@@ -8,7 +8,7 @@ public class PhoneMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer phoneId;
+    private Long phoneId;
 
     /**
      * 用户手机号码
@@ -29,22 +29,22 @@ public class PhoneMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer sendTime;
+    private Long sendTime;
 
     /**
      * 用户ID
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getPhoneId() {
+    public Long getPhoneId() {
         return phoneId;
     }
 
-    public void setPhoneId(Integer phoneId) {
+    public void setPhoneId(Long phoneId) {
         this.phoneId = phoneId;
     }
 
@@ -64,19 +64,19 @@ public class PhoneMessage implements Serializable {
         this.contents = contents;
     }
 
-    public Integer getSendTime() {
+    public Long getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(Integer sendTime) {
+    public void setSendTime(Long sendTime) {
         this.sendTime = sendTime;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

@@ -10,7 +10,7 @@ public interface UserRankMapper {
 
     int deleteByExample(UserRankExample example);
 
-    int deleteByPrimaryKey(Integer rankId);
+    int deleteByPrimaryKey(Long rankId);
 
     int insert(UserRank record);
 
@@ -18,7 +18,7 @@ public interface UserRankMapper {
 
     List<UserRank> selectByExample(UserRankExample example);
 
-    UserRank selectByPrimaryKey(Integer rankId);
+    UserRank selectByPrimaryKey(Long rankId);
 
     int updateByExampleSelective(@Param("record") UserRank record, @Param("example") UserRankExample example);
 

@@ -8,7 +8,7 @@ public class Photos implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer photoId;
+    private Long photoId;
 
     /**
      * 相片名称
@@ -36,21 +36,21 @@ public class Photos implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 所属相册ID
      *
      * @mbggenerated
      */
-    private Integer sortId;
+    private Long sortId;
 
     /**
      * 图片上传时间
      *
      * @mbggenerated
      */
-    private Integer uploadTime;
+    private Long uploadTime;
 
     /**
      * 图片操作上传IP地址
@@ -61,11 +61,11 @@ public class Photos implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getPhotoId() {
+    public Long getPhotoId() {
         return photoId;
     }
 
-    public void setPhotoId(Integer photoId) {
+    public void setPhotoId(Long photoId) {
         this.photoId = photoId;
     }
 
@@ -93,27 +93,27 @@ public class Photos implements Serializable {
         this.photoDescription = photoDescription;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getSortId() {
+    public Long getSortId() {
         return sortId;
     }
 
-    public void setSortId(Integer sortId) {
+    public void setSortId(Long sortId) {
         this.sortId = sortId;
     }
 
-    public Integer getUploadTime() {
+    public Long getUploadTime() {
         return uploadTime;
     }
 
-    public void setUploadTime(Integer uploadTime) {
+    public void setUploadTime(Long uploadTime) {
         this.uploadTime = uploadTime;
     }
 

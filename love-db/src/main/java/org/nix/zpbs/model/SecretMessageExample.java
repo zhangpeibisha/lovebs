@@ -114,52 +114,52 @@ public class SecretMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdEqualTo(Integer value) {
+        public Criteria andSecretIdEqualTo(Long value) {
             addCriterion("secret_id =", value, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdNotEqualTo(Integer value) {
+        public Criteria andSecretIdNotEqualTo(Long value) {
             addCriterion("secret_id <>", value, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdGreaterThan(Integer value) {
+        public Criteria andSecretIdGreaterThan(Long value) {
             addCriterion("secret_id >", value, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSecretIdGreaterThanOrEqualTo(Long value) {
             addCriterion("secret_id >=", value, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdLessThan(Integer value) {
+        public Criteria andSecretIdLessThan(Long value) {
             addCriterion("secret_id <", value, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSecretIdLessThanOrEqualTo(Long value) {
             addCriterion("secret_id <=", value, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdIn(List<Integer> values) {
+        public Criteria andSecretIdIn(List<Long> values) {
             addCriterion("secret_id in", values, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdNotIn(List<Integer> values) {
+        public Criteria andSecretIdNotIn(List<Long> values) {
             addCriterion("secret_id not in", values, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdBetween(Integer value1, Integer value2) {
+        public Criteria andSecretIdBetween(Long value1, Long value2) {
             addCriterion("secret_id between", value1, value2, "secretId");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSecretIdNotBetween(Long value1, Long value2) {
             addCriterion("secret_id not between", value1, value2, "secretId");
             return (Criteria) this;
         }
@@ -174,52 +174,52 @@ public class SecretMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andSendIdEqualTo(Integer value) {
+        public Criteria andSendIdEqualTo(Long value) {
             addCriterion("send_id =", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdNotEqualTo(Integer value) {
+        public Criteria andSendIdNotEqualTo(Long value) {
             addCriterion("send_id <>", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdGreaterThan(Integer value) {
+        public Criteria andSendIdGreaterThan(Long value) {
             addCriterion("send_id >", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSendIdGreaterThanOrEqualTo(Long value) {
             addCriterion("send_id >=", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdLessThan(Integer value) {
+        public Criteria andSendIdLessThan(Long value) {
             addCriterion("send_id <", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSendIdLessThanOrEqualTo(Long value) {
             addCriterion("send_id <=", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdIn(List<Integer> values) {
+        public Criteria andSendIdIn(List<Long> values) {
             addCriterion("send_id in", values, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdNotIn(List<Integer> values) {
+        public Criteria andSendIdNotIn(List<Long> values) {
             addCriterion("send_id not in", values, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdBetween(Integer value1, Integer value2) {
+        public Criteria andSendIdBetween(Long value1, Long value2) {
             addCriterion("send_id between", value1, value2, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSendIdNotBetween(Long value1, Long value2) {
             addCriterion("send_id not between", value1, value2, "sendId");
             return (Criteria) this;
         }
@@ -234,52 +234,52 @@ public class SecretMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdEqualTo(Integer value) {
+        public Criteria andReceiveIdEqualTo(Long value) {
             addCriterion("receive_id =", value, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdNotEqualTo(Integer value) {
+        public Criteria andReceiveIdNotEqualTo(Long value) {
             addCriterion("receive_id <>", value, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdGreaterThan(Integer value) {
+        public Criteria andReceiveIdGreaterThan(Long value) {
             addCriterion("receive_id >", value, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andReceiveIdGreaterThanOrEqualTo(Long value) {
             addCriterion("receive_id >=", value, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdLessThan(Integer value) {
+        public Criteria andReceiveIdLessThan(Long value) {
             addCriterion("receive_id <", value, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdLessThanOrEqualTo(Integer value) {
+        public Criteria andReceiveIdLessThanOrEqualTo(Long value) {
             addCriterion("receive_id <=", value, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdIn(List<Integer> values) {
+        public Criteria andReceiveIdIn(List<Long> values) {
             addCriterion("receive_id in", values, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdNotIn(List<Integer> values) {
+        public Criteria andReceiveIdNotIn(List<Long> values) {
             addCriterion("receive_id not in", values, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdBetween(Integer value1, Integer value2) {
+        public Criteria andReceiveIdBetween(Long value1, Long value2) {
             addCriterion("receive_id between", value1, value2, "receiveId");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andReceiveIdNotBetween(Long value1, Long value2) {
             addCriterion("receive_id not between", value1, value2, "receiveId");
             return (Criteria) this;
         }

@@ -114,52 +114,52 @@ public class UserRankExample {
             return (Criteria) this;
         }
 
-        public Criteria andRankIdEqualTo(Integer value) {
+        public Criteria andRankIdEqualTo(Long value) {
             addCriterion("rank_id =", value, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdNotEqualTo(Integer value) {
+        public Criteria andRankIdNotEqualTo(Long value) {
             addCriterion("rank_id <>", value, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdGreaterThan(Integer value) {
+        public Criteria andRankIdGreaterThan(Long value) {
             addCriterion("rank_id >", value, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRankIdGreaterThanOrEqualTo(Long value) {
             addCriterion("rank_id >=", value, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdLessThan(Integer value) {
+        public Criteria andRankIdLessThan(Long value) {
             addCriterion("rank_id <", value, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdLessThanOrEqualTo(Integer value) {
+        public Criteria andRankIdLessThanOrEqualTo(Long value) {
             addCriterion("rank_id <=", value, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdIn(List<Integer> values) {
+        public Criteria andRankIdIn(List<Long> values) {
             addCriterion("rank_id in", values, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdNotIn(List<Integer> values) {
+        public Criteria andRankIdNotIn(List<Long> values) {
             addCriterion("rank_id not in", values, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdBetween(Integer value1, Integer value2) {
+        public Criteria andRankIdBetween(Long value1, Long value2) {
             addCriterion("rank_id between", value1, value2, "rankId");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andRankIdNotBetween(Long value1, Long value2) {
             addCriterion("rank_id not between", value1, value2, "rankId");
             return (Criteria) this;
         }
@@ -234,52 +234,52 @@ public class UserRankExample {
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkEqualTo(Integer value) {
+        public Criteria andRankMarkEqualTo(Long value) {
             addCriterion("rank_mark =", value, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkNotEqualTo(Integer value) {
+        public Criteria andRankMarkNotEqualTo(Long value) {
             addCriterion("rank_mark <>", value, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkGreaterThan(Integer value) {
+        public Criteria andRankMarkGreaterThan(Long value) {
             addCriterion("rank_mark >", value, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRankMarkGreaterThanOrEqualTo(Long value) {
             addCriterion("rank_mark >=", value, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkLessThan(Integer value) {
+        public Criteria andRankMarkLessThan(Long value) {
             addCriterion("rank_mark <", value, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkLessThanOrEqualTo(Integer value) {
+        public Criteria andRankMarkLessThanOrEqualTo(Long value) {
             addCriterion("rank_mark <=", value, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkIn(List<Integer> values) {
+        public Criteria andRankMarkIn(List<Long> values) {
             addCriterion("rank_mark in", values, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkNotIn(List<Integer> values) {
+        public Criteria andRankMarkNotIn(List<Long> values) {
             addCriterion("rank_mark not in", values, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkBetween(Integer value1, Integer value2) {
+        public Criteria andRankMarkBetween(Long value1, Long value2) {
             addCriterion("rank_mark between", value1, value2, "rankMark");
             return (Criteria) this;
         }
 
-        public Criteria andRankMarkNotBetween(Integer value1, Integer value2) {
+        public Criteria andRankMarkNotBetween(Long value1, Long value2) {
             addCriterion("rank_mark not between", value1, value2, "rankMark");
             return (Criteria) this;
         }

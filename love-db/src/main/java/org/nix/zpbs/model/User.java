@@ -8,14 +8,14 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 用户组ID
      *
      * @mbggenerated
      */
-    private Integer groupId;
+    private Long groupId;
 
     /**
      * 用户名
@@ -36,7 +36,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userPhone;
+    private Long userPhone;
 
     /**
      * 用户性别
@@ -50,7 +50,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userQq;
+    private Long userQq;
 
     /**
      * 用户EMAIL地址
@@ -71,7 +71,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userMark;
+    private Long userMark;
 
     /**
      * 用户等级
@@ -92,7 +92,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userBirthday;
+    private Long userBirthday;
 
     /**
      * 自我描述
@@ -120,7 +120,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userRegisterTime;
+    private Long userRegisterTime;
 
     /**
      * 用户注册时IP地址
@@ -134,7 +134,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer userLastUpdateTime;
+    private Long userLastUpdateTime;
 
     /**
      * 用户微博
@@ -180,19 +180,19 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Integer groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
@@ -212,11 +212,11 @@ public class User implements Serializable {
         this.userPwd = userPwd;
     }
 
-    public Integer getUserPhone() {
+    public Long getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(Integer userPhone) {
+    public void setUserPhone(Long userPhone) {
         this.userPhone = userPhone;
     }
 
@@ -228,11 +228,11 @@ public class User implements Serializable {
         this.userSex = userSex;
     }
 
-    public Integer getUserQq() {
+    public Long getUserQq() {
         return userQq;
     }
 
-    public void setUserQq(Integer userQq) {
+    public void setUserQq(Long userQq) {
         this.userQq = userQq;
     }
 
@@ -252,11 +252,11 @@ public class User implements Serializable {
         this.userAddress = userAddress;
     }
 
-    public Integer getUserMark() {
+    public Long getUserMark() {
         return userMark;
     }
 
-    public void setUserMark(Integer userMark) {
+    public void setUserMark(Long userMark) {
         this.userMark = userMark;
     }
 
@@ -276,11 +276,11 @@ public class User implements Serializable {
         this.userLastLoginIp = userLastLoginIp;
     }
 
-    public Integer getUserBirthday() {
+    public Long getUserBirthday() {
         return userBirthday;
     }
 
-    public void setUserBirthday(Integer userBirthday) {
+    public void setUserBirthday(Long userBirthday) {
         this.userBirthday = userBirthday;
     }
 
@@ -308,11 +308,11 @@ public class User implements Serializable {
         this.userSchool = userSchool;
     }
 
-    public Integer getUserRegisterTime() {
+    public Long getUserRegisterTime() {
         return userRegisterTime;
     }
 
-    public void setUserRegisterTime(Integer userRegisterTime) {
+    public void setUserRegisterTime(Long userRegisterTime) {
         this.userRegisterTime = userRegisterTime;
     }
 
@@ -324,11 +324,11 @@ public class User implements Serializable {
         this.userRegisterIp = userRegisterIp;
     }
 
-    public Integer getUserLastUpdateTime() {
+    public Long getUserLastUpdateTime() {
         return userLastUpdateTime;
     }
 
-    public void setUserLastUpdateTime(Integer userLastUpdateTime) {
+    public void setUserLastUpdateTime(Long userLastUpdateTime) {
         this.userLastUpdateTime = userLastUpdateTime;
     }
 

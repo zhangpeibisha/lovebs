@@ -8,14 +8,14 @@ public class UserComment implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer cId;
+    private Long cId;
 
     /**
      * 收到评论的用户ID
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 评论栏目ID
@@ -29,7 +29,7 @@ public class UserComment implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer commitId;
+    private Long commitId;
 
     /**
      * 评论内容
@@ -43,14 +43,14 @@ public class UserComment implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer commitUserId;
+    private Long commitUserId;
 
     /**
      * 评论时间
      *
      * @mbggenerated
      */
-    private Integer commitTime;
+    private Long commitTime;
 
     /**
      * 评论时的IP地址
@@ -61,19 +61,19 @@ public class UserComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getcId() {
+    public Long getcId() {
         return cId;
     }
 
-    public void setcId(Integer cId) {
+    public void setcId(Long cId) {
         this.cId = cId;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -85,11 +85,11 @@ public class UserComment implements Serializable {
         this.typeId = typeId;
     }
 
-    public Integer getCommitId() {
+    public Long getCommitId() {
         return commitId;
     }
 
-    public void setCommitId(Integer commitId) {
+    public void setCommitId(Long commitId) {
         this.commitId = commitId;
     }
 
@@ -101,19 +101,19 @@ public class UserComment implements Serializable {
         this.commitContent = commitContent;
     }
 
-    public Integer getCommitUserId() {
+    public Long getCommitUserId() {
         return commitUserId;
     }
 
-    public void setCommitUserId(Integer commitUserId) {
+    public void setCommitUserId(Long commitUserId) {
         this.commitUserId = commitUserId;
     }
 
-    public Integer getCommitTime() {
+    public Long getCommitTime() {
         return commitTime;
     }
 
-    public void setCommitTime(Integer commitTime) {
+    public void setCommitTime(Long commitTime) {
         this.commitTime = commitTime;
     }
 

@@ -3,11 +3,11 @@
 <mapper namespace="org.nix.zpbs.mapper.StayMessageMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.StayMessage">
     <id column="stay_id" jdbcType="SMALLINT" property="stayId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="stay_user_id" jdbcType="INTEGER" property="stayUserId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="stay_user_id" jdbcType="BIGINT" property="stayUserId" />
     <result column="message_content" jdbcType="VARCHAR" property="messageContent" />
     <result column="stay_user_ip" jdbcType="VARCHAR" property="stayUserIp" />
-    <result column="message_stay_time" jdbcType="INTEGER" property="messageStayTime" />
+    <result column="message_stay_time" jdbcType="BIGINT" property="messageStayTime" />
     <result column="place" jdbcType="VARCHAR" property="place" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -106,8 +106,8 @@
     insert into stay_message (stay_id, user_id, stay_user_id, 
       message_content, stay_user_ip, message_stay_time, 
       place)
-    values (#{stayId,jdbcType=SMALLINT}, #{userId,jdbcType=INTEGER}, #{stayUserId,jdbcType=INTEGER}, 
-      #{messageContent,jdbcType=VARCHAR}, #{stayUserIp,jdbcType=VARCHAR}, #{messageStayTime,jdbcType=INTEGER}, 
+    values (#{stayId,jdbcType=SMALLINT}, #{userId,jdbcType=BIGINT}, #{stayUserId,jdbcType=BIGINT}, 
+      #{messageContent,jdbcType=VARCHAR}, #{stayUserIp,jdbcType=VARCHAR}, #{messageStayTime,jdbcType=BIGINT}, 
       #{place,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.StayMessage">
@@ -140,10 +140,10 @@
         #{stayId,jdbcType=SMALLINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="stayUserId != null">
-        #{stayUserId,jdbcType=INTEGER},
+        #{stayUserId,jdbcType=BIGINT},
       </if>
       <if test="messageContent != null">
         #{messageContent,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
         #{stayUserIp,jdbcType=VARCHAR},
       </if>
       <if test="messageStayTime != null">
-        #{messageStayTime,jdbcType=INTEGER},
+        #{messageStayTime,jdbcType=BIGINT},
       </if>
       <if test="place != null">
         #{place,jdbcType=VARCHAR},
@@ -172,10 +172,10 @@
         stay_id = #{record.stayId,jdbcType=SMALLINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.stayUserId != null">
-        stay_user_id = #{record.stayUserId,jdbcType=INTEGER},
+        stay_user_id = #{record.stayUserId,jdbcType=BIGINT},
       </if>
       <if test="record.messageContent != null">
         message_content = #{record.messageContent,jdbcType=VARCHAR},
@@ -184,7 +184,7 @@
         stay_user_ip = #{record.stayUserIp,jdbcType=VARCHAR},
       </if>
       <if test="record.messageStayTime != null">
-        message_stay_time = #{record.messageStayTime,jdbcType=INTEGER},
+        message_stay_time = #{record.messageStayTime,jdbcType=BIGINT},
       </if>
       <if test="record.place != null">
         place = #{record.place,jdbcType=VARCHAR},
@@ -197,11 +197,11 @@
   <update id="updateByExample" parameterType="map">
     update stay_message
     set stay_id = #{record.stayId,jdbcType=SMALLINT},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      stay_user_id = #{record.stayUserId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      stay_user_id = #{record.stayUserId,jdbcType=BIGINT},
       message_content = #{record.messageContent,jdbcType=VARCHAR},
       stay_user_ip = #{record.stayUserIp,jdbcType=VARCHAR},
-      message_stay_time = #{record.messageStayTime,jdbcType=INTEGER},
+      message_stay_time = #{record.messageStayTime,jdbcType=BIGINT},
       place = #{record.place,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -211,10 +211,10 @@
     update stay_message
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="stayUserId != null">
-        stay_user_id = #{stayUserId,jdbcType=INTEGER},
+        stay_user_id = #{stayUserId,jdbcType=BIGINT},
       </if>
       <if test="messageContent != null">
         message_content = #{messageContent,jdbcType=VARCHAR},
@@ -223,7 +223,7 @@
         stay_user_ip = #{stayUserIp,jdbcType=VARCHAR},
       </if>
       <if test="messageStayTime != null">
-        message_stay_time = #{messageStayTime,jdbcType=INTEGER},
+        message_stay_time = #{messageStayTime,jdbcType=BIGINT},
       </if>
       <if test="place != null">
         place = #{place,jdbcType=VARCHAR},
@@ -233,11 +233,11 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.StayMessage">
     update stay_message
-    set user_id = #{userId,jdbcType=INTEGER},
-      stay_user_id = #{stayUserId,jdbcType=INTEGER},
+    set user_id = #{userId,jdbcType=BIGINT},
+      stay_user_id = #{stayUserId,jdbcType=BIGINT},
       message_content = #{messageContent,jdbcType=VARCHAR},
       stay_user_ip = #{stayUserIp,jdbcType=VARCHAR},
-      message_stay_time = #{messageStayTime,jdbcType=INTEGER},
+      message_stay_time = #{messageStayTime,jdbcType=BIGINT},
       place = #{place,jdbcType=VARCHAR}
     where stay_id = #{stayId,jdbcType=SMALLINT}
   </update>

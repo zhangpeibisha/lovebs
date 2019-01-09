@@ -1,5 +1,6 @@
 package org.nix.zpbs;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -11,6 +12,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
+@MapperScan(basePackages = {"org.nix.zpbs.dao","org.nix.zpbs.mapper"})
 public class LoveBlogApplication {
     public static void main(String[] args) {
         SpringApplication.run(LoveBlogApplication.class,args);

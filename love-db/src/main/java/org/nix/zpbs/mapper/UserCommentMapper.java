@@ -10,7 +10,7 @@ public interface UserCommentMapper {
 
     int deleteByExample(UserCommentExample example);
 
-    int deleteByPrimaryKey(Integer cId);
+    int deleteByPrimaryKey(Long cId);
 
     int insert(UserComment record);
 
@@ -18,7 +18,7 @@ public interface UserCommentMapper {
 
     List<UserComment> selectByExample(UserCommentExample example);
 
-    UserComment selectByPrimaryKey(Integer cId);
+    UserComment selectByPrimaryKey(Long cId);
 
     int updateByExampleSelective(@Param("record") UserComment record, @Param("example") UserCommentExample example);
 

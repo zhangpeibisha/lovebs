@@ -8,28 +8,28 @@ public class Visitor implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer vId;
+    private Long vId;
 
     /**
      * 访客ID
      *
      * @mbggenerated
      */
-    private Integer visitorId;
+    private Long visitorId;
 
     /**
      * 来访时间
      *
      * @mbggenerated
      */
-    private Integer visitorTime;
+    private Long visitorTime;
 
     /**
      * 被访用户ID
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 访客IP地址
@@ -50,39 +50,39 @@ public class Visitor implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer whereId;
+    private Long whereId;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getvId() {
+    public Long getvId() {
         return vId;
     }
 
-    public void setvId(Integer vId) {
+    public void setvId(Long vId) {
         this.vId = vId;
     }
 
-    public Integer getVisitorId() {
+    public Long getVisitorId() {
         return visitorId;
     }
 
-    public void setVisitorId(Integer visitorId) {
+    public void setVisitorId(Long visitorId) {
         this.visitorId = visitorId;
     }
 
-    public Integer getVisitorTime() {
+    public Long getVisitorTime() {
         return visitorTime;
     }
 
-    public void setVisitorTime(Integer visitorTime) {
+    public void setVisitorTime(Long visitorTime) {
         this.visitorTime = visitorTime;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -102,11 +102,11 @@ public class Visitor implements Serializable {
         this.typeId = typeId;
     }
 
-    public Integer getWhereId() {
+    public Long getWhereId() {
         return whereId;
     }
 
-    public void setWhereId(Integer whereId) {
+    public void setWhereId(Long whereId) {
         this.whereId = whereId;
     }
 

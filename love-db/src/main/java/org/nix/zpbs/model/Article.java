@@ -22,7 +22,7 @@ public class Article implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer articleTime;
+    private Long articleTime;
 
     /**
      * 发布IP
@@ -43,14 +43,14 @@ public class Article implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer sortArticleId;
+    private Long sortArticleId;
 
     /**
      * 所属用户ID
      *
      * @mbggenerated
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 栏目ID
@@ -105,11 +105,11 @@ public class Article implements Serializable {
         this.articleName = articleName;
     }
 
-    public Integer getArticleTime() {
+    public Long getArticleTime() {
         return articleTime;
     }
 
-    public void setArticleTime(Integer articleTime) {
+    public void setArticleTime(Long articleTime) {
         this.articleTime = articleTime;
     }
 
@@ -129,19 +129,19 @@ public class Article implements Serializable {
         this.articleClick = articleClick;
     }
 
-    public Integer getSortArticleId() {
+    public Long getSortArticleId() {
         return sortArticleId;
     }
 
-    public void setSortArticleId(Integer sortArticleId) {
+    public void setSortArticleId(Long sortArticleId) {
         this.sortArticleId = sortArticleId;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.UserCommentMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserComment">
-    <id column="c_id" jdbcType="INTEGER" property="cId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="c_id" jdbcType="BIGINT" property="cId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="type_id" jdbcType="TINYINT" property="typeId" />
-    <result column="commit_id" jdbcType="INTEGER" property="commitId" />
+    <result column="commit_id" jdbcType="BIGINT" property="commitId" />
     <result column="commit_content" jdbcType="VARCHAR" property="commitContent" />
-    <result column="commit_user_id" jdbcType="INTEGER" property="commitUserId" />
-    <result column="commit_time" jdbcType="INTEGER" property="commitTime" />
+    <result column="commit_user_id" jdbcType="BIGINT" property="commitUserId" />
+    <result column="commit_time" jdbcType="BIGINT" property="commitTime" />
     <result column="commit_ip" jdbcType="VARCHAR" property="commitIp" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -86,15 +86,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user_comment
-    where c_id = #{cId,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from user_comment
-    where c_id = #{cId,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserCommentExample">
     delete from user_comment
@@ -106,9 +106,9 @@
     insert into user_comment (c_id, user_id, type_id, 
       commit_id, commit_content, commit_user_id, 
       commit_time, commit_ip)
-    values (#{cId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{typeId,jdbcType=TINYINT}, 
-      #{commitId,jdbcType=INTEGER}, #{commitContent,jdbcType=VARCHAR}, #{commitUserId,jdbcType=INTEGER}, 
-      #{commitTime,jdbcType=INTEGER}, #{commitIp,jdbcType=VARCHAR})
+    values (#{cId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{typeId,jdbcType=TINYINT}, 
+      #{commitId,jdbcType=BIGINT}, #{commitContent,jdbcType=VARCHAR}, #{commitUserId,jdbcType=BIGINT}, 
+      #{commitTime,jdbcType=BIGINT}, #{commitIp,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserComment">
     insert into user_comment
@@ -140,25 +140,25 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cId != null">
-        #{cId,jdbcType=INTEGER},
+        #{cId,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="typeId != null">
         #{typeId,jdbcType=TINYINT},
       </if>
       <if test="commitId != null">
-        #{commitId,jdbcType=INTEGER},
+        #{commitId,jdbcType=BIGINT},
       </if>
       <if test="commitContent != null">
         #{commitContent,jdbcType=VARCHAR},
       </if>
       <if test="commitUserId != null">
-        #{commitUserId,jdbcType=INTEGER},
+        #{commitUserId,jdbcType=BIGINT},
       </if>
       <if test="commitTime != null">
-        #{commitTime,jdbcType=INTEGER},
+        #{commitTime,jdbcType=BIGINT},
       </if>
       <if test="commitIp != null">
         #{commitIp,jdbcType=VARCHAR},
@@ -175,25 +175,25 @@
     update user_comment
     <set>
       <if test="record.cId != null">
-        c_id = #{record.cId,jdbcType=INTEGER},
+        c_id = #{record.cId,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.typeId != null">
         type_id = #{record.typeId,jdbcType=TINYINT},
       </if>
       <if test="record.commitId != null">
-        commit_id = #{record.commitId,jdbcType=INTEGER},
+        commit_id = #{record.commitId,jdbcType=BIGINT},
       </if>
       <if test="record.commitContent != null">
         commit_content = #{record.commitContent,jdbcType=VARCHAR},
       </if>
       <if test="record.commitUserId != null">
-        commit_user_id = #{record.commitUserId,jdbcType=INTEGER},
+        commit_user_id = #{record.commitUserId,jdbcType=BIGINT},
       </if>
       <if test="record.commitTime != null">
-        commit_time = #{record.commitTime,jdbcType=INTEGER},
+        commit_time = #{record.commitTime,jdbcType=BIGINT},
       </if>
       <if test="record.commitIp != null">
         commit_ip = #{record.commitIp,jdbcType=VARCHAR},
@@ -205,13 +205,13 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update user_comment
-    set c_id = #{record.cId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+    set c_id = #{record.cId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       type_id = #{record.typeId,jdbcType=TINYINT},
-      commit_id = #{record.commitId,jdbcType=INTEGER},
+      commit_id = #{record.commitId,jdbcType=BIGINT},
       commit_content = #{record.commitContent,jdbcType=VARCHAR},
-      commit_user_id = #{record.commitUserId,jdbcType=INTEGER},
-      commit_time = #{record.commitTime,jdbcType=INTEGER},
+      commit_user_id = #{record.commitUserId,jdbcType=BIGINT},
+      commit_time = #{record.commitTime,jdbcType=BIGINT},
       commit_ip = #{record.commitIp,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -221,38 +221,38 @@
     update user_comment
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="typeId != null">
         type_id = #{typeId,jdbcType=TINYINT},
       </if>
       <if test="commitId != null">
-        commit_id = #{commitId,jdbcType=INTEGER},
+        commit_id = #{commitId,jdbcType=BIGINT},
       </if>
       <if test="commitContent != null">
         commit_content = #{commitContent,jdbcType=VARCHAR},
       </if>
       <if test="commitUserId != null">
-        commit_user_id = #{commitUserId,jdbcType=INTEGER},
+        commit_user_id = #{commitUserId,jdbcType=BIGINT},
       </if>
       <if test="commitTime != null">
-        commit_time = #{commitTime,jdbcType=INTEGER},
+        commit_time = #{commitTime,jdbcType=BIGINT},
       </if>
       <if test="commitIp != null">
         commit_ip = #{commitIp,jdbcType=VARCHAR},
       </if>
     </set>
-    where c_id = #{cId,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserComment">
     update user_comment
-    set user_id = #{userId,jdbcType=INTEGER},
+    set user_id = #{userId,jdbcType=BIGINT},
       type_id = #{typeId,jdbcType=TINYINT},
-      commit_id = #{commitId,jdbcType=INTEGER},
+      commit_id = #{commitId,jdbcType=BIGINT},
       commit_content = #{commitContent,jdbcType=VARCHAR},
-      commit_user_id = #{commitUserId,jdbcType=INTEGER},
-      commit_time = #{commitTime,jdbcType=INTEGER},
+      commit_user_id = #{commitUserId,jdbcType=BIGINT},
+      commit_time = #{commitTime,jdbcType=BIGINT},
       commit_ip = #{commitIp,jdbcType=VARCHAR}
-    where c_id = #{cId,jdbcType=INTEGER}
+    where c_id = #{cId,jdbcType=BIGINT}
   </update>
 </mapper>

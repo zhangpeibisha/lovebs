@@ -10,7 +10,7 @@ public interface PhoneMessageMapper {
 
     int deleteByExample(PhoneMessageExample example);
 
-    int deleteByPrimaryKey(Integer phoneId);
+    int deleteByPrimaryKey(Long phoneId);
 
     int insert(PhoneMessage record);
 
@@ -18,7 +18,7 @@ public interface PhoneMessageMapper {
 
     List<PhoneMessage> selectByExample(PhoneMessageExample example);
 
-    PhoneMessage selectByPrimaryKey(Integer phoneId);
+    PhoneMessage selectByPrimaryKey(Long phoneId);
 
     int updateByExampleSelective(@Param("record") PhoneMessage record, @Param("example") PhoneMessageExample example);
 

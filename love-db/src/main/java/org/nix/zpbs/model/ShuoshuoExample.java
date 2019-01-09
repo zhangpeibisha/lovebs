@@ -114,52 +114,52 @@ public class ShuoshuoExample {
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdEqualTo(Integer value) {
+        public Criteria andShuoIdEqualTo(Long value) {
             addCriterion("shuo_id =", value, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdNotEqualTo(Integer value) {
+        public Criteria andShuoIdNotEqualTo(Long value) {
             addCriterion("shuo_id <>", value, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdGreaterThan(Integer value) {
+        public Criteria andShuoIdGreaterThan(Long value) {
             addCriterion("shuo_id >", value, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andShuoIdGreaterThanOrEqualTo(Long value) {
             addCriterion("shuo_id >=", value, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdLessThan(Integer value) {
+        public Criteria andShuoIdLessThan(Long value) {
             addCriterion("shuo_id <", value, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdLessThanOrEqualTo(Integer value) {
+        public Criteria andShuoIdLessThanOrEqualTo(Long value) {
             addCriterion("shuo_id <=", value, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdIn(List<Integer> values) {
+        public Criteria andShuoIdIn(List<Long> values) {
             addCriterion("shuo_id in", values, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdNotIn(List<Integer> values) {
+        public Criteria andShuoIdNotIn(List<Long> values) {
             addCriterion("shuo_id not in", values, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdBetween(Integer value1, Integer value2) {
+        public Criteria andShuoIdBetween(Long value1, Long value2) {
             addCriterion("shuo_id between", value1, value2, "shuoId");
             return (Criteria) this;
         }
 
-        public Criteria andShuoIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andShuoIdNotBetween(Long value1, Long value2) {
             addCriterion("shuo_id not between", value1, value2, "shuoId");
             return (Criteria) this;
         }
@@ -174,52 +174,52 @@ public class ShuoshuoExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -234,52 +234,52 @@ public class ShuoshuoExample {
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeEqualTo(Integer value) {
+        public Criteria andShuoTimeEqualTo(Long value) {
             addCriterion("shuo_time =", value, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeNotEqualTo(Integer value) {
+        public Criteria andShuoTimeNotEqualTo(Long value) {
             addCriterion("shuo_time <>", value, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeGreaterThan(Integer value) {
+        public Criteria andShuoTimeGreaterThan(Long value) {
             addCriterion("shuo_time >", value, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andShuoTimeGreaterThanOrEqualTo(Long value) {
             addCriterion("shuo_time >=", value, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeLessThan(Integer value) {
+        public Criteria andShuoTimeLessThan(Long value) {
             addCriterion("shuo_time <", value, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andShuoTimeLessThanOrEqualTo(Long value) {
             addCriterion("shuo_time <=", value, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeIn(List<Integer> values) {
+        public Criteria andShuoTimeIn(List<Long> values) {
             addCriterion("shuo_time in", values, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeNotIn(List<Integer> values) {
+        public Criteria andShuoTimeNotIn(List<Long> values) {
             addCriterion("shuo_time not in", values, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeBetween(Integer value1, Integer value2) {
+        public Criteria andShuoTimeBetween(Long value1, Long value2) {
             addCriterion("shuo_time between", value1, value2, "shuoTime");
             return (Criteria) this;
         }
 
-        public Criteria andShuoTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andShuoTimeNotBetween(Long value1, Long value2) {
             addCriterion("shuo_time not between", value1, value2, "shuoTime");
             return (Criteria) this;
         }

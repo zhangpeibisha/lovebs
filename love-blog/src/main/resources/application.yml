@@ -1,4 +1,3 @@
-
 server:
   port: 9020
 spring:
@@ -6,16 +5,10 @@ spring:
     name: love-blog-application
   profiles:
     active: dev
-eureka:
-  client:
-    registerWithEureka: true #是否将自己注册到Eureka服务中，默认为true
-    fetchRegistry: true #是否从Eureka中获取注册信息，默认为true
-    serviceUrl:
-      defaultZone: http://localhost:9000/eureka/
-  instance:
-    prefer-ip-address: true
 logging:
   level:
     root: info
   path: C:\WorkPace\GIT\love\doc\log
   file: log.log
+mybatis:
+  mapper-locations: classpath:dao/*.xml,classpath*:org/nix/zpbs/mapper/*.xml

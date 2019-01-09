@@ -8,7 +8,7 @@ public class AboutBlog implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer blogId;
+    private Long blogId;
 
     /**
      * 博客关键字
@@ -40,11 +40,11 @@ public class AboutBlog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getBlogId() {
+    public Long getBlogId() {
         return blogId;
     }
 
-    public void setBlogId(Integer blogId) {
+    public void setBlogId(Long blogId) {
         this.blogId = blogId;
     }
 

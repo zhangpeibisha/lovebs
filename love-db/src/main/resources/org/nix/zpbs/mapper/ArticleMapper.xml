@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Article">
     <id column="article_id" jdbcType="SMALLINT" property="articleId" />
     <result column="article_name" jdbcType="VARCHAR" property="articleName" />
-    <result column="article_time" jdbcType="INTEGER" property="articleTime" />
+    <result column="article_time" jdbcType="BIGINT" property="articleTime" />
     <result column="article_ip" jdbcType="VARCHAR" property="articleIp" />
     <result column="article_click" jdbcType="INTEGER" property="articleClick" />
-    <result column="sort_article_id" jdbcType="INTEGER" property="sortArticleId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="sort_article_id" jdbcType="BIGINT" property="sortArticleId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="type_id" jdbcType="TINYINT" property="typeId" />
     <result column="article_type" jdbcType="INTEGER" property="articleType" />
     <result column="article_up" jdbcType="TINYINT" property="articleUp" />
@@ -136,9 +136,9 @@
       user_id, type_id, article_type, 
       article_up, article_support, article_content
       )
-    values (#{articleId,jdbcType=SMALLINT}, #{articleName,jdbcType=VARCHAR}, #{articleTime,jdbcType=INTEGER}, 
-      #{articleIp,jdbcType=VARCHAR}, #{articleClick,jdbcType=INTEGER}, #{sortArticleId,jdbcType=INTEGER}, 
-      #{userId,jdbcType=INTEGER}, #{typeId,jdbcType=TINYINT}, #{articleType,jdbcType=INTEGER}, 
+    values (#{articleId,jdbcType=SMALLINT}, #{articleName,jdbcType=VARCHAR}, #{articleTime,jdbcType=BIGINT}, 
+      #{articleIp,jdbcType=VARCHAR}, #{articleClick,jdbcType=INTEGER}, #{sortArticleId,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{typeId,jdbcType=TINYINT}, #{articleType,jdbcType=INTEGER}, 
       #{articleUp,jdbcType=TINYINT}, #{articleSupport,jdbcType=TINYINT}, #{articleContent,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -190,7 +190,7 @@
         #{articleName,jdbcType=VARCHAR},
       </if>
       <if test="articleTime != null">
-        #{articleTime,jdbcType=INTEGER},
+        #{articleTime,jdbcType=BIGINT},
       </if>
       <if test="articleIp != null">
         #{articleIp,jdbcType=VARCHAR},
@@ -199,10 +199,10 @@
         #{articleClick,jdbcType=INTEGER},
       </if>
       <if test="sortArticleId != null">
-        #{sortArticleId,jdbcType=INTEGER},
+        #{sortArticleId,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="typeId != null">
         #{typeId,jdbcType=TINYINT},
@@ -237,7 +237,7 @@
         article_name = #{record.articleName,jdbcType=VARCHAR},
       </if>
       <if test="record.articleTime != null">
-        article_time = #{record.articleTime,jdbcType=INTEGER},
+        article_time = #{record.articleTime,jdbcType=BIGINT},
       </if>
       <if test="record.articleIp != null">
         article_ip = #{record.articleIp,jdbcType=VARCHAR},
@@ -246,10 +246,10 @@
         article_click = #{record.articleClick,jdbcType=INTEGER},
       </if>
       <if test="record.sortArticleId != null">
-        sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
+        sort_article_id = #{record.sortArticleId,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.typeId != null">
         type_id = #{record.typeId,jdbcType=TINYINT},
@@ -275,11 +275,11 @@
     update article
     set article_id = #{record.articleId,jdbcType=SMALLINT},
       article_name = #{record.articleName,jdbcType=VARCHAR},
-      article_time = #{record.articleTime,jdbcType=INTEGER},
+      article_time = #{record.articleTime,jdbcType=BIGINT},
       article_ip = #{record.articleIp,jdbcType=VARCHAR},
       article_click = #{record.articleClick,jdbcType=INTEGER},
-      sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+      sort_article_id = #{record.sortArticleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       type_id = #{record.typeId,jdbcType=TINYINT},
       article_type = #{record.articleType,jdbcType=INTEGER},
       article_up = #{record.articleUp,jdbcType=TINYINT},
@@ -293,11 +293,11 @@
     update article
     set article_id = #{record.articleId,jdbcType=SMALLINT},
       article_name = #{record.articleName,jdbcType=VARCHAR},
-      article_time = #{record.articleTime,jdbcType=INTEGER},
+      article_time = #{record.articleTime,jdbcType=BIGINT},
       article_ip = #{record.articleIp,jdbcType=VARCHAR},
       article_click = #{record.articleClick,jdbcType=INTEGER},
-      sort_article_id = #{record.sortArticleId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+      sort_article_id = #{record.sortArticleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       type_id = #{record.typeId,jdbcType=TINYINT},
       article_type = #{record.articleType,jdbcType=INTEGER},
       article_up = #{record.articleUp,jdbcType=TINYINT},
@@ -313,7 +313,7 @@
         article_name = #{articleName,jdbcType=VARCHAR},
       </if>
       <if test="articleTime != null">
-        article_time = #{articleTime,jdbcType=INTEGER},
+        article_time = #{articleTime,jdbcType=BIGINT},
       </if>
       <if test="articleIp != null">
         article_ip = #{articleIp,jdbcType=VARCHAR},
@@ -322,10 +322,10 @@
         article_click = #{articleClick,jdbcType=INTEGER},
       </if>
       <if test="sortArticleId != null">
-        sort_article_id = #{sortArticleId,jdbcType=INTEGER},
+        sort_article_id = #{sortArticleId,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="typeId != null">
         type_id = #{typeId,jdbcType=TINYINT},
@@ -348,11 +348,11 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.nix.zpbs.model.Article">
     update article
     set article_name = #{articleName,jdbcType=VARCHAR},
-      article_time = #{articleTime,jdbcType=INTEGER},
+      article_time = #{articleTime,jdbcType=BIGINT},
       article_ip = #{articleIp,jdbcType=VARCHAR},
       article_click = #{articleClick,jdbcType=INTEGER},
-      sort_article_id = #{sortArticleId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
+      sort_article_id = #{sortArticleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
       type_id = #{typeId,jdbcType=TINYINT},
       article_type = #{articleType,jdbcType=INTEGER},
       article_up = #{articleUp,jdbcType=TINYINT},
@@ -363,11 +363,11 @@
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Article">
     update article
     set article_name = #{articleName,jdbcType=VARCHAR},
-      article_time = #{articleTime,jdbcType=INTEGER},
+      article_time = #{articleTime,jdbcType=BIGINT},
       article_ip = #{articleIp,jdbcType=VARCHAR},
       article_click = #{articleClick,jdbcType=INTEGER},
-      sort_article_id = #{sortArticleId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
+      sort_article_id = #{sortArticleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
       type_id = #{typeId,jdbcType=TINYINT},
       article_type = #{articleType,jdbcType=INTEGER},
       article_up = #{articleUp,jdbcType=TINYINT},

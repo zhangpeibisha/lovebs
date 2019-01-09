@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.PhoneMessageMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.PhoneMessage">
-    <id column="phone_id" jdbcType="INTEGER" property="phoneId" />
+    <id column="phone_id" jdbcType="BIGINT" property="phoneId" />
     <result column="phone_num" jdbcType="VARCHAR" property="phoneNum" />
     <result column="contents" jdbcType="VARCHAR" property="contents" />
-    <result column="send_time" jdbcType="INTEGER" property="sendTime" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="send_time" jdbcType="BIGINT" property="sendTime" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -83,15 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from phone_message
-    where phone_id = #{phoneId,jdbcType=INTEGER}
+    where phone_id = #{phoneId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from phone_message
-    where phone_id = #{phoneId,jdbcType=INTEGER}
+    where phone_id = #{phoneId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.PhoneMessageExample">
     delete from phone_message
@@ -102,8 +102,8 @@
   <insert id="insert" parameterType="org.nix.zpbs.model.PhoneMessage">
     insert into phone_message (phone_id, phone_num, contents, 
       send_time, user_id)
-    values (#{phoneId,jdbcType=INTEGER}, #{phoneNum,jdbcType=VARCHAR}, #{contents,jdbcType=VARCHAR}, 
-      #{sendTime,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
+    values (#{phoneId,jdbcType=BIGINT}, #{phoneNum,jdbcType=VARCHAR}, #{contents,jdbcType=VARCHAR}, 
+      #{sendTime,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.PhoneMessage">
     insert into phone_message
@@ -126,7 +126,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="phoneId != null">
-        #{phoneId,jdbcType=INTEGER},
+        #{phoneId,jdbcType=BIGINT},
       </if>
       <if test="phoneNum != null">
         #{phoneNum,jdbcType=VARCHAR},
@@ -135,10 +135,10 @@
         #{contents,jdbcType=VARCHAR},
       </if>
       <if test="sendTime != null">
-        #{sendTime,jdbcType=INTEGER},
+        #{sendTime,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -152,7 +152,7 @@
     update phone_message
     <set>
       <if test="record.phoneId != null">
-        phone_id = #{record.phoneId,jdbcType=INTEGER},
+        phone_id = #{record.phoneId,jdbcType=BIGINT},
       </if>
       <if test="record.phoneNum != null">
         phone_num = #{record.phoneNum,jdbcType=VARCHAR},
@@ -161,10 +161,10 @@
         contents = #{record.contents,jdbcType=VARCHAR},
       </if>
       <if test="record.sendTime != null">
-        send_time = #{record.sendTime,jdbcType=INTEGER},
+        send_time = #{record.sendTime,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -173,11 +173,11 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update phone_message
-    set phone_id = #{record.phoneId,jdbcType=INTEGER},
+    set phone_id = #{record.phoneId,jdbcType=BIGINT},
       phone_num = #{record.phoneNum,jdbcType=VARCHAR},
       contents = #{record.contents,jdbcType=VARCHAR},
-      send_time = #{record.sendTime,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER}
+      send_time = #{record.sendTime,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -192,20 +192,20 @@
         contents = #{contents,jdbcType=VARCHAR},
       </if>
       <if test="sendTime != null">
-        send_time = #{sendTime,jdbcType=INTEGER},
+        send_time = #{sendTime,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
     </set>
-    where phone_id = #{phoneId,jdbcType=INTEGER}
+    where phone_id = #{phoneId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.PhoneMessage">
     update phone_message
     set phone_num = #{phoneNum,jdbcType=VARCHAR},
       contents = #{contents,jdbcType=VARCHAR},
-      send_time = #{sendTime,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER}
-    where phone_id = #{phoneId,jdbcType=INTEGER}
+      send_time = #{sendTime,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT}
+    where phone_id = #{phoneId,jdbcType=BIGINT}
   </update>
 </mapper>

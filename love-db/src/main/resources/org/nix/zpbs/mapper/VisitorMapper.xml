@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.VisitorMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Visitor">
-    <id column="v_id" jdbcType="INTEGER" property="vId" />
-    <result column="visitor_id" jdbcType="INTEGER" property="visitorId" />
-    <result column="visitor_time" jdbcType="INTEGER" property="visitorTime" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="v_id" jdbcType="BIGINT" property="vId" />
+    <result column="visitor_id" jdbcType="BIGINT" property="visitorId" />
+    <result column="visitor_time" jdbcType="BIGINT" property="visitorTime" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="visitor_ip" jdbcType="VARCHAR" property="visitorIp" />
     <result column="type_id" jdbcType="INTEGER" property="typeId" />
-    <result column="where_id" jdbcType="INTEGER" property="whereId" />
+    <result column="where_id" jdbcType="BIGINT" property="whereId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,15 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from visitor
-    where v_id = #{vId,jdbcType=INTEGER}
+    where v_id = #{vId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from visitor
-    where v_id = #{vId,jdbcType=INTEGER}
+    where v_id = #{vId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.VisitorExample">
     delete from visitor
@@ -105,9 +105,9 @@
     insert into visitor (v_id, visitor_id, visitor_time, 
       user_id, visitor_ip, type_id, 
       where_id)
-    values (#{vId,jdbcType=INTEGER}, #{visitorId,jdbcType=INTEGER}, #{visitorTime,jdbcType=INTEGER}, 
-      #{userId,jdbcType=INTEGER}, #{visitorIp,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
-      #{whereId,jdbcType=INTEGER})
+    values (#{vId,jdbcType=BIGINT}, #{visitorId,jdbcType=BIGINT}, #{visitorTime,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{visitorIp,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
+      #{whereId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.Visitor">
     insert into visitor
@@ -136,16 +136,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="vId != null">
-        #{vId,jdbcType=INTEGER},
+        #{vId,jdbcType=BIGINT},
       </if>
       <if test="visitorId != null">
-        #{visitorId,jdbcType=INTEGER},
+        #{visitorId,jdbcType=BIGINT},
       </if>
       <if test="visitorTime != null">
-        #{visitorTime,jdbcType=INTEGER},
+        #{visitorTime,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="visitorIp != null">
         #{visitorIp,jdbcType=VARCHAR},
@@ -154,7 +154,7 @@
         #{typeId,jdbcType=INTEGER},
       </if>
       <if test="whereId != null">
-        #{whereId,jdbcType=INTEGER},
+        #{whereId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -168,16 +168,16 @@
     update visitor
     <set>
       <if test="record.vId != null">
-        v_id = #{record.vId,jdbcType=INTEGER},
+        v_id = #{record.vId,jdbcType=BIGINT},
       </if>
       <if test="record.visitorId != null">
-        visitor_id = #{record.visitorId,jdbcType=INTEGER},
+        visitor_id = #{record.visitorId,jdbcType=BIGINT},
       </if>
       <if test="record.visitorTime != null">
-        visitor_time = #{record.visitorTime,jdbcType=INTEGER},
+        visitor_time = #{record.visitorTime,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.visitorIp != null">
         visitor_ip = #{record.visitorIp,jdbcType=VARCHAR},
@@ -186,7 +186,7 @@
         type_id = #{record.typeId,jdbcType=INTEGER},
       </if>
       <if test="record.whereId != null">
-        where_id = #{record.whereId,jdbcType=INTEGER},
+        where_id = #{record.whereId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -195,13 +195,13 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update visitor
-    set v_id = #{record.vId,jdbcType=INTEGER},
-      visitor_id = #{record.visitorId,jdbcType=INTEGER},
-      visitor_time = #{record.visitorTime,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+    set v_id = #{record.vId,jdbcType=BIGINT},
+      visitor_id = #{record.visitorId,jdbcType=BIGINT},
+      visitor_time = #{record.visitorTime,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       visitor_ip = #{record.visitorIp,jdbcType=VARCHAR},
       type_id = #{record.typeId,jdbcType=INTEGER},
-      where_id = #{record.whereId,jdbcType=INTEGER}
+      where_id = #{record.whereId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -210,13 +210,13 @@
     update visitor
     <set>
       <if test="visitorId != null">
-        visitor_id = #{visitorId,jdbcType=INTEGER},
+        visitor_id = #{visitorId,jdbcType=BIGINT},
       </if>
       <if test="visitorTime != null">
-        visitor_time = #{visitorTime,jdbcType=INTEGER},
+        visitor_time = #{visitorTime,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="visitorIp != null">
         visitor_ip = #{visitorIp,jdbcType=VARCHAR},
@@ -225,19 +225,19 @@
         type_id = #{typeId,jdbcType=INTEGER},
       </if>
       <if test="whereId != null">
-        where_id = #{whereId,jdbcType=INTEGER},
+        where_id = #{whereId,jdbcType=BIGINT},
       </if>
     </set>
-    where v_id = #{vId,jdbcType=INTEGER}
+    where v_id = #{vId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Visitor">
     update visitor
-    set visitor_id = #{visitorId,jdbcType=INTEGER},
-      visitor_time = #{visitorTime,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
+    set visitor_id = #{visitorId,jdbcType=BIGINT},
+      visitor_time = #{visitorTime,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
       visitor_ip = #{visitorIp,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=INTEGER},
-      where_id = #{whereId,jdbcType=INTEGER}
-    where v_id = #{vId,jdbcType=INTEGER}
+      where_id = #{whereId,jdbcType=BIGINT}
+    where v_id = #{vId,jdbcType=BIGINT}
   </update>
 </mapper>

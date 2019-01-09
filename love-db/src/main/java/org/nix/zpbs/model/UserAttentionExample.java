@@ -174,52 +174,52 @@ public class UserAttentionExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -234,52 +234,52 @@ public class UserAttentionExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdEqualTo(Integer value) {
+        public Criteria andAttentionIdEqualTo(Long value) {
             addCriterion("attention_id =", value, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdNotEqualTo(Integer value) {
+        public Criteria andAttentionIdNotEqualTo(Long value) {
             addCriterion("attention_id <>", value, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdGreaterThan(Integer value) {
+        public Criteria andAttentionIdGreaterThan(Long value) {
             addCriterion("attention_id >", value, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAttentionIdGreaterThanOrEqualTo(Long value) {
             addCriterion("attention_id >=", value, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdLessThan(Integer value) {
+        public Criteria andAttentionIdLessThan(Long value) {
             addCriterion("attention_id <", value, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdLessThanOrEqualTo(Integer value) {
+        public Criteria andAttentionIdLessThanOrEqualTo(Long value) {
             addCriterion("attention_id <=", value, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdIn(List<Integer> values) {
+        public Criteria andAttentionIdIn(List<Long> values) {
             addCriterion("attention_id in", values, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdNotIn(List<Integer> values) {
+        public Criteria andAttentionIdNotIn(List<Long> values) {
             addCriterion("attention_id not in", values, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdBetween(Integer value1, Integer value2) {
+        public Criteria andAttentionIdBetween(Long value1, Long value2) {
             addCriterion("attention_id between", value1, value2, "attentionId");
             return (Criteria) this;
         }
 
-        public Criteria andAttentionIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andAttentionIdNotBetween(Long value1, Long value2) {
             addCriterion("attention_id not between", value1, value2, "attentionId");
             return (Criteria) this;
         }

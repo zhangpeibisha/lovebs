@@ -10,7 +10,7 @@ public interface UserMapper {
 
     int deleteByExample(UserExample example);
 
-    int deleteByPrimaryKey(Integer userId);
+    int deleteByPrimaryKey(Long userId);
 
     int insert(User record);
 
@@ -18,7 +18,7 @@ public interface UserMapper {
 
     List<User> selectByExample(UserExample example);
 
-    User selectByPrimaryKey(Integer userId);
+    User selectByPrimaryKey(Long userId);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 

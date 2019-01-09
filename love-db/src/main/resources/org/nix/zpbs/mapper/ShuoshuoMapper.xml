@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.ShuoshuoMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Shuoshuo">
-    <id column="shuo_id" jdbcType="INTEGER" property="shuoId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="shuo_time" jdbcType="INTEGER" property="shuoTime" />
+    <id column="shuo_id" jdbcType="BIGINT" property="shuoId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="shuo_time" jdbcType="BIGINT" property="shuoTime" />
     <result column="shuo_ip" jdbcType="VARCHAR" property="shuoIp" />
     <result column="shuoshuo" jdbcType="VARCHAR" property="shuoshuo" />
     <result column="type_id" jdbcType="TINYINT" property="typeId" />
@@ -84,15 +84,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from shuoshuo
-    where shuo_id = #{shuoId,jdbcType=INTEGER}
+    where shuo_id = #{shuoId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from shuoshuo
-    where shuo_id = #{shuoId,jdbcType=INTEGER}
+    where shuo_id = #{shuoId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.ShuoshuoExample">
     delete from shuoshuo
@@ -104,7 +104,7 @@
     insert into shuoshuo (shuo_id, user_id, shuo_time, 
       shuo_ip, shuoshuo, type_id
       )
-    values (#{shuoId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{shuoTime,jdbcType=INTEGER}, 
+    values (#{shuoId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{shuoTime,jdbcType=BIGINT}, 
       #{shuoIp,jdbcType=VARCHAR}, #{shuoshuo,jdbcType=VARCHAR}, #{typeId,jdbcType=TINYINT}
       )
   </insert>
@@ -132,13 +132,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="shuoId != null">
-        #{shuoId,jdbcType=INTEGER},
+        #{shuoId,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="shuoTime != null">
-        #{shuoTime,jdbcType=INTEGER},
+        #{shuoTime,jdbcType=BIGINT},
       </if>
       <if test="shuoIp != null">
         #{shuoIp,jdbcType=VARCHAR},
@@ -161,13 +161,13 @@
     update shuoshuo
     <set>
       <if test="record.shuoId != null">
-        shuo_id = #{record.shuoId,jdbcType=INTEGER},
+        shuo_id = #{record.shuoId,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.shuoTime != null">
-        shuo_time = #{record.shuoTime,jdbcType=INTEGER},
+        shuo_time = #{record.shuoTime,jdbcType=BIGINT},
       </if>
       <if test="record.shuoIp != null">
         shuo_ip = #{record.shuoIp,jdbcType=VARCHAR},
@@ -185,9 +185,9 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update shuoshuo
-    set shuo_id = #{record.shuoId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      shuo_time = #{record.shuoTime,jdbcType=INTEGER},
+    set shuo_id = #{record.shuoId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      shuo_time = #{record.shuoTime,jdbcType=BIGINT},
       shuo_ip = #{record.shuoIp,jdbcType=VARCHAR},
       shuoshuo = #{record.shuoshuo,jdbcType=VARCHAR},
       type_id = #{record.typeId,jdbcType=TINYINT}
@@ -199,10 +199,10 @@
     update shuoshuo
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="shuoTime != null">
-        shuo_time = #{shuoTime,jdbcType=INTEGER},
+        shuo_time = #{shuoTime,jdbcType=BIGINT},
       </if>
       <if test="shuoIp != null">
         shuo_ip = #{shuoIp,jdbcType=VARCHAR},
@@ -214,15 +214,15 @@
         type_id = #{typeId,jdbcType=TINYINT},
       </if>
     </set>
-    where shuo_id = #{shuoId,jdbcType=INTEGER}
+    where shuo_id = #{shuoId,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Shuoshuo">
     update shuoshuo
-    set user_id = #{userId,jdbcType=INTEGER},
-      shuo_time = #{shuoTime,jdbcType=INTEGER},
+    set user_id = #{userId,jdbcType=BIGINT},
+      shuo_time = #{shuoTime,jdbcType=BIGINT},
       shuo_ip = #{shuoIp,jdbcType=VARCHAR},
       shuoshuo = #{shuoshuo,jdbcType=VARCHAR},
       type_id = #{typeId,jdbcType=TINYINT}
-    where shuo_id = #{shuoId,jdbcType=INTEGER}
+    where shuo_id = #{shuoId,jdbcType=BIGINT}
   </update>
 </mapper>

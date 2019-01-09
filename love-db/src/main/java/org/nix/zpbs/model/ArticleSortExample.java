@@ -114,52 +114,52 @@ public class ArticleSortExample {
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdEqualTo(Integer value) {
+        public Criteria andSortArticleIdEqualTo(Long value) {
             addCriterion("sort_article_id =", value, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdNotEqualTo(Integer value) {
+        public Criteria andSortArticleIdNotEqualTo(Long value) {
             addCriterion("sort_article_id <>", value, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdGreaterThan(Integer value) {
+        public Criteria andSortArticleIdGreaterThan(Long value) {
             addCriterion("sort_article_id >", value, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSortArticleIdGreaterThanOrEqualTo(Long value) {
             addCriterion("sort_article_id >=", value, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdLessThan(Integer value) {
+        public Criteria andSortArticleIdLessThan(Long value) {
             addCriterion("sort_article_id <", value, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSortArticleIdLessThanOrEqualTo(Long value) {
             addCriterion("sort_article_id <=", value, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdIn(List<Integer> values) {
+        public Criteria andSortArticleIdIn(List<Long> values) {
             addCriterion("sort_article_id in", values, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdNotIn(List<Integer> values) {
+        public Criteria andSortArticleIdNotIn(List<Long> values) {
             addCriterion("sort_article_id not in", values, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdBetween(Integer value1, Integer value2) {
+        public Criteria andSortArticleIdBetween(Long value1, Long value2) {
             addCriterion("sort_article_id between", value1, value2, "sortArticleId");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSortArticleIdNotBetween(Long value1, Long value2) {
             addCriterion("sort_article_id not between", value1, value2, "sortArticleId");
             return (Criteria) this;
         }
@@ -174,52 +174,52 @@ public class ArticleSortExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }

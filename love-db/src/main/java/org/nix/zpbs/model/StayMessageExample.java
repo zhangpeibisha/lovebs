@@ -174,52 +174,52 @@ public class StayMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -234,52 +234,52 @@ public class StayMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdEqualTo(Integer value) {
+        public Criteria andStayUserIdEqualTo(Long value) {
             addCriterion("stay_user_id =", value, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdNotEqualTo(Integer value) {
+        public Criteria andStayUserIdNotEqualTo(Long value) {
             addCriterion("stay_user_id <>", value, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdGreaterThan(Integer value) {
+        public Criteria andStayUserIdGreaterThan(Long value) {
             addCriterion("stay_user_id >", value, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andStayUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("stay_user_id >=", value, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdLessThan(Integer value) {
+        public Criteria andStayUserIdLessThan(Long value) {
             addCriterion("stay_user_id <", value, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andStayUserIdLessThanOrEqualTo(Long value) {
             addCriterion("stay_user_id <=", value, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdIn(List<Integer> values) {
+        public Criteria andStayUserIdIn(List<Long> values) {
             addCriterion("stay_user_id in", values, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdNotIn(List<Integer> values) {
+        public Criteria andStayUserIdNotIn(List<Long> values) {
             addCriterion("stay_user_id not in", values, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andStayUserIdBetween(Long value1, Long value2) {
             addCriterion("stay_user_id between", value1, value2, "stayUserId");
             return (Criteria) this;
         }
 
-        public Criteria andStayUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andStayUserIdNotBetween(Long value1, Long value2) {
             addCriterion("stay_user_id not between", value1, value2, "stayUserId");
             return (Criteria) this;
         }
@@ -434,52 +434,52 @@ public class StayMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeEqualTo(Integer value) {
+        public Criteria andMessageStayTimeEqualTo(Long value) {
             addCriterion("message_stay_time =", value, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeNotEqualTo(Integer value) {
+        public Criteria andMessageStayTimeNotEqualTo(Long value) {
             addCriterion("message_stay_time <>", value, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeGreaterThan(Integer value) {
+        public Criteria andMessageStayTimeGreaterThan(Long value) {
             addCriterion("message_stay_time >", value, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andMessageStayTimeGreaterThanOrEqualTo(Long value) {
             addCriterion("message_stay_time >=", value, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeLessThan(Integer value) {
+        public Criteria andMessageStayTimeLessThan(Long value) {
             addCriterion("message_stay_time <", value, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeLessThanOrEqualTo(Integer value) {
+        public Criteria andMessageStayTimeLessThanOrEqualTo(Long value) {
             addCriterion("message_stay_time <=", value, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeIn(List<Integer> values) {
+        public Criteria andMessageStayTimeIn(List<Long> values) {
             addCriterion("message_stay_time in", values, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeNotIn(List<Integer> values) {
+        public Criteria andMessageStayTimeNotIn(List<Long> values) {
             addCriterion("message_stay_time not in", values, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeBetween(Integer value1, Integer value2) {
+        public Criteria andMessageStayTimeBetween(Long value1, Long value2) {
             addCriterion("message_stay_time between", value1, value2, "messageStayTime");
             return (Criteria) this;
         }
 
-        public Criteria andMessageStayTimeNotBetween(Integer value1, Integer value2) {
+        public Criteria andMessageStayTimeNotBetween(Long value1, Long value2) {
             addCriterion("message_stay_time not between", value1, value2, "messageStayTime");
             return (Criteria) this;
         }

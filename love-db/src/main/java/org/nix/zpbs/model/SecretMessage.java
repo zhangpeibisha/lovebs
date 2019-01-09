@@ -8,21 +8,21 @@ public class SecretMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Integer secretId;
+    private Long secretId;
 
     /**
      * 发信者ID
      *
      * @mbggenerated
      */
-    private Integer sendId;
+    private Long sendId;
 
     /**
      * 收信者ID
      *
      * @mbggenerated
      */
-    private Integer receiveId;
+    private Long receiveId;
 
     /**
      * 私信标题
@@ -40,27 +40,27 @@ public class SecretMessage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getSecretId() {
+    public Long getSecretId() {
         return secretId;
     }
 
-    public void setSecretId(Integer secretId) {
+    public void setSecretId(Long secretId) {
         this.secretId = secretId;
     }
 
-    public Integer getSendId() {
+    public Long getSendId() {
         return sendId;
     }
 
-    public void setSendId(Integer sendId) {
+    public void setSendId(Long sendId) {
         this.sendId = sendId;
     }
 
-    public Integer getReceiveId() {
+    public Long getReceiveId() {
         return receiveId;
     }
 
-    public void setReceiveId(Integer receiveId) {
+    public void setReceiveId(Long receiveId) {
         this.receiveId = receiveId;
     }
 

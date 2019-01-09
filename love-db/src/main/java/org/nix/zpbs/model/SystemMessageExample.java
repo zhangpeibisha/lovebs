@@ -114,52 +114,52 @@ public class SystemMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdEqualTo(Integer value) {
+        public Criteria andSystemIdEqualTo(Long value) {
             addCriterion("system_id =", value, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdNotEqualTo(Integer value) {
+        public Criteria andSystemIdNotEqualTo(Long value) {
             addCriterion("system_id <>", value, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdGreaterThan(Integer value) {
+        public Criteria andSystemIdGreaterThan(Long value) {
             addCriterion("system_id >", value, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSystemIdGreaterThanOrEqualTo(Long value) {
             addCriterion("system_id >=", value, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdLessThan(Integer value) {
+        public Criteria andSystemIdLessThan(Long value) {
             addCriterion("system_id <", value, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSystemIdLessThanOrEqualTo(Long value) {
             addCriterion("system_id <=", value, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdIn(List<Integer> values) {
+        public Criteria andSystemIdIn(List<Long> values) {
             addCriterion("system_id in", values, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdNotIn(List<Integer> values) {
+        public Criteria andSystemIdNotIn(List<Long> values) {
             addCriterion("system_id not in", values, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdBetween(Integer value1, Integer value2) {
+        public Criteria andSystemIdBetween(Long value1, Long value2) {
             addCriterion("system_id between", value1, value2, "systemId");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSystemIdNotBetween(Long value1, Long value2) {
             addCriterion("system_id not between", value1, value2, "systemId");
             return (Criteria) this;
         }
@@ -174,52 +174,52 @@ public class SystemMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andSendIdEqualTo(Integer value) {
+        public Criteria andSendIdEqualTo(Long value) {
             addCriterion("send_id =", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdNotEqualTo(Integer value) {
+        public Criteria andSendIdNotEqualTo(Long value) {
             addCriterion("send_id <>", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdGreaterThan(Integer value) {
+        public Criteria andSendIdGreaterThan(Long value) {
             addCriterion("send_id >", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSendIdGreaterThanOrEqualTo(Long value) {
             addCriterion("send_id >=", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdLessThan(Integer value) {
+        public Criteria andSendIdLessThan(Long value) {
             addCriterion("send_id <", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdLessThanOrEqualTo(Integer value) {
+        public Criteria andSendIdLessThanOrEqualTo(Long value) {
             addCriterion("send_id <=", value, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdIn(List<Integer> values) {
+        public Criteria andSendIdIn(List<Long> values) {
             addCriterion("send_id in", values, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdNotIn(List<Integer> values) {
+        public Criteria andSendIdNotIn(List<Long> values) {
             addCriterion("send_id not in", values, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdBetween(Integer value1, Integer value2) {
+        public Criteria andSendIdBetween(Long value1, Long value2) {
             addCriterion("send_id between", value1, value2, "sendId");
             return (Criteria) this;
         }
 
-        public Criteria andSendIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andSendIdNotBetween(Long value1, Long value2) {
             addCriterion("send_id not between", value1, value2, "sendId");
             return (Criteria) this;
         }
@@ -294,52 +294,52 @@ public class SystemMessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultEqualTo(Integer value) {
+        public Criteria andSendDefaultEqualTo(Long value) {
             addCriterion("send_default =", value, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultNotEqualTo(Integer value) {
+        public Criteria andSendDefaultNotEqualTo(Long value) {
             addCriterion("send_default <>", value, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultGreaterThan(Integer value) {
+        public Criteria andSendDefaultGreaterThan(Long value) {
             addCriterion("send_default >", value, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultGreaterThanOrEqualTo(Integer value) {
+        public Criteria andSendDefaultGreaterThanOrEqualTo(Long value) {
             addCriterion("send_default >=", value, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultLessThan(Integer value) {
+        public Criteria andSendDefaultLessThan(Long value) {
             addCriterion("send_default <", value, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultLessThanOrEqualTo(Integer value) {
+        public Criteria andSendDefaultLessThanOrEqualTo(Long value) {
             addCriterion("send_default <=", value, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultIn(List<Integer> values) {
+        public Criteria andSendDefaultIn(List<Long> values) {
             addCriterion("send_default in", values, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultNotIn(List<Integer> values) {
+        public Criteria andSendDefaultNotIn(List<Long> values) {
             addCriterion("send_default not in", values, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultBetween(Integer value1, Integer value2) {
+        public Criteria andSendDefaultBetween(Long value1, Long value2) {
             addCriterion("send_default between", value1, value2, "sendDefault");
             return (Criteria) this;
         }
 
-        public Criteria andSendDefaultNotBetween(Integer value1, Integer value2) {
+        public Criteria andSendDefaultNotBetween(Long value1, Long value2) {
             addCriterion("send_default not between", value1, value2, "sendDefault");
             return (Criteria) this;
         }
