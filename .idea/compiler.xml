@@ -10,6 +10,7 @@
         <module name="lovedb" />
         <module name="loveeureka" />
         <module name="loveoauth2service" />
+        <module name="lovetools" />
         <module name="lovezuul" />
       </profile>
     </annotationProcessing>

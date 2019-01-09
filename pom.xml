@@ -14,6 +14,7 @@
       <module>love-zuul</module>
       <module>love-blog</module>
       <module>love-oauth2-service</module>
+      <module>love-tools</module>
   </modules>
 
   <name>love</name>

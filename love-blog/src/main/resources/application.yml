@@ -1,8 +1,11 @@
+
 server:
   port: 9020
 spring:
   application:
     name: love-blog-application
+  profiles:
+    active: dev
 eureka:
   client:
     registerWithEureka: true #是否将自己注册到Eureka服务中，默认为true
@@ -11,3 +14,8 @@ eureka:
       defaultZone: http://localhost:9000/eureka/
   instance:
     prefer-ip-address: true
+logging:
+  level:
+    root: info
+  path: C:\WorkPace\GIT\love\doc\log
+  file: log.log

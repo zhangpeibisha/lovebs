@@ -5,8 +5,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.nix.zpbs</groupId>
+
     <artifactId>love-zuul</artifactId>
+    <groupId>org.nix.zpbs</groupId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 

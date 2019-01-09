@@ -17,3 +17,4 @@
 * OAuth2 in Action   作者：Justin and Antonio
 * [SSO 使用学习例子](https://github.com/lexburner/oauth2-demo)
 * [MD 语法学习](https://www.jianshu.com/p/96ecaa2cc989)
+* [Swagger使用指南](https://blog.csdn.net/sanyaoxu_2/article/details/80555328)
