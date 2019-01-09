@@ -1,20 +1,17 @@
 package org.nix.zpbs.dao;
 
+import org.nix.zpbs.dto.response.UserResponseDetailDTO;
 import org.springframework.stereotype.Repository;
 
 /**
+ * 用户持久层
  * @author zhangpei
  * @version 1.0
  * @date 2019/1/8
  */
-
+@Repository
 public interface UserDao {
-    /**
-     * 检测账户的账号和密码是否正确
-     * @param account 账户信息
-     * @param password 用户密码
-     * @return 查询到有多少个匹配信息
-     */
-    int checkAccountAndPassword(String account,String password);
+
+
 
 }
