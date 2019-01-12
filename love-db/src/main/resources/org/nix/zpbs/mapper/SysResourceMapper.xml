@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.mapper.SysResourceMapper">
+  <resultMap id="BaseResultMap" type="org.nix.zpbs.model.SysResource">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="RESOURCE_NAME" jdbcType="VARCHAR" property="resourceName" />
+    <result column="RESOURCE_URL" jdbcType="VARCHAR" property="resourceUrl" />
+    <result column="RESOURCE_SWITCH" jdbcType="INTEGER" property="resourceSwitch" />
+    <result column="RESOURCE_DESCRIPTION" jdbcType="VARCHAR" property="resourceDescription" />
+    <result column="RESOURCE_TYPE" jdbcType="INTEGER" property="resourceType" />
+    <result column="RESOURCE_PRENT" jdbcType="BIGINT" property="resourcePrent" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, RESOURCE_NAME, RESOURCE_URL, RESOURCE_SWITCH, RESOURCE_DESCRIPTION, RESOURCE_TYPE, 
+    RESOURCE_PRENT
+  </sql>
+  <select id="selectByExample" parameterType="org.nix.zpbs.model.SysResourceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SYS_RESOURCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_RESOURCE
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from SYS_RESOURCE
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.nix.zpbs.model.SysResourceExample">
+    delete from SYS_RESOURCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.nix.zpbs.model.SysResource">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into SYS_RESOURCE (RESOURCE_NAME, RESOURCE_URL, RESOURCE_SWITCH, 
+      RESOURCE_DESCRIPTION, RESOURCE_TYPE, RESOURCE_PRENT
+      )
+    values (#{resourceName,jdbcType=VARCHAR}, #{resourceUrl,jdbcType=VARCHAR}, #{resourceSwitch,jdbcType=INTEGER}, 
+      #{resourceDescription,jdbcType=VARCHAR}, #{resourceType,jdbcType=INTEGER}, #{resourcePrent,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.nix.zpbs.model.SysResource">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into SYS_RESOURCE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="resourceName != null">
+        RESOURCE_NAME,
+      </if>
+      <if test="resourceUrl != null">
+        RESOURCE_URL,
+      </if>
+      <if test="resourceSwitch != null">
+        RESOURCE_SWITCH,
+      </if>
+      <if test="resourceDescription != null">
+        RESOURCE_DESCRIPTION,
+      </if>
+      <if test="resourceType != null">
+        RESOURCE_TYPE,
+      </if>
+      <if test="resourcePrent != null">
+        RESOURCE_PRENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="resourceName != null">
+        #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceUrl != null">
+        #{resourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceSwitch != null">
+        #{resourceSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="resourceDescription != null">
+        #{resourceDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceType != null">
+        #{resourceType,jdbcType=INTEGER},
+      </if>
+      <if test="resourcePrent != null">
+        #{resourcePrent,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.nix.zpbs.model.SysResourceExample" resultType="java.lang.Integer">
+    select count(*) from SYS_RESOURCE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update SYS_RESOURCE
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.resourceName != null">
+        RESOURCE_NAME = #{record.resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourceUrl != null">
+        RESOURCE_URL = #{record.resourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourceSwitch != null">
+        RESOURCE_SWITCH = #{record.resourceSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourceDescription != null">
+        RESOURCE_DESCRIPTION = #{record.resourceDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourceType != null">
+        RESOURCE_TYPE = #{record.resourceType,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourcePrent != null">
+        RESOURCE_PRENT = #{record.resourcePrent,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update SYS_RESOURCE
+    set ID = #{record.id,jdbcType=BIGINT},
+      RESOURCE_NAME = #{record.resourceName,jdbcType=VARCHAR},
+      RESOURCE_URL = #{record.resourceUrl,jdbcType=VARCHAR},
+      RESOURCE_SWITCH = #{record.resourceSwitch,jdbcType=INTEGER},
+      RESOURCE_DESCRIPTION = #{record.resourceDescription,jdbcType=VARCHAR},
+      RESOURCE_TYPE = #{record.resourceType,jdbcType=INTEGER},
+      RESOURCE_PRENT = #{record.resourcePrent,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.SysResource">
+    update SYS_RESOURCE
+    <set>
+      <if test="resourceName != null">
+        RESOURCE_NAME = #{resourceName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceUrl != null">
+        RESOURCE_URL = #{resourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceSwitch != null">
+        RESOURCE_SWITCH = #{resourceSwitch,jdbcType=INTEGER},
+      </if>
+      <if test="resourceDescription != null">
+        RESOURCE_DESCRIPTION = #{resourceDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceType != null">
+        RESOURCE_TYPE = #{resourceType,jdbcType=INTEGER},
+      </if>
+      <if test="resourcePrent != null">
+        RESOURCE_PRENT = #{resourcePrent,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.SysResource">
+    update SYS_RESOURCE
+    set RESOURCE_NAME = #{resourceName,jdbcType=VARCHAR},
+      RESOURCE_URL = #{resourceUrl,jdbcType=VARCHAR},
+      RESOURCE_SWITCH = #{resourceSwitch,jdbcType=INTEGER},
+      RESOURCE_DESCRIPTION = #{resourceDescription,jdbcType=VARCHAR},
+      RESOURCE_TYPE = #{resourceType,jdbcType=INTEGER},
+      RESOURCE_PRENT = #{resourcePrent,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

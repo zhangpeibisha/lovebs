@@ -20,3 +20,4 @@
 * [Swagger使用指南](https://blog.csdn.net/sanyaoxu_2/article/details/80555328)
 * [springmvc校验注解](https://blog.csdn.net/pbyang_love/article/details/80553760)
 * [GIT HUB README 语法](https://blog.csdn.net/qq_31796651/article/details/80803599)
+* [通用框架WIKI-HU TOOL](http://hutool.mydoc.io/undefined)
