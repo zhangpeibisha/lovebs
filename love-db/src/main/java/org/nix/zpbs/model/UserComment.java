@@ -8,7 +8,7 @@ public class UserComment implements Serializable {
      *
      * @mbggenerated
      */
-    private Long cId;
+    private Long id;
 
     /**
      * 收到评论的用户ID
@@ -22,7 +22,7 @@ public class UserComment implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte typeId;
+    private Integer typeId;
 
     /**
      * 评论内容的ID
@@ -61,12 +61,12 @@ public class UserComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getcId() {
-        return cId;
+    public Long getId() {
+        return id;
     }
 
-    public void setcId(Long cId) {
-        this.cId = cId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -77,11 +77,11 @@ public class UserComment implements Serializable {
         this.userId = userId;
     }
 
-    public Byte getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(Byte typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 
@@ -131,7 +131,7 @@ public class UserComment implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", cId=").append(cId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", typeId=").append(typeId);
         sb.append(", commitId=").append(commitId);

@@ -8,7 +8,7 @@ public class Visitor implements Serializable {
      *
      * @mbggenerated
      */
-    private Long vId;
+    private Long id;
 
     /**
      * 访客ID
@@ -54,12 +54,12 @@ public class Visitor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getvId() {
-        return vId;
+    public Long getId() {
+        return id;
     }
 
-    public void setvId(Long vId) {
-        this.vId = vId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getVisitorId() {
@@ -116,7 +116,7 @@ public class Visitor implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", vId=").append(vId);
+        sb.append(", id=").append(id);
         sb.append(", visitorId=").append(visitorId);
         sb.append(", visitorTime=").append(visitorTime);
         sb.append(", userId=").append(userId);

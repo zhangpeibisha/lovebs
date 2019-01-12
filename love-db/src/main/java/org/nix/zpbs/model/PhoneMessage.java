@@ -8,7 +8,7 @@ public class PhoneMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Long phoneId;
+    private Long id;
 
     /**
      * 用户手机号码
@@ -40,12 +40,12 @@ public class PhoneMessage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getPhoneId() {
-        return phoneId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPhoneId(Long phoneId) {
-        this.phoneId = phoneId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPhoneNum() {
@@ -86,7 +86,7 @@ public class PhoneMessage implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", phoneId=").append(phoneId);
+        sb.append(", id=").append(id);
         sb.append(", phoneNum=").append(phoneNum);
         sb.append(", contents=").append(contents);
         sb.append(", sendTime=").append(sendTime);

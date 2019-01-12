@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.UserRankMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserRank">
-    <id column="rank_id" jdbcType="BIGINT" property="rankId" />
-    <result column="user_rank_id" jdbcType="SMALLINT" property="userRankId" />
-    <result column="rank_mark" jdbcType="BIGINT" property="rankMark" />
-    <result column="rank_name" jdbcType="VARCHAR" property="rankName" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="USER_RANK" jdbcType="BIGINT" property="userRank" />
+    <result column="RANK_MARK" jdbcType="BIGINT" property="rankMark" />
+    <result column="RANK_NAME" jdbcType="VARCHAR" property="rankName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    rank_id, user_rank_id, rank_mark, rank_name
+    ID, USER_RANK, RANK_MARK, RANK_NAME
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.UserRankExample" resultMap="BaseResultMap">
     select
@@ -74,7 +74,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_rank
+    from USER_RANK
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,47 +85,47 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_rank
-    where rank_id = #{rankId,jdbcType=BIGINT}
+    from USER_RANK
+    where ID = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from user_rank
-    where rank_id = #{rankId,jdbcType=BIGINT}
+    delete from USER_RANK
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserRankExample">
-    delete from user_rank
+    delete from USER_RANK
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.UserRank">
-    insert into user_rank (rank_id, user_rank_id, rank_mark, 
-      rank_name)
-    values (#{rankId,jdbcType=BIGINT}, #{userRankId,jdbcType=SMALLINT}, #{rankMark,jdbcType=BIGINT}, 
-      #{rankName,jdbcType=VARCHAR})
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER_RANK (USER_RANK, RANK_MARK, RANK_NAME
+      )
+    values (#{userRank,jdbcType=BIGINT}, #{rankMark,jdbcType=BIGINT}, #{rankName,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserRank">
-    insert into user_rank
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER_RANK
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="rankId != null">
-        rank_id,
-      </if>
-      <if test="userRankId != null">
-        user_rank_id,
+      <if test="userRank != null">
+        USER_RANK,
       </if>
       <if test="rankMark != null">
-        rank_mark,
+        RANK_MARK,
       </if>
       <if test="rankName != null">
-        rank_name,
+        RANK_NAME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="rankId != null">
-        #{rankId,jdbcType=BIGINT},
-      </if>
-      <if test="userRankId != null">
-        #{userRankId,jdbcType=SMALLINT},
+      <if test="userRank != null">
+        #{userRank,jdbcType=BIGINT},
       </if>
       <if test="rankMark != null">
         #{rankMark,jdbcType=BIGINT},
@@ -136,25 +136,25 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.UserRankExample" resultType="java.lang.Integer">
-    select count(*) from user_rank
+    select count(*) from USER_RANK
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_rank
+    update USER_RANK
     <set>
-      <if test="record.rankId != null">
-        rank_id = #{record.rankId,jdbcType=BIGINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.userRankId != null">
-        user_rank_id = #{record.userRankId,jdbcType=SMALLINT},
+      <if test="record.userRank != null">
+        USER_RANK = #{record.userRank,jdbcType=BIGINT},
       </if>
       <if test="record.rankMark != null">
-        rank_mark = #{record.rankMark,jdbcType=BIGINT},
+        RANK_MARK = #{record.rankMark,jdbcType=BIGINT},
       </if>
       <if test="record.rankName != null">
-        rank_name = #{record.rankName,jdbcType=VARCHAR},
+        RANK_NAME = #{record.rankName,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -162,35 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_rank
-    set rank_id = #{record.rankId,jdbcType=BIGINT},
-      user_rank_id = #{record.userRankId,jdbcType=SMALLINT},
-      rank_mark = #{record.rankMark,jdbcType=BIGINT},
-      rank_name = #{record.rankName,jdbcType=VARCHAR}
+    update USER_RANK
+    set ID = #{record.id,jdbcType=BIGINT},
+      USER_RANK = #{record.userRank,jdbcType=BIGINT},
+      RANK_MARK = #{record.rankMark,jdbcType=BIGINT},
+      RANK_NAME = #{record.rankName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.UserRank">
-    update user_rank
+    update USER_RANK
     <set>
-      <if test="userRankId != null">
-        user_rank_id = #{userRankId,jdbcType=SMALLINT},
+      <if test="userRank != null">
+        USER_RANK = #{userRank,jdbcType=BIGINT},
       </if>
       <if test="rankMark != null">
-        rank_mark = #{rankMark,jdbcType=BIGINT},
+        RANK_MARK = #{rankMark,jdbcType=BIGINT},
       </if>
       <if test="rankName != null">
-        rank_name = #{rankName,jdbcType=VARCHAR},
+        RANK_NAME = #{rankName,jdbcType=VARCHAR},
       </if>
     </set>
-    where rank_id = #{rankId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserRank">
-    update user_rank
-    set user_rank_id = #{userRankId,jdbcType=SMALLINT},
-      rank_mark = #{rankMark,jdbcType=BIGINT},
-      rank_name = #{rankName,jdbcType=VARCHAR}
-    where rank_id = #{rankId,jdbcType=BIGINT}
+    update USER_RANK
+    set USER_RANK = #{userRank,jdbcType=BIGINT},
+      RANK_MARK = #{rankMark,jdbcType=BIGINT},
+      RANK_NAME = #{rankName,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

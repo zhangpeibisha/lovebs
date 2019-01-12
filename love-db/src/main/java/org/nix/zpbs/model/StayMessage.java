@@ -8,7 +8,7 @@ public class StayMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Short stayId;
+    private Long id;
 
     /**
      * 用户ID
@@ -54,12 +54,12 @@ public class StayMessage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Short getStayId() {
-        return stayId;
+    public Long getId() {
+        return id;
     }
 
-    public void setStayId(Short stayId) {
-        this.stayId = stayId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -116,7 +116,7 @@ public class StayMessage implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", stayId=").append(stayId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", stayUserId=").append(stayUserId);
         sb.append(", messageContent=").append(messageContent);

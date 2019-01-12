@@ -10,7 +10,7 @@ public interface UserAttentionMapper {
 
     int deleteByExample(UserAttentionExample example);
 
-    int deleteByPrimaryKey(Short aId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(UserAttention record);
 
@@ -18,7 +18,7 @@ public interface UserAttentionMapper {
 
     List<UserAttention> selectByExample(UserAttentionExample example);
 
-    UserAttention selectByPrimaryKey(Short aId);
+    UserAttention selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") UserAttention record, @Param("example") UserAttentionExample example);
 

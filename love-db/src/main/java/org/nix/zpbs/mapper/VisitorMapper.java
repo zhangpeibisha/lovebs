@@ -10,7 +10,7 @@ public interface VisitorMapper {
 
     int deleteByExample(VisitorExample example);
 
-    int deleteByPrimaryKey(Long vId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Visitor record);
 
@@ -18,7 +18,7 @@ public interface VisitorMapper {
 
     List<Visitor> selectByExample(VisitorExample example);
 
-    Visitor selectByPrimaryKey(Long vId);
+    Visitor selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Visitor record, @Param("example") VisitorExample example);
 

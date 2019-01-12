@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.PhotosMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Photos">
-    <id column="photo_id" jdbcType="BIGINT" property="photoId" />
-    <result column="photo_name" jdbcType="VARCHAR" property="photoName" />
-    <result column="photo_src" jdbcType="VARCHAR" property="photoSrc" />
-    <result column="photo_description" jdbcType="VARCHAR" property="photoDescription" />
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="sort_id" jdbcType="BIGINT" property="sortId" />
-    <result column="upload_time" jdbcType="BIGINT" property="uploadTime" />
-    <result column="upload_ip" jdbcType="VARCHAR" property="uploadIp" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PHOTO_NAME" jdbcType="VARCHAR" property="photoName" />
+    <result column="PHOTO_SRC" jdbcType="VARCHAR" property="photoSrc" />
+    <result column="PHOTO_DESCRIPTION" jdbcType="VARCHAR" property="photoDescription" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="SORT_ID" jdbcType="BIGINT" property="sortId" />
+    <result column="UPLOAD_TIME" jdbcType="BIGINT" property="uploadTime" />
+    <result column="UPLOAD_IP" jdbcType="VARCHAR" property="uploadIp" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,8 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    photo_id, photo_name, photo_src, photo_description, user_id, sort_id, upload_time, 
-    upload_ip
+    ID, PHOTO_NAME, PHOTO_SRC, PHOTO_DESCRIPTION, USER_ID, SORT_ID, UPLOAD_TIME, UPLOAD_IP
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.PhotosExample" resultMap="BaseResultMap">
     select
@@ -79,7 +78,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from photos
+    from PHOTOS
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,59 +89,59 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from photos
-    where photo_id = #{photoId,jdbcType=BIGINT}
+    from PHOTOS
+    where ID = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from photos
-    where photo_id = #{photoId,jdbcType=BIGINT}
+    delete from PHOTOS
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.PhotosExample">
-    delete from photos
+    delete from PHOTOS
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.Photos">
-    insert into photos (photo_id, photo_name, photo_src, 
-      photo_description, user_id, sort_id, 
-      upload_time, upload_ip)
-    values (#{photoId,jdbcType=BIGINT}, #{photoName,jdbcType=VARCHAR}, #{photoSrc,jdbcType=VARCHAR}, 
-      #{photoDescription,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{sortId,jdbcType=BIGINT}, 
-      #{uploadTime,jdbcType=BIGINT}, #{uploadIp,jdbcType=VARCHAR})
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into PHOTOS (PHOTO_NAME, PHOTO_SRC, PHOTO_DESCRIPTION, 
+      USER_ID, SORT_ID, UPLOAD_TIME, 
+      UPLOAD_IP)
+    values (#{photoName,jdbcType=VARCHAR}, #{photoSrc,jdbcType=VARCHAR}, #{photoDescription,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{sortId,jdbcType=BIGINT}, #{uploadTime,jdbcType=BIGINT}, 
+      #{uploadIp,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.Photos">
-    insert into photos
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into PHOTOS
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="photoId != null">
-        photo_id,
-      </if>
       <if test="photoName != null">
-        photo_name,
+        PHOTO_NAME,
       </if>
       <if test="photoSrc != null">
-        photo_src,
+        PHOTO_SRC,
       </if>
       <if test="photoDescription != null">
-        photo_description,
+        PHOTO_DESCRIPTION,
       </if>
       <if test="userId != null">
-        user_id,
+        USER_ID,
       </if>
       <if test="sortId != null">
-        sort_id,
+        SORT_ID,
       </if>
       <if test="uploadTime != null">
-        upload_time,
+        UPLOAD_TIME,
       </if>
       <if test="uploadIp != null">
-        upload_ip,
+        UPLOAD_IP,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="photoId != null">
-        #{photoId,jdbcType=BIGINT},
-      </if>
       <if test="photoName != null">
         #{photoName,jdbcType=VARCHAR},
       </if>
@@ -167,37 +166,37 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.PhotosExample" resultType="java.lang.Integer">
-    select count(*) from photos
+    select count(*) from PHOTOS
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update photos
+    update PHOTOS
     <set>
-      <if test="record.photoId != null">
-        photo_id = #{record.photoId,jdbcType=BIGINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.photoName != null">
-        photo_name = #{record.photoName,jdbcType=VARCHAR},
+        PHOTO_NAME = #{record.photoName,jdbcType=VARCHAR},
       </if>
       <if test="record.photoSrc != null">
-        photo_src = #{record.photoSrc,jdbcType=VARCHAR},
+        PHOTO_SRC = #{record.photoSrc,jdbcType=VARCHAR},
       </if>
       <if test="record.photoDescription != null">
-        photo_description = #{record.photoDescription,jdbcType=VARCHAR},
+        PHOTO_DESCRIPTION = #{record.photoDescription,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=BIGINT},
+        USER_ID = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.sortId != null">
-        sort_id = #{record.sortId,jdbcType=BIGINT},
+        SORT_ID = #{record.sortId,jdbcType=BIGINT},
       </if>
       <if test="record.uploadTime != null">
-        upload_time = #{record.uploadTime,jdbcType=BIGINT},
+        UPLOAD_TIME = #{record.uploadTime,jdbcType=BIGINT},
       </if>
       <if test="record.uploadIp != null">
-        upload_ip = #{record.uploadIp,jdbcType=VARCHAR},
+        UPLOAD_IP = #{record.uploadIp,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -205,55 +204,55 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update photos
-    set photo_id = #{record.photoId,jdbcType=BIGINT},
-      photo_name = #{record.photoName,jdbcType=VARCHAR},
-      photo_src = #{record.photoSrc,jdbcType=VARCHAR},
-      photo_description = #{record.photoDescription,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=BIGINT},
-      sort_id = #{record.sortId,jdbcType=BIGINT},
-      upload_time = #{record.uploadTime,jdbcType=BIGINT},
-      upload_ip = #{record.uploadIp,jdbcType=VARCHAR}
+    update PHOTOS
+    set ID = #{record.id,jdbcType=BIGINT},
+      PHOTO_NAME = #{record.photoName,jdbcType=VARCHAR},
+      PHOTO_SRC = #{record.photoSrc,jdbcType=VARCHAR},
+      PHOTO_DESCRIPTION = #{record.photoDescription,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=BIGINT},
+      SORT_ID = #{record.sortId,jdbcType=BIGINT},
+      UPLOAD_TIME = #{record.uploadTime,jdbcType=BIGINT},
+      UPLOAD_IP = #{record.uploadIp,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.Photos">
-    update photos
+    update PHOTOS
     <set>
       <if test="photoName != null">
-        photo_name = #{photoName,jdbcType=VARCHAR},
+        PHOTO_NAME = #{photoName,jdbcType=VARCHAR},
       </if>
       <if test="photoSrc != null">
-        photo_src = #{photoSrc,jdbcType=VARCHAR},
+        PHOTO_SRC = #{photoSrc,jdbcType=VARCHAR},
       </if>
       <if test="photoDescription != null">
-        photo_description = #{photoDescription,jdbcType=VARCHAR},
+        PHOTO_DESCRIPTION = #{photoDescription,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=BIGINT},
+        USER_ID = #{userId,jdbcType=BIGINT},
       </if>
       <if test="sortId != null">
-        sort_id = #{sortId,jdbcType=BIGINT},
+        SORT_ID = #{sortId,jdbcType=BIGINT},
       </if>
       <if test="uploadTime != null">
-        upload_time = #{uploadTime,jdbcType=BIGINT},
+        UPLOAD_TIME = #{uploadTime,jdbcType=BIGINT},
       </if>
       <if test="uploadIp != null">
-        upload_ip = #{uploadIp,jdbcType=VARCHAR},
+        UPLOAD_IP = #{uploadIp,jdbcType=VARCHAR},
       </if>
     </set>
-    where photo_id = #{photoId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Photos">
-    update photos
-    set photo_name = #{photoName,jdbcType=VARCHAR},
-      photo_src = #{photoSrc,jdbcType=VARCHAR},
-      photo_description = #{photoDescription,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=BIGINT},
-      sort_id = #{sortId,jdbcType=BIGINT},
-      upload_time = #{uploadTime,jdbcType=BIGINT},
-      upload_ip = #{uploadIp,jdbcType=VARCHAR}
-    where photo_id = #{photoId,jdbcType=BIGINT}
+    update PHOTOS
+    set PHOTO_NAME = #{photoName,jdbcType=VARCHAR},
+      PHOTO_SRC = #{photoSrc,jdbcType=VARCHAR},
+      PHOTO_DESCRIPTION = #{photoDescription,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      SORT_ID = #{sortId,jdbcType=BIGINT},
+      UPLOAD_TIME = #{uploadTime,jdbcType=BIGINT},
+      UPLOAD_IP = #{uploadIp,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

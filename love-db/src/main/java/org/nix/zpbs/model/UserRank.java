@@ -8,14 +8,14 @@ public class UserRank implements Serializable {
      *
      * @mbggenerated
      */
-    private Long rankId;
+    private Long id;
 
     /**
-     * 等级ID
+     * 等级
      *
      * @mbggenerated
      */
-    private Short userRankId;
+    private Long userRank;
 
     /**
      * 等级积分
@@ -33,20 +33,20 @@ public class UserRank implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getRankId() {
-        return rankId;
+    public Long getId() {
+        return id;
     }
 
-    public void setRankId(Long rankId) {
-        this.rankId = rankId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Short getUserRankId() {
-        return userRankId;
+    public Long getUserRank() {
+        return userRank;
     }
 
-    public void setUserRankId(Short userRankId) {
-        this.userRankId = userRankId;
+    public void setUserRank(Long userRank) {
+        this.userRank = userRank;
     }
 
     public Long getRankMark() {
@@ -71,8 +71,8 @@ public class UserRank implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", rankId=").append(rankId);
-        sb.append(", userRankId=").append(userRankId);
+        sb.append(", id=").append(id);
+        sb.append(", userRank=").append(userRank);
         sb.append(", rankMark=").append(rankMark);
         sb.append(", rankName=").append(rankName);
         sb.append(", serialVersionUID=").append(serialVersionUID);

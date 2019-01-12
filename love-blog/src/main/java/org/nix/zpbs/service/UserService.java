@@ -1,6 +1,6 @@
 package org.nix.zpbs.service;
 
-import org.nix.zpbs.dto.response.UserResponseDetailDTO;
+import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 
 import java.util.List;
 

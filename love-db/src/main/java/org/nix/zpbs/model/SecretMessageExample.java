@@ -104,323 +104,323 @@ public class SecretMessageExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSecretIdIsNull() {
-            addCriterion("secret_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdIsNotNull() {
-            addCriterion("secret_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdEqualTo(Long value) {
-            addCriterion("secret_id =", value, "secretId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdNotEqualTo(Long value) {
-            addCriterion("secret_id <>", value, "secretId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdGreaterThan(Long value) {
-            addCriterion("secret_id >", value, "secretId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("secret_id >=", value, "secretId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdLessThan(Long value) {
-            addCriterion("secret_id <", value, "secretId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdLessThanOrEqualTo(Long value) {
-            addCriterion("secret_id <=", value, "secretId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdIn(List<Long> values) {
-            addCriterion("secret_id in", values, "secretId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdNotIn(List<Long> values) {
-            addCriterion("secret_id not in", values, "secretId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdBetween(Long value1, Long value2) {
-            addCriterion("secret_id between", value1, value2, "secretId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSecretIdNotBetween(Long value1, Long value2) {
-            addCriterion("secret_id not between", value1, value2, "secretId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andSendIdIsNull() {
-            addCriterion("send_id is null");
+            addCriterion("SEND_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andSendIdIsNotNull() {
-            addCriterion("send_id is not null");
+            addCriterion("SEND_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andSendIdEqualTo(Long value) {
-            addCriterion("send_id =", value, "sendId");
+            addCriterion("SEND_ID =", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdNotEqualTo(Long value) {
-            addCriterion("send_id <>", value, "sendId");
+            addCriterion("SEND_ID <>", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdGreaterThan(Long value) {
-            addCriterion("send_id >", value, "sendId");
+            addCriterion("SEND_ID >", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("send_id >=", value, "sendId");
+            addCriterion("SEND_ID >=", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdLessThan(Long value) {
-            addCriterion("send_id <", value, "sendId");
+            addCriterion("SEND_ID <", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdLessThanOrEqualTo(Long value) {
-            addCriterion("send_id <=", value, "sendId");
+            addCriterion("SEND_ID <=", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdIn(List<Long> values) {
-            addCriterion("send_id in", values, "sendId");
+            addCriterion("SEND_ID in", values, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdNotIn(List<Long> values) {
-            addCriterion("send_id not in", values, "sendId");
+            addCriterion("SEND_ID not in", values, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdBetween(Long value1, Long value2) {
-            addCriterion("send_id between", value1, value2, "sendId");
+            addCriterion("SEND_ID between", value1, value2, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdNotBetween(Long value1, Long value2) {
-            addCriterion("send_id not between", value1, value2, "sendId");
+            addCriterion("SEND_ID not between", value1, value2, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdIsNull() {
-            addCriterion("receive_id is null");
+            addCriterion("RECEIVE_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdIsNotNull() {
-            addCriterion("receive_id is not null");
+            addCriterion("RECEIVE_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdEqualTo(Long value) {
-            addCriterion("receive_id =", value, "receiveId");
+            addCriterion("RECEIVE_ID =", value, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdNotEqualTo(Long value) {
-            addCriterion("receive_id <>", value, "receiveId");
+            addCriterion("RECEIVE_ID <>", value, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdGreaterThan(Long value) {
-            addCriterion("receive_id >", value, "receiveId");
+            addCriterion("RECEIVE_ID >", value, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("receive_id >=", value, "receiveId");
+            addCriterion("RECEIVE_ID >=", value, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdLessThan(Long value) {
-            addCriterion("receive_id <", value, "receiveId");
+            addCriterion("RECEIVE_ID <", value, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdLessThanOrEqualTo(Long value) {
-            addCriterion("receive_id <=", value, "receiveId");
+            addCriterion("RECEIVE_ID <=", value, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdIn(List<Long> values) {
-            addCriterion("receive_id in", values, "receiveId");
+            addCriterion("RECEIVE_ID in", values, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdNotIn(List<Long> values) {
-            addCriterion("receive_id not in", values, "receiveId");
+            addCriterion("RECEIVE_ID not in", values, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdBetween(Long value1, Long value2) {
-            addCriterion("receive_id between", value1, value2, "receiveId");
+            addCriterion("RECEIVE_ID between", value1, value2, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andReceiveIdNotBetween(Long value1, Long value2) {
-            addCriterion("receive_id not between", value1, value2, "receiveId");
+            addCriterion("RECEIVE_ID not between", value1, value2, "receiveId");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicIsNull() {
-            addCriterion("message_topic is null");
+            addCriterion("MESSAGE_TOPIC is null");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicIsNotNull() {
-            addCriterion("message_topic is not null");
+            addCriterion("MESSAGE_TOPIC is not null");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicEqualTo(String value) {
-            addCriterion("message_topic =", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC =", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicNotEqualTo(String value) {
-            addCriterion("message_topic <>", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC <>", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicGreaterThan(String value) {
-            addCriterion("message_topic >", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC >", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicGreaterThanOrEqualTo(String value) {
-            addCriterion("message_topic >=", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC >=", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicLessThan(String value) {
-            addCriterion("message_topic <", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC <", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicLessThanOrEqualTo(String value) {
-            addCriterion("message_topic <=", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC <=", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicLike(String value) {
-            addCriterion("message_topic like", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC like", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicNotLike(String value) {
-            addCriterion("message_topic not like", value, "messageTopic");
+            addCriterion("MESSAGE_TOPIC not like", value, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicIn(List<String> values) {
-            addCriterion("message_topic in", values, "messageTopic");
+            addCriterion("MESSAGE_TOPIC in", values, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicNotIn(List<String> values) {
-            addCriterion("message_topic not in", values, "messageTopic");
+            addCriterion("MESSAGE_TOPIC not in", values, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicBetween(String value1, String value2) {
-            addCriterion("message_topic between", value1, value2, "messageTopic");
+            addCriterion("MESSAGE_TOPIC between", value1, value2, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageTopicNotBetween(String value1, String value2) {
-            addCriterion("message_topic not between", value1, value2, "messageTopic");
+            addCriterion("MESSAGE_TOPIC not between", value1, value2, "messageTopic");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentIsNull() {
-            addCriterion("message_content is null");
+            addCriterion("MESSAGE_CONTENT is null");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentIsNotNull() {
-            addCriterion("message_content is not null");
+            addCriterion("MESSAGE_CONTENT is not null");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentEqualTo(String value) {
-            addCriterion("message_content =", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT =", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotEqualTo(String value) {
-            addCriterion("message_content <>", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT <>", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentGreaterThan(String value) {
-            addCriterion("message_content >", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT >", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentGreaterThanOrEqualTo(String value) {
-            addCriterion("message_content >=", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT >=", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentLessThan(String value) {
-            addCriterion("message_content <", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT <", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentLessThanOrEqualTo(String value) {
-            addCriterion("message_content <=", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT <=", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentLike(String value) {
-            addCriterion("message_content like", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT like", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotLike(String value) {
-            addCriterion("message_content not like", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT not like", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentIn(List<String> values) {
-            addCriterion("message_content in", values, "messageContent");
+            addCriterion("MESSAGE_CONTENT in", values, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotIn(List<String> values) {
-            addCriterion("message_content not in", values, "messageContent");
+            addCriterion("MESSAGE_CONTENT not in", values, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentBetween(String value1, String value2) {
-            addCriterion("message_content between", value1, value2, "messageContent");
+            addCriterion("MESSAGE_CONTENT between", value1, value2, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotBetween(String value1, String value2) {
-            addCriterion("message_content not between", value1, value2, "messageContent");
+            addCriterion("MESSAGE_CONTENT not between", value1, value2, "messageContent");
             return (Criteria) this;
         }
     }

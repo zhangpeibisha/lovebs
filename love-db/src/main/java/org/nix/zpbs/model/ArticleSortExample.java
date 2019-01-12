@@ -104,193 +104,193 @@ public class ArticleSortExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSortArticleIdIsNull() {
-            addCriterion("sort_article_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdIsNotNull() {
-            addCriterion("sort_article_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdEqualTo(Long value) {
-            addCriterion("sort_article_id =", value, "sortArticleId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdNotEqualTo(Long value) {
-            addCriterion("sort_article_id <>", value, "sortArticleId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdGreaterThan(Long value) {
-            addCriterion("sort_article_id >", value, "sortArticleId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("sort_article_id >=", value, "sortArticleId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdLessThan(Long value) {
-            addCriterion("sort_article_id <", value, "sortArticleId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdLessThanOrEqualTo(Long value) {
-            addCriterion("sort_article_id <=", value, "sortArticleId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdIn(List<Long> values) {
-            addCriterion("sort_article_id in", values, "sortArticleId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdNotIn(List<Long> values) {
-            addCriterion("sort_article_id not in", values, "sortArticleId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdBetween(Long value1, Long value2) {
-            addCriterion("sort_article_id between", value1, value2, "sortArticleId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSortArticleIdNotBetween(Long value1, Long value2) {
-            addCriterion("sort_article_id not between", value1, value2, "sortArticleId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+            addCriterion("USER_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+            addCriterion("USER_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
+            addCriterion("USER_ID =", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
+            addCriterion("USER_ID <>", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
+            addCriterion("USER_ID >", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
+            addCriterion("USER_ID >=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
+            addCriterion("USER_ID <", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
+            addCriterion("USER_ID <=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
+            addCriterion("USER_ID in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
+            addCriterion("USER_ID not in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+            addCriterion("USER_ID between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+            addCriterion("USER_ID not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameIsNull() {
-            addCriterion("sort_article_name is null");
+            addCriterion("SORT_ARTICLE_NAME is null");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameIsNotNull() {
-            addCriterion("sort_article_name is not null");
+            addCriterion("SORT_ARTICLE_NAME is not null");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameEqualTo(String value) {
-            addCriterion("sort_article_name =", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME =", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameNotEqualTo(String value) {
-            addCriterion("sort_article_name <>", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME <>", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameGreaterThan(String value) {
-            addCriterion("sort_article_name >", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME >", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameGreaterThanOrEqualTo(String value) {
-            addCriterion("sort_article_name >=", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME >=", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameLessThan(String value) {
-            addCriterion("sort_article_name <", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME <", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameLessThanOrEqualTo(String value) {
-            addCriterion("sort_article_name <=", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME <=", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameLike(String value) {
-            addCriterion("sort_article_name like", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME like", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameNotLike(String value) {
-            addCriterion("sort_article_name not like", value, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME not like", value, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameIn(List<String> values) {
-            addCriterion("sort_article_name in", values, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME in", values, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameNotIn(List<String> values) {
-            addCriterion("sort_article_name not in", values, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME not in", values, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameBetween(String value1, String value2) {
-            addCriterion("sort_article_name between", value1, value2, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME between", value1, value2, "sortArticleName");
             return (Criteria) this;
         }
 
         public Criteria andSortArticleNameNotBetween(String value1, String value2) {
-            addCriterion("sort_article_name not between", value1, value2, "sortArticleName");
+            addCriterion("SORT_ARTICLE_NAME not between", value1, value2, "sortArticleName");
             return (Criteria) this;
         }
     }

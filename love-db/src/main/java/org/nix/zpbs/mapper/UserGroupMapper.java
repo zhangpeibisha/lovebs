@@ -10,7 +10,7 @@ public interface UserGroupMapper {
 
     int deleteByExample(UserGroupExample example);
 
-    int deleteByPrimaryKey(Byte gId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(UserGroup record);
 
@@ -18,7 +18,7 @@ public interface UserGroupMapper {
 
     List<UserGroup> selectByExample(UserGroupExample example);
 
-    UserGroup selectByPrimaryKey(Byte gId);
+    UserGroup selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") UserGroup record, @Param("example") UserGroupExample example);
 

@@ -1,11 +1,7 @@
 package org.nix.zpbs.service.impl;
 
-import org.nix.zpbs.dao.UserDao;
-import org.nix.zpbs.dto.response.UserResponseDetailDTO;
-import org.nix.zpbs.mapper.PowerListMapper;
+import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 import org.nix.zpbs.mapper.UserMapper;
-import org.nix.zpbs.model.PowerList;
-import org.nix.zpbs.model.PowerListExample;
 import org.nix.zpbs.model.User;
 import org.nix.zpbs.model.UserExample;
 import org.nix.zpbs.service.UserService;
@@ -26,8 +22,6 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
-    @Resource
-    private PowerListMapper powerListMapper;
 
     /**
      * @param account 账户包括（用户名、用户邮箱、用户手机号）
@@ -63,8 +57,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<Long> getPowersByUserId(Long userId) {
-        PowerListExample example = new PowerListExample();
-        List<PowerList> powerLists = powerListMapper.selectByExample(example);
-        return null;
+       return null;
     }
 }

@@ -10,7 +10,7 @@ public interface StayMessageMapper {
 
     int deleteByExample(StayMessageExample example);
 
-    int deleteByPrimaryKey(Short stayId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(StayMessage record);
 
@@ -18,7 +18,7 @@ public interface StayMessageMapper {
 
     List<StayMessage> selectByExample(StayMessageExample example);
 
-    StayMessage selectByPrimaryKey(Short stayId);
+    StayMessage selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") StayMessage record, @Param("example") StayMessageExample example);
 

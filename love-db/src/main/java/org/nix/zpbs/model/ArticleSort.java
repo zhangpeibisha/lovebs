@@ -8,7 +8,7 @@ public class ArticleSort implements Serializable {
      *
      * @mbggenerated
      */
-    private Long sortArticleId;
+    private Long id;
 
     /**
      * 该分类所属用户
@@ -26,12 +26,12 @@ public class ArticleSort implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getSortArticleId() {
-        return sortArticleId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSortArticleId(Long sortArticleId) {
-        this.sortArticleId = sortArticleId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -56,7 +56,7 @@ public class ArticleSort implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", sortArticleId=").append(sortArticleId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", sortArticleName=").append(sortArticleName);
         sb.append(", serialVersionUID=").append(serialVersionUID);

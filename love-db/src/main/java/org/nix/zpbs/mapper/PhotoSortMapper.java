@@ -10,7 +10,7 @@ public interface PhotoSortMapper {
 
     int deleteByExample(PhotoSortExample example);
 
-    int deleteByPrimaryKey(Long sortImgId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(PhotoSort record);
 
@@ -18,7 +18,7 @@ public interface PhotoSortMapper {
 
     List<PhotoSort> selectByExample(PhotoSortExample example);
 
-    PhotoSort selectByPrimaryKey(Long sortImgId);
+    PhotoSort selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") PhotoSort record, @Param("example") PhotoSortExample example);
 

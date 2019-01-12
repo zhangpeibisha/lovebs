@@ -10,7 +10,7 @@ public interface PhotosMapper {
 
     int deleteByExample(PhotosExample example);
 
-    int deleteByPrimaryKey(Long photoId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Photos record);
 
@@ -18,7 +18,7 @@ public interface PhotosMapper {
 
     List<Photos> selectByExample(PhotosExample example);
 
-    Photos selectByPrimaryKey(Long photoId);
+    Photos selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Photos record, @Param("example") PhotosExample example);
 

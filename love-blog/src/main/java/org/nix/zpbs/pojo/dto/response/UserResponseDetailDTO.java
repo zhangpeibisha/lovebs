@@ -1,4 +1,4 @@
-package org.nix.zpbs.dto.response;
+package org.nix.zpbs.pojo.dto.response;
 
 /**
  * 用户查询响应详细信息对象

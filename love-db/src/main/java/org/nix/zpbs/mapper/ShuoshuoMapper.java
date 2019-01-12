@@ -10,7 +10,7 @@ public interface ShuoshuoMapper {
 
     int deleteByExample(ShuoshuoExample example);
 
-    int deleteByPrimaryKey(Long shuoId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Shuoshuo record);
 
@@ -18,7 +18,7 @@ public interface ShuoshuoMapper {
 
     List<Shuoshuo> selectByExample(ShuoshuoExample example);
 
-    Shuoshuo selectByPrimaryKey(Long shuoId);
+    Shuoshuo selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Shuoshuo record, @Param("example") ShuoshuoExample example);
 

@@ -8,14 +8,14 @@ public class UserGroup implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte gId;
+    private Long id;
 
     /**
-     * 用户组ID
+     * 用户组描述
      *
      * @mbggenerated
      */
-    private Byte groupId;
+    private String groupDescription;
 
     /**
      * 用户组名
@@ -25,28 +25,28 @@ public class UserGroup implements Serializable {
     private String groupName;
 
     /**
-     * 用户权限
+     * 用户组的上一级，该级包含了上级的所有权限，如果为最低级则为空
      *
      * @mbggenerated
      */
-    private String groupPower;
+    private Long groupPrent;
 
     private static final long serialVersionUID = 1L;
 
-    public Byte getgId() {
-        return gId;
+    public Long getId() {
+        return id;
     }
 
-    public void setgId(Byte gId) {
-        this.gId = gId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Byte getGroupId() {
-        return groupId;
+    public String getGroupDescription() {
+        return groupDescription;
     }
 
-    public void setGroupId(Byte groupId) {
-        this.groupId = groupId;
+    public void setGroupDescription(String groupDescription) {
+        this.groupDescription = groupDescription;
     }
 
     public String getGroupName() {
@@ -57,12 +57,12 @@ public class UserGroup implements Serializable {
         this.groupName = groupName;
     }
 
-    public String getGroupPower() {
-        return groupPower;
+    public Long getGroupPrent() {
+        return groupPrent;
     }
 
-    public void setGroupPower(String groupPower) {
-        this.groupPower = groupPower;
+    public void setGroupPrent(Long groupPrent) {
+        this.groupPrent = groupPrent;
     }
 
     @Override
@@ -71,10 +71,10 @@ public class UserGroup implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", gId=").append(gId);
-        sb.append(", groupId=").append(groupId);
+        sb.append(", id=").append(id);
+        sb.append(", groupDescription=").append(groupDescription);
         sb.append(", groupName=").append(groupName);
-        sb.append(", groupPower=").append(groupPower);
+        sb.append(", groupPrent=").append(groupPrent);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.SystemMessageMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.SystemMessage">
-    <id column="system_id" jdbcType="BIGINT" property="systemId" />
-    <result column="send_id" jdbcType="BIGINT" property="sendId" />
-    <result column="group_id" jdbcType="TINYINT" property="groupId" />
-    <result column="send_default" jdbcType="BIGINT" property="sendDefault" />
-    <result column="system_topic" jdbcType="VARCHAR" property="systemTopic" />
-    <result column="system_content" jdbcType="VARCHAR" property="systemContent" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="SEND_ID" jdbcType="BIGINT" property="sendId" />
+    <result column="GROUP_ID" jdbcType="INTEGER" property="groupId" />
+    <result column="SEND_DEFAULT" jdbcType="BIGINT" property="sendDefault" />
+    <result column="SYSTEM_TOPIC" jdbcType="VARCHAR" property="systemTopic" />
+    <result column="SYSTEM_CONTENT" jdbcType="VARCHAR" property="systemContent" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    system_id, send_id, group_id, send_default, system_topic, system_content
+    ID, SEND_ID, GROUP_ID, SEND_DEFAULT, SYSTEM_TOPIC, SYSTEM_CONTENT
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.SystemMessageExample" resultMap="BaseResultMap">
     select
@@ -76,7 +76,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from system_message
+    from SYSTEM_MESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,58 +87,56 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from system_message
-    where system_id = #{systemId,jdbcType=BIGINT}
+    from SYSTEM_MESSAGE
+    where ID = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from system_message
-    where system_id = #{systemId,jdbcType=BIGINT}
+    delete from SYSTEM_MESSAGE
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.SystemMessageExample">
-    delete from system_message
+    delete from SYSTEM_MESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.SystemMessage">
-    insert into system_message (system_id, send_id, group_id, 
-      send_default, system_topic, system_content
-      )
-    values (#{systemId,jdbcType=BIGINT}, #{sendId,jdbcType=BIGINT}, #{groupId,jdbcType=TINYINT}, 
-      #{sendDefault,jdbcType=BIGINT}, #{systemTopic,jdbcType=VARCHAR}, #{systemContent,jdbcType=VARCHAR}
-      )
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into SYSTEM_MESSAGE (SEND_ID, GROUP_ID, SEND_DEFAULT, 
+      SYSTEM_TOPIC, SYSTEM_CONTENT)
+    values (#{sendId,jdbcType=BIGINT}, #{groupId,jdbcType=INTEGER}, #{sendDefault,jdbcType=BIGINT}, 
+      #{systemTopic,jdbcType=VARCHAR}, #{systemContent,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.SystemMessage">
-    insert into system_message
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into SYSTEM_MESSAGE
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="systemId != null">
-        system_id,
-      </if>
       <if test="sendId != null">
-        send_id,
+        SEND_ID,
       </if>
       <if test="groupId != null">
-        group_id,
+        GROUP_ID,
       </if>
       <if test="sendDefault != null">
-        send_default,
+        SEND_DEFAULT,
       </if>
       <if test="systemTopic != null">
-        system_topic,
+        SYSTEM_TOPIC,
       </if>
       <if test="systemContent != null">
-        system_content,
+        SYSTEM_CONTENT,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="systemId != null">
-        #{systemId,jdbcType=BIGINT},
-      </if>
       <if test="sendId != null">
         #{sendId,jdbcType=BIGINT},
       </if>
       <if test="groupId != null">
-        #{groupId,jdbcType=TINYINT},
+        #{groupId,jdbcType=INTEGER},
       </if>
       <if test="sendDefault != null">
         #{sendDefault,jdbcType=BIGINT},
@@ -152,31 +150,31 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.SystemMessageExample" resultType="java.lang.Integer">
-    select count(*) from system_message
+    select count(*) from SYSTEM_MESSAGE
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update system_message
+    update SYSTEM_MESSAGE
     <set>
-      <if test="record.systemId != null">
-        system_id = #{record.systemId,jdbcType=BIGINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.sendId != null">
-        send_id = #{record.sendId,jdbcType=BIGINT},
+        SEND_ID = #{record.sendId,jdbcType=BIGINT},
       </if>
       <if test="record.groupId != null">
-        group_id = #{record.groupId,jdbcType=TINYINT},
+        GROUP_ID = #{record.groupId,jdbcType=INTEGER},
       </if>
       <if test="record.sendDefault != null">
-        send_default = #{record.sendDefault,jdbcType=BIGINT},
+        SEND_DEFAULT = #{record.sendDefault,jdbcType=BIGINT},
       </if>
       <if test="record.systemTopic != null">
-        system_topic = #{record.systemTopic,jdbcType=VARCHAR},
+        SYSTEM_TOPIC = #{record.systemTopic,jdbcType=VARCHAR},
       </if>
       <if test="record.systemContent != null">
-        system_content = #{record.systemContent,jdbcType=VARCHAR},
+        SYSTEM_CONTENT = #{record.systemContent,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -184,45 +182,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update system_message
-    set system_id = #{record.systemId,jdbcType=BIGINT},
-      send_id = #{record.sendId,jdbcType=BIGINT},
-      group_id = #{record.groupId,jdbcType=TINYINT},
-      send_default = #{record.sendDefault,jdbcType=BIGINT},
-      system_topic = #{record.systemTopic,jdbcType=VARCHAR},
-      system_content = #{record.systemContent,jdbcType=VARCHAR}
+    update SYSTEM_MESSAGE
+    set ID = #{record.id,jdbcType=BIGINT},
+      SEND_ID = #{record.sendId,jdbcType=BIGINT},
+      GROUP_ID = #{record.groupId,jdbcType=INTEGER},
+      SEND_DEFAULT = #{record.sendDefault,jdbcType=BIGINT},
+      SYSTEM_TOPIC = #{record.systemTopic,jdbcType=VARCHAR},
+      SYSTEM_CONTENT = #{record.systemContent,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.SystemMessage">
-    update system_message
+    update SYSTEM_MESSAGE
     <set>
       <if test="sendId != null">
-        send_id = #{sendId,jdbcType=BIGINT},
+        SEND_ID = #{sendId,jdbcType=BIGINT},
       </if>
       <if test="groupId != null">
-        group_id = #{groupId,jdbcType=TINYINT},
+        GROUP_ID = #{groupId,jdbcType=INTEGER},
       </if>
       <if test="sendDefault != null">
-        send_default = #{sendDefault,jdbcType=BIGINT},
+        SEND_DEFAULT = #{sendDefault,jdbcType=BIGINT},
       </if>
       <if test="systemTopic != null">
-        system_topic = #{systemTopic,jdbcType=VARCHAR},
+        SYSTEM_TOPIC = #{systemTopic,jdbcType=VARCHAR},
       </if>
       <if test="systemContent != null">
-        system_content = #{systemContent,jdbcType=VARCHAR},
+        SYSTEM_CONTENT = #{systemContent,jdbcType=VARCHAR},
       </if>
     </set>
-    where system_id = #{systemId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.SystemMessage">
-    update system_message
-    set send_id = #{sendId,jdbcType=BIGINT},
-      group_id = #{groupId,jdbcType=TINYINT},
-      send_default = #{sendDefault,jdbcType=BIGINT},
-      system_topic = #{systemTopic,jdbcType=VARCHAR},
-      system_content = #{systemContent,jdbcType=VARCHAR}
-    where system_id = #{systemId,jdbcType=BIGINT}
+    update SYSTEM_MESSAGE
+    set SEND_ID = #{sendId,jdbcType=BIGINT},
+      GROUP_ID = #{groupId,jdbcType=INTEGER},
+      SEND_DEFAULT = #{sendDefault,jdbcType=BIGINT},
+      SYSTEM_TOPIC = #{systemTopic,jdbcType=VARCHAR},
+      SYSTEM_CONTENT = #{systemContent,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

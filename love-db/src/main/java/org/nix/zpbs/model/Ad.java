@@ -8,21 +8,21 @@ public class Ad implements Serializable {
      *
      * @mbggenerated
      */
-    private Short adId;
+    private Long id;
 
     /**
-     * 0,站外广告;从1开始代表的是该广告所处的广告位,同表ad_postition中的字段position_id的值
+     * 0,站外广告;从1开始代表的是该广告所处的广告位,同表AD_POSTITION中的字段POSITION_ID的值
      *
      * @mbggenerated
      */
-    private Short positionId;
+    private Long positionId;
 
     /**
-     * 广告类型,0图片;1flash;2代码3文字
+     * 广告类型,0图片;1FLASH;2代码3文字
      *
      * @mbggenerated
      */
-    private Byte mediaType;
+    private Integer mediaType;
 
     /**
      * 该条广告记录的广告名称
@@ -85,10 +85,10 @@ public class Ad implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte enabled;
+    private Integer enabled;
 
     /**
-     * 广告链接的表现,文字广告就是文字或图片和flash就是它们的地址
+     * 广告链接的表现,文字广告就是文字或图片和FLASH就是它们的地址
      *
      * @mbggenerated
      */
@@ -96,27 +96,27 @@ public class Ad implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Short getAdId() {
-        return adId;
+    public Long getId() {
+        return id;
     }
 
-    public void setAdId(Short adId) {
-        this.adId = adId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Short getPositionId() {
+    public Long getPositionId() {
         return positionId;
     }
 
-    public void setPositionId(Short positionId) {
+    public void setPositionId(Long positionId) {
         this.positionId = positionId;
     }
 
-    public Byte getMediaType() {
+    public Integer getMediaType() {
         return mediaType;
     }
 
-    public void setMediaType(Byte mediaType) {
+    public void setMediaType(Integer mediaType) {
         this.mediaType = mediaType;
     }
 
@@ -184,11 +184,11 @@ public class Ad implements Serializable {
         this.clickCount = clickCount;
     }
 
-    public Byte getEnabled() {
+    public Integer getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Byte enabled) {
+    public void setEnabled(Integer enabled) {
         this.enabled = enabled;
     }
 
@@ -206,7 +206,7 @@ public class Ad implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", adId=").append(adId);
+        sb.append(", id=").append(id);
         sb.append(", positionId=").append(positionId);
         sb.append(", mediaType=").append(mediaType);
         sb.append(", adName=").append(adName);

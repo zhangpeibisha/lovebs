@@ -104,253 +104,253 @@ public class UserRankExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRankIdIsNull() {
-            addCriterion("rank_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdIsNotNull() {
-            addCriterion("rank_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdEqualTo(Long value) {
-            addCriterion("rank_id =", value, "rankId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdNotEqualTo(Long value) {
-            addCriterion("rank_id <>", value, "rankId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdGreaterThan(Long value) {
-            addCriterion("rank_id >", value, "rankId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("rank_id >=", value, "rankId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdLessThan(Long value) {
-            addCriterion("rank_id <", value, "rankId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdLessThanOrEqualTo(Long value) {
-            addCriterion("rank_id <=", value, "rankId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdIn(List<Long> values) {
-            addCriterion("rank_id in", values, "rankId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdNotIn(List<Long> values) {
-            addCriterion("rank_id not in", values, "rankId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdBetween(Long value1, Long value2) {
-            addCriterion("rank_id between", value1, value2, "rankId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRankIdNotBetween(Long value1, Long value2) {
-            addCriterion("rank_id not between", value1, value2, "rankId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdIsNull() {
-            addCriterion("user_rank_id is null");
+        public Criteria andUserRankIsNull() {
+            addCriterion("USER_RANK is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdIsNotNull() {
-            addCriterion("user_rank_id is not null");
+        public Criteria andUserRankIsNotNull() {
+            addCriterion("USER_RANK is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdEqualTo(Short value) {
-            addCriterion("user_rank_id =", value, "userRankId");
+        public Criteria andUserRankEqualTo(Long value) {
+            addCriterion("USER_RANK =", value, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdNotEqualTo(Short value) {
-            addCriterion("user_rank_id <>", value, "userRankId");
+        public Criteria andUserRankNotEqualTo(Long value) {
+            addCriterion("USER_RANK <>", value, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdGreaterThan(Short value) {
-            addCriterion("user_rank_id >", value, "userRankId");
+        public Criteria andUserRankGreaterThan(Long value) {
+            addCriterion("USER_RANK >", value, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdGreaterThanOrEqualTo(Short value) {
-            addCriterion("user_rank_id >=", value, "userRankId");
+        public Criteria andUserRankGreaterThanOrEqualTo(Long value) {
+            addCriterion("USER_RANK >=", value, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdLessThan(Short value) {
-            addCriterion("user_rank_id <", value, "userRankId");
+        public Criteria andUserRankLessThan(Long value) {
+            addCriterion("USER_RANK <", value, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdLessThanOrEqualTo(Short value) {
-            addCriterion("user_rank_id <=", value, "userRankId");
+        public Criteria andUserRankLessThanOrEqualTo(Long value) {
+            addCriterion("USER_RANK <=", value, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdIn(List<Short> values) {
-            addCriterion("user_rank_id in", values, "userRankId");
+        public Criteria andUserRankIn(List<Long> values) {
+            addCriterion("USER_RANK in", values, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdNotIn(List<Short> values) {
-            addCriterion("user_rank_id not in", values, "userRankId");
+        public Criteria andUserRankNotIn(List<Long> values) {
+            addCriterion("USER_RANK not in", values, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdBetween(Short value1, Short value2) {
-            addCriterion("user_rank_id between", value1, value2, "userRankId");
+        public Criteria andUserRankBetween(Long value1, Long value2) {
+            addCriterion("USER_RANK between", value1, value2, "userRank");
             return (Criteria) this;
         }
 
-        public Criteria andUserRankIdNotBetween(Short value1, Short value2) {
-            addCriterion("user_rank_id not between", value1, value2, "userRankId");
+        public Criteria andUserRankNotBetween(Long value1, Long value2) {
+            addCriterion("USER_RANK not between", value1, value2, "userRank");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkIsNull() {
-            addCriterion("rank_mark is null");
+            addCriterion("RANK_MARK is null");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkIsNotNull() {
-            addCriterion("rank_mark is not null");
+            addCriterion("RANK_MARK is not null");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkEqualTo(Long value) {
-            addCriterion("rank_mark =", value, "rankMark");
+            addCriterion("RANK_MARK =", value, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkNotEqualTo(Long value) {
-            addCriterion("rank_mark <>", value, "rankMark");
+            addCriterion("RANK_MARK <>", value, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkGreaterThan(Long value) {
-            addCriterion("rank_mark >", value, "rankMark");
+            addCriterion("RANK_MARK >", value, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkGreaterThanOrEqualTo(Long value) {
-            addCriterion("rank_mark >=", value, "rankMark");
+            addCriterion("RANK_MARK >=", value, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkLessThan(Long value) {
-            addCriterion("rank_mark <", value, "rankMark");
+            addCriterion("RANK_MARK <", value, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkLessThanOrEqualTo(Long value) {
-            addCriterion("rank_mark <=", value, "rankMark");
+            addCriterion("RANK_MARK <=", value, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkIn(List<Long> values) {
-            addCriterion("rank_mark in", values, "rankMark");
+            addCriterion("RANK_MARK in", values, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkNotIn(List<Long> values) {
-            addCriterion("rank_mark not in", values, "rankMark");
+            addCriterion("RANK_MARK not in", values, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkBetween(Long value1, Long value2) {
-            addCriterion("rank_mark between", value1, value2, "rankMark");
+            addCriterion("RANK_MARK between", value1, value2, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankMarkNotBetween(Long value1, Long value2) {
-            addCriterion("rank_mark not between", value1, value2, "rankMark");
+            addCriterion("RANK_MARK not between", value1, value2, "rankMark");
             return (Criteria) this;
         }
 
         public Criteria andRankNameIsNull() {
-            addCriterion("rank_name is null");
+            addCriterion("RANK_NAME is null");
             return (Criteria) this;
         }
 
         public Criteria andRankNameIsNotNull() {
-            addCriterion("rank_name is not null");
+            addCriterion("RANK_NAME is not null");
             return (Criteria) this;
         }
 
         public Criteria andRankNameEqualTo(String value) {
-            addCriterion("rank_name =", value, "rankName");
+            addCriterion("RANK_NAME =", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameNotEqualTo(String value) {
-            addCriterion("rank_name <>", value, "rankName");
+            addCriterion("RANK_NAME <>", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameGreaterThan(String value) {
-            addCriterion("rank_name >", value, "rankName");
+            addCriterion("RANK_NAME >", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameGreaterThanOrEqualTo(String value) {
-            addCriterion("rank_name >=", value, "rankName");
+            addCriterion("RANK_NAME >=", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameLessThan(String value) {
-            addCriterion("rank_name <", value, "rankName");
+            addCriterion("RANK_NAME <", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameLessThanOrEqualTo(String value) {
-            addCriterion("rank_name <=", value, "rankName");
+            addCriterion("RANK_NAME <=", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameLike(String value) {
-            addCriterion("rank_name like", value, "rankName");
+            addCriterion("RANK_NAME like", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameNotLike(String value) {
-            addCriterion("rank_name not like", value, "rankName");
+            addCriterion("RANK_NAME not like", value, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameIn(List<String> values) {
-            addCriterion("rank_name in", values, "rankName");
+            addCriterion("RANK_NAME in", values, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameNotIn(List<String> values) {
-            addCriterion("rank_name not in", values, "rankName");
+            addCriterion("RANK_NAME not in", values, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameBetween(String value1, String value2) {
-            addCriterion("rank_name between", value1, value2, "rankName");
+            addCriterion("RANK_NAME between", value1, value2, "rankName");
             return (Criteria) this;
         }
 
         public Criteria andRankNameNotBetween(String value1, String value2) {
-            addCriterion("rank_name not between", value1, value2, "rankName");
+            addCriterion("RANK_NAME not between", value1, value2, "rankName");
             return (Criteria) this;
         }
     }

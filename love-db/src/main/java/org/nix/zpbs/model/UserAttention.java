@@ -8,7 +8,7 @@ public class UserAttention implements Serializable {
      *
      * @mbggenerated
      */
-    private Short aId;
+    private Long id;
 
     /**
      * 用户ID
@@ -18,7 +18,7 @@ public class UserAttention implements Serializable {
     private Long userId;
 
     /**
-     * 关注ID
+     * 关注用户的ID
      *
      * @mbggenerated
      */
@@ -26,12 +26,12 @@ public class UserAttention implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Short getaId() {
-        return aId;
+    public Long getId() {
+        return id;
     }
 
-    public void setaId(Short aId) {
-        this.aId = aId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -56,7 +56,7 @@ public class UserAttention implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", aId=").append(aId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", attentionId=").append(attentionId);
         sb.append(", serialVersionUID=").append(serialVersionUID);

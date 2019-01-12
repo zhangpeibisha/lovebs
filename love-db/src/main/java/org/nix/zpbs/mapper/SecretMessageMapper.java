@@ -10,7 +10,7 @@ public interface SecretMessageMapper {
 
     int deleteByExample(SecretMessageExample example);
 
-    int deleteByPrimaryKey(Long secretId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(SecretMessage record);
 
@@ -18,7 +18,7 @@ public interface SecretMessageMapper {
 
     List<SecretMessage> selectByExample(SecretMessageExample example);
 
-    SecretMessage selectByPrimaryKey(Long secretId);
+    SecretMessage selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") SecretMessage record, @Param("example") SecretMessageExample example);
 

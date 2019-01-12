@@ -8,7 +8,7 @@ public class Shuoshuo implements Serializable {
      *
      * @mbggenerated
      */
-    private Long shuoId;
+    private Long id;
 
     /**
      * 用户ID
@@ -43,16 +43,16 @@ public class Shuoshuo implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte typeId;
+    private Integer typeId;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getShuoId() {
-        return shuoId;
+    public Long getId() {
+        return id;
     }
 
-    public void setShuoId(Long shuoId) {
-        this.shuoId = shuoId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -87,11 +87,11 @@ public class Shuoshuo implements Serializable {
         this.shuoshuo = shuoshuo;
     }
 
-    public Byte getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(Byte typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 
@@ -101,7 +101,7 @@ public class Shuoshuo implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", shuoId=").append(shuoId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", shuoTime=").append(shuoTime);
         sb.append(", shuoIp=").append(shuoIp);

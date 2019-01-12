@@ -8,7 +8,7 @@ public class AboutBlog implements Serializable {
      *
      * @mbggenerated
      */
-    private Long blogId;
+    private Long id;
 
     /**
      * 博客关键字
@@ -40,12 +40,12 @@ public class AboutBlog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getBlogId() {
-        return blogId;
+    public Long getId() {
+        return id;
     }
 
-    public void setBlogId(Long blogId) {
-        this.blogId = blogId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getBlogKeyword() {
@@ -86,7 +86,7 @@ public class AboutBlog implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", blogId=").append(blogId);
+        sb.append(", id=").append(id);
         sb.append(", blogKeyword=").append(blogKeyword);
         sb.append(", blogDescription=").append(blogDescription);
         sb.append(", blogName=").append(blogName);

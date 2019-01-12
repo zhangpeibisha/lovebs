@@ -1,7 +1,7 @@
 package org.nix.zpbs.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.nix.zpbs.dto.response.UserResponseDetailDTO;
+import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 import org.nix.zpbs.service.UserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

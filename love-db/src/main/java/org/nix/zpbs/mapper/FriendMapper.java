@@ -10,7 +10,7 @@ public interface FriendMapper {
 
     int deleteByExample(FriendExample example);
 
-    int deleteByPrimaryKey(Short fId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Friend record);
 
@@ -18,7 +18,7 @@ public interface FriendMapper {
 
     List<Friend> selectByExample(FriendExample example);
 
-    Friend selectByPrimaryKey(Short fId);
+    Friend selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Friend record, @Param("example") FriendExample example);
 

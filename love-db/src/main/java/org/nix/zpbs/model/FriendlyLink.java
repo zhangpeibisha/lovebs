@@ -8,7 +8,7 @@ public class FriendlyLink implements Serializable {
      *
      * @mbggenerated
      */
-    private Short linkId;
+    private Long id;
 
     /**
      * 友情链接名称
@@ -36,16 +36,16 @@ public class FriendlyLink implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte showOrder;
+    private Integer showOrder;
 
     private static final long serialVersionUID = 1L;
 
-    public Short getLinkId() {
-        return linkId;
+    public Long getId() {
+        return id;
     }
 
-    public void setLinkId(Short linkId) {
-        this.linkId = linkId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLinkName() {
@@ -72,11 +72,11 @@ public class FriendlyLink implements Serializable {
         this.linkLogo = linkLogo;
     }
 
-    public Byte getShowOrder() {
+    public Integer getShowOrder() {
         return showOrder;
     }
 
-    public void setShowOrder(Byte showOrder) {
+    public void setShowOrder(Integer showOrder) {
         this.showOrder = showOrder;
     }
 
@@ -86,7 +86,7 @@ public class FriendlyLink implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", linkId=").append(linkId);
+        sb.append(", id=").append(id);
         sb.append(", linkName=").append(linkName);
         sb.append(", linkUrl=").append(linkUrl);
         sb.append(", linkLogo=").append(linkLogo);

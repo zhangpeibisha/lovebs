@@ -8,10 +8,10 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Long userId;
+    private Long id;
 
     /**
-     * 用户组ID
+     * 用户组ID,默认为使用用户的最少权限
      *
      * @mbggenerated
      */
@@ -78,7 +78,7 @@ public class User implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte userRankId;
+    private Integer userRankId;
 
     /**
      * 用户上一次登录IP地址
@@ -102,7 +102,7 @@ public class User implements Serializable {
     private String userDescription;
 
     /**
-     * 用户头像存储路径
+     * 用户头像存储路径,使用短地址存储，调用百度短地址
      *
      * @mbggenerated
      */
@@ -158,34 +158,27 @@ public class User implements Serializable {
     private String userSays;
 
     /**
-     * 是否锁定，0为不锁定，1为锁定
+     * 是否激活，0为激活，1为未激活
      *
      * @mbggenerated
      */
-    private Byte userLock;
+    private Integer userActivation;
 
     /**
      * 是否冻结，0为不冻结，1为冻结
      *
      * @mbggenerated
      */
-    private Byte userFreeze;
-
-    /**
-     * 拥有权限
-     *
-     * @mbggenerated
-     */
-    private String userPower;
+    private Integer userFreeze;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getGroupId() {
@@ -260,11 +253,11 @@ public class User implements Serializable {
         this.userMark = userMark;
     }
 
-    public Byte getUserRankId() {
+    public Integer getUserRankId() {
         return userRankId;
     }
 
-    public void setUserRankId(Byte userRankId) {
+    public void setUserRankId(Integer userRankId) {
         this.userRankId = userRankId;
     }
 
@@ -356,28 +349,20 @@ public class User implements Serializable {
         this.userSays = userSays;
     }
 
-    public Byte getUserLock() {
-        return userLock;
+    public Integer getUserActivation() {
+        return userActivation;
     }
 
-    public void setUserLock(Byte userLock) {
-        this.userLock = userLock;
+    public void setUserActivation(Integer userActivation) {
+        this.userActivation = userActivation;
     }
 
-    public Byte getUserFreeze() {
+    public Integer getUserFreeze() {
         return userFreeze;
     }
 
-    public void setUserFreeze(Byte userFreeze) {
+    public void setUserFreeze(Integer userFreeze) {
         this.userFreeze = userFreeze;
-    }
-
-    public String getUserPower() {
-        return userPower;
-    }
-
-    public void setUserPower(String userPower) {
-        this.userPower = userPower;
     }
 
     @Override
@@ -386,7 +371,7 @@ public class User implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", userId=").append(userId);
+        sb.append(", id=").append(id);
         sb.append(", groupId=").append(groupId);
         sb.append(", userName=").append(userName);
         sb.append(", userPwd=").append(userPwd);
@@ -408,9 +393,8 @@ public class User implements Serializable {
         sb.append(", userWeibo=").append(userWeibo);
         sb.append(", userBloodType=").append(userBloodType);
         sb.append(", userSays=").append(userSays);
-        sb.append(", userLock=").append(userLock);
+        sb.append(", userActivation=").append(userActivation);
         sb.append(", userFreeze=").append(userFreeze);
-        sb.append(", userPower=").append(userPower);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

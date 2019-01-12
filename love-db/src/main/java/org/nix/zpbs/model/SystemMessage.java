@@ -8,7 +8,7 @@ public class SystemMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Long systemId;
+    private Long id;
 
     /**
      * 接受者ID
@@ -22,7 +22,7 @@ public class SystemMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte groupId;
+    private Integer groupId;
 
     /**
      * 1时发送所有用户，0时则不采用
@@ -47,12 +47,12 @@ public class SystemMessage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getSystemId() {
-        return systemId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSystemId(Long systemId) {
-        this.systemId = systemId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getSendId() {
@@ -63,11 +63,11 @@ public class SystemMessage implements Serializable {
         this.sendId = sendId;
     }
 
-    public Byte getGroupId() {
+    public Integer getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Byte groupId) {
+    public void setGroupId(Integer groupId) {
         this.groupId = groupId;
     }
 
@@ -101,7 +101,7 @@ public class SystemMessage implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", systemId=").append(systemId);
+        sb.append(", id=").append(id);
         sb.append(", sendId=").append(sendId);
         sb.append(", groupId=").append(groupId);
         sb.append(", sendDefault=").append(sendDefault);

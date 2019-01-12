@@ -4,16 +4,12 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.nix.zpbs.LoveBlogApplication;
-import org.nix.zpbs.dto.response.UserResponseDetailDTO;
+import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 import org.nix.zpbs.service.UserService;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-
-import java.rmi.server.ExportException;
-
-import static org.junit.Assert.*;
 
 @SpringBootTest(classes = LoveBlogApplication.class)
 @RunWith(value = SpringJUnit4ClassRunner.class)

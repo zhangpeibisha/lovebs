@@ -8,7 +8,7 @@ public class Friend implements Serializable {
      *
      * @mbggenerated
      */
-    private Short fId;
+    private Long id;
 
     /**
      * 用户ID
@@ -26,12 +26,12 @@ public class Friend implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Short getfId() {
-        return fId;
+    public Long getId() {
+        return id;
     }
 
-    public void setfId(Short fId) {
-        this.fId = fId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -56,7 +56,7 @@ public class Friend implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", fId=").append(fId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", friendId=").append(friendId);
         sb.append(", serialVersionUID=").append(serialVersionUID);

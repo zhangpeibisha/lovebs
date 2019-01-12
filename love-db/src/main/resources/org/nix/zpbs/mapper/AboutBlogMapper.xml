@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.AboutBlogMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.AboutBlog">
-    <id column="blog_id" jdbcType="BIGINT" property="blogId" />
-    <result column="blog_keyword" jdbcType="VARCHAR" property="blogKeyword" />
-    <result column="blog_description" jdbcType="VARCHAR" property="blogDescription" />
-    <result column="blog_name" jdbcType="VARCHAR" property="blogName" />
-    <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="BLOG_KEYWORD" jdbcType="VARCHAR" property="blogKeyword" />
+    <result column="BLOG_DESCRIPTION" jdbcType="VARCHAR" property="blogDescription" />
+    <result column="BLOG_NAME" jdbcType="VARCHAR" property="blogName" />
+    <result column="BLOG_TITLE" jdbcType="VARCHAR" property="blogTitle" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    blog_id, blog_keyword, blog_description, blog_name, blog_title
+    ID, BLOG_KEYWORD, BLOG_DESCRIPTION, BLOG_NAME, BLOG_TITLE
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.AboutBlogExample" resultMap="BaseResultMap">
     select
@@ -75,7 +75,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from about_blog
+    from ABOUT_BLOG
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,48 +86,48 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from about_blog
-    where blog_id = #{blogId,jdbcType=BIGINT}
+    from ABOUT_BLOG
+    where ID = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from about_blog
-    where blog_id = #{blogId,jdbcType=BIGINT}
+    delete from ABOUT_BLOG
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.AboutBlogExample">
-    delete from about_blog
+    delete from ABOUT_BLOG
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.AboutBlog">
-    insert into about_blog (blog_id, blog_keyword, blog_description, 
-      blog_name, blog_title)
-    values (#{blogId,jdbcType=BIGINT}, #{blogKeyword,jdbcType=VARCHAR}, #{blogDescription,jdbcType=VARCHAR}, 
-      #{blogName,jdbcType=VARCHAR}, #{blogTitle,jdbcType=VARCHAR})
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ABOUT_BLOG (BLOG_KEYWORD, BLOG_DESCRIPTION, BLOG_NAME, 
+      BLOG_TITLE)
+    values (#{blogKeyword,jdbcType=VARCHAR}, #{blogDescription,jdbcType=VARCHAR}, #{blogName,jdbcType=VARCHAR}, 
+      #{blogTitle,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.AboutBlog">
-    insert into about_blog
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ABOUT_BLOG
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="blogId != null">
-        blog_id,
-      </if>
       <if test="blogKeyword != null">
-        blog_keyword,
+        BLOG_KEYWORD,
       </if>
       <if test="blogDescription != null">
-        blog_description,
+        BLOG_DESCRIPTION,
       </if>
       <if test="blogName != null">
-        blog_name,
+        BLOG_NAME,
       </if>
       <if test="blogTitle != null">
-        blog_title,
+        BLOG_TITLE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="blogId != null">
-        #{blogId,jdbcType=BIGINT},
-      </if>
       <if test="blogKeyword != null">
         #{blogKeyword,jdbcType=VARCHAR},
       </if>
@@ -143,28 +143,28 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.AboutBlogExample" resultType="java.lang.Integer">
-    select count(*) from about_blog
+    select count(*) from ABOUT_BLOG
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update about_blog
+    update ABOUT_BLOG
     <set>
-      <if test="record.blogId != null">
-        blog_id = #{record.blogId,jdbcType=BIGINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.blogKeyword != null">
-        blog_keyword = #{record.blogKeyword,jdbcType=VARCHAR},
+        BLOG_KEYWORD = #{record.blogKeyword,jdbcType=VARCHAR},
       </if>
       <if test="record.blogDescription != null">
-        blog_description = #{record.blogDescription,jdbcType=VARCHAR},
+        BLOG_DESCRIPTION = #{record.blogDescription,jdbcType=VARCHAR},
       </if>
       <if test="record.blogName != null">
-        blog_name = #{record.blogName,jdbcType=VARCHAR},
+        BLOG_NAME = #{record.blogName,jdbcType=VARCHAR},
       </if>
       <if test="record.blogTitle != null">
-        blog_title = #{record.blogTitle,jdbcType=VARCHAR},
+        BLOG_TITLE = #{record.blogTitle,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -172,40 +172,40 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update about_blog
-    set blog_id = #{record.blogId,jdbcType=BIGINT},
-      blog_keyword = #{record.blogKeyword,jdbcType=VARCHAR},
-      blog_description = #{record.blogDescription,jdbcType=VARCHAR},
-      blog_name = #{record.blogName,jdbcType=VARCHAR},
-      blog_title = #{record.blogTitle,jdbcType=VARCHAR}
+    update ABOUT_BLOG
+    set ID = #{record.id,jdbcType=BIGINT},
+      BLOG_KEYWORD = #{record.blogKeyword,jdbcType=VARCHAR},
+      BLOG_DESCRIPTION = #{record.blogDescription,jdbcType=VARCHAR},
+      BLOG_NAME = #{record.blogName,jdbcType=VARCHAR},
+      BLOG_TITLE = #{record.blogTitle,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.AboutBlog">
-    update about_blog
+    update ABOUT_BLOG
     <set>
       <if test="blogKeyword != null">
-        blog_keyword = #{blogKeyword,jdbcType=VARCHAR},
+        BLOG_KEYWORD = #{blogKeyword,jdbcType=VARCHAR},
       </if>
       <if test="blogDescription != null">
-        blog_description = #{blogDescription,jdbcType=VARCHAR},
+        BLOG_DESCRIPTION = #{blogDescription,jdbcType=VARCHAR},
       </if>
       <if test="blogName != null">
-        blog_name = #{blogName,jdbcType=VARCHAR},
+        BLOG_NAME = #{blogName,jdbcType=VARCHAR},
       </if>
       <if test="blogTitle != null">
-        blog_title = #{blogTitle,jdbcType=VARCHAR},
+        BLOG_TITLE = #{blogTitle,jdbcType=VARCHAR},
       </if>
     </set>
-    where blog_id = #{blogId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.AboutBlog">
-    update about_blog
-    set blog_keyword = #{blogKeyword,jdbcType=VARCHAR},
-      blog_description = #{blogDescription,jdbcType=VARCHAR},
-      blog_name = #{blogName,jdbcType=VARCHAR},
-      blog_title = #{blogTitle,jdbcType=VARCHAR}
-    where blog_id = #{blogId,jdbcType=BIGINT}
+    update ABOUT_BLOG
+    set BLOG_KEYWORD = #{blogKeyword,jdbcType=VARCHAR},
+      BLOG_DESCRIPTION = #{blogDescription,jdbcType=VARCHAR},
+      BLOG_NAME = #{blogName,jdbcType=VARCHAR},
+      BLOG_TITLE = #{blogTitle,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

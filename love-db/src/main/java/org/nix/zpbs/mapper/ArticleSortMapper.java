@@ -10,7 +10,7 @@ public interface ArticleSortMapper {
 
     int deleteByExample(ArticleSortExample example);
 
-    int deleteByPrimaryKey(Long sortArticleId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(ArticleSort record);
 
@@ -18,7 +18,7 @@ public interface ArticleSortMapper {
 
     List<ArticleSort> selectByExample(ArticleSortExample example);
 
-    ArticleSort selectByPrimaryKey(Long sortArticleId);
+    ArticleSort selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") ArticleSort record, @Param("example") ArticleSortExample example);
 

@@ -8,7 +8,7 @@ public class Article implements Serializable {
      *
      * @mbggenerated
      */
-    private Short articleId;
+    private Long id;
 
     /**
      * 文章名称
@@ -57,7 +57,7 @@ public class Article implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte typeId;
+    private Integer typeId;
 
     /**
      * 文章的模式:0为私有，1为公开，2为仅好友查看
@@ -71,14 +71,14 @@ public class Article implements Serializable {
      *
      * @mbggenerated
      */
-    private Byte articleUp;
+    private Integer articleUp;
 
     /**
      * 是否博主推荐:0为否，1为是
      *
      * @mbggenerated
      */
-    private Byte articleSupport;
+    private Integer articleSupport;
 
     /**
      * 文章内容
@@ -89,12 +89,12 @@ public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Short getArticleId() {
-        return articleId;
+    public Long getId() {
+        return id;
     }
 
-    public void setArticleId(Short articleId) {
-        this.articleId = articleId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getArticleName() {
@@ -145,11 +145,11 @@ public class Article implements Serializable {
         this.userId = userId;
     }
 
-    public Byte getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(Byte typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 
@@ -161,19 +161,19 @@ public class Article implements Serializable {
         this.articleType = articleType;
     }
 
-    public Byte getArticleUp() {
+    public Integer getArticleUp() {
         return articleUp;
     }
 
-    public void setArticleUp(Byte articleUp) {
+    public void setArticleUp(Integer articleUp) {
         this.articleUp = articleUp;
     }
 
-    public Byte getArticleSupport() {
+    public Integer getArticleSupport() {
         return articleSupport;
     }
 
-    public void setArticleSupport(Byte articleSupport) {
+    public void setArticleSupport(Integer articleSupport) {
         this.articleSupport = articleSupport;
     }
 
@@ -191,7 +191,7 @@ public class Article implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", articleId=").append(articleId);
+        sb.append(", id=").append(id);
         sb.append(", articleName=").append(articleName);
         sb.append(", articleTime=").append(articleTime);
         sb.append(", articleIp=").append(articleIp);

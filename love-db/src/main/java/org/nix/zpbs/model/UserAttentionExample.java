@@ -104,183 +104,183 @@ public class UserAttentionExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAIdIsNull() {
-            addCriterion("a_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andAIdIsNotNull() {
-            addCriterion("a_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAIdEqualTo(Short value) {
-            addCriterion("a_id =", value, "aId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdNotEqualTo(Short value) {
-            addCriterion("a_id <>", value, "aId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdGreaterThan(Short value) {
-            addCriterion("a_id >", value, "aId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdGreaterThanOrEqualTo(Short value) {
-            addCriterion("a_id >=", value, "aId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdLessThan(Short value) {
-            addCriterion("a_id <", value, "aId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdLessThanOrEqualTo(Short value) {
-            addCriterion("a_id <=", value, "aId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdIn(List<Short> values) {
-            addCriterion("a_id in", values, "aId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdNotIn(List<Short> values) {
-            addCriterion("a_id not in", values, "aId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdBetween(Short value1, Short value2) {
-            addCriterion("a_id between", value1, value2, "aId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAIdNotBetween(Short value1, Short value2) {
-            addCriterion("a_id not between", value1, value2, "aId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+            addCriterion("USER_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+            addCriterion("USER_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
+            addCriterion("USER_ID =", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
+            addCriterion("USER_ID <>", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
+            addCriterion("USER_ID >", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
+            addCriterion("USER_ID >=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
+            addCriterion("USER_ID <", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
+            addCriterion("USER_ID <=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
+            addCriterion("USER_ID in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
+            addCriterion("USER_ID not in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+            addCriterion("USER_ID between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+            addCriterion("USER_ID not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdIsNull() {
-            addCriterion("attention_id is null");
+            addCriterion("ATTENTION_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdIsNotNull() {
-            addCriterion("attention_id is not null");
+            addCriterion("ATTENTION_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdEqualTo(Long value) {
-            addCriterion("attention_id =", value, "attentionId");
+            addCriterion("ATTENTION_ID =", value, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdNotEqualTo(Long value) {
-            addCriterion("attention_id <>", value, "attentionId");
+            addCriterion("ATTENTION_ID <>", value, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdGreaterThan(Long value) {
-            addCriterion("attention_id >", value, "attentionId");
+            addCriterion("ATTENTION_ID >", value, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("attention_id >=", value, "attentionId");
+            addCriterion("ATTENTION_ID >=", value, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdLessThan(Long value) {
-            addCriterion("attention_id <", value, "attentionId");
+            addCriterion("ATTENTION_ID <", value, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdLessThanOrEqualTo(Long value) {
-            addCriterion("attention_id <=", value, "attentionId");
+            addCriterion("ATTENTION_ID <=", value, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdIn(List<Long> values) {
-            addCriterion("attention_id in", values, "attentionId");
+            addCriterion("ATTENTION_ID in", values, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdNotIn(List<Long> values) {
-            addCriterion("attention_id not in", values, "attentionId");
+            addCriterion("ATTENTION_ID not in", values, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdBetween(Long value1, Long value2) {
-            addCriterion("attention_id between", value1, value2, "attentionId");
+            addCriterion("ATTENTION_ID between", value1, value2, "attentionId");
             return (Criteria) this;
         }
 
         public Criteria andAttentionIdNotBetween(Long value1, Long value2) {
-            addCriterion("attention_id not between", value1, value2, "attentionId");
+            addCriterion("ATTENTION_ID not between", value1, value2, "attentionId");
             return (Criteria) this;
         }
     }

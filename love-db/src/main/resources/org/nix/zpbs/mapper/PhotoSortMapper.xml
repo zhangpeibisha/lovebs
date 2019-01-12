@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.PhotoSortMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.PhotoSort">
-    <id column="sort_img_id" jdbcType="BIGINT" property="sortImgId" />
-    <result column="sort_img_name" jdbcType="VARCHAR" property="sortImgName" />
-    <result column="sort_img_type" jdbcType="VARCHAR" property="sortImgType" />
-    <result column="img_password" jdbcType="VARCHAR" property="imgPassword" />
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="img_sort_question" jdbcType="VARCHAR" property="imgSortQuestion" />
-    <result column="img_sort_answer" jdbcType="VARCHAR" property="imgSortAnswer" />
-    <result column="type_id" jdbcType="INTEGER" property="typeId" />
-    <result column="top_pic_src" jdbcType="BIGINT" property="topPicSrc" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="SORT_IMG_NAME" jdbcType="VARCHAR" property="sortImgName" />
+    <result column="SORT_IMG_TYPE" jdbcType="VARCHAR" property="sortImgType" />
+    <result column="IMG_PASSWORD" jdbcType="VARCHAR" property="imgPassword" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="IMG_SORT_QUESTION" jdbcType="VARCHAR" property="imgSortQuestion" />
+    <result column="IMG_SORT_ANSWER" jdbcType="VARCHAR" property="imgSortAnswer" />
+    <result column="TYPE_ID" jdbcType="INTEGER" property="typeId" />
+    <result column="TOP_PIC_SRC" jdbcType="BIGINT" property="topPicSrc" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    sort_img_id, sort_img_name, sort_img_type, img_password, user_id, img_sort_question, 
-    img_sort_answer, type_id, top_pic_src
+    ID, SORT_IMG_NAME, SORT_IMG_TYPE, IMG_PASSWORD, USER_ID, IMG_SORT_QUESTION, IMG_SORT_ANSWER, 
+    TYPE_ID, TOP_PIC_SRC
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.PhotoSortExample" resultMap="BaseResultMap">
     select
@@ -80,7 +80,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from photo_sort
+    from PHOTO_SORT
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -91,64 +91,62 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from photo_sort
-    where sort_img_id = #{sortImgId,jdbcType=BIGINT}
+    from PHOTO_SORT
+    where ID = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from photo_sort
-    where sort_img_id = #{sortImgId,jdbcType=BIGINT}
+    delete from PHOTO_SORT
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.PhotoSortExample">
-    delete from photo_sort
+    delete from PHOTO_SORT
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.PhotoSort">
-    insert into photo_sort (sort_img_id, sort_img_name, sort_img_type, 
-      img_password, user_id, img_sort_question, 
-      img_sort_answer, type_id, top_pic_src
-      )
-    values (#{sortImgId,jdbcType=BIGINT}, #{sortImgName,jdbcType=VARCHAR}, #{sortImgType,jdbcType=VARCHAR}, 
-      #{imgPassword,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{imgSortQuestion,jdbcType=VARCHAR}, 
-      #{imgSortAnswer,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, #{topPicSrc,jdbcType=BIGINT}
-      )
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into PHOTO_SORT (SORT_IMG_NAME, SORT_IMG_TYPE, IMG_PASSWORD, 
+      USER_ID, IMG_SORT_QUESTION, IMG_SORT_ANSWER, 
+      TYPE_ID, TOP_PIC_SRC)
+    values (#{sortImgName,jdbcType=VARCHAR}, #{sortImgType,jdbcType=VARCHAR}, #{imgPassword,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{imgSortQuestion,jdbcType=VARCHAR}, #{imgSortAnswer,jdbcType=VARCHAR}, 
+      #{typeId,jdbcType=INTEGER}, #{topPicSrc,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.PhotoSort">
-    insert into photo_sort
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into PHOTO_SORT
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sortImgId != null">
-        sort_img_id,
-      </if>
       <if test="sortImgName != null">
-        sort_img_name,
+        SORT_IMG_NAME,
       </if>
       <if test="sortImgType != null">
-        sort_img_type,
+        SORT_IMG_TYPE,
       </if>
       <if test="imgPassword != null">
-        img_password,
+        IMG_PASSWORD,
       </if>
       <if test="userId != null">
-        user_id,
+        USER_ID,
       </if>
       <if test="imgSortQuestion != null">
-        img_sort_question,
+        IMG_SORT_QUESTION,
       </if>
       <if test="imgSortAnswer != null">
-        img_sort_answer,
+        IMG_SORT_ANSWER,
       </if>
       <if test="typeId != null">
-        type_id,
+        TYPE_ID,
       </if>
       <if test="topPicSrc != null">
-        top_pic_src,
+        TOP_PIC_SRC,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sortImgId != null">
-        #{sortImgId,jdbcType=BIGINT},
-      </if>
       <if test="sortImgName != null">
         #{sortImgName,jdbcType=VARCHAR},
       </if>
@@ -176,40 +174,40 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.PhotoSortExample" resultType="java.lang.Integer">
-    select count(*) from photo_sort
+    select count(*) from PHOTO_SORT
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update photo_sort
+    update PHOTO_SORT
     <set>
-      <if test="record.sortImgId != null">
-        sort_img_id = #{record.sortImgId,jdbcType=BIGINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.sortImgName != null">
-        sort_img_name = #{record.sortImgName,jdbcType=VARCHAR},
+        SORT_IMG_NAME = #{record.sortImgName,jdbcType=VARCHAR},
       </if>
       <if test="record.sortImgType != null">
-        sort_img_type = #{record.sortImgType,jdbcType=VARCHAR},
+        SORT_IMG_TYPE = #{record.sortImgType,jdbcType=VARCHAR},
       </if>
       <if test="record.imgPassword != null">
-        img_password = #{record.imgPassword,jdbcType=VARCHAR},
+        IMG_PASSWORD = #{record.imgPassword,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=BIGINT},
+        USER_ID = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.imgSortQuestion != null">
-        img_sort_question = #{record.imgSortQuestion,jdbcType=VARCHAR},
+        IMG_SORT_QUESTION = #{record.imgSortQuestion,jdbcType=VARCHAR},
       </if>
       <if test="record.imgSortAnswer != null">
-        img_sort_answer = #{record.imgSortAnswer,jdbcType=VARCHAR},
+        IMG_SORT_ANSWER = #{record.imgSortAnswer,jdbcType=VARCHAR},
       </if>
       <if test="record.typeId != null">
-        type_id = #{record.typeId,jdbcType=INTEGER},
+        TYPE_ID = #{record.typeId,jdbcType=INTEGER},
       </if>
       <if test="record.topPicSrc != null">
-        top_pic_src = #{record.topPicSrc,jdbcType=BIGINT},
+        TOP_PIC_SRC = #{record.topPicSrc,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -217,60 +215,60 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update photo_sort
-    set sort_img_id = #{record.sortImgId,jdbcType=BIGINT},
-      sort_img_name = #{record.sortImgName,jdbcType=VARCHAR},
-      sort_img_type = #{record.sortImgType,jdbcType=VARCHAR},
-      img_password = #{record.imgPassword,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=BIGINT},
-      img_sort_question = #{record.imgSortQuestion,jdbcType=VARCHAR},
-      img_sort_answer = #{record.imgSortAnswer,jdbcType=VARCHAR},
-      type_id = #{record.typeId,jdbcType=INTEGER},
-      top_pic_src = #{record.topPicSrc,jdbcType=BIGINT}
+    update PHOTO_SORT
+    set ID = #{record.id,jdbcType=BIGINT},
+      SORT_IMG_NAME = #{record.sortImgName,jdbcType=VARCHAR},
+      SORT_IMG_TYPE = #{record.sortImgType,jdbcType=VARCHAR},
+      IMG_PASSWORD = #{record.imgPassword,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=BIGINT},
+      IMG_SORT_QUESTION = #{record.imgSortQuestion,jdbcType=VARCHAR},
+      IMG_SORT_ANSWER = #{record.imgSortAnswer,jdbcType=VARCHAR},
+      TYPE_ID = #{record.typeId,jdbcType=INTEGER},
+      TOP_PIC_SRC = #{record.topPicSrc,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.PhotoSort">
-    update photo_sort
+    update PHOTO_SORT
     <set>
       <if test="sortImgName != null">
-        sort_img_name = #{sortImgName,jdbcType=VARCHAR},
+        SORT_IMG_NAME = #{sortImgName,jdbcType=VARCHAR},
       </if>
       <if test="sortImgType != null">
-        sort_img_type = #{sortImgType,jdbcType=VARCHAR},
+        SORT_IMG_TYPE = #{sortImgType,jdbcType=VARCHAR},
       </if>
       <if test="imgPassword != null">
-        img_password = #{imgPassword,jdbcType=VARCHAR},
+        IMG_PASSWORD = #{imgPassword,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=BIGINT},
+        USER_ID = #{userId,jdbcType=BIGINT},
       </if>
       <if test="imgSortQuestion != null">
-        img_sort_question = #{imgSortQuestion,jdbcType=VARCHAR},
+        IMG_SORT_QUESTION = #{imgSortQuestion,jdbcType=VARCHAR},
       </if>
       <if test="imgSortAnswer != null">
-        img_sort_answer = #{imgSortAnswer,jdbcType=VARCHAR},
+        IMG_SORT_ANSWER = #{imgSortAnswer,jdbcType=VARCHAR},
       </if>
       <if test="typeId != null">
-        type_id = #{typeId,jdbcType=INTEGER},
+        TYPE_ID = #{typeId,jdbcType=INTEGER},
       </if>
       <if test="topPicSrc != null">
-        top_pic_src = #{topPicSrc,jdbcType=BIGINT},
+        TOP_PIC_SRC = #{topPicSrc,jdbcType=BIGINT},
       </if>
     </set>
-    where sort_img_id = #{sortImgId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.PhotoSort">
-    update photo_sort
-    set sort_img_name = #{sortImgName,jdbcType=VARCHAR},
-      sort_img_type = #{sortImgType,jdbcType=VARCHAR},
-      img_password = #{imgPassword,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=BIGINT},
-      img_sort_question = #{imgSortQuestion,jdbcType=VARCHAR},
-      img_sort_answer = #{imgSortAnswer,jdbcType=VARCHAR},
-      type_id = #{typeId,jdbcType=INTEGER},
-      top_pic_src = #{topPicSrc,jdbcType=BIGINT}
-    where sort_img_id = #{sortImgId,jdbcType=BIGINT}
+    update PHOTO_SORT
+    set SORT_IMG_NAME = #{sortImgName,jdbcType=VARCHAR},
+      SORT_IMG_TYPE = #{sortImgType,jdbcType=VARCHAR},
+      IMG_PASSWORD = #{imgPassword,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      IMG_SORT_QUESTION = #{imgSortQuestion,jdbcType=VARCHAR},
+      IMG_SORT_ANSWER = #{imgSortAnswer,jdbcType=VARCHAR},
+      TYPE_ID = #{typeId,jdbcType=INTEGER},
+      TOP_PIC_SRC = #{topPicSrc,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

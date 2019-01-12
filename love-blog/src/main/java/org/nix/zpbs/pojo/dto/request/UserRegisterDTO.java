@@ -1,10 +1,9 @@
-package org.nix.zpbs.dto.request;
+package org.nix.zpbs.pojo.dto.request;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 /**
  * 用户注册请求dto

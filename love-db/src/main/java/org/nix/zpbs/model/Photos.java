@@ -8,7 +8,7 @@ public class Photos implements Serializable {
      *
      * @mbggenerated
      */
-    private Long photoId;
+    private Long id;
 
     /**
      * 相片名称
@@ -61,12 +61,12 @@ public class Photos implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getPhotoId() {
-        return photoId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPhotoId(Long photoId) {
-        this.photoId = photoId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPhotoName() {
@@ -131,7 +131,7 @@ public class Photos implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", photoId=").append(photoId);
+        sb.append(", id=").append(id);
         sb.append(", photoName=").append(photoName);
         sb.append(", photoSrc=").append(photoSrc);
         sb.append(", photoDescription=").append(photoDescription);

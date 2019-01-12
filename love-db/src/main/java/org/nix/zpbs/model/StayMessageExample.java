@@ -104,453 +104,453 @@ public class StayMessageExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andStayIdIsNull() {
-            addCriterion("stay_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdIsNotNull() {
-            addCriterion("stay_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdEqualTo(Short value) {
-            addCriterion("stay_id =", value, "stayId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdNotEqualTo(Short value) {
-            addCriterion("stay_id <>", value, "stayId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdGreaterThan(Short value) {
-            addCriterion("stay_id >", value, "stayId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdGreaterThanOrEqualTo(Short value) {
-            addCriterion("stay_id >=", value, "stayId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdLessThan(Short value) {
-            addCriterion("stay_id <", value, "stayId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdLessThanOrEqualTo(Short value) {
-            addCriterion("stay_id <=", value, "stayId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdIn(List<Short> values) {
-            addCriterion("stay_id in", values, "stayId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdNotIn(List<Short> values) {
-            addCriterion("stay_id not in", values, "stayId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdBetween(Short value1, Short value2) {
-            addCriterion("stay_id between", value1, value2, "stayId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andStayIdNotBetween(Short value1, Short value2) {
-            addCriterion("stay_id not between", value1, value2, "stayId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+            addCriterion("USER_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+            addCriterion("USER_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
+            addCriterion("USER_ID =", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
+            addCriterion("USER_ID <>", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
+            addCriterion("USER_ID >", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
+            addCriterion("USER_ID >=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
+            addCriterion("USER_ID <", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
+            addCriterion("USER_ID <=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
+            addCriterion("USER_ID in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
+            addCriterion("USER_ID not in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+            addCriterion("USER_ID between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+            addCriterion("USER_ID not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdIsNull() {
-            addCriterion("stay_user_id is null");
+            addCriterion("STAY_USER_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdIsNotNull() {
-            addCriterion("stay_user_id is not null");
+            addCriterion("STAY_USER_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdEqualTo(Long value) {
-            addCriterion("stay_user_id =", value, "stayUserId");
+            addCriterion("STAY_USER_ID =", value, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdNotEqualTo(Long value) {
-            addCriterion("stay_user_id <>", value, "stayUserId");
+            addCriterion("STAY_USER_ID <>", value, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdGreaterThan(Long value) {
-            addCriterion("stay_user_id >", value, "stayUserId");
+            addCriterion("STAY_USER_ID >", value, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("stay_user_id >=", value, "stayUserId");
+            addCriterion("STAY_USER_ID >=", value, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdLessThan(Long value) {
-            addCriterion("stay_user_id <", value, "stayUserId");
+            addCriterion("STAY_USER_ID <", value, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("stay_user_id <=", value, "stayUserId");
+            addCriterion("STAY_USER_ID <=", value, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdIn(List<Long> values) {
-            addCriterion("stay_user_id in", values, "stayUserId");
+            addCriterion("STAY_USER_ID in", values, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdNotIn(List<Long> values) {
-            addCriterion("stay_user_id not in", values, "stayUserId");
+            addCriterion("STAY_USER_ID not in", values, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdBetween(Long value1, Long value2) {
-            addCriterion("stay_user_id between", value1, value2, "stayUserId");
+            addCriterion("STAY_USER_ID between", value1, value2, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("stay_user_id not between", value1, value2, "stayUserId");
+            addCriterion("STAY_USER_ID not between", value1, value2, "stayUserId");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentIsNull() {
-            addCriterion("message_content is null");
+            addCriterion("MESSAGE_CONTENT is null");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentIsNotNull() {
-            addCriterion("message_content is not null");
+            addCriterion("MESSAGE_CONTENT is not null");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentEqualTo(String value) {
-            addCriterion("message_content =", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT =", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotEqualTo(String value) {
-            addCriterion("message_content <>", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT <>", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentGreaterThan(String value) {
-            addCriterion("message_content >", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT >", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentGreaterThanOrEqualTo(String value) {
-            addCriterion("message_content >=", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT >=", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentLessThan(String value) {
-            addCriterion("message_content <", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT <", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentLessThanOrEqualTo(String value) {
-            addCriterion("message_content <=", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT <=", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentLike(String value) {
-            addCriterion("message_content like", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT like", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotLike(String value) {
-            addCriterion("message_content not like", value, "messageContent");
+            addCriterion("MESSAGE_CONTENT not like", value, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentIn(List<String> values) {
-            addCriterion("message_content in", values, "messageContent");
+            addCriterion("MESSAGE_CONTENT in", values, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotIn(List<String> values) {
-            addCriterion("message_content not in", values, "messageContent");
+            addCriterion("MESSAGE_CONTENT not in", values, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentBetween(String value1, String value2) {
-            addCriterion("message_content between", value1, value2, "messageContent");
+            addCriterion("MESSAGE_CONTENT between", value1, value2, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andMessageContentNotBetween(String value1, String value2) {
-            addCriterion("message_content not between", value1, value2, "messageContent");
+            addCriterion("MESSAGE_CONTENT not between", value1, value2, "messageContent");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpIsNull() {
-            addCriterion("stay_user_ip is null");
+            addCriterion("STAY_USER_IP is null");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpIsNotNull() {
-            addCriterion("stay_user_ip is not null");
+            addCriterion("STAY_USER_IP is not null");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpEqualTo(String value) {
-            addCriterion("stay_user_ip =", value, "stayUserIp");
+            addCriterion("STAY_USER_IP =", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpNotEqualTo(String value) {
-            addCriterion("stay_user_ip <>", value, "stayUserIp");
+            addCriterion("STAY_USER_IP <>", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpGreaterThan(String value) {
-            addCriterion("stay_user_ip >", value, "stayUserIp");
+            addCriterion("STAY_USER_IP >", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpGreaterThanOrEqualTo(String value) {
-            addCriterion("stay_user_ip >=", value, "stayUserIp");
+            addCriterion("STAY_USER_IP >=", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpLessThan(String value) {
-            addCriterion("stay_user_ip <", value, "stayUserIp");
+            addCriterion("STAY_USER_IP <", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpLessThanOrEqualTo(String value) {
-            addCriterion("stay_user_ip <=", value, "stayUserIp");
+            addCriterion("STAY_USER_IP <=", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpLike(String value) {
-            addCriterion("stay_user_ip like", value, "stayUserIp");
+            addCriterion("STAY_USER_IP like", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpNotLike(String value) {
-            addCriterion("stay_user_ip not like", value, "stayUserIp");
+            addCriterion("STAY_USER_IP not like", value, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpIn(List<String> values) {
-            addCriterion("stay_user_ip in", values, "stayUserIp");
+            addCriterion("STAY_USER_IP in", values, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpNotIn(List<String> values) {
-            addCriterion("stay_user_ip not in", values, "stayUserIp");
+            addCriterion("STAY_USER_IP not in", values, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpBetween(String value1, String value2) {
-            addCriterion("stay_user_ip between", value1, value2, "stayUserIp");
+            addCriterion("STAY_USER_IP between", value1, value2, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andStayUserIpNotBetween(String value1, String value2) {
-            addCriterion("stay_user_ip not between", value1, value2, "stayUserIp");
+            addCriterion("STAY_USER_IP not between", value1, value2, "stayUserIp");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeIsNull() {
-            addCriterion("message_stay_time is null");
+            addCriterion("MESSAGE_STAY_TIME is null");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeIsNotNull() {
-            addCriterion("message_stay_time is not null");
+            addCriterion("MESSAGE_STAY_TIME is not null");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeEqualTo(Long value) {
-            addCriterion("message_stay_time =", value, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME =", value, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeNotEqualTo(Long value) {
-            addCriterion("message_stay_time <>", value, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME <>", value, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeGreaterThan(Long value) {
-            addCriterion("message_stay_time >", value, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME >", value, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("message_stay_time >=", value, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME >=", value, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeLessThan(Long value) {
-            addCriterion("message_stay_time <", value, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME <", value, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeLessThanOrEqualTo(Long value) {
-            addCriterion("message_stay_time <=", value, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME <=", value, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeIn(List<Long> values) {
-            addCriterion("message_stay_time in", values, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME in", values, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeNotIn(List<Long> values) {
-            addCriterion("message_stay_time not in", values, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME not in", values, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeBetween(Long value1, Long value2) {
-            addCriterion("message_stay_time between", value1, value2, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME between", value1, value2, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andMessageStayTimeNotBetween(Long value1, Long value2) {
-            addCriterion("message_stay_time not between", value1, value2, "messageStayTime");
+            addCriterion("MESSAGE_STAY_TIME not between", value1, value2, "messageStayTime");
             return (Criteria) this;
         }
 
         public Criteria andPlaceIsNull() {
-            addCriterion("place is null");
+            addCriterion("PLACE is null");
             return (Criteria) this;
         }
 
         public Criteria andPlaceIsNotNull() {
-            addCriterion("place is not null");
+            addCriterion("PLACE is not null");
             return (Criteria) this;
         }
 
         public Criteria andPlaceEqualTo(String value) {
-            addCriterion("place =", value, "place");
+            addCriterion("PLACE =", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceNotEqualTo(String value) {
-            addCriterion("place <>", value, "place");
+            addCriterion("PLACE <>", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceGreaterThan(String value) {
-            addCriterion("place >", value, "place");
+            addCriterion("PLACE >", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceGreaterThanOrEqualTo(String value) {
-            addCriterion("place >=", value, "place");
+            addCriterion("PLACE >=", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceLessThan(String value) {
-            addCriterion("place <", value, "place");
+            addCriterion("PLACE <", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceLessThanOrEqualTo(String value) {
-            addCriterion("place <=", value, "place");
+            addCriterion("PLACE <=", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceLike(String value) {
-            addCriterion("place like", value, "place");
+            addCriterion("PLACE like", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceNotLike(String value) {
-            addCriterion("place not like", value, "place");
+            addCriterion("PLACE not like", value, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceIn(List<String> values) {
-            addCriterion("place in", values, "place");
+            addCriterion("PLACE in", values, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceNotIn(List<String> values) {
-            addCriterion("place not in", values, "place");
+            addCriterion("PLACE not in", values, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceBetween(String value1, String value2) {
-            addCriterion("place between", value1, value2, "place");
+            addCriterion("PLACE between", value1, value2, "place");
             return (Criteria) this;
         }
 
         public Criteria andPlaceNotBetween(String value1, String value2) {
-            addCriterion("place not between", value1, value2, "place");
+            addCriterion("PLACE not between", value1, value2, "place");
             return (Criteria) this;
         }
     }

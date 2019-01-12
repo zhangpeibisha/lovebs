@@ -1,6 +1,5 @@
 package org.nix.zpbs.dao;
 
-import org.nix.zpbs.dto.response.UserResponseDetailDTO;
 import org.springframework.stereotype.Repository;
 
 /**

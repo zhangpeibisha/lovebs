@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.UserAttentionMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserAttention">
-    <id column="a_id" jdbcType="SMALLINT" property="aId" />
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="attention_id" jdbcType="BIGINT" property="attentionId" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="ATTENTION_ID" jdbcType="BIGINT" property="attentionId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    a_id, user_id, attention_id
+    ID, USER_ID, ATTENTION_ID
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.UserAttentionExample" resultMap="BaseResultMap">
     select
@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_attention
+    from USER_ATTENTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -81,45 +81,43 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_attention
-    where a_id = #{aId,jdbcType=SMALLINT}
+    from USER_ATTENTION
+    where ID = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
-    delete from user_attention
-    where a_id = #{aId,jdbcType=SMALLINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from USER_ATTENTION
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserAttentionExample">
-    delete from user_attention
+    delete from USER_ATTENTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.UserAttention">
-    insert into user_attention (a_id, user_id, attention_id
-      )
-    values (#{aId,jdbcType=SMALLINT}, #{userId,jdbcType=BIGINT}, #{attentionId,jdbcType=BIGINT}
-      )
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER_ATTENTION (USER_ID, ATTENTION_ID)
+    values (#{userId,jdbcType=BIGINT}, #{attentionId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserAttention">
-    insert into user_attention
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER_ATTENTION
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="aId != null">
-        a_id,
-      </if>
       <if test="userId != null">
-        user_id,
+        USER_ID,
       </if>
       <if test="attentionId != null">
-        attention_id,
+        ATTENTION_ID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="aId != null">
-        #{aId,jdbcType=SMALLINT},
-      </if>
       <if test="userId != null">
         #{userId,jdbcType=BIGINT},
       </if>
@@ -129,22 +127,22 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.UserAttentionExample" resultType="java.lang.Integer">
-    select count(*) from user_attention
+    select count(*) from USER_ATTENTION
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_attention
+    update USER_ATTENTION
     <set>
-      <if test="record.aId != null">
-        a_id = #{record.aId,jdbcType=SMALLINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=BIGINT},
+        USER_ID = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.attentionId != null">
-        attention_id = #{record.attentionId,jdbcType=BIGINT},
+        ATTENTION_ID = #{record.attentionId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +150,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_attention
-    set a_id = #{record.aId,jdbcType=SMALLINT},
-      user_id = #{record.userId,jdbcType=BIGINT},
-      attention_id = #{record.attentionId,jdbcType=BIGINT}
+    update USER_ATTENTION
+    set ID = #{record.id,jdbcType=BIGINT},
+      USER_ID = #{record.userId,jdbcType=BIGINT},
+      ATTENTION_ID = #{record.attentionId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.UserAttention">
-    update user_attention
+    update USER_ATTENTION
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=BIGINT},
+        USER_ID = #{userId,jdbcType=BIGINT},
       </if>
       <if test="attentionId != null">
-        attention_id = #{attentionId,jdbcType=BIGINT},
+        ATTENTION_ID = #{attentionId,jdbcType=BIGINT},
       </if>
     </set>
-    where a_id = #{aId,jdbcType=SMALLINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserAttention">
-    update user_attention
-    set user_id = #{userId,jdbcType=BIGINT},
-      attention_id = #{attentionId,jdbcType=BIGINT}
-    where a_id = #{aId,jdbcType=SMALLINT}
+    update USER_ATTENTION
+    set USER_ID = #{userId,jdbcType=BIGINT},
+      ATTENTION_ID = #{attentionId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

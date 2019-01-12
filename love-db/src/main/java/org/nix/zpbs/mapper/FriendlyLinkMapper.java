@@ -10,7 +10,7 @@ public interface FriendlyLinkMapper {
 
     int deleteByExample(FriendlyLinkExample example);
 
-    int deleteByPrimaryKey(Short linkId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(FriendlyLink record);
 
@@ -18,7 +18,7 @@ public interface FriendlyLinkMapper {
 
     List<FriendlyLink> selectByExample(FriendlyLinkExample example);
 
-    FriendlyLink selectByPrimaryKey(Short linkId);
+    FriendlyLink selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") FriendlyLink record, @Param("example") FriendlyLinkExample example);
 

@@ -10,7 +10,7 @@ public interface SystemMessageMapper {
 
     int deleteByExample(SystemMessageExample example);
 
-    int deleteByPrimaryKey(Long systemId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(SystemMessage record);
 
@@ -18,7 +18,7 @@ public interface SystemMessageMapper {
 
     List<SystemMessage> selectByExample(SystemMessageExample example);
 
-    SystemMessage selectByPrimaryKey(Long systemId);
+    SystemMessage selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") SystemMessage record, @Param("example") SystemMessageExample example);
 

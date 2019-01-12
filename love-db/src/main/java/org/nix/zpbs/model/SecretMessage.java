@@ -8,7 +8,7 @@ public class SecretMessage implements Serializable {
      *
      * @mbggenerated
      */
-    private Long secretId;
+    private Long id;
 
     /**
      * 发信者ID
@@ -40,12 +40,12 @@ public class SecretMessage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getSecretId() {
-        return secretId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSecretId(Long secretId) {
-        this.secretId = secretId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getSendId() {
@@ -86,7 +86,7 @@ public class SecretMessage implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", secretId=").append(secretId);
+        sb.append(", id=").append(id);
         sb.append(", sendId=").append(sendId);
         sb.append(", receiveId=").append(receiveId);
         sb.append(", messageTopic=").append(messageTopic);

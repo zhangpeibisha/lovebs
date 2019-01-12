@@ -10,7 +10,7 @@ public interface AdMapper {
 
     int deleteByExample(AdExample example);
 
-    int deleteByPrimaryKey(Short adId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Ad record);
 
@@ -20,7 +20,7 @@ public interface AdMapper {
 
     List<Ad> selectByExample(AdExample example);
 
-    Ad selectByPrimaryKey(Short adId);
+    Ad selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Ad record, @Param("example") AdExample example);
 

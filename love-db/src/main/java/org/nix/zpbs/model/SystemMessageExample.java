@@ -104,383 +104,383 @@ public class SystemMessageExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSystemIdIsNull() {
-            addCriterion("system_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdIsNotNull() {
-            addCriterion("system_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdEqualTo(Long value) {
-            addCriterion("system_id =", value, "systemId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdNotEqualTo(Long value) {
-            addCriterion("system_id <>", value, "systemId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdGreaterThan(Long value) {
-            addCriterion("system_id >", value, "systemId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("system_id >=", value, "systemId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdLessThan(Long value) {
-            addCriterion("system_id <", value, "systemId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdLessThanOrEqualTo(Long value) {
-            addCriterion("system_id <=", value, "systemId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdIn(List<Long> values) {
-            addCriterion("system_id in", values, "systemId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdNotIn(List<Long> values) {
-            addCriterion("system_id not in", values, "systemId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdBetween(Long value1, Long value2) {
-            addCriterion("system_id between", value1, value2, "systemId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andSystemIdNotBetween(Long value1, Long value2) {
-            addCriterion("system_id not between", value1, value2, "systemId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andSendIdIsNull() {
-            addCriterion("send_id is null");
+            addCriterion("SEND_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andSendIdIsNotNull() {
-            addCriterion("send_id is not null");
+            addCriterion("SEND_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andSendIdEqualTo(Long value) {
-            addCriterion("send_id =", value, "sendId");
+            addCriterion("SEND_ID =", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdNotEqualTo(Long value) {
-            addCriterion("send_id <>", value, "sendId");
+            addCriterion("SEND_ID <>", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdGreaterThan(Long value) {
-            addCriterion("send_id >", value, "sendId");
+            addCriterion("SEND_ID >", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("send_id >=", value, "sendId");
+            addCriterion("SEND_ID >=", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdLessThan(Long value) {
-            addCriterion("send_id <", value, "sendId");
+            addCriterion("SEND_ID <", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdLessThanOrEqualTo(Long value) {
-            addCriterion("send_id <=", value, "sendId");
+            addCriterion("SEND_ID <=", value, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdIn(List<Long> values) {
-            addCriterion("send_id in", values, "sendId");
+            addCriterion("SEND_ID in", values, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdNotIn(List<Long> values) {
-            addCriterion("send_id not in", values, "sendId");
+            addCriterion("SEND_ID not in", values, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdBetween(Long value1, Long value2) {
-            addCriterion("send_id between", value1, value2, "sendId");
+            addCriterion("SEND_ID between", value1, value2, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andSendIdNotBetween(Long value1, Long value2) {
-            addCriterion("send_id not between", value1, value2, "sendId");
+            addCriterion("SEND_ID not between", value1, value2, "sendId");
             return (Criteria) this;
         }
 
         public Criteria andGroupIdIsNull() {
-            addCriterion("group_id is null");
+            addCriterion("GROUP_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andGroupIdIsNotNull() {
-            addCriterion("group_id is not null");
+            addCriterion("GROUP_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdEqualTo(Byte value) {
-            addCriterion("group_id =", value, "groupId");
+        public Criteria andGroupIdEqualTo(Integer value) {
+            addCriterion("GROUP_ID =", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotEqualTo(Byte value) {
-            addCriterion("group_id <>", value, "groupId");
+        public Criteria andGroupIdNotEqualTo(Integer value) {
+            addCriterion("GROUP_ID <>", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdGreaterThan(Byte value) {
-            addCriterion("group_id >", value, "groupId");
+        public Criteria andGroupIdGreaterThan(Integer value) {
+            addCriterion("GROUP_ID >", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdGreaterThanOrEqualTo(Byte value) {
-            addCriterion("group_id >=", value, "groupId");
+        public Criteria andGroupIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("GROUP_ID >=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdLessThan(Byte value) {
-            addCriterion("group_id <", value, "groupId");
+        public Criteria andGroupIdLessThan(Integer value) {
+            addCriterion("GROUP_ID <", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdLessThanOrEqualTo(Byte value) {
-            addCriterion("group_id <=", value, "groupId");
+        public Criteria andGroupIdLessThanOrEqualTo(Integer value) {
+            addCriterion("GROUP_ID <=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdIn(List<Byte> values) {
-            addCriterion("group_id in", values, "groupId");
+        public Criteria andGroupIdIn(List<Integer> values) {
+            addCriterion("GROUP_ID in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotIn(List<Byte> values) {
-            addCriterion("group_id not in", values, "groupId");
+        public Criteria andGroupIdNotIn(List<Integer> values) {
+            addCriterion("GROUP_ID not in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdBetween(Byte value1, Byte value2) {
-            addCriterion("group_id between", value1, value2, "groupId");
+        public Criteria andGroupIdBetween(Integer value1, Integer value2) {
+            addCriterion("GROUP_ID between", value1, value2, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andGroupIdNotBetween(Byte value1, Byte value2) {
-            addCriterion("group_id not between", value1, value2, "groupId");
+        public Criteria andGroupIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("GROUP_ID not between", value1, value2, "groupId");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultIsNull() {
-            addCriterion("send_default is null");
+            addCriterion("SEND_DEFAULT is null");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultIsNotNull() {
-            addCriterion("send_default is not null");
+            addCriterion("SEND_DEFAULT is not null");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultEqualTo(Long value) {
-            addCriterion("send_default =", value, "sendDefault");
+            addCriterion("SEND_DEFAULT =", value, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultNotEqualTo(Long value) {
-            addCriterion("send_default <>", value, "sendDefault");
+            addCriterion("SEND_DEFAULT <>", value, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultGreaterThan(Long value) {
-            addCriterion("send_default >", value, "sendDefault");
+            addCriterion("SEND_DEFAULT >", value, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultGreaterThanOrEqualTo(Long value) {
-            addCriterion("send_default >=", value, "sendDefault");
+            addCriterion("SEND_DEFAULT >=", value, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultLessThan(Long value) {
-            addCriterion("send_default <", value, "sendDefault");
+            addCriterion("SEND_DEFAULT <", value, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultLessThanOrEqualTo(Long value) {
-            addCriterion("send_default <=", value, "sendDefault");
+            addCriterion("SEND_DEFAULT <=", value, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultIn(List<Long> values) {
-            addCriterion("send_default in", values, "sendDefault");
+            addCriterion("SEND_DEFAULT in", values, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultNotIn(List<Long> values) {
-            addCriterion("send_default not in", values, "sendDefault");
+            addCriterion("SEND_DEFAULT not in", values, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultBetween(Long value1, Long value2) {
-            addCriterion("send_default between", value1, value2, "sendDefault");
+            addCriterion("SEND_DEFAULT between", value1, value2, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSendDefaultNotBetween(Long value1, Long value2) {
-            addCriterion("send_default not between", value1, value2, "sendDefault");
+            addCriterion("SEND_DEFAULT not between", value1, value2, "sendDefault");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicIsNull() {
-            addCriterion("system_topic is null");
+            addCriterion("SYSTEM_TOPIC is null");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicIsNotNull() {
-            addCriterion("system_topic is not null");
+            addCriterion("SYSTEM_TOPIC is not null");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicEqualTo(String value) {
-            addCriterion("system_topic =", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC =", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicNotEqualTo(String value) {
-            addCriterion("system_topic <>", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC <>", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicGreaterThan(String value) {
-            addCriterion("system_topic >", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC >", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicGreaterThanOrEqualTo(String value) {
-            addCriterion("system_topic >=", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC >=", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicLessThan(String value) {
-            addCriterion("system_topic <", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC <", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicLessThanOrEqualTo(String value) {
-            addCriterion("system_topic <=", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC <=", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicLike(String value) {
-            addCriterion("system_topic like", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC like", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicNotLike(String value) {
-            addCriterion("system_topic not like", value, "systemTopic");
+            addCriterion("SYSTEM_TOPIC not like", value, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicIn(List<String> values) {
-            addCriterion("system_topic in", values, "systemTopic");
+            addCriterion("SYSTEM_TOPIC in", values, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicNotIn(List<String> values) {
-            addCriterion("system_topic not in", values, "systemTopic");
+            addCriterion("SYSTEM_TOPIC not in", values, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicBetween(String value1, String value2) {
-            addCriterion("system_topic between", value1, value2, "systemTopic");
+            addCriterion("SYSTEM_TOPIC between", value1, value2, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemTopicNotBetween(String value1, String value2) {
-            addCriterion("system_topic not between", value1, value2, "systemTopic");
+            addCriterion("SYSTEM_TOPIC not between", value1, value2, "systemTopic");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentIsNull() {
-            addCriterion("system_content is null");
+            addCriterion("SYSTEM_CONTENT is null");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentIsNotNull() {
-            addCriterion("system_content is not null");
+            addCriterion("SYSTEM_CONTENT is not null");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentEqualTo(String value) {
-            addCriterion("system_content =", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT =", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentNotEqualTo(String value) {
-            addCriterion("system_content <>", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT <>", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentGreaterThan(String value) {
-            addCriterion("system_content >", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT >", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentGreaterThanOrEqualTo(String value) {
-            addCriterion("system_content >=", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT >=", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentLessThan(String value) {
-            addCriterion("system_content <", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT <", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentLessThanOrEqualTo(String value) {
-            addCriterion("system_content <=", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT <=", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentLike(String value) {
-            addCriterion("system_content like", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT like", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentNotLike(String value) {
-            addCriterion("system_content not like", value, "systemContent");
+            addCriterion("SYSTEM_CONTENT not like", value, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentIn(List<String> values) {
-            addCriterion("system_content in", values, "systemContent");
+            addCriterion("SYSTEM_CONTENT in", values, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentNotIn(List<String> values) {
-            addCriterion("system_content not in", values, "systemContent");
+            addCriterion("SYSTEM_CONTENT not in", values, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentBetween(String value1, String value2) {
-            addCriterion("system_content between", value1, value2, "systemContent");
+            addCriterion("SYSTEM_CONTENT between", value1, value2, "systemContent");
             return (Criteria) this;
         }
 
         public Criteria andSystemContentNotBetween(String value1, String value2) {
-            addCriterion("system_content not between", value1, value2, "systemContent");
+            addCriterion("SYSTEM_CONTENT not between", value1, value2, "systemContent");
             return (Criteria) this;
         }
     }

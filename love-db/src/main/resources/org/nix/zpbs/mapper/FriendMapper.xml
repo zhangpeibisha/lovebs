@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.FriendMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.Friend">
-    <id column="f_id" jdbcType="SMALLINT" property="fId" />
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="friend_id" jdbcType="BIGINT" property="friendId" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="USER_ID" jdbcType="BIGINT" property="userId" />
+    <result column="FRIEND_ID" jdbcType="BIGINT" property="friendId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    f_id, user_id, friend_id
+    ID, USER_ID, FRIEND_ID
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.FriendExample" resultMap="BaseResultMap">
     select
@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from friend
+    from FRIEND
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -81,45 +81,43 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from friend
-    where f_id = #{fId,jdbcType=SMALLINT}
+    from FRIEND
+    where ID = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
-    delete from friend
-    where f_id = #{fId,jdbcType=SMALLINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from FRIEND
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.FriendExample">
-    delete from friend
+    delete from FRIEND
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.Friend">
-    insert into friend (f_id, user_id, friend_id
-      )
-    values (#{fId,jdbcType=SMALLINT}, #{userId,jdbcType=BIGINT}, #{friendId,jdbcType=BIGINT}
-      )
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into FRIEND (USER_ID, FRIEND_ID)
+    values (#{userId,jdbcType=BIGINT}, #{friendId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.Friend">
-    insert into friend
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into FRIEND
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="fId != null">
-        f_id,
-      </if>
       <if test="userId != null">
-        user_id,
+        USER_ID,
       </if>
       <if test="friendId != null">
-        friend_id,
+        FRIEND_ID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="fId != null">
-        #{fId,jdbcType=SMALLINT},
-      </if>
       <if test="userId != null">
         #{userId,jdbcType=BIGINT},
       </if>
@@ -129,22 +127,22 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.FriendExample" resultType="java.lang.Integer">
-    select count(*) from friend
+    select count(*) from FRIEND
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update friend
+    update FRIEND
     <set>
-      <if test="record.fId != null">
-        f_id = #{record.fId,jdbcType=SMALLINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=BIGINT},
+        USER_ID = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.friendId != null">
-        friend_id = #{record.friendId,jdbcType=BIGINT},
+        FRIEND_ID = #{record.friendId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +150,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update friend
-    set f_id = #{record.fId,jdbcType=SMALLINT},
-      user_id = #{record.userId,jdbcType=BIGINT},
-      friend_id = #{record.friendId,jdbcType=BIGINT}
+    update FRIEND
+    set ID = #{record.id,jdbcType=BIGINT},
+      USER_ID = #{record.userId,jdbcType=BIGINT},
+      FRIEND_ID = #{record.friendId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.Friend">
-    update friend
+    update FRIEND
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=BIGINT},
+        USER_ID = #{userId,jdbcType=BIGINT},
       </if>
       <if test="friendId != null">
-        friend_id = #{friendId,jdbcType=BIGINT},
+        FRIEND_ID = #{friendId,jdbcType=BIGINT},
       </if>
     </set>
-    where f_id = #{fId,jdbcType=SMALLINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.Friend">
-    update friend
-    set user_id = #{userId,jdbcType=BIGINT},
-      friend_id = #{friendId,jdbcType=BIGINT}
-    where f_id = #{fId,jdbcType=SMALLINT}
+    update FRIEND
+    set USER_ID = #{userId,jdbcType=BIGINT},
+      FRIEND_ID = #{friendId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -104,523 +104,523 @@ public class PhotosExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andPhotoIdIsNull() {
-            addCriterion("photo_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdIsNotNull() {
-            addCriterion("photo_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdEqualTo(Long value) {
-            addCriterion("photo_id =", value, "photoId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdNotEqualTo(Long value) {
-            addCriterion("photo_id <>", value, "photoId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdGreaterThan(Long value) {
-            addCriterion("photo_id >", value, "photoId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("photo_id >=", value, "photoId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdLessThan(Long value) {
-            addCriterion("photo_id <", value, "photoId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdLessThanOrEqualTo(Long value) {
-            addCriterion("photo_id <=", value, "photoId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdIn(List<Long> values) {
-            addCriterion("photo_id in", values, "photoId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdNotIn(List<Long> values) {
-            addCriterion("photo_id not in", values, "photoId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdBetween(Long value1, Long value2) {
-            addCriterion("photo_id between", value1, value2, "photoId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andPhotoIdNotBetween(Long value1, Long value2) {
-            addCriterion("photo_id not between", value1, value2, "photoId");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameIsNull() {
-            addCriterion("photo_name is null");
+            addCriterion("PHOTO_NAME is null");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameIsNotNull() {
-            addCriterion("photo_name is not null");
+            addCriterion("PHOTO_NAME is not null");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameEqualTo(String value) {
-            addCriterion("photo_name =", value, "photoName");
+            addCriterion("PHOTO_NAME =", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameNotEqualTo(String value) {
-            addCriterion("photo_name <>", value, "photoName");
+            addCriterion("PHOTO_NAME <>", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameGreaterThan(String value) {
-            addCriterion("photo_name >", value, "photoName");
+            addCriterion("PHOTO_NAME >", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameGreaterThanOrEqualTo(String value) {
-            addCriterion("photo_name >=", value, "photoName");
+            addCriterion("PHOTO_NAME >=", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameLessThan(String value) {
-            addCriterion("photo_name <", value, "photoName");
+            addCriterion("PHOTO_NAME <", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameLessThanOrEqualTo(String value) {
-            addCriterion("photo_name <=", value, "photoName");
+            addCriterion("PHOTO_NAME <=", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameLike(String value) {
-            addCriterion("photo_name like", value, "photoName");
+            addCriterion("PHOTO_NAME like", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameNotLike(String value) {
-            addCriterion("photo_name not like", value, "photoName");
+            addCriterion("PHOTO_NAME not like", value, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameIn(List<String> values) {
-            addCriterion("photo_name in", values, "photoName");
+            addCriterion("PHOTO_NAME in", values, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameNotIn(List<String> values) {
-            addCriterion("photo_name not in", values, "photoName");
+            addCriterion("PHOTO_NAME not in", values, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameBetween(String value1, String value2) {
-            addCriterion("photo_name between", value1, value2, "photoName");
+            addCriterion("PHOTO_NAME between", value1, value2, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoNameNotBetween(String value1, String value2) {
-            addCriterion("photo_name not between", value1, value2, "photoName");
+            addCriterion("PHOTO_NAME not between", value1, value2, "photoName");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcIsNull() {
-            addCriterion("photo_src is null");
+            addCriterion("PHOTO_SRC is null");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcIsNotNull() {
-            addCriterion("photo_src is not null");
+            addCriterion("PHOTO_SRC is not null");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcEqualTo(String value) {
-            addCriterion("photo_src =", value, "photoSrc");
+            addCriterion("PHOTO_SRC =", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcNotEqualTo(String value) {
-            addCriterion("photo_src <>", value, "photoSrc");
+            addCriterion("PHOTO_SRC <>", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcGreaterThan(String value) {
-            addCriterion("photo_src >", value, "photoSrc");
+            addCriterion("PHOTO_SRC >", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcGreaterThanOrEqualTo(String value) {
-            addCriterion("photo_src >=", value, "photoSrc");
+            addCriterion("PHOTO_SRC >=", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcLessThan(String value) {
-            addCriterion("photo_src <", value, "photoSrc");
+            addCriterion("PHOTO_SRC <", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcLessThanOrEqualTo(String value) {
-            addCriterion("photo_src <=", value, "photoSrc");
+            addCriterion("PHOTO_SRC <=", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcLike(String value) {
-            addCriterion("photo_src like", value, "photoSrc");
+            addCriterion("PHOTO_SRC like", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcNotLike(String value) {
-            addCriterion("photo_src not like", value, "photoSrc");
+            addCriterion("PHOTO_SRC not like", value, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcIn(List<String> values) {
-            addCriterion("photo_src in", values, "photoSrc");
+            addCriterion("PHOTO_SRC in", values, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcNotIn(List<String> values) {
-            addCriterion("photo_src not in", values, "photoSrc");
+            addCriterion("PHOTO_SRC not in", values, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcBetween(String value1, String value2) {
-            addCriterion("photo_src between", value1, value2, "photoSrc");
+            addCriterion("PHOTO_SRC between", value1, value2, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoSrcNotBetween(String value1, String value2) {
-            addCriterion("photo_src not between", value1, value2, "photoSrc");
+            addCriterion("PHOTO_SRC not between", value1, value2, "photoSrc");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionIsNull() {
-            addCriterion("photo_description is null");
+            addCriterion("PHOTO_DESCRIPTION is null");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionIsNotNull() {
-            addCriterion("photo_description is not null");
+            addCriterion("PHOTO_DESCRIPTION is not null");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionEqualTo(String value) {
-            addCriterion("photo_description =", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION =", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionNotEqualTo(String value) {
-            addCriterion("photo_description <>", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION <>", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionGreaterThan(String value) {
-            addCriterion("photo_description >", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION >", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionGreaterThanOrEqualTo(String value) {
-            addCriterion("photo_description >=", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION >=", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionLessThan(String value) {
-            addCriterion("photo_description <", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION <", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionLessThanOrEqualTo(String value) {
-            addCriterion("photo_description <=", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION <=", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionLike(String value) {
-            addCriterion("photo_description like", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION like", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionNotLike(String value) {
-            addCriterion("photo_description not like", value, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION not like", value, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionIn(List<String> values) {
-            addCriterion("photo_description in", values, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION in", values, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionNotIn(List<String> values) {
-            addCriterion("photo_description not in", values, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION not in", values, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionBetween(String value1, String value2) {
-            addCriterion("photo_description between", value1, value2, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION between", value1, value2, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andPhotoDescriptionNotBetween(String value1, String value2) {
-            addCriterion("photo_description not between", value1, value2, "photoDescription");
+            addCriterion("PHOTO_DESCRIPTION not between", value1, value2, "photoDescription");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNull() {
-            addCriterion("user_id is null");
+            addCriterion("USER_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIsNotNull() {
-            addCriterion("user_id is not null");
+            addCriterion("USER_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andUserIdEqualTo(Long value) {
-            addCriterion("user_id =", value, "userId");
+            addCriterion("USER_ID =", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotEqualTo(Long value) {
-            addCriterion("user_id <>", value, "userId");
+            addCriterion("USER_ID <>", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThan(Long value) {
-            addCriterion("user_id >", value, "userId");
+            addCriterion("USER_ID >", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("user_id >=", value, "userId");
+            addCriterion("USER_ID >=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThan(Long value) {
-            addCriterion("user_id <", value, "userId");
+            addCriterion("USER_ID <", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdLessThanOrEqualTo(Long value) {
-            addCriterion("user_id <=", value, "userId");
+            addCriterion("USER_ID <=", value, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdIn(List<Long> values) {
-            addCriterion("user_id in", values, "userId");
+            addCriterion("USER_ID in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotIn(List<Long> values) {
-            addCriterion("user_id not in", values, "userId");
+            addCriterion("USER_ID not in", values, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdBetween(Long value1, Long value2) {
-            addCriterion("user_id between", value1, value2, "userId");
+            addCriterion("USER_ID between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andUserIdNotBetween(Long value1, Long value2) {
-            addCriterion("user_id not between", value1, value2, "userId");
+            addCriterion("USER_ID not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdIsNull() {
-            addCriterion("sort_id is null");
+            addCriterion("SORT_ID is null");
             return (Criteria) this;
         }
 
         public Criteria andSortIdIsNotNull() {
-            addCriterion("sort_id is not null");
+            addCriterion("SORT_ID is not null");
             return (Criteria) this;
         }
 
         public Criteria andSortIdEqualTo(Long value) {
-            addCriterion("sort_id =", value, "sortId");
+            addCriterion("SORT_ID =", value, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdNotEqualTo(Long value) {
-            addCriterion("sort_id <>", value, "sortId");
+            addCriterion("SORT_ID <>", value, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdGreaterThan(Long value) {
-            addCriterion("sort_id >", value, "sortId");
+            addCriterion("SORT_ID >", value, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("sort_id >=", value, "sortId");
+            addCriterion("SORT_ID >=", value, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdLessThan(Long value) {
-            addCriterion("sort_id <", value, "sortId");
+            addCriterion("SORT_ID <", value, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdLessThanOrEqualTo(Long value) {
-            addCriterion("sort_id <=", value, "sortId");
+            addCriterion("SORT_ID <=", value, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdIn(List<Long> values) {
-            addCriterion("sort_id in", values, "sortId");
+            addCriterion("SORT_ID in", values, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdNotIn(List<Long> values) {
-            addCriterion("sort_id not in", values, "sortId");
+            addCriterion("SORT_ID not in", values, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdBetween(Long value1, Long value2) {
-            addCriterion("sort_id between", value1, value2, "sortId");
+            addCriterion("SORT_ID between", value1, value2, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andSortIdNotBetween(Long value1, Long value2) {
-            addCriterion("sort_id not between", value1, value2, "sortId");
+            addCriterion("SORT_ID not between", value1, value2, "sortId");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeIsNull() {
-            addCriterion("upload_time is null");
+            addCriterion("UPLOAD_TIME is null");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeIsNotNull() {
-            addCriterion("upload_time is not null");
+            addCriterion("UPLOAD_TIME is not null");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeEqualTo(Long value) {
-            addCriterion("upload_time =", value, "uploadTime");
+            addCriterion("UPLOAD_TIME =", value, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeNotEqualTo(Long value) {
-            addCriterion("upload_time <>", value, "uploadTime");
+            addCriterion("UPLOAD_TIME <>", value, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeGreaterThan(Long value) {
-            addCriterion("upload_time >", value, "uploadTime");
+            addCriterion("UPLOAD_TIME >", value, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("upload_time >=", value, "uploadTime");
+            addCriterion("UPLOAD_TIME >=", value, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeLessThan(Long value) {
-            addCriterion("upload_time <", value, "uploadTime");
+            addCriterion("UPLOAD_TIME <", value, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeLessThanOrEqualTo(Long value) {
-            addCriterion("upload_time <=", value, "uploadTime");
+            addCriterion("UPLOAD_TIME <=", value, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeIn(List<Long> values) {
-            addCriterion("upload_time in", values, "uploadTime");
+            addCriterion("UPLOAD_TIME in", values, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeNotIn(List<Long> values) {
-            addCriterion("upload_time not in", values, "uploadTime");
+            addCriterion("UPLOAD_TIME not in", values, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeBetween(Long value1, Long value2) {
-            addCriterion("upload_time between", value1, value2, "uploadTime");
+            addCriterion("UPLOAD_TIME between", value1, value2, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadTimeNotBetween(Long value1, Long value2) {
-            addCriterion("upload_time not between", value1, value2, "uploadTime");
+            addCriterion("UPLOAD_TIME not between", value1, value2, "uploadTime");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpIsNull() {
-            addCriterion("upload_ip is null");
+            addCriterion("UPLOAD_IP is null");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpIsNotNull() {
-            addCriterion("upload_ip is not null");
+            addCriterion("UPLOAD_IP is not null");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpEqualTo(String value) {
-            addCriterion("upload_ip =", value, "uploadIp");
+            addCriterion("UPLOAD_IP =", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpNotEqualTo(String value) {
-            addCriterion("upload_ip <>", value, "uploadIp");
+            addCriterion("UPLOAD_IP <>", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpGreaterThan(String value) {
-            addCriterion("upload_ip >", value, "uploadIp");
+            addCriterion("UPLOAD_IP >", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpGreaterThanOrEqualTo(String value) {
-            addCriterion("upload_ip >=", value, "uploadIp");
+            addCriterion("UPLOAD_IP >=", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpLessThan(String value) {
-            addCriterion("upload_ip <", value, "uploadIp");
+            addCriterion("UPLOAD_IP <", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpLessThanOrEqualTo(String value) {
-            addCriterion("upload_ip <=", value, "uploadIp");
+            addCriterion("UPLOAD_IP <=", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpLike(String value) {
-            addCriterion("upload_ip like", value, "uploadIp");
+            addCriterion("UPLOAD_IP like", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpNotLike(String value) {
-            addCriterion("upload_ip not like", value, "uploadIp");
+            addCriterion("UPLOAD_IP not like", value, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpIn(List<String> values) {
-            addCriterion("upload_ip in", values, "uploadIp");
+            addCriterion("UPLOAD_IP in", values, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpNotIn(List<String> values) {
-            addCriterion("upload_ip not in", values, "uploadIp");
+            addCriterion("UPLOAD_IP not in", values, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpBetween(String value1, String value2) {
-            addCriterion("upload_ip between", value1, value2, "uploadIp");
+            addCriterion("UPLOAD_IP between", value1, value2, "uploadIp");
             return (Criteria) this;
         }
 
         public Criteria andUploadIpNotBetween(String value1, String value2) {
-            addCriterion("upload_ip not between", value1, value2, "uploadIp");
+            addCriterion("UPLOAD_IP not between", value1, value2, "uploadIp");
             return (Criteria) this;
         }
     }

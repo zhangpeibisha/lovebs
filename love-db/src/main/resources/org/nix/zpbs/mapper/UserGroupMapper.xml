@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.zpbs.mapper.UserGroupMapper">
   <resultMap id="BaseResultMap" type="org.nix.zpbs.model.UserGroup">
-    <id column="g_id" jdbcType="TINYINT" property="gId" />
-    <result column="group_id" jdbcType="TINYINT" property="groupId" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
-    <result column="group_power" jdbcType="VARCHAR" property="groupPower" />
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="GROUP_DESCRIPTION" jdbcType="VARCHAR" property="groupDescription" />
+    <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName" />
+    <result column="GROUP_PRENT" jdbcType="BIGINT" property="groupPrent" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    g_id, group_id, group_name, group_power
+    ID, GROUP_DESCRIPTION, GROUP_NAME, GROUP_PRENT
   </sql>
   <select id="selectByExample" parameterType="org.nix.zpbs.model.UserGroupExample" resultMap="BaseResultMap">
     select
@@ -74,7 +74,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_group
+    from USER_GROUP
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -82,79 +82,79 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Byte" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user_group
-    where g_id = #{gId,jdbcType=TINYINT}
+    from USER_GROUP
+    where ID = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Byte">
-    delete from user_group
-    where g_id = #{gId,jdbcType=TINYINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from USER_GROUP
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="org.nix.zpbs.model.UserGroupExample">
-    delete from user_group
+    delete from USER_GROUP
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="org.nix.zpbs.model.UserGroup">
-    insert into user_group (g_id, group_id, group_name, 
-      group_power)
-    values (#{gId,jdbcType=TINYINT}, #{groupId,jdbcType=TINYINT}, #{groupName,jdbcType=VARCHAR}, 
-      #{groupPower,jdbcType=VARCHAR})
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER_GROUP (GROUP_DESCRIPTION, GROUP_NAME, GROUP_PRENT
+      )
+    values (#{groupDescription,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR}, #{groupPrent,jdbcType=BIGINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.zpbs.model.UserGroup">
-    insert into user_group
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into USER_GROUP
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="gId != null">
-        g_id,
-      </if>
-      <if test="groupId != null">
-        group_id,
+      <if test="groupDescription != null">
+        GROUP_DESCRIPTION,
       </if>
       <if test="groupName != null">
-        group_name,
+        GROUP_NAME,
       </if>
-      <if test="groupPower != null">
-        group_power,
+      <if test="groupPrent != null">
+        GROUP_PRENT,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="gId != null">
-        #{gId,jdbcType=TINYINT},
-      </if>
-      <if test="groupId != null">
-        #{groupId,jdbcType=TINYINT},
+      <if test="groupDescription != null">
+        #{groupDescription,jdbcType=VARCHAR},
       </if>
       <if test="groupName != null">
         #{groupName,jdbcType=VARCHAR},
       </if>
-      <if test="groupPower != null">
-        #{groupPower,jdbcType=VARCHAR},
+      <if test="groupPrent != null">
+        #{groupPrent,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="org.nix.zpbs.model.UserGroupExample" resultType="java.lang.Integer">
-    select count(*) from user_group
+    select count(*) from USER_GROUP
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_group
+    update USER_GROUP
     <set>
-      <if test="record.gId != null">
-        g_id = #{record.gId,jdbcType=TINYINT},
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.groupId != null">
-        group_id = #{record.groupId,jdbcType=TINYINT},
+      <if test="record.groupDescription != null">
+        GROUP_DESCRIPTION = #{record.groupDescription,jdbcType=VARCHAR},
       </if>
       <if test="record.groupName != null">
-        group_name = #{record.groupName,jdbcType=VARCHAR},
+        GROUP_NAME = #{record.groupName,jdbcType=VARCHAR},
       </if>
-      <if test="record.groupPower != null">
-        group_power = #{record.groupPower,jdbcType=VARCHAR},
+      <if test="record.groupPrent != null">
+        GROUP_PRENT = #{record.groupPrent,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -162,35 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_group
-    set g_id = #{record.gId,jdbcType=TINYINT},
-      group_id = #{record.groupId,jdbcType=TINYINT},
-      group_name = #{record.groupName,jdbcType=VARCHAR},
-      group_power = #{record.groupPower,jdbcType=VARCHAR}
+    update USER_GROUP
+    set ID = #{record.id,jdbcType=BIGINT},
+      GROUP_DESCRIPTION = #{record.groupDescription,jdbcType=VARCHAR},
+      GROUP_NAME = #{record.groupName,jdbcType=VARCHAR},
+      GROUP_PRENT = #{record.groupPrent,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.zpbs.model.UserGroup">
-    update user_group
+    update USER_GROUP
     <set>
-      <if test="groupId != null">
-        group_id = #{groupId,jdbcType=TINYINT},
+      <if test="groupDescription != null">
+        GROUP_DESCRIPTION = #{groupDescription,jdbcType=VARCHAR},
       </if>
       <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
       </if>
-      <if test="groupPower != null">
-        group_power = #{groupPower,jdbcType=VARCHAR},
+      <if test="groupPrent != null">
+        GROUP_PRENT = #{groupPrent,jdbcType=BIGINT},
       </if>
     </set>
-    where g_id = #{gId,jdbcType=TINYINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.zpbs.model.UserGroup">
-    update user_group
-    set group_id = #{groupId,jdbcType=TINYINT},
-      group_name = #{groupName,jdbcType=VARCHAR},
-      group_power = #{groupPower,jdbcType=VARCHAR}
-    where g_id = #{gId,jdbcType=TINYINT}
+    update USER_GROUP
+    set GROUP_DESCRIPTION = #{groupDescription,jdbcType=VARCHAR},
+      GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      GROUP_PRENT = #{groupPrent,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

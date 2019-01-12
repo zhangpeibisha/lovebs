@@ -8,7 +8,7 @@ public class PhotoSort implements Serializable {
      *
      * @mbggenerated
      */
-    private Long sortImgId;
+    private Long id;
 
     /**
      * 相册名
@@ -68,12 +68,12 @@ public class PhotoSort implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getSortImgId() {
-        return sortImgId;
+    public Long getId() {
+        return id;
     }
 
-    public void setSortImgId(Long sortImgId) {
-        this.sortImgId = sortImgId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSortImgName() {
@@ -146,7 +146,7 @@ public class PhotoSort implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", sortImgId=").append(sortImgId);
+        sb.append(", id=").append(id);
         sb.append(", sortImgName=").append(sortImgName);
         sb.append(", sortImgType=").append(sortImgType);
         sb.append(", imgPassword=").append(imgPassword);
