@@ -1,5 +1,6 @@
 package org.nix.zpbs.service.impl;
 
+import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.zpbs.dao.UserDao;
 import org.nix.zpbs.mapper.UserMapper;
@@ -36,12 +37,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         org.nix.zpbs.model.User user = service.getUserByAccount(username);
-        log.debug("{}用户不存在",username);
+        log.info("查询用户信息为：{}",JSONUtil.toJsonPrettyStr(user));
         if (user == null){
+            log.debug("{}用户没有在册信息",username);
             throw new UsernameNotFoundException("无效的用户名或者密码");
         }
         ArrayList<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
-        List<String> resourcesByUserGroupId = service.getPowersByUserId(user.getGroupId());
+        List<String> resourcesByUserGroupId = service.getPowersByUserId(user.getId());
         resourcesByUserGroupId.forEach(new Consumer<String>() {
             @Override
             public void accept(String s) {
@@ -49,6 +51,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 simpleGrantedAuthorities.add(simpleGrantedAuthority);
             }
         });
+        log.info("用户权限信息为：{}",JSONUtil.toJsonPrettyStr(resourcesByUserGroupId));
         return new User(user.getUserName(),user.getUserPwd(),simpleGrantedAuthorities);
     }
 }

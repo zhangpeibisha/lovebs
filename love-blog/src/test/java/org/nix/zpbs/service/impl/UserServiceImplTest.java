@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.nix.zpbs.LoveBlogApplication;
+import org.nix.zpbs.dao.UserGroupDao;
 import org.nix.zpbs.exception.ServiceException;
 import org.nix.zpbs.mapper.UserMapper;
 import org.nix.zpbs.model.User;
@@ -21,11 +22,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -45,6 +47,10 @@ public class UserServiceImplTest {
     private String email = "zhangpe0312@qq.com";
     private ArrayList<User> t = new ArrayList<>();
     private User user = new User();
+
+    @Mock
+    private UserGroupDao userGroupDao;
+
     @Before
     public void setUP() {
         userMapper = mock(UserMapper.class);
@@ -57,6 +63,8 @@ public class UserServiceImplTest {
         t.add(user);
 
         when(userMapper.selectByExample(any(UserExample.class))).thenReturn(t);
+
+        userGroupDao = mock(UserGroupDao.class);
     }
 
     @Test
@@ -113,6 +121,26 @@ public class UserServiceImplTest {
 
     @Test
     public void getPowersByUserId() {
+        ArrayList<String> t = new ArrayList<>();
+        t.add("普通用户");
+        when(userGroupDao.getResourcesNameByUserGroupId(anyLong())).thenReturn(t);
+        user.setGroupId(1L);
+        user.setId(1L);
+        when(userMapper.selectByPrimaryKey(anyLong())).thenReturn(user);
+        service.setUserGroupDao(userGroupDao);
+        // 正常请求
+        List<String> powersByUserId = service.getPowersByUserId(user.getId());
+        final int[] i = {0};
+        powersByUserId.forEach(new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                assertTrue(t.get(i[0]).endsWith(s));
+                i[0]++;
+            }
+        });
+    }
+
+    public void register(){
 
     }
 }

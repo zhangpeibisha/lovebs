@@ -1,5 +1,6 @@
 package org.nix.zpbs.pojo.base;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @date 2019/1/8
  */
 @Data
+@ApiModel(value = "BaseResult",description = "控制器最基本的返回数据")
 public class BaseResult {
 
     private Integer code;

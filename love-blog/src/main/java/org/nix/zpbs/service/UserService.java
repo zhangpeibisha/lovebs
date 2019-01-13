@@ -1,8 +1,10 @@
 package org.nix.zpbs.service;
 
 import org.nix.zpbs.model.User;
+import org.nix.zpbs.pojo.dto.request.UserRegisterDTO;
 import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -38,5 +40,15 @@ public interface UserService {
      * @return 用户可访问资源id集合
      */
     List<String> getPowersByUserId(Long userId);
+
+
+    /**
+     * @param userRegisterDTO 用户注册信息
+     * @return 无返回
+     * @author zhangpe0312@qq.com
+     * @description 用户注册接口
+     * @date 22:08 2019/1/13
+     */
+    void register(UserRegisterDTO userRegisterDTO, HttpServletRequest request);
 
 }

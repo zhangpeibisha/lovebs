@@ -3,16 +3,21 @@ package org.nix.zpbs.service.impl;
 import cn.hutool.json.JSONUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.zpbs.dao.UserGroupDao;
 import org.nix.zpbs.exception.ServiceException;
+import org.nix.zpbs.pojo.dto.request.UserRegisterDTO;
 import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 import org.nix.zpbs.mapper.UserMapper;
 import org.nix.zpbs.model.User;
 import org.nix.zpbs.model.UserExample;
 import org.nix.zpbs.service.UserService;
+import org.nix.zpbs.utils.CusAccessObjectUtil;
 import org.nix.zpbs.utils.PojoadAptationUtil;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -27,6 +32,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private UserGroupDao userGroupDao;
 
     /**
      * @param account 账户包括（用户名、用户邮箱、用户手机号）
@@ -70,6 +78,36 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<String> getPowersByUserId(Long userId) {
-        return null;
+        User user = userMapper.selectByPrimaryKey(userId);
+        return userGroupDao.getResourcesNameByUserGroupId(user.getGroupId());
     }
+
+
+    /**
+     * 用户注册接口
+     * 1. 如果用户名已经存在则不能注册
+     * 2. 注册信息如有有为空的拒绝服务
+     * 3. 正确输入完成注册
+     *
+     * @param userRegisterDTO 用户注册信息
+     */
+    @Override
+    public void register(UserRegisterDTO userRegisterDTO, HttpServletRequest request) {
+        User user = PojoadAptationUtil.convertPojo(userRegisterDTO, User.class);
+        // 配置用户的注册信息
+        String ipAddress = CusAccessObjectUtil.getIpAddress(request);
+        user.setUserRegisterIp(ipAddress);
+        user.setUserRegisterTime(System.currentTimeMillis());
+        // 加密密码
+        String userPwd = user.getUserPwd();
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encode = bCryptPasswordEncoder.encode(userPwd.trim());
+        user.setUserPwd(encode);
+        int i = userMapper.insertSelective(user);
+        if (i != 1){
+            throw new ServiceException("用户注册失败");
+        }
+    }
+
+
 }

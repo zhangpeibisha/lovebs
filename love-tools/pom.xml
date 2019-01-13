@@ -33,7 +33,12 @@
             <version>3.4</version>
             <scope>compile</scope>
         </dependency>
-
+        <!--引用通用工具框架-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.1.19</version>
+        </dependency>
     </dependencies>
 
 </project>
