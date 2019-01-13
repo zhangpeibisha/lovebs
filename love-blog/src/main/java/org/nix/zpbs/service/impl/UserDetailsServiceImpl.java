@@ -1,9 +1,13 @@
 package org.nix.zpbs.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.nix.zpbs.dao.UserDao;
+import org.nix.zpbs.mapper.UserMapper;
 import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
+import org.nix.zpbs.service.UserGroupService;
 import org.nix.zpbs.service.UserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * 学习使用 ：https://www.cnblogs.com/cjsblog/p/9152455.html
@@ -29,13 +35,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserResponseDetailDTO userByAccount = service.getUserByAccount(username);
-        log.debug("{}用户不存在",userByAccount);
-        if (userByAccount == null){
+        org.nix.zpbs.model.User user = service.getUserByAccount(username);
+        log.debug("{}用户不存在",username);
+        if (user == null){
             throw new UsernameNotFoundException("无效的用户名或者密码");
         }
         ArrayList<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
-        String userPower = userByAccount.getUserPower();
-        return null;
+        List<String> resourcesByUserGroupId = service.getPowersByUserId(user.getGroupId());
+        resourcesByUserGroupId.forEach(new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(s);
+                simpleGrantedAuthorities.add(simpleGrantedAuthority);
+            }
+        });
+        return new User(user.getUserName(),user.getUserPwd(),simpleGrantedAuthorities);
     }
 }

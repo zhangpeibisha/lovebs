@@ -1,5 +1,9 @@
 package org.nix.zpbs.service.impl;
 
+import cn.hutool.json.JSONUtil;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.nix.zpbs.exception.ServiceException;
 import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
 import org.nix.zpbs.mapper.UserMapper;
 import org.nix.zpbs.model.User;
@@ -17,19 +21,20 @@ import java.util.List;
  * @date 2019/1/10
  */
 @Service
+@Data
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
-
 
     /**
      * @param account 账户包括（用户名、用户邮箱、用户手机号）
      * @return 用户的详细信息
      */
     @Override
-    public UserResponseDetailDTO getUserByAccount(String account) {
-        if (account == null){
+    public User getUserByAccount(String account) {
+        if (account == null) {
             throw new ServiceException("无效的用户名或者密码");
         }
         UserExample example = new UserExample();
@@ -44,19 +49,27 @@ public class UserServiceImpl implements UserService {
         example.or().andUserEmailEqualTo(account);
         List<User> users = userMapper.selectByExample(example);
         if (users == null || users.size() != 1) {
+            if (users != null) {
+                log.info("用户{}账户为空或者存在多个相同账户名的账户", JSONUtil.toJsonPrettyStr(users));
+            }
             throw new ServiceException("无效的用户名或者密码");
         }
-        User user = users.get(0);
-        return PojoadAptationUtil.convertPojo(user, UserResponseDetailDTO.class);
+        return users.get(0);
+    }
+
+    @Override
+    public UserResponseDetailDTO getUserDetailDtoByAccount(String account) {
+        return PojoadAptationUtil.convertPojo(getUserByAccount(account), UserResponseDetailDTO.class);
     }
 
     /**
      * TODO 通过用户id获取用户所有的权限id
+     *
      * @param userId 用户id
      * @return 用户权限id集合
      */
     @Override
-    public List<Long> getPowersByUserId(Long userId) {
-       return null;
+    public List<String> getPowersByUserId(Long userId) {
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package org.nix.zpbs.service.impl;
+package org.nix.zpbs.exception;
 
 /**
  * 服务异常类
