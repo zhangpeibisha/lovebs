@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.zpbs.dao.UserGroupDao">
+
+    <!--通过用户组的id获取资源名字-->
+    <select id="getResourcesNameByUserGroupId" resultType="java.lang.String">
+        SELECT SYS_RESOURCE.RESOURCE_NAME
+        FROM SYS_RESOURCE LEFT JOIN GROUP_RESOURCE ON SYS_RESOURCE.ID = GROUP_RESOURCE.RESOURCE_ID
+        WHERE GROUP_RESOURCE.GROUP_ID = 1
+    </select>
+</mapper>
