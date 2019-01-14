@@ -28,16 +28,16 @@ public class UserDaoTest {
 
     @Test
     public void insert() {
-        User record = new User();
-        record.setGroupId(1L);
-        record.setUserName("zhangpei");
-        record.setUserEmail("zhangpei@qq.com");
-        record.setUserPwd("bisha520");
-        record.setUserPhone(15334503852L);
-        record.setUserRegisterTime(System.currentTimeMillis());
-        record.setUserRegisterIp("127.0.0.1");
-        int insert = userMapper.insertSelective(record);
-        assertEquals(1, insert);
+//        User record = new User();
+//        record.setGroupId(1L);
+//        record.setUserName("zhangpei");
+//        record.setUserEmail("zhangpei@qq.com");
+//        record.setUserPwd("bisha520");
+//        record.setUserPhone(15334503852L);
+//        record.setUserRegisterTime(System.currentTimeMillis());
+//        record.setUserRegisterIp("127.0.0.1");
+//        int insert = userMapper.insertSelective(record);
+//        assertEquals(1, insert);
     }
 
     /**
@@ -45,16 +45,16 @@ public class UserDaoTest {
      */
     @Test
     public void inserSelective() {
-        User record = new User();
-        record.setGroupId(1L);
-        record.setUserName("bisha");
-        record.setUserEmail("bisha0312@qq.com");
-        record.setUserPwd("bisha520");
-        record.setUserPhone(18203085236L);
-        record.setUserRegisterTime(System.currentTimeMillis());
-        record.setUserRegisterIp("127.0.0.1");
-        int i = userMapper.insertSelective(record);
-        assertEquals(1, i);
+//        User record = new User();
+//        record.setGroupId(1L);
+//        record.setUserName("bisha");
+//        record.setUserEmail("bisha0312@qq.com");
+//        record.setUserPwd("bisha520");
+//        record.setUserPhone(18203085236L);
+//        record.setUserRegisterTime(System.currentTimeMillis());
+//        record.setUserRegisterIp("127.0.0.1");
+//        int i = userMapper.insertSelective(record);
+//        assertEquals(1, i);
 
     }
 }

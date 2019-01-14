@@ -40,8 +40,8 @@ public class Swagger2 {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("love 博客API")
-                .description("一个私人的博客网站的api描述")
+                .title("love 授权中心")
+                .description("一个私人的网站授权中心API")
                 .termsOfServiceUrl("http://localhost:9010/api/blog/test/hello/zhangpei")
                 .contact("zhangpei")
                 .version("1.0")
