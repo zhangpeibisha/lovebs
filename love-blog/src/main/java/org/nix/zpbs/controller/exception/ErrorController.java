@@ -48,10 +48,10 @@ public class ErrorController {
         StringBuilder msg = new StringBuilder();
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
         log.info("用户请求参数错误");
-        for (FieldError error : fieldErrors) {
-            log.info("name:{} - message:{}",error.getField() , error.getDefaultMessage());
-            msg.append(error.getDefaultMessage()).append(",");
-        }
+        fieldErrors.forEach((x) -> {
+            log.info("name:{} - message:{}", x.getField(), x.getDefaultMessage());
+            msg.append(x.getDefaultMessage()).append(",");
+        });
         return new BaseResult().fail(400, msg.toString());
     }
 

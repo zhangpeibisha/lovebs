@@ -14,13 +14,6 @@ import java.util.List;
 @Repository
 public interface UserGroupDao {
 
-    /**
-     * @param groupId 用户组id
-     * @return 用户组的拥有的资源名字
-     * @author zhangpe0312@qq.com
-     * @description 通过用户组的id获取资源名字
-     * @date 23:49 2019/1/12
-     */
-    List<String> getResourcesNameByUserGroupId(Long groupId);
+
 
 }
