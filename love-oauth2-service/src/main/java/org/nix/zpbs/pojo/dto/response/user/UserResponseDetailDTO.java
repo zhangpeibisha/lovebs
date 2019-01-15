@@ -1,6 +1,9 @@
 package org.nix.zpbs.pojo.dto.response.user;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 
@@ -12,6 +15,8 @@ import lombok.Data;
  * @date 2019/1/9
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@ApiModel(value = "UserResponseDetailDTO", description = "用户详细信息")
 public class UserResponseDetailDTO {
 
     /**
@@ -25,6 +30,7 @@ public class UserResponseDetailDTO {
      * @mbggenerated
      */
     @JsonView(value = UserSimpleDTO.class)
+    @ApiModelProperty(value = "用户id")
     private Long id;
 
     /**
@@ -32,6 +38,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "用户组id")
     private Long groupId;
 
     /**
@@ -40,6 +47,7 @@ public class UserResponseDetailDTO {
      * @mbggenerated
      */
     @JsonView(value = UserSimpleDTO.class)
+    @ApiModelProperty(value = "用户名")
     private String userName;
 
     /**
@@ -48,6 +56,7 @@ public class UserResponseDetailDTO {
      * @mbggenerated
      */
     @JsonView(value = UserSimpleDTO.class)
+    @ApiModelProperty(value = "手机号码")
     private Long userPhone;
 
     /**
@@ -55,6 +64,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "性别")
     private String userSex;
 
     /**
@@ -62,6 +72,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "QQ账号")
     private Long userQq;
 
     /**
@@ -70,6 +81,7 @@ public class UserResponseDetailDTO {
      * @mbggenerated
      */
     @JsonView(value = UserSimpleDTO.class)
+    @ApiModelProperty(value = "邮箱地址")
     private String userEmail;
 
     /**
@@ -77,6 +89,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "家庭地址")
     private String userAddress;
 
     /**
@@ -84,6 +97,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "积分")
     private Long userMark;
 
     /**
@@ -91,6 +105,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "等级")
     private Integer userRankId;
 
     /**
@@ -98,6 +113,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "上次登陆IP")
     private String userLastLoginIp;
 
     /**
@@ -105,6 +121,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "生日")
     private Long userBirthday;
 
     /**
@@ -112,6 +129,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "自我描述")
     private String userDescription;
 
     /**
@@ -119,6 +137,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "用户头像")
     private String userImageUrl;
 
     /**
@@ -126,6 +145,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "毕业学校")
     private String userSchool;
 
     /**
@@ -133,6 +153,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "注册时间")
     private Long userRegisterTime;
 
     /**
@@ -140,6 +161,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "注册IP")
     private String userRegisterIp;
 
     /**
@@ -147,6 +169,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "上次更新博客的时间")
     private Long userLastUpdateTime;
 
     /**
@@ -154,6 +177,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "微博地址")
     private String userWeibo;
 
     /**
@@ -161,6 +185,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "用户血型")
     private String userBloodType;
 
     /**
@@ -168,6 +193,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "用户语录")
     private String userSays;
 
     /**
@@ -175,6 +201,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "是否激活")
     private Integer userActivation;
 
     /**
@@ -182,6 +209,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "是否冻结")
     private Integer userFreeze;
 
     private static final long serialVersionUID = 1L;
