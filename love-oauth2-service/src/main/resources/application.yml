@@ -20,3 +20,9 @@ logging:
     file: "%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n"
 mybatis:
   mapper-locations: classpath:dao/*.xml,classpath*:org/nix/zpbs/mapper/*.xml
+
+love:
+  security:
+    browser:
+      # 自定义登陆页面
+      loginPage: /login/signIn.html
