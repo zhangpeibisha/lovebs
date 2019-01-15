@@ -1,6 +1,7 @@
 package org.nix.zpbs.pojo.base;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
@@ -13,8 +14,10 @@ import lombok.Data;
 @ApiModel(value = "BaseResult",description = "控制器最基本的返回数据")
 public class BaseResult {
 
+    @ApiModelProperty(value = "返回处理状态码，和HTTP状态码同步")
     private Integer code;
 
+    @ApiModelProperty(value = "返回处理信息，较为详细的说明处理结果")
     private String msg;
 
     public BaseResult() {

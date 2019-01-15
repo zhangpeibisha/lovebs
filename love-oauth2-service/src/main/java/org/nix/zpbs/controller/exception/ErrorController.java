@@ -2,6 +2,7 @@ package org.nix.zpbs.controller.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nix.zpbs.pojo.base.BaseResult;
+import org.nix.zpbs.pojo.dto.response.error.ParameterErrorResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindException;
@@ -42,15 +43,19 @@ public class ErrorController {
     @ExceptionHandler(BindException.class)
     @ResponseBody
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public BaseResult handleException(BindException exception) {
-        StringBuilder msg = new StringBuilder();
+    public ParameterErrorResponseDTO handleException(BindException exception) {
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
+        ParameterErrorResponseDTO errors =
+                new ParameterErrorResponseDTO(new BaseResult().fail(HttpStatus.BAD_REQUEST.value(), "用户输入参数错误"));
         log.info("用户请求参数错误");
         for (FieldError error : fieldErrors) {
-            log.info("name:{} - message:{}",error.getField() , error.getDefaultMessage());
-            msg.append(error.getDefaultMessage()).append(",");
+            String field = error.getField();
+            Object rejectedValue = error.getRejectedValue();
+            String defaultMessage = error.getDefaultMessage();
+            log.info("name:{} - input:{} - message:{}", field, rejectedValue, defaultMessage);
+            errors.addError(field, rejectedValue, defaultMessage);
         }
-        return new BaseResult().fail(400, msg.toString());
+        return errors;
     }
 
 }

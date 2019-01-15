@@ -1,8 +1,8 @@
 package org.nix.zpbs.service;
 
 import org.nix.zpbs.model.User;
-import org.nix.zpbs.pojo.dto.request.UserRegisterDTO;
-import org.nix.zpbs.pojo.dto.response.UserResponseDetailDTO;
+import org.nix.zpbs.pojo.dto.request.user.UserRegisterDTO;
+import org.nix.zpbs.pojo.dto.response.user.UserResponseDetailDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

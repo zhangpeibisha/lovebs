@@ -1,4 +1,4 @@
-package org.nix.zpbs.pojo.dto.request;
+package org.nix.zpbs.pojo.dto.request.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;

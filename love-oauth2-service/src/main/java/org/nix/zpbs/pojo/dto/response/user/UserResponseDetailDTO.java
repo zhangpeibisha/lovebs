@@ -1,4 +1,4 @@
-package org.nix.zpbs.pojo.dto.response;
+package org.nix.zpbs.pojo.dto.response.user;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
