@@ -15,10 +15,8 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * TODO 跳转有问题
  * @author zhangpei
  * @version 1.0
  * @date 2019/1/6
@@ -63,7 +62,7 @@ public class OAuth2Controller {
             String target = savedRequest.getRedirectUrl();
             log.info("引发跳转的请求是：{}",target);
             String htmlEnd = ".html";
-            if (StringUtils.endsWithIgnoreCase(target, htmlEnd)){
+            if (target.endsWith(htmlEnd)){
                 try {
                     redirectStrategy.sendRedirect(request,response,securityProperties.getBrowser().getLoginPage());
                 } catch (IOException e) {

@@ -1,5 +1,7 @@
 server:
   port: 9030
+  tomcat:
+    uri-encoding: UTF-8
 spring:
   application:
     name: love-oauth2-service
@@ -10,6 +12,11 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   profiles:
     active: dev
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
 logging:
   level:
     root: info

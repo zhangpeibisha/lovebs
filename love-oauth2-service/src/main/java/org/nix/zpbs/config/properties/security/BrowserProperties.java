@@ -20,6 +20,11 @@ public class BrowserProperties {
      */
     private LoginType loginType = LoginType.JSON;
 
+    /**
+     * 登陆失败页
+     */
+    private String loginFailPage = "/login/signIn.html";
+
     public static enum LoginType{
         /**
          * 登陆方式定义，跳转和JSON
