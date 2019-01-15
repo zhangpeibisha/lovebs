@@ -1,6 +1,8 @@
 package org.nix.zpbs.pojo.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
+
 
 /**
  * 用户查询响应详细信息对象
@@ -13,10 +15,16 @@ import lombok.Data;
 public class UserResponseDetailDTO {
 
     /**
+     * 展示用户基本信息，账户、邮箱、手机号、id
+     */
+    public interface UserSimpleDTO{}
+
+    /**
      * 用户ID
      *
      * @mbggenerated
      */
+    @JsonView(value = UserSimpleDTO.class)
     private Long id;
 
     /**
@@ -31,6 +39,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @JsonView(value = UserSimpleDTO.class)
     private String userName;
 
     /**
@@ -38,6 +47,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @JsonView(value = UserSimpleDTO.class)
     private Long userPhone;
 
     /**
@@ -59,6 +69,7 @@ public class UserResponseDetailDTO {
      *
      * @mbggenerated
      */
+    @JsonView(value = UserSimpleDTO.class)
     private String userEmail;
 
     /**
