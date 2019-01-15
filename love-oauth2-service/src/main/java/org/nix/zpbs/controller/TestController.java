@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * @author zhangpei
@@ -47,7 +45,8 @@ public class TestController {
         return userName+"你是一个有权限的用户";
     }
 
-
+    @ApiOperation(nickname = "findUserSimpleInfo",value = "测试控制返回数据的接口",notes = "测试JsonView标签的使用方法")
+    @ApiImplicitParam(name = "id",paramType = "path",dataType = "String",required = true,value = "用户id")
     @JsonView(UserResponseDetailDTO.UserSimpleDTO.class)
     @GetMapping(value = "/simple/user/{id:[0-9]+}")
     public UserResponseDetailDTO findUserSimpleInfo(@PathVariable(value = "id")Long id){
