@@ -50,4 +50,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         log.info("用户权限信息为：{}",JSONUtil.toJsonPrettyStr(resourcesByUserGroupId));
         return new User(user.getUserName(),user.getUserPwd(),simpleGrantedAuthorities);
     }
+
 }

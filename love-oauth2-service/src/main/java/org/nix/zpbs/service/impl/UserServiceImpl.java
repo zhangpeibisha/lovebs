@@ -14,7 +14,9 @@ import org.nix.zpbs.service.UserService;
 import org.nix.zpbs.utils.CusAccessObjectUtil;
 import org.nix.zpbs.utils.PojoadAptationUtil;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +37,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserGroupDao userGroupDao;
+
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     /**
      * @param account 账户包括（用户名、用户邮箱、用户手机号）
@@ -92,20 +97,25 @@ public class UserServiceImpl implements UserService {
      * @param userRegisterDTO 用户注册信息
      */
     @Override
+    @Transactional(rollbackFor = ServiceException.class)
     public void register(UserRegisterDTO userRegisterDTO, HttpServletRequest request) {
-        User user = PojoadAptationUtil.convertPojo(userRegisterDTO, User.class);
-        // 配置用户的注册信息
-        String ipAddress = CusAccessObjectUtil.getIpAddress(request);
-        user.setUserRegisterIp(ipAddress);
-        user.setUserRegisterTime(System.currentTimeMillis());
-        // 加密密码
-        String userPwd = user.getUserPwd();
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        String encode = bCryptPasswordEncoder.encode(userPwd.trim());
-        user.setUserPwd(encode);
-        int i = userMapper.insertSelective(user);
-        if (i != 1){
-            throw new ServiceException("用户注册失败");
+        try {
+            User user = PojoadAptationUtil.convertPojo(userRegisterDTO, User.class);
+            // 配置用户的注册信息
+            String ipAddress = CusAccessObjectUtil.getIpAddress(request);
+            user.setUserRegisterIp(ipAddress);
+            user.setUserRegisterTime(System.currentTimeMillis());
+            // 加密密码
+            String userPwd = user.getUserPwd();
+            String encode = passwordEncoder.encode(userPwd.trim());
+            user.setUserPwd(encode);
+            int i = userMapper.insertSelective(user);
+            if (i != 1){
+                throw new ServiceException("用户注册失败");
+            }
+        }catch (Exception e){
+            log.info("用户{}注册发生异常{}",JSONUtil.toJsonPrettyStr(userRegisterDTO),e.getMessage());
+            throw new ServiceException("用户注册信息无效");
         }
     }
 

@@ -28,18 +28,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //  允许所有用户访问"/"和"/index.html"
-        http.authorizeRequests()
-                .antMatchers("/", "/index.html","/user/info","/test/**").permitAll()
-                // 其他地址的访问均需验证权限
-                .anyRequest().authenticated()
+        http.formLogin()
+                // 设置登陆页面
+                .loginPage("/login/signIn.html")
+                .loginProcessingUrl("/authentication/form")
                 .and()
-                .formLogin()
-                //  登录页
-                .permitAll()
+                .authorizeRequests()
+                // 登陆包里面的所有信息都不用认证
+                .antMatchers("/login/**").permitAll()
+                // 所有请求都需要认证
+                .anyRequest()
+                .authenticated()
+                // 关闭防止跨站请求的处理
                 .and()
-                .logout()
-                .logoutSuccessUrl("/index.html");
+                .csrf().disable();
     }
 
     @Override
