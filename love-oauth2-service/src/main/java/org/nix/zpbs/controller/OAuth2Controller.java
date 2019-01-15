@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
+import org.nix.zpbs.pojo.base.BaseResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -56,7 +57,7 @@ public class OAuth2Controller {
     @ApiResponse(code = 401,response = Exception.class,message = "用户尚未认证，请进入登陆页进行验证")
     @RequestMapping(value = "/authentication/require")
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public String requireAuthentication(HttpServletRequest request, HttpServletResponse response){
+    public BaseResult requireAuthentication(HttpServletRequest request, HttpServletResponse response){
         SavedRequest savedRequest = requestCache.getRequest(request,response);
         if (savedRequest !=null){
             String target = savedRequest.getRedirectUrl();
@@ -70,7 +71,7 @@ public class OAuth2Controller {
                 }
             }
         }
-        return "访问的用户需要身份认证，请前往登录页";
+        return new BaseResult().fail(401,"访问的用户需要身份认证，请前往登录页");
     }
 
 }
