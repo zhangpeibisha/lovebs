@@ -1,4 +1,4 @@
-package org.nix.zpbs.config;
+package org.nix.zpbs.config.security;
 
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
@@ -32,12 +32,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private SecurityProperties securityProperties;
 
+    @Resource
+    private LoveAuthenticationSuccessHandler loveAuthenticationSuccessHandler;
+
+    @Resource
+    private LoveAuthenticationFailHandler loveAuthenticationFailHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
                 // 设置登陆页面
                 .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")
+                .successHandler(loveAuthenticationSuccessHandler)
+                .failureHandler(loveAuthenticationFailHandler)
                 .and()
                 .authorizeRequests()
                 // 配置的登陆页应该不用权限

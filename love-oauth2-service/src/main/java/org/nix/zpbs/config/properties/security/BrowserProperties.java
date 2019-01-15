@@ -15,4 +15,17 @@ public class BrowserProperties {
      */
     private String loginPage = "/login/signIn.html";
 
+    /**
+     * 登陆方式，默认返回JSON
+     */
+    private LoginType loginType = LoginType.JSON;
+
+    public static enum LoginType{
+        /**
+         * 登陆方式定义，跳转和JSON
+         */
+        REDIRECT,
+        JSON;
+    }
+
 }

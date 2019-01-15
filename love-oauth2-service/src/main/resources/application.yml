@@ -26,3 +26,5 @@ love:
     browser:
       # 自定义登陆页面
       loginPage: /login/signIn.html
+      # 配置登陆后的处理方式，分为跳转和JSON返回,默认为JSON返回
+#      loginType: REDIRECT
