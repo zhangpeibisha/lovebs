@@ -36,11 +36,12 @@ public class VerificationConfig {
         properties.setProperty("kaptcha.border","yes");
         properties.setProperty("kaptcha.border.color","105,179,90");
         properties.setProperty("kaptcha.textproducer.font.color","blue");
-        properties.setProperty("kaptcha.image.width","125");
-        properties.setProperty("kaptcha.image.height","45");
-        properties.setProperty("kaptcha.textproducer.font.size","45");
+        properties.setProperty("kaptcha.image.width","134");
+        properties.setProperty("kaptcha.image.height","35");
+        properties.setProperty("kaptcha.textproducer.font.size","30");
         properties.setProperty("kaptcha.session.key","code");
         properties.setProperty("kaptcha.textproducer.char.length","4");
+        properties.setProperty("kaptcha.textproducer.char.space","6");
         properties.setProperty("kaptcha.textproducer.font.names","宋体,楷体,微软雅黑");
         return new Config(properties);
     }

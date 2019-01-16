@@ -19,7 +19,7 @@ spring:
       force: true
 logging:
   level:
-    root: debug
+    root: info
     com.example.demo.dao: debug
   file: doc/log/testLog.log
   pattern:
