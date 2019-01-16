@@ -54,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authentication/require").permitAll()
                 // 登陆包里面的所有信息都不用认证
                 .antMatchers("/login/**").permitAll()
+                .antMatchers("/static/login/signIn.html").permitAll()
                 // 所有请求都需要认证
                 .anyRequest()
                 .authenticated()

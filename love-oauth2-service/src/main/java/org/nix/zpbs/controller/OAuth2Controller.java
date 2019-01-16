@@ -65,6 +65,7 @@ public class OAuth2Controller {
             String htmlEnd = ".html";
             if (target.endsWith(htmlEnd)){
                 try {
+                    log.debug("配置文件中的路径为:{}   实际需要的路径为：{}",securityProperties.getBrowser().getLoginPage(),"/login/signIn.html");
                     redirectStrategy.sendRedirect(request,response,securityProperties.getBrowser().getLoginPage());
                 } catch (IOException e) {
                     log.error("跳转{}失败:{}",target,e.getMessage());
