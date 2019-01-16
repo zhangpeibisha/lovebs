@@ -13,3 +13,4 @@ spring:
         #访问监控网页的登录用户名和密码
         login-username: root
         login-password: love
+
