@@ -9,6 +9,7 @@ import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.pojo.base.BaseResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -35,6 +36,7 @@ import java.util.Map;
 @Slf4j
 @Api(value = "权限相关控制器")
 @RestController
+@RequestMapping(value = "/authentication")
 public class OAuth2Controller {
 
     @Resource
@@ -44,18 +46,15 @@ public class OAuth2Controller {
     private RequestCache requestCache = new HttpSessionRequestCache();
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
-    @ApiOperation(value = "其他系统获取用户认证信息")
-    @GetMapping(value = "/user",produces = "application/json")
-    public Map<String,Object> user(OAuth2Authentication user){
-        Map<String,Object> userInfo = new HashMap<>();
-        userInfo.put("user",user.getUserAuthentication().getPrincipal());
-        userInfo.put("authorities",AuthorityUtils.authorityListToSet(user.getUserAuthentication().getAuthorities()));
-        return userInfo;
+    @ApiOperation(value = "获取到用户自己的详细信息")
+    @GetMapping(value = "/me")
+    public Authentication user(Authentication authentication){
+        return authentication;
     }
 
     @ApiOperation(value = "需要身份验证时跳转到这里进行判断，如果是浏览器直接返回html，如果是APP返回401错误代码")
     @ApiResponse(code = 401,response = Exception.class,message = "用户尚未认证，请进入登陆页进行验证")
-    @RequestMapping(value = "/authentication/require")
+    @GetMapping(value = "/require")
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public BaseResult requireAuthentication(HttpServletRequest request, HttpServletResponse response){
         SavedRequest savedRequest = requestCache.getRequest(request,response);
