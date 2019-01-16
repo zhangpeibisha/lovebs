@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.zpbs.config.properties.security.BrowserProperties;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
+import org.nix.zpbs.pojo.base.BaseResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -49,7 +50,7 @@ public class LoveAuthenticationFailHandler extends SimpleUrlAuthenticationFailur
                 equals(securityProperties.getBrowser().getLoginType())){
             httpServletResponse.setContentType("application/json;charset=UTF-8");
             httpServletResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(e));
+            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(new BaseResult().fail(e.getMessage())));
         }else {
             super.onAuthenticationFailure(httpServletRequest,httpServletResponse,e);
         }
