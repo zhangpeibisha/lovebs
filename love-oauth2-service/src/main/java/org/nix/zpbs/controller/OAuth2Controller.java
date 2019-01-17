@@ -42,7 +42,9 @@ public class OAuth2Controller {
     @Resource
     private SecurityProperties securityProperties;
 
-    // 对请求进行转发需要的对象
+    /**
+     * 对请求进行转发需要的对象
+      */
     private RequestCache requestCache = new HttpSessionRequestCache();
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 

@@ -6,6 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="love-blog" />
+        <module name="love-db" />
+        <module name="love-eureka" />
+        <module name="love-oauth2-service" />
+        <module name="love-tools" />
+        <module name="love-zuul" />
         <module name="loveblog" />
         <module name="lovedb" />
         <module name="loveeureka" />

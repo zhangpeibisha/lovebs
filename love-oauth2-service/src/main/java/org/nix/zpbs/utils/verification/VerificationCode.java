@@ -1,7 +1,8 @@
 package org.nix.zpbs.utils.verification;
 
 
-import javax.naming.AuthenticationException;
+import org.springframework.security.core.AuthenticationException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,15 +17,18 @@ public interface VerificationCode {
 
     /**
      * 创建验证码信息
-     * @param request http请求
+     *
+     * @param request  http请求
      * @param response http响应
      */
     void createVerification(HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 验证码信息验证用户输入是否正确
-     * @param request http请求
+     *
+     * @param request  http请求
      * @param response http响应
+     * @throws AuthenticationException 验证验证码异常
      */
     void submitVerification(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException;
 }

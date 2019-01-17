@@ -2,6 +2,8 @@ package org.nix.zpbs.config.security;
 
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
+import org.nix.zpbs.utils.verification.ValidateCodeFilter;
+import org.nix.zpbs.utils.verification.VerificationCode;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,10 +14,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
 
 /**
+ * 启用方法级别的权限认证
  * @author zhangpei
  * @version 1.0
  * @date 2019/1/13
@@ -23,7 +28,7 @@ import javax.annotation.Resource;
 @Configuration
 @EnableWebSecurity
 @EnableConfigurationProperties(value = SecurityProperties.class)
-@EnableGlobalMethodSecurity(prePostEnabled = true)  //  启用方法级别的权限认证
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource
@@ -38,11 +43,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private LoveAuthenticationFailHandler loveAuthenticationFailHandler;
 
+    @Resource
+    private VerificationCode imageVerification;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
-                // 设置登陆页面
+        http.
+                // 添加一个过滤器再某个过滤前面
+                addFilterBefore(getValidateCodeFilter(),UsernamePasswordAuthenticationFilter.class)
+                .formLogin()
+                // 设置登陆成功后如何跳转处理
                 .loginPage("/authentication/require")
+                // 登陆请求路径
                 .loginProcessingUrl("/authentication/form")
                 .successHandler(loveAuthenticationSuccessHandler)
                 .failureHandler(loveAuthenticationFailHandler)
@@ -63,6 +75,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 关闭防止跨站请求的处理
                 .and()
                 .csrf().disable();
+    }
+
+    private ValidateCodeFilter getValidateCodeFilter() throws ServletException {
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setImageVerification(imageVerification);
+        validateCodeFilter.setSecurityProperties(securityProperties);
+        validateCodeFilter.setAuthenticationFailureHandler(loveAuthenticationFailHandler);
+        validateCodeFilter.afterPropertiesSet();
+        return validateCodeFilter;
     }
 
     @Override

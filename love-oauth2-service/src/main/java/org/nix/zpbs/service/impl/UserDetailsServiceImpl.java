@@ -33,7 +33,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         org.nix.zpbs.model.User user = service.getUserByAccount(username);
-        log.info("查询用户信息为：{}",JSONUtil.toJsonPrettyStr(user));
         if (user == null){
             log.debug("{}用户没有在册信息",username);
             throw new UsernameNotFoundException("无效的用户名或者密码");

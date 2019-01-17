@@ -11,6 +11,11 @@ import lombok.Data;
 public class BrowserProperties {
 
     /**
+     * 请求登陆验证的路径
+     */
+    private String loginRequestUrl = "/authentication/form";
+
+    /**
      * 默认登陆页
      */
     private String loginPage = "/login/signIn.html";

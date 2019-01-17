@@ -18,4 +18,8 @@ public class ValidateCodeProperties {
      * 请求发送给服务器存储该key的value为验证码的值
      */
     private String requestValidateKey = "imageKey";
+    /**
+     * 需要使用验证码的URL地址
+     */
+    private String urls;
 }

@@ -3,7 +3,9 @@ package org.nix.zpbs.utils.verification.image;
 import lombok.Data;
 
 import java.awt.image.BufferedImage;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * 图形验证码信息实体
@@ -18,7 +20,9 @@ public class ImageCode {
     private BufferedImage image;
 
     private String code;
-
+    /**
+     * 验证码过期时间 单位秒
+     */
     private LocalDateTime expired;
 
     public ImageCode(BufferedImage image, String code, int expired) {
@@ -33,12 +37,10 @@ public class ImageCode {
      * @date 0:40 2019/1/17
      */
     public boolean isExpired() {
-        return expired.isAfter(LocalDateTime.now());
+        return expired.isBefore(LocalDateTime.now());
     }
 
     public static void main(String[] args) throws InterruptedException {
-        LocalDateTime localDateTime = LocalDateTime.now().plusSeconds(1);
-        Thread.sleep(2000);
-        assert localDateTime.isAfter(LocalDateTime.now()) : "期望返回true";
+
     }
 }
