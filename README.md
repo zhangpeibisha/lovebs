@@ -88,4 +88,4 @@ public class MyResponse extends AbstractResponse{
 	// 返回的数据对象实体
 	private Object data;
 }
-···
+```
