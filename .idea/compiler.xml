@@ -7,9 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="account" />
+        <module name="love-recording" />
         <module name="loverecording" />
+        <module name="url-service" />
         <module name="urlservice" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="resources" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
