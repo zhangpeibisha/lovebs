@@ -18,13 +18,12 @@
 2. 扩展功能
 > 1. 仿照tomcat采用责任链模式开发过滤链，因此带来的扩展空间是可以让用户自定义添加移除功能过滤器，在doFilter(request,respones,chain)前面为请求前置处理，在其后面为请求后置处理，可以方便做各种可拔插的自定义功能。
 > 2. 例如 实现一个参数过滤器： 
-  
 ```Java
 public class ParamterCheckFilter implement Filter{
-  public void doFilter(request,respones,chain{
-    request.getAttribute("Paramter");
-      ......
-  }
+	public void doFilter(request,respones,chain{
+	request.getAttribute("Paramter");
+		......
+	}
 }
 ```
 	 然后开始你的操作
@@ -42,29 +41,51 @@ public class ParamterCheckFilter implement Filter{
 @Servlet(url="http://www.myhexin.lib.com"
 ,description="这是请求同花顺的接口",name="StockServlet")
 public class StockServlet extends AbsractServlet{
-    @Override
-  public void service(Request request,Respones respones){
-    // 处理你自己的其他逻辑
-    // 如果没有则不处理，后续功能由组件完成
-  }
+	@Override
+	public void service(Request request,Respones respones){
+	// 处理你自己的其他逻辑
+	// 如果没有则不处理，后续功能由组件完成
+	}
 }
 ```
 5. 实现你自己的Requst
 > 1. 实现一个示例
 ```Java
-@Requst(description="XXX的请求参数实体",name="MyRequst")
+@Requst(description="XXX的请求参数实体",name="MyRequst",response=MyResponse.class)
 public class MyRequst extends AbsractRequest{
-   @Paramter(name="method",description="请求的方法")
-   privater String method;
-   @Paramter(name="test",description="请求的值")
-   privater Integer value;
-  // 此处需要你去指定一个servlet
-  public Class<? extends Servlet> getServlet(){}
+	@Paramter(name="method",description="请求的方法",patter="")
+	privater String method;
+	@Paramter(name="test",description="请求的值",patter="")
+	privater Integer value;
+	// 此处需要你去指定一个servlet
+	public Class<? extends Servlet> getServlet(){}
+	// 指明接受的类型
+	// 默认接受的数据为json格式
+	// 可以返回xml json object类型
+	// object类型的指定： object:java.lang.String  
+	// 前面是指明转成 object类型，
+	// 冒号后面表明指定转换的类的加载路径
+	@Verride
+	public String accept();
 }
 ```
 > 2. 使用说明
      1. 继承AbsractRequest可达到快速配置参数的目的，如果不继承则必须实现Request接口 
-	2. @Paramter(name="method",description="请求的方法")注解是用来表示这是一个参数的注解，如果name不存在，则默认为字段值，description字段没有意义，只是用来生成文档使用
+	2. @Paramter
+	   1. name:参数名字，默认字段名字
+	   2. description: 字段描述
+	   3. patter 正则表达式
 	3. @Requst没有实际用处，只是用来生成文档
 6. 实现你自己自己的Response
 > 1. 实现一个例子
+```Java
+@Response(request=MyRequest.class,description="XXX请求的响应实体",name="MyResponse")
+public class MyResponse extends AbstractResponse{
+	// 参考HTTP状态码
+	private Integer code;
+	// 处理的简约信息
+	private String message;
+	// 返回的数据对象实体
+	private Object data;
+}
+···
