@@ -1,2 +1,70 @@
-[markdown 在线网站](www.MdEditor.com)
-<!DOCTYPE html> <html lang="zh"> <head> <meta charset="utf-8"/> </head> <body><h3 id="h3--java-"><a name="远程调用Java组件" class="reference-link"></a><span class="header-link octicon octicon-link"></span>远程调用Java组件</h3><h4 id="h4-u7EC4u4EF6u7684u5B89u88C5"><a name="组件的安装" class="reference-link"></a><span class="header-link octicon octicon-link"></span>组件的安装</h4><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln"> </span><span class="tag">&lt;dependency&gt;</span></code></li><li class="L1"><code><span class="pln"> </span><span class="tag">&lt;groupId&gt;</span><span class="pln">com.myhexin</span><span class="tag">&lt;/groupId&gt;</span></code></li><li class="L2"><code><span class="pln"> </span><span class="tag">&lt;artifactId&gt;</span><span class="pln">library</span><span class="tag">&lt;/artifactId&gt;</span></code></li><li class="L3"><code><span class="pln"> </span><span class="tag">&lt;/dependency&gt;</span></code></li></ol></pre><h4 id="h4--"><a name="描述 （如果有什么不对，我想和你一起商讨一下你的方案）" class="reference-link"></a><span class="header-link octicon octicon-link"></span>描述 （如果有什么不对，我想和你一起商讨一下你的方案）</h4><ol> <li>基本使用指南<blockquote> <p>用户调用RemoteCallComponentUtil.request(…..);方法就可以得到自己想要的结果<br>对于 ….. 这些参数，我有个大概的想法 </p></blockquote> </li></ol> <table> <thead> <tr> <th style="text-align:center">参数名</th> <th style="text-align:center">参数意义</th> <th style="text-align:center">备注</th> </tr> </thead> <tbody> <tr> <td style="text-align:center">parameter</td> <td style="text-align:center">参数实体</td> <td style="text-align:center">我会提供一个参数接口，具体参数封装由用户自定义</td> </tr> <tr> <td style="text-align:center">respones</td> <td style="text-align:center">结果返回映射实体的CLASS对象</td> <td style="text-align:center">通过该对象进行对返回结果的封装</td> </tr> </tbody> </table> <ol> <li><p>扩展功能</p> <blockquote> <ol> <li>仿照tomcat采用责任链模式开发过滤链，因此带来的扩展空间是可以让用户自定义添加移除功能过滤器，在doFilter(request,respones,chain)前面为请求前置处理，在其后面为请求后置处理，可以方便做各种可拔插的自定义功能。</li><li>例如 实现一个参数过滤器： <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ParamterCheckFilter</span><span class="pln"> implement </span><span class="typ">Filter</span><span class="pun">{</span></code></li><li class="L1"><code><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> doFilter</span><span class="pun">(</span><span class="pln">request</span><span class="pun">,</span><span class="pln">respones</span><span class="pun">,</span><span class="pln">chain</span><span class="pun">{</span></code></li><li class="L2"><code><span class="pln"> request</span><span class="pun">.</span><span class="pln">getAttribute</span><span class="pun">(</span><span class="str">"Paramter"</span><span class="pun">);</span></code></li><li class="L3"><code><span class="pln"> </span><span class="pun">......</span></code></li><li class="L4"><code><span class="pln"> </span><span class="pun">}</span></code></li><li class="L5"><code><span class="pln"> </span><span class="pun">}</span></code></li></ol></pre>然后开始你的操作</li><li>RemoteCallConfig类将用于配置组件的所有参数，比如重试次数，超时时间，过滤器集合，线程池的选择等数据，目前考虑提供方案为：配置文件配置</li></ol> </blockquote> </li><li><p>考虑组件默认带有的功能 （由于之前说过，过滤器可以自由拔插，那么默认实现可以被覆盖的）</p> <blockquote> <ol> <li>请求失败名单过滤器，该过滤器主要是对请求超时的请求进行拦截。比如说，一个URL在上次请求中是超时失败，那么该URL将进入失败名单里，下次请求将不再尝试去请求远程服务器，而是直接返回第一次失败的失败信息。但是呢，并不代表这个请求将永久不能使用，使用的条件是，当组件自己通过定时的尝试请求成功后，该URL将从失败名单中移除，下次用户再请求就可以正常通过请求了。</li><li>日志生成过滤器，该过滤器可以记录用户的请求信息和得到的响应信息，可以方便用户进行程序调试<br>3.缓存过滤器，当组件发现某个（URL+参数）请求会消耗大量的时间，那么这个请求结果将被缓存，并设定缓存时间。</li></ol> </blockquote> </li><li><p>实现你的Servlet</p> <blockquote> <ol> <li>改servlet是相当于HTTP中的执行器，你只需要实现该接口并打上<a href="https://github.com/Servlet" title="@Servlet" class="at-link"></a><a href="https://github.com/Servlet" title="@Servlet" class="at-link">@Servlet</a>(url=”URL”)就可以使用他请求你指定的地址了。</li><li>使用示例<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln"> </span><a href="https://github.com/Servlet" title="@Servlet" class="at-link"></a><a href="https://github.com/Servlet" title="@Servlet" class="at-link"><span class="lit">@Servlet</span></a><span class="pun">(</span><span class="pln">url</span><span class="pun">=</span><span class="str">"http://www.myhexin.lib.com"</span></code></li><li class="L1"><code><span class="pln"> </span><span class="pun">,</span><span class="pln">description</span><span class="pun">=</span><span class="str">"这是请求同花顺的接口"</span><span class="pun">,</span><span class="pln">name</span><span class="pun">=</span><span class="str">"StockServlet"</span><span class="pun">)</span></code></li><li class="L2"><code><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">StockServlet</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">AbsractServlet</span><span class="pun">{</span></code></li><li class="L3"><code><span class="pln"> </span><a href="https://github.com/Override" title="@Override" class="at-link"></a><a href="https://github.com/Override" title="@Override" class="at-link"><span class="lit">@Override</span></a></code></li><li class="L4"><code><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> service</span><span class="pun">(</span><span class="typ">Request</span><span class="pln"> request</span><span class="pun">,</span><span class="typ">Respones</span><span class="pln"> respones</span><span class="pun">){</span></code></li><li class="L5"><code><span class="pln"> </span><span class="com">// 处理你自己的其他逻辑</span></code></li><li class="L6"><code><span class="pln"> </span><span class="com">// 如果没有则不处理，后续功能由组件完成</span></code></li><li class="L7"><code><span class="pln"> </span><span class="pun">}</span></code></li><li class="L8"><code><span class="pln"> </span><span class="pun">}</span></code></li></ol></pre></li></ol> </blockquote> </li><li><p>实现你自己的Requst</p> <blockquote> <ol> <li>实现一个示例<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln"> </span><a href="https://github.com/Requst" title="@Requst" class="at-link"></a><a href="https://github.com/Requst" title="@Requst" class="at-link"><span class="lit">@Requst</span></a><span class="pun">(</span><span class="pln">description</span><span class="pun">=</span><span class="str">"XXX的请求参数实体"</span><span class="pun">,</span><span class="pln">name</span><span class="pun">=</span><span class="str">"MyRequst"</span><span class="pun">)</span></code></li><li class="L1"><code><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">MyRequst</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">AbsractRequest</span><span class="pun">{</span></code></li><li class="L2"><code><span class="pln"> </span><a href="https://github.com/Paramter" title="@Paramter" class="at-link"></a><a href="https://github.com/Paramter" title="@Paramter" class="at-link"><span class="lit">@Paramter</span></a><span class="pun">(</span><span class="pln">name</span><span class="pun">=</span><span class="str">"method"</span><span class="pun">,</span><span class="pln">description</span><span class="pun">=</span><span class="str">"请求的方法"</span><span class="pun">)</span></code></li><li class="L3"><code><span class="pln"> privater </span><span class="typ">String</span><span class="pln"> method</span><span class="pun">;</span></code></li><li class="L4"><code><span class="pln"> </span><a href="https://github.com/Paramter" title="@Paramter" class="at-link"></a><a href="https://github.com/Paramter" title="@Paramter" class="at-link"><span class="lit">@Paramter</span></a><span class="pun">(</span><span class="pln">name</span><span class="pun">=</span><span class="str">"test"</span><span class="pun">,</span><span class="pln">description</span><span class="pun">=</span><span class="str">"请求的值"</span><span class="pun">)</span></code></li><li class="L5"><code><span class="pln"> privater </span><span class="typ">Integer</span><span class="pln"> value</span><span class="pun">;</span></code></li><li class="L6"><code><span class="pln"> </span><span class="com">// 此处需要你去指定一个servlet</span></code></li><li class="L7"><code><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">Class</span><span class="pun">&lt;?</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Servlet</span><span class="pun">&gt;</span><span class="pln"> getServlet</span><span class="pun">(){}</span></code></li><li class="L8"><code><span class="pln"> </span><span class="pun">}</span></code></li></ol></pre></li><li>使用说明<ol> <li>继承AbsractRequest可达到快速配置参数的目的，如果不继承则必须实现Request接口 </li><li><a href="https://github.com/Paramter" title="@Paramter" class="at-link"></a><a href="https://github.com/Paramter" title="@Paramter" class="at-link"></a><a href="https://github.com/Paramter" title="@Paramter" class="at-link">@Paramter</a>(name=”method”,description=”请求的方法”)注解是用来表示这是一个参数的注解，如果name不存在，则默认为字段值，description字段没有意义，只是用来生成文档使用</li><li><a href="https://github.com/Requst" title="@Requst" class="at-link"></a><a href="https://github.com/Requst" title="@Requst" class="at-link"></a><a href="https://github.com/Requst" title="@Requst" class="at-link">@Requst</a>没有实际用处，只是用来生成文档</li></ol> </li></ol> </blockquote> </li><li>实现你自己自己的Response<blockquote> <ol> <li>实现一个例子</li></ol> </blockquote> </li></ol> </body> </html>
+### 远程调用Java组件
+
+#### 组件的安装
+         <dependency>
+	         <groupId>com.myhexin</groupId>
+	         <artifactId>library</artifactId>
+         </dependency>
+#### 描述 （如果有什么不对，我想和你一起商讨一下你的方案）
+1. 基本使用指南
+> 用户调用RemoteCallComponentUtil.request(.....);方法就可以得到自己想要的结果
+> 对于 ..... 这些参数，我有个大概的想法
+
+|参数名| 参数意义 | 备注|
+|:------:|:--------:|:----:|
+| parameter | 参数实体 |我会提供一个参数接口，具体参数封装由用户自定义|
+|respones|结果返回映射实体的CLASS对象|通过该对象进行对返回结果的封装|
+
+2. 扩展功能
+> 1. 仿照tomcat采用责任链模式开发过滤链，因此带来的扩展空间是可以让用户自定义添加移除功能过滤器，在doFilter(request,respones,chain)前面为请求前置处理，在其后面为请求后置处理，可以方便做各种可拔插的自定义功能。
+> 2. 例如 实现一个参数过滤器： 
+  
+```Java
+public class ParamterCheckFilter implement Filter{
+  public void doFilter(request,respones,chain{
+    request.getAttribute("Paramter");
+      ......
+  }
+}
+```
+	 然后开始你的操作
+> 3. RemoteCallConfig类将用于配置组件的所有参数，比如重试次数，超时时间，过滤器集合，线程池的选择等数据，目前考虑提供方案为：配置文件配置
+
+3. 考虑组件默认带有的功能 （由于之前说过，过滤器可以自由拔插，那么默认实现可以被覆盖的）
+> 1. 请求失败名单过滤器，该过滤器主要是对请求超时的请求进行拦截。比如说，一个URL在上次请求中是超时失败，那么该URL将进入失败名单里，下次请求将不再尝试去请求远程服务器，而是直接返回第一次失败的失败信息。但是呢，并不代表这个请求将永久不能使用，使用的条件是，当组件自己通过定时的尝试请求成功后，该URL将从失败名单中移除，下次用户再请求就可以正常通过请求了。
+> 2. 日志生成过滤器，该过滤器可以记录用户的请求信息和得到的响应信息，可以方便用户进行程序调试
+> 3.缓存过滤器，当组件发现某个（URL+参数）请求会消耗大量的时间，那么这个请求结果将被缓存，并设定缓存时间。
+
+4. 实现你的Servlet
+> 1. 改servlet是相当于HTTP中的执行器，你只需要实现该接口并打上@Servlet(url="URL")就可以使用他请求你指定的地址了。
+> 2. 使用示例
+```Java
+@Servlet(url="http://www.myhexin.lib.com"
+,description="这是请求同花顺的接口",name="StockServlet")
+public class StockServlet extends AbsractServlet{
+    @Override
+  public void service(Request request,Respones respones){
+    // 处理你自己的其他逻辑
+    // 如果没有则不处理，后续功能由组件完成
+  }
+}
+```
+5. 实现你自己的Requst
+> 1. 实现一个示例
+```Java
+@Requst(description="XXX的请求参数实体",name="MyRequst")
+public class MyRequst extends AbsractRequest{
+   @Paramter(name="method",description="请求的方法")
+   privater String method;
+   @Paramter(name="test",description="请求的值")
+   privater Integer value;
+  // 此处需要你去指定一个servlet
+  public Class<? extends Servlet> getServlet(){}
+}
+```
+> 2. 使用说明
+     1. 继承AbsractRequest可达到快速配置参数的目的，如果不继承则必须实现Request接口 
+	2. @Paramter(name="method",description="请求的方法")注解是用来表示这是一个参数的注解，如果name不存在，则默认为字段值，description字段没有意义，只是用来生成文档使用
+	3. @Requst没有实际用处，只是用来生成文档
+6. 实现你自己自己的Response
+> 1. 实现一个例子
