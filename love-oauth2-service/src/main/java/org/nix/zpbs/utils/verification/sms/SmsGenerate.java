@@ -2,6 +2,7 @@ package org.nix.zpbs.utils.verification.sms;
 
 import org.nix.zpbs.utils.verification.Generate;
 import org.nix.zpbs.utils.verification.ValidateCode;
+import org.springframework.stereotype.Component;
 
 /**
  * 一个短信验证码生成器

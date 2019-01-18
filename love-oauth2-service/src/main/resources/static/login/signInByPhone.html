@@ -21,23 +21,20 @@
             </div>
             <form action="/authentication/form" method="post">
                 <div class="default">
-                    <input id="username" name="username" data-form="username" type="text" placeholder="请输入用户名/手机号/邮箱"/>
-                </div>
-                <div class="default">
-                    <input id="password" name="password" data-form="password" type="password" placeholder="请输入账号密码"/>
+                    <input id="username" name="username" data-form="username" type="text" placeholder="请输入手机号"/>
                 </div>
                 <div class="default">
                     <input id="imageKey" name="imageKey" data-form="imageKey" type="text" placeholder="请输入验证码"
                            style="width: 138px;height: 35px;"/>
-                    <img src="/verification/image" style="width: 134px;height: 35px">
+                    <a href="/verification/sms?phone=18203085236">发送验证码</a>
                 </div>
                 <div class="submit">
-                        <span class="notice">
-                            <a href="#">忘记密码</a>
+                     <span class="notice">
+                            <a href="signIn.html">账户密码登陆</a>
                         </span>
-                    &nbsp;  &nbsp;
-                        <span class="notice">
-                            <a href="signInByPhone.html">手机号码登陆</a>
+                    &nbsp;&nbsp;
+                    <span class="notice">
+                            <a href="#">忘记密码</a>
                         </span>
                     <button class="s_hover" data-form="submit" type="submit">登录</button>
                 </div>
