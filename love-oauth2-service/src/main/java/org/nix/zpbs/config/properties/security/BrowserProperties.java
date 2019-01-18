@@ -1,6 +1,7 @@
 package org.nix.zpbs.config.properties.security;
 
 import lombok.Data;
+import org.nix.zpbs.config.properties.constants.DefaultConstants;
 
 /**
  * @author zhangpei
@@ -13,12 +14,12 @@ public class BrowserProperties {
     /**
      * 请求登陆验证的路径
      */
-    private String loginRequestUrl = "/authentication/form";
+    private String loginRequestUrl = DefaultConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM;
 
     /**
      * 默认登陆页
      */
-    private String loginPage = "/login/signIn.html";
+    private String loginPage = DefaultConstants.DEFAULT_LOGIN_PAGE_URL;
 
     /**
      * 登陆方式，默认返回JSON

@@ -77,7 +77,6 @@ public abstract class AbstractConfirmationCode<T extends ValidateCode> implement
         } catch (ServletRequestBindingException e) {
             throw new ValidateCodeException("获取验证码的值失败");
         }
-
         if (StringUtils.isBlank(codeInRequest)) {
             throw new ValidateCodeException(processorType + "验证码的值不能为空");
         }

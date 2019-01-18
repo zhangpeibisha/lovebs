@@ -1,5 +1,6 @@
 package org.nix.zpbs.config.security;
 
+import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
 import org.nix.zpbs.utils.verification.ValidateCodeFilter;
@@ -22,6 +23,7 @@ import javax.servlet.ServletException;
 
 /**
  * 启用方法级别的权限认证
+ *
  * @author zhangpei
  * @version 1.0
  * @date 2019/1/13
@@ -51,23 +53,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 // 添加一个过滤器再某个过滤前面
-                addFilterBefore(getValidateCodeFilter(),UsernamePasswordAuthenticationFilter.class)
+                        addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 // 设置登陆成功后如何跳转处理
-                .loginPage("/authentication/require")
+                .loginPage(DefaultConstants.DEFAULT_UNAUTHENTICATED_URL)
                 // 登陆请求路径
-                .loginProcessingUrl("/authentication/form")
+                .loginProcessingUrl(DefaultConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)
                 .successHandler(loveAuthenticationSuccessHandler)
                 .failureHandler(loveAuthenticationFailHandler)
                 .and()
                 .authorizeRequests()
                 // 配置的登陆页应该不用权限
-                .antMatchers(securityProperties.getBrowser().getLoginPage()).permitAll()
-                // 身份认证接口不需要认证
-                .antMatchers("/authentication/require").permitAll()
-                // 登陆包里面的所有信息都不用认证
-                .antMatchers("/login/**").permitAll()
-                .antMatchers("/static/login/signIn.html").permitAll()
+                .antMatchers(
+                        securityProperties.getBrowser().getLoginPage()
+                        , DefaultConstants.DEFAULT_UNAUTHENTICATED_URL
+                        , DefaultConstants.DEFAULT_LOGIN_HEMTP_PACK
+                        , DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL).permitAll()
                 // 验证码控制器的请求不用认证
                 .antMatchers("/verification/**").permitAll()
                 // 所有请求都需要认证
