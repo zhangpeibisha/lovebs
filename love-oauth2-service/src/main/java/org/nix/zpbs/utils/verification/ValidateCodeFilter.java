@@ -3,6 +3,7 @@ package org.nix.zpbs.utils.verification;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
+import org.nix.zpbs.utils.verification.image.ImageConfirmationCode;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
@@ -32,8 +33,6 @@ import java.util.Set;
 @Slf4j
 public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
 
-    private VerificationCode imageVerification;
-
     private AuthenticationFailureHandler authenticationFailureHandler;
 
     private SecurityProperties securityProperties;
@@ -41,6 +40,8 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
     private Set<String> urls = new HashSet<>();
 
     private AntPathMatcher pathMatcher = new AntPathMatcher();
+
+    private ImageConfirmationCode imageConfirmationCode;
 
     @Override
     public void afterPropertiesSet() throws ServletException {
@@ -68,7 +69,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
             log.info("进入验证码过滤器进行验证码验证");
             try {
                 // 验证用户输入的数据是否正确
-                imageVerification.submitVerification(request, response);
+                imageConfirmationCode.check(new ServletWebRequest(request));
             } catch (ValidateCodeException e) {
                 log.info("验证码验证异常{}",e.getMessage());
                 // 进入验证失败处理器

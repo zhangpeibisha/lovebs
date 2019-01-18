@@ -3,7 +3,8 @@ package org.nix.zpbs.config.security;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
 import org.nix.zpbs.utils.verification.ValidateCodeFilter;
-import org.nix.zpbs.utils.verification.VerificationCode;
+import org.nix.zpbs.utils.verification.image.ImageConfirmationCode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,8 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private LoveAuthenticationFailHandler loveAuthenticationFailHandler;
 
-    @Resource
-    private VerificationCode imageVerification;
+    @Autowired
+    private ImageConfirmationCode imageConfirmationCode;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -79,9 +80,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private ValidateCodeFilter getValidateCodeFilter() throws ServletException {
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
-        validateCodeFilter.setImageVerification(imageVerification);
         validateCodeFilter.setSecurityProperties(securityProperties);
         validateCodeFilter.setAuthenticationFailureHandler(loveAuthenticationFailHandler);
+        validateCodeFilter.setImageConfirmationCode(imageConfirmationCode);
         validateCodeFilter.afterPropertiesSet();
         return validateCodeFilter;
     }
