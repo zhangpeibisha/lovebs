@@ -3,9 +3,13 @@ package org.nix.zpbs.utils.verification.image;
 import com.google.code.kaptcha.Producer;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
+import lombok.extern.slf4j.Slf4j;
+import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.utils.verification.Generate;
 
+import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -14,7 +18,11 @@ import java.util.Properties;
  * @version 1.0
  * @date 2019/1/18
  */
+@Slf4j
 public class ImageGenerate implements Generate {
+
+    @Resource
+    private SecurityProperties securityProperties;
 
     @Override
     public ImageCode generate() {
@@ -34,6 +42,20 @@ public class ImageGenerate implements Generate {
      * @return 图片验证码配置
      */
     private Config config() {
+        Properties properties = new Properties();
+        try {
+            // 如果加载配置文件失败，则使用默认值
+            properties.load(ImageGenerate.class.getClassLoader()
+                    .getResourceAsStream(securityProperties.getValidate().getImageConfigFileName()));
+        } catch (IOException e) {
+            log.warn("图片加载配置文件失败{}",e.getMessage());
+            // 如果动态加载数据错误，则使用默认的加载
+            return defaultConfig();
+        }
+        return new Config(properties);
+    }
+
+    private Config defaultConfig(){
         Properties properties = new Properties();
         properties.setProperty("kaptcha.border", "yes");
         properties.setProperty("kaptcha.border.color", "105,179,90");

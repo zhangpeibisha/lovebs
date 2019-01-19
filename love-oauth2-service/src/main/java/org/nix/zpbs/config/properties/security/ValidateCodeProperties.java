@@ -22,4 +22,9 @@ public class ValidateCodeProperties {
      * 需要使用验证码的URL地址
      */
     private String urls;
+    /**
+     * 配置图片的生成参数的文件的名字
+     * 默认名字为 image.properties
+     */
+    private String imageConfigFileName = "image.properties";
 }

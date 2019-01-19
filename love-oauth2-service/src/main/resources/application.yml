@@ -40,4 +40,5 @@ love:
     validate:
       urls: /test/validate/img #验证是否可以通过配置拦截到用户请求
       expired: 180
+      imageConfigFileName: image.properties
 

@@ -23,6 +23,7 @@
 * [通用框架WIKI-HU TOOL](http://hutool.mydoc.io/undefined)
 * [Mockito浅谈](https://blog.csdn.net/guijiaoba/article/details/51945873#%E6%A8%A1%E6%8B%9F%E5%AF%B9%E8%B1%A1)
 * [验证码谷歌生成器](https://blog.csdn.net/baidu_34211956/article/details/83007025)
+* [验证码谷歌生成器配置信息](https://blog.csdn.net/elephantboy/article/details/52795309)
 
 #### 不知道的知识
 * ServletWebRequest
