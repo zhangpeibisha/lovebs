@@ -38,7 +38,11 @@ love:
       # 配置登陆后的处理方式，分为跳转和JSON返回,默认为JSON返回
 #      loginType: REDIRECT
     validate:
-      urls: /test/validate/img #验证是否可以通过配置拦截到用户请求
-      expired: 180
-      imageConfigFileName: image.properties
+      image:
+        url: /test/hello/* #验证是否可以通过配置拦截到用户请求
+        expireIn: 180
+        imageConfigFileName: image.properties
+      sms:
+        url: /test/hello/* #验证是否可以通过配置拦截到用户请求
+        expireIn: 180
 

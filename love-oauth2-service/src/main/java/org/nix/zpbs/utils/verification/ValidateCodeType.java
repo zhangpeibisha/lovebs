@@ -1,5 +1,7 @@
 package org.nix.zpbs.utils.verification;
 
+import org.nix.zpbs.config.properties.constants.DefaultConstants;
+
 /**
  * 设置请求验证的类别
  *
@@ -14,7 +16,7 @@ public enum ValidateCodeType {
     IMAGE{
         @Override
         public String getParamNameOnValidate() {
-            return "image";
+            return DefaultConstants.DEFAULT_PARAMETER_NAME_CODE_IMAGE;
         }
     },
     /**
@@ -23,7 +25,7 @@ public enum ValidateCodeType {
     SMS{
         @Override
         public String getParamNameOnValidate() {
-            return "sms";
+            return DefaultConstants.DEFAULT_PARAMETER_NAME_CODE_SMS;
         }
     };
 

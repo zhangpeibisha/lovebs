@@ -10,21 +10,10 @@ import lombok.Data;
  */
 @Data
 public class ValidateCodeProperties {
+
     /**
-     * 验证码超时时间
+     * 短信和图片验证码的配置信息
      */
-    private Integer expired = 60;
-    /**
-     * 请求发送给服务器存储该key的value为验证码的值
-     */
-    private String requestValidateKey = "imageKey";
-    /**
-     * 需要使用验证码的URL地址
-     */
-    private String urls;
-    /**
-     * 配置图片的生成参数的文件的名字
-     * 默认名字为 image.properties
-     */
-    private String imageConfigFileName = "image.properties";
+    private ImageValidateProperties image = new ImageValidateProperties();
+    private SmsValidateProperties sms = new SmsValidateProperties();
 }

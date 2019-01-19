@@ -6,6 +6,6 @@ package org.nix.zpbs.config.properties.constants;
  * @version 1.0
  * @date 2019/1/19
  */
-public interface DefaultConstants extends LoginConstants{
+public interface DefaultConstants extends LoginConstants,ValidateConstants{
 
 }

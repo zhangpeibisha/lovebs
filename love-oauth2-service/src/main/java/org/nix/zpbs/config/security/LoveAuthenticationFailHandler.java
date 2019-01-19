@@ -45,12 +45,13 @@ public class LoveAuthenticationFailHandler extends SimpleUrlAuthenticationFailur
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse,
                                         AuthenticationException e) throws IOException, ServletException {
-        log.info("用户登陆失败");
+        log.info("用户登陆失败：{}",e.getMessage());
         if (BrowserProperties.LoginType.JSON.
                 equals(securityProperties.getBrowser().getLoginType())){
             httpServletResponse.setContentType("application/json;charset=UTF-8");
             httpServletResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(new BaseResult().fail(e.getMessage())));
+            httpServletResponse.getWriter().write(
+                    objectMapper.writeValueAsString(new BaseResult().fail(e.getMessage())));
         }else {
             super.onAuthenticationFailure(httpServletRequest,httpServletResponse,e);
         }

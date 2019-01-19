@@ -4,6 +4,7 @@ import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
 import org.nix.zpbs.utils.verification.ValidateCodeFilter;
+import org.nix.zpbs.utils.verification.ValidateCodeGenerateHolder;
 import org.nix.zpbs.utils.verification.image.ImageConfirmationCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -46,19 +47,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private LoveAuthenticationFailHandler loveAuthenticationFailHandler;
 
-    @Autowired
-    private ImageConfirmationCode imageConfirmationCode;
+    @Resource
+    private ValidateCodeGenerateHolder validateCodeGenerateHolder;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 // 添加一个过滤器再某个过滤前面
-                        addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
+                 addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 // 设置登陆成功后如何跳转处理
                 .loginPage(DefaultConstants.DEFAULT_UNAUTHENTICATED_URL)
                 // 登陆请求路径
                 .loginProcessingUrl(DefaultConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)
+                // 登陆失败的页面
+                .failureUrl(DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL)
+                // 成功失败处理器
                 .successHandler(loveAuthenticationSuccessHandler)
                 .failureHandler(loveAuthenticationFailHandler)
                 .and()
@@ -83,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
         validateCodeFilter.setSecurityProperties(securityProperties);
         validateCodeFilter.setAuthenticationFailureHandler(loveAuthenticationFailHandler);
-        validateCodeFilter.setImageConfirmationCode(imageConfirmationCode);
+        validateCodeFilter.setValidateCodeGenerateHolder(validateCodeGenerateHolder);
         validateCodeFilter.afterPropertiesSet();
         return validateCodeFilter;
     }

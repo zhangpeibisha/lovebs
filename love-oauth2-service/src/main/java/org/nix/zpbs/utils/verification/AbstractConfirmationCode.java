@@ -103,9 +103,6 @@ public abstract class AbstractConfirmationCode<T extends ValidateCode> implement
      * @return 返回验证码类型
      */
     private ValidateCodeType getValidateCodeType() {
-        /**
-         * 类名后缀，用于获取请求类型
-         */
         String classSuffix = "ConfirmationCode";
         String type = StringUtils.substringBefore(getClass().getSimpleName(), classSuffix);
         return ValidateCodeType.valueOf(type.toUpperCase());

@@ -14,6 +14,7 @@ import java.util.Properties;
 
 /**
  * 图片验证码生成器
+ *
  * @author zhangpei
  * @version 1.0
  * @date 2019/1/18
@@ -33,7 +34,8 @@ public class ImageGenerate implements Generate {
         String code = producer.createText();
         // 创建图片流
         BufferedImage image = producer.createImage(code);
-        return new ImageCode(image,code,60);
+        return new ImageCode(image, code,
+                securityProperties.getValidate().getImage().getExpireIn());
     }
 
     /**
@@ -46,16 +48,18 @@ public class ImageGenerate implements Generate {
         try {
             // 如果加载配置文件失败，则使用默认值
             properties.load(ImageGenerate.class.getClassLoader()
-                    .getResourceAsStream(securityProperties.getValidate().getImageConfigFileName()));
+                    .getResourceAsStream(securityProperties.getValidate()
+                            .getImage()
+                            .getImageConfigFileName()));
         } catch (IOException e) {
-            log.warn("图片加载配置文件失败{}",e.getMessage());
+            log.warn("图片加载配置文件失败{}", e.getMessage());
             // 如果动态加载数据错误，则使用默认的加载
             return defaultConfig();
         }
         return new Config(properties);
     }
 
-    private Config defaultConfig(){
+    private Config defaultConfig() {
         Properties properties = new Properties();
         properties.setProperty("kaptcha.border", "yes");
         properties.setProperty("kaptcha.border.color", "105,179,90");

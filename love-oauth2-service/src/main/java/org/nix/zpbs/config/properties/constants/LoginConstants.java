@@ -21,7 +21,10 @@ public interface LoginConstants {
      * @see org.nix.zpbs.config.security.SecurityConfig 使用
      */
     String DEFAULT_LOGIN_PROCESSING_URL_FORM = "/authentication/form";
-
+    /**
+     * 默认的手机验证码登录请求处理url
+     */
+     String DEFAULT_LOGIN_PROCESSING_URL_MOBILE = "/authentication/mobile";
     /**
      * 默认登录页面
      * @see org.nix.zpbs.config.security.SecurityConfig

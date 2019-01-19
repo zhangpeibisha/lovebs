@@ -1,5 +1,6 @@
 package org.nix.zpbs.utils.verification.sms;
 
+import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.utils.verification.AbstractConfirmationCode;
 import org.nix.zpbs.utils.verification.ValidateCode;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,7 @@ public class SmsConfirmationCode extends AbstractConfirmationCode {
 
     @Override
     protected void send(ServletWebRequest request, ValidateCode generate) throws Exception {
-        String paramName = "phone";
+        String paramName = DefaultConstants.DEFAULT_PARAMETER_NAME_MOBILE;
         // 获取到参数的值
         String mobile = ServletRequestUtils.getRequiredStringParameter(request.getRequest(), paramName);
         smsCodeSender.send(mobile, generate.getCode());
