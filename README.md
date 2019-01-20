@@ -28,3 +28,13 @@
 #### 不知道的知识
 * ServletWebRequest
 * SessionStrategy
+
+
+### 特殊API
+接口名字 | url | 参数 | 说明
+------|------|---- | ----
+获取验证码|/verification|/{type} | type目前包含 sms：获取短信验证码 image: 获取图片验证码
+验证码验证码|/**|sms|在你请求的路径中带上sms名字的参数并在这个参数上面赋值即可
+验证图片验证码|/**|image|在你请求的路径中带上image名字的参数并在这个参数上面赋值即可
+图片验证码登陆路径|/authentication/form|username password image|username: 用户名、邮箱、手机号码 password:用户密码 image: 图片验证码显示的文字
+手机验证码登陆路径|/authentication/mobile|phone sms|phone: 用户手机号码 sms:发送到用户手机上的信息
