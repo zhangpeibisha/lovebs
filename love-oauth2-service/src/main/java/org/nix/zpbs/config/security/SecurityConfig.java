@@ -1,5 +1,6 @@
 package org.nix.zpbs.config.security;
 
+import org.nix.zpbs.config.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
@@ -50,11 +51,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private ValidateCodeGenerateHolder validateCodeGenerateHolder;
 
+    @Resource
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 // 添加一个过滤器再某个过滤前面
-                 addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
+                        addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 // 设置登陆成功后如何跳转处理
                 .loginPage(DefaultConstants.DEFAULT_UNAUTHENTICATED_URL)
@@ -80,7 +84,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 // 关闭防止跨站请求的处理
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+                // 加入短信验证码配置
+                .apply(smsCodeAuthenticationSecurityConfig);
     }
 
     private ValidateCodeFilter getValidateCodeFilter() throws ServletException {

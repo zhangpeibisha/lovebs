@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
         List<User> users = userMapper.selectByExample(example);
         if (users == null || users.size() != 1) {
             if (users != null) {
-                log.info("用户{}账户为空或者存在多个相同账户名的账户", JSONUtil.toJsonPrettyStr(users));
+                log.info("用户{}账户为空或者存在多个相同账户名的账户", account);
             }
             throw new ServiceException("无效的用户名或者密码");
         }
