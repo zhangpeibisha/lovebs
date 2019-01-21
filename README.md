@@ -29,7 +29,8 @@
 * ServletWebRequest
 * SessionStrategy
 
-
+### 一般API
+{domain}:http://localhost:9030/swagger-ui.html
 ### 特殊API
 接口名字 | url | 参数 | 说明
 ------|------|---- | ----
@@ -38,3 +39,7 @@
 验证图片验证码|/**|image|在你请求的路径中带上image名字的参数并在这个参数上面赋值即可
 图片验证码登陆路径|/authentication/form|username password image|username: 用户名、邮箱、手机号码 password:用户密码 image: 图片验证码显示的文字
 手机验证码登陆路径|/authentication/mobile|phone sms|phone: 用户手机号码 sms:发送到用户手机上的信息
+
+
+### 注意事件 以todo标识需要在上线后处理
+* org.nix.zpbs.utils.social.SocialConfig
