@@ -33,7 +33,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
     public UsersConnectionRepository getUsersConnectionRepository(ConnectionFactoryLocator connectionFactoryLocator) {
         JdbcUsersConnectionRepository repository = new JdbcUsersConnectionRepository(dataSource,
                 connectionFactoryLocator, Encryptors.noOpText());
-        repository.setTablePrefix("");
+        repository.setTablePrefix(securityProperties.getSocial().getQq().getQqTablePrefix());
         if (connectionSignUp != null) {
             repository.setConnectionSignUp(connectionSignUp);
         }

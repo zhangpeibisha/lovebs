@@ -47,6 +47,10 @@ love:
         expireIn: 180
     social:
       qq:
+#        在腾讯申请的应用
         appId: XXXX
         appSecret: XXX
+#       请求回调地址
+        providerId: XXX
+      filterProcessesUrl: /love
 
