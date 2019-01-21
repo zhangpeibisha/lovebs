@@ -4,6 +4,7 @@ import org.nix.zpbs.config.authentication.mobile.SmsCodeAuthenticationSecurityCo
 import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
+import org.nix.zpbs.utils.social.LoveSpringSocialConfigurer;
 import org.nix.zpbs.utils.verification.ValidateCodeFilter;
 import org.nix.zpbs.utils.verification.ValidateCodeGenerateHolder;
 import org.nix.zpbs.utils.verification.image.ImageConfirmationCode;
@@ -19,6 +20,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.social.security.SpringSocialConfigurer;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -54,6 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
+    @Resource
+    private SpringSocialConfigurer loveSpringSocialConfigurer;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
@@ -86,7 +91,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 // 加入短信验证码配置
-                .apply(smsCodeAuthenticationSecurityConfig);
+                .apply(smsCodeAuthenticationSecurityConfig)
+                // 社交登陆配置
+                .and().apply(loveSpringSocialConfigurer);
     }
 
     private ValidateCodeFilter getValidateCodeFilter() throws ServletException {

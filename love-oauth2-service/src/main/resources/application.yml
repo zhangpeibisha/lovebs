@@ -45,4 +45,8 @@ love:
       sms:
         url: /test/hello/* #验证是否可以通过配置拦截到用户请求
         expireIn: 180
+    social:
+      qq:
+        appId: XXXX
+        appSecret: XXX
 
