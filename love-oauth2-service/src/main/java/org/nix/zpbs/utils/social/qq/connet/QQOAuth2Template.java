@@ -26,15 +26,12 @@ public class QQOAuth2Template extends OAuth2Template {
     @Override
     protected AccessGrant postForAccessGrant(String accessTokenUrl, MultiValueMap<String, String> parameters) {
         String responseStr = getRestTemplate().postForObject(accessTokenUrl, parameters, String.class);
-
         log.info("获取accessToke的响应："+responseStr);
-
         String[] items = StringUtils.splitByWholeSeparatorPreserveAllTokens(responseStr, "&");
-
+        // 由于框架中期望的是json，但是qq返回的是一个 value=faskf&value=dfa的格式
         String accessToken = StringUtils.substringAfterLast(items[0], "=");
         Long expiresIn = new Long(StringUtils.substringAfterLast(items[1], "="));
         String refreshToken = StringUtils.substringAfterLast(items[2], "=");
-
         return new AccessGrant(accessToken, null, refreshToken, expiresIn);
     }
 
