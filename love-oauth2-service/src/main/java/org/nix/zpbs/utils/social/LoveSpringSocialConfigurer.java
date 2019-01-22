@@ -12,16 +12,20 @@ import javax.annotation.Resource;
  * @version 1.0
  * @date 2019/1/22
  */
-@Component
 public class LoveSpringSocialConfigurer extends SpringSocialConfigurer {
 
-    @Resource
-    private SecurityProperties securityProperties;
+    private String filterProcessesUrl;
+
+    public LoveSpringSocialConfigurer(String filterProcessesUrl) {
+        this.filterProcessesUrl = filterProcessesUrl;
+    }
 
     @Override
     protected <T> T postProcess(T object) {
         SocialAuthenticationFilter filter = (SocialAuthenticationFilter) super.postProcess(object);
-        filter.setFilterProcessesUrl(securityProperties.getSocial().getFilterProcessesUrl());
+        filter.setFilterProcessesUrl(filterProcessesUrl);
         return (T) filter;
     }
+
+
 }

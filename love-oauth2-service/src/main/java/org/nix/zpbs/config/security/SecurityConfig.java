@@ -81,7 +81,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         securityProperties.getBrowser().getLoginPage()
                         , DefaultConstants.DEFAULT_UNAUTHENTICATED_URL
                         , DefaultConstants.DEFAULT_LOGIN_HEMTP_PACK
-                        , DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL).permitAll()
+                        , DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL
+                        , securityProperties.getBrowser().getSignUpUrl()
+                        , "/user/info"
+                ).permitAll()
                 // 验证码控制器的请求不用认证
                 .antMatchers("/verification/**").permitAll()
                 // 所有请求都需要认证

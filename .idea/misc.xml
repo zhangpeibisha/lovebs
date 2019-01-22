@@ -8,6 +8,11 @@
           <entry key="RestClientRequestRunnerNavigator.fromCode" value="2" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.spring.boot.run.usages">
+        <counts>
+          <entry key="LiveBeansNavigationHandler.fromCode" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="MavenProjectsManager">

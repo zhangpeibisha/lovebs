@@ -31,7 +31,12 @@ public class BrowserProperties {
      */
     private String loginFailPage = "/login/signIn.html";
 
-    public static enum LoginType{
+    /**
+     * 注册页
+     */
+    private String signUpUrl = "/login/register.html";
+
+    public static enum LoginType {
         /**
          * 登陆方式定义，跳转和JSON
          */
