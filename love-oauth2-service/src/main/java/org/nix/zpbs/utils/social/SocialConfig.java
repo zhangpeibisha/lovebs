@@ -66,4 +66,13 @@ public class SocialConfig extends SocialConfigurerAdapter {
         return configurer;
     }
 
+    /**
+     * 微信绑定和解绑
+     * 绑定为post方法，delete方法为解绑
+     */
+    @Bean({"connect/weixinConnect","connect/weixinConnected"})
+    public LoveConnectView loveConnectView(){
+        return new LoveConnectView();
+    }
+
 }
