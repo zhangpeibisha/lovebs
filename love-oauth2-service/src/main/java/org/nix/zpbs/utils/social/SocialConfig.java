@@ -2,6 +2,7 @@ package org.nix.zpbs.utils.social;
 
 import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.encrypt.Encryptors;
@@ -68,9 +69,11 @@ public class SocialConfig extends SocialConfigurerAdapter {
 
     /**
      * 微信绑定和解绑
+     * 当另外注入了该类的实例，则该实例不生效
      * 绑定为post方法，delete方法为解绑
      */
     @Bean({"connect/weixinConnect","connect/weixinConnected"})
+    @ConditionalOnMissingBean(LoveConnectView.class)
     public LoveConnectView loveConnectView(){
         return new LoveConnectView();
     }

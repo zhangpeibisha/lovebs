@@ -51,6 +51,6 @@ love:
         appId: XXXX
         appSecret: XXX
 #       请求回调地址
-        providerId: XXX
+        providerId: weixin
       filterProcessesUrl: /love
 

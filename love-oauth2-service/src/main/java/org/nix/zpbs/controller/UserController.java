@@ -58,12 +58,18 @@ public class UserController {
         // 获取社交用户的信息
         Connection<?> connectionFromSession =
                 providerSignInUtils.getConnectionFromSession(new ServletWebRequest(request));
-        SocialUserInfo socialUserInfo = new SocialUserInfo();
-        socialUserInfo.setHeadimg(connectionFromSession.getImageUrl());
-        socialUserInfo.setNickname(connectionFromSession.getDisplayName());
-        ConnectionKey key = connectionFromSession.getKey();
-        socialUserInfo.setProviderId(key.getProviderId());
-        socialUserInfo.setProviderUserId(key.getProviderUserId());
+        SocialUserInfo socialUserInfo = null;
+        if (connectionFromSession != null){
+            socialUserInfo = new SocialUserInfo();
+            socialUserInfo.setHeadimg(connectionFromSession.getImageUrl());
+            socialUserInfo.setNickname(connectionFromSession.getDisplayName());
+            ConnectionKey key = connectionFromSession.getKey();
+            socialUserInfo.setProviderId(key.getProviderId());
+            socialUserInfo.setProviderUserId(key.getProviderUserId());
+        }
+        if (socialUserInfo == null){
+            throw new RuntimeException("用户未绑定社交账号");
+        }
         return socialUserInfo;
     }
 

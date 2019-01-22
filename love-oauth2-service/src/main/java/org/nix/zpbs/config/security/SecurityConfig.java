@@ -84,6 +84,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         , DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL
                         , securityProperties.getBrowser().getSignUpUrl()
                         , "/user/info"
+                        ,"/connect/**"
                 ).permitAll()
                 // 验证码控制器的请求不用认证
                 .antMatchers("/verification/**").permitAll()

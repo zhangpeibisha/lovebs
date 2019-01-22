@@ -39,6 +39,10 @@
 验证图片验证码|/**|image|在你请求的路径中带上image名字的参数并在这个参数上面赋值即可
 图片验证码登陆路径|/authentication/form|username password image|username: 用户名、邮箱、手机号码 password:用户密码 image: 图片验证码显示的文字
 手机验证码登陆路径|/authentication/mobile|phone sms|phone: 用户手机号码 sms:发送到用户手机上的信息
+社交账号具体url配置信息为|org.springframework.social.connect.web.ConnectController| |社交账号的具体控制类 | 
+查询社交账号绑定信息|/connect| |查询社交账号的绑定情况
+社交账号绑定|/connect/{socialName}|socialName|socialName:社交账号providerId
+社交账号解绑|/connect/{socialName}|socialName|socialName:社交账号providerId
 
 
 ### 注意事件 以todo标识需要在上线后处理
