@@ -3,6 +3,7 @@ package org.nix.zpbs.config.security;
 import org.nix.zpbs.config.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
+import org.nix.zpbs.config.session.LoveExpiredSessionStrategy;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
 import org.nix.zpbs.utils.social.LoveSpringSocialConfigurer;
 import org.nix.zpbs.utils.verification.ValidateCodeFilter;
@@ -84,7 +85,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         , DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL
                         , securityProperties.getBrowser().getSignUpUrl()
                         , "/user/info"
-                        ,"/connect/**"
+                        , "/connect/**"
+                        // session过期请求不要权限
+                        , "/authentication/session/timeout"
                 ).permitAll()
                 // 验证码控制器的请求不用认证
                 .antMatchers("/verification/**").permitAll()
@@ -97,7 +100,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 加入短信验证码配置
                 .apply(smsCodeAuthenticationSecurityConfig)
                 // 社交登陆配置
-                .and().apply(loveSpringSocialConfigurer);
+                .and().apply(loveSpringSocialConfigurer)
+                .and()
+                .sessionManagement()
+                // session过期如何处理
+                .invalidSessionUrl("/authentication/session/timeout")
+                // 设置用户的登陆数量控制
+                .maximumSessions(1)
+                // 处理session策略
+                .expiredSessionStrategy(new LoveExpiredSessionStrategy())
+                // 如果用户登陆数已经达到一定的数量则不允许在登陆了
+                .maxSessionsPreventsLogin(true);
     }
 
     private ValidateCodeFilter getValidateCodeFilter() throws ServletException {

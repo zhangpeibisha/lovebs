@@ -78,4 +78,10 @@ public class OAuth2Controller {
         return new BaseResult().fail(401,"访问的用户需要身份认证，请前往登录页");
     }
 
+    @GetMapping("/session/timeout")
+    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+    public BaseResult sessionTimeOut(){
+        return new BaseResult().fail(401,"session生效");
+    }
+
 }
