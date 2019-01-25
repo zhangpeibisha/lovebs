@@ -10,5 +10,9 @@ import lombok.Data;
 @Data
 public class SocialProperties {
     private String filterProcessesUrl = "/auth";
+    /**
+     * 第三方登陆查询数据链接权限处理
+     */
+    private final String connectUrl = "/connect/**" ;
     private QQProperties qq = new QQProperties();
 }

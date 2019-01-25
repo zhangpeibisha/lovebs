@@ -36,6 +36,8 @@ public class BrowserProperties {
      */
     private String signUpUrl = "/login/register.html";
 
+    private SessionProperties session = new SessionProperties();
+
     public static enum LoginType {
         /**
          * 登陆方式定义，跳转和JSON

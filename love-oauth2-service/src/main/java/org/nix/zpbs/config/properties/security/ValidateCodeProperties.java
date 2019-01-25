@@ -10,7 +10,10 @@ import lombok.Data;
  */
 @Data
 public class ValidateCodeProperties {
-
+    /**
+     * 验证码验证路径配置
+     */
+    private String validateUrl = "/verification/**";
     /**
      * 短信和图片验证码的配置信息
      */

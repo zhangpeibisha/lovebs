@@ -19,4 +19,6 @@ public class SecurityProperties {
 
     private SocialProperties social = new SocialProperties();
 
+    private LogoutProperties logout = new LogoutProperties();
+
 }

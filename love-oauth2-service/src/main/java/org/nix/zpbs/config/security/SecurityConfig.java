@@ -3,6 +3,7 @@ package org.nix.zpbs.config.security;
 import org.nix.zpbs.config.authentication.mobile.SmsCodeAuthenticationSecurityConfig;
 import org.nix.zpbs.config.properties.constants.DefaultConstants;
 import org.nix.zpbs.config.properties.security.SecurityProperties;
+import org.nix.zpbs.config.properties.security.SessionProperties;
 import org.nix.zpbs.config.session.LoveExpiredSessionStrategy;
 import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
 import org.nix.zpbs.utils.social.LoveSpringSocialConfigurer;
@@ -62,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        SessionProperties session = securityProperties.getBrowser().getSession();
         http.
                 // 添加一个过滤器再某个过滤前面
                         addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
@@ -85,12 +87,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         , DefaultConstants.DEFAULT_STATIC_LOGIN_PAGE_URL
                         , securityProperties.getBrowser().getSignUpUrl()
                         , "/user/info"
-                        , "/connect/**"
+                        , securityProperties.getSocial().getConnectUrl()
                         // session过期请求不要权限
-                        , "/authentication/session/timeout"
+                        , session.getSessionTimeOutUrl()
                 ).permitAll()
                 // 验证码控制器的请求不用认证
-                .antMatchers("/verification/**").permitAll()
+                .antMatchers(securityProperties.getValidate().getValidateUrl()).permitAll()
                 // 所有请求都需要认证
                 .anyRequest()
                 .authenticated()
@@ -104,13 +106,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement()
                 // session过期如何处理
-                .invalidSessionUrl("/authentication/session/timeout")
+                .invalidSessionUrl(session.getSessionTimeOutUrl())
                 // 设置用户的登陆数量控制
-                .maximumSessions(1)
+                .maximumSessions(session.getMaximumSessions())
                 // 处理session策略
                 .expiredSessionStrategy(new LoveExpiredSessionStrategy())
                 // 如果用户登陆数已经达到一定的数量则不允许在登陆了
-                .maxSessionsPreventsLogin(true);
+                .maxSessionsPreventsLogin(true)
+                .and()
+                // 配置登出
+                .and()
+                .logout()
+                .logoutUrl(securityProperties.getLogout().getLogoutUrl())
+                .logoutSuccessUrl(securityProperties.getLogout().getLogoutSuccessUrl());
     }
 
     private ValidateCodeFilter getValidateCodeFilter() throws ServletException {
