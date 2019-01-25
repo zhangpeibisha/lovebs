@@ -9,6 +9,11 @@ package org.nix.zpbs.config.properties.constants;
  */
 public interface ValidateConstants {
     /**
+     * 申请验证码的前缀信息
+     */
+    String DEFAULT_VALIDATE_CODE_URL_PREFIX = "/verification";
+
+    /**
      * 验证图片验证码时，http请求中默认的携带图片验证码信息的参数的名称
      */
     String DEFAULT_PARAMETER_NAME_CODE_IMAGE = "image";

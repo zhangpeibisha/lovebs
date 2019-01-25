@@ -19,6 +19,7 @@ spring:
       force: true
   session:
     store-type: redis
+    timeout: 60s
 logging:
   level:
 #    root: debug

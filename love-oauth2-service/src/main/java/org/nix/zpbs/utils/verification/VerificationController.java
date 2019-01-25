@@ -3,6 +3,7 @@ package org.nix.zpbs.utils.verification;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.nix.zpbs.config.properties.constants.ValidateConstants;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019/1/17
  */
 @Api(description = "用于对用户申请的验证码进行生成和校验的控制器")
-@RequestMapping(value = "/verification")
+@RequestMapping(value = ValidateConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX)
 @RestController
 public class VerificationController {
 

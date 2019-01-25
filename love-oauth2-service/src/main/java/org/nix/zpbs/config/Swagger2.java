@@ -27,7 +27,7 @@ public class Swagger2 {
                 .apiInfo(apiInfo())
                 .select()
                 //为当前包路径
-                .apis(RequestHandlerSelectors.basePackage("org.nix.zpbs.controller"))
+                .apis(RequestHandlerSelectors.basePackage("org.nix.zpbs"))
                 .paths(PathSelectors.any())
                 .build();
     }
