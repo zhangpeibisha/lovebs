@@ -13,7 +13,10 @@ import java.awt.image.BufferedImage;
 @Data
 public class ImageCode extends ValidateCode {
 
-    private BufferedImage image;
+    /**
+     * 图片不用序列化
+     */
+    private transient BufferedImage image;
 
     public ImageCode(BufferedImage image, String code, int expired) {
         super(code, expired);

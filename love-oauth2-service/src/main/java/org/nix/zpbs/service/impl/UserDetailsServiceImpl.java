@@ -45,7 +45,7 @@ public class UserDetailsServiceImpl implements UserDetailsService,SocialUserDeta
             throw new UsernameNotFoundException("无效的用户名或者密码");
         }
         ArrayList<SimpleGrantedAuthority> simpleGrantedAuthorities = getAuthorities(user.getId());
-        log.info("用户权限信息为：{}",JSONUtil.toJsonPrettyStr(simpleGrantedAuthorities));
+        log.info("用户权限信息为：{}",JSONUtil.toJsonStr(simpleGrantedAuthorities));
         return new User(user.getUserName(),user.getUserPwd(),simpleGrantedAuthorities);
     }
 
@@ -53,7 +53,7 @@ public class UserDetailsServiceImpl implements UserDetailsService,SocialUserDeta
     public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
         org.nix.zpbs.model.User user = userMapper.selectByPrimaryKey(Long.parseLong(userId));
         ArrayList<SimpleGrantedAuthority> authorities = getAuthorities(Long.parseLong(userId));
-        log.info("社交用户权限信息为：{}",JSONUtil.toJsonPrettyStr(authorities));
+        log.info("社交用户权限信息为：{}",JSONUtil.toJsonStr(authorities));
         return new SocialUser(user.getUserName(),user.getUserPwd(), authorities);
     }
 

@@ -2,6 +2,7 @@ package org.nix.zpbs.utils.verification;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
  * @date 2019/1/19
  */
 @Data
-public class ValidateCode {
+public class ValidateCode implements Serializable {
     /**
      * 验证码
      */
