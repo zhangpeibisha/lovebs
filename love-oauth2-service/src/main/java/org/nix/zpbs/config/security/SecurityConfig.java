@@ -68,7 +68,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .apply(validateCodeSecurityConfig).and()
                 .formLogin()
                 // 设置登陆成功后如何跳转处理
                 .loginPage(DefaultConstants.DEFAULT_UNAUTHENTICATED_URL)
@@ -90,25 +89,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         , securityProperties.getBrowser().getSignUpUrl()
                         , "/user/info"
                         , securityProperties.getSocial().getConnectUrl()
+                        // 验证码控制器的请求不用认证
+                        , securityProperties.getValidate().getValidateUrl()
                 ).permitAll()
-                // 验证码控制器的请求不用认证
-                .antMatchers(securityProperties.getValidate().getValidateUrl()).permitAll()
                 // 所有请求都需要认证
                 .anyRequest()
                 .authenticated()
                 // 关闭防止跨站请求的处理
                 .and()
                 .csrf().disable()
-                // 加入短信验证码配置
-                .apply(smsCodeAuthenticationSecurityConfig)
-                // 社交登陆配置
-                .and().apply(loveSpringSocialConfigurer)
-                // 配置登出
-                .and()
                 .logout()
                 .logoutUrl(securityProperties.getLogout().getLogoutUrl())
                 .logoutSuccessUrl(securityProperties.getLogout().getLogoutSuccessUrl())
-                .and().apply(loveSessionConfig);
+
+                .and().apply(loveSessionConfig)
+                .and().apply(validateCodeSecurityConfig)
+                // 加入短信验证码配置
+                .and().apply(smsCodeAuthenticationSecurityConfig)
+                // 社交登陆配置
+                .and().apply(loveSpringSocialConfigurer);
+
     }
 
     @Override
