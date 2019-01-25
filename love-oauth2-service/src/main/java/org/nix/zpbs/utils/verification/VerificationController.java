@@ -1,8 +1,8 @@
-package org.nix.zpbs.controller;
+package org.nix.zpbs.utils.verification;
 
 import io.swagger.annotations.Api;
-import org.nix.zpbs.utils.verification.ValidateCodeGenerateHolder;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +36,8 @@ public class VerificationController {
      * @param type 验证码类型
      * @throws Exception 发生的意外
      */
+    @ApiOperation(nickname = "createCode",value ="验证码生成区域")
+    @ApiParam(name = "验证码名字",allowableValues = "sms,phone",example = "/sms")
     @GetMapping("/{type}")
     public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type)
             throws Exception {

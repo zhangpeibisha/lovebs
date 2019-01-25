@@ -1,7 +1,5 @@
-package org.nix.zpbs.config;
+package org.nix.zpbs.utils.verification;
 
-
-import org.nix.zpbs.utils.verification.Generate;
 import org.nix.zpbs.utils.verification.image.ImageGenerate;
 import org.nix.zpbs.utils.verification.sms.DefaultSmsCodeSender;
 import org.nix.zpbs.utils.verification.sms.SmsCodeSender;
@@ -10,15 +8,15 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
-
 /**
+ * 验证码bean放在这里
  * @author zhangpei
  * @version 1.0
- * @date 2019/1/17
+ * @date 2019/1/25
  */
 @Configuration
-public class VerificationConfig {
+public class ValidateCodeBeanConfig {
+
     /**
      * 配置图生成器
      * @return 图片生成器
@@ -48,6 +46,5 @@ public class VerificationConfig {
     public Generate smsGenerate() {
         return new SmsGenerate();
     }
-
 
 }
