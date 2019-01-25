@@ -9,6 +9,7 @@ import org.nix.zpbs.service.impl.UserDetailsServiceImpl;
 import org.nix.zpbs.utils.social.LoveSpringSocialConfigurer;
 import org.nix.zpbs.utils.verification.ValidateCodeFilter;
 import org.nix.zpbs.utils.verification.ValidateCodeGenerateHolder;
+import org.nix.zpbs.utils.verification.ValidateCodeSecurityConfig;
 import org.nix.zpbs.utils.verification.image.ImageConfirmationCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -61,12 +62,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private SpringSocialConfigurer loveSpringSocialConfigurer;
 
+    @Autowired
+    private ValidateCodeSecurityConfig validateCodeSecurityConfig;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         SessionProperties session = securityProperties.getBrowser().getSession();
-        http.
-                // 添加一个过滤器再某个过滤前面
-                        addFilterBefore(getValidateCodeFilter(), UsernamePasswordAuthenticationFilter.class)
+        http
+                .apply(validateCodeSecurityConfig).and()
                 .formLogin()
                 // 设置登陆成功后如何跳转处理
                 .loginPage(DefaultConstants.DEFAULT_UNAUTHENTICATED_URL)
@@ -119,15 +122,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl(securityProperties.getLogout().getLogoutUrl())
                 .logoutSuccessUrl(securityProperties.getLogout().getLogoutSuccessUrl());
-    }
-
-    private ValidateCodeFilter getValidateCodeFilter() throws ServletException {
-        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
-        validateCodeFilter.setSecurityProperties(securityProperties);
-        validateCodeFilter.setAuthenticationFailureHandler(loveAuthenticationFailHandler);
-        validateCodeFilter.setValidateCodeGenerateHolder(validateCodeGenerateHolder);
-        validateCodeFilter.afterPropertiesSet();
-        return validateCodeFilter;
     }
 
     @Override

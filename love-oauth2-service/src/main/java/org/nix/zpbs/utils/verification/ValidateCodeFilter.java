@@ -8,10 +8,12 @@ import org.nix.zpbs.config.properties.security.SecurityProperties;
 import org.nix.zpbs.utils.verification.image.ImageConfirmationCode;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.annotation.Resource;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,19 +28,23 @@ import java.util.*;
  */
 @Data
 @Slf4j
+@Component("validateCodeFilter")
 public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
     /**
      * 验证失败处理器
      */
+    @Resource
     private AuthenticationFailureHandler authenticationFailureHandler;
     /**
      * 配置文件信息
      */
+    @Resource
     private SecurityProperties securityProperties;
 
     /**
      * 系统的校验码处理器
      */
+    @Resource
     private ValidateCodeGenerateHolder validateCodeGenerateHolder;
 
     /**
