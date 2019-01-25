@@ -54,9 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private LoveAuthenticationFailHandler loveAuthenticationFailHandler;
 
     @Resource
-    private ValidateCodeGenerateHolder validateCodeGenerateHolder;
-
-    @Resource
     private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
     @Resource
@@ -65,9 +62,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
+    @Resource
+    private LoveSessionConfig loveSessionConfig;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        SessionProperties session = securityProperties.getBrowser().getSession();
         http
                 .apply(validateCodeSecurityConfig).and()
                 .formLogin()
@@ -91,8 +90,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         , securityProperties.getBrowser().getSignUpUrl()
                         , "/user/info"
                         , securityProperties.getSocial().getConnectUrl()
-                        // session过期请求不要权限
-                        , session.getSessionTimeOutUrl()
                 ).permitAll()
                 // 验证码控制器的请求不用认证
                 .antMatchers(securityProperties.getValidate().getValidateUrl()).permitAll()
@@ -106,22 +103,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .apply(smsCodeAuthenticationSecurityConfig)
                 // 社交登陆配置
                 .and().apply(loveSpringSocialConfigurer)
-                .and()
-                .sessionManagement()
-                // session过期如何处理
-                .invalidSessionUrl(session.getSessionTimeOutUrl())
-                // 设置用户的登陆数量控制
-                .maximumSessions(session.getMaximumSessions())
-                // 处理session策略
-                .expiredSessionStrategy(new LoveExpiredSessionStrategy())
-                // 如果用户登陆数已经达到一定的数量则不允许在登陆了
-                .maxSessionsPreventsLogin(true)
-                .and()
                 // 配置登出
                 .and()
                 .logout()
                 .logoutUrl(securityProperties.getLogout().getLogoutUrl())
-                .logoutSuccessUrl(securityProperties.getLogout().getLogoutSuccessUrl());
+                .logoutSuccessUrl(securityProperties.getLogout().getLogoutSuccessUrl())
+                .and().apply(loveSessionConfig);
     }
 
     @Override
