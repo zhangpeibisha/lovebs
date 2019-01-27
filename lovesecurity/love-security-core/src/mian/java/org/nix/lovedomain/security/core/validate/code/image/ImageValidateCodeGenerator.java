@@ -40,6 +40,7 @@ public class ImageValidateCodeGenerator implements ValidateCodeGenerator {
         DefaultKaptcha kaptcha = new DefaultKaptcha();
         kaptcha.setConfig(getConfig());
         String text = kaptcha.createText();
+        log.info("图片生成验证码为:{}",text);
         BufferedImage image = kaptcha.createImage(text);
         return new ImageValidateCode(text, imageProperties.getExpired()
                 , image);
@@ -58,7 +59,7 @@ public class ImageValidateCodeGenerator implements ValidateCodeGenerator {
         try {
             return getCustomizeConfig();
         } catch (IOException e) {
-            log.warn("用户的图片自定义配置信息异常：{}", e.getMessage());
+            log.warn("用户的图片自定义配置信息异常/可能是自定义文件名字写错了：{}", e.getMessage());
             log.info("使用默认配置顶替自定义配置");
             return getDefaultConfig();
         }
