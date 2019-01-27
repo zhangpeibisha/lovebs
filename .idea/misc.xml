@@ -6,4 +6,11 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/lovesecurity/pom.xml" />
+      </list>
+    </option>
+  </component>
 </project>
