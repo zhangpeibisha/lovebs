@@ -9,8 +9,10 @@ package org.nix.lovedomain.security.core.validate.code;
 public interface ValidateCodeGenerator {
 
     /**
+     * 验证码生成
+     *
      * @return org.nix.lovedomain.security.core.validate.code.ValidateCode
-     * @description 功能描述
+     * @description 验证码生成
      * @author zhangpe0312@qq.com
      * @date 2019/1/27
      */

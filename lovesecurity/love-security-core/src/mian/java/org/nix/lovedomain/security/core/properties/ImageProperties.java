@@ -14,6 +14,6 @@ public class ImageProperties {
     /**图片验证码过期时间,默认为60秒*/
     private Integer expired = 60;
     /**图片验证码自定义路径*/
-    private String propertiesPath;
+    private String propertiesPath = "";
 
 }

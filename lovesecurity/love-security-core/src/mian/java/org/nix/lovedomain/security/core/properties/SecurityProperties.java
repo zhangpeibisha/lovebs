@@ -1,5 +1,6 @@
 package org.nix.lovedomain.security.core.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -8,8 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 2019/1/27
  */
 @ConfigurationProperties(prefix = "love.security")
+@Data
 public class SecurityProperties {
 
-
+    private ValidateCodeProperties validate = new ValidateCodeProperties();
 
 }

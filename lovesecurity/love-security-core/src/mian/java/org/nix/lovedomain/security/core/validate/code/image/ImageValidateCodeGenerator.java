@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.core.properties.ImageProperties;
 import org.nix.lovedomain.security.core.validate.code.ValidateCode;
-import org.nix.lovedomain.security.core.validate.code.ValidateCodeException;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeGenerator;
 
 import java.awt.image.BufferedImage;
@@ -29,14 +28,6 @@ public class ImageValidateCodeGenerator implements ValidateCodeGenerator {
      */
     private ImageProperties imageProperties;
 
-    /**
-     * @param imageProperties 图片自定义配置文件
-     * @desc2019/1/27建一 * @param imagePropertieshangpe0312@qq.com
-     * @date 2019/1/27
-     */
-    public ImageValidateCodeGenerator(ImageProperties imageProperties) {
-        this.imageProperties = imageProperties;
-    }
 
     /**
      * @return org.nix.lovedomain.security.core.validate.code.ValidateCode
@@ -50,7 +41,8 @@ public class ImageValidateCodeGenerator implements ValidateCodeGenerator {
         kaptcha.setConfig(getConfig());
         String text = kaptcha.createText();
         BufferedImage image = kaptcha.createImage(text);
-        return new ImageValidateCode(text, imageProperties.getExpired(), image);
+        return new ImageValidateCode(text, imageProperties.getExpired()
+                , image);
     }
 
     /**
