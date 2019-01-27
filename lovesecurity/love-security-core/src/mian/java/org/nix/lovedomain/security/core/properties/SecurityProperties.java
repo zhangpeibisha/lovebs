@@ -12,6 +12,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 public class SecurityProperties {
 
+    /**
+     * 验证码使用配置信息
+     */
     private ValidateCodeProperties validate = new ValidateCodeProperties();
+    /**
+     * 浏览器使用配置信息
+     */
+    private BrowserProperties browser = new BrowserProperties();
 
 }

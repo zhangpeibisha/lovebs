@@ -26,7 +26,7 @@
     <dependencies>
         <dependency>
             <groupId>org.nix.lovedomain</groupId>
-            <artifactId>love-security-core</artifactId>
+            <artifactId>love-security-browser</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

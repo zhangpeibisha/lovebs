@@ -5,22 +5,22 @@ import lombok.Data;
 /**
  * @author zhangpei
  * @version 1.0
- * @description 图片自定义配置信息
+ * @description 短信验证码配置类信息
  * @date 2019/1/27
  */
 @Data
-public class ImageProperties {
-
+public class SmsProperties {
     /**
-     * 图片验证码过期时间,默认为60秒
+     * 验证码长度
      */
-    private Integer expired = 60;
+    private int length = 6;
     /**
-     * 图片验证码自定义路径
+     * 过期时间
      */
-    private String propertiesPath;
+    private int expireIn = 60;
     /**
      * 需要图片验证的路径
      */
     private String validateUrls;
+
 }
