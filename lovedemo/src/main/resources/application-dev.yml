@@ -1,3 +1,7 @@
 security:
   basic:
     enabled: false
+love:
+  security:
+    browser:
+     loginType: REDIRECT

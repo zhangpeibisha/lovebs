@@ -83,7 +83,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
      * @author zhangpe0312@qq.com
      * @date 2019/1/27
      */
-    protected abstract void send(ServletWebRequest request, C validateCode) throws IOException;
+    protected abstract void send(ServletWebRequest request, C validateCode) throws IOException, Exception;
 
     /**
      * @param request      用户请求信息

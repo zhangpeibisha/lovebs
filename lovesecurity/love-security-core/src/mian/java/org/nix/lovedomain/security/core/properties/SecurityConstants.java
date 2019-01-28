@@ -8,17 +8,21 @@ package org.nix.lovedomain.security.core.properties;
  */
 public interface SecurityConstants {
     /**
-     * 校验时从请求中获取的参数的名字
+     * 验证短信验证码时，http请求中默认的携带短信验证码信息的参数的名称
      *
      * @see org.nix.lovedomain.security.core.validate.code.ValidateCodeType
      */
     String DEFAULT_PARAMETER_NAME_CODE_SMS = "sms";
     /**
-     * 校验时从请求中获取的参数的名字
+     * 验证图片验证码时，http请求中默认的携带图片验证码信息的参数的名称
      *
      * @see org.nix.lovedomain.security.core.validate.code.ValidateCodeType
      */
     String DEFAULT_PARAMETER_NAME_CODE_IMAGE = "image";
+    /**
+     * 发送短信验证码 或 验证短信验证码时，传递手机号的参数的名称
+     */
+    String DEFAULT_PARAMETER_NAME_MOBILE = "mobile";
     /**
      * 请求验证码生成的路径前缀
      *

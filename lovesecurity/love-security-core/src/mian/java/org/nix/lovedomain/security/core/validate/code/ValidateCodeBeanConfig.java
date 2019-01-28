@@ -2,6 +2,8 @@ package org.nix.lovedomain.security.core.validate.code;
 
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.nix.lovedomain.security.core.validate.code.image.ImageValidateCodeGenerator;
+import org.nix.lovedomain.security.core.validate.code.sms.DefaultSmsCodeSender;
+import org.nix.lovedomain.security.core.validate.code.sms.SmsCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -33,4 +35,15 @@ public class ValidateCodeBeanConfig {
         return imageValidateCodeGenerator;
     }
 
+    /**
+     * @return org.nix.lovedomain.security.core.validate.code.sms.SmsCodeSender
+     * @description 短信发送器配置，如果用户重新注入了这个类则该配置失效
+     * @author zhangpe0312@qq.com
+     * @date 2019/1/28
+     */
+    @Bean
+    @ConditionalOnMissingBean(SmsCodeSender.class)
+    public SmsCodeSender smsCodeSender() {
+        return new DefaultSmsCodeSender();
+    }
 }
