@@ -24,7 +24,7 @@ public interface SecurityConstants {
      *
      * @see org.nix.lovedomain.security.core.validate.code.ValidateCodeController
      */
-    String DEFAULT_VALIDATE_CODE_URL_PREFIX = "validate";
+    String DEFAULT_VALIDATE_CODE_URL_PREFIX = "/validate";
     /**
      * 默认的用户名密码登录请求处理url
      *
@@ -43,4 +43,12 @@ public interface SecurityConstants {
      * @see org.nix.lovedomain.security.core.authentication.AbstractChannelSecurityConfig
      */
     String DEFAULT_UNAUTHENTICATION_URL = "/authentication/require";
+    /**
+     * 默认的登陆页面的url
+     */
+    String DEFAULT_LOGIN_PAGE_URL = "/love-signIn.html";
+    /**
+     * 默认的登出页面
+     */
+    String DEFAULT_LOGOUT_PAGE_URL = "/love-signUp.html";
 }

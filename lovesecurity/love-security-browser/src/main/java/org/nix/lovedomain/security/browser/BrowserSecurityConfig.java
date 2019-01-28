@@ -1,6 +1,7 @@
 package org.nix.lovedomain.security.browser;
 
 import org.nix.lovedomain.security.core.authentication.AbstractChannelSecurityConfig;
+import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeBeanConfig;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeSecurityConfig;
@@ -11,6 +12,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
 
@@ -59,8 +62,26 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         applyPasswordAuthenticationConfig(http);
-        http.apply(validateCodeSecurityConfig);
-
+        http.apply(validateCodeSecurityConfig)
+                .and()
+                .rememberMe()
+                .tokenRepository(persistentTokenRepository())
+                .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
+                .userDetailsService(userDetailsService)
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
+                        securityProperties.getBrowser().getLoginPage(),
+                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                        securityProperties.getBrowser().getSignUpUrl(),
+                        "/user/regist")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .csrf().disable();
     }
 
     /**
@@ -72,5 +93,19 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     @Bean("passwordEncoder")
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * @return org.springframework.security.web.authentication.rememberme.PersistentTokenRepository
+     * @description 配置{记住我}这个功能
+     * @author zhangpe0312@qq.com
+     * @date 2019/1/28
+     */
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+//        tokenRepository.setCreateTableOnStartup(true);
+        return tokenRepository;
     }
 }
