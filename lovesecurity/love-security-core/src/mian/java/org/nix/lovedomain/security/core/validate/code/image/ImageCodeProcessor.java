@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -18,6 +19,14 @@ public class ImageCodeProcessor extends AbstractValidateCodeProcessor<ImageValid
 
     @Override
     protected void send(ServletWebRequest request, ImageValidateCode validateCode) throws IOException {
+        HttpServletResponse response = request.getResponse();
+        response.setDateHeader("Expires", 0);
+        response.setHeader("Cache-Control",
+                "no-store, no-cache, must-revalidate");
+        response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+        response.setHeader("Pragma", "no-cache");
+        response.setContentType("image/jpeg");
+
         ImageIO.write(validateCode.getImage(), "JPEG",
                 request.getResponse().getOutputStream());
     }
