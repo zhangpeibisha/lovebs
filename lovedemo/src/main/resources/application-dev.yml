@@ -1,7 +1,16 @@
 security:
   basic:
     enabled: false
-love:
-  security:
-    browser:
-     loginType: REDIRECT
+#love:
+#  security:
+#    browser:
+#     loginType: REDIRECT
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+server:
+  tomcat:
+    uri-encoding: UTF-8
