@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.social.security.SocialUser;
 import org.springframework.social.security.SocialUserDetails;
+import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,14 +20,21 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class DemoUserDetailsServiceImpl implements UserDetailsService {
+public class DemoUserDetailsServiceImpl implements UserDetailsService, SocialUserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        return buildUser(userName);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        log.info("表单登录用户名:" + username);
+        return buildUser(username);
+    }
+
+    @Override
+    public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
+        log.info("社交登录用户Id:" + userId);
+        return buildUser(userId);
     }
 
     private SocialUserDetails buildUser(String userId) {

@@ -14,3 +14,9 @@ spring:
 server:
   tomcat:
     uri-encoding: UTF-8
+love:
+  security:
+    social:
+      qq:
+        appId: zhangpei
+        appSecret: zhangpei

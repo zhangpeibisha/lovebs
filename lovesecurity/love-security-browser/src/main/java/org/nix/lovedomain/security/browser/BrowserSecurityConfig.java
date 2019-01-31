@@ -1,8 +1,10 @@
 package org.nix.lovedomain.security.browser;
 
 import org.nix.lovedomain.security.core.authentication.AbstractChannelSecurityConfig;
+import org.nix.lovedomain.security.core.properties.BrowserProperties;
 import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
+import org.nix.lovedomain.security.core.properties.SocialProperties;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeBeanConfig;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.social.security.SpringSocialConfigurer;
 
 import javax.sql.DataSource;
 
@@ -51,6 +54,12 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     @Autowired
     private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
+    /**
+     * @see org.nix.lovedomain.security.core.social.SocialConfig
+     * 第三方登陆配置
+     */
+    @Autowired
+    private SpringSocialConfigurer loveSocialSecurityConfig;
 
     /**
      * @param http http安全配置
@@ -62,21 +71,25 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         applyPasswordAuthenticationConfig(http);
+        BrowserProperties browser = securityProperties.getBrowser();
+        SocialProperties social = securityProperties.getSocial();
         http.apply(validateCodeSecurityConfig)
+                .and()
+                .apply(loveSocialSecurityConfig)
                 .and()
                 .rememberMe()
                 .tokenRepository(persistentTokenRepository())
-                .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
+                .tokenValiditySeconds(browser.getRememberMeSeconds())
                 .userDetailsService(userDetailsService)
                 .and()
                 .authorizeRequests()
                 .antMatchers(
                         SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
                         SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
-                        securityProperties.getBrowser().getLoginPage(),
+                        browser.getLoginPage(),
                         SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
-                        securityProperties.getBrowser().getSignUpUrl(),
-                        "/user/regist")
+                        browser.getSignUpUrl(),
+                        social.getFilterProcessesUrl() + "/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

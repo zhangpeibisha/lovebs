@@ -20,5 +20,8 @@ public class SecurityProperties {
      * 浏览器使用配置信息
      */
     private BrowserProperties browser = new BrowserProperties();
-
+    /**
+     * 第三方应用配置
+     */
+    private SocialProperties social = new SocialProperties();
 }

@@ -25,7 +25,7 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
     private boolean postOnly = true;
 
     /**
-     * 查看 {@link SecurityConstants} 的{DEFAULT_LOGIN_PROCESSING_URL_MOBILE}属性
+     * 查看 {@link SecurityConstants} 的{DEFAULT_LOGIN_P2019/1/31_U * @param 属性
      * 你可以更改该值从而修改重定向的位置
      * @description 指定短信验证成功后重定向的URL
      * @author zhangpe0312@qq.com
