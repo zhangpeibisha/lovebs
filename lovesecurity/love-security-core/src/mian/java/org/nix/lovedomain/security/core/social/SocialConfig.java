@@ -1,5 +1,6 @@
 package org.nix.lovedomain.security.core.social;
 
+import org.nix.lovedomain.security.core.properties.BrowserProperties;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -53,6 +54,14 @@ public class SocialConfig extends SocialConfigurerAdapter {
         return repository;
     }
 
+    /**
+     * @return org.springframework.social.security.SpringSocialConfigurer
+     * @description 配置自己的第三方登陆后跳转的注册页面
+     * configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());
+     * @see BrowserProperties#getSignUpUrl()
+     * @author zhangpe0312@qq.com
+     * @date 2019/2/1
+     */
     @Bean
     public SpringSocialConfigurer loveSocialSecurityConfig() {
         String filterProcessesUrl = securityProperties.getSocial().getFilterProcessesUrl();

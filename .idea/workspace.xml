@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
@@ -20,41 +21,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SecurityProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
+      <file leaf-file-name="BrowserProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="203">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocialProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SocialProperties.java">
+      <file leaf-file-name="SocialConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="13" column="37" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BrowserSecurityConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="93" column="38" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
+            <state relative-caret-position="118">
+              <caret line="61" column="33" lean-forward="true" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -128,13 +111,13 @@
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/api/QQImpl.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQServiceProvider.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQAdapter.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java" />
         <option value="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/security/DemoUserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/QQProperties.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/config/QQAutoConfig.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/resources/static/love-signIn.html" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" />
         <option value="$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java" />
       </list>
     </option>
   </component>
@@ -693,7 +676,7 @@
       <workItem from="1548672437411" duration="6722000" />
       <workItem from="1548871265979" duration="2246000" />
       <workItem from="1548939423992" duration="11419000" />
-      <workItem from="1548990300784" duration="1414000" />
+      <workItem from="1548990300784" duration="2272000" />
     </task>
     <task id="LOCAL-00001" summary="图片验证码生成完成">
       <created>1548571903411</created>
@@ -779,11 +762,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548991721400</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="提交80端口占用问题解决">
+      <created>1548991818962</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1548991818962</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38978000" />
+    <option name="totallyTimeSpent" value="39836000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -807,10 +797,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5645439" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33046472" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.0929432" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2859304" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2859304" />
       <window_info anchor="right" id="Bean Validation" order="5" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -843,7 +833,8 @@
     <MESSAGE value="QQ授权操作完成" />
     <MESSAGE value="QQ第三方应用配置QQ互联申请的appId和密码还有回调域" />
     <MESSAGE value="QQ授权完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="QQ授权完成" />
+    <MESSAGE value="提交80端口占用问题解决" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交80端口占用问题解决" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -943,13 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="48" column="66" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="53" lean-forward="true" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1178,16 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="56" column="58" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/resources/static/love-signIn.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1202,27 +1176,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SocialProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
-          <caret line="93" column="38" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SocialProperties.java">
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="37" />
+        <state relative-caret-position="203">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="118">
+          <caret line="61" column="33" lean-forward="true" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
