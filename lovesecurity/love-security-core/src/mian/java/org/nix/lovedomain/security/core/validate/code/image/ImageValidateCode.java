@@ -4,6 +4,7 @@ import lombok.Data;
 import org.nix.lovedomain.security.core.validate.code.ValidateCode;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * @author zhangpei
@@ -12,7 +13,7 @@ import java.awt.image.BufferedImage;
  * @date 2019/1/27
  */
 @Data
-public class ImageValidateCode extends ValidateCode {
+public class ImageValidateCode extends ValidateCode implements Serializable {
 
     /**
      * 图片信息流不用序列化

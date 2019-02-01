@@ -29,4 +29,8 @@ public class BrowserProperties {
      * 默认的登出页面
      */
     private String signUpUrl = SecurityConstants.DEFAULT_LOGOUT_PAGE_URL;
+    /**
+     * session配置
+     */
+    private SessionProperties session = new SessionProperties();
 }

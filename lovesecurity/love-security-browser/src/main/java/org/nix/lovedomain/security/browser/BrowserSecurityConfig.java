@@ -17,6 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.session.InvalidSessionStrategy;
+import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 import org.springframework.social.security.SpringSocialConfigurer;
 
 import javax.sql.DataSource;
@@ -64,6 +66,20 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     private SpringSocialConfigurer loveSocialSecurityConfig;
 
     /**
+     * @see BrowserSecurityBeanConfig
+     * session失效策略
+     */
+    @Autowired
+    private InvalidSessionStrategy invalidSessionStrategy;
+
+    /**
+     * @see BrowserSecurityBeanConfig
+     * session过期策略
+     */
+    @Autowired
+    private SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
+
+    /**
      * @param http http安全配置
      * @return void
      * @description 配置浏览器的安全权限信息
@@ -79,11 +95,21 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                 .and()
                 .apply(loveSocialSecurityConfig)
                 .and()
+                // 记住我管理
                 .rememberMe()
                 .tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(browser.getRememberMeSeconds())
                 .userDetailsService(userDetailsService)
                 .and()
+                // session管理
+                .sessionManagement()
+                .invalidSessionStrategy(invalidSessionStrategy)
+                .maximumSessions(browser.getSession().getMaximumSessions())
+                .maxSessionsPreventsLogin(browser.getSession().isMaxSessionsPreventsLogin())
+                .expiredSessionStrategy(sessionInformationExpiredStrategy)
+                .and()
+                .and()
+                // url权限管理
                 .authorizeRequests()
                 .antMatchers(
                         SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
@@ -91,13 +117,13 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                         browser.getLoginPage(),
                         SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
                         browser.getSignUpUrl(),
-                        social.getFilterProcessesUrl() + "/*")
+                        social.getFilterProcessesUrl() + "/*",
+                        social.getConnect() + "/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .csrf().disable();
-        log.info("社交过滤器路径:{}",social.getFilterProcessesUrl());
     }
 
     /**

@@ -2,6 +2,7 @@ package org.nix.lovedomain.security.core.validate.code;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
  * @date 2019/1/27
  */
 @Data
-public class ValidateCode {
+public class ValidateCode implements Serializable {
     /**
      * 验证码字符串
      */
