@@ -1,5 +1,6 @@
 package org.nix.lovedomain.security.browser;
 
+import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.core.authentication.AbstractChannelSecurityConfig;
 import org.nix.lovedomain.security.core.properties.BrowserProperties;
 import org.nix.lovedomain.security.core.properties.SecurityConstants;
@@ -26,6 +27,7 @@ import javax.sql.DataSource;
  * @description 浏览器安全配置
  * @date 2019/1/27
  */
+@Slf4j
 @Configuration
 public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
 
@@ -95,6 +97,7 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                 .authenticated()
                 .and()
                 .csrf().disable();
+        log.info("社交过滤器路径:{}",social.getFilterProcessesUrl());
     }
 
     /**
