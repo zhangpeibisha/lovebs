@@ -26,9 +26,17 @@ public class BrowserProperties {
      */
     private String loginPage = SecurityConstants.DEFAULT_LOGIN_PAGE_URL;
     /**
-     * 默认的登出页面
+     * 默认的注册页面
      */
-    private String signUpUrl = SecurityConstants.DEFAULT_LOGOUT_PAGE_URL;
+    private String signUpUrl = SecurityConstants.DEFAULT_SIGN_UP_PAGE_URL;
+    /**
+     * 默认注销成功返回页面
+     */
+    private String logoutPage = SecurityConstants.DEFAULT_LOGOUT_PAGE_URL;
+    /**
+     * 设置默认的退出url路径
+     */
+    private String logoutUrl = "/logout";
     /**
      * session配置
      */

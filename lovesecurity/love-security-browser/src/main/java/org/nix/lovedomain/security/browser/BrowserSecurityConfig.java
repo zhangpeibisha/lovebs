@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.session.InvalidSessionStrategy;
@@ -80,6 +81,13 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     private SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
 
     /**
+     * 配置默认的退出处理器
+     * @see BrowserSecurityBeanConfig
+     */
+    @Autowired
+    private LogoutSuccessHandler loveLogoutSuccessHandler;
+
+    /**
      * @param http http安全配置
      * @return void
      * @description 配置浏览器的安全权限信息
@@ -108,6 +116,12 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                 .maxSessionsPreventsLogin(browser.getSession().isMaxSessionsPreventsLogin())
                 .expiredSessionStrategy(sessionInformationExpiredStrategy)
                 .and()
+                .and()
+                // 登出配置
+                .logout()
+                .logoutUrl(securityProperties.getBrowser().getLogoutUrl())
+                .logoutSuccessHandler(loveLogoutSuccessHandler)
+                .deleteCookies("JSESSIONID")
                 .and()
                 // url权限管理
                 .authorizeRequests()

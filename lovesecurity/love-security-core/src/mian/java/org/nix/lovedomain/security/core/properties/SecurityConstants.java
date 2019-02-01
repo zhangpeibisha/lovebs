@@ -54,7 +54,11 @@ public interface SecurityConstants {
     /**
      * 默认的登出页面
      */
-    String DEFAULT_LOGOUT_PAGE_URL = "/love-signUp.html";
+    String DEFAULT_LOGOUT_PAGE_URL ="";
+    /**
+     * 默认注册页面
+     */
+    String DEFAULT_SIGN_UP_PAGE_URL =  "/love-signUp.html";
     /**
      * session失效默认的跳转地址
      */
