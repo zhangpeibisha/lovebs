@@ -14,6 +14,7 @@ spring:
 server:
   tomcat:
     uri-encoding: UTF-8
+  # 80端口被占处理 ： 以管理员身份运行控制台，输入 net stop http 关闭即可
   port: 80
 love:
   security:
