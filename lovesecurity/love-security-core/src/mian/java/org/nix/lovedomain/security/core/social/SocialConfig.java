@@ -56,7 +56,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
 
     /**
      * @return org.springframework.social.security.SpringSocialConfigurer
-     * @description 配置自己的第三方登陆后跳转的注册页面
+     * @description 配置自己的第三方登陆后跳转的注册页面，当第三方用户在本系统中没有账户绑定时
      * configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());
      * @see BrowserProperties#getSignUpUrl()
      * @author zhangpe0312@qq.com
