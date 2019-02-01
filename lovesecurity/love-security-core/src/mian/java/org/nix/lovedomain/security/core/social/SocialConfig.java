@@ -32,6 +32,9 @@ public class SocialConfig extends SocialConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
+    /**
+     * 如果用户自定义了链接登陆了则使用用户的，如果没有自定义则使用默认的进入注册页面进行绑定
+     */
     @Autowired(required = false)
     private ConnectionSignUp connectionSignUp;
 
@@ -58,9 +61,9 @@ public class SocialConfig extends SocialConfigurerAdapter {
      * @return org.springframework.social.security.SpringSocialConfigurer
      * @description 配置自己的第三方登陆后跳转的注册页面，当第三方用户在本系统中没有账户绑定时
      * configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());
-     * @see BrowserProperties#getSignUpUrl()
      * @author zhangpe0312@qq.com
      * @date 2019/2/1
+     * @see BrowserProperties#getSignUpUrl()
      */
     @Bean
     public SpringSocialConfigurer loveSocialSecurityConfig() {
@@ -70,6 +73,13 @@ public class SocialConfig extends SocialConfigurerAdapter {
         return configurer;
     }
 
+    /**
+     * @param connectionFactoryLocator
+     * @return org.springframework.social.connect.web.ProviderSignInUtils
+     * @description 从session中获取到用户授权的信息工具类
+     * @author zhangpe0312@qq.com
+     * @date 2019/2/1
+     */
     @Bean
     public ProviderSignInUtils providerSignInUtils(ConnectionFactoryLocator connectionFactoryLocator) {
         return new ProviderSignInUtils(connectionFactoryLocator,
