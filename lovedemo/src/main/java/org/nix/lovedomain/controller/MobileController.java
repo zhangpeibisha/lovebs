@@ -1,5 +1,6 @@
 package org.nix.lovedomain.controller;
 
+import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MobileController {
 
-    @PostMapping("/authentication/mobile")
+    @PostMapping(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE)
     public String validateSuccess(){
         return "短信登陆成功";
     }

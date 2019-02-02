@@ -141,17 +141,6 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     }
 
     /**
-     * @return org.springframework.security.crypto.password.PasswordEncoder
-     * @description 注入 {@link BCryptPasswordEncoder} 作为用户密码加密工具类
-     * @author zhangpe0312@qq.com
-     * @date 2019/1/27
-     */
-    @Bean("passwordEncoder")
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    /**
      * @return org.springframework.security.web.authentication.rememberme.PersistentTokenRepository
      * @description 配置{记住我}这个功能
      * @author zhangpe0312@qq.com

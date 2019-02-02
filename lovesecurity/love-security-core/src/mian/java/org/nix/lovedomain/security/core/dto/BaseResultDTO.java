@@ -1,4 +1,4 @@
-package org.nix.lovedomain.security.browser.dto;
+package org.nix.lovedomain.security.core.dto;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

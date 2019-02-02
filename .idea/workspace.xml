@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/lovedemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lovedemo/lovedemo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lovedemo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/MobileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/MobileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
@@ -30,32 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BrowserSecurityConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="132" column="38" selection-start-line="132" selection-start-column="38" selection-end-line="132" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
               <caret line="33" column="29" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SecurityProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -87,17 +59,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MobileController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MobileController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/MobileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+            <state relative-caret-position="272">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#491#492#0" expanded="true" />
                 <element signature="e#555#556#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoveAuthenticationFailureHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationFailureHandler.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="LoveAuthenticationSuccessHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationSuccessHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-459" />
           </provider>
         </entry>
       </file>
@@ -153,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQOAuth2Template.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQConnectionFactory.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/LoveConnectionStatusView.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/LoveConnectView.java" />
@@ -204,6 +187,7 @@
         <option value="$PROJECT_DIR$/lovedemo/pom.xml" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeController.java" />
         <option value="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/MobileController.java" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationSuccessHandler.java" />
       </list>
     </option>
   </component>
@@ -423,122 +407,30 @@
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
               <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
+              <item name="love-security-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
               <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
+              <item name="love-security-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="validate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="validate" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="authentication" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -564,15 +456,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-core\src\mian\java\org\nix\lovedomain\security\core\social" />
-      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-browser\src\main\resources\static" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.nix.lovedomain.security.core.properties" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.nix.lovedomain.security.core.validate.code.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.nix.lovedomain.security.core.dto" />
+      <recent name="org.nix.lovedomain.security.core.properties" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-app\src\main\java\org\nix\lovedomain\security\app\authentication" />
+      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-core\src\mian\java\org\nix\lovedomain\security\core\social" />
+      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-browser\src\main\resources\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -666,7 +560,7 @@
       <workItem from="1548990300784" duration="4714000" />
       <workItem from="1549005245744" duration="6624000" />
       <workItem from="1549029901407" duration="7541000" />
-      <workItem from="1549109160769" duration="1947000" />
+      <workItem from="1549109160769" duration="2217000" />
     </task>
     <task id="LOCAL-00001" summary="图片验证码生成完成">
       <created>1548571903411</created>
@@ -801,15 +695,21 @@
       <option name="project" value="LOCAL" />
       <updated>1549039641796</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="添加 love-security-app 项目">
+      <created>1549111260691</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1549111260691</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58390000" />
+    <option name="totallyTimeSpent" value="58660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -823,13 +723,13 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32702237" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.23235801" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.35628226" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36488813" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27022377" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.0929432" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3139183" />
@@ -871,7 +771,8 @@
     <MESSAGE value="微信登陆授权完成" />
     <MESSAGE value="session配置完成，解决了图片序列化的bug。{@link ValidateCode} {@link ImageValidateCode}" />
     <MESSAGE value="用户登出配置完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户登出配置完成" />
+    <MESSAGE value="添加 love-security-app 项目" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加 love-security-app 项目" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -879,20 +780,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQOAuth2Template.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQServiceProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1243,14 +1130,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/MobileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        <state relative-caret-position="272">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#491#492#0" expanded="true" />
             <element signature="e#555#556#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationFailureHandler.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationSuccessHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459" />
       </provider>
     </entry>
   </component>
