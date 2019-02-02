@@ -24,9 +24,14 @@
     </properties>
 
     <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>org.nix.lovedomain</groupId>-->
+            <!--<artifactId>love-security-browser</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.nix.lovedomain</groupId>
-            <artifactId>love-security-browser</artifactId>
+            <artifactId>love-security-app</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

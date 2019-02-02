@@ -1,7 +1,5 @@
 package org.nix.lovedomain.controller;
 
-import org.nix.lovedomain.security.browser.dto.BaseResultDTO;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class MobileController {
 
     @PostMapping("/authentication/mobile")
-    public BaseResultDTO validateSuccess(){
-        return new BaseResultDTO("短信登陆成功",HttpStatus.OK);
+    public String validateSuccess(){
+        return "短信登陆成功";
     }
 
 }

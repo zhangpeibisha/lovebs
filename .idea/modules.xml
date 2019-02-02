@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/lovebs.iml" filepath="$PROJECT_DIR$/.idea/lovebs.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovedemo/lovedemo.iml" filepath="$PROJECT_DIR$/lovedemo/lovedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/lovesecurity.iml" filepath="$PROJECT_DIR$/lovesecurity/lovesecurity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml" />
     </modules>
