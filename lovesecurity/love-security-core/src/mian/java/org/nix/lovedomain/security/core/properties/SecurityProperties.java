@@ -24,4 +24,8 @@ public class SecurityProperties {
      * 第三方应用配置
      */
     private SocialProperties social = new SocialProperties();
+    /**
+     * redis过期时间，单位秒
+     */
+    private long redisExpired = 30;
 }

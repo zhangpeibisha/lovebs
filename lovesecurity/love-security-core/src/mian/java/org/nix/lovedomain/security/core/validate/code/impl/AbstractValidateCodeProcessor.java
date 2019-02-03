@@ -3,8 +3,6 @@ package org.nix.lovedomain.security.core.validate.code.impl;
 import org.apache.commons.lang.StringUtils;
 import org.nix.lovedomain.security.core.validate.code.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.connect.web.HttpSessionSessionStrategy;
-import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -21,15 +19,20 @@ import java.util.Map;
 public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
         implements ValidateCodeProcessor {
 
-    /**
-     * 操作session的工具类
-     */
-    private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
+
     /**
      * 收集系统中所有的 {@link ValidateCodeGenerator} 接口的实现。
      */
     @Autowired
     private Map<String, ValidateCodeGenerator> validateCodeGenerators;
+
+    /**
+     * 在特定的环境实现该接口
+     *
+     * @see ValidateCodeRepository
+     */
+    @Autowired
+    private ValidateCodeRepository validateCodeRepository;
 
     /**
      * @param request 用户请求
@@ -94,19 +97,9 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
      * @date 2019/1/27
      */
     protected void save(ServletWebRequest request, C validateCode) {
-        sessionStrategy.setAttribute(request, getSessionKey(), validateCode);
+        validateCodeRepository.save(request, validateCode, getValidateCodeType());
     }
 
-    /**
-     * @return java.lang.String
-     * @description 获取到保存在session中的key, 因为需要使用该方法从session取出值来校验和使用该
-     * 值将验证码信息注入到session中
-     * @author zhangpe0312@qq.com
-     * @date 2019/1/27
-     */
-    private String getSessionKey() {
-        return SESSION_KEY_PREFIX + getValidateCodeType().toString().toUpperCase();
-    }
 
     /**
      * @return void
@@ -119,9 +112,8 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
     public void validate(ServletWebRequest request) {
 
         ValidateCodeType processorType = getValidateCodeType();
-        String sessionKey = getSessionKey();
 
-        C codeInSession = (C) sessionStrategy.getAttribute(request, sessionKey);
+        ValidateCode codeInSession = validateCodeRepository.get(request, getValidateCodeType());
 
         String codeInRequest;
         try {
@@ -140,14 +132,13 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
         }
 
         if (codeInSession.isExpired()) {
-            sessionStrategy.removeAttribute(request, sessionKey);
+            validateCodeRepository.remove(request, getValidateCodeType());
             throw new ValidateCodeException(processorType + "验证码已过期");
         }
 
         if (!StringUtils.equals(codeInSession.getCode(), codeInRequest)) {
             throw new ValidateCodeException(processorType + "验证码不匹配");
         }
-
-        sessionStrategy.removeAttribute(request, sessionKey);
+        validateCodeRepository.remove(request, processorType);
     }
 }
