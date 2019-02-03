@@ -2,7 +2,10 @@ package org.nix.lovedomain.controller;
 
 import org.nix.lovedomain.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.social.connect.web.ProviderSignInUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +33,11 @@ public class UserController {
         String userId = user.getUsername();
         // 执行注册操作
         providerSignInUtils.doPostSignUp(userId, new ServletWebRequest(request));
+    }
+
+    @GetMapping("/me")
+    public Object getCurrentUser(@AuthenticationPrincipal UserDetails user) {
+        return user;
     }
 
 }
