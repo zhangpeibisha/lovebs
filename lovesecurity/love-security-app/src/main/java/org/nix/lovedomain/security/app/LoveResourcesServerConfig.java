@@ -13,6 +13,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.social.security.SpringSocialConfigurer;
 
 /**
  * @author zhangpei
@@ -31,6 +32,12 @@ public class LoveResourcesServerConfig extends ResourceServerConfigurerAdapter {
     protected AuthenticationFailureHandler loveAuthenticationFailureHandler;
 
     /**
+     * @see org.nix.lovedomain.security.core.social.SocialConfig
+     * 第三方登陆配置
+     */
+    @Autowired
+    private SpringSocialConfigurer loveSocialSecurityConfig;
+    /**
      * @see ValidateCodeBeanConfig
      * 验证码配置
      */
@@ -43,7 +50,6 @@ public class LoveResourcesServerConfig extends ResourceServerConfigurerAdapter {
      */
     @Autowired
     private SecurityProperties securityProperties;
-
 
 
     /**
@@ -64,20 +70,22 @@ public class LoveResourcesServerConfig extends ResourceServerConfigurerAdapter {
         BrowserProperties browser = securityProperties.getBrowser();
         SocialProperties social = securityProperties.getSocial();
         http.apply(validateCodeSecurityConfig)
-            .and()
-            // url权限管理
-            .authorizeRequests()
-            .antMatchers(
-                    SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
-                    SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
-                    browser.getLoginPage(),
-                    SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
-                    browser.getSignUpUrl(),
-                    social.getFilterProcessesUrl() + "/*",
-                    social.getConnect() + "/*")
-            .permitAll()
-            .anyRequest()
-            .authenticated()
-            .and().csrf().disable();
+                .and()
+                .apply(loveSocialSecurityConfig)
+                .and()
+                // url权限管理
+                .authorizeRequests()
+                .antMatchers(
+                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
+                        browser.getLoginPage(),
+                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                        browser.getSignUpUrl(),
+                        social.getFilterProcessesUrl() + "/*",
+                        social.getConnect() + "/*")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and().csrf().disable();
     }
 }
