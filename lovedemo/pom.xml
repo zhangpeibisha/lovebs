@@ -24,16 +24,16 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.nix.lovedomain</groupId>
-            <artifactId>love-security-browser</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--<dependency>-->
             <!--<groupId>org.nix.lovedomain</groupId>-->
-            <!--<artifactId>love-security-app</artifactId>-->
+            <!--<artifactId>love-security-browser</artifactId>-->
             <!--<version>1.0-SNAPSHOT</version>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>org.nix.lovedomain</groupId>
+            <artifactId>love-security-app</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

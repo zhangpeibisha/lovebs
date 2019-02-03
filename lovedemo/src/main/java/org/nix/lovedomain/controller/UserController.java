@@ -1,6 +1,7 @@
 package org.nix.lovedomain.controller;
 
 import org.nix.lovedomain.dto.User;
+import org.nix.lovedomain.security.app.social.AppSingUpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,13 +27,24 @@ public class UserController {
     @Autowired
     private ProviderSignInUtils providerSignInUtils;
 
-    @PostMapping("/register")
-    public void register(User user, HttpServletRequest request) {
+    @Autowired
+    private AppSingUpUtils appSingUpUtils;
+
+    @PostMapping("/browser/register")
+    public void browserRegister(User user, HttpServletRequest request) {
 
         //不管是注册用户还是绑定用户，都会拿到一个用户唯一标识。
         String userId = user.getUsername();
         // 执行注册操作
         providerSignInUtils.doPostSignUp(userId, new ServletWebRequest(request));
+    }
+
+    @PostMapping("/app/register")
+    public void appRegister(User user, HttpServletRequest request) {
+
+        //不管是注册用户还是绑定用户，都会拿到一个用户唯一标识。
+        String userId = user.getUsername();
+        appSingUpUtils.doPostSignUp(new ServletWebRequest(request),userId);
     }
 
     @GetMapping("/me")

@@ -1,4 +1,4 @@
-package org.nix.lovedomain.security.browser.support;
+package org.nix.lovedomain.security.core.dto;
 
 import lombok.Data;
 
