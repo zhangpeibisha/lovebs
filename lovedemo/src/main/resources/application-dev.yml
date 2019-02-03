@@ -38,3 +38,7 @@ love:
     browser:
       logoutUrl: /love-logout
       logoutPage: /love-signUp.html
+    o-auth2:
+      clients[0]:
+        clientId: love
+        clientSecret: love

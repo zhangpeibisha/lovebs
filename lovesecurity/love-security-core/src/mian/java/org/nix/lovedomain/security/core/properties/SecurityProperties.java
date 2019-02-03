@@ -28,4 +28,8 @@ public class SecurityProperties {
      * redis过期时间，单位秒
      */
     private long redisExpired = 30;
+    /**
+     * oAuth2配置信息
+     */
+    private OAuth2Properties oAuth2 = new OAuth2Properties();
 }
