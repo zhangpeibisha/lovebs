@@ -3,7 +3,7 @@ package org.nix.lovedomain.security.browser.session;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.nix.lovedomain.security.browser.dto.BaseResultDTO;
+import org.nix.lovedomain.security.core.dto.BaseResultDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;

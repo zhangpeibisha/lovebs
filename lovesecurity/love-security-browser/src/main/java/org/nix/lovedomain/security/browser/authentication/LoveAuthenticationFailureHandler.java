@@ -2,7 +2,7 @@ package org.nix.lovedomain.security.browser.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.security.browser.dto.BaseResultDTO;
+import org.nix.lovedomain.security.core.dto.BaseResultDTO;
 import org.nix.lovedomain.security.core.properties.LoginResponseType;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;

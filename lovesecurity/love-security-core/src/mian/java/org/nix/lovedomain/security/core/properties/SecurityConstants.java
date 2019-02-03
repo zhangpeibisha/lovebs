@@ -54,13 +54,25 @@ public interface SecurityConstants {
     /**
      * 默认的登出页面
      */
-    String DEFAULT_LOGOUT_PAGE_URL ="";
+    String DEFAULT_LOGOUT_PAGE_URL = "";
     /**
      * 默认注册页面
      */
-    String DEFAULT_SIGN_UP_PAGE_URL =  "/love-signUp.html";
+    String DEFAULT_SIGN_UP_PAGE_URL = "/love-signUp.html";
     /**
      * session失效默认的跳转地址
      */
     String DEFAULT_SESSION_INVALID_URL = "/session/invalid";
+    /**
+     * openid参数名
+     */
+    String DEFAULT_PARAMETER_NAME_OPENID = "openId";
+    /**
+     * providerId参数名
+     */
+    String DEFAULT_PARAMETER_NAME_PROVIDERID = "providerId";
+    /**
+     * 默认的OPENID登录请求处理url
+     */
+    String DEFAULT_LOGIN_PROCESSING_URL_OPENID = "/authentication/openid";
 }

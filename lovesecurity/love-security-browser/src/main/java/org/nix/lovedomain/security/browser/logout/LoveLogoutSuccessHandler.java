@@ -2,7 +2,7 @@ package org.nix.lovedomain.security.browser.logout;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.security.browser.dto.BaseResultDTO;
+import org.nix.lovedomain.security.core.dto.BaseResultDTO;
 import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;

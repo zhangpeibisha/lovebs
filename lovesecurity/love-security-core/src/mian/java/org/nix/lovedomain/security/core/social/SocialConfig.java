@@ -39,6 +39,12 @@ public class SocialConfig extends SocialConfigurerAdapter {
     private ConnectionSignUp connectionSignUp;
 
     /**
+     * 如果用户自定义了社交登陆处理器则注入，否则不注入
+     */
+    @Autowired(required = false)
+    private SocialAuthenticationFilterPostProcessor socialAuthenticationFilterPostProcessor;
+
+    /**
      * @param connectionFactoryLocator
      * @return org.springframework.social.connect.UsersConnectionRepository
      * @description 将第三方应用的绑定信息存储到数据库中，
@@ -70,6 +76,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
         String filterProcessesUrl = securityProperties.getSocial().getFilterProcessesUrl();
         LoveSpringSocialConfigurer configurer = new LoveSpringSocialConfigurer(filterProcessesUrl);
         configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());
+        configurer.setSocialAuthenticationFilterPostProcessor(socialAuthenticationFilterPostProcessor);
         return configurer;
     }
 

@@ -44,6 +44,8 @@ public class LoveResourcesServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
+
+
     /**
      * @param http
      * @return void

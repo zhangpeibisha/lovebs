@@ -2,8 +2,8 @@ package org.nix.lovedomain.security.browser;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.nix.lovedomain.security.browser.dto.BaseResultDTO;
 import org.nix.lovedomain.security.browser.support.SocialUserInfo;
+import org.nix.lovedomain.security.core.dto.BaseResultDTO;
 import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
