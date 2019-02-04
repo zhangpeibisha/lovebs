@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2ClientProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveAuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveAuthorizationServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
@@ -27,20 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoveAuthorizationServerConfig.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoveAuthorizationServerConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveAuthorizationServerConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="248">
+              <caret line="88" column="59" selection-start-line="88" selection-start-column="59" selection-end-line="88" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -48,40 +36,11 @@
       <file leaf-file-name="TokenStoreConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            <state relative-caret-position="-136">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#651#652#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OAuth2ClientProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2ClientProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SecurityProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OAuth2Properties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -159,10 +118,10 @@
         <option value="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveResourcesServerConfig.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2ClientProperties.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java" />
+        <option value="$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveAuthorizationServerConfig.java" />
-        <option value="$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml" />
       </list>
     </option>
   </component>
@@ -212,7 +171,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -614,8 +573,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -811,7 +770,9 @@
       <workItem from="1549171196136" duration="12221000" />
       <workItem from="1549186705381" duration="2228000" />
       <workItem from="1549193439208" duration="3389000" />
-      <workItem from="1549202584065" duration="6510000" />
+      <workItem from="1549202584065" duration="6700000" />
+      <workItem from="1549266271445" duration="687000" />
+      <workItem from="1549268414688" duration="1534000" />
     </task>
     <task id="LOCAL-00001" summary="图片验证码生成完成">
       <created>1548571903411</created>
@@ -1009,7 +970,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549206747205</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="权限令牌配置完成">
+      <created>1549209452873</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1549209452873</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1045,7 +1013,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91522000" />
+    <option name="totallyTimeSpent" value="93933000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1069,10 +1037,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25301206" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14113598" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.0929432" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32980332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33358547" />
       <window_info anchor="right" id="Bean Validation" order="5" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -1093,7 +1061,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="图片验证码生成成功" />
     <MESSAGE value="配置日志打印数据" />
     <MESSAGE value="生成图片异常" />
     <MESSAGE value="修复图片显示异常Bug" />
@@ -1118,7 +1085,8 @@
     <MESSAGE value="app社交登陆，浏览器配置bug修改" />
     <MESSAGE value="重构社交登陆" />
     <MESSAGE value="app配置社交登陆" />
-    <option name="LAST_COMMIT_MESSAGE" value="app配置社交登陆" />
+    <MESSAGE value="权限令牌配置完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="权限令牌配置完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1374,9 +1342,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1112">
           <caret line="86" column="3" selection-start-line="86" selection-start-column="3" selection-end-line="86" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1387,16 +1352,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/UserController.java" />
     <entry file="file://$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1408,9 +1364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1418,9 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1428,9 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
           <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1448,10 +1395,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2ClientProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveResourcesServerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        <state relative-caret-position="330">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1460,48 +1435,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state relative-caret-position="-136">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveAuthorizationServerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2ClientProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+        <state relative-caret-position="248">
+          <caret line="88" column="59" selection-start-line="88" selection-start-column="59" selection-end-line="88" selection-end-column="59" />
         </state>
       </provider>
     </entry>

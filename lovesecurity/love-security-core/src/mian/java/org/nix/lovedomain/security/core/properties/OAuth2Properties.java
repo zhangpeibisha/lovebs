@@ -10,5 +10,13 @@ import lombok.Data;
  */
 @Data
 public class OAuth2Properties {
+    /**
+     * 配置客户端信息
+     */
     private OAuth2ClientProperties[] clients = {};
+
+    /**
+     * jwt密钥配置
+     */
+    private String jwtSigningKey = "love-zhang-pei-bi-sha";
 }

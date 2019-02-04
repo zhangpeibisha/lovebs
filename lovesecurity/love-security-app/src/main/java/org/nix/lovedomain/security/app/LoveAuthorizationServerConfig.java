@@ -12,6 +12,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+
+import javax.annotation.Resource;
 
 /**
  * @author zhangpei
@@ -32,8 +35,11 @@ public class LoveAuthorizationServerConfig extends AuthorizationServerConfigurer
     /**
      * 将令牌存入redis中
      */
-    @Autowired
+    @Resource
     private TokenStore tokenStore;
+
+    @Autowired(required = false)
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Autowired
     private SecurityProperties securityProperties;
@@ -50,6 +56,10 @@ public class LoveAuthorizationServerConfig extends AuthorizationServerConfigurer
         endpoints.authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService)
                 .tokenStore(tokenStore);
+
+        if (jwtAccessTokenConverter != null){
+            endpoints.accessTokenConverter(jwtAccessTokenConverter);
+        }
     }
 
     /**
@@ -76,7 +86,7 @@ public class LoveAuthorizationServerConfig extends AuthorizationServerConfigurer
                     // 指定授权类型，比如刷新令牌、密码模式、授权码模式、自定义模式等
                     .scopes("all")
                     // 应用配置拥有的权限范围
-                    .authorizedGrantTypes("password");
+                    .authorizedGrantTypes("password","refresh_token");
         }
     }
 }
