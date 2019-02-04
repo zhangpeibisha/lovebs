@@ -3,8 +3,7 @@ package org.nix.lovedomain.controller;
 import org.nix.lovedomain.dto.User;
 import org.nix.lovedomain.security.app.social.AppSingUpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.Authentication;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,11 +43,11 @@ public class UserController {
 
         //不管是注册用户还是绑定用户，都会拿到一个用户唯一标识。
         String userId = user.getUsername();
-        appSingUpUtils.doPostSignUp(new ServletWebRequest(request),userId);
+        appSingUpUtils.doPostSignUp(new ServletWebRequest(request), userId);
     }
 
     @GetMapping("/me")
-    public Object getCurrentUser(@AuthenticationPrincipal UserDetails user) {
+    public Object getCurrentUser(Authentication user) {
         return user;
     }
 
