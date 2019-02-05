@@ -1,6 +1,11 @@
 server:
   port: 8080
   context-path: /sso/server
-security:
-  user:
-    password: 123456 #设置用户密码 user 123456
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
