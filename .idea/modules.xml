@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sso/sso.iml" filepath="$PROJECT_DIR$/sso/sso.iml" />
     </modules>
   </component>
 </project>
