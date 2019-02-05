@@ -10,7 +10,9 @@
         <module name="lovesecurityapp" />
         <module name="lovesecuritybrowser" />
         <module name="lovesecuritycore" />
-        <module name="sso" />
+        <module name="ssoclient" />
+        <module name="ssoclientblog" />
+        <module name="ssoservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,7 +21,10 @@
       <module name="lovesecurityapp" target="1.8" />
       <module name="lovesecuritybrowser" target="1.8" />
       <module name="lovesecuritycore" target="1.8" />
-      <module name="sso" target="1.7" />
+      <module name="sso" target="1.8" />
+      <module name="ssoclient" target="1.8" />
+      <module name="ssoclientblog" target="1.8" />
+      <module name="ssoservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
