@@ -2,6 +2,8 @@ package org.nix.lovedomain.security.browser;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.core.authentication.AbstractChannelSecurityConfig;
+import org.nix.lovedomain.security.core.oauthorize.AuthorizeConfigManger;
+import org.nix.lovedomain.security.core.oauthorize.LoveAuthorizeConfigManger;
 import org.nix.lovedomain.security.core.properties.BrowserProperties;
 import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
@@ -13,8 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
@@ -88,6 +88,13 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     private LogoutSuccessHandler loveLogoutSuccessHandler;
 
     /**
+     * url权限配置器
+     * @see LoveAuthorizeConfigManger
+     */
+    @Autowired
+    private AuthorizeConfigManger authorizeConfigManger;
+
+    /**
      * @param http http安全配置
      * @return void
      * @description 配置浏览器的安全权限信息
@@ -123,21 +130,9 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                 .logoutSuccessHandler(loveLogoutSuccessHandler)
                 .deleteCookies("JSESSIONID")
                 .and()
-                // url权限管理
-                .authorizeRequests()
-                .antMatchers(
-                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
-                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
-                        browser.getLoginPage(),
-                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
-                        browser.getSignUpUrl(),
-                        social.getFilterProcessesUrl() + "/*",
-                        social.getConnect() + "/*")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
                 .csrf().disable();
+        // 配置url权限信息
+        authorizeConfigManger.config(http.authorizeRequests());
     }
 
     /**
