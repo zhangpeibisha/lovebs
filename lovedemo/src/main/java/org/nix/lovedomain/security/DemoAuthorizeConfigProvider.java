@@ -33,8 +33,8 @@ public class DemoAuthorizeConfigProvider implements AuthorizeConfigProvider {
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
         // 自定义权限表达式
         log.info("进入权限配置 DemoAuthorizeConfigProvider");
-        urlRegistry
-                .anyRequest()
-                .access("@rbacServiceImpl.hasPermission(request,authentication)");
+//        urlRegistry
+//                .anyRequest()
+//                .access("@rbacServiceImpl.hasPermission(request,authentication)");
     }
 }

@@ -5,9 +5,7 @@ import org.nix.lovedomain.security.core.authentication.AbstractChannelSecurityCo
 import org.nix.lovedomain.security.core.oauthorize.AuthorizeConfigManger;
 import org.nix.lovedomain.security.core.oauthorize.LoveAuthorizeConfigManger;
 import org.nix.lovedomain.security.core.properties.BrowserProperties;
-import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
-import org.nix.lovedomain.security.core.properties.SocialProperties;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeBeanConfig;
 import org.nix.lovedomain.security.core.validate.code.ValidateCodeSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,7 +103,6 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     protected void configure(HttpSecurity http) throws Exception {
         applyPasswordAuthenticationConfig(http);
         BrowserProperties browser = securityProperties.getBrowser();
-        SocialProperties social = securityProperties.getSocial();
         http.apply(validateCodeSecurityConfig)
                 .and()
                 .apply(loveSocialSecurityConfig)

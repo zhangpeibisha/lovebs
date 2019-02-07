@@ -24,6 +24,6 @@ public class LoveAuthorizeConfigManger implements AuthorizeConfigManger{
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
         authorizeConfigProviders.forEach(authorizeConfigProvider -> authorizeConfigProvider.config(urlRegistry));
         // 其余请求都需要身份认证
-//        urlRegistry.anyRequest().authenticated();
+        urlRegistry.anyRequest().authenticated();
     }
 }

@@ -41,8 +41,8 @@ love:
         appSecret: 2a0f820407df400b84a854d054be8b6a
       filterProcessesUrl: /login
       weixin:
-        appId: 101386962
-        appSecret: 2a0f820407df400b84a854d054be8b6a
+        appId: wxd99431bbff8305a0
+        appSecret: 60f78681d063590a469f1b297feff3c4
 ```
 > 创建并配置社交登陆，并实现注册服务（需要配置权限允许）,载服务中使用 
 ```java
@@ -50,3 +50,5 @@ love:
 private ProviderSignInUtils providerSignInUtils;
 ```
 > 社交登陆数据库 doc/JdbcUsersConnectionRepository.sql
+
+> 查看用户绑定的社交信息路径 /connect
