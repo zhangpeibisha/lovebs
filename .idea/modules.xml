@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/lovesecurity/authorize/authorize.iml" filepath="$PROJECT_DIR$/lovesecurity/authorize/authorize.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lovebs.iml" filepath="$PROJECT_DIR$/.idea/lovebs.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovedemo/lovedemo.iml" filepath="$PROJECT_DIR$/lovedemo/lovedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/lovesecurity.iml" filepath="$PROJECT_DIR$/lovesecurity/lovesecurity.iml" />

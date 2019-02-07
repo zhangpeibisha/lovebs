@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/lovesecurity/pom.xml" />
         <option value="$PROJECT_DIR$/lovedemo/pom.xml" />
         <option value="$PROJECT_DIR$/sso/pom.xml" />
+        <option value="$PROJECT_DIR$/authorize/pom.xml" />
       </list>
     </option>
   </component>
