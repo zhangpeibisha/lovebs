@@ -21,5 +21,10 @@
         <option value="$PROJECT_DIR$/authorize/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/lovesecurity/authorize/pom.xml" />
+      </set>
+    </option>
   </component>
 </project>

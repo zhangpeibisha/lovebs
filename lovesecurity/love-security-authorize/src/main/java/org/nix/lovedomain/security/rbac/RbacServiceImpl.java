@@ -1,4 +1,4 @@
-package org.nix.love.security.rbac;
+package org.nix.lovedomain.security.rbac;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +15,7 @@ import java.util.Set;
  * @description rbac权限服务具体实现
  * @date 2019/2/7
  */
-@Component
+@Component("rbacServiceImpl")
 public class RbacServiceImpl implements RbacService {
 
     /**
@@ -31,6 +31,9 @@ public class RbacServiceImpl implements RbacService {
             String username = userDetails.getUsername();
             // 读取用户所有用的所有url
             Set<String> urls = new HashSet<>();
+            if ("zhangpei".equals(username)){
+                urls.add("/index-demo.html");
+            }
             // 当前请求的uri
             String requestURI = request.getRequestURI();
             for (String url : urls) {

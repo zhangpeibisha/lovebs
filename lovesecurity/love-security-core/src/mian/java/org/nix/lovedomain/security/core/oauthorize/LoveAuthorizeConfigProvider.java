@@ -5,6 +5,7 @@ import org.nix.lovedomain.security.core.properties.SecurityConstants;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.nix.lovedomain.security.core.properties.SocialProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
@@ -13,9 +14,11 @@ import org.springframework.stereotype.Component;
  * @author zhangpei
  * @version 1.0
  * @description 权限模块默认的url权限定义
+ * 排序最前面时为了使得框架自定义的权限最开始加载，后续自定义权限可以覆盖模块的权限配置
  * @date 2019/2/6
  */
 @Component
+@Order(Integer.MIN_VALUE)
 public class LoveAuthorizeConfigProvider implements AuthorizeConfigProvider {
 
     /**

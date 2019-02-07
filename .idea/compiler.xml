@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="authorize" />
         <module name="lovedemo" />
         <module name="lovesecurityapp" />
+        <module name="lovesecurityauthorize" />
         <module name="lovesecuritybrowser" />
         <module name="lovesecuritycore" />
         <module name="ssoclient" />
@@ -21,6 +21,7 @@
       <module name="lovedemo" target="1.6" />
       <module name="lovesecurity" target="1.8" />
       <module name="lovesecurityapp" target="1.8" />
+      <module name="lovesecurityauthorize" target="1.8" />
       <module name="lovesecuritybrowser" target="1.8" />
       <module name="lovesecuritycore" target="1.8" />
       <module name="sso" target="1.8" />

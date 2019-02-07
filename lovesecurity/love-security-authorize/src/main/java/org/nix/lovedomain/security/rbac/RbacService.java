@@ -1,4 +1,4 @@
-package org.nix.love.security.rbac;
+package org.nix.lovedomain.security.rbac;
 
 import org.springframework.security.core.Authentication;
 

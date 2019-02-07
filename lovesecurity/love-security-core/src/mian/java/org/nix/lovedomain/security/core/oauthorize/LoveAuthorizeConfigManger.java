@@ -5,7 +5,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author zhangpei
@@ -17,13 +17,13 @@ import java.util.Set;
 public class LoveAuthorizeConfigManger implements AuthorizeConfigManger{
 
     @Autowired
-    private Set<AuthorizeConfigProvider> authorizeConfigProviders;
+    private List<AuthorizeConfigProvider> authorizeConfigProviders;
 
 
     @Override
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
         authorizeConfigProviders.forEach(authorizeConfigProvider -> authorizeConfigProvider.config(urlRegistry));
         // 其余请求都需要身份认证
-        urlRegistry.anyRequest().authenticated();
+//        urlRegistry.anyRequest().authenticated();
     }
 }
