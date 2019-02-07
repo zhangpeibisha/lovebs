@@ -5,6 +5,7 @@ import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.social.config.annotation.EnableSocial;
 import org.springframework.social.config.annotation.SocialConfigurerAdapter;
@@ -21,10 +22,12 @@ import javax.sql.DataSource;
  * @author zhangpei
  * @version 1.0
  * @description 第三方应用的本地配置
+ * @Order(1) 使得查询第三方用户走数据库而不是走内存查询
  * @date 2019/1/31
  */
 @Configuration
 @EnableSocial
+@Order(Integer.MIN_VALUE+1)
 public class SocialConfig extends SocialConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
