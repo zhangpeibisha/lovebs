@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://59.110.234.213:3306/love?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: kiss4400
+  profiles:
+    active: dev
+  thymeleaf:
+    mode: LEGACYHTML5
+mybatis:
+  mapper-locations: classpath:mapper/*
+  type-aliases-package: org.nix.lovedomain.rbac.bean
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    org.nix.lovedomain.rbac.dao: debug
+    root: info

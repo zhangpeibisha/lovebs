@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/lovedemo/pom.xml" />
         <option value="$PROJECT_DIR$/sso/pom.xml" />
         <option value="$PROJECT_DIR$/authorize/pom.xml" />
+        <option value="$PROJECT_DIR$/demoauhtorize/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
