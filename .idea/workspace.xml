@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/config/MyBatisConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/config/MyBatisConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/LogFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/LogFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/TimeSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/TimeSchedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/CoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/CoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/PermissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/PermissionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/UserController.java" afterDir="false" />
-    </list>
+    <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
     <ignored path="$PROJECT_DIR$/lovedemo/target/" />
@@ -43,24 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PermissionService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/service/interfaces/PermissionService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/LogFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MBGUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/MBGUtil.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
@@ -123,6 +90,24 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="79" column="34" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="25" column="45" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -396,6 +381,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
+              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -806,7 +797,7 @@
       <workItem from="1549446396383" duration="2212000" />
       <workItem from="1549509721407" duration="8980000" />
       <workItem from="1549526574013" duration="4495000" />
-      <workItem from="1550547384412" duration="7690000" />
+      <workItem from="1550547384412" duration="8624000" />
     </task>
     <task id="LOCAL-00001" summary="图片验证码生成完成">
       <created>1548571903411</created>
@@ -1095,7 +1086,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550556643561</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="接入rbac权限控制系统，且登陆成功">
+      <created>1550561789240</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1550561789240</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1131,7 +1129,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131801000" />
+    <option name="totallyTimeSpent" value="132735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1305" height="784" extended-state="6" />
@@ -1212,20 +1210,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/security/DemoConnectionSignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovedemo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demoauhtorize/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1574,6 +1558,20 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="79" column="34" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="45" />
         </state>
       </provider>
     </entry>
