@@ -6,9 +6,10 @@ import org.nix.lovedomain.rbac.bean.po.UserRole;
 import java.util.List;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-08 16:59
+ * @author zhangpei
+ * @version 1.0
+ * @description 用户服务
+ * @date 2019/2/18
  */
 public interface UserService {
 

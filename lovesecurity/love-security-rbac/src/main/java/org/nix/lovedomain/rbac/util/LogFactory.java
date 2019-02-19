@@ -1,25 +1,25 @@
 package org.nix.lovedomain.rbac.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Author: Yun
- * @Description: 日志功能工具类
- * @Date: Created in 2018-01-12 14:19
+ * @author zhangpei
+ * @version 1.0
+ * @description 日志工厂
+ * @date 2019/2/18
  */
+@Slf4j
 public class LogFactory {
-    private static Logger logger = LoggerFactory.getLogger(LogFactory.class);
 
     public static void info(String text) {
-        logger.info(text);
+        log.info(text);
     }
 
     public static void debug(String text) {
-        logger.debug(text);
+        log.debug(text);
     }
 
     public static void error(String text) {
-        logger.error(text);
+        log.error(text);
     }
 }

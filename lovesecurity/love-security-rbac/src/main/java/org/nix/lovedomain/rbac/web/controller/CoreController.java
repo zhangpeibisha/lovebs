@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-08 15:23
+ * @author zhangpei
+ * @version 1.0
+ * @description 核心控制器
+ * @date 2019/2/18
  */
 @Controller
 public class CoreController {

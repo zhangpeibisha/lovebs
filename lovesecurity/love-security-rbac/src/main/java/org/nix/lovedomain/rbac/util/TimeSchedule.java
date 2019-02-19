@@ -7,9 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @Author: Yun
- * @Description: 定时任务
- * @Date: Created in 2018-01-12 14:17
+ * @author zhangpei
+ * @version 1.0
+ * @description 定时任务
+ * @date 2019/2/18
  */
 @Component
 public class TimeSchedule {

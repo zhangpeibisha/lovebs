@@ -15,9 +15,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-09 10:04
+ * @author zhangpei
+ * @version 1.0
+ * @description 角色控制器
+ * @date 2019/2/18
  */
 @RestController
 public class RoleController {

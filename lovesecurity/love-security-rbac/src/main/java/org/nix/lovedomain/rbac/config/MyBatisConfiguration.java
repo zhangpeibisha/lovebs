@@ -6,6 +6,12 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
+/**
+ * @author zhangpei
+ * @version 1.0
+ * @description mybatis分页插件
+ * @date 2019/2/18
+ */
 @Configuration
 public class MyBatisConfiguration {
 

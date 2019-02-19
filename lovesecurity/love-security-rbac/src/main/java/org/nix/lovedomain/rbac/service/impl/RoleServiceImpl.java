@@ -13,9 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-09 13:59
+ * @author zhangpei
+ * @version 1.0
+ * @description 角色服务实现
+ * @date 2019/2/18
  */
 @Service("roleService")
 public class RoleServiceImpl implements RoleService {

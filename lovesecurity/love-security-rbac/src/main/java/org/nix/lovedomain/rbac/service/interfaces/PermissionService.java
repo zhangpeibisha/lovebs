@@ -5,9 +5,10 @@ import org.nix.lovedomain.rbac.bean.po.Permisson;
 import java.util.List;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-09 15:44
+ * @author zhangpei
+ * @version 1.0
+ * @description 权限服务
+ * @date 2019/2/18
  */
 public interface PermissionService {
 

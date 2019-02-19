@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-09 10:04
+ * @author zhangpei
+ * @version 1.0
+ * @description 用户控制器
+ * @date 2019/2/18
  */
 @RestController
 public class UserController {

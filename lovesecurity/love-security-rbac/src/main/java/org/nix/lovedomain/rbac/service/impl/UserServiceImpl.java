@@ -13,9 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: Yun
- * @Description:
- * @Date: Created in 2017-12-08 17:00
+ * @author zhangpei
+ * @version 1.0
+ * @description 用户服务实现
+ * @date 2019/2/18
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
