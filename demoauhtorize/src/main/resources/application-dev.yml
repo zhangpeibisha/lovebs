@@ -38,7 +38,7 @@ love:
         appSecret: 60f78681d063590a469f1b297feff3c4
     browser:
       logoutUrl: /love-logout
-      logoutPage: /love-signUp.html
+      logoutPage: /login.html
       signUpUrl: /register.html
     o-auth2:
       clients[0]:

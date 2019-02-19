@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yunhui.dao.UserMapper">
+<mapper namespace="org.nix.lovedomain.rbac.dao.UserMapper">
   <resultMap id="BaseResultMap" type="org.nix.lovedomain.rbac.bean.po.User">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
@@ -97,5 +97,25 @@
            AND  user_password =  #{userPassword,jdbcType=VARCHAR}
         </if>
       </where>
+  </select>
+
+  <select id="selectByUserAccountOrIdOrUserName" parameterType="org.nix.lovedomain.rbac.bean.po.User" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM user
+    <where>
+      <if test="userName != null and userName !=''">
+        or  user_name =  #{userName}
+      </if>
+      <if test="userAccount != null and userAccount !=''">
+        or  user_account =  #{userAccount,jdbcType=VARCHAR}
+      </if>
+      <if test="userId != null and userId !=''">
+        or  user_id =  #{userId,jdbcType=VARCHAR}
+      </if>
+      <if test="userName==null and userAccount==null and userId==null">
+        AND  user_id =  -1
+      </if>
+    </where>
   </select>
 </mapper>

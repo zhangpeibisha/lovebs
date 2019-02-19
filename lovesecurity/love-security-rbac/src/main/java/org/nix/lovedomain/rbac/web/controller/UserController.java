@@ -2,18 +2,15 @@ package org.nix.lovedomain.rbac.web.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.nix.lovedomain.rbac.bean.po.Permisson;
 import org.nix.lovedomain.rbac.bean.po.User;
 import org.nix.lovedomain.rbac.bean.po.UserRole;
 import org.nix.lovedomain.rbac.service.interfaces.PermissionService;
 import org.nix.lovedomain.rbac.service.interfaces.UserService;
-import org.nix.lovedomain.rbac.util.LogFactory;
 import org.nix.lovedomain.rbac.util.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @Author: Yun
@@ -28,26 +25,6 @@ public class UserController {
 
     @Autowired
     PermissionService permissionService;
-
-    @ResponseBody
-    @PostMapping("/login")
-    public ResponseEntity login(User user) {
-        LogFactory.info("user-----" + user);
-        List<User> list = userService.listUser(user);
-        if (list != null && list.size() == 1) {
-            User user1 = list.get(0);
-            String urls = "";
-            if (user1 != null) {
-                //查询用户的权限
-                List<Permisson> permissions = permissionService.getUserPermissons(user1.getUserId());
-                urls = permissions.stream().map(Permisson::getPermissonUrl).collect(Collectors.joining(","));
-            }
-            return ResponseEntity.success().add("urls", urls);
-        } else {
-            return ResponseEntity.error("登陆失败,账号或密码错误");
-        }
-    }
-
 
     @GetMapping("/user")
     public ResponseEntity listUser(User user, @RequestParam(value = "pn", defaultValue = "1") Integer pn, @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {

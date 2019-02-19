@@ -23,5 +23,4 @@ public interface UserService {
     User selectByPrimaryKey(Integer userId);
 
     List<UserRole> listUserRoles(UserRole userRole);
-
 }

@@ -21,9 +21,11 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    private
     UserMapper userMapper;
 
     @Autowired
+    private
     UserRoleMapper userRoleMapper;
 
 
@@ -79,4 +81,5 @@ public class UserServiceImpl implements UserService {
     public List<UserRole> listUserRoles(UserRole userRole) {
         return userRoleMapper.listUserRoles(userRole);
     }
+
 }
