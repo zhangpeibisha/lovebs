@@ -110,6 +110,7 @@
       function initUserList(pn,pageSize){
           //判断用户有无列表查询的权限
           console.log(localStorage.getItem("urls")==null);
+          console.log("该用户的urls：",localStorage.getItem("urls"));
           if(urlValidate("/user-get")>=0){
               $.ajax({
                   url:"user",

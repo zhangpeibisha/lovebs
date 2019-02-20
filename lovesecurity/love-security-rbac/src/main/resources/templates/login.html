@@ -53,8 +53,9 @@
                             url:'/'+optionalParams+"/permission",
                             type:'get',
                             success:function (res) {
-                                console.log("获取的权限信息为",res)
-                                // localStorage.setItem("urls", res.data.urls);
+                                console.log("获取的权限信息为",res);
+                                console.log("获取的权限信息为",res.data.urls);
+                                localStorage.setItem("urls", res.data.urls);
                             }
                         });
                         var index = layer.alert("登陆成功", {icon: 6}, function () {

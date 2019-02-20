@@ -1,6 +1,5 @@
 package org.nix.lovedomain.rbac.web.controller;
 
-import cn.hutool.json.JSONUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author zhangpei
@@ -41,8 +41,9 @@ public class UserController {
     @GetMapping("/{user:[0-9]+}/permission")
     public ResponseEntity listPermission(@PathVariable(value = "user")Integer userId) {
         List<Permisson> userPermissons = permissionService.getUserPermissons(userId);
-        log.info("获取用户{}的权限信息为{}",userId,JSONUtil.toJsonStr(userPermissons));
-        return ResponseEntity.success().add("urls",userPermissons);
+        String urls = userPermissons.stream().map(Permisson::getPermissonUrl).collect(Collectors.joining(","));
+        log.info("获取用户{}的权限信息为{}",userId,urls);
+        return ResponseEntity.success().add("urls",urls);
     }
 
     @GetMapping("/user")
