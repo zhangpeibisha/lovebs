@@ -1,7 +1,10 @@
 package org.nix.lovedomain.rbac.web.controller;
 
+import cn.hutool.json.JSONUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.rbac.bean.po.Permisson;
 import org.nix.lovedomain.rbac.bean.po.User;
 import org.nix.lovedomain.rbac.bean.po.UserRole;
 import org.nix.lovedomain.rbac.service.interfaces.PermissionService;
@@ -18,6 +21,7 @@ import java.util.List;
  * @description 用户控制器
  * @date 2019/2/18
  */
+@Slf4j
 @RestController
 public class UserController {
 
@@ -27,8 +31,24 @@ public class UserController {
     @Autowired
     PermissionService permissionService;
 
+    /**
+     * @param userId 用户id
+     * @return org.nix.lovedomain.rbac.util.ResponseEntity
+     * @description 获取能访问的url信息
+     * @author zhangpe0312@qq.com
+     * @date 2019/2/19
+     */
+    @GetMapping("/{user:[0-9]+}/permission")
+    public ResponseEntity listPermission(@PathVariable(value = "user")Integer userId) {
+        List<Permisson> userPermissons = permissionService.getUserPermissons(userId);
+        log.info("获取用户{}的权限信息为{}",userId,JSONUtil.toJsonStr(userPermissons));
+        return ResponseEntity.success().add("urls",userPermissons);
+    }
+
     @GetMapping("/user")
-    public ResponseEntity listUser(User user, @RequestParam(value = "pn", defaultValue = "1") Integer pn, @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+    public ResponseEntity listUser(User user,
+                                   @RequestParam(value = "pn", defaultValue = "1") Integer pn,
+                                   @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
         PageHelper.startPage(pn, pageSize);
         List<User> list = userService.listUser(user);
         PageInfo<User> pageInfo = new PageInfo<>(list, 10);

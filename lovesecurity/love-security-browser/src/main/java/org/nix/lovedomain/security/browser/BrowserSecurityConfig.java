@@ -127,6 +127,8 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                 .logoutSuccessHandler(loveLogoutSuccessHandler)
                 .deleteCookies("JSESSIONID")
                 .and()
+                .headers().frameOptions().disable()
+                .and()
                 .csrf().disable();
         // 配置url权限信息
         authorizeConfigManger.config(http.authorizeRequests());

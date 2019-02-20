@@ -47,7 +47,16 @@
                     type: 'post',
                     success: function (res) {
                         console.log(res);
-                        // localStorage.setItem("urls", res.data.urls);
+                        var optionalParams = res.principal.userId;
+                        console.log("用户id为",optionalParams);
+                        $.ajax({
+                            url:'/'+optionalParams+"/permission",
+                            type:'get',
+                            success:function (res) {
+                                console.log("获取的权限信息为",res)
+                                // localStorage.setItem("urls", res.data.urls);
+                            }
+                        });
                         var index = layer.alert("登陆成功", {icon: 6}, function () {
                             layer.close(index);
                             location.href = "/page/index";
