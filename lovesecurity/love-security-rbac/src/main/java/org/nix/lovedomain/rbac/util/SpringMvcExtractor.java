@@ -1,6 +1,7 @@
 package org.nix.lovedomain.rbac.util;
 
 import org.nix.lovedomain.rbac.util.auth.core.extractor.AbstractResourcesExtractor;
+import org.nix.lovedomain.rbac.util.auth.core.extractor.PermissionResource;
 import org.nix.lovedomain.rbac.util.auth.core.extractor.Resources;
 import org.nix.lovedomain.rbac.util.auth.core.extractor.RequestMethod;
 import org.springframework.stereotype.Component;
@@ -127,8 +128,19 @@ public class SpringMvcExtractor extends AbstractResourcesExtractor {
     @Override
     protected void setInfo(Resources resources, Method method, Annotation methodAnnotation) {
         String name = method.getName();
-        resources.setName(name);
-        resources.setDescription(name);
-        resources.setOpen(false);
+        PermissionResource annotation = method.getAnnotation(PermissionResource.class);
+        // 如果有默认的资源信息，则使用默认的资源信息
+        if (annotation != null) {
+            String description = annotation.description();
+            String authName = annotation.name();
+            boolean open = annotation.open();
+            resources.setDescription(description);
+            resources.setName(authName);
+            resources.setOpen(open);
+        } else {
+            resources.setName(name);
+            resources.setDescription(name);
+            resources.setOpen(false);
+        }
     }
 }
