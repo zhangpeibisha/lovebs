@@ -9,6 +9,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author zhangpei
@@ -33,9 +37,10 @@ public class DemoAuthorizeConfigProvider implements AuthorizeConfigProvider {
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
         // 自定义权限表达式
         log.info("进入权限配置 DemoAuthorizeConfigProvider");
-        urlRegistry.antMatchers("/**").permitAll();
-//        urlRegistry
-//                .anyRequest()
-//                .access("@rbacServiceImpl.hasPermission(request,authentication)");
+//        urlRegistry.antMatchers("/**").permitAll();
+        urlRegistry
+                .anyRequest()
+                .access("@rbacServiceImpl.hasPermission(request,authentication)");
     }
+
 }

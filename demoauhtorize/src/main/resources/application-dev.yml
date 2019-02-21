@@ -44,3 +44,7 @@ love:
       clients[0]:
         clientId: love
         clientSecret: love
+permission:
+  resources:
+    resources:
+      path: org.nix.lovedomain

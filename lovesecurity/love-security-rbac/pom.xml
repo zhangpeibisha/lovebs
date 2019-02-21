@@ -37,7 +37,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-
+        <!--配置信息-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+            <version>1.5.7.RELEASE</version>
+        </dependency>
         <!-- 单元测试依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
