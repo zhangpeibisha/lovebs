@@ -1,6 +1,14 @@
 package org.nix.lovedomain.rbac.bean.po;
 
+import lombok.Data;
+import org.nix.lovedomain.rbac.util.auth.core.extractor.RequestMethod;
+import org.nix.lovedomain.rbac.util.auth.core.extractor.Resources;
+
+import java.util.Set;
+
+@Data
 public class Permisson {
+
     private Integer permissonId;
 
     private String permissonName;
@@ -12,52 +20,39 @@ public class Permisson {
     private String parentPermissonName;
 
     private Integer permissonLv;
+    /**
+     * 资源请求方法
+     */
+    private String methods;
 
-    public Integer getPermissonId() {
-        return permissonId;
-    }
+    /**
+     * 资源描述
+     */
+    private String description;
+    /**
+     * 资源是否开放
+     */
+    private Boolean open;
 
-    public void setPermissonId(Integer permissonId) {
-        this.permissonId = permissonId;
-    }
+    /**
+     * 是否允许未登录访问
+     */
+    private Boolean permitAll;
 
-    public String getPermissonName() {
-        return permissonName;
-    }
-
-    public void setPermissonName(String permissonName) {
-        this.permissonName = permissonName == null ? null : permissonName.trim();
-    }
-
-    public String getPermissonUrl() {
-        return permissonUrl;
-    }
-
-    public void setPermissonUrl(String permissonUrl) {
-        this.permissonUrl = permissonUrl == null ? null : permissonUrl.trim();
-    }
-
-    public Integer getParentPermissonId() {
-        return parentPermissonId;
-    }
-
-    public void setParentPermissonId(Integer parentPermissonId) {
-        this.parentPermissonId = parentPermissonId;
-    }
-
-    public Integer getPermissonLv() {
-        return permissonLv;
-    }
-
-    public void setPermissonLv(Integer permissonLv) {
-        this.permissonLv = permissonLv;
-    }
-
-    public String getParentPermissonName() {
-        return parentPermissonName;
-    }
-
-    public void setParentPermissonName(String parentPermissonName) {
-        this.parentPermissonName = parentPermissonName;
+    public void resourcesToPermission(Resources resources) {
+        if (resources != null) {
+            permissonName = resources.getName();
+            permissonUrl = resources.getUrl();
+            Set<RequestMethod> httpMethods = resources.getHttpMethods();
+            StringBuilder methods = new StringBuilder();
+            httpMethods.forEach(requestMethod -> methods.append(requestMethod.toString()).append("&"));
+            if (methods.length()!=0){
+                methods.deleteCharAt(methods.lastIndexOf("&"));
+            }
+            this.methods = methods.toString();
+            this.description = resources.getDescription();
+            this.open = resources.getOpen();
+            this.permitAll = resources.getPermitAll();
+        }
     }
 }

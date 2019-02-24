@@ -33,4 +33,9 @@ public class Resources {
      * 资源是否开放
      */
     private Boolean open;
+
+    /**
+     * 是否允许未登录访问
+     */
+    private Boolean permitAll;
 }

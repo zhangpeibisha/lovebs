@@ -38,4 +38,9 @@ public @interface PermissionResource {
      * @return 资源描述 默认为方法名字
      */
     String description() default "";
+
+    /**
+     * @return 是否允许未登录访问
+     */
+    boolean permitAll() default false;
 }
