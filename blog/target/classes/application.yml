@@ -1,0 +1,32 @@
+server:
+  port: 9030
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: photo
+  datasource:
+    username: root
+    password: kiss4400
+    url: jdbc:mysql://59.110.234.213:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+  profiles:
+    active: dev
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  session:
+    store-type: redis
+    timeout: 60s
+logging:
+  level:
+    root: info
+    com.example.demo.dao: debug
+  file: doc/log/testLog.log
+  pattern:
+    console: "%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n"
+    file: "%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n"
+mybatis:
+  mapper-locations: classpath*:org/nix/domain/photo/mapper/*.xml

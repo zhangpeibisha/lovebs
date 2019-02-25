@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.nix.lovedomain.rbac.util.auth.PermissionProperties",
+      "name": "permission.resources",
+      "type": "org.nix.lovedomain.rbac.util.auth.PermissionProperties"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.rbac.util.auth.PermissionProperties",
+      "name": "permission.resources.resources",
+      "sourceMethod": "getResources()",
+      "type": "org.nix.lovedomain.rbac.util.auth.PermissionProperties$Resources"
+    }
+  ],
+  "properties": []
+}
