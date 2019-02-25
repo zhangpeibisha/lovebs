@@ -1,10 +1,9 @@
 package org.nix.domain.photo.mapper;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import org.nix.domain.photo.model.Photo;
 import org.nix.domain.photo.model.PhotoExample;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface PhotoMapper {
     int countByExample(PhotoExample example);

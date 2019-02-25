@@ -1,8 +1,8 @@
 package org.nix.domain.photo.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.nix.domain.photo.model.Album;
 import org.nix.domain.photo.model.AlbumExample;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

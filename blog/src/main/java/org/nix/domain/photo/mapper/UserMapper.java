@@ -1,10 +1,9 @@
 package org.nix.domain.photo.mapper;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import org.nix.domain.photo.model.User;
 import org.nix.domain.photo.model.UserExample;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
 
 public interface UserMapper {
     int countByExample(UserExample example);

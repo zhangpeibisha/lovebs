@@ -2,75 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/utils/db/CommentGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/utils/db/Generator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/generator.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/test/java/org/nix/domain/photo/mapper/UserMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_1_5_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/demoauhtorize.iml" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/DemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/security/DemoAuthorizeConfigProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/security/DemoConnectionSignUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/security/DemoUserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/security/RbacService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/resources/application-dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demoauhtorize/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/lovedemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/DemoUrlConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/LoveDemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/MobileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/dto/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/security/DemoAuthorizeConfigProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/security/DemoConnectionSignUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/java/org/nix/lovedomain/security/DemoUserDetailsServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/resources/application-dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/resources/public/error/403.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/resources/static/index-demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/main/resources/static/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/test/java/org/nix/lovedomain/controller/AuthenticationControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/test/resources/application-dev.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovedemo/src/test/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/SpringMvcExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/SpringMvcExtractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/AutomaticPermissionConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/AutomaticPermissionConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client-blog/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client-blog/src/main/java/org/nix/love/sso/SsoClientApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client-blog/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client-blog/src/main/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client-blog/ssoclientblog.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client/src/main/java/org/nix/love/sso/SsoClientApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client/src/main/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-client/ssoclient.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/java/org/nix/love/sso/server/SSOApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/BlogApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/java/org/nix/love/sso/server/config/SsoAuthorizationServerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/java/org/nix/love/sso/server/config/SsoSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/java/org/nix/love/sso/server/config/UserDeatilServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/java/org/nix/love/sso/server/controller/SsoApprovalEndpoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/java/org/nix/love/sso/server/controller/SsoSpelView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso-service/ssoservice.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sso/sso.iml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
@@ -99,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="51" selection-end-column="21" />
+            <state relative-caret-position="335">
+              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -112,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/BlogApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,8 +67,38 @@
       <file leaf-file-name="UserMapperTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/src/test/java/org/nix/domain/photo/mapper/UserMapperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="204">
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserExample.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/model/UserExample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-493">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Generator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/utils/db/Generator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -243,8 +205,8 @@
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/blog/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/domain/photo/mapper/UserMapperTest.java" />
-        <option value="$PROJECT_DIR$/blog/pom.xml" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/BlogApplication.java" />
+        <option value="$PROJECT_DIR$/blog/pom.xml" />
       </list>
     </option>
   </component>
@@ -391,6 +353,46 @@
               <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="photo" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="photo" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="photo" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -471,7 +473,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserMapperTest.insertSelective">
+  <component name="RunManager" selected="Application.Generator">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -604,8 +606,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserMapperTest.insertSelective" />
         <item itemvalue="Application.Generator" />
+        <item itemvalue="JUnit.UserMapperTest.insertSelective" />
         <item itemvalue="Application.DemoApplication" />
         <item itemvalue="Application.Code" />
         <item itemvalue="JUnit.Test.test" />
@@ -650,7 +652,7 @@
       <workItem from="1550814520607" duration="1736000" />
       <workItem from="1550979664969" duration="7444000" />
       <workItem from="1551019132342" duration="1377000" />
-      <workItem from="1551060584588" duration="2896000" />
+      <workItem from="1551060584588" duration="3465000" />
     </task>
     <task id="LOCAL-00001" summary="图片验证码生成完成">
       <created>1548571903411</created>
@@ -974,7 +976,21 @@
       <option name="project" value="LOCAL" />
       <updated>1550997545420</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="数据库配置完成">
+      <created>1551066110889</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1551066110889</updated>
+    </task>
+    <task id="LOCAL-00048" summary="数据库配置完成">
+      <created>1551066188348</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1551066188348</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1010,7 +1026,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181056000" />
+    <option name="totallyTimeSpent" value="181625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1286" height="784" extended-state="6" />
@@ -1034,9 +1050,9 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.20611916" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3252818" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5185185" />
       <window_info anchor="bottom" id="Spring" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.0929432" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.36231884" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.30016312" />
       <window_info anchor="right" id="Bean Validation" order="5" weight="0.32980332" />
       <window_info id="Web" order="4" side_tool="true" />
@@ -1058,7 +1074,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加 love-security-app 项目 ==&gt; 成功启动依赖于app项目的demo项目" />
     <MESSAGE value="完成了资源服务器和认证服务器配置 ===&gt; 默认配置" />
     <MESSAGE value="自定义登陆授权系统，获取token和通过token获取用户信息完成" />
     <MESSAGE value="添加验证码进入app模块" />
@@ -1083,7 +1098,8 @@
     <MESSAGE value="自动扫描资源信息完成" />
     <MESSAGE value="增加自动装配权限功能" />
     <MESSAGE value="自动注入资源信息到数据库中完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="自动注入资源信息到数据库中完成" />
+    <MESSAGE value="数据库配置完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库配置完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1105,20 +1121,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.6.RELEASE/spring-boot-autoconfigure-1.5.6.RELEASE.jar!/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingClass.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.6.RELEASE/spring-boot-autoconfigure-1.5.6.RELEASE.jar!/org/springframework/boot/autoconfigure/condition/ConditionalOnMissingBean.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1353,17 +1355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/utils/db/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#356#364#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1411,13 +1402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/test/java/org/nix/domain/photo/mapper/UserMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1425,20 +1409,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blog/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/BlogApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/pom.xml">
+    <entry file="file://$PROJECT_DIR$/blog/src/test/java/org/nix/domain/photo/mapper/UserMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="51" selection-end-column="21" />
+        <state relative-caret-position="204">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/model/UserExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-493">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/utils/db/Generator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
