@@ -6,20 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demoauhtorize" />
-        <module name="lovedemo" />
+        <module name="blog" />
         <module name="lovesecurityapp" />
         <module name="lovesecurityauthorize" />
         <module name="lovesecuritybrowser" />
         <module name="lovesecuritycore" />
         <module name="lovesecurityrbac" />
-        <module name="ssoclient" />
-        <module name="ssoclientblog" />
-        <module name="ssoservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="authorize" target="8" />
+      <module name="blog" target="1.6" />
       <module name="demoauhtorize" target="8" />
       <module name="lovedemo" target="1.6" />
       <module name="lovesecurity" target="1.8" />

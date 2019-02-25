@@ -2,9 +2,8 @@ package org.nix.lovedomain.rbac.util;
 
 import org.nix.lovedomain.rbac.util.auth.core.extractor.AbstractResourcesExtractor;
 import org.nix.lovedomain.rbac.util.auth.core.extractor.PermissionResource;
-import org.nix.lovedomain.rbac.util.auth.core.extractor.Resources;
 import org.nix.lovedomain.rbac.util.auth.core.extractor.RequestMethod;
-import org.springframework.stereotype.Component;
+import org.nix.lovedomain.rbac.util.auth.core.extractor.Resources;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.annotation.Annotation;
@@ -19,7 +18,6 @@ import java.util.List;
  * @description 基于spring mvc的资源提取
  * @date 2019/2/17
  */
-@Component
 public class SpringMvcExtractor extends AbstractResourcesExtractor {
 
     @Override

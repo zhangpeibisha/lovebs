@@ -2,7 +2,6 @@ package org.nix.lovedomain.rbac.util.auth;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.rbac.bean.po.Permisson;
 import org.nix.lovedomain.rbac.dao.PermissonMapper;
 import org.nix.lovedomain.rbac.util.auth.core.extractor.DefaultResourcesExtractor;
 import org.nix.lovedomain.rbac.util.auth.core.extractor.Resources;
@@ -11,7 +10,6 @@ import org.nix.lovedomain.rbac.util.auth.core.extractor.ResourcesExtractorExecut
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 import java.util.Set;
@@ -22,7 +20,6 @@ import java.util.Set;
  * @description 自动装配权限
  * @date 2019/2/21
  */
-@Configuration
 @Slf4j
 public class AutomaticPermissionConfig {
 
@@ -43,11 +40,11 @@ public class AutomaticPermissionConfig {
         log.info("资源扫描路径为:{}",path);
         Set<Resources> results = resourcesExtractorExecutor.getResults();
         log.info("获取到的资源有：{}",JSONUtil.toJsonStr(results));
-        results.forEach(resources -> {
-            Permisson record = new Permisson();
-            record.resourcesToPermission(resources);
-            permissonMapper.insertSelective(record);
-        });
+//        results.forEach(resources -> {
+//            Permisson record = new Permisson();
+//            record.resourcesToPermission(resources);
+//            permissonMapper.insertSelective(record);
+//        });
         return resourcesExtractorExecutor;
     }
 
