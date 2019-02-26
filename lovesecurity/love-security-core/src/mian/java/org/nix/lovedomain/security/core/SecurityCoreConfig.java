@@ -1,6 +1,7 @@
 package org.nix.lovedomain.security.core;
 
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +23,7 @@ public class SecurityCoreConfig {
      * @date 2019/1/27
      */
     @Bean("passwordEncoder")
+    @ConditionalOnMissingBean(value = PasswordEncoder.class)
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
