@@ -1,21 +1,35 @@
 package org.nix.lovedomain.photo.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Photo implements Serializable {
+
+    public interface SimplePhotoView {}
+
+    public interface DetailPhotoView extends SimplePhotoView{}
+
+    @JsonView(value = SimplePhotoView.class)
     private Integer id;
 
+    @JsonView(value = SimplePhotoView.class)
     private String name;
 
+    @JsonView(value = DetailPhotoView.class)
     private String description;
 
+    @JsonView(value = SimplePhotoView.class)
     private String url;
 
+    @JsonView(value = DetailPhotoView.class)
     private Integer albumid;
 
+    @JsonView(value = DetailPhotoView.class)
     private Date createtime;
 
+    @JsonView(value = DetailPhotoView.class)
     private Date updatetime;
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,7 @@
 package org.nix.lovedomain.security;
 
 import org.nix.lovedomain.security.core.oauthorize.AuthorizeConfigProvider;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
@@ -18,5 +19,10 @@ public class PermissionConfig implements AuthorizeConfigProvider {
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
         // 登陆部分都不需要权限
         urlRegistry.antMatchers("/login/**").permitAll();
+        photoConfig(urlRegistry);
+    }
+
+    private void photoConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
+        urlRegistry.antMatchers(HttpMethod.GET, "/photo/**").permitAll();
     }
 }
