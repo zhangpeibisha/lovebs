@@ -23,6 +23,6 @@ public class PermissionConfig implements AuthorizeConfigProvider {
     }
 
     private void photoConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
-        urlRegistry.antMatchers(HttpMethod.GET, "/photo/**").permitAll();
+        urlRegistry.antMatchers(HttpMethod.GET, "/photo/**","/photo/album/**").permitAll();
     }
 }
