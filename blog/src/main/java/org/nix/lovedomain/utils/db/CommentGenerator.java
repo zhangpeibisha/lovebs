@@ -1,4 +1,4 @@
-package org.nix.lovedomain.photo.utils.db;
+package org.nix.lovedomain.utils.db;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

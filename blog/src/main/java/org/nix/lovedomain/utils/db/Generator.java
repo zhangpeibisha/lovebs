@@ -1,4 +1,4 @@
-package org.nix.lovedomain.photo.utils.db;
+package org.nix.lovedomain.utils.db;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
