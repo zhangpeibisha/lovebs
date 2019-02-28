@@ -1,5 +1,6 @@
 package org.nix.lovedomain.photo.service.impl;
 
+import cn.hutool.json.JSONUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.BlogApplication;
@@ -76,5 +77,18 @@ public class UserServiceImplTest {
         photo.setUrl(url);
         photo.setAlbumid(id);
         photoMapper.insertSelective(photo);
+    }
+
+    @Resource
+    private PhotoServiceImpl photoService;
+
+    @Resource
+    private AlbumServiceImpl albumService;
+
+    @Test
+    public void selectPhoto() {
+        Album album = albumService.selectAlbumByName("我的开局相册");
+        List<Photo> photos = photoService.selectAlbumInPhotos(album.getId());
+        System.out.println(JSONUtil.toJsonStr(photos));
     }
 }

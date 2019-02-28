@@ -4,10 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.photo.mapper.PhotoMapper;
 import org.nix.lovedomain.photo.model.Album;
 import org.nix.lovedomain.photo.model.Photo;
+import org.nix.lovedomain.photo.model.PhotoExample;
 import org.nix.lovedomain.photo.service.PhotoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author zhangpei
@@ -31,5 +33,12 @@ public class PhotoServiceImpl implements PhotoService {
     @Override
     public void updatePhoto(Photo photo) {
         photoMapper.updateByPrimaryKeySelective(photo);
+    }
+
+    @Override
+    public List<Photo> selectAlbumInPhotos(Integer albumId) {
+        PhotoExample example = new PhotoExample();
+        example.createCriteria().andAlbumidEqualTo(albumId);
+        return photoMapper.selectByExample(example);
     }
 }

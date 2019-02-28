@@ -3,6 +3,8 @@ package org.nix.lovedomain.photo.service;
 import org.nix.lovedomain.photo.model.Album;
 import org.nix.lovedomain.photo.model.Photo;
 
+import java.util.List;
+
 /**
  * @author zhangpei
  * @version 1.0
@@ -15,4 +17,5 @@ public interface PhotoService {
 
     void updatePhoto(Photo photo);
 
+    List<Photo> selectAlbumInPhotos(Integer albumId);
 }

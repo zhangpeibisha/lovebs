@@ -2,17 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/AlbumService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/img/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/photos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/doc/log/testLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/blog/doc/log/testLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/oss/FileOssServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/oss/FileOssServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
@@ -41,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserDetailServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserDetailServiceImpl.java">
+      <file leaf-file-name="AlbumService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/AlbumService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="239">
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,16 +60,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserServiceImpl.java">
+      <file leaf-file-name="PhotoService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#729#730#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlbumServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhotoServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#848#849#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserServiceImplTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -112,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/model/Photo.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/SpringMvcExtractor.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/AutomaticPermissionConfig.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/domain/photo/utils/db/CommentGenerator.java" />
@@ -154,15 +193,16 @@
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/utils/BaiduDwz.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/utils/dwz/Dwz.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/utils/dwz/SuoDwz.java" />
-        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java" />
-        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/AlbumService.java" />
-        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java" />
-        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/oss/FileOssServiceImpl.java" />
-        <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/UserService.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/UserDetailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/photos.html" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/AlbumService.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java" />
+        <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java" />
       </list>
     </option>
   </component>
@@ -317,112 +357,40 @@
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="photo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="oauthorize" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="photo" type="462c0819:PsiDirectoryNode" />
+              <item name="album" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -479,11 +447,11 @@
       <recent name="org.nix.lovedomain.security.core.properties" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WorkPace\GIT\lovebs\blog\src\main\resources\static\photo\album" />
       <recent name="C:\WorkPace\GIT\lovebs\blog\src\main\resources\static\login" />
       <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-rbac\src\main\java\org\nix\lovedomain\rbac\util\auth" />
       <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain\a" />
       <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain\security" />
-      <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.nix.lovedomain" />
@@ -506,20 +474,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserServiceImplTest.addPhoto">
+  <component name="RunManager" selected="JUnit.UserServiceImplTest.selectPhoto">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-    </configuration>
-    <configuration name="SuoDwz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.utils.dwz.SuoDwz" />
-      <module name="blog" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.utils.dwz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -616,6 +573,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="UserServiceImplTest.selectPhoto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.nix.lovedomain.photo.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.nix.lovedomain.photo.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.photo.service.impl.UserServiceImplTest" />
+      <option name="METHOD_NAME" value="selectPhoto" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -655,19 +635,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.SuoDwz" />
       <item itemvalue="JUnit.UserServiceImplTest.register" />
       <item itemvalue="JUnit.UserServiceImplTest" />
       <item itemvalue="JUnit.UserServiceImplTest.addAlbum" />
       <item itemvalue="JUnit.UserServiceImplTest.addPhoto" />
+      <item itemvalue="JUnit.UserServiceImplTest.selectPhoto" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceImplTest.selectPhoto" />
         <item itemvalue="JUnit.UserServiceImplTest.addPhoto" />
         <item itemvalue="JUnit.UserServiceImplTest.addAlbum" />
         <item itemvalue="JUnit.UserServiceImplTest.register" />
         <item itemvalue="JUnit.UserServiceImplTest" />
-        <item itemvalue="Application.SuoDwz" />
       </list>
     </recent_temporary>
   </component>
@@ -711,14 +691,7 @@
       <workItem from="1551019132342" duration="1377000" />
       <workItem from="1551060584588" duration="5463000" />
       <workItem from="1551076631460" duration="594000" />
-      <workItem from="1551158249517" duration="38625000" />
-    </task>
-    <task id="LOCAL-00005" summary="生成图片异常">
-      <created>1548584010963</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1548584010963</updated>
+      <workItem from="1551158249517" duration="39984000" />
     </task>
     <task id="LOCAL-00006" summary="修复图片显示异常Bug">
       <created>1548677947302</created>
@@ -1056,7 +1029,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551350262128</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="保存相册服务完成">
+      <created>1551359700114</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1551359700114</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1092,10 +1072,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222842000" />
+    <option name="totallyTimeSpent" value="224201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1286" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -1139,7 +1120,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="app社交登陆，浏览器配置bug修改" />
     <MESSAGE value="重构社交登陆" />
     <MESSAGE value="app配置社交登陆" />
     <MESSAGE value="权限令牌配置完成" />
@@ -1164,7 +1144,8 @@
     <MESSAGE value="配置oss完成" />
     <MESSAGE value="配置oss完成-修改部分不合理的地方：目前状态全部完成" />
     <MESSAGE value="添加百度短网址服务到应用中" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加百度短网址服务到应用中" />
+    <MESSAGE value="保存相册服务完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="保存相册服务完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1186,13 +1167,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1509,50 +1483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/AlbumService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#786#787#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/oss/AbstractOssService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -1584,13 +1514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="68" column="55" lean-forward="true" selection-start-line="68" selection-start-column="55" selection-end-line="68" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1617,6 +1540,62 @@
             <element signature="e#669#670#0" expanded="true" />
             <element signature="e#729#730#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/resources/static/photo/album/photos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/AlbumServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/PhotoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/AlbumService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/service/impl/PhotoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#848#849#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="89" column="60" selection-start-line="89" selection-start-column="60" selection-end-line="89" selection-end-column="60" />
         </state>
       </provider>
     </entry>
