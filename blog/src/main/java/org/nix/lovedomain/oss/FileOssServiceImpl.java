@@ -35,6 +35,10 @@ public class FileOssServiceImpl extends AbstractOssService<File> {
         objectMetadata.setContentDisposition("inline;filename=" + fileName);
     }
 
+    public String upload(File file){
+        return super.upload(file.getName(),file);
+    }
+
     @Override
     InputStream dataToInputStream(File data) {
         try {

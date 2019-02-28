@@ -1,0 +1,35 @@
+package org.nix.lovedomain.photo.service.impl;
+
+import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.photo.mapper.PhotoMapper;
+import org.nix.lovedomain.photo.model.Album;
+import org.nix.lovedomain.photo.model.Photo;
+import org.nix.lovedomain.photo.service.PhotoService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+/**
+ * @author zhangpei
+ * @version 1.0
+ * @description 照片服务实现
+ * @date 2019/2/28
+ */
+@Slf4j
+@Service
+public class PhotoServiceImpl implements PhotoService {
+
+    @Resource
+    private PhotoMapper photoMapper;
+
+    @Override
+    public void addPhoto(Album album, Photo photo) {
+        photo.setAlbumid(album.getId());
+        photoMapper.insertSelective(photo);
+    }
+
+    @Override
+    public void updatePhoto(Photo photo) {
+        photoMapper.updateByPrimaryKeySelective(photo);
+    }
+}
