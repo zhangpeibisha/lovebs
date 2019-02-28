@@ -30,6 +30,15 @@ public class PhotoServiceImpl implements PhotoService {
         photoMapper.insertSelective(photo);
     }
 
+    public void addPhotos(Album album, List<Photo> photos) {
+        Integer id = album.getId();
+        photos.forEach(photo -> {
+            photo.setAlbumid(id);
+            photoMapper.insertSelective(photo);
+        });
+
+    }
+
     @Override
     public void updatePhoto(Photo photo) {
         photoMapper.updateByPrimaryKeySelective(photo);

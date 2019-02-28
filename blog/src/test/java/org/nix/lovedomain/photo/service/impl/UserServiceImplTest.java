@@ -91,4 +91,9 @@ public class UserServiceImplTest {
         List<Photo> photos = photoService.selectAlbumInPhotos(album.getId());
         System.out.println(JSONUtil.toJsonStr(photos));
     }
+
+    @Test
+    public void addPhotos() {
+        List<String> picPath;
+    }
 }
