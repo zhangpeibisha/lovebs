@@ -45,22 +45,25 @@ public abstract class AbstractOssService<T> implements OssService<T> {
     @Override
     public String upload(String key, T data) {
         createClient();
+        InputStream input = dataToInputStream(data);
         ObjectMetadata objectMetadata = new ObjectMetadata();
-        configurationObjectMetadata(objectMetadata);
-        ossClient.putObject(bucketName, createKey(key), dataToInputStream(data), objectMetadata);
+        configurationObjectMetadata(objectMetadata,data);
+        ossClient.putObject(bucketName, createKey(key), input, objectMetadata);
         String url = getUrl(key);
         shutdown();
         return url;
     }
 
     /**
+     * https://blog.csdn.net/wahaha13168/article/details/81236090 html数据类型
      * @param objectMetadata oss数据格式
+     * @param data 数据信息
      * @return void
      * @description 配置数据格式信息
      * @author zhangpe0312@qq.com
      * @date 2019/2/28
      */
-    abstract void configurationObjectMetadata(ObjectMetadata objectMetadata);
+    abstract void configurationObjectMetadata(ObjectMetadata objectMetadata,T data);
 
     /**
      * @param data 数据对象

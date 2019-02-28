@@ -22,12 +22,13 @@ public class FileOssServiceImpl extends AbstractOssService<File> {
         super(ossProperties, bucketName);
     }
 
-
-
-    private String fileName;
+    public FileOssServiceImpl(OssProperties ossProperties, String bucketName, String key) {
+        super(ossProperties, bucketName, key);
+    }
 
     @Override
-    void configurationObjectMetadata(ObjectMetadata objectMetadata) {
+    void configurationObjectMetadata(ObjectMetadata objectMetadata, File file) {
+        String fileName = file.getName();
         objectMetadata.setContentType(getcontentType(fileName));
         objectMetadata.setCacheControl("no-cache");
         objectMetadata.setHeader("Pragma", "no-cache");
@@ -37,7 +38,6 @@ public class FileOssServiceImpl extends AbstractOssService<File> {
     @Override
     InputStream dataToInputStream(File data) {
         try {
-            fileName = data.getName();
             return new FileInputStream(data);
         } catch (FileNotFoundException e) {
             log.info("文件{}不存在", e.getMessage());

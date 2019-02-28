@@ -20,13 +20,14 @@ public class StringOssServiceImpl extends AbstractOssService<String> {
     }
 
     @Override
-    void configurationObjectMetadata(ObjectMetadata objectMetadata) {
-        objectMetadata.setContentType("text/html");
+    InputStream dataToInputStream(String data) {
+        return new ByteArrayInputStream(data.getBytes());
     }
 
     @Override
-    InputStream dataToInputStream(String data) {
-        return new ByteArrayInputStream(data.getBytes());
+    void configurationObjectMetadata(ObjectMetadata objectMetadata, String data) {
+        objectMetadata.setContentType("application/json");
+        objectMetadata.setContentDisposition(data);
     }
 
     /**
