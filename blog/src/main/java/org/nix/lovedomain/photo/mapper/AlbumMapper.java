@@ -1,10 +1,9 @@
 package org.nix.lovedomain.photo.mapper;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.photo.model.Album;
 import org.nix.lovedomain.photo.model.AlbumExample;
-
-import java.util.List;
 
 public interface AlbumMapper {
     int countByExample(AlbumExample example);

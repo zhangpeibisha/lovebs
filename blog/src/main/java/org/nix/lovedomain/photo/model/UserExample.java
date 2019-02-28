@@ -443,6 +443,76 @@ public class UserExample {
             addCriterion("password not between", value1, value2, "password");
             return (Criteria) this;
         }
+
+        public Criteria andHeadurlIsNull() {
+            addCriterion("headUrl is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlIsNotNull() {
+            addCriterion("headUrl is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlEqualTo(String value) {
+            addCriterion("headUrl =", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlNotEqualTo(String value) {
+            addCriterion("headUrl <>", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlGreaterThan(String value) {
+            addCriterion("headUrl >", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlGreaterThanOrEqualTo(String value) {
+            addCriterion("headUrl >=", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlLessThan(String value) {
+            addCriterion("headUrl <", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlLessThanOrEqualTo(String value) {
+            addCriterion("headUrl <=", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlLike(String value) {
+            addCriterion("headUrl like", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlNotLike(String value) {
+            addCriterion("headUrl not like", value, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlIn(List<String> values) {
+            addCriterion("headUrl in", values, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlNotIn(List<String> values) {
+            addCriterion("headUrl not in", values, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlBetween(String value1, String value2) {
+            addCriterion("headUrl between", value1, value2, "headurl");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadurlNotBetween(String value1, String value2) {
+            addCriterion("headUrl not between", value1, value2, "headurl");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

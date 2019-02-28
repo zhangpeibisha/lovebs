@@ -13,6 +13,13 @@ public class User implements Serializable {
 
     private String password;
 
+    /**
+     * 用户头像
+     *
+     * @mbggenerated
+     */
+    private String headurl;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -55,6 +62,14 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getHeadurl() {
+        return headurl;
+    }
+
+    public void setHeadurl(String headurl) {
+        this.headurl = headurl;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -66,6 +81,7 @@ public class User implements Serializable {
         sb.append(", phone=").append(phone);
         sb.append(", nickname=").append(nickname);
         sb.append(", password=").append(password);
+        sb.append(", headurl=").append(headurl);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
