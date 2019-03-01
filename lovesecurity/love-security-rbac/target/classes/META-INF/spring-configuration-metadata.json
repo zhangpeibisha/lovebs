@@ -13,5 +13,12 @@
       "type": "org.nix.lovedomain.rbac.util.auth.PermissionProperties$Resources"
     }
   ],
-  "properties": []
+  "properties": [
+    {
+      "sourceType": "org.nix.lovedomain.rbac.util.auth.PermissionProperties$Resources",
+      "defaultValue": "",
+      "name": "permission.resources.resources.path",
+      "type": "java.lang.String"
+    }
+  ]
 }

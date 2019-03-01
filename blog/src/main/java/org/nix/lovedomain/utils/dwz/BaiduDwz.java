@@ -133,10 +133,4 @@ public class BaiduDwz {
             throw new RuntimeException("生成短地址失败", e);
         }
     }
-
-    public static void main(String[] args) {
-        String res = createShortUrl("http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/IMG_20180716_191336.jpg?Expires=1551350677&OSSAccessKeyId=TMP.AQFAu0H4hGZN2IgcPp8M7TnVc3spYhRwgZrrTkXlcL0JnvLg4Mb9MOr9m7OzADAtAhQv40V6uL9F6KqPLRJMjLFwCrE-iQIVANI3mj56-DsswMgVHlZ3p0lmE20X&Signature=1oU858MnKIVUbMPmlOitfOViaC0%3D");
-        System.out.println(res);
-    }
-
 }

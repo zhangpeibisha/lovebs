@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="love-security-browser-1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/blog/src/main/resources/lib/love-security-browser-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

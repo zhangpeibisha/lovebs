@@ -11,7 +11,6 @@
         <module>love-security-core</module>
         <module>love-security-browser</module>
         <module>love-security-app</module>
-        <module>love-security-authorize</module>
         <module>love-security-rbac</module>
     </modules>
     <packaging>pom</packaging>

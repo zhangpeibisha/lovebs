@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="blog" />
         <module name="lovesecurityapp" />
-        <module name="lovesecurityauthorize" />
         <module name="lovesecuritybrowser" />
         <module name="lovesecuritycore" />
         <module name="lovesecurityrbac" />

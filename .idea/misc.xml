@@ -24,6 +24,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/lovesecurity/authorize/pom.xml" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-authorize/pom.xml" />
         <option value="$PROJECT_DIR$/sso/pom.xml" />
       </set>
     </option>

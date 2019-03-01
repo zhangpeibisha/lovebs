@@ -8,25 +8,13 @@
     <artifactId>blog</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <name>blog</name>
     <url>http://www.example.com</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-parent</artifactId>
+        <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.7.RELEASE</version>
     </parent>
 
@@ -93,6 +81,37 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.15</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.3.3.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>blog</finalName>
+    </build>
 </project>
