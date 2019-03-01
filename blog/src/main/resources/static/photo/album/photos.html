@@ -99,7 +99,7 @@
 
         var id = GetQueryString("albumId");
         $.ajax({
-            url: "/photo/detail/" + 1,
+            url: "/photo/detail/" + id,
             type: "get",
             contentType: "json",
             success: function (data) {
