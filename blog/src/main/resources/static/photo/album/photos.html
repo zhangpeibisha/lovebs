@@ -57,25 +57,51 @@
 <body>
 
 <div class="pic">
-    <img src="img/1.jpg"/>
-    <img src="img/2.jpg"/>
-    <img src="img/3.jpg"/>
-    <img src="img/4.jpg"/>
-    <img src="img/5.jpg"/>
-    <img src="img/6.jpg"/>
-    <img src="img/7.jpg"/>
-    <img src="img/8.jpg"/>
-    <img src="img/9.jpg"/>
-    <img src="img/10.jpg"/>
-    <img src="img/11.jpg"/>
-    <p></p>
+    <!--<img src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/IMG_20180716_192802.jpg?Expires=1866719278&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=G1%2BxSf82W%2FqGD19%2BuB%2BsGrT%2FqXo%3D"-->
+    <!--id="1"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E5%8E%BB%E5%AE%B6%E9%87%8C.jpg?Expires=1866762508&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=UxF5MdNDzICT9YnmEK3xV8KN8rI%3D"-->
+    <!--id="2"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E5%9B%AD%E5%8D%9A%E5%9B%AD.jpg?Expires=1866762508&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=AYnIxuKXOOT6VjhQy9A%2BWAKD9WY%3D"-->
+    <!--id="3"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E5%AD%A6%E6%A0%A1.jpg?Expires=1866762509&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=7LkiYtJnfGubz0CxHs0P1WZFP0k%3D"-->
+    <!--id="4"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E6%94%BE%E5%81%87.jpg?Expires=1866762509&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=RVbTlLU3z3ef4Ba8M5PkLn%2BFxFc%3D"-->
+    <!--id="5"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E6%B1%89%E6%9C%8D.jpg?Expires=1866762510&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=DodEHQ8VgKH1uhURAKhWB4BXpSg%3D"-->
+    <!--id="6"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E7%85%A7%E7%89%87.jpg?Expires=1866762510&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=bJPwx2%2BUpUW53H5d7fJbb4xNivY%3D"-->
+    <!--id="7"/> <img-->
+    <!--src="http://zhangpei-bisha-blog.oss-cn-beijing.aliyuncs.com/file/%E9%BC%8E%E5%B1%B1%E5%85%AC%E5%9B%AD.jpg?Expires=1866762510&OSSAccessKeyId=LTAImLa8KD2ODgJk&Signature=PcXSkSBScrAx%2FOqrZgxcBLVjcfk%3D"-->
+    <!--id="8"/>-->
+    <!--<p></p>-->
 </div>
 
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-    $(function () {
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://192.168.3.5:9030/photo/detail/1",
+            contentType: "json",
+            success: function (data) {
+                var photos = data.photos;
+                console.log("查询到的信息为:", data, photos);
+                var html = "";
+                $.each(photos, function (index, item) {
+                    html += ` <img src="${item.url}" id="${item.id}"/>`;
+                })
+                html += "<p></p>";
+                console.log("拼接字符串", html);
+                $(".pic").html(html);
+                run();
+            }
+        });
+    })
+
+    function run() {
 
         var imgL = $(".pic img").size();
+        console.log("照片数量为：", imgL)
         var deg = 360 / imgL;
         var roY = 0, roX = -10;
         var xN = 0, yN = 0;
@@ -138,21 +164,7 @@
 
         });
 
-    });
-
-    $.ajax({
-        url: "http://192.168.3.5:9030/photo/detail/1",
-        contentType: "json",
-        success: function (data) {
-            var photos = data.photos;
-            console.log("查询到的信息为:", data, photos);
-            var html = "";
-            $.each(photos, function (index, item) {
-                html += ` <img src="${item.url}" id="${index}"/>`;
-            })
-            $(".pic").html(html);
-        }
-    });
+    };
 </script>
 
 </body>

@@ -94,6 +94,23 @@ public class UserServiceImplTest {
 
     @Test
     public void addPhotos() {
-        List<String> picPath;
+        Album album = albumService.selectAlbumByName("我的开局相册");
+        Integer id = album.getId();
+        File file = new File("C:\\Users\\Lenovo\\Desktop\\毕沙照片");
+        File[] files = file.listFiles();
+        for (File photo : files) {
+
+            Photo currPhoto = new Photo();
+
+            currPhoto.setAlbumid(id);
+            currPhoto.setName(photo.getName());
+            currPhoto.setDescription(photo.getName());
+
+            FileOssServiceImpl image = new FileOssServiceImpl(new OssProperties(), "zhangpei-bisha-blog");
+            String url = image.upload(photo);
+            currPhoto.setUrl(url);
+
+            photoMapper.insertSelective(currPhoto);
+        }
     }
 }
