@@ -20,9 +20,20 @@ public class PermissionConfig implements AuthorizeConfigProvider {
         // 登陆部分都不需要权限
         urlRegistry.antMatchers("/login/**").permitAll();
         photoConfig(urlRegistry);
+        albumConfig(urlRegistry);
+        blogConfig(urlRegistry);
     }
 
     private void photoConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
-        urlRegistry.antMatchers(HttpMethod.GET, "/photo/**","/photo/album/**").permitAll();
+        urlRegistry.antMatchers(HttpMethod.GET, "/photo/**", "/photo/album/**").permitAll();
     }
+
+    private void albumConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
+        urlRegistry.antMatchers(HttpMethod.GET, "/album/**").permitAll();
+    }
+
+    private void blogConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
+        urlRegistry.antMatchers(HttpMethod.GET, "/blog/**").permitAll();
+    }
+
 }

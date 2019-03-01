@@ -1,18 +1,30 @@
 package org.nix.lovedomain.photo.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Album implements Serializable {
+
+    public interface DetailAlbumView {
+    }
+
+    @JsonView(value = DetailAlbumView.class)
     private Integer id;
 
+    @JsonView(value = DetailAlbumView.class)
     private String name;
+
+    @JsonView(value = DetailAlbumView.class)
+    private String description;
 
     /**
      * 封面url
      *
      * @mbggenerated
      */
+    @JsonView(value = DetailAlbumView.class)
     private String coverurl;
 
     /**
@@ -20,6 +32,7 @@ public class Album implements Serializable {
      *
      * @mbggenerated
      */
+    @JsonView(value = DetailAlbumView.class)
     private Integer ownerid;
 
     /**
@@ -27,6 +40,7 @@ public class Album implements Serializable {
      *
      * @mbggenerated
      */
+    @JsonView(value = DetailAlbumView.class)
     private Date createtime;
 
     /**
@@ -34,9 +48,8 @@ public class Album implements Serializable {
      *
      * @mbggenerated
      */
+    @JsonView(value = DetailAlbumView.class)
     private Date updatetime;
-
-    private String description;
 
     private static final long serialVersionUID = 1L;
 
@@ -54,6 +67,14 @@ public class Album implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCoverurl() {
@@ -88,14 +109,6 @@ public class Album implements Serializable {
         this.updatetime = updatetime;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -104,13 +117,14 @@ public class Album implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
+        sb.append(", description=").append(description);
         sb.append(", coverurl=").append(coverurl);
         sb.append(", ownerid=").append(ownerid);
         sb.append(", createtime=").append(createtime);
         sb.append(", updatetime=").append(updatetime);
-        sb.append(", description=").append(description);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
     }
+
 }

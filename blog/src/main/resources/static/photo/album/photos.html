@@ -79,9 +79,28 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
 
+    /**
+     * 页面获取参数方法
+     * @param name
+     * @returns
+     */
+    var LocString = String(window.document.location.href);
+
+    function GetQueryString(name) {
+        var rs = new RegExp("(^|)" + name + "=([^&]*)(&|$)", "gi").exec(LocString), tmp;
+        if (tmp = rs) {
+            return decodeURI(tmp[2]);
+        }
+        // parameter cannot be found
+        return "";
+    }
+
     $(document).ready(function () {
+
+        var id = GetQueryString("albumId");
         $.ajax({
-            url: "http://192.168.3.5:9030/photo/detail/1",
+            url: "/photo/detail/" + 1,
+            type: "get",
             contentType: "json",
             success: function (data) {
                 var photos = data.photos;

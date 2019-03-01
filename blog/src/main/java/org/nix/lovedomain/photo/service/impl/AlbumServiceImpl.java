@@ -55,4 +55,5 @@ public class AlbumServiceImpl implements AlbumService {
         log.info("{}相册名查到的相册为{}", albumName, JSONUtil.toJsonStr(albums));
         throw new ServiceException(albumName + "相册不存在");
     }
+
 }
