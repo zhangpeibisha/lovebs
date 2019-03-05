@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demoauhtorize/demoauhtorize.iml" filepath="$PROJECT_DIR$/demoauhtorize/demoauhtorize.iml" />
+      <module fileurl="file://$PROJECT_DIR$/evaluation/evaluation.iml" filepath="$PROJECT_DIR$/evaluation/evaluation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lovebs.iml" filepath="$PROJECT_DIR$/.idea/lovebs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lovedemo/lovedemo.iml" filepath="$PROJECT_DIR$/lovedemo/lovedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/lovesecurity.iml" filepath="$PROJECT_DIR$/lovesecurity/lovesecurity.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-authorize/lovesecurityauthorize.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-authorize/lovesecurityauthorize.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml" />
       <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lovesecurity/love-security-rbac/lovesecurityrbac.iml" filepath="$PROJECT_DIR$/lovesecurity/love-security-rbac/lovesecurityrbac.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso/sso.iml" filepath="$PROJECT_DIR$/sso/sso.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso/sso-client/ssoclient.iml" filepath="$PROJECT_DIR$/sso/sso-client/ssoclient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso/sso-client-blog/ssoclientblog.iml" filepath="$PROJECT_DIR$/sso/sso-client-blog/ssoclientblog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sso/sso-service/ssoservice.iml" filepath="$PROJECT_DIR$/sso/sso-service/ssoservice.iml" />
     </modules>
   </component>
 </project>
