@@ -30,6 +30,11 @@ public class Resources implements Serializable {
      */
     private Byte permissionall;
 
+    /**
+     * url请求方法，默认为get方法
+     *
+     * @mbggenerated
+     */
     private String method;
 
     private static final long serialVersionUID = 1L;
