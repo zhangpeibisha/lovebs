@@ -8,6 +8,7 @@
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="use" jdbcType="TINYINT" property="use" />
     <result column="permissionAll" jdbcType="TINYINT" property="permissionall" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, url, name, description, use, permissionAll
+    id, url, name, description, use, permissionAll, method
   </sql>
   <select id="selectByExample" parameterType="org.nix.lovedomain.databases.model.ResourcesExample" resultMap="BaseResultMap">
     select
@@ -105,9 +106,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into resources (url, name, description, 
-      use, permissionAll)
+      use, permissionAll, method
+      )
     values (#{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{use,jdbcType=TINYINT}, #{permissionall,jdbcType=TINYINT})
+      #{use,jdbcType=TINYINT}, #{permissionall,jdbcType=TINYINT}, #{method,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.model.Resources">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -130,6 +133,9 @@
       <if test="permissionall != null">
         permissionAll,
       </if>
+      <if test="method != null">
+        method,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="url != null">
@@ -146,6 +152,9 @@
       </if>
       <if test="permissionall != null">
         #{permissionall,jdbcType=TINYINT},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,6 +185,9 @@
       <if test="record.permissionall != null">
         permissionAll = #{record.permissionall,jdbcType=TINYINT},
       </if>
+      <if test="record.method != null">
+        method = #{record.method,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -188,7 +200,8 @@
       name = #{record.name,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       use = #{record.use,jdbcType=TINYINT},
-      permissionAll = #{record.permissionall,jdbcType=TINYINT}
+      permissionAll = #{record.permissionall,jdbcType=TINYINT},
+      method = #{record.method,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -211,6 +224,9 @@
       <if test="permissionall != null">
         permissionAll = #{permissionall,jdbcType=TINYINT},
       </if>
+      <if test="method != null">
+        method = #{method,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -220,7 +236,8 @@
       name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       use = #{use,jdbcType=TINYINT},
-      permissionAll = #{permissionall,jdbcType=TINYINT}
+      permissionAll = #{permissionall,jdbcType=TINYINT},
+      method = #{method,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

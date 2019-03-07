@@ -2,15 +2,19 @@ package org.nix.lovedomain.security;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.databases.model.Account;
+import org.nix.lovedomain.databases.model.Resources;
 import org.nix.lovedomain.service.AccountService;
+import org.nix.lovedomain.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.social.security.SocialUser;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @author zhangpei
@@ -20,14 +24,20 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class UserDetailServiceImpl implements UserDetailsService,SocialUserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService, SocialUserDetailsService {
 
     @Autowired
     private AccountService accountService;
 
+    @Autowired
+    private ResourcesService resourcesService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("用户{}表单登陆",username);
+        log.info("用户{}表单登陆", username);
         return builderUser(username);
     }
 
@@ -36,9 +46,12 @@ public class UserDetailServiceImpl implements UserDetailsService,SocialUserDetai
         return builderUser(username);
     }
 
-    private SocialUser builderUser(String username){
+    private SocialUserDetails builderUser(String username) {
         Account userByAccount = accountService.findUserByAccount(username);
-        return new SocialUser(username,userByAccount.getPassword(),null);
+        // 测试的时候不加密,使用默认加密方式
+        userByAccount.setPassword(passwordEncoder.encode(userByAccount.getPassword()));
+        List<Resources> resourcesByAccount = resourcesService.findResourcesByAccount(username);
+        return new AuthenUserDetail(userByAccount, resourcesByAccount, username);
     }
 
 }

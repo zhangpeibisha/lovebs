@@ -30,6 +30,8 @@ public class Resources implements Serializable {
      */
     private Byte permissionall;
 
+    private String method;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -80,6 +82,14 @@ public class Resources implements Serializable {
         this.permissionall = permissionall;
     }
 
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -92,6 +102,7 @@ public class Resources implements Serializable {
         sb.append(", description=").append(description);
         sb.append(", use=").append(use);
         sb.append(", permissionall=").append(permissionall);
+        sb.append(", method=").append(method);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
