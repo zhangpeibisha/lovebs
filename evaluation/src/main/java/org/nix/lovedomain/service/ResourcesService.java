@@ -98,4 +98,10 @@ public class ResourcesService {
         log.info("用户{}拥有的资源为：{}", account, JSONUtil.toJsonStr(resources));
         return resources;
     }
+
+    public List<Resources> findPermissionAllResources(){
+        ResourcesExample example = new ResourcesExample();
+        example.createCriteria().andPermissionallEqualTo((byte) 1);
+        return resourcesMapper.selectByExample(example);
+    }
 }

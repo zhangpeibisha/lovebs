@@ -1,6 +1,7 @@
 package org.nix.lovedomain.security;
 
 import cn.hutool.json.JSONUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.databases.model.Account;
@@ -20,7 +21,7 @@ public class AuthenUserDetail implements SocialUserDetails {
 
     private List<Resources> resources;
 
-    private final List<GrantedAuthority> grantedAuthorities;
+    private final List<UrlGrantedAuthority> grantedAuthorities;
 
     private String userName;
 
@@ -50,6 +51,7 @@ public class AuthenUserDetail implements SocialUserDetails {
         return account.getPassword();
     }
 
+    @JsonIgnore
     @Override
     public String getUsername() {
         return userName;
