@@ -302,7 +302,7 @@
     <property name="SearchEverywhereHistoryKey" value="ConcuH&#9;PSI&#9;JAVA://java.util.concurrent.ConcurrentHashMap&#10;BasicAuth&#9;PSI&#9;JAVA://org.springframework.security.web.authentication.www.BasicAuthenticationFilter&#10;ConnectController&#9;PSI&#9;JAVA://org.springframework.social.connect.web.ConnectController&#10;QQ&#9;FILE&#9;file://C:/WorkPace/GIT/lovebs/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/QQProperties.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552046960653" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552047041637" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
