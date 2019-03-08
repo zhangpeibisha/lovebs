@@ -2,6 +2,7 @@ package org.nix.lovedomain.security;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +15,12 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2019/3/7
  */
 @Slf4j
-@Component
+@Component(value = "rbacService")
+@Order(value = Integer.MAX_VALUE - 21)
 public class RbacServiceImpl implements RbacService {
 
     @Override
-    public boolean hasPermission(HttpServletRequest request, Authentication authentication) {
+    public boolean hasPermission(HttpServletRequest httpServletRequest, Authentication authentication) {
         Object principal = authentication.getPrincipal();
         if (principal instanceof AuthenUserDetail) {
             log.info("获取用户信息{}", JSONUtil.toJsonStr(principal));
