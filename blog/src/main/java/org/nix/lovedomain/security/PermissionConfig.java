@@ -29,7 +29,9 @@ public class PermissionConfig implements AuthorizeConfigProvider {
     }
 
     private void albumConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
-        urlRegistry.antMatchers(HttpMethod.GET, "/album/**").permitAll();
+        urlRegistry
+                .antMatchers(HttpMethod.POST, "/album").authenticated()
+                .antMatchers(HttpMethod.GET, "/album/**").permitAll();
     }
 
     private void blogConfig(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {

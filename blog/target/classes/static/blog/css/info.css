@@ -1,0 +1,14 @@
+@charset "gb2312";
+.infosbox { overflow: hidden; background: rgba(255,255,255,0.8); margin-bottom: 20px }
+.newsview { padding: 0 30px }
+.news_con a { color: #0e6dad }
+.news_con a:hover { color: #000 }
+.intitle { line-height: 40px; height: 40px; font-size: 14px; ; border-bottom: #000 2px solid; }
+.intitle a { font-weight: normal; }
+.news_title { font-size: 24px; font-weight: normal; padding: 20px 0; color: #333; }
+.bloginfo { width: 100%; overflow: hidden }
+.bloginfo li { float: left; margin-right: 20px }
+.news_about { color: #888888; border: 1px solid #F3F3F3; padding: 10px; margin: 20px auto 15px auto; line-height: 23px; background: none repeat 0 0 #F6F6F6; }
+.news_about strong { color: #38485A; font-weight: 400 !important; font-size: 13px; padding-right: 8px; }
+.news_content { line-height: 24px; font-size: 14px; }
+.news_content p { overflow: hidden; padding-bottom: 4px; padding-top: 6px; word-wrap: break-word; }

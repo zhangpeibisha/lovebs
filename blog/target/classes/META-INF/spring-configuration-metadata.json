@@ -1,0 +1,32 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.nix.lovedomain.oss.OssProperties",
+      "name": "oss.client",
+      "type": "org.nix.lovedomain.oss.OssProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.nix.lovedomain.oss.OssProperties",
+      "defaultValue": "LTAImLa8KD2ODgJk",
+      "name": "oss.client.access-key-id",
+      "description": "阿里云主账号AccessKey拥有所有API的访问权限，风险很高。\n 强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录 https:\/\/ram.console.aliyun.com 创建RAM账号。\n 账户信息",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.oss.OssProperties",
+      "defaultValue": "skRnPiNJC4ZgnzYloVfFfYYmMWr31b",
+      "name": "oss.client.access-key-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.oss.OssProperties",
+      "defaultValue": "http:\/\/oss-cn-beijing.aliyuncs.com",
+      "name": "oss.client.endpoint",
+      "description": "Endpoint默认北京接口",
+      "type": "java.lang.String"
+    }
+  ]
+}

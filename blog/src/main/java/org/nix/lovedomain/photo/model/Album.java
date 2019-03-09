@@ -7,9 +7,6 @@ import java.util.Date;
 
 public class Album implements Serializable {
 
-    public interface DetailAlbumView {
-    }
-
     @JsonView(value = DetailAlbumView.class)
     private Integer id;
 
@@ -127,4 +124,6 @@ public class Album implements Serializable {
         return sb.toString();
     }
 
+    public interface DetailAlbumView {
+    }
 }

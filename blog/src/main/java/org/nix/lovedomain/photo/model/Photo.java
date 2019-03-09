@@ -7,25 +7,19 @@ import java.util.Date;
 
 public class Photo implements Serializable {
 
-    public interface SimplePhotoView {
-    }
-
-    public interface DetailPhotoView {
-    }
-
-    @JsonView(value = DetailPhotoView.class)
+    @JsonView(value = SimplePhotoView.class)
     private Integer id;
 
-    @JsonView(value = DetailPhotoView.class)
+    @JsonView(value = SimplePhotoView.class)
     private String name;
 
     @JsonView(value = DetailPhotoView.class)
     private String description;
 
-    @JsonView(value = DetailPhotoView.class)
+    @JsonView(value = SimplePhotoView.class)
     private String url;
 
-    @JsonView(value = DetailPhotoView.class)
+    @JsonView(value = SimplePhotoView.class)
     private Integer albumid;
 
     @JsonView(value = DetailPhotoView.class)
@@ -110,4 +104,9 @@ public class Photo implements Serializable {
         return sb.toString();
     }
 
+    public interface DetailPhotoView extends SimplePhotoView{
+    }
+
+    public interface SimplePhotoView {
+    }
 }
