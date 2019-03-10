@@ -31,8 +31,8 @@ public class LoveAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
     private SecurityProperties securityProperties;
 
     /**
-     * @param request 用户请求
-     * @param response 用户响应
+     * @param request        用户请求
+     * @param response       用户响应
      * @param authentication 用户权限信息
      * @return void
      * @description 认证成功过后处理用户下一步页面
@@ -45,10 +45,13 @@ public class LoveAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
 
         log.info("登录成功");
         if (LoginResponseType.JSON.equals(securityProperties.getBrowser().getLoginType())) {
+            log.info("json登陆");
             response.setContentType("application/json;charset=UTF-8");
             response.getWriter().write(objectMapper.writeValueAsString(authentication));
         } else {
-            super.onAuthenticationSuccess(request, response, authentication);
+            log.info("跳转类型登陆");
+            response.sendRedirect(securityProperties.getBrowser().getLoginSuccessPage());
+//            super.onAuthenticationSuccess(request, response, authentication);
         }
     }
 

@@ -30,7 +30,9 @@ public class AbstractChannelSecurityConfig extends WebSecurityConfigurerAdapter 
      */
     protected void applyPasswordAuthenticationConfig(HttpSecurity http) throws Exception {
         http.formLogin()
+                // 自定义登录页url,默认为/login
                 .loginPage(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
+                // 登录请求拦截的url,也就是form表单提交时指定的action
                 .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)
                 .successHandler(loveAuthenticationSuccessHandler)
                 .failureHandler(loveAuthenticationFailureHandler);

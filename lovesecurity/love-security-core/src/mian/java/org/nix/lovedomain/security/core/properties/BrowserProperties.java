@@ -41,4 +41,9 @@ public class BrowserProperties {
      * session配置
      */
     private SessionProperties session = new SessionProperties();
+    /**
+     * 登陆成功跳转的页面
+     */
+    private String loginSuccessPage = SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM;
+
 }

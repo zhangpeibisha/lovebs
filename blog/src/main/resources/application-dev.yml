@@ -2,3 +2,5 @@ love:
   security:
     browser:
       loginPage: /login/index.html
+      loginSuccessPage: /blog/share.html
+      loginType: REDIRECT
