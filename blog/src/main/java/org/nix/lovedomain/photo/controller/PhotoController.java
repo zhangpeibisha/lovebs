@@ -60,7 +60,7 @@ public class PhotoController {
     }
 
     @ApiOperation(value = "批量添加照片进入指定相册中")
-    @PostMapping(value = "/{album}", headers = "multipart/form-data")
+    @PostMapping(value = "/{album}/list")
     public WebAsyncTask addPhotos(MultipartFile[] files, @PathVariable(value = "album") Integer album) throws IOException {
         SpringMvcOssServiceImpl springMvcOssService = new SpringMvcOssServiceImpl(ossProperties);
         Album exitAlbum = albumMapper.selectByPrimaryKey(album);
