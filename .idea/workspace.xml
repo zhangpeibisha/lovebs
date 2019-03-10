@@ -7,16 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TIM图片20190309214815.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/blog/target/classes/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/target/classes/static/login/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/target/classes/static/login/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/target/classes/static/login/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/target/classes/static/login/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/log/testLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/doc/log/testLog.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/BlogAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -54,8 +47,8 @@
       <file leaf-file-name="BrowserSecurityConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+            <state relative-caret-position="204">
+              <caret line="88" column="7" lean-forward="true" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -69,11 +62,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoveAuthenticationSuccessHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoveAuthenticationSuccessHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="52" column="89" selection-start-line="52" selection-start-column="89" selection-end-line="52" selection-end-column="89" />
+            <state relative-caret-position="138">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlogAuthenticationSuccessHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/BlogAuthenticationSuccessHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhotoController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/PhotoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="87" selection-start-line="87" selection-end-line="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,8 +134,8 @@
       <file leaf-file-name="LoginResponseType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/LoginResponseType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="12" />
+            <state relative-caret-position="136">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -176,7 +193,10 @@
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java" />
         <option value="$PROJECT_DIR$/blog/src/main/resources/application-dev.yml" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/Blog.java" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/BlogAuthenticationSuccessHandler.java" />
       </list>
     </option>
   </component>
@@ -302,7 +322,7 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="photo" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -314,35 +334,8 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="photo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="authentication" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -656,14 +649,7 @@
       <workItem from="1551076631460" duration="594000" />
       <workItem from="1551158249517" duration="43699000" />
       <workItem from="1551401958984" duration="17118000" />
-      <workItem from="1552178108658" duration="5110000" />
-    </task>
-    <task id="LOCAL-00014" summary="注释第三方登陆后跳转到指定的注册页面中的解释">
-      <created>1548992951804</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1548992951804</updated>
+      <workItem from="1552178108658" duration="5791000" />
     </task>
     <task id="LOCAL-00015" summary="注释第三方登陆后跳转到指定的注册页面中的解释">
       <created>1548993204592</created>
@@ -1001,7 +987,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552178506663</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="暂时确定重定向位置为指定的相册页面，后续完善的时候在修改具体逻辑。重定向位置为成功处理器那里处理">
+      <created>1552183539722</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1552183539722</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1037,7 +1030,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18907000" />
+    <option name="totallyTimeSpent" value="19588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1286" height="784" extended-state="6" />
@@ -1061,10 +1054,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.20611916" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29951692" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18196458" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.36231884" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.21859707" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.27895597" />
       <window_info anchor="right" id="Bean Validation" order="5" weight="0.32980332" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -1089,7 +1082,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成自定义授权页面" />
     <MESSAGE value="抽象权限控制，可以实现 AuthorizeConfigProvider.java接口并注入到spring中后就可以配置静态权限" />
     <MESSAGE value="提交权限模块自定义权限表达式使用" />
     <MESSAGE value="提交权限模块自定义权限表达式使用,添加自定义错误页面" />
@@ -1114,7 +1106,8 @@
     <MESSAGE value="相册功能接入博客信息" />
     <MESSAGE value="修复照片bug" />
     <MESSAGE value="修改html题目" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改html题目" />
+    <MESSAGE value="暂时确定重定向位置为指定的相册页面，后续完善的时候在修改具体逻辑。重定向位置为成功处理器那里处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="暂时确定重定向位置为指定的相册页面，后续完善的时候在修改具体逻辑。重定向位置为成功处理器那里处理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1127,7 +1120,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/blog/src/main/java/META-INF/MANIFEST.MF" />
     <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
@@ -1370,16 +1362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/PhotoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="91" column="29" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TIM图片20190310091524.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1415,13 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1467,13 +1442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/LoginResponseType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/src/main/resources/application-dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1481,10 +1449,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/PhotoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="87" selection-start-line="87" selection-end-line="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="88" column="7" lean-forward="true" selection-start-line="88" selection-start-column="7" selection-end-line="88" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/LoginResponseType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="52" column="89" selection-start-line="52" selection-start-column="89" selection-end-line="52" selection-end-column="89" />
+        <state relative-caret-position="138">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/BlogAuthenticationSuccessHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

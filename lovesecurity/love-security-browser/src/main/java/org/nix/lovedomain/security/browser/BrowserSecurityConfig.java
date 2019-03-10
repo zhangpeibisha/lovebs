@@ -20,6 +20,7 @@ import org.springframework.security.web.session.InvalidSessionStrategy;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 import org.springframework.social.security.SpringSocialConfigurer;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
@@ -82,7 +83,7 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
      * 配置默认的退出处理器
      * @see BrowserSecurityBeanConfig
      */
-    @Autowired
+    @Resource
     private LogoutSuccessHandler loveLogoutSuccessHandler;
 
     /**

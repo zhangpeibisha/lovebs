@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.core.properties.LoginResponseType;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -22,13 +23,14 @@ import java.io.IOException;
  */
 @Slf4j
 @Component("loveAuthenticationSuccessHandler")
+@ConditionalOnMissingBean(value = SavedRequestAwareAuthenticationSuccessHandler.class)
 public class LoveAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
     @Autowired
-    private ObjectMapper objectMapper;
+    protected ObjectMapper objectMapper;
 
     @Autowired
-    private SecurityProperties securityProperties;
+    protected SecurityProperties securityProperties;
 
     /**
      * @param request        用户请求
@@ -45,14 +47,22 @@ public class LoveAuthenticationSuccessHandler extends SavedRequestAwareAuthentic
 
         log.info("登录成功");
         if (LoginResponseType.JSON.equals(securityProperties.getBrowser().getLoginType())) {
-            log.info("json登陆");
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write(objectMapper.writeValueAsString(authentication));
+            json(response,authentication);
         } else {
-            log.info("跳转类型登陆");
-            response.sendRedirect(securityProperties.getBrowser().getLoginSuccessPage());
-//            super.onAuthenticationSuccess(request, response, authentication);
+            redirect(request,response,authentication);
         }
+    }
+
+    protected void json(HttpServletResponse response,
+                      Authentication authentication) throws IOException {
+        log.info("json登陆");
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().write(objectMapper.writeValueAsString(authentication));
+    }
+
+    protected void redirect(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
+        log.info("跳转类型登陆");
+        super.onAuthenticationSuccess(request, response, authentication);
     }
 
 }
