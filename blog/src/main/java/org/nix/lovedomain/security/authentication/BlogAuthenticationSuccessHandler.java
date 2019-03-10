@@ -2,6 +2,8 @@ package org.nix.lovedomain.security.authentication;
 
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.browser.authentication.LoveAuthenticationSuccessHandler;
+import org.nix.lovedomain.security.core.properties.SecurityProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +21,9 @@ import java.io.IOException;
 @Slf4j
 @Component
 public class BlogAuthenticationSuccessHandler extends LoveAuthenticationSuccessHandler {
+
+    @Autowired
+    protected SecurityProperties securityProperties;
 
     @Override
     protected void redirect(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {

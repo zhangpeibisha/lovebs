@@ -1,5 +1,6 @@
 package org.nix.lovedomain.security.browser;
 
+import org.nix.lovedomain.security.browser.authentication.LoveAuthenticationSuccessHandler;
 import org.nix.lovedomain.security.browser.logout.LoveLogoutSuccessHandler;
 import org.nix.lovedomain.security.browser.session.LoveExpiredSessionStrategy;
 import org.nix.lovedomain.security.browser.session.LoveInvalidSessionStrategy;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.session.InvalidSessionStrategy;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
@@ -59,5 +61,11 @@ public class BrowserSecurityBeanConfig {
     @ConditionalOnMissingBean(LogoutSuccessHandler.class)
     public LogoutSuccessHandler loveLogoutSuccessHandler() {
         return new LoveLogoutSuccessHandler(securityProperties.getBrowser().getLogoutPage());
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(SavedRequestAwareAuthenticationSuccessHandler.class)
+    public SavedRequestAwareAuthenticationSuccessHandler authenticationSuccessHandler(){
+        return new LoveAuthenticationSuccessHandler();
     }
 }

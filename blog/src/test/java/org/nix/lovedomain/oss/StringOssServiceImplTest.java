@@ -1,15 +1,13 @@
 package org.nix.lovedomain.oss;
 
-import org.junit.Before;
-
 public class StringOssServiceImplTest {
 
-    private StringOssServiceImpl stringOssService;
-
-    @Before
-    public void before(){
-        stringOssService = new StringOssServiceImpl(new OssProperties(),"zhangpei-bisha-blog");
-    }
+//    private StringOssServiceImpl stringOssService;
+//
+//    @Before
+//    public void before(){
+//        stringOssService = new StringOssServiceImpl(new OssProperties(),"zhangpei-bisha-blog");
+//    }
 
 //    @Test
 //    public void upload(){

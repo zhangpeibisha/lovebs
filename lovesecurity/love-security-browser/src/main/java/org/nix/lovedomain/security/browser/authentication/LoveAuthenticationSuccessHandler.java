@@ -5,10 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.core.properties.LoginResponseType;
 import org.nix.lovedomain.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,15 +20,13 @@ import java.io.IOException;
  * @date 2019/1/27
  */
 @Slf4j
-@Component("loveAuthenticationSuccessHandler")
-@ConditionalOnMissingBean(value = SavedRequestAwareAuthenticationSuccessHandler.class)
 public class LoveAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
     @Autowired
     protected ObjectMapper objectMapper;
 
     @Autowired
-    protected SecurityProperties securityProperties;
+    private SecurityProperties securityProperties;
 
     /**
      * @param request        用户请求

@@ -1,15 +1,13 @@
 package org.nix.lovedomain.oss;
 
-import org.junit.Before;
-
 public class FileOssServiceImplTest {
 
-    private FileOssServiceImpl fileOssService;
-
-    @Before
-    public void setUp() throws Exception {
-        fileOssService = new FileOssServiceImpl(new OssProperties(), "zhangpei-bisha-blog");
-    }
+//    private FileOssServiceImpl fileOssService;
+//
+//    @Before
+//    public void setUp() throws Exception {
+//        fileOssService = new FileOssServiceImpl(new OssProperties(), "zhangpei-bisha-blog");
+//    }
 
 //    @Test
 //    public void upload() {
