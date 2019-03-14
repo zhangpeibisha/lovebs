@@ -3,14 +3,16 @@ package org.nix.lovedomain.security;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.databases.model.Resources;
+import org.nix.lovedomain.security.url.PermissionUrlConfig;
 import org.nix.lovedomain.service.ResourcesService;
-import org.springframework.core.annotation.Order;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +23,6 @@ import java.util.List;
  */
 @Slf4j
 @Component(value = "rbacService")
-@Order(value = Integer.MAX_VALUE - 21)
 public class RbacServiceImpl implements RbacService {
 
     @Resource
@@ -30,6 +31,9 @@ public class RbacServiceImpl implements RbacService {
      * 这是不需要鉴权的路径缓存
      */
     private volatile List<Resources> permissionAllCache;
+
+    @Autowired(required = false)
+    private List<PermissionUrlConfig> permissionUrlConfigs;
 
     /**
      * 路径匹配工具
@@ -48,7 +52,11 @@ public class RbacServiceImpl implements RbacService {
     private void loadPermissionAllUrl() {
         if (permissionAllCache == null) {
             synchronized (this) {
-                permissionAllCache = resourcesService.findPermissionAllResources();
+                permissionAllCache = new ArrayList<>();
+                if (permissionUrlConfigs != null) {
+                    permissionUrlConfigs.forEach(permissionUrlConfig -> permissionUrlConfig.config(permissionAllCache));
+                }
+                permissionAllCache.addAll(resourcesService.findPermissionAllResources());
             }
         }
     }
@@ -57,12 +65,13 @@ public class RbacServiceImpl implements RbacService {
         String requestURI = request.getRequestURI();
         String method = request.getMethod();
         for (Resources next : permissionAllCache) {
-            if (antPathMatcher.match(requestURI, next.getUrl())) {
+            if (antPathMatcher.match(next.getUrl(), requestURI)) {
                 String resourceMethod = next.getMethod();
                 if (resourceMethod == null) {
                     return true;
                 }
-                return resourceMethod.equals(method);
+                return resourceMethod.toUpperCase()
+                        .equals(method.toUpperCase());
             }
         }
         return false;
@@ -76,17 +85,27 @@ public class RbacServiceImpl implements RbacService {
             log.info("获取用户信息{}", JSONUtil.toJsonStr(principal));
             List<UrlGrantedAuthority> grantedAuthorities = ((AuthenUserDetail) principal).getGrantedAuthorities();
             for (UrlGrantedAuthority next : grantedAuthorities) {
-                if (antPathMatcher.match(requestURI, next.getUrl())) {
+                if (antPathMatcher.match(next.getUrl(), requestURI)) {
                     String resourceMethod = next.getHttpMethod();
                     if (resourceMethod == null) {
                         return true;
                     }
-                    return resourceMethod.equals(method);
+                    return resourceMethod.toUpperCase()
+                            .equals(method.toUpperCase());
                 }
             }
             return false;
         }
         log.info("不是指定类型的用户{},class={}", JSONUtil.toJsonStr(principal), principal.getClass());
         return false;
+    }
+
+
+    public static void main(String[] args) {
+        AntPathMatcher antPathMatcher = new AntPathMatcher();
+        boolean match = antPathMatcher.match("/login/**", "/login/png");
+        System.out.println(match);
+        match = antPathMatcher.match("/login/png", "/login/**");
+        System.out.println(match);
     }
 }

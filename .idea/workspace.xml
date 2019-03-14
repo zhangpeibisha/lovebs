@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="自定义权限功能基础完成">
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/error/403.html" afterDir="false" />
+    <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lovebs_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/love_security_browser_1_0_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b2_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b3_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/qq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/wb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/wx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/ResourcesExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/ResourcesExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/AuthenUserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/AuthenUserDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/evaluation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/org/nix/lovedomain/databases/mapper/ResourcesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/target/classes/org/nix/lovedomain/databases/mapper/ResourcesMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/love-banding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/love-signIn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/love-signUp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/META-INF/evaluation.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/static/love-banding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/static/love-signIn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/static/love-signUp.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
-    <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
-    <ignored path="$PROJECT_DIR$/lovedemo/target/" />
-    <ignored path="$PROJECT_DIR$/lovesecurity/love-security-browser/target/" />
-    <ignored path="$PROJECT_DIR$/lovesecurity/love-security-app/target/" />
-    <ignored path="$PROJECT_DIR$/sso/target/" />
-    <ignored path="$PROJECT_DIR$/sso/sso-service/target/" />
-    <ignored path="$PROJECT_DIR$/sso/sso-client/target/" />
-    <ignored path="$PROJECT_DIR$/sso/sso-client-blog/target/" />
-    <ignored path="$PROJECT_DIR$/authorize/target/" />
-    <ignored path="$PROJECT_DIR$/lovesecurity/authorize/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
+    <ignored path="$PROJECT_DIR$/lovesecurity/love-security-core/target/" />
+    <ignored path="$PROJECT_DIR$/lovesecurity/love-security-app/target/" />
+    <ignored path="$PROJECT_DIR$/lovesecurity/love-security-browser/target/" />
+    <ignored path="$PROJECT_DIR$/blog/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-rbac/target/" />
-    <ignored path="$PROJECT_DIR$/demoauhtorize/target/" />
     <ignored path="$PROJECT_DIR$/evaluation/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,15 +54,115 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/AuthenUserDetail.java">
+    <leaf>
+      <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state relative-caret-position="254">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#484#485#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UrlGrantedAuthority.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#515#516#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvaluationAuthorizeConfigProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="15" column="119" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDetailServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UserDetailServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RbacServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultPermissionUrlConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PermissionUrlConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecurityProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrowserProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="26" column="28" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -56,9 +174,9 @@
       <list>
         <option value="Enum" />
         <option value="JUnit4 Test Class" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -81,66 +199,67 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="blog-develop" />
+      </map>
+    </option>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../spring5.0" value="PREVIEW" />
+        <entry key="C:/资料文件夹/工作学习/Java/学习资料/spring-framework-5.0.0.M3" value="PREVIEW" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/TreePath.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/ResourceProperties.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-core/pom.xml" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/pom.xml" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/PermissionProperties.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/core/extractor/DefaultResourcesExtractor.java" />
-        <option value="$PROJECT_DIR$/demoauhtorize/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/core/extractor/ResourcesExtractorExecutor.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/SpringMvcExtractor.java" />
-        <option value="$PROJECT_DIR$/demoauhtorize/src/main/java/org/nix/lovedomain/security/DemoAuthorizeConfigProvider.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/CoreController.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/RoleController.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/PermissionController.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/web/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/core/extractor/PermissionResource.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/core/extractor/Resources.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/bean/po/Permisson.java" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/resources/mapper/PermissonMapper.xml" />
-        <option value="$PROJECT_DIR$/lovesecurity/love-security-rbac/src/main/java/org/nix/lovedomain/rbac/util/auth/AutomaticPermissionConfig.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/db/CommentGenerator.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/db/Generator.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/generator.properties" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/generatorConfig.xml" />
-        <option value="$PROJECT_DIR$/evaluation/pom.xml" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ServiceException.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/resources/static/photo/album/photos.html" />
+        <option value="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/lovesecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/service/impl/UserServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/photo/mapper/UserMapperTest.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/utils/dwz/BaiduDwz.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/PermissionConfig.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/oss/SpringMvcOssServiceImpl.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/BlogApplication.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/async/WebAsync.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/ControllerException.java" />
+        <option value="$PROJECT_DIR$/blog/pom.xml" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/config/SwaggerConfig.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/AlbumController.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/model/Album.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/model/Photo.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/utils/db/Generator.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/resources/static/login/index.html" />
+        <option value="$PROJECT_DIR$/blog/src/main/resources/static/login/register.html" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityController.java" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlFilterInvocationSecurityMetadataSource.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlConfigAttribute.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlMatchVoter.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/login.html" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/AachenUserDetail.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UserDetailServiceImpl.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/RoleService.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlFilterSecurityInterceptor.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacService.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/Blog.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/PhotoController.java" />
+        <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/oss/StringOssServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/blog/src/test/java/org/nix/lovedomain/oss/FileOssServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java" />
+        <option value="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityBeanConfig.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/authentication/BlogAuthenticationSuccessHandler.java" />
+        <option value="$PROJECT_DIR$/blog/src/main/resources/static/test.html" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/ResourcesExample.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/databases/mapper/ResourcesMapper.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/error/403.html" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/AuthenUserDetail.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -154,16 +273,23 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="love-security-rbac" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="evaluation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="love-security-rbac" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="evaluation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="love-security" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
       </expand>
       <select />
     </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="184" />
@@ -179,8 +305,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,7 +391,8 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="url" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -285,10 +411,22 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,7 +445,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/evaluation/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -335,11 +473,11 @@
       <recent name="org.nix.lovedomain.security.core.properties" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources\static" />
       <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources" />
       <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-rbac\src\main\java\org\nix\lovedomain\rbac\util\auth" />
       <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain\a" />
       <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain\security" />
-      <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.nix.lovedomain.security" />
@@ -361,9 +499,9 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.EvaluationApplication">
-    <configuration default="true" type="Applet">
+    <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -377,23 +515,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.DemoApplication" />
-      <module name="demoauhtorize" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.yufu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.utils.db.Generator" />
@@ -405,9 +526,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    </configuration>
+    <configuration name="RbacServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.security.RbacServiceImpl" />
+      <module name="evaluation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.nix.lovedomain.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.yufu.Test" />
@@ -419,13 +548,10 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -437,55 +563,83 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="org.nix.lovedomain.yufu" />
       <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.yufu.Test" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="EvaluationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="evaluation" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.nix.lovedomain.EvaluationApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
-    <configuration default="true" type="TestNG">
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.DemoApplication" />
+      <item itemvalue="Spring Boot.EvaluationApplication" />
       <item itemvalue="Application.Test" />
       <item itemvalue="Application.Code" />
       <item itemvalue="Application.Generator" />
       <item itemvalue="JUnit.Test.test" />
-      <item itemvalue="Spring Boot.EvaluationApplication" />
+      <item itemvalue="Application.RbacServiceImpl" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Generator" />
-        <item itemvalue="Application.DemoApplication" />
-        <item itemvalue="Application.Code" />
+        <item itemvalue="Application.RbacServiceImpl" />
         <item itemvalue="JUnit.Test.test" />
+        <item itemvalue="Application.Generator" />
+        <item itemvalue="Application.Code" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -526,130 +680,15 @@
       <workItem from="1550661299916" duration="13003000" />
       <workItem from="1550711153587" duration="16161000" />
       <workItem from="1550814520607" duration="1736000" />
-      <workItem from="1550979664969" duration="6885000" />
-      <workItem from="1551748403664" duration="983000" />
-      <workItem from="1551794004054" duration="3373000" />
-      <workItem from="1551883249071" duration="932000" />
-      <workItem from="1552043578569" duration="3327000" />
-    </task>
-    <task id="LOCAL-00001" summary="图片验证码生成完成">
-      <created>1548571903411</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1548571903411</updated>
-    </task>
-    <task id="LOCAL-00002" summary="配置开发模块测试项目">
-      <created>1548571943839</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1548571943839</updated>
-    </task>
-    <task id="LOCAL-00003" summary="图片验证码生成成功">
-      <created>1548579075944</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1548579075944</updated>
-    </task>
-    <task id="LOCAL-00004" summary="配置日志打印数据">
-      <created>1548579270963</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1548579270963</updated>
-    </task>
-    <task id="LOCAL-00005" summary="生成图片异常">
-      <created>1548584010963</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1548584010963</updated>
-    </task>
-    <task id="LOCAL-00006" summary="修复图片显示异常Bug">
-      <created>1548677947302</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1548677947302</updated>
-    </task>
-    <task id="LOCAL-00007" summary="图片验证码使用成功，记住我功能使用成功">
-      <created>1548680139404</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1548680139404</updated>
-    </task>
-    <task id="LOCAL-00008" summary="配置好短信验证码发送，和当用户没有权限的时候的跳转处理方式">
-      <created>1548683650805</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1548683650805</updated>
-    </task>
-    <task id="LOCAL-00009" summary="短信验证码验证成功">
-      <created>1548873497673</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1548873497673</updated>
-    </task>
-    <task id="LOCAL-00010" summary="QQ授权操作完成">
-      <created>1548953917375</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1548953917375</updated>
-    </task>
-    <task id="LOCAL-00011" summary="QQ第三方应用配置QQ互联申请的appId和密码还有回调域">
-      <created>1548955714083</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1548955714084</updated>
-    </task>
-    <task id="LOCAL-00012" summary="QQ授权完成">
-      <created>1548991721400</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1548991721400</updated>
-    </task>
-    <task id="LOCAL-00013" summary="提交80端口占用问题解决">
-      <created>1548991818962</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1548991818962</updated>
-    </task>
-    <task id="LOCAL-00014" summary="注释第三方登陆后跳转到指定的注册页面中的解释">
-      <created>1548992951804</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1548992951804</updated>
-    </task>
-    <task id="LOCAL-00015" summary="注释第三方登陆后跳转到指定的注册页面中的解释">
-      <created>1548993204592</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1548993204592</updated>
-    </task>
-    <task id="LOCAL-00016" summary="完成了用户的第三方登陆注册操作">
-      <created>1548994933376</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1548994933376</updated>
-    </task>
-    <task id="LOCAL-00017" summary="微信登陆授权完成">
-      <created>1549010388159</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1549010388159</updated>
+      <workItem from="1550979664969" duration="7444000" />
+      <workItem from="1551019132342" duration="1377000" />
+      <workItem from="1551060584588" duration="5463000" />
+      <workItem from="1551076631460" duration="594000" />
+      <workItem from="1551158249517" duration="43699000" />
+      <workItem from="1551401958984" duration="17118000" />
+      <workItem from="1552178108658" duration="8270000" />
+      <workItem from="1552486829658" duration="669000" />
+      <workItem from="1552572014980" duration="3793000" />
     </task>
     <task id="LOCAL-00018" summary="session配置完成，解决了图片序列化的bug。{@link ValidateCode} {@link ImageValidateCode}">
       <created>1549034685675</created>
@@ -847,14 +886,154 @@
       <option name="project" value="LOCAL" />
       <updated>1550759801513</updated>
     </task>
-    <task id="LOCAL-00046" summary="自定义权限功能基础完成">
-      <created>1552023680252</created>
+    <task id="LOCAL-00046" summary="自动注入资源信息到数据库中完成">
+      <created>1550997545420</created>
       <option name="number" value="00046" />
       <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1552023680252</updated>
+      <updated>1550997545420</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="数据库配置完成">
+      <created>1551066110889</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1551066110889</updated>
+    </task>
+    <task id="LOCAL-00048" summary="数据库配置完成">
+      <created>1551066188348</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1551066188348</updated>
+    </task>
+    <task id="LOCAL-00049" summary="数据库配置完成">
+      <created>1551066577513</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1551066577513</updated>
+    </task>
+    <task id="LOCAL-00050" summary="登陆配置完成">
+      <created>1551189535916</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1551189535917</updated>
+    </task>
+    <task id="LOCAL-00051" summary="配置oss完成">
+      <created>1551344852188</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1551344852188</updated>
+    </task>
+    <task id="LOCAL-00052" summary="配置oss完成-修改部分不合理的地方：目前状态全部完成">
+      <created>1551346204420</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1551346204420</updated>
+    </task>
+    <task id="LOCAL-00053" summary="添加百度短网址服务到应用中">
+      <created>1551350262127</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1551350262128</updated>
+    </task>
+    <task id="LOCAL-00054" summary="保存相册服务完成">
+      <created>1551359700114</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1551359700114</updated>
+    </task>
+    <task id="LOCAL-00055" summary="添加部分业务需求">
+      <created>1551361117854</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1551361117855</updated>
+    </task>
+    <task id="LOCAL-00056" summary="获取照片信息成功">
+      <created>1551362792737</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1551362792737</updated>
+    </task>
+    <task id="LOCAL-00057" summary="显示一个相册的图片完成">
+      <created>1551364407965</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1551364407966</updated>
+    </task>
+    <task id="LOCAL-00058" summary="添加图片的批量添加服务">
+      <created>1551364721845</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1551364721845</updated>
+    </task>
+    <task id="LOCAL-00059" summary="相册展示功能完成">
+      <created>1551404690790</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1551404690791</updated>
+    </task>
+    <task id="LOCAL-00060" summary="相册功能接入博客信息">
+      <created>1551411790084</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1551411790084</updated>
+    </task>
+    <task id="LOCAL-00061" summary="修复照片bug">
+      <created>1551414278028</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1551414278028</updated>
+    </task>
+    <task id="LOCAL-00062" summary="修改html题目">
+      <created>1552178506663</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1552178506663</updated>
+    </task>
+    <task id="LOCAL-00063" summary="暂时确定重定向位置为指定的相册页面，后续完善的时候在修改具体逻辑。重定向位置为成功处理器那里处理">
+      <created>1552183539722</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1552183539722</updated>
+    </task>
+    <task id="LOCAL-00064" summary="提交临时跳转功能，由于博客未完善，因此只能登陆指定页面">
+      <created>1552184212011</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1552184212011</updated>
+    </task>
+    <task id="LOCAL-00065" summary="修改图片上传路径">
+      <created>1552184374813</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1552184374814</updated>
+    </task>
+    <task id="LOCAL-00066" summary="修改登陆成功处理器">
+      <created>1552186212306</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1552186212307</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -890,91 +1069,142 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203067000" />
+    <option name="totallyTimeSpent" value="26529000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1286" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.26119402" />
-      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.17781404" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32952693" />
+      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.44927537" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.2190016" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.20611916" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40257648" />
+      <window_info anchor="bottom" id="Spring" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.36231884" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.09380098" />
+      <window_info anchor="right" id="Bean Validation" order="5" weight="0.32980332" />
+      <window_info id="Web" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23861171" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34164858" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26086956" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Json Parser" order="6" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.26119402" />
+      <window_info anchor="bottom" id="Spring" order="14" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.35582328" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26086956" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.2190016" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Spring" order="14" />
-      <window_info anchor="bottom" id="Java Enterprise" order="15" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Json Parser" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.35582328" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34164858" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加 love-security-app 项目 ==&gt; 成功启动依赖于app项目的demo项目" />
-    <MESSAGE value="完成了资源服务器和认证服务器配置 ===&gt; 默认配置" />
-    <MESSAGE value="自定义登陆授权系统，获取token和通过token获取用户信息完成" />
-    <MESSAGE value="添加验证码进入app模块" />
-    <MESSAGE value="验证码请求重构完成" />
-    <MESSAGE value="app社交登陆，浏览器配置bug修改" />
-    <MESSAGE value="重构社交登陆" />
-    <MESSAGE value="app配置社交登陆" />
-    <MESSAGE value="权限令牌配置完成" />
-    <MESSAGE value="jwt配置完成" />
-    <MESSAGE value="获取用户信息完成" />
-    <MESSAGE value="添加单点登陆服务器" />
-    <MESSAGE value="提交sso单点登陆demo" />
-    <MESSAGE value="完成sso表单登陆和用户自定义信息查询和密码器" />
-    <MESSAGE value="完成自定义授权页面" />
-    <MESSAGE value="抽象权限控制，可以实现 AuthorizeConfigProvider.java接口并注入到spring中后就可以配置静态权限" />
-    <MESSAGE value="提交权限模块自定义权限表达式使用" />
-    <MESSAGE value="提交权限模块自定义权限表达式使用,添加自定义错误页面" />
     <MESSAGE value="新增readme文件" />
     <MESSAGE value="权限系统接入RBAC模型权限控制" />
     <MESSAGE value="接入rbac权限控制系统，且登陆成功" />
     <MESSAGE value="更新jar包依赖" />
     <MESSAGE value="自动扫描资源信息完成" />
     <MESSAGE value="增加自动装配权限功能" />
-    <MESSAGE value="自定义权限功能基础完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="自定义权限功能基础完成" />
+    <MESSAGE value="自动注入资源信息到数据库中完成" />
+    <MESSAGE value="数据库配置完成" />
+    <MESSAGE value="登陆配置完成" />
+    <MESSAGE value="配置oss完成" />
+    <MESSAGE value="配置oss完成-修改部分不合理的地方：目前状态全部完成" />
+    <MESSAGE value="添加百度短网址服务到应用中" />
+    <MESSAGE value="保存相册服务完成" />
+    <MESSAGE value="添加部分业务需求" />
+    <MESSAGE value="获取照片信息成功" />
+    <MESSAGE value="显示一个相册的图片完成" />
+    <MESSAGE value="添加图片的批量添加服务" />
+    <MESSAGE value="相册展示功能完成" />
+    <MESSAGE value="相册功能接入博客信息" />
+    <MESSAGE value="修复照片bug" />
+    <MESSAGE value="修改html题目" />
+    <MESSAGE value="暂时确定重定向位置为指定的相册页面，后续完善的时候在修改具体逻辑。重定向位置为成功处理器那里处理" />
+    <MESSAGE value="提交临时跳转功能，由于博客未完善，因此只能登陆指定页面" />
+    <MESSAGE value="修改图片上传路径" />
+    <MESSAGE value="修改登陆成功处理器" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改登陆成功处理器" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="nodeValues[index]" language="JAVA" />
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="antPathMatcher.match(requestURI, next.getUrl())" language="JAVA" />
+        <watch expression="resourceMethod.toUpperCase()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>resourceMethod.toUpperCase()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>antPathMatcher.match(requestURI, next.getUrl())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>nodeValues[index]</expression-string>
         <language-id>JAVA</language-id>
@@ -983,53 +1213,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/login.html" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/RoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlFilterSecurityInterceptor.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/SecurityConfig.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UserDetailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.2.3.RELEASE/spring-security-config-4.2.3.RELEASE.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="120" column="26" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
-          <folding>
-            <element signature="e#6404#6405#0" expanded="true" />
-            <element signature="e#6462#6463#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1037,9 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1047,20 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
@@ -1095,18 +1265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/AuthorizeConfigProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1118,20 +1276,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding>
-            <element signature="e#1356#1357#0" expanded="true" />
-            <element signature="e#1412#1413#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,20 +1335,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE-sources.jar!/org/springframework/security/web/access/expression/WebSecurityExpressionRoot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE-sources.jar!/org/springframework/security/web/access/expression/DefaultWebSecurityExpressionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE-sources.jar!/org/springframework/security/web/access/expression/WebSecurityExpressionRoot.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE-sources.jar!/org/springframework/security/web/access/expression/DefaultWebSecurityExpressionHandler.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/2.0.14.RELEASE/spring-security-oauth2-2.0.14.RELEASE.jar!/org/springframework/security/oauth2/provider/expression/OAuth2WebSecurityExpressionHandler.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1212,34 +1344,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/GrantedAuthority.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
-          <folding>
-            <element signature="e#2688#2689#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/GrantedAuthority.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.java" />
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1272,10 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="77" selection-start-line="77" selection-end-line="77" />
-          <folding>
-            <element signature="e#3931#3932#0" expanded="true" />
-            <element signature="e#4013#4014#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1304,10 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#2888#2889#0" expanded="true" />
-            <element signature="e#2922#2923#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1315,21 +1413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#1008#1009#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1117">
-          <caret line="86" column="25" lean-forward="true" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1358,6 +1441,119 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UserDetailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="15" column="119" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
