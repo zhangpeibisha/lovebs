@@ -99,13 +99,4 @@ public class RbacServiceImpl implements RbacService {
         log.info("不是指定类型的用户{},class={}", JSONUtil.toJsonStr(principal), principal.getClass());
         return false;
     }
-
-
-    public static void main(String[] args) {
-        AntPathMatcher antPathMatcher = new AntPathMatcher();
-        boolean match = antPathMatcher.match("/login/**", "/login/png");
-        System.out.println(match);
-        match = antPathMatcher.match("/login/png", "/login/**");
-        System.out.println(match);
-    }
 }
