@@ -1,12 +1,10 @@
 package org.nix.lovedomain.databases.rbac;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Builder;
 
 import java.io.Serializable;
 import java.util.Date;
 
-@Builder
 public class Account implements Serializable {
     private Integer id;
 

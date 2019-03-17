@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.databases.mapper.AccountRoleMapper">
-  <resultMap id="BaseResultMap" type="org.nix.lovedomain.databases.model.AccountRole">
+  <resultMap id="BaseResultMap" type="org.nix.lovedomain.databases.rbac.AccountRole">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="accountId" jdbcType="INTEGER" property="accountid" />
     <result column="roleId" jdbcType="INTEGER" property="roleid" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     id, accountId, roleId, createTime, updateTime
   </sql>
-  <select id="selectByExample" parameterType="org.nix.lovedomain.databases.model.AccountRoleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="org.nix.lovedomain.databases.rbac.AccountRoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,13 +93,13 @@
     delete from account_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="org.nix.lovedomain.databases.model.AccountRoleExample">
+  <delete id="deleteByExample" parameterType="org.nix.lovedomain.databases.rbac.AccountRoleExample">
     delete from account_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="org.nix.lovedomain.databases.model.AccountRole">
+  <insert id="insert" parameterType="org.nix.lovedomain.databases.rbac.AccountRole">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -108,7 +108,7 @@
     values (#{accountid,jdbcType=INTEGER}, #{roleid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
       #{updatetime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.model.AccountRole">
+  <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.rbac.AccountRole">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="org.nix.lovedomain.databases.model.AccountRoleExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="org.nix.lovedomain.databases.rbac.AccountRoleExample" resultType="java.lang.Integer">
     select count(*) from account_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.databases.model.AccountRole">
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.databases.rbac.AccountRole">
     update account_role
     <set>
       <if test="accountid != null">
@@ -200,7 +200,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.databases.model.AccountRole">
+  <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.databases.rbac.AccountRole">
     update account_role
     set accountId = #{accountid,jdbcType=INTEGER},
       roleId = #{roleid,jdbcType=INTEGER},

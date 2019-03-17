@@ -26,7 +26,7 @@
                         password="${jdbc.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="org.nix.lovedomain.databases.model" targetProject="evaluation\src\main\java"/>
+        <javaModelGenerator targetPackage="org.nix.lovedomain.databases.rbac" targetProject="evaluation\src\main\java"/>
 
         <sqlMapGenerator targetPackage="org.nix.lovedomain.databases.mapper" targetProject="evaluation\src\main\resources"/>
 

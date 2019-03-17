@@ -5,7 +5,6 @@ import lombok.Builder;
 import java.io.Serializable;
 import java.util.Date;
 
-@Builder
 public class Role implements Serializable {
     private Integer id;
 

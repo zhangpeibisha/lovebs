@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.databases.mapper.RoleResourceMapper">
-  <resultMap id="BaseResultMap" type="org.nix.lovedomain.databases.model.RoleResource">
+  <resultMap id="BaseResultMap" type="org.nix.lovedomain.databases.rbac.RoleResource">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="roleId" jdbcType="INTEGER" property="roleid" />
     <result column="resourceId" jdbcType="INTEGER" property="resourceid" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     id, roleId, resourceId, createTime, updateTime
   </sql>
-  <select id="selectByExample" parameterType="org.nix.lovedomain.databases.model.RoleResourceExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="org.nix.lovedomain.databases.rbac.RoleResourceExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,13 +93,13 @@
     delete from role_resource
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="org.nix.lovedomain.databases.model.RoleResourceExample">
+  <delete id="deleteByExample" parameterType="org.nix.lovedomain.databases.rbac.RoleResourceExample">
     delete from role_resource
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="org.nix.lovedomain.databases.model.RoleResource">
+  <insert id="insert" parameterType="org.nix.lovedomain.databases.rbac.RoleResource">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -108,7 +108,7 @@
     values (#{roleid,jdbcType=INTEGER}, #{resourceid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
       #{updatetime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.model.RoleResource">
+  <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.rbac.RoleResource">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="org.nix.lovedomain.databases.model.RoleResourceExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="org.nix.lovedomain.databases.rbac.RoleResourceExample" resultType="java.lang.Integer">
     select count(*) from role_resource
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.databases.model.RoleResource">
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.databases.rbac.RoleResource">
     update role_resource
     <set>
       <if test="roleid != null">
@@ -200,7 +200,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.databases.model.RoleResource">
+  <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.databases.rbac.RoleResource">
     update role_resource
     set roleId = #{roleid,jdbcType=INTEGER},
       resourceId = #{resourceid,jdbcType=INTEGER},

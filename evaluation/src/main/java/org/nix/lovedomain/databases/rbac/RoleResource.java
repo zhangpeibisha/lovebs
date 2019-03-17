@@ -1,11 +1,8 @@
 package org.nix.lovedomain.databases.rbac;
 
-import lombok.Builder;
-
 import java.io.Serializable;
 import java.util.Date;
 
-@Builder
 public class RoleResource implements Serializable {
     private Integer id;
 
