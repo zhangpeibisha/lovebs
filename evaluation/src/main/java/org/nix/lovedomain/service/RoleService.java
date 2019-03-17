@@ -5,10 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.databases.mapper.AccountMapper;
 import org.nix.lovedomain.databases.mapper.AccountRoleMapper;
 import org.nix.lovedomain.databases.mapper.RoleMapper;
-import org.nix.lovedomain.databases.model.Account;
-import org.nix.lovedomain.databases.model.AccountRole;
-import org.nix.lovedomain.databases.model.AccountRoleExample;
-import org.nix.lovedomain.databases.model.Role;
+import org.nix.lovedomain.databases.rbac.Account;
+import org.nix.lovedomain.databases.rbac.AccountRole;
+import org.nix.lovedomain.databases.rbac.AccountRoleExample;
+import org.nix.lovedomain.databases.rbac.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

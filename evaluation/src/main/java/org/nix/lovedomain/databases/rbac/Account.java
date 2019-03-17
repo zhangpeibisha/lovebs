@@ -1,14 +1,28 @@
-package org.nix.lovedomain.databases.model;
+package org.nix.lovedomain.databases.rbac;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class Role implements Serializable {
+@Builder
+public class Account implements Serializable {
     private Integer id;
 
-    private String name;
+    /**
+     * 用户在学校的唯一标识
+     *
+     * @mbggenerated
+     */
+    private String numbering;
 
-    private String description;
+    private String phone;
+
+    private String email;
+
+    @JsonIgnore
+    private String password;
 
     private Date createtime;
 
@@ -24,20 +38,36 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNumbering() {
+        return numbering;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumbering(String numbering) {
+        this.numbering = numbering;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getCreatetime() {
@@ -63,8 +93,10 @@ public class Role implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", description=").append(description);
+        sb.append(", numbering=").append(numbering);
+        sb.append(", phone=").append(phone);
+        sb.append(", email=").append(email);
+        sb.append(", password=").append(password);
         sb.append(", createtime=").append(createtime);
         sb.append(", updatetime=").append(updatetime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

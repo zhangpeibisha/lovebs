@@ -1,14 +1,17 @@
-package org.nix.lovedomain.databases.model;
+package org.nix.lovedomain.databases.rbac;
+
+import lombok.Builder;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class RoleResource implements Serializable {
+@Builder
+public class Role implements Serializable {
     private Integer id;
 
-    private Integer roleid;
+    private String name;
 
-    private Integer resourceid;
+    private String description;
 
     private Date createtime;
 
@@ -24,20 +27,20 @@ public class RoleResource implements Serializable {
         this.id = id;
     }
 
-    public Integer getRoleid() {
-        return roleid;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getResourceid() {
-        return resourceid;
+    public String getDescription() {
+        return description;
     }
 
-    public void setResourceid(Integer resourceid) {
-        this.resourceid = resourceid;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getCreatetime() {
@@ -63,8 +66,8 @@ public class RoleResource implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", roleid=").append(roleid);
-        sb.append(", resourceid=").append(resourceid);
+        sb.append(", name=").append(name);
+        sb.append(", description=").append(description);
         sb.append(", createtime=").append(createtime);
         sb.append(", updatetime=").append(updatetime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

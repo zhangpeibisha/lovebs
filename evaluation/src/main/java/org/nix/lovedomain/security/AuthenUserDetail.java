@@ -4,8 +4,8 @@ import cn.hutool.json.JSONUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.databases.model.Account;
-import org.nix.lovedomain.databases.model.Resources;
+import org.nix.lovedomain.databases.rbac.Account;
+import org.nix.lovedomain.databases.rbac.Resources;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.social.security.SocialUserDetails;
 

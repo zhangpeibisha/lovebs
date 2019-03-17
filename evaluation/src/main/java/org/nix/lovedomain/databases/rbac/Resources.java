@@ -1,7 +1,10 @@
-package org.nix.lovedomain.databases.model;
+package org.nix.lovedomain.databases.rbac;
+
+import lombok.Builder;
 
 import java.io.Serializable;
 
+@Builder
 public class Resources implements Serializable {
     private Integer id;
 

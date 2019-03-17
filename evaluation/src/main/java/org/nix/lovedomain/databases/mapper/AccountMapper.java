@@ -1,9 +1,10 @@
 package org.nix.lovedomain.databases.mapper;
 
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.nix.lovedomain.databases.model.Account;
-import org.nix.lovedomain.databases.model.AccountExample;
+import org.nix.lovedomain.databases.rbac.Account;
+import org.nix.lovedomain.databases.rbac.AccountExample;
+
+import java.util.List;
 
 public interface AccountMapper {
     int countByExample(AccountExample example);

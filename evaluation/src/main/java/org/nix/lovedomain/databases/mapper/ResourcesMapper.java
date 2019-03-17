@@ -2,8 +2,8 @@ package org.nix.lovedomain.databases.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.nix.lovedomain.databases.model.Resources;
-import org.nix.lovedomain.databases.model.ResourcesExample;
+import org.nix.lovedomain.databases.rbac.Resources;
+import org.nix.lovedomain.databases.rbac.ResourcesExample;
 
 public interface ResourcesMapper {
     int countByExample(ResourcesExample example);

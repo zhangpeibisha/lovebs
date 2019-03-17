@@ -1,17 +1,17 @@
-package org.nix.lovedomain.databases.model;
+package org.nix.lovedomain.databases.rbac;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RoleResourceExample {
+public class AccountRoleExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public RoleResourceExample() {
+    public AccountRoleExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,6 +165,66 @@ public class RoleResourceExample {
             return (Criteria) this;
         }
 
+        public Criteria andAccountidIsNull() {
+            addCriterion("accountId is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidIsNotNull() {
+            addCriterion("accountId is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidEqualTo(Integer value) {
+            addCriterion("accountId =", value, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidNotEqualTo(Integer value) {
+            addCriterion("accountId <>", value, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidGreaterThan(Integer value) {
+            addCriterion("accountId >", value, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("accountId >=", value, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidLessThan(Integer value) {
+            addCriterion("accountId <", value, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidLessThanOrEqualTo(Integer value) {
+            addCriterion("accountId <=", value, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidIn(List<Integer> values) {
+            addCriterion("accountId in", values, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidNotIn(List<Integer> values) {
+            addCriterion("accountId not in", values, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidBetween(Integer value1, Integer value2) {
+            addCriterion("accountId between", value1, value2, "accountid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountidNotBetween(Integer value1, Integer value2) {
+            addCriterion("accountId not between", value1, value2, "accountid");
+            return (Criteria) this;
+        }
+
         public Criteria andRoleidIsNull() {
             addCriterion("roleId is null");
             return (Criteria) this;
@@ -222,66 +282,6 @@ public class RoleResourceExample {
 
         public Criteria andRoleidNotBetween(Integer value1, Integer value2) {
             addCriterion("roleId not between", value1, value2, "roleid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidIsNull() {
-            addCriterion("resourceId is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidIsNotNull() {
-            addCriterion("resourceId is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidEqualTo(Integer value) {
-            addCriterion("resourceId =", value, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidNotEqualTo(Integer value) {
-            addCriterion("resourceId <>", value, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidGreaterThan(Integer value) {
-            addCriterion("resourceId >", value, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("resourceId >=", value, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidLessThan(Integer value) {
-            addCriterion("resourceId <", value, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidLessThanOrEqualTo(Integer value) {
-            addCriterion("resourceId <=", value, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidIn(List<Integer> values) {
-            addCriterion("resourceId in", values, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidNotIn(List<Integer> values) {
-            addCriterion("resourceId not in", values, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidBetween(Integer value1, Integer value2) {
-            addCriterion("resourceId between", value1, value2, "resourceid");
-            return (Criteria) this;
-        }
-
-        public Criteria andResourceidNotBetween(Integer value1, Integer value2) {
-            addCriterion("resourceId not between", value1, value2, "resourceid");
             return (Criteria) this;
         }
 

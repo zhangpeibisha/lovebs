@@ -2,8 +2,8 @@ package org.nix.lovedomain.databases.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.nix.lovedomain.databases.model.AccountRole;
-import org.nix.lovedomain.databases.model.AccountRoleExample;
+import org.nix.lovedomain.databases.rbac.AccountRole;
+import org.nix.lovedomain.databases.rbac.AccountRoleExample;
 
 public interface AccountRoleMapper {
     int countByExample(AccountRoleExample example);

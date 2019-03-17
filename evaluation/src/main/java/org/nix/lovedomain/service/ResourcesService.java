@@ -4,7 +4,7 @@ import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.databases.mapper.ResourcesMapper;
 import org.nix.lovedomain.databases.mapper.RoleResourceMapper;
-import org.nix.lovedomain.databases.model.*;
+import org.nix.lovedomain.databases.rbac.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

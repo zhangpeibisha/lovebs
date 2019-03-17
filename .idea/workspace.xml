@@ -2,38 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lovebs_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/love_security_browser_1_0_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b2_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b3_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/qq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/wb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/wx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/login/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/error/404/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/error/404/error_all.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation/evaluation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/love-banding.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/love-signIn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/love-signUp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/META-INF/evaluation.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/target/classes/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/static/love-banding.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/static/love-signIn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/static/love-signUp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/AccountRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/AccountRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/RoleResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/RoleResource.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -54,49 +31,39 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Role.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="136">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#448#449#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UrlGrantedAuthority.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java">
+      <file leaf-file-name="AccountRole.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/AccountRole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#515#516#0" expanded="true" />
-                <element signature="e#541#542#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EvaluationAuthorizeConfigProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java">
+      <file leaf-file-name="Resources.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="15" column="119" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
+            <state relative-caret-position="68">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,65 +71,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDetailServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UserDetailServiceImpl.java">
+      <file leaf-file-name="RoleResource.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/RoleResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RbacServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+            <state relative-caret-position="85">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultPermissionUrlConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PermissionUrlConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SecurityProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BrowserProperties.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="26" column="28" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -252,6 +168,17 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/test/rog/nix/Main.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/test/rog/nix/My.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/test/rog/nix/Four.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/role.html" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/editRole.html" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Role.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/AccountRole.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/RoleResource.java" />
       </list>
     </option>
   </component>
@@ -306,6 +233,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -379,7 +307,7 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -391,42 +319,14 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="url" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -473,11 +373,11 @@
       <recent name="org.nix.lovedomain.security.core.properties" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources\static\error" />
+      <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources\static\backstage" />
       <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources\static" />
       <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources" />
       <recent name="C:\WorkPace\GIT\lovebs\lovesecurity\love-security-rbac\src\main\java\org\nix\lovedomain\rbac\util\auth" />
-      <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain\a" />
-      <recent name="C:\WorkPace\GIT\lovebs\demoauhtorize\src\main\java\org\nix\lovedomain\security" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.nix.lovedomain.security" />
@@ -498,31 +398,42 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EvaluationApplication">
+  <component name="RunManager" selected="Application.Role">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Code" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.a.Code" />
-      <module name="demoauhtorize" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.a.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.utils.db.Generator" />
+    <configuration name="Four" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rog.nix.Four" />
       <module name="evaluation" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.utils.db.*" />
+          <option name="PATTERN" value="rog.nix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rog.nix.Main" />
+      <module name="evaluation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rog.nix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="My" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rog.nix.My" />
+      <module name="evaluation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rog.nix.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -538,13 +449,13 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.yufu.Test" />
-      <module name="demoauhtorize" />
+    <configuration name="Role" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.databases.rbac.Role" />
+      <module name="evaluation" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.yufu.*" />
+          <option name="PATTERN" value="org.nix.lovedomain.databases.rbac.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -554,29 +465,6 @@
       <method>
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demoauhtorize" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.yufu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="org.nix.lovedomain.yufu" />
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.yufu.Test" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -628,19 +516,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.EvaluationApplication" />
-      <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Code" />
-      <item itemvalue="Application.Generator" />
-      <item itemvalue="JUnit.Test.test" />
       <item itemvalue="Application.RbacServiceImpl" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.My" />
+      <item itemvalue="Application.Four" />
+      <item itemvalue="Application.Role" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Role" />
+        <item itemvalue="Application.Four" />
+        <item itemvalue="Application.My" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.RbacServiceImpl" />
-        <item itemvalue="JUnit.Test.test" />
-        <item itemvalue="Application.Generator" />
-        <item itemvalue="Application.Code" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -688,21 +576,10 @@
       <workItem from="1551401958984" duration="17118000" />
       <workItem from="1552178108658" duration="8270000" />
       <workItem from="1552486829658" duration="669000" />
-      <workItem from="1552572014980" duration="3793000" />
-    </task>
-    <task id="LOCAL-00018" summary="session配置完成，解决了图片序列化的bug。{@link ValidateCode} {@link ImageValidateCode}">
-      <created>1549034685675</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1549034685675</updated>
-    </task>
-    <task id="LOCAL-00019" summary="用户登出配置完成">
-      <created>1549039641796</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1549039641796</updated>
+      <workItem from="1552572014980" duration="4425000" />
+      <workItem from="1552655862817" duration="700000" />
+      <workItem from="1552704697389" duration="5026000" />
+      <workItem from="1552794361789" duration="2674000" />
     </task>
     <task id="LOCAL-00020" summary="添加 love-security-app 项目">
       <created>1549111260691</created>
@@ -1033,7 +910,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552186212307</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="完成了登陆配置和权限配置">
+      <created>1552577779547</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1552577779548</updated>
+    </task>
+    <task id="LOCAL-00068" summary="完成了登陆配置和权限配置">
+      <created>1552577816969</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1552577816969</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1069,75 +960,48 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26529000" />
+    <option name="totallyTimeSpent" value="35561000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1286" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.17781404" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32952693" />
-      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.44927537" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.2190016" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="9" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.20611916" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40257648" />
-      <window_info anchor="bottom" id="Spring" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.36231884" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.09380098" />
-      <window_info anchor="right" id="Bean Validation" order="5" weight="0.32980332" />
-      <window_info id="Web" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23861171" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26086956" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="right" id="Json Parser" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.26119402" />
-      <window_info anchor="bottom" id="Spring" order="14" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.35582328" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Java Enterprise" order="15" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.34164858" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.2190016" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.15490533" />
+      <window_info anchor="bottom" id="Spring" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26086956" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.2927383" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Json Parser" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1147,7 +1011,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新增readme文件" />
     <MESSAGE value="权限系统接入RBAC模型权限控制" />
     <MESSAGE value="接入rbac权限控制系统，且登陆成功" />
     <MESSAGE value="更新jar包依赖" />
@@ -1172,18 +1035,11 @@
     <MESSAGE value="提交临时跳转功能，由于博客未完善，因此只能登陆指定页面" />
     <MESSAGE value="修改图片上传路径" />
     <MESSAGE value="修改登陆成功处理器" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改登陆成功处理器" />
+    <MESSAGE value="完成了登陆配置和权限配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了登陆配置和权限配置" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager>
@@ -1213,93 +1069,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.2.3.RELEASE/spring-security-config-4.2.3.RELEASE.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="120" column="26" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/resources/static/love-signIn.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/love-signIn.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/db/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/AuthorizeConfigProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.2.3.RELEASE/spring-security-config-4.2.3.RELEASE.jar!/org/springframework/security/config/annotation/web/AbstractRequestMatcherRegistry.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigManger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.2.3.RELEASE/spring-security-config-4.2.3.RELEASE.jar!/org/springframework/security/config/annotation/authentication/configuration/EnableGlobalAuthentication.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.2.3.RELEASE/spring-security-config-4.2.3.RELEASE.jar!/org/springframework/security/config/annotation/web/configuration/EnableWebSecurity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.11.RELEASE/spring-context-4.3.11.RELEASE.jar!/org/springframework/context/annotation/ImportAware.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1346,13 +1115,6 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/core/GrantedAuthority.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.2.3.RELEASE/spring-security-core-4.2.3.RELEASE-sources.jar!/org/springframework/security/access/expression/SecurityExpressionRoot.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -1458,16 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1482,22 +1234,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-          </folding>
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -1511,12 +1251,7 @@
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-          </folding>
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -1524,19 +1259,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
+        <state relative-caret-position="284">
           <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1544,16 +1273,121 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="15" column="119" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/user.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/rog/nix/My.java" />
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/rog/nix/Four.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/rog/nix/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+        <state relative-caret-position="483">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/role.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/editRole.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/error/404.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/AccountRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/RoleResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

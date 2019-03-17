@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.databases.mapper.AccountMapper">
-  <resultMap id="BaseResultMap" type="org.nix.lovedomain.databases.model.Account">
+  <resultMap id="BaseResultMap" type="org.nix.lovedomain.databases.rbac.Account">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="numbering" jdbcType="VARCHAR" property="numbering" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List">
     id, numbering, phone, email, password, createTime, updateTime
   </sql>
-  <select id="selectByExample" parameterType="org.nix.lovedomain.databases.model.AccountExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="org.nix.lovedomain.databases.rbac.AccountExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -95,13 +95,13 @@
     delete from account
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="org.nix.lovedomain.databases.model.AccountExample">
+  <delete id="deleteByExample" parameterType="org.nix.lovedomain.databases.rbac.AccountExample">
     delete from account
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="org.nix.lovedomain.databases.model.Account">
+  <insert id="insert" parameterType="org.nix.lovedomain.databases.rbac.Account">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -112,7 +112,7 @@
       #{password,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.model.Account">
+  <insert id="insertSelective" parameterType="org.nix.lovedomain.databases.rbac.Account">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="org.nix.lovedomain.databases.model.AccountExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="org.nix.lovedomain.databases.rbac.AccountExample" resultType="java.lang.Integer">
     select count(*) from account
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -206,7 +206,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.databases.model.Account">
+  <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.databases.rbac.Account">
     update account
     <set>
       <if test="numbering != null">
@@ -230,7 +230,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.databases.model.Account">
+  <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.databases.rbac.Account">
     update account
     set numbering = #{numbering,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
