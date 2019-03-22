@@ -2,143 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/doc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/message.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/nprogress.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/themes/blue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/themes/light.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/images/pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/loader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/nprogress.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/onelevel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/pjax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/tab.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/components/table/table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/components/table/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/navbar1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/navbar2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/onelevel1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/jquery-2.1.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/layui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/layui.mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/10.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/11.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/12.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/13.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/14.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/15.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/16.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/17.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/18.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/19.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/20.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/21.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/22.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/23.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/24.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/25.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/26.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/27.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/28.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/29.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/30.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/31.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/33.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/34.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/35.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/36.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/37.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/38.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/39.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/40.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/41.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/42.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/43.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/44.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/45.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/46.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/47.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/48.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/49.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/50.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/51.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/52.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/53.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/54.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/55.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/56.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/57.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/58.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/59.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/6.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/61.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/62.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/63.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/64.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/65.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/66.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/67.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/68.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/69.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/7.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/70.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/71.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/8.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/9.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/code.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/colorpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/layedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/laypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/laytpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/mobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/rate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/layui.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/layui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/table.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/addPermission.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -160,20 +27,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="permission.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="permission.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="100" column="31" lean-forward="true" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
+            <state relative-caret-position="306">
+              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="request.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="request.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addPermission.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/addPermission.html">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="29" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="29" />
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -185,9 +67,9 @@
       <list>
         <option value="Enum" />
         <option value="JUnit4 Test Class" />
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -225,7 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/security/PermissionConfig.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/oss/SpringMvcOssServiceImpl.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/BlogApplication.java" />
         <option value="$PROJECT_DIR$/blog/src/main/java/org/nix/lovedomain/photo/controller/async/WebAsync.java" />
@@ -274,8 +155,9 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/Role.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/RoleResource.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/table.js" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/addPermission.html" />
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js" />
       </list>
     </option>
   </component>
@@ -316,8 +198,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="184" />
-    <option name="y" value="128" />
+    <option name="x" value="317" />
+    <option name="y" value="124" />
     <option name="width" value="1026" />
     <option name="height" value="546" />
   </component>
@@ -329,9 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -393,6 +272,17 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -424,6 +314,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -605,13 +498,8 @@
       <workItem from="1552655862817" duration="700000" />
       <workItem from="1552704697389" duration="5026000" />
       <workItem from="1552794361789" duration="3600000" />
-    </task>
-    <task id="LOCAL-00021" summary="添加 love-security-app 项目 ==&gt; 成功启动依赖于app项目的demo项目">
-      <created>1549111747832</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1549111747832</updated>
+      <workItem from="1553179335592" duration="591000" />
+      <workItem from="1553265403864" duration="4495000" />
     </task>
     <task id="LOCAL-00022" summary="完成了资源服务器和认证服务器配置 ===&gt; 默认配置">
       <created>1549119725254</created>
@@ -949,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552797693453</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="添加前端页面，完成了对资源信息的展示和搜索">
+      <created>1553100035535</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1553100035536</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -985,76 +880,49 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41059000" />
+    <option name="totallyTimeSpent" value="46335000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.17776097" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32952693" />
-      <window_info id="Structure" order="1" sideWeight="0.30298012" side_tool="true" weight="0.36064258" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38325283" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="9" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.20611916" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.20450886" />
-      <window_info anchor="bottom" id="Spring" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.36231884" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6970199" visible="true" weight="0.12708019" />
-      <window_info anchor="right" id="Bean Validation" order="5" weight="0.32980332" />
-      <window_info id="Web" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Spring" order="14" />
-      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.15490533" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26086956" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="right" id="Json Parser" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66992664" visible="true" weight="0.2927383" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.33007336" side_tool="true" weight="0.2927383" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.35582328" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="15" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.35582328" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Maven" order="6" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.2960413" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info id="Structure" order="1" sideWeight="0.33007336" side_tool="true" weight="0.2927383" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.34164858" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.15490533" />
+      <window_info anchor="bottom" id="Spring" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26086956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66992664" visible="true" weight="0.25189108" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Json Parser" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.2960413" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1064,7 +932,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="接入rbac权限控制系统，且登陆成功" />
     <MESSAGE value="更新jar包依赖" />
     <MESSAGE value="自动扫描资源信息完成" />
     <MESSAGE value="增加自动装配权限功能" />
@@ -1089,7 +956,8 @@
     <MESSAGE value="修改登陆成功处理器" />
     <MESSAGE value="完成了登陆配置和权限配置" />
     <MESSAGE value="修改创建者模型且修改model目录为rbac目录" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改创建者模型且修改model目录为rbac目录" />
+    <MESSAGE value="添加前端页面，完成了对资源信息的展示和搜索" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加前端页面，完成了对资源信息的展示和搜索" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1122,14 +990,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE.jar!/org/springframework/security/web/access/expression/WebSecurityExpressionRoot.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="11" column="70" lean-forward="true" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE-sources.jar!/org/springframework/security/web/access/expression/WebSecurityExpressionRoot.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.2.3.RELEASE/spring-security-web-4.2.3.RELEASE-sources.jar!/org/springframework/security/web/access/expression/DefaultWebSecurityExpressionHandler.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/oauth/spring-security-oauth2/2.0.14.RELEASE/spring-security-oauth2-2.0.14.RELEASE.jar!/org/springframework/security/oauth2/provider/expression/OAuth2WebSecurityExpressionHandler.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -1346,9 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,9 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1379,38 +1233,47 @@
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/app.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/table.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="34" column="133" selection-start-line="34" selection-start-column="133" selection-end-line="34" selection-end-column="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/test.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/addPermission.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="100" column="31" lean-forward="true" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
+        <state relative-caret-position="340">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
         </state>
       </provider>
     </entry>

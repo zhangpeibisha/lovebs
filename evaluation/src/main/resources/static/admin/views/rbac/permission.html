@@ -1,114 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../plugins/layui/css/layui.css" media="all">
+</head>
 
-	<body>
-	    <div class="layui-form">
-	    	
-	    </div>
-		<table class="layui-hide" id="permissions" lay-filter="permissions"></table>
-	</body>
-
-	<script src="../../plugins/layui/layui.js"></script>
-	<script src="../../plugins/jquery-2.1.0.js"></script>
-	<script src="js/request.js"></script>
-    <script>
-    	layui.use(['table','form'], function() {
-			var table = layui.table;
-		var permiisionTable = table.render({
-				elem: '#permissions',
-				url: 'https://www.easy-mock.com/mock/5c8de5546fe7c7611499c741/evaluation/admin/permission/list',
-				toolbar: true,
-				title: '用户数据表',
-				cols: [
-					[{
-						title: '序号',
-						width: 40,
-						fixed: 'left',
-						unresize: true,
-						type: 'numbers'
-					},{
-						field: 'id',
-						title: 'ID',
-						width: 80,
-						fixed: 'left',
-						unresize: true,
-						sort: true
-					}, {
-						field: 'name',
-						title: '名字',
-						edit: 'text'
-					}, {
-						field: 'description',
-						title: '描述',
-						edit: 'text'
-					}, {
-						field: 'url',
-						title: '请求路径',
-						edit: 'text'
-					}, {
-						field: 'method',
-						title: '请求方法',
-						width: 100,
-						edit: 'text'
-					}, {
-						field: 'use',
-						title: '开启/关闭',
-						width: 100,
-						type:'normal'
-					}, {
-						field: 'permissionAll',
-						title: '认证访问',
-						width: 100,
-						edit: 'text'
-					}]
-				],
-				page: true,
-				response: {
-					statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
-				},
-				parseData: function(res) { //将原始数据解析成 table 组件所规定的数据
-					console.log('加载数据', res)
-					return {
-						"code": res.code, //解析接口状态
-						"msg": res.message, //解析提示文本
-						"count": res.count, //解析数据长度
-						"data": res.permission //解析数据列表
-					};
-				}
-			});
-
-			var form = layui.form
-
-			form.on('select(selectRoleName)', function (data) {
-				console.log("点击选择后获取到的信息为",data)
-				var value = data.value;
-				var options = data.elem.options;
-				if (value === ""){
-                   // 返回所有数据
-                    console.log("undefined======")
-                }else {
-				    // 按类别返回数据
-                    var result = options[++value].label;
-                    console.log("提取出来的值为:",result);
-                    console.log("index",value)
-                    permiisionTable.reload({
-                        where:{
-                            permissionName:result
-                        },page:{
-                            curr:1
-                        }
-                    })
-                }
-
-            });
-
-		});
-    </script>
-
+<body>
+        <div style="height: 20px"></div>
+        <div style="display: flex;justify-content: flex-end;width: 95%">
+            <div style="display: flex;justify-content: space-between">
+                <div class="layui-form" style="width: 200px"></div>
+                <button class="layui-btn" id="addPermission" >添加资源</button>
+            </div>
+        </div>
+        <table class="layui-hide" id="permissions" lay-filter="permissions"></table>
+</body>
+<script src="../../plugins/layui/layui.all.js"></script>
+<script src="../../plugins/layui/layui.js"></script>
+<script src="../../plugins/jquery-2.1.0.js"></script>
+<script src="js/request.js"></script>
 </html>
