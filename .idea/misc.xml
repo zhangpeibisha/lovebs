@@ -20,6 +20,7 @@
         <option value="$PROJECT_DIR$/authorize/pom.xml" />
         <option value="$PROJECT_DIR$/blog/pom.xml" />
         <option value="$PROJECT_DIR$/evaluation/pom.xml" />
+        <option value="$PROJECT_DIR$/api/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

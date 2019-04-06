@@ -2,7 +2,7 @@ package org.nix.lovedomain.security;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.databases.rbac.Resources;
+import org.nix.lovedomain.model.Resources;
 import org.nix.lovedomain.security.url.PermissionUrlConfig;
 import org.nix.lovedomain.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;

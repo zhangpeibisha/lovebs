@@ -1,13 +1,14 @@
 package org.nix.lovedomain.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.databases.mapper.AccountMapper;
-import org.nix.lovedomain.databases.rbac.Account;
-import org.nix.lovedomain.databases.rbac.AccountExample;
+import org.nix.lovedomain.dao.mapper.AccountMapper;
+import org.nix.lovedomain.model.Account;
+import org.nix.lovedomain.model.AccountExample;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 
 /**
  * @author zhangpei

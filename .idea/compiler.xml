@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api" />
         <module name="evaluation" />
         <module name="lovesecurityapp" />
         <module name="lovesecuritybrowser" />
@@ -13,6 +14,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api" target="1.7" />
       <module name="authorize" target="8" />
       <module name="demoauhtorize" target="8" />
       <module name="evaluation" target="8" />

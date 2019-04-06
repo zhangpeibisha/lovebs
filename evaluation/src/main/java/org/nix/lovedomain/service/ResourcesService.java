@@ -2,9 +2,9 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.databases.mapper.ResourcesMapper;
-import org.nix.lovedomain.databases.mapper.RoleResourceMapper;
-import org.nix.lovedomain.databases.rbac.*;
+import org.nix.lovedomain.dao.mapper.ResourcesMapper;
+import org.nix.lovedomain.dao.mapper.RoleResourceMapper;
+import org.nix.lovedomain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

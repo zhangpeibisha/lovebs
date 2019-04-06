@@ -1,6 +1,6 @@
 package org.nix.lovedomain.security.url;
 
-import org.nix.lovedomain.databases.rbac.Resources;
+import org.nix.lovedomain.model.Resources;
 
 import java.util.List;
 

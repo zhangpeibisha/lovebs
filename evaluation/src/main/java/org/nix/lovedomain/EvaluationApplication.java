@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @date 2019/3/4
  */
 @SpringBootApplication
-@MapperScan(value = {"org.nix.lovedomain.databases.mapper"})
+@MapperScan(value = {"org.nix.lovedomain.dao.mapper"})
 @EnableTransactionManagement
 public class EvaluationApplication {
 
