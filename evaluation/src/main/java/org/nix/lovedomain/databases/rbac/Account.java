@@ -1,7 +1,5 @@
 package org.nix.lovedomain.databases.rbac;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,7 +17,6 @@ public class Account implements Serializable {
 
     private String email;
 
-    @JsonIgnore
     private String password;
 
     private Date createtime;

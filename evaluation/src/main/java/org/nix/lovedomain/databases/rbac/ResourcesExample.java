@@ -375,62 +375,62 @@ public class ResourcesExample {
         }
 
         public Criteria andUseIsNull() {
-            addCriterion("`use` is null");
+            addCriterion("use is null");
             return (Criteria) this;
         }
 
         public Criteria andUseIsNotNull() {
-            addCriterion("`use` is not null");
+            addCriterion("use is not null");
             return (Criteria) this;
         }
 
         public Criteria andUseEqualTo(Byte value) {
-            addCriterion("`use` =", value, "`use`");
+            addCriterion("use =", value, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseNotEqualTo(Byte value) {
-            addCriterion("`use` <>", value, "`use`");
+            addCriterion("use <>", value, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseGreaterThan(Byte value) {
-            addCriterion("`use` >", value, "`use`");
+            addCriterion("use >", value, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseGreaterThanOrEqualTo(Byte value) {
-            addCriterion("`use` >=", value, "`use`");
+            addCriterion("use >=", value, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseLessThan(Byte value) {
-            addCriterion("`use` <", value, "`use`");
+            addCriterion("use <", value, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseLessThanOrEqualTo(Byte value) {
-            addCriterion("`use` <=", value, "`use`");
+            addCriterion("use <=", value, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseIn(List<Byte> values) {
-            addCriterion("`use` in", values, "`use`");
+            addCriterion("use in", values, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseNotIn(List<Byte> values) {
-            addCriterion("`use` not in", values, "`use`");
+            addCriterion("use not in", values, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseBetween(Byte value1, Byte value2) {
-            addCriterion("`use` between", value1, value2, "`use`");
+            addCriterion("use between", value1, value2, "use");
             return (Criteria) this;
         }
 
         public Criteria andUseNotBetween(Byte value1, Byte value2) {
-            addCriterion("`use` not between", value1, value2, "`use`");
+            addCriterion("use not between", value1, value2, "use");
             return (Criteria) this;
         }
 

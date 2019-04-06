@@ -1,9 +1,6 @@
 package org.nix.lovedomain.databases.rbac;
 
-import lombok.Builder;
-
 import java.io.Serializable;
-
 
 public class Resources implements Serializable {
     private Integer id;

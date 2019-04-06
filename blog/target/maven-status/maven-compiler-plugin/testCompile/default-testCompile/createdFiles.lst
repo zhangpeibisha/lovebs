@@ -1,0 +1,4 @@
+org\nix\lovedomain\oss\StringOssServiceImplTest.class
+org\nix\lovedomain\photo\mapper\UserMapperTest.class
+org\nix\lovedomain\oss\FileOssServiceImplTest.class
+org\nix\lovedomain\photo\service\impl\UserServiceImplTest.class
