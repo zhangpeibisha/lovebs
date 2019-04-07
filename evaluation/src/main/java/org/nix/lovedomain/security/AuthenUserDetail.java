@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @Data
 public class AuthenUserDetail implements SocialUserDetails {
 
+    @JsonIgnore
     private Account account;
 
     private List<Resources> resources;
@@ -46,6 +47,7 @@ public class AuthenUserDetail implements SocialUserDetails {
         return grantedAuthorities;
     }
 
+    @JsonIgnore
     @Override
     public String getPassword() {
         return account.getPassword();
