@@ -19,4 +19,17 @@
         </if>
     </select>
 
+    <select id="findStudentCount"
+            parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
+            resultType="java.lang.Long">
+        <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
+        SELECT COUNT(*) FROM `student` WHERE
+        ${pageInquire.quireField}
+        <if test="pageInquire.blurry">
+            LIKE #{blurrySelect}
+        </if>
+        <if test="!pageInquire.blurry">
+            = #{pageInquire.quireValue}
+        </if>
+    </select>
 </mapper>

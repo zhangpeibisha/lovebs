@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_all_2_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spockframework_spock_core_1_0_groovy_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spockframework_spock_spring_1_0_groovy_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_7_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_11_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/SQLPageException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/evaluation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -59,35 +28,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StudentBusinessMapperTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java">
+      <file leaf-file-name="StudentBusinessMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+            <state relative-caret-position="113">
+              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentPageInquire.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractPageInquire.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -95,38 +43,17 @@
       <file leaf-file-name="StudentBusinessMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="249">
+              <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application.yml">
+      <file leaf-file-name="StudentBusinessMapperTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InitPorject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-166">
-              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserControllerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/UserControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="33" selection-start-line="4" selection-end-line="4" selection-end-column="33" />
+            <state relative-caret-position="453">
+              <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -225,13 +152,13 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentMapper.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentPageInquire.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/SQLPageException.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentMapperTest.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" />
       </list>
     </option>
@@ -387,9 +314,7 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -402,6 +327,32 @@
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -868,28 +819,7 @@
       <workItem from="1554394851213" duration="656000" />
       <workItem from="1554549892053" duration="2153000" />
       <workItem from="1554564600143" duration="1038000" />
-      <workItem from="1554623035221" duration="15280000" />
-    </task>
-    <task id="LOCAL-00024" summary="添加验证码进入app模块">
-      <created>1549176284121</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1549176284121</updated>
-    </task>
-    <task id="LOCAL-00025" summary="验证码请求重构完成">
-      <created>1549181333246</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1549181333247</updated>
-    </task>
-    <task id="LOCAL-00026" summary="app社交登陆，浏览器配置bug修改">
-      <created>1549196071777</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1549196071778</updated>
+      <workItem from="1554623035221" duration="16115000" />
     </task>
     <task id="LOCAL-00027" summary="重构社交登陆">
       <created>1549206567719</created>
@@ -1213,19 +1143,31 @@
       <option name="project" value="LOCAL" />
       <updated>1554623871338</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="配置完成分页基类">
+      <created>1554641280666</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1554641280667</updated>
+    </task>
+    <task id="LOCAL-00074" summary="添加学生的分页查询">
+      <created>1554641303509</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1554641303509</updated>
+    </task>
+    <task id="LOCAL-00075" summary="添加方法说明">
+      <created>1554641423202</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1554641423202</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 25m 39s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 27m 52s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 28m 33s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 29m 40s.xml">
       <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
     </history-entry>
@@ -1247,13 +1189,21 @@
     <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 40m 02s.xml">
       <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 45m 42s.xml">
+      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 46m 19s.xml">
+      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 58m 05s.xml">
+      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67984000" />
+    <option name="totallyTimeSpent" value="68819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
@@ -1274,7 +1224,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.18416524" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.7641997" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.14113598" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66992664" visible="true" weight="0.3184569" />
@@ -1301,9 +1251,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加自动装配权限功能" />
-    <MESSAGE value="自动注入资源信息到数据库中完成" />
-    <MESSAGE value="数据库配置完成" />
     <MESSAGE value="登陆配置完成" />
     <MESSAGE value="配置oss完成" />
     <MESSAGE value="配置oss完成-修改部分不合理的地方：目前状态全部完成" />
@@ -1326,7 +1273,10 @@
     <MESSAGE value="添加前端页面，完成了对资源信息的展示和搜索" />
     <MESSAGE value="上传数据库表" />
     <MESSAGE value="配置发送到前端的信息-取消密码信息展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="配置发送到前端的信息-取消密码信息展示" />
+    <MESSAGE value="配置完成分页基类" />
+    <MESSAGE value="添加学生的分页查询" />
+    <MESSAGE value="添加方法说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加方法说明" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1563,16 +1513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.3.11.RELEASE/spring-jdbc-4.3.11.RELEASE.jar!/org/springframework/jdbc/SQLWarningException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1613,16 +1553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="16" column="61" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-128">
@@ -1657,17 +1587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="182">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1676,15 +1599,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        <state relative-caret-position="156">
+          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+        <state relative-caret-position="453">
+          <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -20,5 +20,11 @@ public interface StudentBusinessMapper {
      */
     List<Student> findStudentPage(@Param(value = "pageInquire") StudentPageInquire pageInquire);
 
+    /**
+     * 通过分页参数获取到学生信息的数量
+     * @param pageInquire
+     * @return
+     */
+    long findStudentCount(@Param(value = "pageInquire") StudentPageInquire pageInquire);
 
 }

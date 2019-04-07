@@ -33,15 +33,18 @@ public class StudentBusinessMapperTest {
         List<Student> studentPage = studentBusinessMapper.findStudentPage(pageInquire);
         log.info("获取到的数据为:" + JSONUtil.toJsonStr(studentPage));
         assertEquals(studentPage.size(), 1);
+        assertEquals(1,studentBusinessMapper.findStudentCount(pageInquire));
         assertEquals("11503090207", studentPage.get(0).getStudentid());
 
         pageInquire.setBlurry(false);
         studentPage = studentBusinessMapper.findStudentPage(pageInquire);
+        assertEquals(0,studentBusinessMapper.findStudentCount(pageInquire));
         assertEquals(0, studentPage.size());
 
         pageInquire.setQuireValue("11503090207");
         studentPage = studentBusinessMapper.findStudentPage(pageInquire);
         assertEquals(studentPage.size(), 1);
         assertEquals("11503090207", studentPage.get(0).getStudentid());
+        assertEquals(1,studentBusinessMapper.findStudentCount(pageInquire));
     }
 }
