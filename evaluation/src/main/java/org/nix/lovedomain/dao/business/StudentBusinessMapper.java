@@ -13,7 +13,11 @@ import java.util.List;
  * @date 2019/4/7
  */
 public interface StudentBusinessMapper {
-
+    /**
+     * 分页查询学生信息
+     * @param pageInquire 分页信息
+     * @return 查询到的学生信息
+     */
     List<Student> findStudentPage(@Param(value = "pageInquire") StudentPageInquire pageInquire);
 
 
