@@ -4,9 +4,9 @@ spring:
   profiles:
     active: dev
 mybatis:
-  mapper-locations: classpath:org.nix.lovedomain.dao.mapper/*Mapper.xml
+  mapper-locations: classpath:org.nix.lovedomain.dao.mapper/*Mapper.xml,classpath:org.nix.lovedomain.dao.business/*Mapper.xml
   configuration:
     cache-enabled: false
 logging:
     level:
-      com.threefivework.mymall.dao.mapper: DEBUG
+      org.nix.lovedomain.dao: debug
