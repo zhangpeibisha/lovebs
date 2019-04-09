@@ -5,15 +5,19 @@
     <select id="findStudentPage"
             parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
             resultType="org.nix.lovedomain.model.Student">
-        <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
-        SELECT * FROM `student` WHERE
-        ${pageInquire.quireField}
-        <if test="pageInquire.blurry">
-            LIKE #{blurrySelect}
+        SELECT * FROM `student`
+        <if test="pageInquire.quireField!=null and pageInquire.quireValue!=null">
+            <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
+            WHERE
+            ${pageInquire.quireField}
+            <if test="pageInquire.blurry">
+                LIKE #{blurrySelect}
+            </if>
+            <if test="!pageInquire.blurry">
+                = #{pageInquire.quireValue}
+            </if>
         </if>
-        <if test="!pageInquire.blurry">
-            = #{pageInquire.quireValue}
-        </if>
+
         <if test="pageInquire.page!=null and  pageInquire.limit!=null">
             LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
         </if>
@@ -22,14 +26,20 @@
     <select id="findStudentCount"
             parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
             resultType="java.lang.Long">
-        <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
-        SELECT COUNT(*) FROM `student` WHERE
-        ${pageInquire.quireField}
-        <if test="pageInquire.blurry">
-            LIKE #{blurrySelect}
+        SELECT COUNT(*) FROM `student`
+        <if test="pageInquire.quireField!=null and pageInquire.quireValue!=null">
+            <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
+            WHERE
+            ${pageInquire.quireField}
+            <if test="pageInquire.blurry">
+                LIKE #{blurrySelect}
+            </if>
+            <if test="!pageInquire.blurry">
+                = #{pageInquire.quireValue}
+            </if>
         </if>
-        <if test="!pageInquire.blurry">
-            = #{pageInquire.quireValue}
+        <if test="pageInquire.page!=null and  pageInquire.limit!=null">
+            LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
         </if>
     </select>
 </mapper>

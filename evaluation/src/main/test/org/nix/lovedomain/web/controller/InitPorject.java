@@ -32,6 +32,7 @@ public class InitPorject {
 //        Student student = a.createStudent();
 //        System.out.println(student);
         System.out.println("hello world");
+//        a.createStudentOne();
     }
 
 
@@ -65,6 +66,21 @@ class A {
         student.setStudentid("11503090207");
         student.setClassid(createClass().getId());
         student.setName("张沛");
+        studentMapper.insertSelective(student);
+
+        return student;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public Student createStudentOne() {
+
+        Student student = new Student();
+        student.setAccountid(8);
+        student.setEmail("bisha@qq.com");
+        student.setPhone("15334503852");
+        student.setStudentid("11503090209");
+        student.setClassid(1);
+        student.setName("毕沙");
         studentMapper.insertSelective(student);
 
         return student;

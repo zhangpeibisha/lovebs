@@ -13,13 +13,13 @@ import java.util.List;
  */
 @Data
 @Builder
-public class PageDto<D> {
+public class PageVo<D> {
 
     private Integer page;
 
     private Integer limit;
 
-    private Integer total;
+    private Long total;
 
     private List<D> data;
 

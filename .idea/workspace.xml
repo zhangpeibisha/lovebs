@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ClassVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/FacultyVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ProfessionVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/StudentVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/TeacherVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/base/BaseVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/service/StudentServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -27,12 +36,12 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="StudentBusinessMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="138">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,17 +52,65 @@
       <file leaf-file-name="StudentBusinessMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="183">
+              <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentBusinessMapperTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StudentServiceTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/service/StudentServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentBusinessMapperTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
+            <state relative-caret-position="404">
               <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InitPorject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentPageInquire.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentVo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/StudentVo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageVo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageVo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,14 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/evaluation/src/main/test/rog/nix/Four.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/role.html" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/static/admin/editRole.html" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Role.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Account.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/AccountRole.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/Resources.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/model/RoleResource.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/Resources.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/Account.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/AccountRole.java" />
@@ -142,11 +191,8 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" />
         <option value="$PROJECT_DIR$/evaluation/pom.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/UserControllerTest.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/PageDto.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/PageInquire.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/AbstractPageInquire.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentMapper.java" />
@@ -158,8 +204,19 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/StudentController.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/base/BaseVo.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ClassVo.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/FacultyVo.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ProfessionVo.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/TeacherVo.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/StudentVo.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/service/StudentServiceTest.java" />
       </list>
     </option>
   </component>
@@ -213,7 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
@@ -289,31 +345,6 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -335,31 +366,6 @@
               <item name="evaluation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -479,6 +485,18 @@
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="business" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -523,6 +541,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -551,6 +570,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.nix.lovedomain.service" />
       <recent name="org.nix.lovedomain.dao.business" />
       <recent name="org.nix.lovedomain.web.controller" />
       <recent name="org.nix.lovedomain.security" />
@@ -596,7 +616,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.StudentBusinessMapperTest.findStudentPage">
+  <component name="RunManager" selected="JUnit.StudentServiceTest.studentSimpleList">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method>
@@ -610,17 +630,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.nix.lovedomain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.utils.db.Generator" />
-      <module name="evaluation" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.nix.lovedomain.utils.db.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -700,6 +709,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="StudentServiceTest.studentSimpleList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="evaluation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.nix.lovedomain.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="org.nix.lovedomain.service" />
+      <option name="MAIN_CLASS_NAME" value="org.nix.lovedomain.service.StudentServiceTest" />
+      <option name="METHOD_NAME" value="studentSimpleList" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -750,19 +782,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.EvaluationApplication" />
-      <item itemvalue="Application.Generator" />
       <item itemvalue="Application.Generator (1)" />
       <item itemvalue="JUnit.InitPorject.studentTest" />
       <item itemvalue="JUnit.StudentMapperTest.findStudentPage" />
       <item itemvalue="JUnit.StudentBusinessMapperTest.findStudentPage" />
+      <item itemvalue="JUnit.StudentServiceTest.studentSimpleList" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StudentServiceTest.studentSimpleList" />
+        <item itemvalue="JUnit.InitPorject.studentTest" />
         <item itemvalue="JUnit.StudentBusinessMapperTest.findStudentPage" />
         <item itemvalue="JUnit.StudentMapperTest.findStudentPage" />
-        <item itemvalue="JUnit.InitPorject.studentTest" />
         <item itemvalue="Application.Generator (1)" />
-        <item itemvalue="Application.Generator" />
       </list>
     </recent_temporary>
   </component>
@@ -819,14 +851,9 @@
       <workItem from="1554394851213" duration="656000" />
       <workItem from="1554549892053" duration="2153000" />
       <workItem from="1554564600143" duration="1038000" />
-      <workItem from="1554623035221" duration="16115000" />
-    </task>
-    <task id="LOCAL-00027" summary="重构社交登陆">
-      <created>1549206567719</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1549206567719</updated>
+      <workItem from="1554623035221" duration="20670000" />
+      <workItem from="1554743996542" duration="715000" />
+      <workItem from="1554818472914" duration="4326000" />
     </task>
     <task id="LOCAL-00028" summary="app配置社交登陆">
       <created>1549206747205</created>
@@ -1164,25 +1191,17 @@
       <option name="project" value="LOCAL" />
       <updated>1554641423202</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="获取总数据数量成功">
+      <created>1554641993475</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1554641993475</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 29m 40s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 30m 23s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 32m 07s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 33m 31s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 34m 40s.xml">
-      <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 38m 18s.xml">
       <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
     </history-entry>
@@ -1198,12 +1217,28 @@
     <history-entry file="StudentBusinessMapperTest_findStudentPage - 2019.04.07 at 20h 58m 05s.xml">
       <configuration name="StudentBusinessMapperTest.findStudentPage" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="StudentServiceTest_studentSimpleList - 2019.04.09 at 22h 39m 18s.xml">
+      <configuration name="StudentServiceTest.studentSimpleList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentServiceTest_studentSimpleList - 2019.04.09 at 22h 41m 19s.xml">
+      <configuration name="StudentServiceTest.studentSimpleList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentServiceTest_studentSimpleList - 2019.04.09 at 22h 44m 18s.xml">
+      <configuration name="StudentServiceTest.studentSimpleList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StudentServiceTest_studentSimpleList - 2019.04.09 at 22h 47m 28s.xml">
+      <configuration name="StudentServiceTest.studentSimpleList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InitPorject_studentTest - 2019.04.09 at 23h 01m 48s.xml">
+      <configuration name="InitPorject.studentTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68819000" />
+    <option name="totallyTimeSpent" value="78415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
@@ -1216,7 +1251,7 @@
       <window_info id="Structure" order="1" sideWeight="0.33007336" side_tool="true" weight="0.2927383" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.56110156" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.18072289" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.2960413" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -1224,10 +1259,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.7641997" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.23235801" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.14113598" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66992664" visible="true" weight="0.3184569" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66992664" visible="true" weight="0.27231467" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -1251,7 +1286,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="登陆配置完成" />
     <MESSAGE value="配置oss完成" />
     <MESSAGE value="配置oss完成-修改部分不合理的地方：目前状态全部完成" />
     <MESSAGE value="添加百度短网址服务到应用中" />
@@ -1276,11 +1310,12 @@
     <MESSAGE value="配置完成分页基类" />
     <MESSAGE value="添加学生的分页查询" />
     <MESSAGE value="添加方法说明" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加方法说明" />
+    <MESSAGE value="获取总数据数量成功" />
+    <option name="LAST_COMMIT_MESSAGE" value="获取总数据数量成功" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
@@ -1309,32 +1344,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/evaluation.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="310" lean-forward="true" selection-start-line="310" selection-end-line="310" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/AccountExample.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/AccountRole.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/Resources.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/Role.java" />
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/RoleResource.java" />
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/generatorConfig.xml" />
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/db/Generator.java" />
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/databases/rbac/Account.java" />
@@ -1503,24 +1512,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/4.3.11.RELEASE/spring-jdbc-4.3.11.RELEASE.jar!/org/springframework/jdbc/SQLWarningException.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1528,31 +1523,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentMapperTest.java" />
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-128">
@@ -1560,23 +1534,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/UserControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="33" selection-start-line="4" selection-end-line="4" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1587,37 +1548,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java">
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="29">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        <state relative-caret-position="20">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageDto.java">
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/TeacherVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/base/BaseVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="306">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ClassVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/FacultyVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ProfessionVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/StudentVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1626,18 +1665,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        <state relative-caret-position="183">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
+        <state relative-caret-position="404">
           <caret line="45" column="41" lean-forward="true" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/service/StudentServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
         </state>
       </provider>
     </entry>
