@@ -3,6 +3,7 @@ package org.nix.lovedomain.dao.business;
 import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
 import org.nix.lovedomain.model.Student;
+import org.nix.lovedomain.service.vo.StudentVo;
 
 import java.util.List;
 
@@ -22,9 +23,15 @@ public interface StudentBusinessMapper {
 
     /**
      * 通过分页参数获取到学生信息的数量
-     * @param pageInquire
-     * @return
+     * @param pageInquire 分页信息
+     * @return 查询到的学生数量
      */
     long findStudentCount(@Param(value = "pageInquire") StudentPageInquire pageInquire);
 
+    /**
+     * 获取一个学生的详细信息
+     * @param pageInquire 分页信息
+     * @return 查询到的学生信息
+     */
+    List<StudentVo> findStudentVoPage(@Param(value = "pageInquire") StudentPageInquire pageInquire);
 }
