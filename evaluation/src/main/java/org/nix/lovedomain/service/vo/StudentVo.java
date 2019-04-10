@@ -37,7 +37,7 @@ public class StudentVo {
     private ClassVo claszz;
 
 
-    public StudentVo studentToSimpleStudentVo(Student student) {
-        return JSONUtil.toBean(JSONUtil.toJsonStr(student), getClass());
+    public static StudentVo studentToSimpleStudentVo(Student student) {
+        return JSONUtil.toBean(JSONUtil.toJsonStr(student), StudentVo.class);
     }
 }
