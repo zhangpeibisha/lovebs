@@ -23,4 +23,12 @@ public class PageVo<D> {
 
     private List<D> data;
 
+    public <T> PageVo<T> changeDataType(List<T> data) {
+        return PageVo.<T>builder()
+                .page(this.page)
+                .limit(this.limit)
+                .total(this.total)
+                .data(data).build();
+    }
+
 }
