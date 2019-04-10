@@ -34,7 +34,7 @@ public class StudentVo {
      * 前端展示的字段为class
      */
     @JsonProperty(value = "class")
-    private ClassVo claszz;
+    private ClassVo classzz;
 
 
     public static StudentVo studentToSimpleStudentVo(Student student) {
