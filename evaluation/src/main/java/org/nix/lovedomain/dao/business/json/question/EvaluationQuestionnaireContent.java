@@ -1,9 +1,11 @@
 package org.nix.lovedomain.dao.business.json.question;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author zhangpei
@@ -12,18 +14,24 @@ import lombok.NoArgsConstructor;
  * @date 2019/4/12
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class EvaluationQuestionnaireContent {
-    /**
-     * 问卷题目
-     */
-    private String title;
-    /**
-     * 问卷描述
-     */
-    private String description;
 
+    /**
+     * 问题集合
+     */
+    private List<BaseQuestion> questions;
 
+    public void addQuestion(BaseQuestion question) {
+        if (questions == null) {
+            questions = new ArrayList<>();
+        }
+        questions.add(question);
+    }
+
+    public void addQuestions(Collection<BaseQuestion> question) {
+        if (questions == null) {
+            questions = new ArrayList<>();
+        }
+        questions.addAll(question);
+    }
 }
