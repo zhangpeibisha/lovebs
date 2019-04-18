@@ -24,7 +24,15 @@ public class ResultDto<D> {
 
     private D data;
 
-    public void setStatus(HttpStatus httpStatus){
+    public void setStatus(HttpStatus httpStatus) {
         code = httpStatus.value();
+    }
+
+    public static ResultDto success(String msg) {
+        return ResultDto.builder().msg(msg).build();
+    }
+
+    public static ResultDto faile(String msg) {
+        return ResultDto.builder().msg(msg).code(400).build();
     }
 }
