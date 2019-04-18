@@ -7,6 +7,7 @@
     <groupId>org.nix.lovedomain</groupId>
     <artifactId>evaluation</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>evaluation</name>
     <url>http://www.example.com</url>
@@ -96,7 +97,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>blog</finalName>
+        <finalName>evaluation</finalName>
     </build>
 
 </project>

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/ResultDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/ResultDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -82,29 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentBusinessMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleResourceMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleResourceMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResultDto.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResultDto.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/ResultDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+            <state relative-caret-position="157">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#485#486#0" expanded="true" />
@@ -116,6 +99,20 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -167,7 +164,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/evaluation/pom.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/UserControllerTest.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/PageDto.java" />
@@ -217,6 +213,7 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/RoleResourceBusinessMapperTest.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/RbacController.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/ResultDto.java" />
+        <option value="$PROJECT_DIR$/evaluation/pom.xml" />
       </list>
     </option>
   </component>
@@ -244,10 +241,6 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="evaluation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="love-security" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
       </expand>
       <select />
@@ -279,6 +272,11 @@
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -411,69 +409,6 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="dto" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -552,7 +487,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RoleResourceBusinessMapperTest">
+  <component name="RunManager" selected="Spring Boot.EvaluationApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method>
@@ -807,21 +742,7 @@
       <workItem from="1555214499050" duration="75000" />
       <workItem from="1555431111134" duration="65000" />
       <workItem from="1555510279479" duration="1205000" />
-      <workItem from="1555605508737" duration="4754000" />
-    </task>
-    <task id="LOCAL-00043" summary="更新jar包依赖">
-      <created>1550564164621</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1550564164621</updated>
-    </task>
-    <task id="LOCAL-00044" summary="自动扫描资源信息完成">
-      <created>1550756425841</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1550756425841</updated>
+      <workItem from="1555605508737" duration="7830000" />
     </task>
     <task id="LOCAL-00045" summary="增加自动装配权限功能">
       <created>1550759801513</created>
@@ -1152,7 +1073,21 @@
       <option name="project" value="LOCAL" />
       <updated>1555613782346</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="完成角色添加资源的接口">
+      <created>1555614055157</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1555614055158</updated>
+    </task>
+    <task id="LOCAL-00093" summary="完成角色添加资源的接口">
+      <created>1555614107758</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1555614107758</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1188,15 +1123,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111932000" />
+    <option name="totallyTimeSpent" value="115008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.35582328" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.35552195" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
@@ -1213,10 +1147,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.22030981" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.3493976" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.14113598" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.29954615" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.19213313" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -1298,23 +1232,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/FillBlankQuestionItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseQuestion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1722,8 +1639,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/ResultDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+        <state relative-caret-position="157">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#485#486#0" expanded="true" />
@@ -1736,16 +1653,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>lovebs:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1788,7 +1717,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ssoservice</last-edited>
+          <last-edited>api</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
