@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: evaluation
+  profiles:
+    active: dev
+mybatis:
+  mapper-locations: classpath:org.nix.lovedomain.dao.mapper/*Mapper.xml,classpath:org.nix.lovedomain.dao.business/*Mapper.xml
+  configuration:
+    cache-enabled: false
+logging:
+    level:
+      org.nix.lovedomain.dao: debug
