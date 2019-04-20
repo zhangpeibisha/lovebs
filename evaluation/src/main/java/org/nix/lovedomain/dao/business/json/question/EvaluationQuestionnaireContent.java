@@ -1,7 +1,9 @@
 package org.nix.lovedomain.dao.business.json.question;
 
+import cn.hutool.json.JSONUtil;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
+import org.nix.lovedomain.model.Evaluationquestionnaire;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,17 +23,29 @@ public class EvaluationQuestionnaireContent {
      */
     private List<BaseQuestion> questions;
 
-    public void addQuestion(BaseQuestion question) {
+    public <T extends BaseQuestion> void addQuestion(T question) {
         if (questions == null) {
             questions = new ArrayList<>();
         }
         questions.add(question);
     }
 
-    public void addQuestions(Collection<BaseQuestion> question) {
+
+    public  <T extends BaseQuestion> void addQuestions(Collection<T> question) {
         if (questions == null) {
             questions = new ArrayList<>();
         }
         questions.addAll(question);
+    }
+
+    public static EvaluationQuestionnaireContent getContentBean(Evaluationquestionnaire evaluationquestionnaire) {
+        if (evaluationquestionnaire == null) {
+            return null;
+        }
+        String jsonContent = evaluationquestionnaire.getContent();
+        if (jsonContent == null) {
+            return new EvaluationQuestionnaireContent();
+        }
+        return JSONUtil.toBean(jsonContent, EvaluationQuestionnaireContent.class);
     }
 }
