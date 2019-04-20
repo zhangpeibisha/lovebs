@@ -1,30 +1,13 @@
 package org.nix.lovedomain.dao.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
+import org.nix.lovedomain.dao.mapper.base.BaseMapper;
 import org.nix.lovedomain.model.Profession;
 import org.nix.lovedomain.model.ProfessionExample;
 
-public interface ProfessionMapper {
-    int countByExample(ProfessionExample example);
+import java.util.List;
 
-    int deleteByExample(ProfessionExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Profession record);
-
-    int insertSelective(Profession record);
-
+@Mapper
+public interface ProfessionMapper extends BaseMapper<Profession> {
     List<Profession> selectByExample(ProfessionExample example);
-
-    Profession selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Profession record, @Param("example") ProfessionExample example);
-
-    int updateByExample(@Param("record") Profession record, @Param("example") ProfessionExample example);
-
-    int updateByPrimaryKeySelective(Profession record);
-
-    int updateByPrimaryKey(Profession record);
 }

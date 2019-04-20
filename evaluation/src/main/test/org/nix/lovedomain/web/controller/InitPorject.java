@@ -94,7 +94,7 @@ class A {
         classMapper.insertSelective(classzz);
         ClassExample example = new ClassExample();
         example.createCriteria().andProfessionidEqualTo(id);
-        return classMapper.selectByExample(example).get(0);
+        return (org.nix.lovedomain.model.Class)classMapper.selectByExample(example).get(0);
     }
 
     @Transactional(rollbackFor = Exception.class)

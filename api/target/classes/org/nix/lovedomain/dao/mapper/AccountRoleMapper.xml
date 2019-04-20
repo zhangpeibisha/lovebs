@@ -208,4 +208,41 @@
       updateTime = #{updatetime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--根据条件查找数据-->
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    SELECT
+    id,
+    accountId as accountid,
+    roleId as accountid,
+    createTime as accountid,
+    updateTime as accountid
+    FROM
+    `account_role`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+    <if test="limit != -1 and limit != -1">
+      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <!--根据条件查找数据条数-->
+  <select id="queryAmount" resultType="long" >
+    SELECT
+    count(*)
+    FROM
+    `account_role`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+  </select>
+
+  <!--批量删除-->
+  <delete id="deletes" parameterType="Integer[]">
+    delete from `account_role` where id in
+    <foreach collection="ids" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>
