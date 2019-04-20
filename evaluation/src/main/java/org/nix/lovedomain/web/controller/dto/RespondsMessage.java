@@ -1,7 +1,6 @@
-package org.nix.lovedomain.web.controller.base;
+package org.nix.lovedomain.web.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +13,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class RespondsMessage<D> {
     public static final Integer SUCCESS_CODE = 200;
@@ -41,8 +39,18 @@ public class RespondsMessage<D> {
         this.msg = msg;
     }
 
+    public RespondsMessage(D data, Integer code, String msg) {
+        this.data = data;
+        this.code = code;
+        this.msg = msg;
+    }
+
     public static RespondsMessage success(String msg) {
         return new RespondsMessage(SUCCESS_CODE, msg);
+    }
+
+    public static <D> RespondsMessage success(String msg, D data) {
+        return new RespondsMessage<>(data, SUCCESS_CODE, msg);
     }
 
     public static RespondsMessage failure(Integer code, String msg) {
