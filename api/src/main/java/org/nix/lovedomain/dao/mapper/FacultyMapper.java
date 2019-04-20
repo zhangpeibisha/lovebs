@@ -1,30 +1,13 @@
 package org.nix.lovedomain.dao.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
+import org.nix.lovedomain.dao.mapper.base.BaseMapper;
 import org.nix.lovedomain.model.Faculty;
 import org.nix.lovedomain.model.FacultyExample;
 
-public interface FacultyMapper {
-    int countByExample(FacultyExample example);
+import java.util.List;
 
-    int deleteByExample(FacultyExample example);
-
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Faculty record);
-
-    int insertSelective(Faculty record);
-
+@Mapper
+public interface FacultyMapper extends BaseMapper<Faculty> {
     List<Faculty> selectByExample(FacultyExample example);
-
-    Faculty selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Faculty record, @Param("example") FacultyExample example);
-
-    int updateByExample(@Param("record") Faculty record, @Param("example") FacultyExample example);
-
-    int updateByPrimaryKeySelective(Faculty record);
-
-    int updateByPrimaryKey(Faculty record);
 }

@@ -8,7 +8,6 @@ import org.nix.lovedomain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class ResourcesService {
     }
 
     public Resources findResourceById(Integer resourcesId) {
-        return resourcesMapper.selectByPrimaryKey(resourcesId);
+        return (Resources) resourcesMapper.selectByPrimaryKey(resourcesId);
     }
 
     public Resources findResourcesByName(String name) {
@@ -93,7 +92,7 @@ public class ResourcesService {
         List<Resources> resources = new ArrayList<>(roleResources.size());
         roleResources.forEach(roleResource -> {
             Integer resourceid = roleResource.getResourceid();
-            resources.add(resourcesMapper.selectByPrimaryKey(resourceid));
+            resources.add((Resources) resourcesMapper.selectByPrimaryKey(resourceid));
         });
         log.info("用户{}拥有的资源为：{}", account, JSONUtil.toJsonStr(resources));
         return resources;

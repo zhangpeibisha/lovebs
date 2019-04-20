@@ -1,0 +1,24 @@
+spring:
+  datasource:
+      url: jdbc:mysql://59.110.234.213:3306/evaluation?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: kiss4400
+  http:
+   encoding:
+     charset: UTF-8
+     force: true
+     enabled: true
+  session:
+    store-type: redis
+security:
+  basic:
+    enabled: true
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
+love:
+  security:
+    browser:
+      loginPage: /login/index.html

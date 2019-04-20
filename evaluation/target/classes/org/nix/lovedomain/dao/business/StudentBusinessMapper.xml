@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.lovedomain.dao.business.StudentBusinessMapper">
+
+    <!--学生的详细信息映射-->
+    <resultMap id="studentVoMap" type="org.nix.lovedomain.service.vo.StudentVo">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="studentId" column="studentId" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="imageUrl" column="imageUrl" jdbcType="VARCHAR"/>
+        <association property="classzz" column="classId"
+                     javaType="org.nix.lovedomain.service.vo.ClassVo"
+                     select="selectClassById">
+
+        </association>
+    </resultMap>
+
+    <!--课堂的map映射信息-->
+    <resultMap id="classVoMap" type="org.nix.lovedomain.service.vo.ClassVo">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="classId" column="classId" jdbcType="INTEGER"/>
+        <association property="teacher" column="teacherId"
+                     javaType="org.nix.lovedomain.service.vo.TeacherVo" select="selectTeacherById"/>
+
+        <association property="profession" column="professionId"
+                     javaType="org.nix.lovedomain.service.vo.ProfessionVo" select="selectProfessionById"/>
+    </resultMap>
+
+    <!--专业的详细信息map-->
+    <resultMap id="professionVoMap" type="org.nix.lovedomain.service.vo.ProfessionVo">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="coding" column="coding" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <association property="facultyVo" column="facultyId"
+                     javaType="org.nix.lovedomain.service.vo.FacultyVo"
+                     select="selectFacultyById"/>
+        <association property="teacher" column="departmentId"
+                     javaType="org.nix.lovedomain.service.vo.TeacherVo" select="selectTeacherById"/>
+    </resultMap>
+
+    <!--学院详细信息的查询-->
+    <resultMap id="facultyVoMap" type="org.nix.lovedomain.service.vo.FacultyVo">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="coding" column="coding" jdbcType="VARCHAR"/>
+        <association property="dean" column="dean"
+                     javaType="org.nix.lovedomain.service.vo.TeacherVo" select="selectTeacherById"/>
+    </resultMap>
+
+
+    <!--查询课程信息，通过id-->
+    <select id="selectClassById" parameterType="java.lang.Integer"
+            resultMap="classVoMap">
+        select * from `class` where id=#{id}
+    </select>
+
+    <!--查询老师信息，通过id-->
+    <select id="selectTeacherById" parameterType="java.lang.Integer"
+            resultType="org.nix.lovedomain.service.vo.TeacherVo">
+        select * from `teacher` where id=#{id}
+    </select>
+
+    <!--查询专业信息通过id-->
+    <select id="selectProfessionById" parameterType="java.lang.Integer"
+            resultMap="professionVoMap">
+        select * from `profession` where id=#{id}
+    </select>
+
+    <!--查询学院信息通过id-->
+    <select id="selectFacultyById" parameterType="java.lang.Integer"
+            resultMap="facultyVoMap">
+        select * from `faculty` where id=#{id}
+    </select>
+
+    <!--发现学生的原始信息，分页查询-->
+    <select id="findStudentPage"
+            parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
+            resultType="org.nix.lovedomain.model.Student">
+        SELECT * FROM `student`
+        <if test="pageInquire.quireField!=null and pageInquire.quireValue!=null">
+            <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
+            WHERE
+            ${pageInquire.quireField}
+            <if test="pageInquire.blurry">
+                LIKE #{blurrySelect}
+            </if>
+            <if test="!pageInquire.blurry">
+                = #{pageInquire.quireValue}
+            </if>
+        </if>
+
+        <if test="pageInquire.page!=null and  pageInquire.limit!=null">
+            LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
+        </if>
+    </select>
+
+    <!--发现学生的数量 分页查询-->
+    <select id="findStudentCount"
+            parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
+            resultType="java.lang.Long">
+        SELECT COUNT(*) FROM `student`
+        <if test="pageInquire.quireField!=null and pageInquire.quireValue!=null">
+            <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
+            WHERE
+            ${pageInquire.quireField}
+            <if test="pageInquire.blurry">
+                LIKE #{blurrySelect}
+            </if>
+            <if test="!pageInquire.blurry">
+                = #{pageInquire.quireValue}
+            </if>
+        </if>
+        <if test="pageInquire.page!=null and  pageInquire.limit!=null">
+            LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
+        </if>
+    </select>
+
+    <!--业务需求，查询用户详细信息 分页查询-->
+    <select id="findStudentVoPage"
+            parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
+            resultMap="studentVoMap">
+        SELECT
+        *
+        FROM
+        `student`
+        LEFT JOIN class ON student.classId = class.id
+        LEFT JOIN profession ON class.professionId = profession.id
+        LEFT JOIN faculty ON profession.facultyId = faculty.id
+        <if test="pageInquire.quireField!=null and pageInquire.quireValue!=null">
+            <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
+            WHERE
+            ${pageInquire.quireField}
+            <if test="pageInquire.blurry">
+                LIKE #{blurrySelect}
+            </if>
+            <if test="!pageInquire.blurry">
+                = #{pageInquire.quireValue}
+            </if>
+        </if>
+        <if test="pageInquire.page!=null and  pageInquire.limit!=null">
+            LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
+        </if>
+    </select>
+</mapper>

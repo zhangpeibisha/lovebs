@@ -46,7 +46,7 @@ public class RoleService {
         roles = new ArrayList<>(accountRoles.size());
         accountRoles.forEach(accountRole -> {
             Integer roleid = accountRole.getRoleid();
-            roles.add(roleMapper.selectByPrimaryKey(roleid));
+            roles.add((Role)roleMapper.selectByPrimaryKey(roleid));
         });
         log.info("用户{}的角色信息为：{}", account, JSONUtil.toJsonStr(roles));
         return roles;
