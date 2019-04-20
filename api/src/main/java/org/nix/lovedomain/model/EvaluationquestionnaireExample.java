@@ -435,52 +435,62 @@ public class EvaluationquestionnaireExample {
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridEqualTo(Integer value) {
+        public Criteria andAuthoridEqualTo(String value) {
             addCriterion("authorId =", value, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridNotEqualTo(Integer value) {
+        public Criteria andAuthoridNotEqualTo(String value) {
             addCriterion("authorId <>", value, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridGreaterThan(Integer value) {
+        public Criteria andAuthoridGreaterThan(String value) {
             addCriterion("authorId >", value, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAuthoridGreaterThanOrEqualTo(String value) {
             addCriterion("authorId >=", value, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridLessThan(Integer value) {
+        public Criteria andAuthoridLessThan(String value) {
             addCriterion("authorId <", value, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridLessThanOrEqualTo(Integer value) {
+        public Criteria andAuthoridLessThanOrEqualTo(String value) {
             addCriterion("authorId <=", value, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridIn(List<Integer> values) {
+        public Criteria andAuthoridLike(String value) {
+            addCriterion("authorId like", value, "authorid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthoridNotLike(String value) {
+            addCriterion("authorId not like", value, "authorid");
+            return (Criteria) this;
+        }
+
+        public Criteria andAuthoridIn(List<String> values) {
             addCriterion("authorId in", values, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridNotIn(List<Integer> values) {
+        public Criteria andAuthoridNotIn(List<String> values) {
             addCriterion("authorId not in", values, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridBetween(Integer value1, Integer value2) {
+        public Criteria andAuthoridBetween(String value1, String value2) {
             addCriterion("authorId between", value1, value2, "authorid");
             return (Criteria) this;
         }
 
-        public Criteria andAuthoridNotBetween(Integer value1, Integer value2) {
+        public Criteria andAuthoridNotBetween(String value1, String value2) {
             addCriterion("authorId not between", value1, value2, "authorid");
             return (Criteria) this;
         }
