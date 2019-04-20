@@ -2,133 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_CR1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_hateoas_spring_hateoas_0_23_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/base/BaseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/SpringContextHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/AccountRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ClassService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/CourseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/EvaluationquestionnaireService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/FacultyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ProfessionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/PublishquestionnaireService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/QuestionnaireanswerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/RoleResourceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ScoreblacklistService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/StatisticsscoreService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/StudentCourseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/TeacherCourseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/TeacherService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/LimitVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/ConditionStr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/QuestionnaireController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/base/BaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountRoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ClassController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/CourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/EvaluationquestionnaireController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/FacultyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ProfessionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/PublishquestionnaireController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/QuestionnaireanswerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ResourcesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/RoleResourceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ScoreblacklistController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/StatisticsscoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/StudentCourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/TeacherCourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/swagger/Swagger2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountRoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ClassMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ClassMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/CourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/FacultyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/FacultyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ProfessionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ProfessionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ResourcesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ResourcesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleResourceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleResourceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentCourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/AccountMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/AccountRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/AccountRoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ClassMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/FacultyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/FacultyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StudentCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StudentCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/TeacherMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/AccountMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/AccountRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/AccountRoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ClassMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/FacultyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/FacultyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/RoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StudentCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StudentCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/TeacherMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/evaluation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/evaluation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/RoleResourceBusinessMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/RoleResourceBusinessMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/target/classes/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/target/classes/org/nix/lovedomain/databases/mapper/ResourcesMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-app/love-security-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lovesecurity/love-security-browser/love-security-browser.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -150,96 +25,93 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file leaf-file-name="SQLUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-874">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountRoleService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/AccountRoleService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ClassService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleResourceService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/RoleResourceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeacherCourseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/TeacherCourseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentCourseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/StudentCourseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReflectEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/base/BaseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2100">
-              <caret line="152" column="70" selection-start-line="152" selection-start-column="70" selection-end-line="152" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-3876">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+            <state relative-caret-position="187">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReflectEngine.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java">
+      <file leaf-file-name="ClassController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ClassController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InitPorject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
-              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfessionMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ProfessionMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatisticsscoreMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentCourseMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentCourseMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherCourseMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+            <state relative-caret-position="187">
+              <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -310,8 +182,8 @@
   <component name="GradleLocalSettings">
     <option name="projectSyncType">
       <map>
-        <entry key="C:/资料文件夹/工作学习/Java/学习资料/spring-framework-5.0.0.M3" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../spring5.0" value="PREVIEW" />
+        <entry key="C:/资料文件夹/工作学习/Java/学习资料/spring-framework-5.0.0.M3" value="PREVIEW" />
       </map>
     </option>
   </component>
@@ -390,7 +262,16 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="love-security" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="evaluation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="evaluation" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="love-security-browser" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
       </expand>
       <select />
@@ -413,6 +294,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -420,132 +303,6 @@
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
               <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -625,45 +382,7 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -718,330 +437,10 @@
               <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="myController" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="browser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-browser" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="authentication" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="oauthorize" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="properties" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="social" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="validate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
-              <item name="lovesecurity" type="462c0819:PsiDirectoryNode" />
-              <item name="love-security-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mian" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="nix" type="462c0819:PsiDirectoryNode" />
-              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="validate" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1110,6 +509,834 @@
       <recent name="C:\WorkPace\GIT\lovebs\lovedemo\src\main\resources\public" />
       <recent name="C:\WorkPace\GIT\lovebs\lovesecurity" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gitignore</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/compiler.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/encodings.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/lovesecuritycore.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/pom.xml</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/artifacts/lovebs_jar.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__cn_hutool_hutool_all_4_1_19.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_github_penggle_kaptcha_2_3_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_2_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__com_jhlabs_filters_2_0_235_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_2_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_46.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_2_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_8_5_20.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_8_5_20.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_20.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_jdbc_8_5_20.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_tomcat_juli_8_5_20.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_2_6_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_all_2_4_12.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_library_1_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_0_0_CR1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_generator_mybatis_generator_core_1_3_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_2.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_3.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_10.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_18.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_4_0.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_spockframework_spock_core_1_0_groovy_2_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_spockframework_spock_spring_1_0_groovy_2_4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_1_5_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_commons_1_2_2_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_1_2_2_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_1_2_2_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_8_7_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_hateoas_spring_hateoas_0_23_0_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_session_spring_session_1_3_1_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_11_RELEASE.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/love_security_browser_1_0_SNAPSHOT.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/uiDesigner.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/api.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/CommentGenerator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/Generator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountRoleMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ClassMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/CourseMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/FacultyMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ProfessionMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ResourcesMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/RoleResourceMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentCourseMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/StudentMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/TeacherMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/base/BaseMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Account.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/AccountExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/AccountRole.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/AccountRoleExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Class.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/ClassExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Course.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/CourseExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Evaluationquestionnaire.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/EvaluationquestionnaireExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Faculty.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/FacultyExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Profession.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/ProfessionExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Publishquestionnaire.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/PublishquestionnaireExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Questionnaireanswer.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/QuestionnaireanswerExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Resources.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/ResourcesExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Role.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/RoleExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/RoleResource.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/RoleResourceExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Scoreblacklist.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/ScoreblacklistExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Statisticsscore.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/StatisticsscoreExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Student.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/StudentCourse.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/StudentCourseExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/StudentExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Teacher.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/TeacherCourse.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/TeacherCourseExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/TeacherExample.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/generator.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/generatorConfig.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/AccountMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/AccountRoleMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ClassMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/CourseMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/FacultyMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StudentCourseMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/StudentMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/TeacherMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/generator.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/generatorConfig.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/AccountMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/AccountRoleMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ClassMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/CourseMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/FacultyMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/RoleMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StatisticsscoreMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StudentCourseMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/StudentMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/TeacherCourseMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/api/target/classes/org/nix/lovedomain/dao/mapper/TeacherMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/doc/ER.vsdx</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/doc/JdbcUsersConnectionRepository.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/doc/evaluation.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/doc/log/testLog.log</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/doc/remeber-me.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/evaluation.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/SpringContextHolder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/StudentBusinessMapper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/ChoseQuestionItem.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContent.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/FillBlankQuestionItem.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/QuestionnaireEnum.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseItem.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseQuestion.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/AbstractPageInquire.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/SQLPageException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/page/StudentPageInquire.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/AuthenUserDetail.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/RbacServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UrlGrantedAuthority.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/UserDetailServiceImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/DefaultPermissionUrlConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/url/PermissionUrlConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/AccountService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ResourcesService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/RoleService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/ServiceException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/StudentService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/AccountRoleService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ClassService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/CourseService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/EvaluationquestionnaireService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/FacultyService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ProfessionService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/PublishquestionnaireService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/QuestionnaireanswerService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/RoleResourceService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ScoreblacklistService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/StatisticsscoreService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/StudentCourseService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/TeacherCourseService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/TeacherService.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ClassVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/FacultyVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/LimitVO.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ProfessionVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/StudentVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/TeacherVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/base/BaseVo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/ConditionStr.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/QuestionnaireController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/RbacController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/StudentController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/TeacherController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/UserController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/base/BaseController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountRoleController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ClassController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/CourseController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/EvaluationquestionnaireController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/FacultyController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ProfessionController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/PublishquestionnaireController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/QuestionnaireanswerController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ResourcesController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/RoleController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/RoleResourceController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ScoreblacklistController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/StatisticsscoreController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/StudentCourseController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/TeacherCourseController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/ResultDto.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/dto/RoleDto.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/swagger/Swagger2.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/application-prod.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/application.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/app.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/doc.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/message.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/nprogress.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/themes/blue.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/css/themes/light.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/images/pay.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/loader.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/message.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/navbar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/nprogress.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/onelevel.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/pjax.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/build/js/tab.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/components/table/table.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/components/table/table.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/navbar1.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/navbar2.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/onelevel1.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/gulpfile.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/login.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/main.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/jquery-2.1.0.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/layui.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/layui.mobile.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/code.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/laydate/default/laydate.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/icon-ext.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/layer.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/loading-0.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/loading-1.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/css/modules/layer/default/loading-2.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/font/iconfont.woff</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/0.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/1.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/10.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/11.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/12.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/13.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/14.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/15.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/16.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/17.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/18.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/19.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/2.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/20.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/21.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/22.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/23.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/24.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/25.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/26.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/27.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/28.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/29.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/3.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/30.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/31.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/32.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/33.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/34.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/35.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/36.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/37.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/38.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/39.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/4.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/40.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/41.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/42.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/43.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/44.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/45.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/46.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/47.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/48.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/49.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/5.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/50.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/51.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/52.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/53.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/54.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/55.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/56.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/57.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/58.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/59.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/6.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/60.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/61.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/62.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/63.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/64.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/65.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/66.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/67.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/68.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/69.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/7.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/70.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/71.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/8.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/images/face/9.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/carousel.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/code.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/colorpicker.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/element.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/flow.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/form.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/laydate.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/layedit.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/layer.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/laypage.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/laytpl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/mobile.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/rate.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/slider.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/table.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/tree.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/upload.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/lay/modules/util.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/layui.all.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/plugins/layui/layui.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/table.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/test.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/addPermission.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/js/request.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/admin/views/rbac/permission.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/error/403.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/error/404.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/error/404/error.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/error/404/error_all.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/base.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/login.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/css/register.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b2_1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b3.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/b3_1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/qq.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/wb.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/img/register/wx.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/resources/static/login/register.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/RoleResourceBusinessMapperTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/StudentBusinessMapperTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/json/question/ChoseQuestionTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContentTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/service/StudentServiceTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/InitPorject.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/web/controller/UserControllerTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/blog.jar.original</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/application-dev.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/application-prod.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/application.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/css/app.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/css/doc.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/css/message.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/css/nprogress.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/css/themes/blue.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/css/themes/light.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/images/pay.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/loader.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/message.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/navbar.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/nprogress.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/onelevel.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/pjax.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/build/js/tab.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/components/table/table.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/components/table/table.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/datas/navbar1.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/datas/navbar2.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/datas/onelevel1.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/gulpfile.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/login.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/main.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/jquery-2.1.0.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/layui.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/layui.mobile.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/code.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/laydate/default/laydate.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/layer/default/icon-ext.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/layer/default/icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/layer/default/layer.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/layer/default/loading-0.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/layer/default/loading-1.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/css/modules/layer/default/loading-2.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/font/iconfont.eot</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/font/iconfont.svg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/font/iconfont.ttf</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/font/iconfont.woff</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/0.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/1.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/10.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/11.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/12.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/13.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/14.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/15.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/16.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/17.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/18.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/19.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/2.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/20.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/21.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/22.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/23.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/24.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/25.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/26.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/27.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/28.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/29.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/3.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/30.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/31.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/32.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/33.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/34.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/35.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/36.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/37.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/38.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/39.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/4.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/40.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/41.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/42.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/43.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/44.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/45.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/46.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/47.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/48.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/49.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/5.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/50.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/51.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/52.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/53.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/54.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/55.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/56.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/57.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/58.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/59.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/6.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/60.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/61.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/62.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/63.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/64.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/65.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/66.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/67.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/68.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/69.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/7.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/70.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/71.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/8.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/images/face/9.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/carousel.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/code.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/colorpicker.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/element.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/flow.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/form.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/jquery.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/laydate.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/layedit.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/layer.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/laypage.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/laytpl.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/mobile.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/rate.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/slider.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/table.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/tree.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/upload.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/lay/modules/util.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/layui.all.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/plugins/layui/layui.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/table.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/test.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/views/rbac/addPermission.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/views/rbac/js/request.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/admin/views/rbac/permission.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/error/403.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/error/404.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/error/404/error.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/error/404/error_all.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/css/base.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/css/login.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/css/register.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/b2.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/b2_1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/b3.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/b3_1.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/qq.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/wb.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/img/register/wx.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/classes/static/login/register.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/maven-archiver/pom.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/evaluation/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/lovesecurityapp.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/AppSecurityController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveAuthorizationServerConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/LoveResourcesServerConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/TokenStoreConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationFailureHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/authentication/LoveAuthenticationSuccessHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/AppSecretException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/AppSingUpUtils.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/SpringSocialConfigurerPostProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/impl/AppSocialAuthenticationFilterPostProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/openid/OpenIdAuthenticationFilter.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/openid/OpenIdAuthenticationProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/openid/OpenIdAuthenticationSecurityConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/social/openid/OpenIdAuthenticationToken.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/java/org/nix/lovedomain/security/app/validate/code/impl/RedisValidateCodeRepository.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/src/main/resources/application.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/target/classes/application.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-app/target/maven-archiver/pom.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/lovesecuritybrowser.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/pom.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityBeanConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationFailureHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/authentication/LoveAuthenticationSuccessHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/logout/LoveLogoutSuccessHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/session/AbstractSessionStrategy.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/session/LoveExpiredSessionStrategy.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/session/LoveInvalidSessionStrategy.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/validate/code/impl/SessionValidateCodeRepository.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/resources/static/love-banding.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/resources/static/love-signIn.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/resources/static/love-signUp.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/target/classes/static/love-banding.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/target/classes/static/love-signIn.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/target/classes/static/love-signUp.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-browser/target/maven-archiver/pom.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/SecurityCoreConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/mobile/SmsCodeAuthenticationFilter.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/mobile/SmsCodeAuthenticationProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/mobile/SmsCodeAuthenticationSecurityConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/mobile/SmsCodeAuthenticationToken.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/dto/BaseResultDTO.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/dto/SocialUserInfo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/AuthorizeConfigManger.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/AuthorizeConfigProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigManger.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/BrowserProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/ImageProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/LoginResponseType.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2ClientProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/OAuth2Properties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/QQProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityConstants.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SecurityProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SessionProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SmsProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/SocialProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/ValidateCodeProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/properties/WeixinProperties.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/JdbcUsersConnectionRepository.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/LoveConnectView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/LoveConnectionStatusView.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/LoveSpringSocialConfigurer.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialAuthenticationFilterPostProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/SocialException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/api/QQ.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/api/QQImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/api/QQUserInfo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/config/QQAutoConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQAdapter.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQConnectionFactory.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQOAuth2Template.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/qq/connet/QQServiceProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/api/Weixin.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/api/WeixinImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/api/WeixinUserInfo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/config/WeixinAutoConfiguration.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/connect/WeixinAccessGrant.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/connect/WeixinAdapter.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/connect/WeixinConnectionFactory.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/connect/WeixinOAuth2Template.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/social/weixin/connect/WeixinServiceProvider.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCode.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeBeanConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeFilter.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeGenerator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeProcessorHolder.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeRepository.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeSecurityConfig.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/ValidateCodeType.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/image/ImageCodeProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/image/ImageValidateCode.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/image/ImageValidateCodeGenerator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/impl/AbstractValidateCodeProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/sms/DefaultSmsCodeSender.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/sms/SmsCodeGenerator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/sms/SmsCodeProcessor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/validate/code/sms/SmsCodeSender.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/target/classes/META-INF/spring-configuration-metadata.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/target/classes/org/nix/lovedomain/security/core/social/JdbcUsersConnectionRepository.sql</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/lovesecurity/love-security-core/target/maven-archiver/pom.properties</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1764,7 +1991,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141734000" />
+    <option name="totallyTimeSpent" value="141948000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1776,46 +2003,73 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.052771855" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.28214827" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" sideWeight="0.605852" side_tool="true" weight="0.27609682" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.087241" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.18416524" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3293348" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3293348" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.70010906" />
-      <window_info anchor="bottom" id="Spring" order="14" weight="0.76881135" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.6444929" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.2585288" />
+      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.20137693" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.21170396" />
+      <window_info anchor="bottom" id="Spring" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.14113598" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.31089258" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" id="Json Parser" order="6" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.27262813" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.40458015" />
+      <window_info anchor="bottom" id="Spring" order="14" weight="0.76881135" />
       <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.70010906" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.6444929" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Json Parser" order="6" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.2585288" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Structure" order="1" sideWeight="0.605852" side_tool="true" weight="0.27609682" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.052771855" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.40458015" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" weight="0.3293348" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3293348" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.27262813" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.087241" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1890,7 +2144,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/base/BaseMapper.java</url>
           <line>28</line>
-          <properties class="org.nix.lovedomain.dao.mapper.base.BaseMapper" method="insertSelective" />
+          <properties class="org.nix.lovedomain.dao.mapper.base.BaseMapper" />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
@@ -1923,48 +2177,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ProfessionMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/PublishquestionnaireMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="275" column="41" selection-start-line="275" selection-start-column="41" selection-end-line="275" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/QuestionnaireanswerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="235" column="41" selection-start-line="235" selection-start-column="41" selection-end-line="235" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ResourcesMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="244" column="41" selection-start-line="244" selection-start-column="41" selection-end-line="244" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/RoleResourceMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="209" column="11" lean-forward="true" selection-start-line="209" selection-start-column="11" selection-end-line="209" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/ScoreblacklistMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -2014,24 +2226,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountRoleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ClassController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -2259,16 +2457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/base/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="152" column="70" selection-start-line="152" selection-start-column="70" selection-end-line="152" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -2276,10 +2464,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-874">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/AccountRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/ClassService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/RoleResourceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/TeacherCourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/myService/StudentCourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="170">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/base/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3876">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ClassController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
         </state>
       </provider>
     </entry>
