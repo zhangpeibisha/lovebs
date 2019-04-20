@@ -13,7 +13,7 @@ public class BaseItem {
     /**
      * 选项唯一id
      */
-    private Integer id;
+    private String id;
     /**
      * 选项名字
      */

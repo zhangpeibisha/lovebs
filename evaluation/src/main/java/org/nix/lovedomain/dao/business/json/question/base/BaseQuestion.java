@@ -18,7 +18,7 @@ public class BaseQuestion<I> {
     /**
      * 题目唯一id
      */
-    private Integer id;
+    private String id;
     /**
      * 问题类型
      */
