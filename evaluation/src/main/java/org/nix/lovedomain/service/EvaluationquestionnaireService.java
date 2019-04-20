@@ -71,6 +71,7 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
                 EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
         contentBean.addQuestion(question);
         evaluationquestionnaire.setContent(JSONUtil.toJsonStr(contentBean));
+        evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
         return evaluationquestionnaire;
     }
 
@@ -85,11 +86,12 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
     public Evaluationquestionnaire updateQuestionChosestionItem(Integer questionId,
                                                                 BaseQuestion<? extends BaseItem> baseQuestion,
                                                                 Principal principal) {
-        Evaluationquestionnaire evaluationquestionnaireById
+        Evaluationquestionnaire evaluationquestionnaire
                 = getEvaluationquestionnaireById(questionId, principal);
-        EvaluationQuestionnaireContent contentBean = EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaireById);
+        EvaluationQuestionnaireContent contentBean = EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
         contentBean.updateQuestion(baseQuestion);
-        return evaluationquestionnaireById;
+        evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
+        return evaluationquestionnaire;
     }
 
 
