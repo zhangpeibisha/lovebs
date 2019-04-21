@@ -1,20 +1,25 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
 import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
+import org.nix.lovedomain.model.Account;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.service.base.BaseService;
+import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @version 1.0
@@ -28,6 +33,9 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
 
     @Resource
     private EvaluationquestionnaireMapper evaluationquestionnaireMapper;
+
+    @Autowired
+    private AccountService accountService;
 
     /**
      * 添加问卷，主要用于老师创建问卷开始的步骤
@@ -128,6 +136,74 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
                     LogUtil.logInfo(log, "用户{}需要查询的问卷{}不存在", principal.getName(), questionId));
         }
         return evaluationquestionnaire;
+    }
+
+
+    public PageVo<Evaluationquestionnaire> findOwnEvaluationquestionnairePage(String userId,
+                                                                              Integer page,
+                                                                              Integer limit) {
+        if (userId == null) {
+            throw new ServiceException("用户未登录无法查询自己的问卷");
+        }
+        StringBuilder sql = new StringBuilder();
+        Account userByAccount = accountService.findUserByAccount(userId);
+        String email = userByAccount.getEmail();
+        String phone = userByAccount.getPhone();
+        String numbering = userByAccount.getNumbering();
+
+        if (email != null) {
+            sql.append(email).append(",");
+        }
+        if (phone != null) {
+            sql.append(phone).append(",");
+        }
+        if (numbering != null) {
+            sql.append(numbering).append(",");
+        }
+        int index = sql.lastIndexOf(",");
+        int length = sql.length();
+        if (length == 0) {
+            return PageVo.<Evaluationquestionnaire>builder()
+                    .page(page)
+                    .limit(limit)
+                    .total(0L)
+                    .data(null).build();
+        }
+        if (index != -1) {
+            sql.delete(index, length);
+        }
+        return findAllEvaluationquestionnairePage(page, limit, StrUtil.format("authorId in ({})", sql));
+    }
+
+
+
+    /**
+     * 分页查询问卷信息
+     *
+     * @param page     当前页（以1开始）
+     * @param limit    每页数量
+     * @param querySql 查询sql(where后面的语句)
+     * @return 返回结果
+     */
+    public PageVo<Evaluationquestionnaire> findAllEvaluationquestionnairePage(Integer page,
+                                                                              Integer limit,
+                                                                              String querySql) {
+        if (page == null || page <= 0) {
+            page = 1;
+        }
+        if (limit == null || limit <= 0) {
+            limit = 1;
+        }
+        if (querySql == null) {
+            querySql = "";
+        }
+        List<Evaluationquestionnaire> list = list(page, limit, querySql);
+        Long allCount = queryAmount(querySql);
+        return PageVo.<Evaluationquestionnaire>builder()
+                .data(list)
+                .limit(limit)
+                .total(allCount)
+                .page(page).build();
     }
 
 }

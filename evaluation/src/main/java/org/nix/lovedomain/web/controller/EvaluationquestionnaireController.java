@@ -93,4 +93,12 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
         }
         throw new ServiceException(StrUtil.format("请检查问卷{}是否存在", questionId));
     }
+
+    public RespondsMessage findOwnEvaluationquestionnairePage(Principal principal,
+                                                              Integer page,
+                                                              Integer limit) {
+
+
+        return null;
+    }
 }
