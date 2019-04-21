@@ -83,17 +83,31 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
      * @param principal    用户信息
      * @return 完整的问卷
      */
-    public Evaluationquestionnaire updateQuestionChosestionItem(Integer questionId,
-                                                                BaseQuestion<? extends BaseItem> baseQuestion,
-                                                                Principal principal) {
+    public Evaluationquestionnaire updateQuestionItem(Integer questionId,
+                                                      BaseQuestion<? extends BaseItem> baseQuestion,
+                                                      Principal principal) {
         Evaluationquestionnaire evaluationquestionnaire
                 = getEvaluationquestionnaireById(questionId, principal);
-        EvaluationQuestionnaireContent contentBean = EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
+        EvaluationQuestionnaireContent contentBean
+                = EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
         contentBean.updateQuestion(baseQuestion);
+        evaluationquestionnaire.setContent(JSONUtil.toJsonStr(contentBean));
         evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
         return evaluationquestionnaire;
     }
 
+    public Evaluationquestionnaire deleteQuestionItem(Integer questionId,
+                                                      BaseQuestion<? extends BaseItem> baseQuestion,
+                                                      Principal principal) {
+        Evaluationquestionnaire evaluationquestionnaire
+                = getEvaluationquestionnaireById(questionId, principal);
+        EvaluationQuestionnaireContent contentBean
+                = EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
+        contentBean.deleteQuestion(baseQuestion);
+        evaluationquestionnaire.setContent(JSONUtil.toJsonStr(contentBean));
+        evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
+        return evaluationquestionnaire;
+    }
 
     /**
      * 通过用户问卷id得到问卷
@@ -104,6 +118,10 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
      */
     public Evaluationquestionnaire getEvaluationquestionnaireById(Integer questionId,
                                                                   Principal principal) {
+        if (principal == null) {
+            throw new ServiceException(
+                    LogUtil.logWarn(log, "用户未登录查询的问卷{}", questionId));
+        }
         Evaluationquestionnaire evaluationquestionnaire = findById(questionId);
         if (evaluationquestionnaire == null) {
             throw new ServiceException(

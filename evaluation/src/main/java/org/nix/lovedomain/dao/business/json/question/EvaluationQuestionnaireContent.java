@@ -56,14 +56,12 @@ public class EvaluationQuestionnaireContent {
     /**
      * 删除问题，不能为空
      *
-     * @param questionId 问题id
+     * @param objectBaseQuestion 问题id
      */
-    public void deleteQuestion(String questionId) {
-        if (questionId == null) {
+    public void deleteQuestion(BaseQuestion<? extends BaseItem> objectBaseQuestion) {
+        if (objectBaseQuestion == null) {
             return;
         }
-        BaseQuestion<BaseItem> objectBaseQuestion = new BaseQuestion<>();
-        objectBaseQuestion.setId(questionId);
         Integer questInListIndex = getQuestInListIndex(objectBaseQuestion);
         if (questInListIndex != null) {
             questions.remove(questInListIndex.intValue());
@@ -72,6 +70,7 @@ public class EvaluationQuestionnaireContent {
 
     /**
      * 批量添加问题
+     *
      * @param question 问题集合
      */
     public void addQuestions(Collection<? extends BaseQuestion<? extends BaseItem>> question) {
@@ -87,6 +86,7 @@ public class EvaluationQuestionnaireContent {
 
     /**
      * 通过问卷对象获取到问卷内容的bean形式
+     *
      * @param evaluationquestionnaire 问卷信息
      * @return 问卷内容的bean
      */
@@ -146,7 +146,7 @@ public class EvaluationQuestionnaireContent {
             });
             for (BaseItem baseItem : items) {
                 if (baseItem.getId() == null) {
-                    baseItem.setId(IdUtil.randomUUID());
+                    baseItem.setId(IdUtil.simpleUUID());
                 }
             }
         }

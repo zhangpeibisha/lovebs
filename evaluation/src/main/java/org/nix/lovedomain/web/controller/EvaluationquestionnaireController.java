@@ -58,9 +58,39 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
                 = evaluationquestionnaireService.addQuestion(questionId, question, principal);
         if (evaluationquestionnaire != null) {
             return RespondsMessage.success(LogUtil
-                    .logInfo(log, "用户{}创建问卷{}成功，添加问卷id：{}", principal.getName(),
-                            "【" + evaluationquestionnaire.getTitle() + "】", questionId), evaluationquestionnaire);
+                    .logInfo(log, "用户{}在问卷【{}】中添加问题成功", principal.getName(),
+                            evaluationquestionnaire.getTitle()), evaluationquestionnaire);
         }
-        throw new ServiceException(StrUtil.format("查询{}问卷失败", questionId));
+        throw new ServiceException(StrUtil.format("请检查问卷{}是否存在", questionId));
+    }
+
+    @ApiOperation(value = "更新一个问题", notes = "需要提供更新的问卷id和问题更新后的信息，id和旧问题保持一致")
+    @PutMapping(value = "/question")
+    public RespondsMessage updateQuestion(@RequestParam(value = "questionId") Integer questionId,
+                                          @RequestBody BaseQuestion<? extends BaseItem> question,
+                                          Principal principal) {
+        Evaluationquestionnaire evaluationquestionnaire
+                = evaluationquestionnaireService.updateQuestionItem(questionId, question, principal);
+        if (evaluationquestionnaire != null) {
+            return RespondsMessage.success(LogUtil
+                    .logInfo(log, "用户{}在问卷【{}】中更新问题{}成功", principal.getName(),
+                            evaluationquestionnaire.getTitle(), question.getId()), evaluationquestionnaire);
+        }
+        throw new ServiceException(StrUtil.format("请检查问卷{}是否存在", questionId));
+    }
+
+    @ApiOperation(value = "删除一个问题", notes = "需要提供删除的问卷id和问题id信息的信息")
+    @DeleteMapping(value = "/question")
+    public RespondsMessage deleteQuestion(@RequestParam(value = "questionId") Integer questionId,
+                                          @RequestBody BaseQuestion<? extends BaseItem> question,
+                                          Principal principal) {
+        Evaluationquestionnaire evaluationquestionnaire
+                = evaluationquestionnaireService.deleteQuestionItem(questionId, question, principal);
+        if (evaluationquestionnaire != null) {
+            return RespondsMessage.success(LogUtil
+                    .logInfo(log, "用户{}在问卷【{}】中删除问题{}成功", principal.getName(),
+                            evaluationquestionnaire.getTitle(), question.getId()), evaluationquestionnaire);
+        }
+        throw new ServiceException(StrUtil.format("请检查问卷{}是否存在", questionId));
     }
 }
