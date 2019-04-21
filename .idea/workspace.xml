@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigProvider.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -31,11 +29,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CorsConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/config/CorsConfig.java">
+      <file leaf-file-name="EvaluationquestionnaireService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="-2634">
+              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Evaluationquestionnaire.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Evaluationquestionnaire.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvaluationquestionnaireBusinessMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,69 +59,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BrowserSecurityConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-browser/src/main/java/org/nix/lovedomain/security/browser/BrowserSecurityConfig.java">
+      <file leaf-file-name="EvaluationquestionnaireBusinessMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="134" column="29" lean-forward="true" selection-start-line="134" selection-start-column="29" selection-end-line="134" selection-end-column="29" />
+            <state relative-caret-position="251">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractChannelSecurityConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java">
+      <file leaf-file-name="StudentBusinessMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="30" column="90" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
+            <state relative-caret-position="-51" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleResourceBusinessMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoveAuthorizeConfigProvider.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigProvider.java">
+      <file leaf-file-name="RoleResourceBusinessMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EvaluationAuthorizeConfigProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java">
+      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+            <state relative-caret-position="92">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application-testing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-testing.yml">
+      <file leaf-file-name="ReflectEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="59">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpSecurity.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.2.3.RELEASE/spring-security-config-4.2.3.RELEASE.jar!/org/springframework/security/config/annotation/web/builders/HttpSecurity.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
-              <folding>
-                <element signature="e#10978#10979#0" expanded="true" />
-                <element signature="e#11030#11031#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvaluationquestionnaireController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EvaluationquestionnaireController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="88" column="46" lean-forward="true" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
+            <state relative-caret-position="288">
+              <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -117,9 +127,9 @@
       <list>
         <option value="HTML File" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -185,8 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/ScoreblacklistController.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/StatisticsscoreController.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/StudentCourseController.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/myController/TeacherCourseController.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountMapper.java" />
@@ -215,7 +223,6 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/ServiceException.java" />
         <option value="$PROJECT_DIR$/api/src/main/resources/generator.properties" />
         <option value="$PROJECT_DIR$/api/src/main/resources/generatorConfig.xml" />
-        <option value="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java" />
         <option value="$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/ChoseQuestionItem.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseQuestion.java" />
@@ -223,10 +230,8 @@
         <option value="$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContentTest.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContent.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/dto/RespondsMessage.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/base/BaseController.java" />
-        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/application-dev.yml" />
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/config/CorsFilter.java" />
@@ -236,6 +241,11 @@
         <option value="$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigProvider.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/security/EvaluationAuthorizeConfigProvider.java" />
         <option value="$PROJECT_DIR$/evaluation/src/main/resources/application-testing.yml" />
+        <option value="$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.xml" />
+        <option value="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java" />
       </list>
     </option>
   </component>
@@ -365,7 +375,7 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -377,7 +387,45 @@
               <item name="org" type="462c0819:PsiDirectoryNode" />
               <item name="nix" type="462c0819:PsiDirectoryNode" />
               <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
@@ -386,6 +434,61 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lovebs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lovebs" type="462c0819:PsiDirectoryNode" />
+              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="org" type="462c0819:PsiDirectoryNode" />
+              <item name="nix" type="462c0819:PsiDirectoryNode" />
+              <item name="lovedomain" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -737,14 +840,7 @@
       <workItem from="1555740248217" duration="112000" />
       <workItem from="1555745350237" duration="13643000" />
       <workItem from="1555779968943" duration="8200000" />
-      <workItem from="1555821286700" duration="23943000" />
-    </task>
-    <task id="LOCAL-00063" summary="暂时确定重定向位置为指定的相册页面，后续完善的时候在修改具体逻辑。重定向位置为成功处理器那里处理">
-      <created>1552183539722</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1552183539722</updated>
+      <workItem from="1555821286700" duration="31914000" />
     </task>
     <task id="LOCAL-00064" summary="提交临时跳转功能，由于博客未完善，因此只能登陆指定页面">
       <created>1552184212011</created>
@@ -1082,7 +1178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555837075579</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="解决跨域问题">
+      <created>1555856481747</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1555856481748</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1118,7 +1221,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190162000" />
+    <option name="totallyTimeSpent" value="198133000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1131,7 +1234,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
@@ -1152,10 +1254,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="16" weight="0.3293348" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.3293348" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.23580034" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.6179002" />
       <window_info anchor="bottom" id="Spring" order="15" weight="0.76881135" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.6444929" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.31996974" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.24962178" />
       <window_info anchor="right" id="Bean Validation" order="11" weight="0.32980332" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -1244,7 +1346,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="配置开发服和生产服" />
     <MESSAGE value="问卷内容定义完成" />
     <MESSAGE value="完善问卷格式" />
     <MESSAGE value="提交测试代码" />
@@ -1269,7 +1370,8 @@
     <MESSAGE value="提交运行脚本" />
     <MESSAGE value="修改基础控制器的返回数据格式" />
     <MESSAGE value="新增返回错误结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增返回错误结构" />
+    <MESSAGE value="解决跨域问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决跨域问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1302,145 +1404,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/Generator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/generator.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="63" selection-start-line="1" selection-start-column="63" selection-end-line="1" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/AccountRoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/ClassMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="79" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/stream/Stream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15436">
-          <caret line="954" column="16" selection-start-line="954" selection-start-column="16" selection-end-line="954" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/ChoseQuestionItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/test/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/base/BaseQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/swagger/swagger-annotations/1.5.3/swagger-annotations-1.5.3.jar!/io/swagger/annotations/ApiParam.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/CourseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="102" column="2" selection-start-line="102" selection-start-column="2" selection-end-line="102" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4097">
-          <caret line="241" column="11" selection-start-line="241" selection-start-column="11" selection-end-line="241" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Evaluationquestionnaire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
-          <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1742#1743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/base/BaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="687">
@@ -1466,13 +1429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-733">
-          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1521,13 +1477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
         </state>
       </provider>
     </entry>
@@ -1615,20 +1564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="88" column="46" lean-forward="true" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="30" column="90" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/config/CorsFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1665,15 +1600,147 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/application-testing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
+        <state relative-caret-position="171">
           <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/oauthorize/LoveAuthorizeConfigProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
+        <state relative-caret-position="222">
           <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lovesecurity/love-security-core/src/mian/java/org/nix/lovedomain/security/core/authentication/AbstractChannelSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="30" column="90" selection-start-line="30" selection-start-column="90" selection-end-line="30" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/login/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/onelevel1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/navbar2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/datas/navbar1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/error/403.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/login/register.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/static/admin/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/utils/SQLUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/component/ReflectEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/base/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/StudentBusinessMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/RoleResourceBusinessMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Evaluationquestionnaire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2634">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/resources/org/nix/lovedomain/dao/business/EvaluationquestionnaireBusinessMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
         </state>
       </provider>
     </entry>

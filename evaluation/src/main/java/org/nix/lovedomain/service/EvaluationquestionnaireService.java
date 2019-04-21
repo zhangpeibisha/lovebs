@@ -3,6 +3,7 @@ package org.nix.lovedomain.service;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.EvaluationquestionnaireBusinessMapper;
 import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
@@ -12,6 +13,7 @@ import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
+import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,9 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
 
     @Autowired
     private AccountService accountService;
+
+    @Resource
+    private EvaluationquestionnaireBusinessMapper evaluationquestionnaireBusinessMapper;
 
     /**
      * 添加问卷，主要用于老师创建问卷开始的步骤
@@ -139,14 +144,15 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
     }
 
 
-    public PageVo<Evaluationquestionnaire> findOwnEvaluationquestionnairePage(String userId,
+    public PageVo<Evaluationquestionnaire> findOwnEvaluationquestionnairePage(Principal principal,
                                                                               Integer page,
-                                                                              Integer limit) {
-        if (userId == null) {
+                                                                              Integer limit,
+                                                                              String querySql) {
+        if (principal == null) {
             throw new ServiceException("用户未登录无法查询自己的问卷");
         }
         StringBuilder sql = new StringBuilder();
-        Account userByAccount = accountService.findUserByAccount(userId);
+        Account userByAccount = accountService.findUserByAccount(principal.getName());
         String email = userByAccount.getEmail();
         String phone = userByAccount.getPhone();
         String numbering = userByAccount.getNumbering();
@@ -172,9 +178,11 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         if (index != -1) {
             sql.delete(index, length);
         }
-        return findAllEvaluationquestionnairePage(page, limit, StrUtil.format("authorId in ({})", sql));
+        if (querySql != null) {
+            sql.append(" and").append(querySql);
+        }
+        return findAllEvaluationquestionnairePage(page, limit, StrUtil.format("where authorId in ({})", sql));
     }
-
 
 
     /**
@@ -197,8 +205,10 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         if (querySql == null) {
             querySql = "";
         }
-        List<Evaluationquestionnaire> list = list(page, limit, querySql);
-        Long allCount = queryAmount(querySql);
+
+        List<Evaluationquestionnaire> list
+                = evaluationquestionnaireBusinessMapper.selectPage(SQLUtil.getOffset(page,limit),limit,querySql);
+        Long allCount = evaluationquestionnaireBusinessMapper.selectCount(querySql);
         return PageVo.<Evaluationquestionnaire>builder()
                 .data(list)
                 .limit(limit)

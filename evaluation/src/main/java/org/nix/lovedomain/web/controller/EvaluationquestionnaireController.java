@@ -10,6 +10,7 @@ import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.service.EvaluationquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
@@ -91,14 +92,21 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
                     .logInfo(log, "用户{}在问卷【{}】中删除问题{}成功", principal.getName(),
                             evaluationquestionnaire.getTitle(), question.getId()), evaluationquestionnaire);
         }
-        throw new ServiceException(StrUtil.format("请检查问卷{}是否存在", questionId));
+        throw new ServiceException(LogUtil.logInfo(log, "请检查问卷{}是否存在", questionId));
     }
 
+    @ApiOperation(value = "查询用户自己拥有的问卷列表", notes = "用户登陆后，且拥有权限时可以查看自己的所有创建的问卷")
+    @GetMapping(value = "/own/list")
     public RespondsMessage findOwnEvaluationquestionnairePage(Principal principal,
-                                                              Integer page,
-                                                              Integer limit) {
-
-
-        return null;
+                                                              @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                              @RequestParam(value = "limit", defaultValue = "10") Integer limit,
+                                                              @RequestParam(value = "query", required = false) String query) {
+        PageVo<Evaluationquestionnaire> ownEvaluationquestionnairePage
+                = evaluationquestionnaireService.findOwnEvaluationquestionnairePage(principal, page, limit, query);
+        if (ownEvaluationquestionnairePage != null) {
+            return RespondsMessage.success(LogUtil
+                    .logInfo(log, "用户{}访问自己的问卷完成", principal.getName()),ownEvaluationquestionnairePage);
+        }
+        throw new ServiceException(LogUtil.logInfo(log, "查询用户拥有的问卷失败"));
     }
 }
