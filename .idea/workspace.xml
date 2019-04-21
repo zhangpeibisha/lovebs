@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b595d-fd83-47a7-9a01-c5d77373d4ce" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/doc/testing.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lovesecurity/target/" />
     <ignored path="$PROJECT_DIR$/lovesecurity/love-security-authorize/target/" />
@@ -28,62 +26,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EvaluationquestionnaireService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Evaluationquestionnaire.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/model/Evaluationquestionnaire.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
-              <folding>
-                <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#1704#1705#0" expanded="true" />
-                <element signature="e#1742#1743#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/base/BaseMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvaluationQuestionnaireContent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/dao/business/json/question/EvaluationQuestionnaireContent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="147" column="47" lean-forward="true" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EvaluationquestionnaireController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EvaluationquestionnaireController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
+            <state relative-caret-position="309">
+              <caret line="96" selection-end-line="96" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EvaluationquestionnaireMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/src/main/resources/org/nix/lovedomain/dao/mapper/EvaluationquestionnaireMapper.xml">
+      <file leaf-file-name="RespondsMessage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/dto/RespondsMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4097">
-              <caret line="241" column="11" selection-start-line="241" selection-start-column="11" selection-end-line="241" selection-end-column="11" />
+            <state relative-caret-position="-178">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -403,12 +362,6 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.nix.lovedomain.security" />
-      <recent name="org.nix.lovedomain.service" />
-      <recent name="org.nix.lovedomain.security.app.social" />
-      <recent name="org.nix.lovedomain.security.core.validate.code.impl" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.nix.lovedomain.dao.business" />
       <recent name="org.nix.lovedomain.dao.business.json.question" />
@@ -425,12 +378,19 @@
       <recent name="org.nix.lovedomain.dao.mapper" />
       <recent name="org.nix.lovedomain" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\WorkPace\GIT\lovebs\api\src\main\resources\org\nix\lovedomain\dao\mapper" />
+      <recent name="F:\Project\lovebs\api\src\main\resources\org\nix\lovedomain\dao\mapper" />
+      <recent name="F:\Project\lovebs\api\src\main\resources\org\nix\lovedomain\dao\mapper\myMapper" />
+      <recent name="C:\WorkPace\GIT\lovebs\lovedemo\src\main\resources\public" />
+      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WorkPace\GIT\lovebs\doc" />
       <recent name="C:\WorkPace\GIT\lovebs\evaluation\src\main\resources" />
       <recent name="F:\Project\lovebs\api\src\main\java\org\nix\lovedomain\dao\mapper\myMapper" />
       <recent name="C:\WorkPace\GIT\lovebs\api\src\main\resources" />
       <recent name="C:\WorkPace\GIT\lovebs\api\src\main\java\org\nix\lovedomain" />
-      <recent name="C:\WorkPace\GIT\lovebs\doc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.nix.lovedomain.utils" />
@@ -439,12 +399,11 @@
       <recent name="org.nix.lovedomain.service" />
       <recent name="org.nix.lovedomain.reflectEngine" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\WorkPace\GIT\lovebs\api\src\main\resources\org\nix\lovedomain\dao\mapper" />
-      <recent name="F:\Project\lovebs\api\src\main\resources\org\nix\lovedomain\dao\mapper" />
-      <recent name="F:\Project\lovebs\api\src\main\resources\org\nix\lovedomain\dao\mapper\myMapper" />
-      <recent name="C:\WorkPace\GIT\lovebs\lovedemo\src\main\resources\public" />
-      <recent name="C:\WorkPace\GIT\lovebs\lovesecurity" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.nix.lovedomain.security" />
+      <recent name="org.nix.lovedomain.service" />
+      <recent name="org.nix.lovedomain.security.app.social" />
+      <recent name="org.nix.lovedomain.security.core.validate.code.impl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -459,7 +418,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EvaluationApplication">
+  <component name="RunManager" selected="Remote.服务器远程dbug">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method>
@@ -594,12 +553,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Remote" factoryName="Remote">
+    <configuration name="服务器远程dbug" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+      <option name="HOST" value="47.102.214.252" />
+      <option name="PORT" value="15999" />
     </configuration>
     <configuration name="EvaluationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="evaluation" />
@@ -633,7 +592,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Remote.Unnamed" />
+      <item itemvalue="Remote.服务器远程dbug" />
       <item itemvalue="Spring Boot.EvaluationApplication" />
       <item itemvalue="Application.Generator" />
       <item itemvalue="JUnit.ChoseQuestionTest.choseTest" />
@@ -720,14 +679,7 @@
       <workItem from="1555740248217" duration="112000" />
       <workItem from="1555745350237" duration="13643000" />
       <workItem from="1555779968943" duration="8200000" />
-      <workItem from="1555821286700" duration="2683000" />
-    </task>
-    <task id="LOCAL-00059" summary="相册展示功能完成">
-      <created>1551404690790</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1551404690791</updated>
+      <workItem from="1555821286700" duration="5637000" />
     </task>
     <task id="LOCAL-00060" summary="相册功能接入博客信息">
       <created>1551411790084</created>
@@ -1065,7 +1017,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555788245149</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="问卷增删改接口完成">
+      <created>1555824114117</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1555824114118</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1101,7 +1060,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168902000" />
+    <option name="totallyTimeSpent" value="171856000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1118,7 +1077,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.18003026" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.18003026" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
@@ -1135,10 +1094,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="16" weight="0.3293348" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="14" weight="0.3293348" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.56798625" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.18244407" />
       <window_info anchor="bottom" id="Spring" order="15" weight="0.76881135" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.6444929" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39414802" weight="0.1429652" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.19894099" />
       <window_info anchor="right" id="Bean Validation" order="11" weight="0.32980332" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
@@ -1154,45 +1113,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" id="Maven" order="7" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Duplicate detector" order="10" weight="0.329718" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Spring" order="15" weight="0.76881135" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.56798625" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="7" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.6444929" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" weight="0.14629948" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.33907056" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Java Enterprise" order="16" weight="0.3293348" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.3293348" />
-      <window_info anchor="right" id="Json Parser" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.18003026" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.40458015" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39414802" visible="true" weight="0.1429652" />
-      <window_info anchor="right" id="Database" order="9" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-      <window_info id="Structure" order="1" sideWeight="0.605852" side_tool="true" weight="0.27609682" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.26333907" />
-      <window_info anchor="right" id="Bean Validation" order="11" weight="0.32980332" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1227,7 +1147,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成学生的分页查询" />
     <MESSAGE value="提供分页类容转换的方法" />
     <MESSAGE value="类型转换方法改为静态方法" />
     <MESSAGE value="获取学生的详细信息完成" />
@@ -1252,7 +1171,8 @@
     <MESSAGE value="完成了问卷创建和添加问题接口" />
     <MESSAGE value="注释掉测试方法" />
     <MESSAGE value="修复更新信息问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复更新信息问题" />
+    <MESSAGE value="问卷增删改接口完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="问卷增删改接口完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1285,13 +1205,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/PageVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/vo/ProfessionVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1342,13 +1255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -1520,13 +1426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/dto/RespondsMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/stream/Stream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15436">
@@ -1610,13 +1509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/main/java/org/nix/lovedomain/dao/mapper/base/BaseMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1631,10 +1523,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/testing.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/EvaluationApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/service/EvaluationquestionnaireService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
+        <state relative-caret-position="-625">
           <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/dto/RespondsMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-178">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evaluation/src/main/java/org/nix/lovedomain/web/controller/EvaluationquestionnaireController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>
