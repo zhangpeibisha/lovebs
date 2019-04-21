@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 /**
  * @author zhangpei
@@ -18,6 +19,7 @@ public class RespondsMessage<D> {
     public static final Integer SUCCESS_CODE = 200;
 
     public static final Integer CLIENT_ERROR = 400;
+    public static final Integer UNAUTHORIZED = HttpStatus.UNAUTHORIZED.value();
     public static final Integer SERVER_ERROR = 500;
 
     private D data;
@@ -55,6 +57,18 @@ public class RespondsMessage<D> {
 
     public static RespondsMessage failure(Integer code, String msg) {
         return new RespondsMessage(code, msg);
+    }
+
+    public static RespondsMessage failure(String msg) {
+        return new RespondsMessage(CLIENT_ERROR, msg);
+    }
+
+    public static RespondsMessage failurePermission(String msg) {
+        return new RespondsMessage(UNAUTHORIZED, msg);
+    }
+
+    public static <D> RespondsMessage failure(String msg, D data) {
+        return new RespondsMessage<>(data, CLIENT_ERROR, msg);
     }
 
     public static RespondsMessage clientError(String msg) {
