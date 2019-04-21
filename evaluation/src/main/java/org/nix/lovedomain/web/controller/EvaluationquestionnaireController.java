@@ -105,8 +105,29 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
                 = evaluationquestionnaireService.findOwnEvaluationquestionnairePage(principal, page, limit, query);
         if (ownEvaluationquestionnairePage != null) {
             return RespondsMessage.success(LogUtil
-                    .logInfo(log, "用户{}访问自己的问卷完成", principal.getName()),ownEvaluationquestionnairePage);
+                    .logInfo(log, "用户{}访问自己的问卷完成", principal.getName()), ownEvaluationquestionnairePage);
         }
         throw new ServiceException(LogUtil.logInfo(log, "查询用户拥有的问卷失败"));
+    }
+
+
+    @ApiOperation(value = "查询所有在册的问卷", notes = "用户登陆后，且拥有权限时可以查看所有创建的问卷")
+    @GetMapping(value = "/all/list")
+    public RespondsMessage findAllEvaluationquestionnairePage(Principal principal,
+                                                              @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                              @RequestParam(value = "limit", defaultValue = "10") Integer limit,
+                                                              @RequestParam(value = "query", required = false) String query) {
+        if (principal == null) {
+            return RespondsMessage.failurePermission(LogUtil
+                    .logWarn(log, "未登陆的用户查询问卷信息"));
+        }
+        PageVo<Evaluationquestionnaire> ownEvaluationquestionnairePage
+                = evaluationquestionnaireService.findAllEvaluationquestionnairePage(page, limit, query);
+        String userName = principal.getName();
+        if (ownEvaluationquestionnairePage != null) {
+            return RespondsMessage.success(LogUtil
+                    .logInfo(log, "用户{}所有的问卷完成", userName), ownEvaluationquestionnairePage);
+        }
+        throw new ServiceException(LogUtil.logInfo(log, "用户{}查询所有问卷失败", userName));
     }
 }
