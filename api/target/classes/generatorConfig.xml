@@ -28,9 +28,9 @@
 
         <javaModelGenerator targetPackage="org.nix.lovedomain.model" targetProject="api\src\main\java"/>
 
-        <sqlMapGenerator targetPackage="org.nix.lovedomain.dao.mapper" targetProject="api\src\main\resources"/>
+        <sqlMapGenerator targetPackage="org.nix.lovedomain.dao.mapper.test" targetProject="api\src\main\resources"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.nix.lovedomain.dao.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.nix.lovedomain.dao.mapper.test"
                              targetProject="api\src\main\java"/>
         <!--生成全部表tableName设为%-->
         <table tableName="%">
