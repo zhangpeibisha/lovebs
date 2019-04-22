@@ -34,4 +34,14 @@ public interface StudentBusinessMapper {
      * @return 查询到的学生信息
      */
     List<StudentVo> findStudentVoPage(@Param(value = "pageInquire") StudentPageInquire pageInquire);
+
+    /**
+     * 通过老师id和课程id获取到学生信息
+     * @param teacherId 老师id
+     * @param courseId 课程id
+     * @return 学生信息列表
+     */
+    List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherId") Integer teacherId,
+                                                      @Param(value = "courseId") Integer courseId);
+
 }

@@ -12,6 +12,9 @@
     <result column="startRespondTime" jdbcType="TIMESTAMP" property="startrespondtime" />
     <result column="endRespondTime" jdbcType="TIMESTAMP" property="endrespondtime" />
   </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Publishquestionnaire">
+    <result column="statistics" jdbcType="LONGVARCHAR" property="statistics" />
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -74,6 +77,25 @@
     id, releaseId, courseId, teacherId, questionnaireId, description, releaseTime, startRespondTime, 
     endRespondTime
   </sql>
+  <sql id="Blob_Column_List">
+    statistics
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="org.nix.lovedomain.model.PublishquestionnaireExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from publishQuestionnaire
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="org.nix.lovedomain.model.PublishquestionnaireExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -88,9 +110,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from publishQuestionnaire
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -110,10 +134,12 @@
     </selectKey>
     insert into publishQuestionnaire (releaseId, courseId, teacherId, 
       questionnaireId, description, releaseTime, 
-      startRespondTime, endRespondTime)
+      startRespondTime, endRespondTime, statistics
+      )
     values (#{releaseid,jdbcType=INTEGER}, #{courseid,jdbcType=INTEGER}, #{teacherid,jdbcType=INTEGER}, 
       #{questionnaireid,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{releasetime,jdbcType=TIMESTAMP}, 
-      #{startrespondtime,jdbcType=TIMESTAMP}, #{endrespondtime,jdbcType=TIMESTAMP})
+      #{startrespondtime,jdbcType=TIMESTAMP}, #{endrespondtime,jdbcType=TIMESTAMP}, #{statistics,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Publishquestionnaire">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -145,6 +171,9 @@
       <if test="endrespondtime != null">
         endRespondTime,
       </if>
+      <if test="statistics != null">
+        statistics,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="releaseid != null">
@@ -170,6 +199,9 @@
       </if>
       <if test="endrespondtime != null">
         #{endrespondtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statistics != null">
+        #{statistics,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -209,7 +241,26 @@
       <if test="record.endrespondtime != null">
         endRespondTime = #{record.endrespondtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.statistics != null">
+        statistics = #{record.statistics,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update publishQuestionnaire
+    set id = #{record.id,jdbcType=INTEGER},
+      releaseId = #{record.releaseid,jdbcType=INTEGER},
+      courseId = #{record.courseid,jdbcType=INTEGER},
+      teacherId = #{record.teacherid,jdbcType=INTEGER},
+      questionnaireId = #{record.questionnaireid,jdbcType=INTEGER},
+      description = #{record.description,jdbcType=VARCHAR},
+      releaseTime = #{record.releasetime,jdbcType=TIMESTAMP},
+      startRespondTime = #{record.startrespondtime,jdbcType=TIMESTAMP},
+      endRespondTime = #{record.endrespondtime,jdbcType=TIMESTAMP},
+      statistics = #{record.statistics,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -256,7 +307,23 @@
       <if test="endrespondtime != null">
         endRespondTime = #{endrespondtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="statistics != null">
+        statistics = #{statistics,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.nix.lovedomain.model.Publishquestionnaire">
+    update publishQuestionnaire
+    set releaseId = #{releaseid,jdbcType=INTEGER},
+      courseId = #{courseid,jdbcType=INTEGER},
+      teacherId = #{teacherid,jdbcType=INTEGER},
+      questionnaireId = #{questionnaireid,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      releaseTime = #{releasetime,jdbcType=TIMESTAMP},
+      startRespondTime = #{startrespondtime,jdbcType=TIMESTAMP},
+      endRespondTime = #{endrespondtime,jdbcType=TIMESTAMP},
+      statistics = #{statistics,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.model.Publishquestionnaire">

@@ -135,9 +135,10 @@
       #{updatetime,jdbcType=TIMESTAMP}, #{authorid,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
-
-  <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Evaluationquestionnaire"
-          useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Evaluationquestionnaire">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into evaluationQuestionnaire
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="title != null">

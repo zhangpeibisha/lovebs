@@ -1,61 +1,55 @@
 package org.nix.lovedomain.web.controller;
 
-import org.nix.lovedomain.model.Account;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.service.AccountService;
+import org.nix.lovedomain.service.PublishquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
-import java.util.Date;
 
 /**
  * @version 1.0
  * @anthor on 2019/4/19
  * @since jdk8
  */
-@Controller
+@Slf4j
+@RestController
+@Api(value = "发布问卷控制器", description = "该控制器主要完成和发布问卷相关的工作")
 @RequestMapping(value = "publishquestionnaire")
 public class PublishquestionnaireController extends BaseController<Publishquestionnaire> {
 
     @Autowired
-    private AccountService accountService;
+    private PublishquestionnaireService publishquestionnaireService;
 
+
+    @ApiOperation(value = "发布评教问卷")
     @PostMapping(value = "/publish")
     public RespondsMessage pusblishQuestionnaire(Principal principal,
-                                                 Integer courseId,
-                                                 Integer teacherId,
-                                                 Integer questionnaireId,
-                                                 String description,
-                                                 Long startRespondTime,
-                                                 Long endRespondTime) {
+                                                 @RequestParam(value = "courseId") Integer courseId,
+                                                 @RequestParam(value = "teacherId") Integer teacherId,
+                                                 @RequestParam(value = "questionnaireId")Integer questionnaireId,
+                                                 @RequestParam(value = "description",required = false)String description,
+                                                 @RequestParam(value = "startRespondTime")Long startRespondTime,
+                                                 @RequestParam(value = "endRespondTime")Long endRespondTime) throws Exception {
 
-        if (principal == null){
+        if (principal == null) {
             throw new ServiceException("用户未登陆");
         }
-        Publishquestionnaire publishquestionnaire = new Publishquestionnaire();
-        publishquestionnaire.setCourseid(courseId);
-        publishquestionnaire.setDescription(description);
-        publishquestionnaire.setEndrespondtime(new Date(endRespondTime));
-        publishquestionnaire.setStartrespondtime(new Date(startRespondTime));
-        publishquestionnaire.setQuestionnaireid(questionnaireId);
-        publishquestionnaire.setTeacherid(teacherId);
+        Publishquestionnaire publishquestionnaire = publishquestionnaireService.pusblishQuestionnaire(principal,
+                courseId, teacherId, questionnaireId, description, startRespondTime, endRespondTime);
 
-        String name = principal.getName();
-        Account userByAccount = accountService.findUserByAccount(name);
-        publishquestionnaire.setReleaseid(userByAccount.getId());
-
-        // 根据课程id和老师id找到相应的学生id
-
-
-
-
-        return null;
+        return RespondsMessage.success(LogUtil.logInfo(log, "{}发布评教问卷成功", principal.getName()),
+                publishquestionnaire);
     }
 
 
