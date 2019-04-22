@@ -1,6 +1,7 @@
 package org.nix.lovedomain.service;
 
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.PublishquestionnaireMapper;
@@ -8,7 +9,9 @@ import org.nix.lovedomain.model.Account;
 import org.nix.lovedomain.model.Publishquestionnaire;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.security.Principal;
@@ -21,6 +24,8 @@ import java.util.List;
  * @since jdk8
  */
 @Service
+@Slf4j
+@Transactional
 public class PublishquestionnaireService extends BaseService<Publishquestionnaire> {
 
     @Resource
@@ -51,7 +56,8 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
                                                       Integer questionnaireId,
                                                       String description,
                                                       Long startRespondTime,
-                                                      Long endRespondTime) throws Exception {
+                                                      Long endRespondTime,
+                                                      Integer balcks) throws Exception {
 
         Publishquestionnaire publishquestionnaire = new Publishquestionnaire();
         publishquestionnaire.setCourseid(courseId);
@@ -74,6 +80,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         PublishAttachInfo publishAttachInfo = new PublishAttachInfo();
         publishAttachInfo.setPlan(size);
         publishAttachInfo.setStudents(studentByTeacherIdAndCourseId);
+        publishAttachInfo.setCanFilters(balcks);
 
         // 设置统计信息
         publishquestionnaire.setStatistics(JSONUtil.toJsonStr(publishAttachInfo));
@@ -82,5 +89,115 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         publishquestionnaireMapper.insertSelective(publishquestionnaire);
         return publishquestionnaire;
     }
+
+    /**
+     * 添加黑名单学生
+     *
+     * @param publisId   发布id
+     * @param studentIds 学生id集合
+     * @return 处理后的数据
+     */
+    public Publishquestionnaire addBlack(Integer publisId,
+                                         List<Integer> studentIds,
+                                         Principal principal) {
+        Publishquestionnaire byId = findById(publisId);
+        PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
+
+        Account userByAccount = accountService.findUserByAccount(principal.getName());
+        Integer id = userByAccount.getId();
+        Integer teacherid = byId.getTeacherid();
+        if (!id.equals(teacherid)) {
+            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+        }
+
+        bean.addBlackStudent(studentIds);
+        byId.setStatistics(JSONUtil.toJsonStr(bean));
+        publishquestionnaireMapper.updateByPrimaryKey(byId);
+        return byId;
+    }
+
+    /**
+     * 删除黑名单学生
+     *
+     * @param publisId   发布id
+     * @param studentIds 学生id集合
+     * @return 处理后的数据
+     */
+    public Publishquestionnaire deleteBlack(Integer publisId,
+                                            List<Integer> studentIds,
+                                            Principal principal) {
+        Publishquestionnaire byId = findById(publisId);
+        PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
+
+        Account userByAccount = accountService.findUserByAccount(principal.getName());
+        Integer id = userByAccount.getId();
+        Integer teacherid = byId.getTeacherid();
+        if (!id.equals(teacherid)) {
+            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+        }
+        bean.deleteBlackStudent(studentIds);
+        byId.setStatistics(JSONUtil.toJsonStr(bean));
+        publishquestionnaireMapper.updateByPrimaryKey(byId);
+        return byId;
+    }
+
+    /**
+     * 提交回答信息，
+     *
+     * @param publisId
+     * @param completesQuestion
+     * @return
+     */
+    public Publishquestionnaire writeQuestion(Integer publisId,
+                                              PublishAttachInfo.CompletesQuestion completesQuestion,
+                                              Principal principal) {
+        Publishquestionnaire byId = findById(publisId);
+        PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
+
+        Account userByAccount = accountService.findUserByAccount(principal.getName());
+        checkStudentHavePermissionUse(bean,userByAccount.getId());
+
+        bean.writeQuestion(completesQuestion);
+        byId.setStatistics(JSONUtil.toJsonStr(bean));
+        publishquestionnaireMapper.updateByPrimaryKey(byId);
+        return byId;
+    }
+
+    /**
+     * 更新回答，只有 status=keep的时候可以更新
+     *
+     * @param publisId
+     * @param completesQuestion
+     * @return
+     */
+    public Publishquestionnaire updateQuestion(Integer publisId,
+                                               PublishAttachInfo.CompletesQuestion completesQuestion,
+                                               Principal principal) {
+        Publishquestionnaire byId = findById(publisId);
+        PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
+
+        Account userByAccount = accountService.findUserByAccount(principal.getName());
+        checkStudentHavePermissionUse(bean,userByAccount.getId());
+
+        bean.updateQuestion(completesQuestion);
+        byId.setStatistics(JSONUtil.toJsonStr(bean));
+        publishquestionnaireMapper.updateByPrimaryKey(byId);
+        return byId;
+    }
+
+    public static void checkStudentHavePermissionUse(PublishAttachInfo bean, Integer id) {
+        List<StudentVo> students = bean.getStudents();
+        boolean flag = false;
+        for (StudentVo studentVo : students) {
+            if (studentVo.getId().equals(id)) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+        }
+    }
+
 
 }
