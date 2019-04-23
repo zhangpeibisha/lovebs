@@ -2,12 +2,16 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.ResoucesBusinessMapper;
 import org.nix.lovedomain.dao.mapper.ResourcesMapper;
 import org.nix.lovedomain.dao.mapper.RoleResourceMapper;
 import org.nix.lovedomain.model.*;
+import org.nix.lovedomain.service.vo.PageVo;
+import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +34,9 @@ public class ResourcesService {
 
     @Resource
     private RoleResourceMapper roleResourceMapper;
+
+    @Resource
+    private ResoucesBusinessMapper resoucesBusinessMapper;
 
     @Transactional(rollbackFor = Exception.class)
     public void addResource(Resources resources) {
@@ -68,6 +75,22 @@ public class ResourcesService {
         return resourcesMapper.selectByExample(resourcesExample);
     }
 
+    public PageVo findResourcesPage(String key,
+                                    Integer page,
+                                    Integer limit) {
+        List<Resources> resoucesPage
+                = resoucesBusinessMapper.findResourcesPage(key, SQLUtil.getOffset(page, limit), limit);
+        Integer integer = resoucesBusinessMapper.countResources(key, SQLUtil.getOffset(page, limit), limit);
+
+        return PageVo.<Resources>builder()
+                .data(resoucesPage)
+                .total(new Long(integer))
+                .page(page)
+                .limit(limit)
+                .build();
+    }
+
+
     /**
      * 查询一个用户的所有权限信息
      *
@@ -98,7 +121,7 @@ public class ResourcesService {
         return resources;
     }
 
-    public List<Resources> findPermissionAllResources(){
+    public List<Resources> findPermissionAllResources() {
         ResourcesExample example = new ResourcesExample();
         example.createCriteria().andPermissionallEqualTo((byte) 1);
         return resourcesMapper.selectByExample(example);
