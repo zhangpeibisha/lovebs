@@ -11,6 +11,9 @@
     <result column="classId" jdbcType="INTEGER" property="classid" />
     <result column="accountId" jdbcType="INTEGER" property="accountid" />
   </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Student">
+    <result column="task" jdbcType="LONGVARCHAR" property="task" />
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -72,6 +75,25 @@
   <sql id="Base_Column_List">
     id, studentId, name, phone, email, imageUrl, classId, accountId
   </sql>
+  <sql id="Blob_Column_List">
+    task
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="org.nix.lovedomain.model.StudentExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="org.nix.lovedomain.model.StudentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -86,9 +108,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from student
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -108,10 +132,10 @@
     </selectKey>
     insert into student (studentId, name, phone, 
       email, imageUrl, classId, 
-      accountId)
+      accountId, task)
     values (#{studentid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, 
-      #{accountid,jdbcType=INTEGER})
+      #{accountid,jdbcType=INTEGER}, #{task,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Student">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -140,6 +164,9 @@
       <if test="accountid != null">
         accountId,
       </if>
+      <if test="task != null">
+        task,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="studentid != null">
@@ -162,6 +189,9 @@
       </if>
       <if test="accountid != null">
         #{accountid,jdbcType=INTEGER},
+      </if>
+      <if test="task != null">
+        #{task,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,7 +228,25 @@
       <if test="record.accountid != null">
         accountId = #{record.accountid,jdbcType=INTEGER},
       </if>
+      <if test="record.task != null">
+        task = #{record.task,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update student
+    set id = #{record.id,jdbcType=INTEGER},
+      studentId = #{record.studentid,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      imageUrl = #{record.imageurl,jdbcType=VARCHAR},
+      classId = #{record.classid,jdbcType=INTEGER},
+      accountId = #{record.accountid,jdbcType=INTEGER},
+      task = #{record.task,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,7 +289,22 @@
       <if test="accountid != null">
         accountId = #{accountid,jdbcType=INTEGER},
       </if>
+      <if test="task != null">
+        task = #{task,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.nix.lovedomain.model.Student">
+    update student
+    set studentId = #{studentid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      imageUrl = #{imageurl,jdbcType=VARCHAR},
+      classId = #{classid,jdbcType=INTEGER},
+      accountId = #{accountid,jdbcType=INTEGER},
+      task = #{task,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.model.Student">
@@ -255,44 +318,4 @@
       accountId = #{accountid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <!--根据条件查找数据-->
-  <select id="queryByCondition" resultMap="BaseResultMap">
-    SELECT
-    id,
-    studentId as studentid,
-    name,
-    phone,
-    email,
-    imageUrl as imageurl,
-    classId as,
-    accountId as accountid
-    FROM
-    `student`
-    <if test="conditions != null">
-      where ${conditions}
-    </if>
-    <if test="limit != -1 and limit != -1">
-      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
-    </if>
-  </select>
-
-  <!--根据条件查找数据条数-->
-  <select id="queryAmount" resultType="long" >
-    SELECT
-    count(*)
-    FROM
-    `student`
-    <if test="conditions != null">
-      where ${conditions}
-    </if>
-  </select>
-
-  <!--批量删除-->
-  <delete id="deletes" parameterType="Integer[]">
-    delete from `student` where id in
-    <foreach collection="ids" item="id" open="(" separator="," close=")">
-      #{id}
-    </foreach>
-  </delete>
 </mapper>

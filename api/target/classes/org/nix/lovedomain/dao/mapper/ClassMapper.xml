@@ -193,40 +193,4 @@
       professionId = #{professionid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <!--根据条件查找数据-->
-  <select id="queryByCondition" resultMap="BaseResultMap">
-    SELECT
-    id,
-    classId as classid,
-    teacherId as teacherid,
-    professionId as professionid
-    FROM
-    `class`
-    <if test="conditions != null">
-      where ${conditions}
-    </if>
-    <if test="limit != -1 and limit != -1">
-      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
-    </if>
-  </select>
-
-  <!--根据条件查找数据条数-->
-  <select id="queryAmount" resultType="long" >
-    SELECT
-    count(*)
-    FROM
-    `class`
-    <if test="conditions != null">
-      where ${conditions}
-    </if>
-  </select>
-
-  <!--批量删除-->
-  <delete id="deletes" parameterType="Integer[]">
-    delete from `class` where id in
-    <foreach collection="ids" item="id" open="(" separator="," close=")">
-      #{id}
-    </foreach>
-  </delete>
 </mapper>

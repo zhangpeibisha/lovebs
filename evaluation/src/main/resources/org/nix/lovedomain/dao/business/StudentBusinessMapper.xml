@@ -142,4 +142,16 @@
             LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
         </if>
     </select>
+
+
+    <select id="findStudentByTeacherIdAndCourseId" resultMap="studentVoMap">
+        SELECT
+            *
+            FROM
+                student
+            LEFT JOIN student_course ON student.id = student_course.studentId
+            LEFT JOIN teacher_course ON student_course.courseId = teacher_course.id
+            WHERE teacher_course.courseId = #{courseId} AND teacher_course.teacherId = #{teacherId}
+    </select>
+
 </mapper>

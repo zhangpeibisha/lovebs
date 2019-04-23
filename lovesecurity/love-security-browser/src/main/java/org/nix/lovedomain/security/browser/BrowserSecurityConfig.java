@@ -80,6 +80,7 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
 
     /**
      * 配置默认的退出处理器
+     *
      * @see BrowserSecurityBeanConfig
      */
     @Autowired
@@ -87,6 +88,7 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
 
     /**
      * url权限配置器
+     *
      * @see LoveAuthorizeConfigManger
      */
     @Autowired
@@ -129,6 +131,7 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
                 .and()
                 .headers().frameOptions().disable()
                 .and()
+                .cors().and()
                 .csrf().disable();
         // 配置url权限信息
         authorizeConfigManger.config(http.authorizeRequests());

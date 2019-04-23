@@ -18,7 +18,7 @@ public class BaseQuestion<I> {
     /**
      * 题目唯一id
      */
-    private Integer id;
+    private String id;
     /**
      * 问题类型
      */
@@ -61,11 +61,4 @@ public class BaseQuestion<I> {
         items.addAll(item);
     }
 
-    /**
-     * 验证方法，验证问题要求和用户所答复的信息是否
-     * 符合要求
-     */
-    public void verification() {
-
-    }
 }
