@@ -54,6 +54,13 @@ public class Student implements Serializable {
      */
     private Integer accountid;
 
+    /**
+     * 学生的任务信息，为一个json字符串
+     *
+     * @mbggenerated
+     */
+    private String task;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -120,6 +127,14 @@ public class Student implements Serializable {
         this.accountid = accountid;
     }
 
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -134,6 +149,7 @@ public class Student implements Serializable {
         sb.append(", imageurl=").append(imageurl);
         sb.append(", classid=").append(classid);
         sb.append(", accountid=").append(accountid);
+        sb.append(", task=").append(task);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

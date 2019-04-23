@@ -206,8 +206,6 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-
-
   <update id="updateByPrimaryKeySelective" parameterType="org.nix.lovedomain.model.Account">
     update account
     <set>
@@ -232,7 +230,6 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-
   <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.model.Account">
     update account
     set numbering = #{numbering,jdbcType=VARCHAR},
@@ -243,43 +240,4 @@
       updateTime = #{updatetime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <!--根据条件查找数据-->
-  <select id="queryByCondition" resultMap="BaseResultMap">
-    SELECT
-    id,
-    numbering,
-    phone,
-    email,
-    password,
-    createTime as createtime,
-    updateTime as updatetime
-    FROM
-    `account`
-    <if test="conditions != null">
-      where ${conditions}
-    </if>
-    <if test="limit != -1 and limit != -1">
-      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
-    </if>
-  </select>
-
-  <!--根据条件查找数据条数-->
-  <select id="queryAmount" resultType="long" >
-    SELECT
-    count(*)
-    FROM
-    `account`
-    <if test="conditions != null">
-      where ${conditions}
-    </if>
-  </select>
-
-  <!--批量删除-->
-  <delete id="deletes" parameterType="Integer[]">
-    delete from `account` where id in
-    <foreach collection="ids" item="id" open="(" separator="," close=")">
-      #{id}
-    </foreach>
-  </delete>
 </mapper>

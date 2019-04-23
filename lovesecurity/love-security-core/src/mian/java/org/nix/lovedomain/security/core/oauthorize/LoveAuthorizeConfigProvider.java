@@ -9,6 +9,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsUtils;
 
 /**
  * @author zhangpei
@@ -39,5 +40,7 @@ public class LoveAuthorizeConfigProvider implements AuthorizeConfigProvider {
                 browser.getSignUpUrl(),
                 social.getFilterProcessesUrl() + "/*")
                 .permitAll();
+        //让Spring security放行所有preflight request
+        urlRegistry.requestMatchers(CorsUtils::isPreFlightRequest).permitAll();
     }
 }

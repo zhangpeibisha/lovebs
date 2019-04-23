@@ -3,6 +3,7 @@ package org.nix.lovedomain.security;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.core.oauthorize.AuthorizeConfigProvider;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ public class EvaluationAuthorizeConfigProvider implements AuthorizeConfigProvide
 
     @Override
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
+        urlRegistry.antMatchers(HttpMethod.OPTIONS,"/**").permitAll();
         urlRegistry.antMatchers("/**")
                 .access("@rbacService.hasPermission(request,authentication)");
     }

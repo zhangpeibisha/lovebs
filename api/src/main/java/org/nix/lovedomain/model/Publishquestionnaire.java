@@ -42,7 +42,7 @@ public class Publishquestionnaire implements Serializable {
     private String description;
 
     /**
-     * 什么时候发布的
+     * 什么时候发布的，创建该条数据的时间
      *
      * @mbggenerated
      */
@@ -61,6 +61,13 @@ public class Publishquestionnaire implements Serializable {
      * @mbggenerated
      */
     private Date endrespondtime;
+
+    /**
+     * 用于发布问卷统计使用
+     *
+     * @mbggenerated
+     */
+    private String statistics;
 
     private static final long serialVersionUID = 1L;
 
@@ -136,6 +143,14 @@ public class Publishquestionnaire implements Serializable {
         this.endrespondtime = endrespondtime;
     }
 
+    public String getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(String statistics) {
+        this.statistics = statistics;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -151,6 +166,7 @@ public class Publishquestionnaire implements Serializable {
         sb.append(", releasetime=").append(releasetime);
         sb.append(", startrespondtime=").append(startrespondtime);
         sb.append(", endrespondtime=").append(endrespondtime);
+        sb.append(", statistics=").append(statistics);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
