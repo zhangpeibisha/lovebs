@@ -95,4 +95,22 @@ public class StudentService {
                 .total(studentCount)
                 .build();
     }
+
+    /**
+     * 根据课程读取所有的学生
+     * @param teacherId 老师id
+     * @param courseId 课程id
+     * @return
+     */
+    public List<Student> getStudentByCourse(Integer teacherId,Integer courseId){
+        return studentMapper.getStudentByCourse(teacherId,courseId);
+    }
+
+    /**
+     * 将用户的任务写回数据库
+     * @param students
+     */
+    public void writeStudentTask(List<Student> students){
+         studentMapper.writeStudentTask(students);
+    }
 }

@@ -338,4 +338,21 @@
       endRespondTime = #{endrespondtime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--获取所有的问卷-->
+  <select id="getAllDataByLimit" parameterType="String" resultMap="BaseResultMap">
+    select
+       id,
+       endRespondTime as endrespondtime,
+       teacherId as teacherid,
+       courseId as courseid
+    from
+        publishQuestionnaire
+        where  startRespondTime is not null and
+          date_format(
+		startRespondTime,
+		'%Y-%m-%d'
+	) = #{dateStr,jdbcType=VARCHAR}
+
+  </select>
 </mapper>

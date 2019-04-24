@@ -176,4 +176,12 @@
       courseId = #{courseid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getTeacherCourseId" resultType="Integer">
+    SELECT
+       id
+       from teacher_course
+       where teacherId = #{teacherId,jdbcType=INTEGER}
+       and courseId = #{courseId,jdbcType=INTEGER}
+  </select>
 </mapper>
