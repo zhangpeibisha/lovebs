@@ -51,6 +51,13 @@
             <version>3.4.2</version>
         </dependency>
 
+        <!--邮件-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
         <!--Mysql数据库驱动-->
         <dependency>
             <groupId>mysql</groupId>

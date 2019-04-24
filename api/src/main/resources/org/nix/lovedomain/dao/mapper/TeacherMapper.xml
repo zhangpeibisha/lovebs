@@ -6,6 +6,8 @@
     <result column="jobNumber" jdbcType="VARCHAR" property="jobnumber" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="accountId" jdbcType="INTEGER" property="accountid" />
+    <result column="email" jdbcType="INTEGER" property="email" />
+    <result column="phone" jdbcType="INTEGER" property="phone"/>
     <result column="imagerUrl" jdbcType="VARCHAR" property="imagerurl" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Teacher">
@@ -70,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, jobNumber, name, accountId, imagerUrl
+    id, jobNumber, name, accountId, imagerUrl,email,phone
   </sql>
   <sql id="Blob_Column_List">
     workJson
@@ -147,6 +149,12 @@
       <if test="accountid != null">
         accountId,
       </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
       <if test="imagerurl != null">
         imagerUrl,
       </if>
@@ -163,6 +171,12 @@
       </if>
       <if test="accountid != null">
         #{accountid,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHER},
       </if>
       <if test="imagerurl != null">
         #{imagerurl,jdbcType=VARCHAR},
@@ -238,6 +252,12 @@
       </if>
       <if test="accountid != null">
         accountId = #{accountid,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="imagerurl != null">
         imagerUrl = #{imagerurl,jdbcType=VARCHAR},

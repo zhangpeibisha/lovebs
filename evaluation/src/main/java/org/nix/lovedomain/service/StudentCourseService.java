@@ -10,4 +10,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class StudentCourseService extends BaseService {
+
 }
