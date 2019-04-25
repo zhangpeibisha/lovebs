@@ -10,7 +10,6 @@ import org.nix.lovedomain.utils.SQLUtil;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.security.Principal;

@@ -318,4 +318,32 @@
       accountId = #{accountid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getStudentByCourse" resultMap="BaseResultMap">
+    SELECT student.studentId as studentid,
+           student.`name` as name,
+           email,
+           phone
+      FROM student,
+      (SELECT id as stuid
+      FROM student_course,
+      (SELECT id as cour_id
+      FROM teacher_course
+      WHERE teacher_course.teacherId = #{teacherId,jdbcType=INTEGER} AND
+      teacher_course.courseId = #{courseId,jdbcType=INTEGER}) as cour_ids
+      WHERE student_course.courseId = cour_ids.cour_id) as stuids
+      WHERE student.studentId = stuids.stuid
+  </select>
+
+  <update id="writeStudentTask" parameterType="java.util.List">
+    <foreach collection="students" item="student"  index="index" open="" close="" separator=";">
+      update
+          student
+      <set>
+        task = #{student.task,jdbcType=VARCHAR}
+      </set>
+        where studentId = #{student.studentid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+
 </mapper>

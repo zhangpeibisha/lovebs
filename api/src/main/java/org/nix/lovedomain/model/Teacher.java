@@ -40,6 +40,10 @@ public class Teacher implements Serializable {
      */
     private String workjson;
 
+    private String email;
+
+    private String phone;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -88,6 +92,22 @@ public class Teacher implements Serializable {
 
     public void setWorkjson(String workjson) {
         this.workjson = workjson;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

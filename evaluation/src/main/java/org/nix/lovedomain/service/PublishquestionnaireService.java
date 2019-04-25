@@ -199,5 +199,13 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         }
     }
 
+    /**
+     * 获取需要发布的所有问卷
+     * @return List
+     */
+    public List<Publishquestionnaire> getAllDataByLimit(String dateStr){
+           return   publishquestionnaireMapper.getAllDataByLimit(dateStr);
+    }
+
 
 }
