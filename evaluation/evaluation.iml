@@ -25,8 +25,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="love-security-browser" />
-    <orderEntry type="module" module-name="love-security-core" />
+    <orderEntry type="module" module-name="lovesecuritybrowser" />
+    <orderEntry type="module" module-name="lovesecuritycore" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-oauth2:1.2.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-security:1.2.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter:1.2.2.RELEASE" level="project" />
