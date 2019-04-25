@@ -1,7 +1,8 @@
 package org.nix.lovedomain.component;
 
-import cn.hutool.json.JSONUtil;
-import org.nix.lovedomain.dao.business.json.task.ListTask;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.JavaType;
+import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.model.Publishquestionnaire;
 import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.model.Teacher;
@@ -14,7 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -71,23 +74,37 @@ public class ScheduledTask {
     private void configurationTasks( List<Publishquestionnaire> publishquestionnaires){
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-mm-dd hh:mm:ss");
-        /*给该问卷下所有的学生设置任务*/
+
+        //jackson对象映射类
+        ObjectMapper MAPPER = new ObjectMapper();
+
+        /**给该问卷下所有的学生设置任务**/
         for (Publishquestionnaire p :
                 publishquestionnaires) {
+
             // 获取需要处理该问卷的所有学生
             List<Student> students = getStudentByCourse(p.getTeacherid(),p.getCourseid());
             for (Student s:
                     students) {
                 String task = s.getTask();
                 // 学生当前没有要处理的任务
-                ListTask listTask;
-                if(task == null){
-                    listTask = new ListTask();
+                ArrayList<QnaireTask> stduentTasks = null;
+                if(task == null || task.equals("")){
+                   stduentTasks = new ArrayList<>();
                 }else {//学生当前已经有要处理的任务
-                    listTask = JSONUtil.toBean(s.getTask(),ListTask.class);
+                    JavaType jt = MAPPER.getTypeFactory().constructParametricType(ArrayList.class, QnaireTask.class);
+                    try {
+                        stduentTasks = MAPPER.readValue(task, jt);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-                listTask.add(new ListTask.QnaireTask(p.getId(),p.getEndrespondtime()));
-                s.setTask(JSONUtil.toJsonStr(listTask));
+                stduentTasks.add(new QnaireTask(p.getId(),p.getEndrespondtime()));
+                try {
+                    s.setTask(MAPPER.writeValueAsString(stduentTasks));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 if(s.getEmail() != null && !s.getEmail().equals("")){
                     /*如果还没有记录需要发送的邮箱则记录，如果记录的问卷过期时间大于当前问卷过期时间则重新记录*/
@@ -105,15 +122,25 @@ public class ScheduledTask {
             /**给该问卷下的老师设置任务**/
             Teacher teacher = (Teacher) teacherService.findById(p.getTeacherid());
             String workJson  = teacher.getWorkjson();
-            ListTask listTask;
-            if(workJson == null){
-                listTask = new ListTask();
+            ArrayList<QnaireTask> teacherTask = null;
+            if(workJson == null || workJson.equals("")){
+                teacherTask = new ArrayList<>();
             }else {
-                listTask = JSONUtil.toBean(workJson,ListTask.class);
+                JavaType jt = MAPPER.getTypeFactory().constructParametricType(ArrayList.class, QnaireTask.class);
+                try {
+                    teacherTask = MAPPER.readValue(workJson, jt);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
-            listTask.add(new ListTask.QnaireTask(p.getId(),p.getEndrespondtime()));
-            teacher.setWorkjson(JSONUtil.toJsonStr(listTask));
+            teacherTask.add(new QnaireTask(p.getId(),p.getEndrespondtime()));
+
+            try {
+                teacher.setWorkjson(MAPPER.writeValueAsString(teacherTask));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             if(teacher.getEmail() != null && !teacher.getEmail().equals("")){
                 /**如果还没有记录需要发送的邮箱则记录，如果记录的问卷过期时间大于当前问卷过期时间则重新记录**/
