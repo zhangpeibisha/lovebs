@@ -4,9 +4,12 @@ import io.swagger.annotations.Api;
 import org.nix.lovedomain.model.Resources;
 import org.nix.lovedomain.service.ResourcesService;
 import org.nix.lovedomain.web.controller.base.BaseController;
+import org.nix.lovedomain.web.controller.dto.ResourcesDto;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @version 1.0
@@ -30,4 +33,13 @@ public class ResourcesController extends BaseController<Resources> {
     }
 
 
+    /**
+     * 批量插入资源信息
+     * @param resoucesDtos 资源信息列表
+     * @return 请求结果
+     */
+    public RespondsMessage insertResoucesList(@RequestBody List<ResourcesDto> resoucesDtos){
+        resourcesService.batchAddResource(resoucesDtos);
+        return RespondsMessage.success("批量插入资源成功");
+    }
 }

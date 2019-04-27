@@ -28,4 +28,10 @@ public interface ResoucesBusinessMapper {
                            @Param(value = "offset") Integer offset,
                            @Param(value = "limit") Integer limit);
 
+    /**
+     * 批量插入资源
+     * @param resources
+     * @return
+     */
+    Integer batchInsertResources(@Param(value = "resources")List<Resources> resources);
 }

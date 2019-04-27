@@ -1,7 +1,7 @@
 // 生成所搜信息
 $.ajax({
     type: "get",
-    url: "http://www.zhangpei.bisha.localhost.com:8080/resources/list/by",
+    url: "http://www.zhangpei.bishe.com/resources/list/by",
     async: true,
     success: function (res) {
         console.log("res", res)
@@ -45,7 +45,7 @@ layui.use(['table', 'form'], function () {
     var table = layui.table;
     var permiisionTable = table.render({
         elem: '#permissions',
-        url: 'http://www.zhangpei.bisha.localhost.com:8080/resources/list/by',
+        url: 'http://www.zhangpei.bishe.com/resources/list/by',
         toolbar: true,
         title: '用户数据表',
         cols: [
@@ -99,9 +99,9 @@ layui.use(['table', 'form'], function () {
             console.log('加载数据', res)
             return {
                 "code": res.code, //解析接口状态
-                "msg": res.message, //解析提示文本
-                "count": res.count, //解析数据长度
-                "data": res.permission //解析数据列表
+                "msg": res.msg, //解析提示文本
+                "count": res.data.total, //解析数据长度
+                "data": res.data.data //解析数据列表
             };
         }
     });

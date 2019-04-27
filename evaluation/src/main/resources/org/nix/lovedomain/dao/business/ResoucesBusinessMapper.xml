@@ -4,11 +4,11 @@
 
     <select id="findResourcesPage" resultType="org.nix.lovedomain.model.Resources">
         SELECT
-            *
+        *
         FROM
         `resources`
         <if test="key!=null">
-            <bind name="ikey" value="'%' + key + '%'" />
+            <bind name="ikey" value="'%' + key + '%'"/>
             WHERE
             `name` LIKE #{ikey}
             OR description LIKE #{ikey}
@@ -25,7 +25,7 @@
         FROM
         `resources`
         <if test="key!=null">
-            <bind name="ikey" value="'%' + key + '%'" />
+            <bind name="ikey" value="'%' + key + '%'"/>
             WHERE
             `name` LIKE #{ikey}
             OR description LIKE #{ikey}
@@ -35,5 +35,42 @@
         </if>
 
     </select>
+
+    <!--批量插入-->
+    <insert id="batchInsertResources" parameterType="org.nix.lovedomain.model.Resources">
+        insert into resources(url,`name`,description,`use`,permissionAll,method)
+        values
+        <foreach collection="resources" item="item" open="(" close=")" separator=",">
+            #{item.url,jdbcType=VARCHAR},
+            #{item.name,jdbcType=VARCHAR},
+            <if test="item.description == null">
+                "",
+            </if>
+            <if test="item.description != null">
+                #{item.description,jdbcType=VARCHAR},
+            </if>
+
+            <if test="item.use == null">
+                0,
+            </if>
+            <if test="item.use != null">
+                #{item.use,jdbcType=TINYINT},
+            </if>
+            <if test="item.permissionall == null">
+                0,
+            </if>
+            <if test="item.permissionall != null">
+                #{item.permissionall,jdbcType=TINYINT},
+            </if>
+            <if test="item.method == null">
+                'GET'
+            </if>
+            <if test="item.method != null">
+                #{item.method,jdbcType=VARCHAR}
+            </if>
+
+
+        </foreach>
+    </insert>
 
 </mapper>
