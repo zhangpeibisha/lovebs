@@ -1,6 +1,5 @@
 package org.nix.lovedomain.dao.business;
 
-import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -44,7 +43,6 @@ public class StudentBusinessMapperTest {
         pageInquire.setPage(1, 10);
         pageInquire.setBlurry(true);
         List<Student> studentPage = studentBusinessMapper.findStudentPage(pageInquire);
-        log.info("获取到的数据为:" + JSONUtil.toJsonStr(studentPage));
 //        assertEquals(studentPage.size(), 1);
 //        assertEquals(1,studentBusinessMapper.findStudentCount(pageInquire));
 //        assertEquals("11503090207", studentPage.get(0).getStudentid());
@@ -61,6 +59,5 @@ public class StudentBusinessMapperTest {
 //        assertEquals(1,studentBusinessMapper.findStudentCount(pageInquire));
 
         List<StudentVo> studentVoPage = studentBusinessMapper.findStudentVoPage(pageInquire);
-        System.out.println(studentVoPage);
     }
 }

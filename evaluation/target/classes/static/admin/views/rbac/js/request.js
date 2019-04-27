@@ -1,7 +1,7 @@
 // 生成所搜信息
 $.ajax({
     type: "get",
-    url: "https://www.easy-mock.com/mock/5c8de5546fe7c7611499c741/evaluation/admin/permission/list",
+    url: "http://www.zhangpei.bisha.localhost.com:8080/resources/list/by",
     async: true,
     success: function (res) {
         console.log("res", res)
@@ -45,7 +45,7 @@ layui.use(['table', 'form'], function () {
     var table = layui.table;
     var permiisionTable = table.render({
         elem: '#permissions',
-        url: 'https://www.easy-mock.com/mock/5c8de5546fe7c7611499c741/evaluation/admin/permission/list',
+        url: 'http://www.zhangpei.bisha.localhost.com:8080/resources/list/by',
         toolbar: true,
         title: '用户数据表',
         cols: [
