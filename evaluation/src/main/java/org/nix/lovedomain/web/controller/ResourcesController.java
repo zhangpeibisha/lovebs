@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @anthor on 2019/4/19
  * @since jdk8
  */
-@Api(value = "资源管理器",description = "管理该系统的访问权限")
+@Api(value = "资源管理器", description = "管理该系统的访问权限")
 @RestController
 @RequestMapping(value = "resources")
 public class ResourcesController extends BaseController<Resources> {
@@ -21,14 +21,13 @@ public class ResourcesController extends BaseController<Resources> {
     @Autowired
     private ResourcesService resourcesService;
 
-    @GetMapping(value = "/list/{key}")
-    public RespondsMessage findResourcesList(@PathVariable(required = false) String key,
-                                             @RequestParam(value = "page",defaultValue = "1") Integer page,
-                                             @RequestParam(value = "limit",defaultValue = "10") Integer limit){
+    @GetMapping(value = "/list/by")
+    public RespondsMessage findResourcesList(@RequestParam(value = "key", required = false) String key,
+                                             @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                             @RequestParam(value = "limit", defaultValue = "10") Integer limit) {
 
-        return RespondsMessage.success("请求分页完成",resourcesService.findResourcesPage(key,page,limit));
+        return RespondsMessage.success("请求资源列表完成", resourcesService.findResourcesPage(key, page, limit));
     }
-
 
 
 }
