@@ -10,6 +10,7 @@ import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.service.EvaluationquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.service.vo.EvaluationquestionnaireSimpleVo;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
@@ -100,9 +101,10 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
     public RespondsMessage findOwnEvaluationquestionnairePage(Principal principal,
                                                               @RequestParam(value = "page", defaultValue = "1") Integer page,
                                                               @RequestParam(value = "limit", defaultValue = "10") Integer limit,
-                                                              @RequestParam(value = "query", required = false) String query) {
-        PageVo<Evaluationquestionnaire> ownEvaluationquestionnairePage
-                = evaluationquestionnaireService.findOwnEvaluationquestionnairePage(principal, page, limit, query);
+                                                              @RequestParam(value = "query", required = false) String query,
+                                                              @RequestParam(value = "like", defaultValue = "false") Boolean like) {
+        PageVo<EvaluationquestionnaireSimpleVo> ownEvaluationquestionnairePage
+                = evaluationquestionnaireService.findOwnEvaluationquestionnairePage(principal, page, limit, query, like);
         if (ownEvaluationquestionnairePage != null) {
             return RespondsMessage.success(LogUtil
                     .logInfo(log, "用户{}访问自己的问卷完成", principal.getName()), ownEvaluationquestionnairePage);
@@ -116,13 +118,14 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
     public RespondsMessage findAllEvaluationquestionnairePage(Principal principal,
                                                               @RequestParam(value = "page", defaultValue = "1") Integer page,
                                                               @RequestParam(value = "limit", defaultValue = "10") Integer limit,
-                                                              @RequestParam(value = "query", required = false) String query) {
+                                                              @RequestParam(value = "query", required = false) String query,
+                                                              @RequestParam(value = "like", defaultValue = "false") Boolean like) {
         if (principal == null) {
             return RespondsMessage.failurePermission(LogUtil
                     .logWarn(log, "未登陆的用户查询问卷信息"));
         }
-        PageVo<Evaluationquestionnaire> ownEvaluationquestionnairePage
-                = evaluationquestionnaireService.findAllEvaluationquestionnairePage(page, limit, query);
+        PageVo<EvaluationquestionnaireSimpleVo> ownEvaluationquestionnairePage
+                = evaluationquestionnaireService.findAllEvaluationquestionnairePage(page, limit, query, like);
         String userName = principal.getName();
         if (ownEvaluationquestionnairePage != null) {
             return RespondsMessage.success(LogUtil
