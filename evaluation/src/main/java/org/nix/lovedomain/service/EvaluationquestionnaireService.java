@@ -160,7 +160,7 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
     public PageVo<EvaluationquestionnaireSimpleVo> findOwnEvaluationquestionnairePage(Principal principal,
                                                                                       Integer page,
                                                                                       Integer limit,
-                                                                                      String querySql,
+                                                                                      String sql,
                                                                                       Boolean like) {
         if (principal == null) {
             throw new ServiceException("用户未登录无法查询自己的问卷");
@@ -177,13 +177,14 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
                     .page(page).build();
         }
         Teacher teacher = teachers.get(0);
-        String sql = resolveQuireSql(querySql, like);
+        Integer teacherId = teacher.getId();
         if (sql == null || "".equals(sql)) {
             return findAllEvaluationquestionnairePage(page, limit,
-                    StrUtil.format(" where authorid={}", teacher.getId()), like);
+                    StrUtil.format(" where authorid={}", teacherId), like);
         }
-        return findAllEvaluationquestionnairePage(page, limit,
-                StrUtil.format("{} and authorid={}", sql, teacher.getId()), like);
+        Map<String, Object> map = JSONUtil.toBean(sql, Map.class);
+        map.put("authorid", teacherId);
+        return findAllEvaluationquestionnairePage(page, limit, JSONUtil.toJsonStr(map), like);
     }
 
 
