@@ -1,5 +1,7 @@
 package org.nix.lovedomain.dao.business.json.task;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,11 +10,16 @@ import java.util.Date;
  * @anthor on 2019/4/24
  * @since jdk8
  */
+@Data
 public class QnaireTask  implements Serializable {
-    // 问卷id
+    /**
+     * 发布的问卷id
+     */
     private Integer id;
 
-    // 问卷到期时间
+    /**
+     * 规定的到期时间
+     */
     private Date pastDue;
 
     public QnaireTask(Integer id, Date pastDue) {
