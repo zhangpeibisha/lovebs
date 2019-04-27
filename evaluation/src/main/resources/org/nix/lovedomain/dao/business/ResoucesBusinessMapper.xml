@@ -6,7 +6,7 @@
         SELECT
             *
         FROM
-        `role`
+        `resources`
         <if test="key!=null">
             <bind name="ikey" value="'%' + key + '%'" />
             WHERE
@@ -23,7 +23,7 @@
         SELECT
         count(*)
         FROM
-        `role`
+        `resources`
         <if test="key!=null">
             <bind name="ikey" value="'%' + key + '%'" />
             WHERE
