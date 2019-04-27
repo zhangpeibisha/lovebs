@@ -5,6 +5,7 @@
 .project
 .settings
 .idea
+*.iml
  ##filter databfile��sln file##
 *.mdb  
 *.ldb  
