@@ -1,6 +1,5 @@
 package org.nix.lovedomain.component.email;
 
-import org.nix.lovedomain.utils.EmailTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
