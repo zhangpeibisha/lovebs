@@ -26,7 +26,7 @@ public class TeacherWork {
      */
     public static TeacherWork str2Bean(Teacher teacher) {
         String workjson = teacher.getWorkjson();
-        if (workjson == null) {
+        if (workjson == null || "".equals(workjson)) {
             return new TeacherWork();
         }
         return JSONUtil.toBean(workjson, TeacherWork.class);

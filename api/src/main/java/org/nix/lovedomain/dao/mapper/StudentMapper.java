@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.mapper.base.BaseMapper;
 import org.nix.lovedomain.model.Student;
+import org.nix.lovedomain.model.StudentExample;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface StudentMapper extends BaseMapper<Student> {
      * @param students
      */
     public void writeStudentTask(@Param("students") List<Student> students);
+
+    List<Student> selectByExample(StudentExample studentExample);
 }

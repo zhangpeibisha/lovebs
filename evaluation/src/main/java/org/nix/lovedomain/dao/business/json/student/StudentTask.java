@@ -4,6 +4,7 @@ import cn.hutool.json.JSONUtil;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
+import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.model.Teacher;
 
 /**
@@ -20,18 +21,13 @@ public class StudentTask {
      */
     private QnaireTask qnaireTask;
 
-    /**
-     * 将数据库中存储的工作信息转换为json格式
-     *
-     * @param teacher
-     * @return
-     */
-    public static TeacherWork str2Bean(Teacher teacher) {
-        String workjson = teacher.getWorkjson();
-        if (workjson == null) {
-            return new TeacherWork();
+
+    public static StudentTask str2Bean(Student student) {
+        String task = student.getTask();
+        if (task == null || "".equals(task)){
+            return new StudentTask();
         }
-        return JSONUtil.toBean(workjson, TeacherWork.class);
+        return JSONUtil.toBean(task,StudentTask.class);
     }
 
 }
