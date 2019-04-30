@@ -11,6 +11,8 @@ spring:
      enabled: true
   session:
     store-type: redis
+  redis:
+    host: 59.110.234.213
 security:
   basic:
     enabled: true
