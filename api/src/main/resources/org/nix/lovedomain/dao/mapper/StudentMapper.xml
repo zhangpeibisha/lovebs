@@ -321,7 +321,7 @@
 
   <select id="getStudentByCourse" resultMap="BaseResultMap">
     SELECT student.studentId as studentid,
-           student.`name` as name,
+           student.`name` as `name`,
            email,
            phone
       FROM student,
