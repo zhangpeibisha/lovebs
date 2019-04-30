@@ -40,7 +40,79 @@ public class Statisticsscore implements Serializable {
      */
     private String attachjson;
 
+    /**
+     * 班级编号
+     */
+    private String classCoding;
+
+    /**
+     * 课程编号
+     */
+    private String courseCoding;
+
+    /**
+     * 专业编号
+     */
+    private String professionCoding;
+
+    /**
+     * 学院编号
+     */
+    private String facultyCoding;
+
+    /**
+     * 平均分
+     */
+    private double avg;
+
+
+
+
     private static final long serialVersionUID = 1L;
+
+    public double getAvg() {
+        return avg;
+    }
+
+    public void setAvg(double avg) {
+        this.avg = avg;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getClassCoding() {
+        return classCoding;
+    }
+
+    public void setClassCoding(String classCoding) {
+        this.classCoding = classCoding;
+    }
+
+    public String getCourseCoding() {
+        return courseCoding;
+    }
+
+    public void setCourseCoding(String courseCoding) {
+        this.courseCoding = courseCoding;
+    }
+
+    public String getProfessionCoding() {
+        return professionCoding;
+    }
+
+    public void setProfessionCoding(String professionCoding) {
+        this.professionCoding = professionCoding;
+    }
+
+    public String getFacultyCoding() {
+        return facultyCoding;
+    }
+
+    public void setFacultyCoding(String facultyCoding) {
+        this.facultyCoding = facultyCoding;
+    }
 
     public Integer getId() {
         return id;
@@ -102,6 +174,11 @@ public class Statisticsscore implements Serializable {
         sb.append(", publishquestionnaireid=").append(publishquestionnaireid);
         sb.append(", fraction=").append(fraction);
         sb.append(", attachjson=").append(attachjson);
+        sb.append(", classCoding=").append(classCoding);
+        sb.append(", courseCoding=").append(courseCoding);
+        sb.append(", professionCoding=").append(professionCoding);
+        sb.append(", facultyCoding=").append(facultyCoding);
+        sb.append(", avg=").append(avg);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
