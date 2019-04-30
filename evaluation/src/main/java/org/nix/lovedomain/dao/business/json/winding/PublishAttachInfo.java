@@ -58,6 +58,11 @@ public class PublishAttachInfo {
      */
     private Integer score;
 
+    /**
+     * 所有的意见
+     */
+    private List<String> advice;
+
     public static PublishAttachInfo getBean(Publishquestionnaire publishquestionnaire) {
         if (publishquestionnaire == null || publishquestionnaire.getStatistics() == null) {
             return new PublishAttachInfo();
@@ -192,19 +197,26 @@ public class PublishAttachInfo {
             attend++;
             Integer studentId = completesQuestion.getStudentId();
             // 黑名单不计入统计
-            if (black.contains(studentId)) {
-                continue;
-            }
+//            if (black.contains(studentId)) {
+//                continue;
+//            }
             List<QuestionReply> questionReplies = completesQuestion.getQuestionReplies();
             if (CollUtil.isEmpty(questionReplies)) {
                 continue;
             }
             for (QuestionReply questionReply : questionReplies) {
-                Integer score = questionReply.getScore();
-                if (score == null || score <= 0) {
-                    continue;
+                if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.FILL_BLANK_SINGLE)){
+                    advice.add(questionReply.suggest);
+                }else {
+                    Integer score = questionReply.getScore();
+
+                    //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
+                    if (score == null || score <= 0 || black.contains(studentId)) {
+                        continue;
+                    }
+                    this.score += score;
                 }
-                this.score += score;
+
             }
         }
     }
