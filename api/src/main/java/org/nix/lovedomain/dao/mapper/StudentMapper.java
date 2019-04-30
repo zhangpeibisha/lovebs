@@ -1,12 +1,30 @@
 package org.nix.lovedomain.dao.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.nix.lovedomain.dao.mapper.base.BaseMapper;
 import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.model.StudentExample;
 
-import java.util.List;
+public interface StudentMapper {
+    int countByExample(StudentExample example);
+
+    int deleteByExample(StudentExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Student record);
+
+    int insertSelective(Student record);
+
+    List<Student> selectByExample(StudentExample example);
+
+    Student selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Student record, @Param("example") StudentExample example);
+
+    int updateByExample(@Param("record") Student record, @Param("example") StudentExample example);
+
+    int updateByPrimaryKeySelective(Student record);
 
 @Mapper
 public interface StudentMapper extends BaseMapper<Student> {
@@ -26,4 +44,7 @@ public interface StudentMapper extends BaseMapper<Student> {
     public void writeStudentTask(@Param("students") List<Student> students);
 
     List<Student> selectByExample(StudentExample studentExample);
+
+    int updateByPrimaryKey(Student record);
+
 }

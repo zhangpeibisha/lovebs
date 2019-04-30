@@ -4,7 +4,7 @@
 .classpath
 .project
 .settings
-.idea
+.idea/
 *.iml
  ##filter databfile��sln file##
 *.mdb  
@@ -39,3 +39,20 @@
 Icon?  
 ehthumbs.db  
 Thumbs.db
+api/target/classes/org/nix/lovedomain/model/
+api/target/generated-sources/
+evaluation/target/classes/org/nix/lovedomain/component/
+evaluation/target/classes/org/nix/lovedomain/config/
+evaluation/target/classes/org/nix/lovedomain/dao/business/json/
+evaluation/target/classes/org/nix/lovedomain/dao/business/page/
+evaluation/target/classes/org/nix/lovedomain/dao/mapper/
+evaluation/target/classes/org/nix/lovedomain/security/
+evaluation/target/classes/org/nix/lovedomain/service/
+evaluation/target/classes/org/nix/lovedomain/utils/
+evaluation/target/classes/org/nix/lovedomain/web/
+evaluation/target/generated-sources/
+evaluation/target/generated-test-sources/
+evaluation/target/test-classes/
+lovesecurity/love-security-app/target/
+lovesecurity/love-security-browser/target/
+lovesecurity/love-security-core/target/
