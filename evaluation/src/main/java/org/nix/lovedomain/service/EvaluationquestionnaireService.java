@@ -1,5 +1,6 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -7,11 +8,17 @@ import org.nix.lovedomain.dao.business.EvaluationquestionnaireBusinessMapper;
 import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
+import org.nix.lovedomain.dao.mapper.AccountMapper;
 import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
+import org.nix.lovedomain.dao.mapper.TeacherMapper;
 import org.nix.lovedomain.model.Account;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
+import org.nix.lovedomain.model.Teacher;
+import org.nix.lovedomain.model.TeacherExample;
 import org.nix.lovedomain.service.base.BaseService;
+import org.nix.lovedomain.service.vo.EvaluationquestionnaireSimpleVo;
 import org.nix.lovedomain.service.vo.PageVo;
+import org.nix.lovedomain.service.vo.TeacherSimpleVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.security.Principal;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @version 1.0
@@ -42,6 +48,12 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
     @Resource
     private EvaluationquestionnaireBusinessMapper evaluationquestionnaireBusinessMapper;
 
+    @Resource
+    private TeacherMapper teacherMapper;
+
+    @Resource
+    private AccountMapper accountMapper;
+
     /**
      * 添加问卷，主要用于老师创建问卷开始的步骤
      *
@@ -61,7 +73,8 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         Evaluationquestionnaire evaluationquestionnaire = new Evaluationquestionnaire();
         evaluationquestionnaire.setTitle(title);
         String userName = principal.getName();
-        evaluationquestionnaire.setAuthorid(userName);
+        Account userByAccount = accountService.findUserByAccount(userName);
+        evaluationquestionnaire.setAuthorid(String.valueOf(userByAccount.getId()));
         evaluationquestionnaire.setDescritption(description);
         Date createtime = new Date();
         evaluationquestionnaire.setCreatetime(createtime);
@@ -144,44 +157,34 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
     }
 
 
-    public PageVo<Evaluationquestionnaire> findOwnEvaluationquestionnairePage(Principal principal,
-                                                                              Integer page,
-                                                                              Integer limit,
-                                                                              String querySql) {
+    public PageVo<EvaluationquestionnaireSimpleVo> findOwnEvaluationquestionnairePage(Principal principal,
+                                                                                      Integer page,
+                                                                                      Integer limit,
+                                                                                      String sql,
+                                                                                      Boolean like) {
         if (principal == null) {
             throw new ServiceException("用户未登录无法查询自己的问卷");
         }
-        StringBuilder sql = new StringBuilder();
         Account userByAccount = accountService.findUserByAccount(principal.getName());
-        String email = userByAccount.getEmail();
-        String phone = userByAccount.getPhone();
-        String numbering = userByAccount.getNumbering();
-
-        if (email != null) {
-            sql.append(email).append(",");
-        }
-        if (phone != null) {
-            sql.append(phone).append(",");
-        }
-        if (numbering != null) {
-            sql.append(numbering).append(",");
-        }
-        int index = sql.lastIndexOf(",");
-        int length = sql.length();
-        if (length == 0) {
-            return PageVo.<Evaluationquestionnaire>builder()
-                    .page(page)
+        TeacherExample example = new TeacherExample();
+        example.createCriteria().andAccountidEqualTo(userByAccount.getId());
+        List<Teacher> teachers = teacherMapper.selectByExample(example);
+        if (CollUtil.isEmpty(teachers) || teachers.size() > 1) {
+            return PageVo.<EvaluationquestionnaireSimpleVo>builder()
+                    .data(CollUtil.newArrayList())
                     .limit(limit)
                     .total(0L)
-                    .data(null).build();
+                    .page(page).build();
         }
-        if (index != -1) {
-            sql.delete(index, length);
+        Teacher teacher = teachers.get(0);
+        Integer teacherId = teacher.getId();
+        if (sql == null || "".equals(sql)) {
+            return findAllEvaluationquestionnairePage(page, limit,
+                    StrUtil.format(" where authorid={}", teacherId), like);
         }
-        if (querySql != null) {
-            sql.append(" and").append(querySql);
-        }
-        return findAllEvaluationquestionnairePage(page, limit, StrUtil.format("where authorId in ({})", sql));
+        Map<String, Object> map = JSONUtil.toBean(sql, Map.class);
+        map.put("authorid", teacherId);
+        return findAllEvaluationquestionnairePage(page, limit, JSONUtil.toJsonStr(map), like);
     }
 
 
@@ -193,27 +196,89 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
      * @param querySql 查询sql(where后面的语句)
      * @return 返回结果
      */
-    public PageVo<Evaluationquestionnaire> findAllEvaluationquestionnairePage(Integer page,
-                                                                              Integer limit,
-                                                                              String querySql) {
-        if (page == null || page <= 0) {
-            page = 1;
-        }
-        if (limit == null || limit <= 0) {
-            limit = 1;
-        }
-        if (querySql == null) {
-            querySql = "";
-        }
+    public PageVo<EvaluationquestionnaireSimpleVo> findAllEvaluationquestionnairePage(Integer page,
+                                                                                      Integer limit,
+                                                                                      String querySql,
+                                                                                      Boolean like) {
+        querySql = resolveQuireSql(querySql, like);
 
         List<Evaluationquestionnaire> list
-                = evaluationquestionnaireBusinessMapper.selectPage(SQLUtil.getOffset(page,limit),limit,querySql);
+                = evaluationquestionnaireBusinessMapper.selectPage(SQLUtil.getOffset(page, limit), limit, querySql);
+
+        if (CollUtil.isEmpty(list)) {
+            return PageVo.<EvaluationquestionnaireSimpleVo>builder()
+                    .data(CollUtil.newArrayList())
+                    .limit(limit)
+                    .total(0L)
+                    .page(page).build();
+        }
+
+        List<EvaluationquestionnaireSimpleVo> result = new ArrayList<>(list.size());
+        for (Evaluationquestionnaire evaluationquestionnaire : list) {
+            String authorid = evaluationquestionnaire.getAuthorid();
+            if (authorid == null) {
+                continue;
+            }
+            Teacher teacher = teacherMapper.selectByPrimaryKey(Integer.parseInt(authorid));
+            if (teacher == null) {
+                continue;
+            }
+            TeacherSimpleVo teacherSimpleVo = new TeacherSimpleVo();
+            teacherSimpleVo.setId(teacher.getId());
+            teacherSimpleVo.setImageUrl(teacher.getImagerurl());
+            teacherSimpleVo.setJobNumber(teacher.getJobnumber());
+            teacherSimpleVo.setName(teacher.getName());
+
+            Integer accountid = teacher.getAccountid();
+            Account account = accountMapper.selectByPrimaryKey(accountid);
+            if (account == null) {
+                continue;
+            }
+            TeacherSimpleVo.Correspondence correspondence = new TeacherSimpleVo.Correspondence();
+            correspondence.setEmail(account.getEmail());
+            correspondence.setPhone(account.getPhone());
+            teacherSimpleVo.setCorrespondence(correspondence);
+
+            EvaluationquestionnaireSimpleVo evaluationquestionnaireSimpleVo
+                    = JSONUtil.toBean(JSONUtil.toJsonStr(evaluationquestionnaire), EvaluationquestionnaireSimpleVo.class);
+            evaluationquestionnaireSimpleVo.setAuthor(teacherSimpleVo);
+
+            result.add(evaluationquestionnaireSimpleVo);
+        }
+
         Long allCount = evaluationquestionnaireBusinessMapper.selectCount(querySql);
-        return PageVo.<Evaluationquestionnaire>builder()
-                .data(list)
+        return PageVo.<EvaluationquestionnaireSimpleVo>builder()
+                .data(result)
                 .limit(limit)
                 .total(allCount)
                 .page(page).build();
     }
+
+    public String resolveQuireSql(String quireSql,
+                                  Boolean like) {
+        if (quireSql == null || "".equals(quireSql)) {
+            return "";
+        }
+        StringBuilder sql = new StringBuilder("where").append(" ");
+        Map<String, Object> map = JSONUtil.toBean(quireSql, Map.class);
+        if (like) {
+            for (Map.Entry<String, Object> sqlMap : map.entrySet()) {
+                String key = sqlMap.getKey();
+                Object value = sqlMap.getValue();
+                sql.append(key).append(" LIKE ").append("'%").append(value).append("%'").append(" ").append("AND").append(" ");
+            }
+        } else {
+            for (Map.Entry<String, Object> sqlMap : map.entrySet()) {
+                String key = sqlMap.getKey();
+                Object value = sqlMap.getValue();
+                sql.append(key).append(" = ").append(value).append(" ").append("AND").append(" ");
+            }
+        }
+        if (sql.length() > 0) {
+            sql.delete(sql.lastIndexOf("A"), sql.lastIndexOf(" "));
+        }
+        return sql.toString();
+    }
+
 
 }

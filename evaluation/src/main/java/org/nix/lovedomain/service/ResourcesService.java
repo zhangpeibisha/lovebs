@@ -1,13 +1,19 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.ResoucesBusinessMapper;
 import org.nix.lovedomain.dao.mapper.ResourcesMapper;
 import org.nix.lovedomain.dao.mapper.RoleResourceMapper;
 import org.nix.lovedomain.model.*;
+import org.nix.lovedomain.service.vo.PageVo;
+import org.nix.lovedomain.utils.SQLUtil;
+import org.nix.lovedomain.web.controller.dto.ResourcesDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +26,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class ResourcesService {
 
     @Resource
@@ -31,18 +38,55 @@ public class ResourcesService {
     @Resource
     private RoleResourceMapper roleResourceMapper;
 
-    @Transactional(rollbackFor = Exception.class)
+    @Resource
+    private ResoucesBusinessMapper resoucesBusinessMapper;
+
     public void addResource(Resources resources) {
         resourcesMapper.insertSelective(resources);
     }
 
-    @Transactional(rollbackFor = Exception.class)
+    /**
+     * 批量插入资源
+     *
+     * @param resourcesDos
+     */
+    public void batchAddResource(List<ResourcesDto> resourcesDos) {
+        if (CollUtil.isEmpty(resourcesDos)) {
+            return;
+        }
+        List<Resources> insert = new ArrayList<>(resourcesDos.size());
+        for (ResourcesDto resourcesDto : resourcesDos) {
+            List<String> methods = resourcesDto.getMethod();
+            String url = resourcesDto.getUrl();
+            String description = resourcesDto.getDescription();
+            String name = resourcesDto.getName();
+            Byte permissionall = resourcesDto.getPermissionall();
+            Byte use = resourcesDto.getUse();
+
+            for (String method : methods) {
+                Resources resources = new Resources();
+                resources.setMethod(method);
+                resources.setUrl(url);
+                resources.setPermissionall(permissionall);
+                resources.setUse(use);
+                resources.setName(name);
+                resources.setDescription(description);
+
+                insert.add(resources);
+            }
+        }
+        if (CollUtil.isEmpty(insert)) {
+            return;
+        }
+        resoucesBusinessMapper.batchInsertResources(insert);
+    }
+
+
     public boolean deleteResourceById(Integer resourcesId) {
         int i = resourcesMapper.deleteByPrimaryKey(resourcesId);
         return i == 1;
     }
 
-    @Transactional(rollbackFor = Exception.class)
     public boolean updateResourceById(Resources resources) {
         int i = resourcesMapper.updateByPrimaryKey(resources);
         return i == 0;
@@ -67,6 +111,22 @@ public class ResourcesService {
         resourcesExample.createCriteria().andNameLike(likeName);
         return resourcesMapper.selectByExample(resourcesExample);
     }
+
+    public PageVo findResourcesPage(String key,
+                                    Integer page,
+                                    Integer limit) {
+        List<Resources> resoucesPage
+                = resoucesBusinessMapper.findResourcesPage(key, SQLUtil.getOffset(page, limit), limit);
+        Integer integer = resoucesBusinessMapper.countResources(key, SQLUtil.getOffset(page, limit), limit);
+
+        return PageVo.<Resources>builder()
+                .data(resoucesPage)
+                .total(new Long(integer))
+                .page(page)
+                .limit(limit)
+                .build();
+    }
+
 
     /**
      * 查询一个用户的所有权限信息
@@ -98,7 +158,7 @@ public class ResourcesService {
         return resources;
     }
 
-    public List<Resources> findPermissionAllResources(){
+    public List<Resources> findPermissionAllResources() {
         ResourcesExample example = new ResourcesExample();
         example.createCriteria().andPermissionallEqualTo((byte) 1);
         return resourcesMapper.selectByExample(example);

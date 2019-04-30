@@ -28,7 +28,8 @@
 *.zip  
 *.via
 *.tmp
-*.err 
+*.err
+*.iml
 # OS generated files #  
 .DS_Store  
 .DS_Store?  

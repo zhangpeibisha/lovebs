@@ -123,7 +123,7 @@
         SELECT
         *
         FROM
-        `student`
+        student
         LEFT JOIN class ON student.classId = class.id
         LEFT JOIN profession ON class.professionId = profession.id
         LEFT JOIN faculty ON profession.facultyId = faculty.id

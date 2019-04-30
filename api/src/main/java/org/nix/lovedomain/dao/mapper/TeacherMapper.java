@@ -5,8 +5,13 @@ import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.model.TeacherExample;
 
+
+import java.util.List;
+
 public interface TeacherMapper {
     int countByExample(TeacherExample example);
+    List<Teacher> selectByExample(TeacherExample example);
+
 
     int deleteByExample(TeacherExample example);
 

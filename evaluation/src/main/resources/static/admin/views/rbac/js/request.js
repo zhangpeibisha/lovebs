@@ -1,13 +1,17 @@
+var search = $("#permissionSelect").val();
 // 生成所搜信息
 $.ajax({
     type: "get",
-    url: "https://www.easy-mock.com/mock/5c8de5546fe7c7611499c741/evaluation/admin/permission/list",
+    url: "/resources/list/by",
+    data: {
+        key: search
+    },
     async: true,
     success: function (res) {
         console.log("res", res)
         var value = res.permission;
         var result = `<select id="permissionSelect" name="permissionName" lay-verify="" lay-filter="selectRoleName" lay-search>
-	    	  <option value="" selected>搜索资源信息(通过名字)</option>`;
+	    	  <option value="" selected>搜索资源信息(通过名字/描述/内容)</option>`;
         $.each(value, function (index, item) {
             result += `<option value="${item.id}">${item.name}</option>`;
         });
@@ -26,16 +30,16 @@ $("#addPermission").click(function () {
         title: "添加资源信息",
         type: 2,
         anim: 5,
-        scrollbar:false,
+        scrollbar: false,
         skin: 'layui-layer-rim', //加上边框
         area: ['350px', '360px'], //宽高
         content: "addPermission.html", //调到新增页面
-        btn: ['提交','取消'],
+        btn: ['提交', '取消'],
         yes: function (index, layero) {
             console.log("提交信息", index, layero)
         },
-        cancel:function (index,layro) {
-            console.log("取消",index,layro)
+        cancel: function (index, layro) {
+            console.log("取消", index, layro)
         }
     });
 });
@@ -45,7 +49,7 @@ layui.use(['table', 'form'], function () {
     var table = layui.table;
     var permiisionTable = table.render({
         elem: '#permissions',
-        url: 'https://www.easy-mock.com/mock/5c8de5546fe7c7611499c741/evaluation/admin/permission/list',
+        url: '/resources/list/by',
         toolbar: true,
         title: '用户数据表',
         cols: [
@@ -99,9 +103,9 @@ layui.use(['table', 'form'], function () {
             console.log('加载数据', res)
             return {
                 "code": res.code, //解析接口状态
-                "msg": res.message, //解析提示文本
-                "count": res.count, //解析数据长度
-                "data": res.permission //解析数据列表
+                "msg": res.msg, //解析提示文本
+                "count": res.data.total, //解析数据长度
+                "data": res.data.data //解析数据列表
             };
         }
     });

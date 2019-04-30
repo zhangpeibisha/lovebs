@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, jobNumber, name, accountId, imagerUrl,email,phone
+    id, jobNumber, `name`, accountId, imagerUrl,email,phone
   </sql>
   <sql id="Blob_Column_List">
     workJson

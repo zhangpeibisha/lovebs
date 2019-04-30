@@ -320,6 +320,16 @@
   </update>
 
   <select id="getStudentByCourse" resultMap="BaseResultMap">
+    SELECT
+	student.studentId AS studentid,
+	student.`name`,
+	email,
+	phone
+      FROM
+          student LEFT JOIN student_course ON student.id = student_course.studentId
+        LEFT JOIN teacher_course ON student_course.courseId = teacher_course.id
+      WHERE teacher_course.courseId = #{courseId,jdbcType=INTEGER}
+      AND teacher_course.teacherId = #{teacherId,jdbcType=INTEGER}
     SELECT student.studentId as studentid,
            student.`name` as `name`,
            email,

@@ -60,7 +60,7 @@ public class PublishAttachInfo {
 
     public static PublishAttachInfo getBean(Publishquestionnaire publishquestionnaire) {
         if (publishquestionnaire == null || publishquestionnaire.getStatistics() == null) {
-            return null;
+            return new PublishAttachInfo();
         }
         String statistics = publishquestionnaire.getStatistics();
         return JSONUtil.toBean(statistics, PublishAttachInfo.class);
