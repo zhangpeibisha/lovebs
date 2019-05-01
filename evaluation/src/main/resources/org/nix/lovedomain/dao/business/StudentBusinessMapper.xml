@@ -154,4 +154,21 @@
             WHERE teacher_course.courseId = #{courseId} AND teacher_course.teacherId = #{teacherId}
     </select>
 
+    <select id="findStudentBySql" resultMap="studentVoMap">
+        SELECT * FROM `student` WHERE 1=1
+         <if test="sql!=null">
+             ${sql}
+         </if>
+        <if test="page!=null and limit!=null">
+            LIMIT #{page},#{limit};
+        </if>
+    </select>
+
+    <select id="countStudentBySql" resultMap="studentVoMap">
+        SELECT count(*) FROM `student` WHERE 1=1
+        <if test="sql!=null">
+            ${sql}
+        </if>
+    </select>
+
 </mapper>
