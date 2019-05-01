@@ -1,5 +1,6 @@
 package org.nix.lovedomain.dao.base;
 
+import tk.mybatis.mapper.common.IdsMapper;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
@@ -9,6 +10,6 @@ import tk.mybatis.mapper.common.MySqlMapper;
  * @description
  * @date 2019/5/1
  */
-public interface BaseBusinessMapper<E> extends Mapper<E>, MySqlMapper<E> {
+public interface BaseBusinessMapper<E> extends Mapper<E>, MySqlMapper<E>,IdsMapper<E> {
 
 }

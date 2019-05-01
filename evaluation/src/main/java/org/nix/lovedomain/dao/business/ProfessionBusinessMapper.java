@@ -1,7 +1,10 @@
 package org.nix.lovedomain.dao.business;
 
+import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.model.Profession;
+
+import java.util.List;
 
 /**
  * @author zhangpei
@@ -11,4 +14,11 @@ import org.nix.lovedomain.dao.model.Profession;
  */
 public interface ProfessionBusinessMapper extends BaseBusinessMapper<Profession> {
 
+
+    List<org.nix.lovedomain.model.Profession>
+    findProfessionPageBySql(@Param(value = "page") Integer page,
+                            @Param(value = "limit") Integer limit,
+                            @Param(value = "sql") String sql);
+
+    Long countProfessionPageBySql(@Param(value = "sql") String sql);
 }
