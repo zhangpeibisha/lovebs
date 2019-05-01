@@ -70,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, teacherId, courseId, publishQuestionnaireId, fraction
+    id, teacherId, courseId, publishQuestionnaireId, fraction,`avg`,classCoding,courseCoding,
+    professionCoding,facultyCoding
   </sql>
   <sql id="Blob_Column_List">
     attachJson
@@ -153,6 +154,21 @@
       <if test="attachjson != null">
         attachJson,
       </if>
+      <if test="classCoding != null">
+        classCoding,
+      </if>
+      <if test="courseCoding != null">
+        courseCoding,
+      </if>
+      <if test="professionCoding != null">
+        professionCoding,
+      </if>
+      <if test="facultyCoding != null">
+        facultyCoding,
+      </if>
+      <if test="avg != null">
+        avg,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="teacherid != null">
@@ -169,6 +185,21 @@
       </if>
       <if test="attachjson != null">
         #{attachjson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="classCoding != null">
+        #{classCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCoding != null">
+        #{courseCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="professionCoding != null">
+        #{professionCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="facultyCoding != null">
+        #{facultyCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="avg != null">
+        #{avg,jdbcType=DOUBLE}
       </if>
     </trim>
   </insert>
@@ -199,6 +230,21 @@
       <if test="record.attachjson != null">
         attachJson = #{record.attachjson,jdbcType=LONGVARCHAR},
       </if>
+      <if test="record.classCoding != null">
+        classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseCoding != null">
+        courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionCoding != null">
+        professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.facultyCoding != null">
+        facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avg != null">
+        `avg` = #{record.avg,jdbcType=DOUBLE}
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,6 +258,11 @@
       publishQuestionnaireId = #{record.publishquestionnaireid,jdbcType=INTEGER},
       fraction = #{record.fraction,jdbcType=INTEGER},
       attachJson = #{record.attachjson,jdbcType=LONGVARCHAR}
+      classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      `avg` = #{record.avg,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -222,7 +273,12 @@
       teacherId = #{record.teacherid,jdbcType=INTEGER},
       courseId = #{record.courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{record.publishquestionnaireid,jdbcType=INTEGER},
-      fraction = #{record.fraction,jdbcType=INTEGER}
+      fraction = #{record.fraction,jdbcType=INTEGER},
+    classCoding = #{record.classCoding,jdbcType=VARCHAR},
+    courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+    professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+    facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+    `avg` = #{record.avg,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -254,7 +310,12 @@
       courseId = #{courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{publishquestionnaireid,jdbcType=INTEGER},
       fraction = #{fraction,jdbcType=INTEGER},
-      attachJson = #{attachjson,jdbcType=LONGVARCHAR}
+      attachJson = #{attachjson,jdbcType=LONGVARCHAR},
+        classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      `avg` = #{record.avg,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.model.Statisticsscore">
@@ -262,7 +323,12 @@
     set teacherId = #{teacherid,jdbcType=INTEGER},
       courseId = #{courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{publishquestionnaireid,jdbcType=INTEGER},
-      fraction = #{fraction,jdbcType=INTEGER}
+      fraction = #{fraction,jdbcType=INTEGER},
+        classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      `avg` = #{record.avg,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
