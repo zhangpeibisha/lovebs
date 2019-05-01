@@ -1,9 +1,13 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.collection.CollUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.mapper.AccountMapper;
-import org.nix.lovedomain.model.Account;
-import org.nix.lovedomain.model.AccountExample;
+import org.nix.lovedomain.dao.mapper.StudentMapper;
+import org.nix.lovedomain.dao.mapper.TeacherMapper;
+import org.nix.lovedomain.model.*;
+import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.service.vo.TeacherVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,6 +26,12 @@ public class AccountService {
 
     @Resource
     private AccountMapper accountMapper;
+
+    @Resource
+    private StudentMapper studentMapper;
+
+    @Resource
+    private TeacherMapper teacherMapper;
 
     public Account findUserByAccount(String username) {
         if (username == null) {
@@ -47,5 +57,48 @@ public class AccountService {
             return accounts.get(0);
         }
         throw new ServiceException("通过用户名" + username + "查询用户信息失败");
+    }
+
+    /**
+     * 通过账户信息查找到学生信息
+     *
+     * @param userName
+     * @return
+     */
+    public StudentVo findStudentByAccountName(String userName) {
+        Account userByAccount = findUserByAccount(userName);
+        if (userByAccount == null) {
+            return null;
+        }
+        Integer accountId = userByAccount.getId();
+        StudentExample studentExample = new StudentExample();
+        studentExample.createCriteria().andAccountidEqualTo(accountId);
+        List<Student> students = studentMapper.selectByExample(studentExample);
+        if (CollUtil.isEmpty(students) || students.size() != 1) {
+            return null;
+        }
+        Student student = students.get(0);
+        return StudentVo.studentToSimpleStudentVo(student);
+    }
+
+    /**
+     * 通过账号信息查询老师信息
+     *
+     * @param userName
+     * @return
+     */
+    public TeacherVo findTeacherByAccountName(String userName) {
+        Account userByAccount = findUserByAccount(userName);
+        if (userByAccount == null) {
+            return null;
+        }
+        Integer accountId = userByAccount.getId();
+        TeacherExample studentExample = new TeacherExample();
+        studentExample.createCriteria().andAccountidEqualTo(accountId);
+        List<Teacher> teachers = teacherMapper.selectByExample(studentExample);
+        if (CollUtil.isEmpty(teachers) || teachers.size() != 1) {
+            return null;
+        }
+        return TeacherVo.teacherToSimpleTeacherVo(teachers.get(0));
     }
 }

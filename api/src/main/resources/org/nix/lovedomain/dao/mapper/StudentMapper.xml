@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, studentId, name, phone, email, imageUrl, classId, accountId
+    id, studentId, name, phone, email, imageUrl, classId, accountId,task
   </sql>
   <sql id="Blob_Column_List">
     task

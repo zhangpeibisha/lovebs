@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @SpringBootApplication
 @MapperScan(value = {"org.nix.lovedomain.dao.mapper", "org.nix.lovedomain.dao.business"})
+@tk.mybatis.spring.annotation.MapperScan(basePackages  = {"org.nix.lovedomain.dao.business.*BusinessMapper"})
 @EnableTransactionManagement
 public class EvaluationApplication {
 

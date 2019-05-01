@@ -1,0 +1,43 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.nix.lovedomain.security.core.properties.SecurityProperties",
+      "name": "love.security",
+      "type": "org.nix.lovedomain.security.core.properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.nix.lovedomain.security.core.properties.SecurityProperties",
+      "name": "love.security.browser",
+      "description": "浏览器使用配置信息",
+      "type": "org.nix.lovedomain.security.core.properties.BrowserProperties"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.security.core.properties.SecurityProperties",
+      "name": "love.security.o-auth2",
+      "description": "oAuth2配置信息",
+      "type": "org.nix.lovedomain.security.core.properties.OAuth2Properties"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.security.core.properties.SecurityProperties",
+      "defaultValue": 30,
+      "name": "love.security.redis-expired",
+      "description": "redis过期时间，单位秒",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.security.core.properties.SecurityProperties",
+      "name": "love.security.social",
+      "description": "第三方应用配置",
+      "type": "org.nix.lovedomain.security.core.properties.SocialProperties"
+    },
+    {
+      "sourceType": "org.nix.lovedomain.security.core.properties.SecurityProperties",
+      "name": "love.security.validate",
+      "description": "验证码使用配置信息",
+      "type": "org.nix.lovedomain.security.core.properties.ValidateCodeProperties"
+    }
+  ]
+}

@@ -111,34 +111,34 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
     @Override
     public void validate(ServletWebRequest request) {
 
-        ValidateCodeType processorType = getValidateCodeType();
-
-        ValidateCode codeInSession = validateCodeRepository.get(request, getValidateCodeType());
-
-        String codeInRequest;
-        try {
-            codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),
-                    processorType.getParamNameOnValidate());
-        } catch (ServletRequestBindingException e) {
-            throw new ValidateCodeException("获取验证码的值失败");
-        }
-
-        if (StringUtils.isBlank(codeInRequest)) {
-            throw new ValidateCodeException(processorType + "验证码的值不能为空");
-        }
-
-        if (codeInSession == null) {
-            throw new ValidateCodeException(processorType + "验证码不存在");
-        }
-
-        if (codeInSession.isExpired()) {
-            validateCodeRepository.remove(request, getValidateCodeType());
-            throw new ValidateCodeException(processorType + "验证码已过期");
-        }
-
-        if (!StringUtils.equals(codeInSession.getCode(), codeInRequest)) {
-            throw new ValidateCodeException(processorType + "验证码不匹配");
-        }
-        validateCodeRepository.remove(request, processorType);
+//        ValidateCodeType processorType = getValidateCodeType();
+//
+//        ValidateCode codeInSession = validateCodeRepository.get(request, getValidateCodeType());
+//
+//        String codeInRequest;
+//        try {
+//            codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),
+//                    processorType.getParamNameOnValidate());
+//        } catch (ServletRequestBindingException e) {
+//            throw new ValidateCodeException("获取验证码的值失败");
+//        }
+//
+//        if (StringUtils.isBlank(codeInRequest)) {
+//            throw new ValidateCodeException(processorType + "验证码的值不能为空");
+//        }
+//
+//        if (codeInSession == null) {
+//            throw new ValidateCodeException(processorType + "验证码不存在");
+//        }
+//
+//        if (codeInSession.isExpired()) {
+//            validateCodeRepository.remove(request, getValidateCodeType());
+//            throw new ValidateCodeException(processorType + "验证码已过期");
+//        }
+//
+//        if (!StringUtils.equals(codeInSession.getCode(), codeInRequest)) {
+//            throw new ValidateCodeException(processorType + "验证码不匹配");
+//        }
+//        validateCodeRepository.remove(request, processorType);
     }
 }

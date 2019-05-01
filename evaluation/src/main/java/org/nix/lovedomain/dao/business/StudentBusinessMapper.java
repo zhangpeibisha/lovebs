@@ -16,6 +16,7 @@ import java.util.List;
 public interface StudentBusinessMapper {
     /**
      * 分页查询学生信息
+     *
      * @param pageInquire 分页信息
      * @return 查询到的学生信息
      */
@@ -23,6 +24,7 @@ public interface StudentBusinessMapper {
 
     /**
      * 通过分页参数获取到学生信息的数量
+     *
      * @param pageInquire 分页信息
      * @return 查询到的学生数量
      */
@@ -30,6 +32,7 @@ public interface StudentBusinessMapper {
 
     /**
      * 获取一个学生的详细信息
+     *
      * @param pageInquire 分页信息
      * @return 查询到的学生信息
      */
@@ -37,11 +40,30 @@ public interface StudentBusinessMapper {
 
     /**
      * 通过老师id和课程id获取到学生信息
+     *
      * @param teacherId 老师id
-     * @param courseId 课程id
+     * @param courseId  课程id
      * @return 学生信息列表
      */
     List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherId") Integer teacherId,
                                                       @Param(value = "courseId") Integer courseId);
 
+    /**
+     * 通过sql查询学生信息
+     *
+     * @param page
+     * @param limit
+     * @param sql
+     * @return
+     */
+    List<StudentVo> findStudentBySql(@Param(value = "page") Integer page,
+                                     @Param(value = "limit") Integer limit,
+                                     @Param(value = "sql") String sql);
+
+    /**
+     * 通过sql查询学生数量
+     * @param sql
+     * @return
+     */
+    Long countStudentBySql(@Param(value = "sql") String sql);
 }

@@ -26,5 +26,9 @@ public interface PublishquestionnaireMapper {
 
     int updateByPrimaryKeySelective(Publishquestionnaire record);
 
+    List<Publishquestionnaire> getAllDataByLimit(@Param("dateStr") String dateStr);
+
+    List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
+
     int updateByPrimaryKey(Publishquestionnaire record);
 }
