@@ -2,26 +2,25 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
-import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
-import org.nix.lovedomain.dao.mapper.ClassMapper;
-import org.nix.lovedomain.dao.mapper.ProfessionMapper;
+import org.nix.lovedomain.dao.mapper.AccountMapper;
+import org.nix.lovedomain.dao.mapper.AccountRoleMapper;
+import org.nix.lovedomain.dao.mapper.RoleMapper;
 import org.nix.lovedomain.dao.mapper.StudentMapper;
-import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.model.Student;
-import org.nix.lovedomain.model.StudentExample;
+import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -35,6 +34,7 @@ import java.util.List;
  * @date 2019/4/7
  */
 @Slf4j
+@Getter
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class StudentService {
@@ -46,10 +46,16 @@ public class StudentService {
     private StudentBusinessMapper studentBusinessMapper;
 
     @Resource
-    private ClassMapper classMapper;
+    private AccountMapper accountMapper;
 
     @Resource
-    private ProfessionMapper professionMapper;
+    private RoleMapper roleMapper;
+
+    @Resource
+    private StudentService studentService;
+
+    @Resource
+    private AccountRoleMapper accountRoleMapper;
 
     /**
      * 分页查询简约学生信息,后台使用
@@ -68,6 +74,119 @@ public class StudentService {
                 .page(page == null ? 1 : page)
                 .total(studentCount)
                 .build();
+    }
+
+    /**
+     * 更新学生信息
+     *
+     * @param student
+     */
+    public void updateStudent(Student student) {
+        if (student == null) {
+            return;
+        }
+        int i = studentMapper.updateByPrimaryKey(student);
+        if (i <= 0) {
+            throw new ServiceException(LogUtil.logInfo(log, "更新学生{}信息错误：{}", JSONUtil.toJsonStr(student), i));
+        }
+    }
+
+    /**
+     * 删除学生信息
+     *
+     * @param studentIds
+     */
+    public void delteStudent(List<Integer> studentIds) {
+        if (CollUtil.isEmpty(studentIds)) {
+            return;
+        }
+        StudentExample studentExample = new StudentExample();
+        studentExample.createCriteria().andIdIn(studentIds);
+        List<Student> students = studentMapper.selectByExample(studentExample);
+        if (CollUtil.isEmpty(students)) {
+            return;
+        }
+        // 首先删除学生的账户信息
+        List<Integer> accountIds = new ArrayList<>();
+        for (Student student : students) {
+            accountIds.add(student.getAccountid());
+        }
+        int size = students.size();
+        AccountExample accountExample = new AccountExample();
+        accountExample.createCriteria().andIdIn(accountIds);
+        Integer deletes = accountMapper.deleteByExample(accountExample);
+        if (deletes != size) {
+            throw new ServiceException(LogUtil.logWarn(log, "删除学生{}集合失败：delete={}  complete={}",
+                    JSONUtil.toJsonStr(studentIds), deletes, size));
+        }
+        // 删除学生信息
+        StudentExample deleteStudent = new StudentExample();
+        deleteStudent.createCriteria().andIdIn(studentIds);
+        studentMapper.deleteByExample(deleteStudent);
+    }
+
+    /**
+     * 老师为学生创建账号，默认密码为学号
+     *
+     * @param students
+     */
+    public void registerStudent(List<Student> students) {
+        if (CollUtil.isEmpty(students)) {
+            return;
+        }
+        for (Student student : students) {
+            try {
+                Account accountToStudent = createAccountToStudent(student);
+                if (accountToStudent == null) {
+                    return;
+                }
+                student.setAccountid(accountToStudent.getId());
+                studentMapper.insertSelective(student);
+            } catch (Exception e) {
+                String logInfo = LogUtil.logInfo(log, "添加学生{}失败：{}",
+                        JSONUtil.toJsonStr(student), e.getMessage());
+                throw new ServiceException(logInfo);
+            }
+        }
+    }
+
+    private Account createAccountToStudent(Student student) {
+        if (student == null) {
+            return null;
+        }
+        Account account = new Account();
+        account.setPhone(student.getPhone());
+        account.setNumbering(student.getStudentid());
+        // 默认密码未学生学号
+        account.setPassword(student.getStudentid());
+        account.setEmail(student.getEmail());
+        studentService.getAccountMapper().insertSelective(account);
+        // 设置角色
+        Integer integer = checkStudentRole();
+        AccountRole accountRole = new AccountRole();
+        accountRole.setAccountid(account.getId());
+        accountRole.setRoleid(integer);
+        accountRoleMapper.insertSelective(accountRole);
+        return account;
+    }
+
+    /**
+     * 检查学生的角色是否存在
+     *
+     * @return
+     */
+    public Integer checkStudentRole() {
+        String roleName = "在校学生";
+        RoleExample example = new RoleExample();
+        example.createCriteria().andNameEqualTo(roleName);
+        List<Role> roles = roleMapper.selectByExample(example);
+        if (CollUtil.isEmpty(roles)) {
+            Role e = new Role();
+            e.setName(roleName);
+            roleMapper.insertSelective(e);
+            return e.getId();
+        }
+        return roles.get(0).getId();
     }
 
     /**
