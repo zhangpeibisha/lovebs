@@ -30,6 +30,8 @@ public class StudentVo {
 
     private String imageUrl;
 
+    private String task;
+
     /**
      * 前端展示的字段为class
      */

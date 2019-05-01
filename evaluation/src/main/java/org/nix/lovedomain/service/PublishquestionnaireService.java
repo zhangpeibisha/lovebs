@@ -7,6 +7,7 @@ import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.PublishquestionnaireMapper;
 import org.nix.lovedomain.model.Account;
 import org.nix.lovedomain.model.Publishquestionnaire;
+import org.nix.lovedomain.model.PublishquestionnaireExample;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
@@ -183,6 +184,17 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         byId.setStatistics(JSONUtil.toJsonStr(bean));
         publishquestionnaireMapper.updateByPrimaryKey(byId);
         return byId;
+    }
+
+    /**
+     * 批量获取发布问卷信息
+     * @param ids
+     * @return
+     */
+    public List<Publishquestionnaire> batchQuireQuestion(List<Integer> ids){
+        PublishquestionnaireExample example = new PublishquestionnaireExample();
+        example.createCriteria().andIdIn(ids);
+        return publishquestionnaireMapper.selectByExample(example);
     }
 
     public static void checkStudentHavePermissionUse(PublishAttachInfo bean, Integer id) {

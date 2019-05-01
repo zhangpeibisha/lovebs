@@ -63,13 +63,13 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
      */
     @ApiOperation(value = "添加黑名单学生")
     @PostMapping(value = "/addBlack")
-    public RespondsMessage addBlack( @RequestParam(value = "publisId") Integer publisId,
-                                     @RequestParam(value = "studentIds") List<Integer> studentIds,
+    public RespondsMessage addBlack(@RequestParam(value = "publisId") Integer publisId,
+                                    @RequestParam(value = "studentIds") List<Integer> studentIds,
                                     Principal principal) {
         if (principal == null) {
             throw new ServiceException(LogUtil.logInfo(log, "用户未登陆添加黑名单那"));
         }
-        Publishquestionnaire publishquestionnaire = publishquestionnaireService.addBlack(publisId, studentIds,principal);
+        Publishquestionnaire publishquestionnaire = publishquestionnaireService.addBlack(publisId, studentIds, principal);
         return RespondsMessage.success(LogUtil.logInfo(log, "用户{}更新的问题成功", principal.getName()), publishquestionnaire);
     }
 
@@ -82,10 +82,10 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
      */
     @ApiOperation(value = "删除黑名单学生")
     @DeleteMapping(value = "/deleteBlack")
-    public RespondsMessage deleteBlack( @RequestParam(value = "publisId")Integer publisId,
-                                        @RequestParam(value = "studentIds") List<Integer> studentIds,
+    public RespondsMessage deleteBlack(@RequestParam(value = "publisId") Integer publisId,
+                                       @RequestParam(value = "studentIds") List<Integer> studentIds,
                                        Principal principal) {
-        Publishquestionnaire publishquestionnaire = publishquestionnaireService.deleteBlack(publisId, studentIds,principal);
+        Publishquestionnaire publishquestionnaire = publishquestionnaireService.deleteBlack(publisId, studentIds, principal);
         return RespondsMessage.success(LogUtil.logInfo(log, "用户{}更新的问题成功", principal.getName()), publishquestionnaire);
     }
 
@@ -98,10 +98,10 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
      */
     @ApiOperation(value = "提交回答信息")
     @PostMapping(value = "/writeQuestion")
-    public RespondsMessage writeQuestion( @RequestParam(value = "publisId")Integer publisId,
-                                          @RequestBody PublishAttachInfo.CompletesQuestion completesQuestion,
+    public RespondsMessage writeQuestion(@RequestParam(value = "publisId") Integer publisId,
+                                         @RequestBody PublishAttachInfo.CompletesQuestion completesQuestion,
                                          Principal principal) {
-        Publishquestionnaire publishquestionnaire = publishquestionnaireService.writeQuestion(publisId, completesQuestion,principal);
+        Publishquestionnaire publishquestionnaire = publishquestionnaireService.writeQuestion(publisId, completesQuestion, principal);
         return RespondsMessage.success(LogUtil.logInfo(log, "用户{}更新的问题成功", principal.getName()), publishquestionnaire);
     }
 
@@ -114,11 +114,23 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
      */
     @ApiOperation(value = "更新回答，只有 status=keep的时候可以更新")
     @PutMapping(value = "/updateQuestion")
-    public RespondsMessage updateQuestion( @RequestParam(value = "publisId")Integer publisId,
-                                           @RequestBody PublishAttachInfo.CompletesQuestion completesQuestion,
+    public RespondsMessage updateQuestion(@RequestParam(value = "publisId") Integer publisId,
+                                          @RequestBody PublishAttachInfo.CompletesQuestion completesQuestion,
                                           Principal principal) {
-        Publishquestionnaire publishquestionnaire = publishquestionnaireService.updateQuestion(publisId, completesQuestion,principal);
+        Publishquestionnaire publishquestionnaire = publishquestionnaireService.updateQuestion(publisId, completesQuestion, principal);
         return RespondsMessage.success(LogUtil.logInfo(log, "用户{}更新的问题成功", principal.getName()), publishquestionnaire);
+    }
+
+    /**
+     * 通过id批量获取发布问卷信息
+     *
+     * @param ids
+     * @return
+     */
+    @ApiOperation(value = "批量获取发布问卷的信息")
+    @GetMapping(value = "/list/by/ids")
+    public RespondsMessage batchFindPublishQuestionInfo(@RequestParam(value = "ids") List<Integer> ids) {
+        return RespondsMessage.success("获取发布问卷信息完成", publishquestionnaireService.batchQuireQuestion(ids));
     }
 
 }

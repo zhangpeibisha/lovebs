@@ -9,6 +9,7 @@ import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.service.vo.TeacherVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
+import org.nix.lovedomain.web.controller.dto.PersonalCenterDto;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,12 +48,12 @@ public class AccountController extends BaseController<Account> {
         StudentVo studentByAccountName = accountService.findStudentByAccountName(name);
         if (studentByAccountName != null) {
             return RespondsMessage.success(LogUtil.logInfo(log, "学生{}的信息获取成功", name),
-                    studentByAccountName);
+                    new PersonalCenterDto(PersonalCenterDto.UserType.STUDENT,studentByAccountName));
         }
         TeacherVo teacherByAccountName = accountService.findTeacherByAccountName(name);
         if (teacherByAccountName != null) {
             return RespondsMessage.success(LogUtil.logInfo(log, "老师{}的信息获取成功", name),
-                   teacherByAccountName);
+                   new PersonalCenterDto(PersonalCenterDto.UserType.TEACHER,teacherByAccountName));
         }
         return RespondsMessage.failure("未找到用户信息");
     }
