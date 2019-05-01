@@ -25,13 +25,13 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping(value = "/list/{key}/{word}")
-    public void findStuentPage(@PathVariable(required = false) String key,
-                               @PathVariable(required = false) String word,
-                               @RequestParam(defaultValue = "false") boolean blurry,
-                               @RequestParam(value = "page", defaultValue = "1") Integer page,
-                               @RequestParam(value = "limit", defaultValue = "1") Integer limit,
-                               HttpServletResponse response) throws IOException {
+    @GetMapping(value = "/list")
+    public void findStudentPage(@RequestParam(required = false) String key,
+                                @RequestParam(required = false) String word,
+                                @RequestParam(defaultValue = "false") boolean blurry,
+                                @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                @RequestParam(value = "limit", defaultValue = "1") Integer limit,
+                                HttpServletResponse response) throws IOException {
         StudentPageInquire pageInquire = new StudentPageInquire();
         pageInquire.setQuireField(key);
         pageInquire.setQuireValue(word);
