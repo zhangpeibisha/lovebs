@@ -12,6 +12,7 @@ import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author zhangpei
@@ -195,21 +196,32 @@ public class PublishAttachInfo {
         for (CompletesQuestion completesQuestion : completesQuestions) {
             // 不管是否是黑名单，都要计入出勤人数中
             attend++;
-            Integer studentId = completesQuestion.getStudentId();
-            // 黑名单不计入统计
-//            if (black.contains(studentId)) {
-//                continue;
-//            }
+
             List<QuestionReply> questionReplies = completesQuestion.getQuestionReplies();
             if (CollUtil.isEmpty(questionReplies)) {
                 continue;
             }
+
+            /*统计学生反馈的意见*/
+            List<QuestionReply> limitQuestionReply = questionReplies
+                    .stream()
+                    .filter(qR -> qR.getSuggest() != null || !qR.getSuggest().equals(""))
+                    .collect(Collectors.toList());
+            if(limitQuestionReply != null || limitQuestionReply.size() != 0){
+                advice.add(limitQuestionReply.get(0).suggest);
+            }
+
+            Integer studentId = completesQuestion.getStudentId();
+            // 黑名单不计入统计
+            if (black.contains(studentId)) {
+                continue;
+            }
+
             for (QuestionReply questionReply : questionReplies) {
                 if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.FILL_BLANK_SINGLE)){
-                    advice.add(questionReply.suggest);
+                    continue;
                 }else {
                     Integer score = questionReply.getScore();
-
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
                     if (score == null || score <= 0 || black.contains(studentId)) {
                         continue;

@@ -12,7 +12,6 @@ public interface TeacherMapper {
     int countByExample(TeacherExample example);
     List<Teacher> selectByExample(TeacherExample example);
 
-
     int deleteByExample(TeacherExample example);
 
     int deleteByPrimaryKey(Integer id);
@@ -22,8 +21,6 @@ public interface TeacherMapper {
     int insertSelective(Teacher record);
 
     List<Teacher> selectByExampleWithBLOBs(TeacherExample example);
-
-    List<Teacher> selectByExample(TeacherExample example);
 
     Teacher selectByPrimaryKey(Integer id);
 
