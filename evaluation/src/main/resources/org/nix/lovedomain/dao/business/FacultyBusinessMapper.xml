@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.lovedomain.dao.business.FacultyBusinessMapper">
+
+    <select id="findFacultyBySql" resultType="org.nix.lovedomain.model.Faculty">
+        SELECT * FROM `faculty` WHERE 1=1
+        <if test="sql!=null">
+            ${sql}
+        </if>
+        <if test="page!=null and limit!=null">
+            LIMIT #{page},#{limit};
+        </if>
+    </select>
+
+    <select id="countFacultyBySql" resultType="java.lang.Long">
+        SELECT count(*) FROM `faculty` WHERE 1=1
+        <if test="sql!=null">
+            ${sql}
+        </if>
+    </select>
+
+</mapper>
