@@ -95,6 +95,12 @@
             <version>1.2.15</version>
         </dependency>
 
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
 
         <!-- test -->
         <dependency>
