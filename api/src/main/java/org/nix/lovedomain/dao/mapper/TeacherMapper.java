@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TeacherMapper {
     int countByExample(TeacherExample example);
-    List<Teacher> selectByExample(TeacherExample example);
+
 
 
     int deleteByExample(TeacherExample example);

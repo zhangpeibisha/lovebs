@@ -16,7 +16,6 @@ public interface PublishquestionnaireMapper {
 
     int insertSelective(Publishquestionnaire record);
 
-    List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
 
     Publishquestionnaire selectByPrimaryKey(Integer id);
 
