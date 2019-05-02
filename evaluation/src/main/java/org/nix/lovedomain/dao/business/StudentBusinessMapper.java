@@ -42,11 +42,11 @@ public interface StudentBusinessMapper extends BaseBusinessMapper<Student> {
     /**
      * 通过老师id和课程id获取到学生信息
      *
-     * @param teacherId 老师id
+     * @param teacherAccountId 老师账号id
      * @param courseId  课程id
      * @return 学生信息列表
      */
-    List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherId") Integer teacherId,
+    List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherAccountId") Integer teacherAccountId,
                                                       @Param(value = "courseId") Integer courseId);
 
     /**

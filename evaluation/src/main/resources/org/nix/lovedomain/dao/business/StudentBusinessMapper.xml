@@ -145,13 +145,19 @@
 
 
     <select id="findStudentByTeacherIdAndCourseId" resultMap="studentVoMap">
-        SELECT
-            *
-            FROM
-                student
-            LEFT JOIN student_course ON student.id = student_course.studentId
-            LEFT JOIN teacher_course ON student_course.courseId = teacher_course.id
-            WHERE teacher_course.courseId = #{courseId} AND teacher_course.teacherId = #{teacherId}
+      SELECT
+            s.id,
+            s.studentId,
+            s.`name`,
+            s.email,
+            s.phone,
+            s.imageUrl
+        FROM
+            student AS s
+        LEFT JOIN student_course AS sc ON s.id = sc.studentId
+        LEFT JOIN teacher_course AS tc ON sc.courseId = tc.id
+        LEFT JOIN teacher AS t ON t.id = tc.teacherId
+        WHERE tc.courseId = #{courseId} AND t.accountId = #{teacherAccountId}
     </select>
 
     <select id="findStudentBySql" resultMap="studentVoMap">

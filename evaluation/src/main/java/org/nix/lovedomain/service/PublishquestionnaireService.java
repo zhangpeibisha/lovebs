@@ -5,10 +5,7 @@ import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
-import org.nix.lovedomain.dao.mapper.CourseMapper;
-import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
-import org.nix.lovedomain.dao.mapper.PublishquestionnaireMapper;
-import org.nix.lovedomain.dao.mapper.TeacherMapper;
+import org.nix.lovedomain.dao.mapper.*;
 import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.*;
@@ -46,6 +43,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     private TeacherMapper teacherMapper;
 
     @Resource
+    private StudentMapper studentMapper;
+
+    @Resource
     private CourseMapper courseMapper;
 
     @Resource
@@ -62,7 +62,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      *
      * @param principal        登陆的用户
      * @param courseId         课程id
-     * @param teacherId        老师id
+     * @param teacherAccountId 老师id
      * @param questionnaireId  问卷id
      * @param description      发布描述
      * @param startRespondTime 开始答卷时间-老师可以在答卷期间编辑黑名单
@@ -72,7 +72,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      */
     public Publishquestionnaire pusblishQuestionnaire(Principal principal,
                                                       Integer courseId,
-                                                      Integer teacherId,
+                                                      Integer teacherAccountId,
                                                       Integer questionnaireId,
                                                       String description,
                                                       Long startRespondTime,
@@ -85,8 +85,10 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         publishquestionnaire.setEndrespondtime(new Date(endRespondTime));
         publishquestionnaire.setStartrespondtime(new Date(startRespondTime));
         publishquestionnaire.setQuestionnaireid(questionnaireId);
-        publishquestionnaire.setTeacherid(teacherId);
+        // 授课老师的账号id
+        publishquestionnaire.setTeacherid(teacherAccountId);
 
+        // 获取发布人的账号id
         String name = principal.getName();
         Account userByAccount = accountService.findUserByAccount(name);
         publishquestionnaire.setReleaseid(userByAccount.getId());
@@ -95,12 +97,14 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         // 根据课程id和老师id找到相应的学生id
         List<StudentVo> studentByTeacherIdAndCourseId
-                = studentBusinessMapper.findStudentByTeacherIdAndCourseId(teacherId, courseId);
+                = studentBusinessMapper.findStudentByTeacherIdAndCourseId(teacherAccountId, courseId);
+
         int size = studentByTeacherIdAndCourseId.size();
         PublishAttachInfo publishAttachInfo = new PublishAttachInfo();
         publishAttachInfo.setPlan(size);
         publishAttachInfo.setStudents(studentByTeacherIdAndCourseId);
         publishAttachInfo.setCanFilters(balcks);
+
 
         // 设置统计信息
         publishquestionnaire.setStatistics(JSONUtil.toJsonStr(publishAttachInfo));
@@ -174,13 +178,34 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Publishquestionnaire byId = findById(publisId);
         PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
 
-        Account userByAccount = accountService.findUserByAccount(principal.getName());
-        checkStudentHavePermissionUse(bean, userByAccount.getId());
+        // 检测该学生是否有权限回答问题
+        checkStudentHavePermissionUse(bean,findStudentInStudentTableIdByAccount(principal));
 
         bean.writeQuestion(completesQuestion);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
         publishquestionnaireMapper.updateByPrimaryKey(byId);
         return byId;
+    }
+
+    /**
+     * 通过学生账号信息获取学生信息
+     * @param principal 登陆用户信息
+     * @return
+     */
+    public Integer findStudentInStudentTableIdByAccount(Principal principal) {
+        if (principal == null) {
+            return null;
+        }
+        Account userByAccount = accountService.findUserByAccount(principal.getName());
+        if (userByAccount == null) {
+            return null;
+        }
+        StudentExample studentExample = new StudentExample();
+        List<Student> students = studentMapper.selectByExample(studentExample);
+        if (CollUtil.isEmpty(students) || students.size() != 1) {
+            return null;
+        }
+        return students.get(0).getId();
     }
 
     /**
@@ -196,8 +221,8 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Publishquestionnaire byId = findById(publisId);
         PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
 
-        Account userByAccount = accountService.findUserByAccount(principal.getName());
-        checkStudentHavePermissionUse(bean, userByAccount.getId());
+        // 检测学生是否有权限更新问题
+        checkStudentHavePermissionUse(bean, findStudentInStudentTableIdByAccount(principal));
 
         bean.updateQuestion(completesQuestion);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
@@ -286,8 +311,14 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         return publishQuestionVo;
     }
 
-
+    /**
+     * @param bean 发布问卷统计实体
+     * @param id   学生在学生表中的主键id
+     */
     public static void checkStudentHavePermissionUse(PublishAttachInfo bean, Integer id) {
+        if (bean == null || id == null){
+            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+        }
         List<StudentVo> students = bean.getStudents();
         boolean flag = false;
         for (StudentVo studentVo : students) {

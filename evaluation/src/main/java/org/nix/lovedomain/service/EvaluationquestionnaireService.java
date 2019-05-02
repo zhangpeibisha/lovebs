@@ -187,6 +187,8 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         return findAllEvaluationquestionnairePage(page, limit, JSONUtil.toJsonStr(map), like);
     }
 
+    @Autowired
+    private TeacherService teacherService;
     /**
      * 获取一个较为详细的问卷信息
      * @param id
@@ -202,7 +204,7 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         if (authorid == null) {
             return null;
         }
-        Teacher teacher = teacherMapper.selectByPrimaryKey(Integer.parseInt(authorid));
+        Teacher teacher = teacherService.findTeacherByAccountId(Integer.parseInt(authorid));
         if (teacher == null) {
             return null;
         }

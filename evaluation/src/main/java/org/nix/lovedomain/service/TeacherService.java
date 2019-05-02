@@ -54,8 +54,8 @@ public class TeacherService extends BaseService<Teacher> {
      * @return
      */
     public Teacher addTask(Publishquestionnaire publishquestionnaire) throws Exception {
-        Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
+        Integer teacherByAccountId = publishquestionnaire.getTeacherid();
+        Teacher teacher = findTeacherByAccountId(teacherByAccountId);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
         QnaireTask qnaireTask = teacherWork.getQnaireTask();
         if (qnaireTask == null) {
@@ -70,6 +70,11 @@ public class TeacherService extends BaseService<Teacher> {
         return teacher;
     }
 
+    /**
+     * 通过老师的账号信息查询到老师的信息
+     * @param accountId
+     * @return
+     */
     public Teacher findTeacherByAccountId(Integer accountId){
         TeacherExample releaseExample = new TeacherExample();
         releaseExample.createCriteria().andAccountidEqualTo(accountId);
