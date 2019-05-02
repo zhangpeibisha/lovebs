@@ -1,21 +1,24 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
+import org.nix.lovedomain.dao.mapper.CourseMapper;
+import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
 import org.nix.lovedomain.dao.mapper.PublishquestionnaireMapper;
-import org.nix.lovedomain.model.Account;
-import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.model.PublishquestionnaireExample;
+import org.nix.lovedomain.dao.mapper.TeacherMapper;
+import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
-import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +29,7 @@ import java.util.List;
  */
 @Service
 @Slf4j
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class PublishquestionnaireService extends BaseService<Publishquestionnaire> {
 
     @Resource
@@ -37,6 +40,18 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     @Resource
     private PublishquestionnaireMapper publishquestionnaireMapper;
+
+    @Resource
+    private TeacherMapper teacherMapper;
+
+    @Resource
+    private CourseMapper courseMapper;
+
+    @Resource
+    private EvaluationquestionnaireMapper evaluationquestionnaireMapper;
+
+    @Resource
+    private EvaluationquestionnaireService evaluationquestionnaireService;
 
     /**
      * 发布问卷
@@ -192,10 +207,71 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      * @return
      */
     public List<Publishquestionnaire> batchQuireQuestion(List<Integer> ids){
+        if (CollUtil.isEmpty(ids)){
+            return new ArrayList<>();
+        }
         PublishquestionnaireExample example = new PublishquestionnaireExample();
         example.createCriteria().andIdIn(ids);
         return publishquestionnaireMapper.selectByExample(example);
     }
+
+    /**
+     * 发现发布问卷的详细信息
+     * @param ids
+     * @return
+     */
+    public List<PublishQuestionVo> findPublishQuestionDeatil(List<Integer> ids){
+        List<Publishquestionnaire> publishquestionnaires = batchQuireQuestion(ids);
+        if (CollUtil.isEmpty(publishquestionnaires)){
+            return new ArrayList<>();
+        }
+        List<PublishQuestionVo> result = new ArrayList<>(ids.size());
+        for (Publishquestionnaire publishquestionnaire : publishquestionnaires){
+            PublishQuestionVo publishQuestionVo = findPublishQuestionVo(publishquestionnaire);
+            if (publishQuestionVo == null){
+                continue;
+            }
+            result.add(publishQuestionVo);
+        }
+        return result;
+    }
+
+    /**
+     * 获取发布问卷的详细信息
+     * @param publishquestionnaire
+     * @return
+     */
+    public PublishQuestionVo findPublishQuestionVo(Publishquestionnaire publishquestionnaire){
+        Integer teacherid = publishquestionnaire.getTeacherid();
+        Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
+        // 不显示老师的工作情况
+        teacher.setWorkjson(null);
+
+        Integer releaseid = publishquestionnaire.getReleaseid();
+        Teacher release = teacherMapper.selectByPrimaryKey(releaseid);
+        // 不显示老师的工作情况
+        release.setWorkjson(null);
+
+        Integer courseid = publishquestionnaire.getCourseid();
+        Course course = courseMapper.selectByPrimaryKey(courseid);
+
+        PublishQuestionVo publishQuestionVo = new PublishQuestionVo();
+        publishQuestionVo.setTeacher(TeacherVo.teacherToSimpleTeacherVo(teacher));
+        publishQuestionVo.setRelease(TeacherVo.teacherToSimpleTeacherVo(release));
+        EvaluationquestionnaireSimpleVo evaluationquestionnaireSimpleVo = evaluationquestionnaireService
+                .findSimpleVoById(publishquestionnaire.getId());
+        if (evaluationquestionnaireSimpleVo == null){
+            return null;
+        }
+        publishQuestionVo.setQuestionnaire(evaluationquestionnaireSimpleVo);
+        publishQuestionVo.setCourse(course);
+        publishQuestionVo.setDescription(publishquestionnaire.getDescription());
+        publishQuestionVo.setReleaseTime(publishquestionnaire.getReleasetime());
+        publishQuestionVo.setStartRespondTime(publishquestionnaire.getStartrespondtime());
+        publishquestionnaire.setEndrespondtime(publishquestionnaire.getEndrespondtime());
+        return publishQuestionVo;
+    }
+
 
     public static void checkStudentHavePermissionUse(PublishAttachInfo bean, Integer id) {
         List<StudentVo> students = bean.getStudents();
@@ -218,6 +294,5 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     public List<Publishquestionnaire> getAllDataByLimit(String dateStr){
            return   publishquestionnaireMapper.getAllDataByLimit(dateStr);
     }
-
 
 }
