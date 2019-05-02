@@ -33,7 +33,7 @@ public class TeacherController {
                                            @RequestParam(value = "limit", defaultValue = "10") Integer limit,
                                            @RequestParam(value = "quire", required = false) String sql) throws IOException {
         PageVo<Teacher> studentVoPageVo = teacherService.findTeacherList(page, limit, sql);
-        return RespondsMessage.success("获取学生列表成功",studentVoPageVo);
+        return RespondsMessage.success("获取老师列表成功",studentVoPageVo);
     }
 
 
