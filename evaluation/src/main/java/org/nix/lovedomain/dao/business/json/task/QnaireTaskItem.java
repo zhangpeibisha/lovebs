@@ -1,6 +1,7 @@
 package org.nix.lovedomain.dao.business.json.task;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.Date;
  * @since jdk8
  */
 @Data
+@NoArgsConstructor
 public class QnaireTaskItem implements Serializable {
     /**
      * 发布的问卷id

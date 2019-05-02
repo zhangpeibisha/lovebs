@@ -352,7 +352,7 @@
       <set>
         task = #{student.task,jdbcType=VARCHAR}
       </set>
-        where studentId = #{student.studentid,jdbcType=INTEGER}
+        where studentId = #{student.studentid,jdbcType=VARCHAR};
     </foreach>
   </update>
 

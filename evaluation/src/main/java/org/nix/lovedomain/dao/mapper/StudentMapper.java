@@ -20,7 +20,7 @@ public interface StudentMapper extends BaseMapper<Student> {
      * @param courseId  课程id
      * @return
      */
-    public List<Student> getStudentByCourse(@Param("teacherId") Integer teacherId, @Param("courseId") Integer courseId);
+    List<Student> getStudentByCourse(@Param("teacherId") Integer teacherId, @Param("courseId") Integer courseId);
 
     /**
      * 将用户的任务写回数据库

@@ -220,13 +220,12 @@ public class StudentService {
             QnaireTask qnaireTask = studentTask.getQnaireTask();
             if (qnaireTask == null) {
                 qnaireTask = new QnaireTask();
-                studentTask.setQnaireTask(qnaireTask);
             }
             qnaireTask.addTask(new QnaireTaskItem(publishquestionnaireId, endrespondtime));
+            studentTask.setQnaireTask(qnaireTask);
             student.setTask(JSONUtil.toJsonStr(studentTask));
+            studentBusinessMapper.updateByPrimaryKey(student);
         }
-        // 更新数据
-        studentMapper.writeStudentTask(studentList);
     }
 
 

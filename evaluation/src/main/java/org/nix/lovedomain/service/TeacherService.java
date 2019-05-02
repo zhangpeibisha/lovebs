@@ -62,11 +62,11 @@ public class TeacherService extends BaseService<Teacher> {
         QnaireTask qnaireTask = teacherWork.getQnaireTask();
         if (qnaireTask == null) {
             qnaireTask = new QnaireTask();
-            teacherWork.setQnaireTask(qnaireTask);
         }
         qnaireTask.addTask(new QnaireTaskItem(publishquestionnaire.getId()
                 , publishquestionnaire.getEndrespondtime()));
 
+        teacherWork.setQnaireTask(qnaireTask);
         teacher.setWorkjson(JSONUtil.toJsonStr(teacherWork));
         update(teacher);
         return teacher;
