@@ -13,6 +13,7 @@ import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.LogUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,6 +50,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     @Resource
     private EvaluationquestionnaireMapper evaluationquestionnaireMapper;
+
+    @Autowired
+    private TeacherService teacherService;
 
     @Resource
     private EvaluationquestionnaireService evaluationquestionnaireService;
@@ -171,7 +175,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
 
         Account userByAccount = accountService.findUserByAccount(principal.getName());
-        checkStudentHavePermissionUse(bean,userByAccount.getId());
+        checkStudentHavePermissionUse(bean, userByAccount.getId());
 
         bean.writeQuestion(completesQuestion);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
@@ -193,7 +197,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
 
         Account userByAccount = accountService.findUserByAccount(principal.getName());
-        checkStudentHavePermissionUse(bean,userByAccount.getId());
+        checkStudentHavePermissionUse(bean, userByAccount.getId());
 
         bean.updateQuestion(completesQuestion);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
@@ -203,11 +207,12 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     /**
      * 批量获取发布问卷信息
+     *
      * @param ids
      * @return
      */
-    public List<Publishquestionnaire> batchQuireQuestion(List<Integer> ids){
-        if (CollUtil.isEmpty(ids)){
+    public List<Publishquestionnaire> batchQuireQuestion(List<Integer> ids) {
+        if (CollUtil.isEmpty(ids)) {
             return new ArrayList<>();
         }
         PublishquestionnaireExample example = new PublishquestionnaireExample();
@@ -217,18 +222,19 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     /**
      * 发现发布问卷的详细信息
+     *
      * @param ids
      * @return
      */
-    public List<PublishQuestionVo> findPublishQuestionDeatil(List<Integer> ids){
+    public List<PublishQuestionVo> findPublishQuestionDeatil(List<Integer> ids) {
         List<Publishquestionnaire> publishquestionnaires = batchQuireQuestion(ids);
-        if (CollUtil.isEmpty(publishquestionnaires)){
+        if (CollUtil.isEmpty(publishquestionnaires)) {
             return new ArrayList<>();
         }
         List<PublishQuestionVo> result = new ArrayList<>(ids.size());
-        for (Publishquestionnaire publishquestionnaire : publishquestionnaires){
+        for (Publishquestionnaire publishquestionnaire : publishquestionnaires) {
             PublishQuestionVo publishQuestionVo = findPublishQuestionVo(publishquestionnaire);
-            if (publishQuestionVo == null){
+            if (publishQuestionVo == null) {
                 continue;
             }
             result.add(publishQuestionVo);
@@ -238,19 +244,26 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     /**
      * 获取发布问卷的详细信息
+     *
      * @param publishquestionnaire
      * @return
      */
-    public PublishQuestionVo findPublishQuestionVo(Publishquestionnaire publishquestionnaire){
+    public PublishQuestionVo findPublishQuestionVo(Publishquestionnaire publishquestionnaire) {
         Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
-        // 不显示老师的工作情况
+        Teacher teacher = teacherService.findTeacherByAccountId(teacherid);
+        if (teacher == null) {
+            return null;
+        }
         teacher.setWorkjson(null);
 
-        Integer releaseid = publishquestionnaire.getReleaseid();
-        Teacher release = teacherMapper.selectByPrimaryKey(releaseid);
         // 不显示老师的工作情况
+        Integer releaseid = publishquestionnaire.getReleaseid();
+        Teacher release = teacherService.findTeacherByAccountId(releaseid);
+        if (release == null) {
+            return null;
+        }
         release.setWorkjson(null);
+
 
         Integer courseid = publishquestionnaire.getCourseid();
         Course course = courseMapper.selectByPrimaryKey(courseid);
@@ -259,8 +272,8 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         publishQuestionVo.setTeacher(TeacherVo.teacherToSimpleTeacherVo(teacher));
         publishQuestionVo.setRelease(TeacherVo.teacherToSimpleTeacherVo(release));
         EvaluationquestionnaireSimpleVo evaluationquestionnaireSimpleVo = evaluationquestionnaireService
-                .findSimpleVoById(publishquestionnaire.getId());
-        if (evaluationquestionnaireSimpleVo == null){
+                .findSimpleVoById(publishquestionnaire.getQuestionnaireid());
+        if (evaluationquestionnaireSimpleVo == null) {
             return null;
         }
         publishQuestionVo.setQuestionnaire(evaluationquestionnaireSimpleVo);
@@ -268,7 +281,8 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         publishQuestionVo.setDescription(publishquestionnaire.getDescription());
         publishQuestionVo.setReleaseTime(publishquestionnaire.getReleasetime());
         publishQuestionVo.setStartRespondTime(publishquestionnaire.getStartrespondtime());
-        publishquestionnaire.setEndrespondtime(publishquestionnaire.getEndrespondtime());
+        publishQuestionVo.setEndRespondTime(publishquestionnaire.getEndrespondtime());
+        publishQuestionVo.setId(publishquestionnaire.getId());
         return publishQuestionVo;
     }
 
@@ -289,10 +303,11 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     /**
      * 获取需要发布的所有问卷
+     *
      * @return List
      */
-    public List<Publishquestionnaire> getAllDataByLimit(String dateStr){
-           return   publishquestionnaireMapper.getAllDataByLimit(dateStr);
+    public List<Publishquestionnaire> getAllDataByLimit(String dateStr) {
+        return publishquestionnaireMapper.getAllDataByLimit(dateStr);
     }
 
 }

@@ -14,6 +14,10 @@ import java.util.Date;
 @Data
 public class PublishQuestionVo {
     /**
+     * 发布id
+     */
+    private Integer id;
+    /**
      * 授课老师信息
      */
     private TeacherVo teacher;

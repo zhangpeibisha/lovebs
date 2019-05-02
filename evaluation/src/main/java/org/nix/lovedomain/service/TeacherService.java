@@ -1,5 +1,6 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import org.nix.lovedomain.dao.business.ProfessionBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
@@ -8,10 +9,7 @@ import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.mapper.AccountMapper;
 import org.nix.lovedomain.dao.mapper.TeacherMapper;
-import org.nix.lovedomain.model.Account;
-import org.nix.lovedomain.model.Profession;
-import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.model.Teacher;
+import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.SQLUtil;
@@ -70,6 +68,16 @@ public class TeacherService extends BaseService<Teacher> {
         teacher.setWorkjson(JSONUtil.toJsonStr(teacherWork));
         update(teacher);
         return teacher;
+    }
+
+    public Teacher findTeacherByAccountId(Integer accountId){
+        TeacherExample releaseExample = new TeacherExample();
+        releaseExample.createCriteria().andAccountidEqualTo(accountId);
+        List<Teacher> teachers = teacherMapper.selectByExample(releaseExample);
+        if (CollUtil.isEmpty(teachers) || teachers.size() !=1){
+            return null;
+        }
+        return teachers.get(0);
     }
 
     /**
