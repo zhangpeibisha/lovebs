@@ -32,14 +32,12 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping(value = "/list")
-    public void findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
+    public RespondsMessage findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
                                 @RequestParam(value = "quire", required = false) String sql,
                                 HttpServletResponse response) throws IOException {
         PageVo<StudentVo> studentVoPageVo = studentService.studentVODetailList(page, limit, sql);
-        response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().write(JSONUtil.toJsonStr(RespondsMessage.success("获取学生列表成功",
-                studentVoPageVo)));
+        return RespondsMessage.success("获取学生列表成功",studentVoPageVo);
     }
 
     /**

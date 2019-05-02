@@ -44,6 +44,9 @@ public class StudentVo {
 
 
     public static StudentVo studentToSimpleStudentVo(Student student) {
+        if (student == null){
+            return  null;
+        }
         return JSON.parseObject(JSONUtil.toJsonStr(student), StudentVo.class);
     }
 }
