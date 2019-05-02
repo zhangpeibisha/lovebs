@@ -82,6 +82,9 @@ public class TeacherService extends BaseService<Teacher> {
     public PageVo<Teacher> findTeacherList(Integer page,
                                              Integer limit,
                                              String sql) {
+        if (page == null) {
+            page = 1;
+        }
         int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<Teacher> professionPageBySql

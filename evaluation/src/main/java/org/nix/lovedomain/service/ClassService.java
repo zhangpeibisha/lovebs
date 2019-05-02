@@ -27,12 +27,16 @@ public class ClassService extends BaseService {
     public PageVo<Class> findClassPage(Integer page,
                                        Integer limit,
                                        String sql) {
+        if (page == null) {
+            page = 1;
+        }
+        int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<Class> studentBySql
                 = classBusinessMapper.findClassBySql(page, limit, sql);
         Long aLong = classBusinessMapper.countClassBySql(sql);
         return PageVo.<Class>builder()
-                .page(page)
+                .page(tempPage)
                 .limit(limit)
                 .total(aLong)
                 .data(studentBySql)

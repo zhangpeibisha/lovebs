@@ -27,6 +27,9 @@ public class FacultyService extends BaseService {
     public PageVo<Faculty> findFacultyPage(Integer page,
                                            Integer limit,
                                            String sql) {
+        if (page == null) {
+            page = 1;
+        }
         int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<Faculty> studentBySql

@@ -25,6 +25,9 @@ public class ProfessionService extends BaseService<Profession> {
     public PageVo<Profession> findProfession(Integer page,
                                              Integer limit,
                                              String sql) {
+        if (page == null) {
+            page = 1;
+        }
         int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<Profession> professionPageBySql

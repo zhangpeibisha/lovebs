@@ -253,6 +253,9 @@ public class StudentService {
     public PageVo<StudentVo> studentVODetailList(Integer page,
                                                  Integer limit,
                                                  String sql) {
+        if (page == null) {
+            page = 1;
+        }
         int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<StudentVo> studentBySql
