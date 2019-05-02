@@ -34,9 +34,8 @@ public class StudentController {
     @GetMapping(value = "/list")
     public RespondsMessage findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
-                                @RequestParam(value = "quire", required = false) String sql,
-                                HttpServletResponse response) throws IOException {
-        PageVo<StudentVo> studentVoPageVo = studentService.studentVODetailList(page, limit, sql);
+                                @RequestParam(value = "quire", required = false) String sql) throws IOException {
+        PageVo<StudentVo> studentVoPageVo = studentService.studentVODetailListNotHaveTeacher(page, limit, sql);
         return RespondsMessage.success("获取学生列表成功",studentVoPageVo);
     }
 

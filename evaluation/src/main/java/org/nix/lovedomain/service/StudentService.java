@@ -15,8 +15,7 @@ import org.nix.lovedomain.dao.mapper.AccountRoleMapper;
 import org.nix.lovedomain.dao.mapper.RoleMapper;
 import org.nix.lovedomain.dao.mapper.StudentMapper;
 import org.nix.lovedomain.model.*;
-import org.nix.lovedomain.service.vo.PageVo;
-import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
@@ -25,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -263,7 +263,41 @@ public class StudentService {
                 .total(aLong)
                 .data(studentBySql)
                 .build();
+    }
 
+    /**
+     * 获取没有老师信息的学生信息
+     * @param page
+     * @param limit
+     * @param sql
+     * @return
+     */
+    public PageVo<StudentVo> studentVODetailListNotHaveTeacher(Integer page,
+                                                               Integer limit,
+                                                               String sql) {
+        PageVo<StudentVo> studentVoPageVo = studentVODetailList(page, limit, sql);
+        List<StudentVo> data = studentVoPageVo.getData();
+        if (CollUtil.isEmpty(data)) {
+            return studentVoPageVo;
+        }
+        Iterator<StudentVo> iterator = data.iterator();
+        while (iterator.hasNext()) {
+            StudentVo next = iterator.next();
+            next.setTask(null);
+            ClassVo classzz = next.getClasszz();
+            if (classzz != null) {
+                classzz.setTeacher(null);
+                ProfessionVo profession = classzz.getProfession();
+                if (profession != null) {
+                    profession.setTeacher(null);
+                    FacultyVo facultyVo = profession.getFacultyVo();
+                    if (facultyVo != null) {
+                        facultyVo.setDean(null);
+                    }
+                }
+            }
+        }
+        return studentVoPageVo;
     }
 
     /**
