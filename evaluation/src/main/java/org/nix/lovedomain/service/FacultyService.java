@@ -27,12 +27,13 @@ public class FacultyService extends BaseService {
     public PageVo<Faculty> findFacultyPage(Integer page,
                                            Integer limit,
                                            String sql) {
+        int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<Faculty> studentBySql
                 = facultyBusinessMapper.findFacultyBySql(page, limit, sql);
         Long aLong = facultyBusinessMapper.countFacultyBySql(sql);
         return PageVo.<Faculty>builder()
-                .page(page)
+                .page(tempPage)
                 .limit(limit)
                 .total(aLong)
                 .data(studentBySql)

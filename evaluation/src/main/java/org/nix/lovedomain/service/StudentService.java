@@ -253,12 +253,13 @@ public class StudentService {
     public PageVo<StudentVo> studentVODetailList(Integer page,
                                                  Integer limit,
                                                  String sql) {
+        int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
         List<StudentVo> studentBySql
                 = studentBusinessMapper.findStudentBySql(page, limit, sql);
         Long aLong = studentBusinessMapper.countStudentBySql(sql);
         return PageVo.<StudentVo>builder()
-                .page(page)
+                .page(tempPage)
                 .limit(limit)
                 .total(aLong)
                 .data(studentBySql)
