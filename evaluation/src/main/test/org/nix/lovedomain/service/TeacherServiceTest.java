@@ -6,6 +6,8 @@ import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
+import org.nix.lovedomain.dao.business.json.question.ChoseQuestionItem;
+import org.nix.lovedomain.dao.business.json.question.FillBlankQuestionItem;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
@@ -21,7 +23,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
@@ -47,10 +51,10 @@ public class TeacherServiceTest {
 
     @Test
     public void test100() throws Exception {
-        for (int i = 0; i <50 ; i++) {
+        for (int i = 0; i < 50; i++) {
             try {
                 addTask();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -67,8 +71,9 @@ public class TeacherServiceTest {
         Evaluationquestionnaire simpleQuestion = evaluationquestionnaireService.createSimpleQuestion(name,
                 name, principal);
         Integer questionId = simpleQuestion.getId();
-        evaluationquestionnaireService.addQuestion(questionId, createQuestion(), principal);
-        evaluationquestionnaireService.addQuestion(questionId, createQuestion(), principal);
+
+        // 给问卷批量添加问题
+        evaluationquestionnaireService.addQuestion(questionId, createQuestionList((int) (Math.random() * 30)), principal);
 
         // 发布问卷
         int shoukeTeacher = getTeacherId();
@@ -96,22 +101,52 @@ public class TeacherServiceTest {
 
     }
 
-    public int getTeacherId(){
+    public int getTeacherId() {
         return Math.random() > 0.5 ? 20 : 10;
     }
 
-    public int getCourseId(){
+    public int getCourseId() {
         return Math.random() > 0.5 ? 1 : 2;
+    }
+
+    public List<BaseQuestion> createQuestionList(int size) {
+        List<BaseQuestion> result = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            result.add(createQuestion());
+        }
+        return result;
     }
 
     public BaseQuestion<BaseItem> createQuestion() {
         BaseQuestion<BaseItem> question = new BaseQuestion<>();
         question.setMustWriter(true);
-        question.setQuestionnaireType(QuestionnaireEnum.CHOSE_SINGLE);
+        QuestionnaireEnum type = getType();
+        question.setQuestionnaireType(type);
         question.setPrompt("测试题目");
         question.setTitle("测试你的题目");
-        question.setItems(CollUtil.newArrayList(createItem("选项1"), createItem("选项2")));
+        if (type.equals(QuestionnaireEnum.radio) || type.equals(QuestionnaireEnum.checkbox)) {
+            question.setItems(CollUtil.newArrayList(createChooseItem("选项1"),
+                    createChooseItem("选项2"),
+                    createChooseItem("选项2"),
+                    createChooseItem("选项2")));
+        } else {
+            question.setItems(CollUtil.newArrayList(createTextItem("选项1"),
+                    createTextItem("选项2"),
+                    createTextItem("选项2"),
+                    createTextItem("选项2")));
+        }
         return question;
+    }
+
+    public QuestionnaireEnum getType() {
+        double random = Math.random();
+        if (random < 0.333) {
+            return QuestionnaireEnum.radio;
+        }
+        if (random < 0.666) {
+            return QuestionnaireEnum.checkbox;
+        }
+        return QuestionnaireEnum.text;
     }
 
     public BaseItem createItem(String title) {
@@ -121,5 +156,30 @@ public class TeacherServiceTest {
         one.setSort(1);
         one.setTitle(title);
         return one;
+    }
+
+    public BaseItem createChooseItem(String title) {
+        ChoseQuestionItem one = new ChoseQuestionItem();
+        one.setMustWriter(true);
+        one.setPrompt(title);
+        one.setSort(1);
+        one.setTitle(title);
+        one.setWeights((int) (Math.random() * 30));
+        one.setSort((int) (Math.random() * 30));
+        return one;
+    }
+
+    public BaseItem createTextItem(String title) {
+        FillBlankQuestionItem fillBlankQuestionItem = new FillBlankQuestionItem();
+        fillBlankQuestionItem.setHigh(20.0);
+        fillBlankQuestionItem.setWidth(20.0);
+        fillBlankQuestionItem.setDefaultsValue("hello");
+        fillBlankQuestionItem.setMaxSize(2000);
+        fillBlankQuestionItem.setMustWriter(true);
+        fillBlankQuestionItem.setPrompt(title);
+        fillBlankQuestionItem.setSort(1);
+        fillBlankQuestionItem.setTitle(title);
+        fillBlankQuestionItem.setSort((int) (Math.random() * 30));
+        return fillBlankQuestionItem;
     }
 }
