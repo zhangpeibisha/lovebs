@@ -1,8 +1,11 @@
 package org.nix.lovedomain.model;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 
 public class Student implements Serializable {
+
+    @Id
     private Integer id;
 
     /**

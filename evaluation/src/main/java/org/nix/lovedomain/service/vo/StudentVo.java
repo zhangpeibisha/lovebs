@@ -1,5 +1,6 @@
 package org.nix.lovedomain.service.vo;
 
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
@@ -42,8 +43,22 @@ public class StudentVo {
     @JsonProperty(value = "class")
     private ClassVo classzz;
 
+    /**
+     * 获取学生任务
+     *
+     * @return json对象
+     */
+    public JSONObject getTask() {
+        if (task == null){
+            return null;
+        }
+        return JSONUtil.parseObj(task);
+    }
 
     public static StudentVo studentToSimpleStudentVo(Student student) {
+        if (student == null){
+            return  null;
+        }
         return JSON.parseObject(JSONUtil.toJsonStr(student), StudentVo.class);
     }
 }

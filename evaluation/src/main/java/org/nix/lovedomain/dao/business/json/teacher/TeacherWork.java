@@ -25,6 +25,9 @@ public class TeacherWork {
      * @return
      */
     public static TeacherWork str2Bean(Teacher teacher) {
+        if (teacher == null){
+            return new TeacherWork();
+        }
         String workjson = teacher.getWorkjson();
         if (workjson == null || "".equals(workjson)) {
             return new TeacherWork();

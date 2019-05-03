@@ -383,9 +383,10 @@
     <foreach close="" collection="students" index="index" item="student" open="" separator=";">
       update
           student
-       set
-        task = #{student.task,jdbcType=LONGVARCHAR}
-        where studentId = #{student.studentid,jdbcType=VARCHAR}
+      <set>
+        task = #{student.task,jdbcType=VARCHAR}
+      </set>
+        where studentId = #{student.studentid,jdbcType=VARCHAR};
     </foreach>
   </update>
 

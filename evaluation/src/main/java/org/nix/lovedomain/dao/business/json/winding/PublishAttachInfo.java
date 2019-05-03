@@ -83,7 +83,7 @@ public class PublishAttachInfo {
     /**
      * 添加一个黑名单
      *
-     * @param studentIds 学生id集合
+     * @param studentIds 学生id集合，在学生表中的id集合
      */
     public void addBlackStudent(List<Integer> studentIds) {
         if (black == null) {

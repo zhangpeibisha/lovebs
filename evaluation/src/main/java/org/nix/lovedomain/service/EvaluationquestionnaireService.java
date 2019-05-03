@@ -186,6 +186,49 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         return findAllEvaluationquestionnairePage(page, limit, JSONUtil.toJsonStr(map), like);
     }
 
+    @Autowired
+    private TeacherService teacherService;
+    /**
+     * 获取一个较为详细的问卷信息
+     * @param id
+     * @return
+     */
+    public EvaluationquestionnaireSimpleVo findSimpleVoById(Integer id){
+        Evaluationquestionnaire evaluationquestionnaire
+                = evaluationquestionnaireMapper.selectByPrimaryKey(id);
+        if (evaluationquestionnaire == null){
+            return null;
+        }
+        String authorid = evaluationquestionnaire.getAuthorid();
+        if (authorid == null) {
+            return null;
+        }
+        Teacher teacher = teacherService.findTeacherByAccountId(Integer.parseInt(authorid));
+        if (teacher == null) {
+            return null;
+        }
+        TeacherSimpleVo teacherSimpleVo = new TeacherSimpleVo();
+        teacherSimpleVo.setId(teacher.getId());
+        teacherSimpleVo.setImageUrl(teacher.getImagerurl());
+        teacherSimpleVo.setJobNumber(teacher.getJobnumber());
+        teacherSimpleVo.setName(teacher.getName());
+
+        Integer accountid = teacher.getAccountid();
+        Account account = accountMapper.selectByPrimaryKey(accountid);
+        if (account == null) {
+            return null;
+        }
+        TeacherSimpleVo.Correspondence correspondence = new TeacherSimpleVo.Correspondence();
+        correspondence.setEmail(account.getEmail());
+        correspondence.setPhone(account.getPhone());
+        teacherSimpleVo.setCorrespondence(correspondence);
+
+        EvaluationquestionnaireSimpleVo evaluationquestionnaireSimpleVo
+                = JSONUtil.toBean(JSONUtil.toJsonStr(evaluationquestionnaire),
+                EvaluationquestionnaireSimpleVo.class);
+        evaluationquestionnaireSimpleVo.setAuthor(teacherSimpleVo);
+        return evaluationquestionnaireSimpleVo;
+    }
 
     /**
      * 分页查询问卷信息
@@ -214,35 +257,8 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
 
         List<EvaluationquestionnaireSimpleVo> result = new ArrayList<>(list.size());
         for (Evaluationquestionnaire evaluationquestionnaire : list) {
-            String authorid = evaluationquestionnaire.getAuthorid();
-            if (authorid == null) {
-                continue;
-            }
-            Teacher teacher = teacherMapper.selectByPrimaryKey(Integer.parseInt(authorid));
-            if (teacher == null) {
-                continue;
-            }
-            TeacherSimpleVo teacherSimpleVo = new TeacherSimpleVo();
-            teacherSimpleVo.setId(teacher.getId());
-            teacherSimpleVo.setImageUrl(teacher.getImagerurl());
-            teacherSimpleVo.setJobNumber(teacher.getJobnumber());
-            teacherSimpleVo.setName(teacher.getName());
-
-            Integer accountid = teacher.getAccountid();
-            Account account = accountMapper.selectByPrimaryKey(accountid);
-            if (account == null) {
-                continue;
-            }
-            TeacherSimpleVo.Correspondence correspondence = new TeacherSimpleVo.Correspondence();
-            correspondence.setEmail(account.getEmail());
-            correspondence.setPhone(account.getPhone());
-            teacherSimpleVo.setCorrespondence(correspondence);
-
-            EvaluationquestionnaireSimpleVo evaluationquestionnaireSimpleVo
-                    = JSONUtil.toBean(JSONUtil.toJsonStr(evaluationquestionnaire), EvaluationquestionnaireSimpleVo.class);
-            evaluationquestionnaireSimpleVo.setAuthor(teacherSimpleVo);
-
-            result.add(evaluationquestionnaireSimpleVo);
+            EvaluationquestionnaireSimpleVo simpleVoById = findSimpleVoById(evaluationquestionnaire.getId());
+            result.add(simpleVoById);
         }
 
         Long allCount = evaluationquestionnaireBusinessMapper.selectCount(querySql);

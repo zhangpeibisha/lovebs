@@ -1,6 +1,7 @@
 package org.nix.lovedomain.dao.business;
 
 import org.apache.ibatis.annotations.Param;
+import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
 import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.service.vo.StudentVo;
@@ -13,7 +14,7 @@ import java.util.List;
  * @description 学生的业务mapper生成
  * @date 2019/4/7
  */
-public interface StudentBusinessMapper {
+public interface StudentBusinessMapper extends BaseBusinessMapper<Student> {
     /**
      * 分页查询学生信息
      *
@@ -41,11 +42,11 @@ public interface StudentBusinessMapper {
     /**
      * 通过老师id和课程id获取到学生信息
      *
-     * @param teacherId 老师id
+     * @param teacherAccountId 老师账号id
      * @param courseId  课程id
      * @return 学生信息列表
      */
-    List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherId") Integer teacherId,
+    List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherAccountId") Integer teacherAccountId,
                                                       @Param(value = "courseId") Integer courseId);
 
     /**

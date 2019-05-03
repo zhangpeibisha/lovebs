@@ -11,7 +11,11 @@ import java.util.List;
 @Mapper
 public interface TeacherMapper extends BaseMapper<Teacher> {
 
+
+    List<Teacher> selectByExample(TeacherExample example);
+
     int countByExample(TeacherExample example);
+  
     List<Teacher> selectByExample(TeacherExample example);
 
     int deleteByExample(TeacherExample example);
@@ -37,4 +41,5 @@ public interface TeacherMapper extends BaseMapper<Teacher> {
     int updateByPrimaryKeyWithBLOBs(Teacher record);
 
     int updateByPrimaryKey(Teacher record);
+
 }

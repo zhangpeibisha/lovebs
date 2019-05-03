@@ -55,6 +55,9 @@ public class EmailService {
         Integer questionnaireid = publishquestionnaire.getQuestionnaireid();
         Evaluationquestionnaire evaluationquestionnaire
                 = evaluationquestionnaireMapper.selectByPrimaryKey(questionnaireid);
+        if (evaluationquestionnaire == null){
+            return;
+        }
         String title = evaluationquestionnaire.getTitle();
         EmailTemplate.EmailText emailText = new EmailTemplate.EmailText();
         String email = teacher.getEmail();

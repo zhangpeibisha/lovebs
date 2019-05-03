@@ -130,7 +130,7 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
     @ApiOperation(value = "批量获取发布问卷的信息")
     @GetMapping(value = "/list/by/ids")
     public RespondsMessage batchFindPublishQuestionInfo(@RequestParam(value = "ids") List<Integer> ids) {
-        return RespondsMessage.success("获取发布问卷信息完成", publishquestionnaireService.batchQuireQuestion(ids));
+        return RespondsMessage.success("获取发布问卷信息完成", publishquestionnaireService.findPublishQuestionDeatil(ids));
     }
 
 }
