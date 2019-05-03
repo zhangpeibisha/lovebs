@@ -205,7 +205,7 @@ public class PublishAttachInfo {
                 continue;
             }
             for (QuestionReply questionReply : questionReplies) {
-                if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.FILL_BLANK_SINGLE)){
+                if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)){
                     advice.add(questionReply.suggest);
                 }else {
                     Integer score = questionReply.getScore();

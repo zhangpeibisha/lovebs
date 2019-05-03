@@ -2,6 +2,7 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.ProfessionBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
@@ -12,6 +13,7 @@ import org.nix.lovedomain.dao.mapper.TeacherMapper;
 import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.PageVo;
+import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,7 @@ import java.util.List;
  * @anthor on 2019/4/19
  * @since jdk8
  */
+@Slf4j
 @Service
 @Transactional
 public class TeacherService extends BaseService<Teacher> {
@@ -34,6 +37,9 @@ public class TeacherService extends BaseService<Teacher> {
 
     @Resource
     private AccountMapper accountMapper;
+
+    @Autowired
+    private AccountService accountService;
 
     @Resource
     private TeacherBusinessMapper teacherBusinessMapper;
@@ -45,6 +51,26 @@ public class TeacherService extends BaseService<Teacher> {
         }
         Integer accountid = teacher.getAccountid();
         return accountMapper.selectByPrimaryKey(accountid);
+    }
+
+    /**
+     * 通过登陆账号找到老师信息
+     *
+     * @param loginName 登陆名
+     * @return
+     */
+    public Teacher findTeacherByAccountId(String loginName) {
+        Account userByAccount = accountService.findUserByAccount(loginName);
+        if (userByAccount == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "用户{}不存在", loginName));
+        }
+        Integer accountId = userByAccount.getId();
+        TeacherExample example = new TeacherExample();
+        List<Teacher> teachers = teacherMapper.selectByExample(example);
+        if (CollUtil.isEmpty(teachers) && teachers.size() != 1) {
+            throw new ServiceException(LogUtil.logInfo(log, "用户{}不存在", loginName));
+        }
+        return teachers.get(0);
     }
 
     /**
@@ -72,14 +98,15 @@ public class TeacherService extends BaseService<Teacher> {
 
     /**
      * 通过老师的账号信息查询到老师的信息
+     *
      * @param accountId
      * @return
      */
-    public Teacher findTeacherByAccountId(Integer accountId){
+    public Teacher findTeacherByAccountId(Integer accountId) {
         TeacherExample releaseExample = new TeacherExample();
         releaseExample.createCriteria().andAccountidEqualTo(accountId);
         List<Teacher> teachers = teacherMapper.selectByExample(releaseExample);
-        if (CollUtil.isEmpty(teachers) || teachers.size() !=1){
+        if (CollUtil.isEmpty(teachers) || teachers.size() != 1) {
             return null;
         }
         return teachers.get(0);
@@ -87,14 +114,15 @@ public class TeacherService extends BaseService<Teacher> {
 
     /**
      * 获取老师列表
+     *
      * @param page
      * @param limit
      * @param sql
      * @return
      */
     public PageVo<Teacher> findTeacherList(Integer page,
-                                             Integer limit,
-                                             String sql) {
+                                           Integer limit,
+                                           String sql) {
         if (page == null) {
             page = 1;
         }

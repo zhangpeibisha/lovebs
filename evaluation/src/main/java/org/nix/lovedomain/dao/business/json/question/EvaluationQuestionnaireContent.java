@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -38,6 +39,15 @@ public class EvaluationQuestionnaireContent {
         }
         setId(question);
         questions.add(question);
+    }
+
+    public List<BaseQuestion> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<BaseQuestion> questions) {
+        questions.forEach(question -> setId(question));
+        this.questions = questions;
     }
 
     /**

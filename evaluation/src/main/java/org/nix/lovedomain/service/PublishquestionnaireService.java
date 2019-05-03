@@ -4,6 +4,9 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
+import org.nix.lovedomain.dao.business.json.task.QnaireTask;
+import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
+import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.*;
 import org.nix.lovedomain.model.*;
@@ -179,7 +182,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
 
         // 检测该学生是否有权限回答问题
-        checkStudentHavePermissionUse(bean,findStudentInStudentTableIdByAccount(principal));
+        checkStudentHavePermissionUse(bean, findStudentInStudentTableIdByAccount(principal));
 
         bean.writeQuestion(completesQuestion);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
@@ -189,6 +192,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     /**
      * 通过学生账号信息获取学生信息
+     *
      * @param principal 登陆用户信息
      * @return
      */
@@ -316,7 +320,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      * @param id   学生在学生表中的主键id
      */
     public static void checkStudentHavePermissionUse(PublishAttachInfo bean, Integer id) {
-        if (bean == null || id == null){
+        if (bean == null || id == null) {
             throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
         }
         List<StudentVo> students = bean.getStudents();
@@ -340,5 +344,59 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     public List<Publishquestionnaire> getAllDataByLimit(String dateStr) {
         return publishquestionnaireMapper.getAllDataByLimit(dateStr);
     }
+
+    /**
+     * 老师查阅问卷信息
+     *
+     * @param publishQuesting
+     * @param principal
+     * @return
+     */
+    public QnaireTask findTeacherQnaireTask(Integer publishQuesting, Principal principal) {
+        if (publishQuesting == null) {
+            throw new ServiceException("查询发布问卷信息时id不能为空");
+        }
+        if (principal == null) {
+            throw new ServiceException("用户未登录");
+        }
+        String loginName = principal.getName();
+        Teacher teacherByAccountId = teacherService.findTeacherByAccountId(loginName);
+        TeacherWork teacherWork = TeacherWork.str2Bean(teacherByAccountId);
+        QnaireTask qnaireTask = teacherWork.getQnaireTask();
+        if (qnaireTask == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "用户{}无权限查看问卷{}", loginName, publishQuesting));
+        }
+        return qnaireTask;
+    }
+
+    /**
+     * 老师查阅问卷信息
+     *
+     * @param publishQuesting
+     * @param principal
+     * @return
+     */
+    public Publishquestionnaire teacherCheckPendingQuestion(Integer publishQuesting, Principal principal) {
+        QnaireTask qnaireTask = findTeacherQnaireTask(publishQuesting, principal);
+        QnaireTaskItem checkedQnaireTaskItem = qnaireTask.findCheckedQnaireTaskItem(publishQuesting);
+        // 如果已经在查阅过的列表中则直接查出问卷，否则需要将未读移动到已读中
+        if (checkedQnaireTaskItem != null) {
+            return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
+        }
+        String loginName = principal.getName();
+        QnaireTaskItem pendingQnaireTaskItem = qnaireTask.findPendingQnaireTaskItem(publishQuesting);
+        if (pendingQnaireTaskItem == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "在老师{}任务中没有找到发布问卷{}", loginName, publishQuesting));
+        }
+        qnaireTask.checkedTask(pendingQnaireTaskItem);
+
+        Teacher teacherByAccountId = teacherService.findTeacherByAccountId(loginName);
+        TeacherWork teacherWork = TeacherWork.str2Bean(teacherByAccountId);
+        teacherWork.setQnaireTask(qnaireTask);
+        // 更新老师工作内容
+        teacherMapper.updateByPrimaryKeySelective(teacherByAccountId);
+        return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
+    }
+
 
 }

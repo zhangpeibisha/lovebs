@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -62,7 +63,6 @@ public class QnaireTask {
             pendingDetail = new HashSet<>();
         }
         pendingDetail.add(task);
-        pending = pendingDetail.size();
     }
 
     /**
@@ -81,7 +81,6 @@ public class QnaireTask {
             checkedDetail = new HashSet<>();
         }
         checkedDetail.add(task);
-        checked = checkedDetail.size();
     }
 
     /**
@@ -97,11 +96,9 @@ public class QnaireTask {
         }
         if (pendingDetail.contains(task)) {
             remove2Complete(pendingDetail, task);
-            pending = pendingDetail.size();
         }
         if (checkedDetail.contains(task)) {
             remove2Complete(checkedDetail, task);
-            checked = checkedDetail.size();
         }
     }
 
@@ -117,7 +114,42 @@ public class QnaireTask {
             completeDetail = new HashSet<>();
         }
         completeDetail.add(task);
-        complete = completeDetail.size();
+    }
+
+    /**
+     * 通过id查询集合中的元素
+     *
+     * @param itemSet
+     * @param id
+     * @return
+     */
+    public QnaireTaskItem findQnaireTaskItemById(Set<QnaireTaskItem> itemSet, Integer id) {
+        if (itemSet == null || id == null) {
+            return null;
+        }
+        for (QnaireTaskItem item : itemSet) {
+            if (item.getId().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 发现待查阅的问卷
+     * @param id
+     * @return
+     */
+    public QnaireTaskItem findPendingQnaireTaskItem(Integer id) {
+        return findQnaireTaskItemById(pendingDetail, id);
+    }
+
+    public QnaireTaskItem findCheckedQnaireTaskItem(Integer id) {
+        return findQnaireTaskItemById(checkedDetail, id);
+    }
+
+    public QnaireTaskItem findCompleteQnaireTaskItem(Integer id) {
+        return findQnaireTaskItemById(completeDetail, id);
     }
 
     /**
@@ -127,5 +159,26 @@ public class QnaireTask {
      */
     public Integer getTotal() {
         return checked + pending + complete;
+    }
+
+    public Integer getChecked() {
+        if (checkedDetail == null) {
+            return 0;
+        }
+        return checkedDetail.size();
+    }
+
+    public Integer getPending() {
+        if (pendingDetail == null) {
+            return 0;
+        }
+        return pendingDetail.size();
+    }
+
+    public Integer getComplete() {
+        if (completeDetail == null) {
+            return 0;
+        }
+        return completeDetail.size();
     }
 }

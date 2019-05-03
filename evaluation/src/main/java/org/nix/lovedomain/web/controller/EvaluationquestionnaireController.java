@@ -1,10 +1,13 @@
 package org.nix.lovedomain.web.controller;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.json.question.ChoseQuestionItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.security.Principal;
+import java.util.List;
 
 /**
  * @version 1.0
@@ -51,10 +55,10 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
     }
 
 
-    @ApiOperation(value = "添加一个问题", notes = "提供一个问卷id，为该问卷添加一个问题内容")
-    @PostMapping(value = "/question")
+    @ApiOperation(value = "一次性添加多个问题", notes = "提供一个问卷id，为该问卷添加多个问题内容")
+    @PostMapping(value = "/batch/question")
     public RespondsMessage addQuestion(@RequestParam(value = "questionId") Integer questionId,
-                                       @RequestBody BaseQuestion<? extends BaseItem> question,
+                                       @RequestBody List<BaseQuestion> question,
                                        Principal principal) {
         Evaluationquestionnaire evaluationquestionnaire
                 = evaluationquestionnaireService.addQuestion(questionId, question, principal);

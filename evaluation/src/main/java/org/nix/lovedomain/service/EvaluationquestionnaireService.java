@@ -89,13 +89,13 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
      * @return 问卷全部数据
      */
     public Evaluationquestionnaire addQuestion(Integer questionId,
-                                               BaseQuestion<? extends BaseItem> question,
+                                               List<BaseQuestion> question,
                                                Principal principal) {
         Evaluationquestionnaire evaluationquestionnaire
                 = getEvaluationquestionnaireById(questionId, principal);
         EvaluationQuestionnaireContent contentBean =
                 EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
-        contentBean.addQuestion(question);
+        contentBean.setQuestions(question);
         evaluationquestionnaire.setContent(JSONUtil.toJsonStr(contentBean));
         evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
         return evaluationquestionnaire;
