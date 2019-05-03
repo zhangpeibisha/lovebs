@@ -17,9 +17,9 @@ public enum QuestionnaireEnum {
      * 1. 1类型为选择类型
      * 2. 2类型为填空类型
      */
-    CHOSE_SINGLE("单选", 10, ChoseQuestionItem.class),
-    CHOSE_MULTI("多选", 11, ChoseQuestionItem.class),
-    FILL_BLANK_SINGLE("单项填空", 20, FillBlankQuestionItem.class);
+    radio("单选", 10, ChoseQuestionItem.class),
+    checkbox("多选", 11, ChoseQuestionItem.class),
+    text("文本类型", 20, FillBlankQuestionItem.class);
 
     private String name;
 
