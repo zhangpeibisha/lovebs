@@ -32,4 +32,21 @@ public interface StudentMapper extends BaseMapper<Student> {
     List<Student> selectByExample(StudentExample studentExample);
 
     int deleteByExample(StudentExample example);
+
+    int countByExample(StudentExample example);
+
+    int updateByExampleSelective(@Param("record") Student record, @Param("example") StudentExample example);
+
+    int updateByExample(@Param("record") Student record, @Param("example") StudentExample example);
+
+    /**
+     * 获取所有的学生
+     * @return
+     */
+    List<Student> selectAllStudents();
+
+    HashMap<Integer,Integer> selectAllStuOfProfession();
+
+    HashMap<Integer,Integer> selectAllStuOfFaculty();
+
 }

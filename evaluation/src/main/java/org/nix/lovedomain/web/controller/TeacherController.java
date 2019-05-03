@@ -5,6 +5,7 @@ import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.service.TeacherService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +21,10 @@ import java.io.IOException;
  * @description 老师管理控制器
  * @date 2019/5/2
  */
-@Api(value = "老师控制器")
+@Api(value = "老师控制器(测试通过)")
 @RestController
 @RequestMapping(value = "/teacher")
-public class TeacherController {
+public class TeacherController extends BaseController<Teacher> {
 
     @Autowired
     private TeacherService teacherService;
