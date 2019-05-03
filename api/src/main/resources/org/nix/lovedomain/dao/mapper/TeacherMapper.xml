@@ -6,9 +6,9 @@
     <result column="jobNumber" jdbcType="VARCHAR" property="jobnumber" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="accountId" jdbcType="INTEGER" property="accountid" />
-    <result column="email" jdbcType="INTEGER" property="email" />
-    <result column="phone" jdbcType="INTEGER" property="phone"/>
     <result column="imagerUrl" jdbcType="VARCHAR" property="imagerurl" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Teacher">
     <result column="workJson" jdbcType="LONGVARCHAR" property="workjson" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, jobNumber, `name`, accountId, imagerUrl,email,phone,workJson
+    id, jobNumber, name, accountId, imagerUrl, phone, email
   </sql>
   <sql id="Blob_Column_List">
     workJson
@@ -130,9 +130,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into teacher (jobNumber, name, accountId, 
-      imagerUrl, workJson)
+      imagerUrl, phone, email, 
+      workJson)
     values (#{jobnumber,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{accountid,jdbcType=INTEGER}, 
-      #{imagerurl,jdbcType=VARCHAR}, #{workjson,jdbcType=LONGVARCHAR})
+      #{imagerurl,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{workjson,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Teacher">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -149,14 +151,14 @@
       <if test="accountid != null">
         accountId,
       </if>
-      <if test="email != null">
-        email,
+      <if test="imagerurl != null">
+        imagerUrl,
       </if>
       <if test="phone != null">
         phone,
       </if>
-      <if test="imagerurl != null">
-        imagerUrl,
+      <if test="email != null">
+        email,
       </if>
       <if test="workjson != null">
         workJson,
@@ -172,14 +174,14 @@
       <if test="accountid != null">
         #{accountid,jdbcType=INTEGER},
       </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHER},
-      </if>
       <if test="imagerurl != null">
         #{imagerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="workjson != null">
         #{workjson,jdbcType=LONGVARCHAR},
@@ -210,6 +212,12 @@
       <if test="record.imagerurl != null">
         imagerUrl = #{record.imagerurl,jdbcType=VARCHAR},
       </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
       <if test="record.workjson != null">
         workJson = #{record.workjson,jdbcType=LONGVARCHAR},
       </if>
@@ -225,6 +233,8 @@
       name = #{record.name,jdbcType=VARCHAR},
       accountId = #{record.accountid,jdbcType=INTEGER},
       imagerUrl = #{record.imagerurl,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
       workJson = #{record.workjson,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -236,7 +246,9 @@
       jobNumber = #{record.jobnumber,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       accountId = #{record.accountid,jdbcType=INTEGER},
-      imagerUrl = #{record.imagerurl,jdbcType=VARCHAR}
+      imagerUrl = #{record.imagerurl,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -253,14 +265,14 @@
       <if test="accountid != null">
         accountId = #{accountid,jdbcType=INTEGER},
       </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
+      <if test="imagerurl != null">
+        imagerUrl = #{imagerurl,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="imagerurl != null">
-        imagerUrl = #{imagerurl,jdbcType=VARCHAR},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="workjson != null">
         workJson = #{workjson,jdbcType=LONGVARCHAR},
@@ -274,6 +286,8 @@
       name = #{name,jdbcType=VARCHAR},
       accountId = #{accountid,jdbcType=INTEGER},
       imagerUrl = #{imagerurl,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       workJson = #{workjson,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -282,7 +296,9 @@
     set jobNumber = #{jobnumber,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       accountId = #{accountid,jdbcType=INTEGER},
-      imagerUrl = #{imagerurl,jdbcType=VARCHAR}
+      imagerUrl = #{imagerurl,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

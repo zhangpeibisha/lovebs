@@ -58,6 +58,20 @@ public class Student implements Serializable {
     private Integer accountid;
 
     /**
+     * 专业
+     *
+     * @mbggenerated
+     */
+    private Integer professionid;
+
+    /**
+     * 学院
+     *
+     * @mbggenerated
+     */
+    private Integer facultyid;
+
+    /**
      * 学生的任务信息，为一个json字符串
      *
      * @mbggenerated
@@ -130,6 +144,22 @@ public class Student implements Serializable {
         this.accountid = accountid;
     }
 
+    public Integer getProfessionid() {
+        return professionid;
+    }
+
+    public void setProfessionid(Integer professionid) {
+        this.professionid = professionid;
+    }
+
+    public Integer getFacultyid() {
+        return facultyid;
+    }
+
+    public void setFacultyid(Integer facultyid) {
+        this.facultyid = facultyid;
+    }
+
     public String getTask() {
         return task;
     }
@@ -152,6 +182,8 @@ public class Student implements Serializable {
         sb.append(", imageurl=").append(imageurl);
         sb.append(", classid=").append(classid);
         sb.append(", accountid=").append(accountid);
+        sb.append(", professionid=").append(professionid);
+        sb.append(", facultyid=").append(facultyid);
         sb.append(", task=").append(task);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

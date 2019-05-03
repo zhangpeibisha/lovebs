@@ -14,4 +14,5 @@ public interface PublishquestionnaireMapper extends BaseMapper<Publishquestionna
     List<Publishquestionnaire> getAllDataByLimit(@Param("dateStr") String dateStr);
 
     List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
+
 }

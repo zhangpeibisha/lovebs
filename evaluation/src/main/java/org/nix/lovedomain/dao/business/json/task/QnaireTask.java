@@ -1,10 +1,11 @@
 package org.nix.lovedomain.dao.business.json.task;
 
+import cn.hutool.json.JSONUtil;
 import lombok.Data;
-
-
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author zhangpei
@@ -92,6 +93,7 @@ public class QnaireTask {
      * @param task
      */
     public void completeTask(QnaireTaskItem task) {
+
         if (task == null) {
             return;
         }
@@ -128,4 +130,64 @@ public class QnaireTask {
     public Integer getTotal() {
         return checked + pending + complete;
     }
+
+    public static QnaireTask getBean(String str){
+      return   JSONUtil.toBean(str,QnaireTask.class);
+    }
+
+    public  String toJSONStr(){
+        return JSONUtil.toJsonStr(this);
+    }
+
+    /**
+     * 当发布问卷的答卷时间到达的时候
+     * 定时任务将处置这些问卷信息，使用
+     * 该方法将任务调剂到已完成的问卷列表中
+     *
+     * @param id
+     */
+    public void completeTask(Integer id) {
+
+        if (null == id) {
+            return;
+        }
+
+        List<QnaireTaskItem> qnaireTaskByLimit = null;
+        // 赛选未阅读集合
+        if(pendingDetail != null){
+            qnaireTaskByLimit = pendingDetail
+                    .stream()
+                    .filter(qnaireTaskItem -> qnaireTaskItem.getId().equals(id))
+                    .collect(Collectors.toList());
+        }
+
+        QnaireTaskItem task = null;
+        if(qnaireTaskByLimit != null && qnaireTaskByLimit.size() != 0){
+            task = qnaireTaskByLimit.get(0);
+        }else {
+
+            // 赛选已阅读集合
+            if(completeDetail != null){
+                qnaireTaskByLimit = completeDetail
+                        .stream()
+                        .filter(qnaireTaskItem -> qnaireTaskItem.getId().equals(id))
+                        .collect(Collectors.toList());
+            }
+
+            if(qnaireTaskByLimit != null && qnaireTaskByLimit.size() != 0){
+                task = qnaireTaskByLimit.get(0);
+            }
+        }
+
+        if (pendingDetail != null && pendingDetail.contains(task)) {
+            remove2Complete(pendingDetail, task);
+            pending = pendingDetail.size();
+        }
+        if (checkedDetail != null && checkedDetail.contains(task)) {
+            remove2Complete(checkedDetail, task);
+            checked = checkedDetail.size();
+        }
+    }
+
+
 }

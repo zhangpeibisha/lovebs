@@ -16,7 +16,6 @@ import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -110,6 +109,18 @@ public class TeacherService extends BaseService<Teacher> {
                 .total(aLong)
                 .data(professionPageBySql)
                 .build();
+
+     * 问卷停止做答，改变老师任务
+     *
+     * @param publishquestionnaire
+     */
+    public void questionnareFinish(Publishquestionnaire publishquestionnaire) throws Exception{
+        Teacher teacher = findById(publishquestionnaire.getTeacherid());
+        TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
+        QnaireTask qnaireTask = teacherWork.getQnaireTask();
+        qnaireTask.completeTask(publishquestionnaire.getId());
+        teacher.setWorkjson(JSONUtil.toJsonStr(teacherWork));
+        update(teacher);
     }
 
 }
