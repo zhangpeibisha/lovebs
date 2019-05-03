@@ -27,4 +27,16 @@ public class MyScheduledTaskTest {
                 = publishquestionnaireMapper.selectByPrimaryKey(5);
         scheduledTask.runDistributionTask(publishquestionnaire);
     }
+
+    /**
+     * 回收问卷并按不同的维度统计问卷
+     * @throws Exception
+     */
+    @Test
+    public void statistcisTask() throws Exception {
+
+        Publishquestionnaire publishquestionnaire
+                = publishquestionnaireMapper.selectByPrimaryKey(215);
+        scheduledTask.runRecoverTask(publishquestionnaire);
+    }
 }

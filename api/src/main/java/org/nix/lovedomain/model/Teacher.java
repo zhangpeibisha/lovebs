@@ -33,16 +33,16 @@ public class Teacher implements Serializable {
      */
     private String imagerurl;
 
+    private String phone;
+
+    private String email;
+
     /**
      * 老师工作需要使用的json字段，该字段可方便后续动态配置老师的工作需要的配置字段
      *
      * @mbggenerated
      */
     private String workjson;
-
-    private String email;
-
-    private String phone;
 
     private static final long serialVersionUID = 1L;
 
@@ -86,12 +86,12 @@ public class Teacher implements Serializable {
         this.imagerurl = imagerurl;
     }
 
-    public String getWorkjson() {
-        return workjson;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setWorkjson(String workjson) {
-        this.workjson = workjson;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -102,12 +102,12 @@ public class Teacher implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getWorkjson() {
+        return workjson;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setWorkjson(String workjson) {
+        this.workjson = workjson;
     }
 
     @Override
@@ -121,6 +121,8 @@ public class Teacher implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", accountid=").append(accountid);
         sb.append(", imagerurl=").append(imagerurl);
+        sb.append(", phone=").append(phone);
+        sb.append(", email=").append(email);
         sb.append(", workjson=").append(workjson);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

@@ -64,6 +64,14 @@ public class PublishAttachInfo {
      */
     private List<String> advice;
 
+    public List<StudentVo> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<StudentVo> students) {
+        this.students = students;
+    }
+
     public static PublishAttachInfo getBean(Publishquestionnaire publishquestionnaire) {
         if (publishquestionnaire == null || publishquestionnaire.getStatistics() == null) {
             return new PublishAttachInfo();
@@ -184,7 +192,8 @@ public class PublishAttachInfo {
 
     /**
      * 当问卷到达终结时间的时候
-     * 开始统计分数
+     * 开始统计分数,统计问卷总的分数与收集意见。
+     * 维度为整个问卷
      */
     public void statistical() {
         score = 0;
@@ -207,7 +216,7 @@ public class PublishAttachInfo {
                     .stream()
                     .filter(qR -> qR.getSuggest() != null || !qR.getSuggest().equals(""))
                     .collect(Collectors.toList());
-            if(limitQuestionReply != null || limitQuestionReply.size() != 0){
+            if(limitQuestionReply != null && limitQuestionReply.size() != 0){
                 advice.add(limitQuestionReply.get(0).suggest);
             }
 

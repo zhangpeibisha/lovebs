@@ -10,10 +10,21 @@
     <result column="imageUrl" jdbcType="VARCHAR" property="imageurl" />
     <result column="classId" jdbcType="INTEGER" property="classid" />
     <result column="accountId" jdbcType="INTEGER" property="accountid" />
+    <result column="professionId" jdbcType="INTEGER" property="professionid" />
+    <result column="facultyId" jdbcType="INTEGER" property="facultyid" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Student">
     <result column="task" jdbcType="LONGVARCHAR" property="task" />
   </resultMap>
+  <resultMap id="stuOfProfession" type="java.util.HashMap">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="professionId" jdbcType="INTEGER" property="professionId" />
+  </resultMap>
+  <resultMap id="stuOfFaculty" type="java.util.HashMap">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="facultyId" jdbcType="INTEGER" property="facultyId" />
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -73,7 +84,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, studentId, name, phone, email, imageUrl, classId, accountId,task
+    id, studentId, name, phone, email, imageUrl, classId, accountId, professionId, facultyId
   </sql>
   <sql id="Blob_Column_List">
     task
@@ -132,10 +143,12 @@
     </selectKey>
     insert into student (studentId, name, phone, 
       email, imageUrl, classId, 
-      accountId, task)
+      accountId, professionId, facultyId, 
+      task)
     values (#{studentid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, 
-      #{accountid,jdbcType=INTEGER}, #{task,jdbcType=LONGVARCHAR})
+      #{accountid,jdbcType=INTEGER}, #{professionid,jdbcType=INTEGER}, #{facultyid,jdbcType=INTEGER}, 
+      #{task,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Student">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -164,6 +177,12 @@
       <if test="accountid != null">
         accountId,
       </if>
+      <if test="professionid != null">
+        professionId,
+      </if>
+      <if test="facultyid != null">
+        facultyId,
+      </if>
       <if test="task != null">
         task,
       </if>
@@ -189,6 +208,12 @@
       </if>
       <if test="accountid != null">
         #{accountid,jdbcType=INTEGER},
+      </if>
+      <if test="professionid != null">
+        #{professionid,jdbcType=INTEGER},
+      </if>
+      <if test="facultyid != null">
+        #{facultyid,jdbcType=INTEGER},
       </if>
       <if test="task != null">
         #{task,jdbcType=LONGVARCHAR},
@@ -228,6 +253,12 @@
       <if test="record.accountid != null">
         accountId = #{record.accountid,jdbcType=INTEGER},
       </if>
+      <if test="record.professionid != null">
+        professionId = #{record.professionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.facultyid != null">
+        facultyId = #{record.facultyid,jdbcType=INTEGER},
+      </if>
       <if test="record.task != null">
         task = #{record.task,jdbcType=LONGVARCHAR},
       </if>
@@ -246,6 +277,8 @@
       imageUrl = #{record.imageurl,jdbcType=VARCHAR},
       classId = #{record.classid,jdbcType=INTEGER},
       accountId = #{record.accountid,jdbcType=INTEGER},
+      professionId = #{record.professionid,jdbcType=INTEGER},
+      facultyId = #{record.facultyid,jdbcType=INTEGER},
       task = #{record.task,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -260,7 +293,9 @@
       email = #{record.email,jdbcType=VARCHAR},
       imageUrl = #{record.imageurl,jdbcType=VARCHAR},
       classId = #{record.classid,jdbcType=INTEGER},
-      accountId = #{record.accountid,jdbcType=INTEGER}
+      accountId = #{record.accountid,jdbcType=INTEGER},
+      professionId = #{record.professionid,jdbcType=INTEGER},
+      facultyId = #{record.facultyid,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -289,6 +324,12 @@
       <if test="accountid != null">
         accountId = #{accountid,jdbcType=INTEGER},
       </if>
+      <if test="professionid != null">
+        professionId = #{professionid,jdbcType=INTEGER},
+      </if>
+      <if test="facultyid != null">
+        facultyId = #{facultyid,jdbcType=INTEGER},
+      </if>
       <if test="task != null">
         task = #{task,jdbcType=LONGVARCHAR},
       </if>
@@ -304,6 +345,8 @@
       imageUrl = #{imageurl,jdbcType=VARCHAR},
       classId = #{classid,jdbcType=INTEGER},
       accountId = #{accountid,jdbcType=INTEGER},
+      professionId = #{professionid,jdbcType=INTEGER},
+      facultyId = #{facultyid,jdbcType=INTEGER},
       task = #{task,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -315,45 +358,49 @@
       email = #{email,jdbcType=VARCHAR},
       imageUrl = #{imageurl,jdbcType=VARCHAR},
       classId = #{classid,jdbcType=INTEGER},
-      accountId = #{accountid,jdbcType=INTEGER}
+      accountId = #{accountid,jdbcType=INTEGER},
+      professionId = #{professionid,jdbcType=INTEGER},
+      facultyId = #{facultyid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="getStudentByCourse" resultMap="BaseResultMap">
+
+  <select id="getStudentByCourse" resultMap="ResultMapWithBLOBs">
     SELECT
 	student.studentId AS studentid,
 	student.`name`,
 	email,
-	phone
+	phone,
+	task
       FROM
           student LEFT JOIN student_course ON student.id = student_course.studentId
         LEFT JOIN teacher_course ON student_course.courseId = teacher_course.id
       WHERE teacher_course.courseId = #{courseId,jdbcType=INTEGER}
       AND teacher_course.teacherId = #{teacherId,jdbcType=INTEGER}
-    SELECT student.studentId as studentid,
-           student.`name` as `name`,
-           email,
-           phone
-      FROM student,
-      (SELECT id as stuid
-      FROM student_course,
-      (SELECT id as cour_id
-      FROM teacher_course
-      WHERE teacher_course.teacherId = #{teacherId,jdbcType=INTEGER} AND
-      teacher_course.courseId = #{courseId,jdbcType=INTEGER}) as cour_ids
-      WHERE student_course.courseId = cour_ids.cour_id) as stuids
-      WHERE student.studentId = stuids.stuid
   </select>
 
   <update id="writeStudentTask" parameterType="java.util.List">
-    <foreach collection="students" item="student"  index="index" open="" close="" separator=";">
+    <foreach close="" collection="students" index="index" item="student" open="" separator=";">
       update
           student
-      <set>
-        task = #{student.task,jdbcType=VARCHAR}
-      </set>
-        where studentId = #{student.studentid,jdbcType=INTEGER}
+       set
+        task = #{student.task,jdbcType=LONGVARCHAR}
+        where studentId = #{student.studentid,jdbcType=VARCHAR}
     </foreach>
   </update>
+
+  <select id="selectAllStuOfProfession" resultMap="stuOfProfession">
+     SELECT
+      id,professionId
+      FROM
+    student
+  </select>
+
+  <select id="selectAllStuOfFaculty" resultMap="stuOfFaculty">
+     SELECT
+      id,facultyId
+      FROM
+    student
+  </select>
 
 </mapper>

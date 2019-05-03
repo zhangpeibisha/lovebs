@@ -8,6 +8,7 @@ import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireCont
 import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
+import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
 import org.nix.lovedomain.dao.mapper.ClassMapper;
@@ -16,6 +17,7 @@ import org.nix.lovedomain.dao.mapper.StudentMapper;
 import org.nix.lovedomain.model.Publishquestionnaire;
 import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.model.StudentExample;
+import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.SQLUtil;
@@ -165,5 +167,22 @@ public class StudentService {
      */
     public void writeStudentTask(List<Student> students) {
         studentMapper.writeStudentTask(students);
+    }
+
+    /**
+     * 问卷停止做答，改变学生任务
+     *
+     * @param publishquestionnaire
+     */
+    public void questionnareFinish(Publishquestionnaire publishquestionnaire) throws Exception{
+        List<Student> students = getStudentByCourse(publishquestionnaire.getTeacherid(),publishquestionnaire.getCourseid());
+        for (Student stu:
+                students) {
+            TeacherWork teacherWork = JSONUtil.toBean(stu.getTask(),TeacherWork.class);
+            QnaireTask qnaireTaskStu =teacherWork.getQnaireTask();
+            qnaireTaskStu.completeTask(publishquestionnaire.getId());
+            stu.setTask(qnaireTaskStu.toJSONStr());
+        }
+        writeStudentTask(students);
     }
 }
