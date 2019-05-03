@@ -193,9 +193,4 @@
       professionId = #{professionid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectAllclasIds" parameterType="org.nix.lovedomain.model.Class">
-    select id,clasId
-    from
-    `class`
-  </select>
 </mapper>

@@ -240,5 +240,4 @@
       method = #{method,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
 </mapper>

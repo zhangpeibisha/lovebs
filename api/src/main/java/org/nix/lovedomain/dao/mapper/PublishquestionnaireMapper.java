@@ -16,21 +16,18 @@ public interface PublishquestionnaireMapper {
 
     int insertSelective(Publishquestionnaire record);
 
-    List<Publishquestionnaire> selectByExampleWithBLOBs(PublishquestionnaireExample example);
-
-    List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
 
     Publishquestionnaire selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Publishquestionnaire record, @Param("example") PublishquestionnaireExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Publishquestionnaire record, @Param("example") PublishquestionnaireExample example);
-
     int updateByExample(@Param("record") Publishquestionnaire record, @Param("example") PublishquestionnaireExample example);
 
     int updateByPrimaryKeySelective(Publishquestionnaire record);
 
-    int updateByPrimaryKeyWithBLOBs(Publishquestionnaire record);
+    List<Publishquestionnaire> getAllDataByLimit(@Param("dateStr") String dateStr);
+
+    List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
 
     int updateByPrimaryKey(Publishquestionnaire record);
 }

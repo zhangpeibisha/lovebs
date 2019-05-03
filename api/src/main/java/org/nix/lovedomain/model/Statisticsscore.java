@@ -34,41 +34,85 @@ public class Statisticsscore implements Serializable {
     private Integer fraction;
 
     /**
-     * 平均分数
-     *
-     * @mbggenerated
-     */
-    private Double avg;
-
-    /**
-     * 班级编号
-     *
-     * @mbggenerated
-     */
-    private Integer classid;
-
-    /**
-     * 专业编号
-     *
-     * @mbggenerated
-     */
-    private Integer professionid;
-
-    /**
-     * 学院编号
-     *
-     * @mbggenerated
-     */
-    private Integer facultyid;
-
-    /**
      * 统计的一些附加信息
      *
      * @mbggenerated
      */
     private String attachjson;
 
+    /**
+     * 班级编号
+     */
+    private String classCoding;
+
+    /**
+     * 课程编号
+     */
+    private String courseCoding;
+
+    /**
+     * 专业编号
+     */
+    private String professionCoding;
+
+    /**
+     * 学院编号
+     */
+    private String facultyCoding;
+
+    /**
+     * 平均分
+     */
+    private double avg;
+
+
+
+
     private static final long serialVersionUID = 1L;
+
+    public double getAvg() {
+        return avg;
+    }
+
+    public void setAvg(double avg) {
+        this.avg = avg;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getClassCoding() {
+        return classCoding;
+    }
+
+    public void setClassCoding(String classCoding) {
+        this.classCoding = classCoding;
+    }
+
+    public String getCourseCoding() {
+        return courseCoding;
+    }
+
+    public void setCourseCoding(String courseCoding) {
+        this.courseCoding = courseCoding;
+    }
+
+    public String getProfessionCoding() {
+        return professionCoding;
+    }
+
+    public void setProfessionCoding(String professionCoding) {
+        this.professionCoding = professionCoding;
+    }
+
+    public String getFacultyCoding() {
+        return facultyCoding;
+    }
+
+    public void setFacultyCoding(String facultyCoding) {
+        this.facultyCoding = facultyCoding;
+    }
 
     public Integer getId() {
         return id;
@@ -110,38 +154,6 @@ public class Statisticsscore implements Serializable {
         this.fraction = fraction;
     }
 
-    public Double getAvg() {
-        return avg;
-    }
-
-    public void setAvg(Double avg) {
-        this.avg = avg;
-    }
-
-    public Integer getClassid() {
-        return classid;
-    }
-
-    public void setClassid(Integer classid) {
-        this.classid = classid;
-    }
-
-    public Integer getProfessionid() {
-        return professionid;
-    }
-
-    public void setProfessionid(Integer professionid) {
-        this.professionid = professionid;
-    }
-
-    public Integer getFacultyid() {
-        return facultyid;
-    }
-
-    public void setFacultyid(Integer facultyid) {
-        this.facultyid = facultyid;
-    }
-
     public String getAttachjson() {
         return attachjson;
     }
@@ -161,11 +173,12 @@ public class Statisticsscore implements Serializable {
         sb.append(", courseid=").append(courseid);
         sb.append(", publishquestionnaireid=").append(publishquestionnaireid);
         sb.append(", fraction=").append(fraction);
-        sb.append(", avg=").append(avg);
-        sb.append(", classid=").append(classid);
-        sb.append(", professionid=").append(professionid);
-        sb.append(", facultyid=").append(facultyid);
         sb.append(", attachjson=").append(attachjson);
+        sb.append(", classCoding=").append(classCoding);
+        sb.append(", courseCoding=").append(courseCoding);
+        sb.append(", professionCoding=").append(professionCoding);
+        sb.append(", facultyCoding=").append(facultyCoding);
+        sb.append(", avg=").append(avg);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

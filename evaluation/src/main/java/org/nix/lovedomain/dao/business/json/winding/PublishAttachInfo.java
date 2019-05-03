@@ -12,7 +12,6 @@ import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author zhangpei
@@ -63,14 +62,6 @@ public class PublishAttachInfo {
      * 所有的意见
      */
     private List<String> advice;
-
-    public List<StudentVo> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<StudentVo> students) {
-        this.students = students;
-    }
 
     public static PublishAttachInfo getBean(Publishquestionnaire publishquestionnaire) {
         if (publishquestionnaire == null || publishquestionnaire.getStatistics() == null) {
@@ -192,8 +183,7 @@ public class PublishAttachInfo {
 
     /**
      * 当问卷到达终结时间的时候
-     * 开始统计分数,统计问卷总的分数与收集意见。
-     * 维度为整个问卷
+     * 开始统计分数
      */
     public void statistical() {
         score = 0;
@@ -205,32 +195,21 @@ public class PublishAttachInfo {
         for (CompletesQuestion completesQuestion : completesQuestions) {
             // 不管是否是黑名单，都要计入出勤人数中
             attend++;
-
+            Integer studentId = completesQuestion.getStudentId();
+            // 黑名单不计入统计
+//            if (black.contains(studentId)) {
+//                continue;
+//            }
             List<QuestionReply> questionReplies = completesQuestion.getQuestionReplies();
             if (CollUtil.isEmpty(questionReplies)) {
                 continue;
             }
-
-            /*统计学生反馈的意见*/
-            List<QuestionReply> limitQuestionReply = questionReplies
-                    .stream()
-                    .filter(qR -> qR.getSuggest() != null || !qR.getSuggest().equals(""))
-                    .collect(Collectors.toList());
-            if(limitQuestionReply != null && limitQuestionReply.size() != 0){
-                advice.add(limitQuestionReply.get(0).suggest);
-            }
-
-            Integer studentId = completesQuestion.getStudentId();
-            // 黑名单不计入统计
-            if (black.contains(studentId)) {
-                continue;
-            }
-
             for (QuestionReply questionReply : questionReplies) {
                 if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.FILL_BLANK_SINGLE)){
-                    continue;
+                    advice.add(questionReply.suggest);
                 }else {
                     Integer score = questionReply.getScore();
+
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
                     if (score == null || score <= 0 || black.contains(studentId)) {
                         continue;

@@ -10,6 +10,4 @@ import java.util.List;
 @Mapper
 public interface ClassMapper extends BaseMapper<Class> {
     List<org.nix.lovedomain.model.Class> selectByExample(ClassExample example);
-
-    List<org.nix.lovedomain.model.Class> selectAllclasIds();
 }

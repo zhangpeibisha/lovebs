@@ -6,10 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.*;
-import org.nix.lovedomain.dao.mapper.ClassMapper;
-import org.nix.lovedomain.dao.mapper.PublishquestionnaireMapper;
-import org.nix.lovedomain.dao.mapper.StatisticsscoreMapper;
-import org.nix.lovedomain.dao.mapper.StudentMapper;
 import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.*;
@@ -17,13 +13,12 @@ import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @version 1.0
@@ -45,17 +40,12 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     private PublishquestionnaireMapper publishquestionnaireMapper;
 
     @Resource
-
     private TeacherMapper teacherMapper;
-
-    private ClassMapper classMapper;
-
 
     @Resource
     private StudentMapper studentMapper;
 
     @Resource
-
     private CourseMapper courseMapper;
 
     @Resource
@@ -66,9 +56,6 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     @Resource
     private EvaluationquestionnaireService evaluationquestionnaireService;
-
-    private StatisticsscoreMapper statisticsscoreMapper;
-
 
     /**
      * 发布问卷
@@ -354,239 +341,4 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         return publishquestionnaireMapper.getAllDataByLimit(dateStr);
     }
 
-
-    /**
-     * 统计问卷
-     * @param publishquestionnaire
-     * 维度包含 班级
-     * 维度包含 专业
-     * 维度包含 学院
-     */
-    public void statistics(Publishquestionnaire publishquestionnaire){
-        // 所有的统统计数据
-        List<Statisticsscore> allStatistics = new ArrayList<>();
-
-        PublishAttachInfo publishAttachInfo = PublishAttachInfo.getBean(publishquestionnaire);
-
-        // 获取回答该问卷的所有学生
-        List<StudentVo> students = publishAttachInfo.getStudents();
-
-        // 获取该问卷所有的回答
-        List<PublishAttachInfo.CompletesQuestion> completesQuestions = publishAttachInfo.getCompletesQuestions();
-
-        if(completesQuestions != null){
-            //按班级统计
-            statisticsByClass(publishquestionnaire,allStatistics,publishAttachInfo,students,completesQuestions);
-            //按专业统计
-            statisticsByProfession(publishquestionnaire,allStatistics,publishAttachInfo,students,completesQuestions);
-            // 按学院统计
-            statisticsByFaculty(publishquestionnaire,allStatistics,publishAttachInfo,students,completesQuestions);
-            // 持久化所有的统计结果
-            statisticsscoreMapper.Inserts(allStatistics);
-        }
-    }
-
-    /**
-     * 统计问卷
-     * @param publishquestionnaire
-     * 维度 班级
-     */
-    public void statisticsByClass(Publishquestionnaire publishquestionnaire,
-                                  List<Statisticsscore> allStatistics,
-                                  PublishAttachInfo publishAttachInfo,
-                                  List<StudentVo> students,
-                                  List<PublishAttachInfo.CompletesQuestion> completesQuestions){
-
-
-        // 按班级存储总分,班级与总分的映射
-        HashMap<Integer,Integer> classesScores = new HashMap<>();
-        // 学生与班级的映射
-        HashMap<Integer,Integer> stuOfClass = new HashMap<>();
-        // 每个班级的意见
-        HashMap<Integer,List<String>> classesAdvice = new HashMap<>();
-
-        // 初始化映射
-        for (StudentVo stu:
-             students) {
-            classesScores.put(stu.getClasszz().getId(),0);
-            classesAdvice.put(stu.getClasszz().getId(),new ArrayList<>());
-            stuOfClass.put(stu.getId(),stu.getClasszz().getId());
-        }
-
-        /*扫描各个回答并记分*/
-        for (PublishAttachInfo.CompletesQuestion completesQuestion:
-                completesQuestions) {
-
-            if(publishAttachInfo.getBlack().contains(completesQuestion.getStudentId())){
-                continue;
-            }
-            for (PublishAttachInfo.QuestionReply questionReply:
-                 completesQuestion.getQuestionReplies()) {
-                 /*收集意见*/
-                 if(questionReply.getSuggest() != null && !questionReply.getSuggest().equals("")){
-                     List<String>  tempList =  classesAdvice.get(completesQuestion.getStudentId());
-                     tempList.add(questionReply.getSuggest());
-                     classesAdvice.put(completesQuestion.getStudentId(),tempList);
-                 }
-                Integer score = questionReply.getScore();
-                //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                if (score == null || score <= 0) {
-                    continue;
-                }
-                classesScores.put(stuOfClass.get(completesQuestion.getStudentId()),
-                        classesScores.get(completesQuestion.getStudentId())+score);
-            }
-        }
-
-        for (Integer key:
-        classesScores.keySet()) {
-            Statisticsscore statisticsscore = new Statisticsscore();
-            statisticsscore.setClassid(key);
-            statisticsscore.setPublishquestionnaireid(publishquestionnaire.getId());
-            statisticsscore.setTeacherid(publishquestionnaire.getTeacherid());
-            statisticsscore.setFraction(classesScores.get(key));
-            PublishAttachInfo publishAttachInfo1 = new PublishAttachInfo();
-            publishAttachInfo1.setScore(classesScores.get(key));
-            publishAttachInfo1.setAdvice(classesAdvice.get(key));
-            statisticsscore.setAttachjson(JSONUtil.toJsonStr(publishAttachInfo1));
-            allStatistics.add(statisticsscore);
-        }
-
-    }
-
-    /**
-     * 按专业统计
-     * @param publishquestionnaire
-     * @param allStatistics
-     */
-    public void statisticsByProfession(Publishquestionnaire publishquestionnaire,
-                                       List<Statisticsscore> allStatistics,
-                                       PublishAttachInfo publishAttachInfo,
-                                       List<StudentVo> students,
-                                       List<PublishAttachInfo.CompletesQuestion> completesQuestions){
-        // 获取所有学生的专业,学生与专业的映射
-        HashMap<Integer,Integer> stuOfProssions = studentMapper.selectAllStuOfProfession();
-
-        // 按专业存储总分,班级与总分的映射
-        HashMap<Integer,Integer> professionScores = new HashMap<>();
-
-        // 每个班级的意见
-        HashMap<Integer,List<String>> professionAdvice = new HashMap<>();
-
-        // 初始化映射
-        for (StudentVo stu:
-                students) {
-            professionScores.put(stuOfProssions.get(stu.getId()),0);
-            professionAdvice.put(stu.getClasszz().getId(),new ArrayList<>());
-        }
-
-        /*扫描各个回答并记分*/
-        for (PublishAttachInfo.CompletesQuestion completesQuestion:
-                completesQuestions) {
-
-            if(publishAttachInfo.getBlack().contains(completesQuestion.getStudentId())){
-                continue;
-            }
-            for (PublishAttachInfo.QuestionReply questionReply:
-                    completesQuestion.getQuestionReplies()) {
-                /*收集意见*/
-                if(questionReply.getSuggest() != null && !questionReply.getSuggest().equals("")){
-                    List<String>  tempList =  professionAdvice.get(completesQuestion.getStudentId());
-                    tempList.add(questionReply.getSuggest());
-                    professionAdvice.put(completesQuestion.getStudentId(),tempList);
-                }
-                Integer score = questionReply.getScore();
-                //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                if (score == null || score <= 0) {
-                    continue;
-                }
-                professionScores.put(stuOfProssions.get(completesQuestion.getStudentId()),
-                        professionScores.get(completesQuestion.getStudentId())+score);
-            }
-        }
-
-        for (Integer key:
-                professionScores.keySet()) {
-            Statisticsscore statisticsscore = new Statisticsscore();
-            statisticsscore.setProfessionid(key);
-            statisticsscore.setPublishquestionnaireid(publishquestionnaire.getId());
-            statisticsscore.setTeacherid(publishquestionnaire.getTeacherid());
-            statisticsscore.setFraction(professionScores.get(key));
-            PublishAttachInfo publishAttachInfo1 = new PublishAttachInfo();
-            publishAttachInfo1.setScore(professionScores.get(key));
-            publishAttachInfo1.setAdvice(professionAdvice.get(key));
-            statisticsscore.setAttachjson(JSONUtil.toJsonStr(publishAttachInfo1));
-            allStatistics.add(statisticsscore);
-        }
-
-
-
-    }
-
-    /**
-     * 按学院统计
-     * @param publishquestionnaire
-     * @param allStatistics
-     */
-    public void statisticsByFaculty(Publishquestionnaire publishquestionnaire,
-                                    List<Statisticsscore> allStatistics,
-                                    PublishAttachInfo publishAttachInfo,
-                                    List<StudentVo> students,
-                                    List<PublishAttachInfo.CompletesQuestion> completesQuestions){
-
-        // 获取所有学生的专业,学生与学院的映射
-        HashMap<Integer,Integer> stuOfFaculty = studentMapper.selectAllStuOfFaculty();
-
-        // 按专业存储总分,班级与总分的映射
-        HashMap<Integer,Integer> facultyScores = new HashMap<>();
-
-        // 每个班级的意见
-        HashMap<Integer,List<String>> facultyAdvice = new HashMap<>();
-
-        // 初始化映射
-        for (StudentVo stu:
-                students) {
-            facultyScores.put(stuOfFaculty.get(stu.getId()),0);
-            facultyAdvice.put(stu.getClasszz().getId(),new ArrayList<>());
-        }
-
-        /*扫描各个回答并记分*/
-        for (PublishAttachInfo.CompletesQuestion completesQuestion:
-                completesQuestions) {
-
-            if(publishAttachInfo.getBlack().contains(completesQuestion.getStudentId())){
-                continue;
-            }
-            for (PublishAttachInfo.QuestionReply questionReply:
-                    completesQuestion.getQuestionReplies()) {
-                /*收集意见*/
-                if(questionReply.getSuggest() != null && !questionReply.getSuggest().equals("")){
-                    List<String>  tempList =  facultyAdvice.get(completesQuestion.getStudentId());
-                    tempList.add(questionReply.getSuggest());
-                    facultyAdvice.put(completesQuestion.getStudentId(),tempList);
-                }
-                Integer score = questionReply.getScore();
-                //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                if (score == null || score <= 0) {
-                    continue;
-                }
-                facultyScores.put(stuOfFaculty.get(completesQuestion.getStudentId()),
-                        facultyScores.get(completesQuestion.getStudentId())+score);
-            }
-        }
-
-        for (Integer key:
-                facultyScores.keySet()) {
-            Statisticsscore statisticsscore = new Statisticsscore();
-            statisticsscore.setFacultyid(key);
-            statisticsscore.setPublishquestionnaireid(publishquestionnaire.getId());
-            statisticsscore.setTeacherid(publishquestionnaire.getTeacherid());
-            statisticsscore.setFraction(facultyScores.get(key));
-            PublishAttachInfo publishAttachInfo1 = new PublishAttachInfo();
-            publishAttachInfo1.setScore(facultyScores.get(key));
-            publishAttachInfo1.setAdvice(facultyAdvice.get(key));
-            statisticsscore.setAttachjson(JSONUtil.toJsonStr(publishAttachInfo1));
-            allStatistics.add(statisticsscore);
-        }
-    }
 }
