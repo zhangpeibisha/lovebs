@@ -7,6 +7,7 @@ import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.model.StudentExample;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Mapper
@@ -27,7 +28,7 @@ public interface StudentMapper extends BaseMapper<Student> {
      *
      * @param students
      */
-    public void writeStudentTask(@Param("students") List<Student> students);
+     void writeStudentTask(@Param("students") List<Student> students);
 
     List<Student> selectByExample(StudentExample studentExample);
 

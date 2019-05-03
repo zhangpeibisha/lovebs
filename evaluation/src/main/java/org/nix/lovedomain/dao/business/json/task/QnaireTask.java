@@ -1,6 +1,7 @@
 package org.nix.lovedomain.dao.business.json.task;
 
 import lombok.Data;
+import org.nix.lovedomain.model.Publishquestionnaire;
 
 
 import java.util.HashSet;

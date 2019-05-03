@@ -66,6 +66,7 @@ public class TeacherService extends BaseService<Teacher> {
         }
         Integer accountId = userByAccount.getId();
         TeacherExample example = new TeacherExample();
+        example.createCriteria().andAccountidEqualTo(accountId);
         List<Teacher> teachers = teacherMapper.selectByExample(example);
         if (CollUtil.isEmpty(teachers) && teachers.size() != 1) {
             throw new ServiceException(LogUtil.logInfo(log, "用户{}不存在", loginName));
@@ -146,12 +147,7 @@ public class TeacherService extends BaseService<Teacher> {
      * @param publishquestionnaire
      */
     public void questionnareFinish(Publishquestionnaire publishquestionnaire) throws Exception {
-        Teacher teacher = findById(publishquestionnaire.getTeacherid());
-        TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
-        QnaireTask qnaireTask = teacherWork.getQnaireTask();
-        qnaireTask.completeTask(publishquestionnaire.getId());
-        teacher.setWorkjson(JSONUtil.toJsonStr(teacherWork));
-        update(teacher);
+
     }
 
 }

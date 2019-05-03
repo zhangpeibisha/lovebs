@@ -2,6 +2,7 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
@@ -312,6 +313,10 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         publishQuestionVo.setStartRespondTime(publishquestionnaire.getStartrespondtime());
         publishQuestionVo.setEndRespondTime(publishquestionnaire.getEndrespondtime());
         publishQuestionVo.setId(publishquestionnaire.getId());
+        String statistics = publishquestionnaire.getStatistics();
+        if (statistics != null){
+            publishQuestionVo.setStatistics(JSON.parseObject(statistics));
+        }
         return publishQuestionVo;
     }
 
