@@ -22,7 +22,7 @@ import java.io.IOException;
  * @anthor on 2019/4/19
  * @since jdk8
  */
-@Api(value = "班级管理器")
+@Api(value = "班级管理器(测试通过)")
 @RestController
 @RequestMapping(value = "class")
 public class ClassController extends BaseController<Class> {

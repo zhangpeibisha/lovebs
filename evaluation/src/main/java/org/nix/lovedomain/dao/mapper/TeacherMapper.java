@@ -15,8 +15,6 @@ public interface TeacherMapper extends BaseMapper<Teacher> {
     List<Teacher> selectByExample(TeacherExample example);
 
     int countByExample(TeacherExample example);
-  
-    List<Teacher> selectByExample(TeacherExample example);
 
     int deleteByExample(TeacherExample example);
 

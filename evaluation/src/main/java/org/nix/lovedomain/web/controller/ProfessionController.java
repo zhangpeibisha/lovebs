@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @anthor on 2019/4/19
  * @since jdk8
  */
-@Api(value = "专业相关控制器")
+@Api(value = "专业相关控制器(测试通过)")
 @RestController
 @RequestMapping(value = "profession")
 public class ProfessionController extends BaseController<Profession> {

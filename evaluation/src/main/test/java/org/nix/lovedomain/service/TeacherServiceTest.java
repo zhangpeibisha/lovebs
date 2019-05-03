@@ -2,30 +2,21 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
-import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.service.EvaluationquestionnaireService;
-import org.nix.lovedomain.service.PublishquestionnaireService;
-import org.nix.lovedomain.service.StudentService;
-import org.nix.lovedomain.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import java.security.Principal;
 import java.util.Date;
-import java.util.Map;
 
-import static org.junit.Assert.*;
 
 @SpringBootTest(classes = EvaluationApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
