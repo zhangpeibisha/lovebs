@@ -16,6 +16,7 @@ import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.model.TeacherExample;
 import org.nix.lovedomain.service.base.BaseService;
+import org.nix.lovedomain.service.vo.EvaluationquestionnaireDeatilVo;
 import org.nix.lovedomain.service.vo.EvaluationquestionnaireSimpleVo;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.TeacherSimpleVo;
@@ -154,6 +155,23 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
                     LogUtil.logInfo(log, "用户{}需要查询的问卷{}不存在", principal.getName(), questionId));
         }
         return evaluationquestionnaire;
+    }
+
+    /**
+     * 获取一个详细的问卷信息
+     * @param questionId
+     * @param principal
+     * @return
+     */
+    public EvaluationquestionnaireDeatilVo getEvaluationquestionnaireDeatilVoById(Integer questionId,
+                                                                                  Principal principal){
+        Evaluationquestionnaire evaluationquestionnaireById
+                = getEvaluationquestionnaireById(questionId, principal);
+        EvaluationquestionnaireSimpleVo simpleVoById = findSimpleVoById(questionId);
+        EvaluationquestionnaireDeatilVo evaluationquestionnaireDeatilVo
+                = JSONUtil.toBean(JSONUtil.toJsonStr(simpleVoById), EvaluationquestionnaireDeatilVo.class);
+        evaluationquestionnaireDeatilVo.setContent(evaluationquestionnaireById.getContent());
+        return evaluationquestionnaireDeatilVo;
     }
 
 

@@ -137,4 +137,11 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
         }
         throw new ServiceException(LogUtil.logInfo(log, "用户{}查询所有问卷失败", userName));
     }
+
+    @GetMapping(value = "/question/by/id")
+    public RespondsMessage findEvaluationquestionnaireById(@RequestParam(value = "evaluationId") Integer evaluationId,
+                                                           Principal principal) {
+        return RespondsMessage.success("获取问卷信息成功",
+                evaluationquestionnaireService.getEvaluationquestionnaireDeatilVoById(evaluationId,principal));
+    }
 }
