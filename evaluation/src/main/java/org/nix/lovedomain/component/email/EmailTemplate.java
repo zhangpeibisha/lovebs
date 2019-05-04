@@ -4,7 +4,6 @@ import cn.hutool.core.collection.CollUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.utils.LogUtil;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;

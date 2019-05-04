@@ -334,4 +334,13 @@
       #{id}
     </foreach>
   </delete>
+
+  <select id="selectByAccountId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from teacher
+    where accountId = #{id,jdbcType=INTEGER}
+  </select>
 </mapper>

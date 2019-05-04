@@ -29,7 +29,6 @@
 //        scheduledTask.runDistributionTask(publishquestionnaire);
 //    }
 //}
-
 package org.nix.lovedomain.component;
 
 import org.junit.Test;

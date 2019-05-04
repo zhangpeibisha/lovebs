@@ -49,9 +49,9 @@ public class EmailService {
      * @param publishquestionnaire
      * @param type value为0代表问卷开始，非0代表问卷结束
      */
-    public void sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire,int type) {
+    public void  sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire,int type) {
         Integer releaseid = publishquestionnaire.getReleaseid();
-        Teacher teacher = teacherMapper.selectByPrimaryKey(releaseid);
+        Teacher teacher = teacherMapper.selectByAccountId(releaseid);
         Integer questionnaireid = publishquestionnaire.getQuestionnaireid();
         Evaluationquestionnaire evaluationquestionnaire
                 = evaluationquestionnaireMapper.selectByPrimaryKey(questionnaireid);
@@ -90,7 +90,7 @@ public class EmailService {
      */
     public void sendReminderTeacher(Publishquestionnaire publishquestionnaire,int type) {
         Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
+        Teacher teacher = teacherMapper.selectByAccountId(teacherid);
         Integer courseid = publishquestionnaire.getCourseid();
         Course course = courseMapper.selectByPrimaryKey(courseid);
 
