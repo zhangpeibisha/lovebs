@@ -56,8 +56,8 @@ public class EvaluationquestionnaireController extends BaseController<Evaluation
 
 
     @ApiOperation(value = "一次性添加多个问题", notes = "提供一个问卷id，为该问卷添加多个问题内容")
-    @PostMapping(value = "/batch/question")
-    public RespondsMessage addQuestion(@RequestParam(value = "evaluationId ") Integer evaluationId,
+    @PostMapping(value = "/batch/add/question")
+    public RespondsMessage addQuestion(@RequestParam(value = "evaluationId") Integer evaluationId,
                                        @RequestBody List<BaseQuestion> question,
                                        Principal principal) {
         Evaluationquestionnaire evaluationquestionnaire
