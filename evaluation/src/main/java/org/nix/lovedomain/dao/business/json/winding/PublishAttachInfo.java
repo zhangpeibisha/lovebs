@@ -254,7 +254,7 @@ public class PublishAttachInfo {
         /**
          * 选择id和分数，用于选择题
          */
-        private String choseId;
+        private String chooseId;
         private Integer score;
         /**
          * 用于填空题，给老师的建议
