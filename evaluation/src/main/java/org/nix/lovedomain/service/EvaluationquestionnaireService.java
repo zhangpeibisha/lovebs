@@ -96,7 +96,7 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
                 = getEvaluationquestionnaireById(questionId, principal);
         EvaluationQuestionnaireContent contentBean =
                 EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
-        contentBean.setQuestions(question);
+        contentBean.addQuestions(question);
         evaluationquestionnaire.setContent(JSONUtil.toJsonStr(contentBean));
         evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
         return evaluationquestionnaire;

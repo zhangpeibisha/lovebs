@@ -11,6 +11,7 @@ import org.nix.lovedomain.service.PublishquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
+
 import java.util.*;
 
 /**
@@ -108,12 +109,8 @@ public class PublishAttachInfo {
         if (CollUtil.isEmpty(black)) {
             return;
         }
-        Collection<Integer> filter = CollUtil.filter(black, new Filter<Integer>() {
-            @Override
-            public boolean accept(Integer integer) {
-                return !black.contains(integer);
-            }
-        });
+        Collection<Integer> filter = CollUtil.filter(studentIds,
+                (Filter<Integer>) integer -> !black.contains(integer));
         black = CollUtil.newHashSet(filter);
     }
 
@@ -146,6 +143,7 @@ public class PublishAttachInfo {
             completesQuestions = new ArrayList<>();
         }
         completesQuestions.add(completesQuestion);
+
     }
 
     /**
@@ -205,11 +203,10 @@ public class PublishAttachInfo {
                 continue;
             }
             for (QuestionReply questionReply : questionReplies) {
-                if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)){
+                if (questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)) {
                     advice.add(questionReply.suggest);
-                }else {
+                } else {
                     Integer score = questionReply.getScore();
-
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
                     if (score == null || score <= 0 || black.contains(studentId)) {
                         continue;
@@ -255,7 +252,7 @@ public class PublishAttachInfo {
          * 选择id和分数，用于选择题
          */
         private String chooseId;
-        private Integer score;
+        private Integer score = 0;
         /**
          * 用于填空题，给老师的建议
          */
