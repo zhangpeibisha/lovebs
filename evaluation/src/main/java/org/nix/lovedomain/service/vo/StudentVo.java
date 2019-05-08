@@ -61,4 +61,13 @@ public class StudentVo {
         }
         return JSON.parseObject(JSONUtil.toJsonStr(student), StudentVo.class);
     }
+
+
+    public static Student studentVo2Student(StudentVo studentVo){
+        if (studentVo == null){
+            return null;
+        }
+        return JSON.parseObject(JSON.toJSONString(studentVo),Student.class);
+    }
+
 }

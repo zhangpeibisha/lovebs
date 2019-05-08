@@ -3,16 +3,14 @@ package org.nix.lovedomain.service;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.question.ChoseQuestionItem;
 import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
+import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
@@ -204,7 +202,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         // 直接设定为提交
         completesQuestion.setStatus(PublishAttachInfo.CompletesQuestion.STATUS_COMMIT);
         // 填充分数
-        fillQuestionScore(publishquestionnaire,completesQuestion);
+        fillQuestionScore(publishquestionnaire, completesQuestion);
 
         bean.writeQuestion(completesQuestion);
         publishquestionnaire.setStatistics(JSONUtil.toJsonStr(bean));
@@ -225,7 +223,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
                 = evaluationquestionnaireService.findById(questionnaireid);
         Map<String, BaseQuestion<ChoseQuestionItem>> evaluationQuestionAnswerMap
                 = findEvaluationQuestionAnswerMap(evaluationquestionnaire);
-        fillAnswerScore(completesQuestion,evaluationQuestionAnswerMap);
+        fillAnswerScore(completesQuestion, evaluationQuestionAnswerMap);
     }
 
     /**
@@ -248,22 +246,12 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
             // 如果不是文本题的时候才开始处理
             if (!question.getQuestionnaireType().equals(QuestionnaireEnum.text)) {
                 String questionId = question.getId();
-                questionMap.put(questionId, JSON.parseObject(JSON.toJSONString(question), new TypeReference<BaseQuestion<ChoseQuestionItem>>(){}));
+                questionMap.put(questionId, JSON.parseObject(JSON.toJSONString(question), new TypeReference<BaseQuestion<ChoseQuestionItem>>() {
+                }));
             }
         }
         return questionMap;
     }
-
-//    public static void main(String[] args) {
-//        JSONObject object = JSON.parseObject(getStr());
-//
-//        EvaluationQuestionnaireContent content = JSON.parseObject(getStr(), EvaluationQuestionnaireContent.class);
-//        System.out.println(content);
-//    }
-//
-//    public static String getStr(){
-//        return "{\"questions\":[{\"id\":\"35ea2747d1074627885058dc9486a206\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"593e7c5feb85454c906eceeafde2156c\",\"sort\":0,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"c941c74c2bdb4c87848c71baacae6412\",\"sort\":12,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"7efbe86bb6954385b075e9431e348adf\",\"sort\":16,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"00cfdb4ba31b40c7bfeeaff8261964a2\",\"sort\":28,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"text\",\"mustWriter\":true},{\"id\":\"82734a185a564fa7a3fe32b12c77a643\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"2e5e6dbf67664f64bb6586725280caa5\",\"sort\":12,\"weights\":3,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"6461f9d6619e4f41b31ce56f1d9f762d\",\"sort\":19,\"weights\":24,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"df26c22f6f4740f8bbffb21d1087ad56\",\"sort\":24,\"weights\":3,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"5380ec495da3446abe593e5513c4667b\",\"sort\":25,\"weights\":18,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"9d3188a391c74acdbdcc4bbb0d5c6893\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"77d06f779acd407597699d5cc8b4817e\",\"sort\":1,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"c7289e676fa5473fb6523dc0ab58ae5c\",\"sort\":14,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"944e2cb531f44f9892fd67819567041f\",\"sort\":17,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"high\":20,\"width\":20,\"defaultsValue\":\"hello\",\"maxSize\":2000,\"id\":\"132f13d05a7e442eb8d6069c941401c9\",\"sort\":18,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"text\",\"mustWriter\":true},{\"id\":\"59411b5639654803ab6beb4cd32f565e\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"db2452de8d9a4019bb9af21cc7a92a5e\",\"sort\":0,\"weights\":26,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"b27ad398454f45e9a8612035ddab02a1\",\"sort\":4,\"weights\":28,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"6c852fe147a347c8a0720a2c372d7b9b\",\"sort\":15,\"weights\":22,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"25986238b4564fddb1395cfd301954b0\",\"sort\":29,\"weights\":10,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"radio\",\"mustWriter\":true},{\"id\":\"780353fcd3f64272a10239dc3312ed90\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"4ee76c2ca0a14d3a91857e7ceedac015\",\"sort\":10,\"weights\":17,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"68ede14f32324079b575de8a4ceb0184\",\"sort\":18,\"weights\":1,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"fb3865b6a4b44119b67c57d773ef0fce\",\"sort\":18,\"weights\":5,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"8648d3268aea4507a937422e076ffc8d\",\"sort\":19,\"weights\":18,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"radio\",\"mustWriter\":true},{\"id\":\"1e8b7629ff6a4c8aad9bd068b4740900\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"a66acd546b424252af62c903d90f3692\",\"sort\":10,\"weights\":0,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"93d7d09ef75345a789643af05e66956c\",\"sort\":19,\"weights\":0,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"38243cff30aa4d8b82c9bbbc575e3685\",\"sort\":26,\"weights\":6,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"a18cf8276ce0436b9ba445fc9f6cefe7\",\"sort\":27,\"weights\":4,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"radio\",\"mustWriter\":true},{\"id\":\"8c9af30d07e1435e90e9d75cfaf87999\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"16d3fcbb81c746438d60b17092a2bd58\",\"sort\":3,\"weights\":7,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"ea1482930e364fd3849f2f3a7556138d\",\"sort\":14,\"weights\":10,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"910447e8b33d4ee4bd9cb8784d133a1d\",\"sort\":16,\"weights\":23,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"848776e7583f42f6ba1758cfec269f8f\",\"sort\":26,\"weights\":15,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"900c05a71ef44f9cb49e5b8a4dd9b6fd\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"444544792d0245c29b16847ef51829ee\",\"sort\":2,\"weights\":16,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"9630665bcca84fe1b35b91b6dbda0831\",\"sort\":3,\"weights\":7,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"19db557b0575450ebaff4feded18da2d\",\"sort\":10,\"weights\":7,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"662b6ecd93e14be08c4b11e002da6309\",\"sort\":14,\"weights\":17,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"df4999f2c0104553a813b38769524086\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"9029cabc80c84fef9f5f03f5d5d35ed1\",\"sort\":5,\"weights\":19,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"0f2f89ec1c0d4ada94cd368db840a52b\",\"sort\":8,\"weights\":26,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"fc5a0d470374449e807bdc819a9c0732\",\"sort\":26,\"weights\":28,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"80ac1d0ac9a14a6695bc00a1408b7466\",\"sort\":27,\"weights\":19,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"4bc4848b55304593bf0897be8a5ec666\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"7a99767cf29b43ce8c4268851e521a96\",\"sort\":1,\"weights\":18,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"cd1d43d0d5014aa0a6a9bf011897aad2\",\"sort\":9,\"weights\":4,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"6c8f9a1d15314520bdd88937deaf33b3\",\"sort\":15,\"weights\":26,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"46d17aa5342c413399bbb6b8bccf8bbb\",\"sort\":17,\"weights\":4,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"4e5b1dafce314dae92a345592d53b60b\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"85b9796161f1497bb641f6cd9fbd0b17\",\"sort\":0,\"weights\":8,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"7469f69e9d184584a0436247a34295da\",\"sort\":11,\"weights\":26,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"58a98c7b6429466f96dd7229ee2e0ef0\",\"sort\":19,\"weights\":21,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"c17c84ea8cd94077a03708c498ebfe73\",\"sort\":26,\"weights\":17,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"06a0cddd6ea64ab6a402efb61ec54ed6\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"9dad0f25ba6a4da9b43a56701c138fe2\",\"sort\":14,\"weights\":23,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"b02b6e20b0434c2a9c8ff9d19195d09d\",\"sort\":22,\"weights\":7,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"cf51593943ab4c749814164c60c34c6b\",\"sort\":24,\"weights\":24,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"dd2069dc6a904568b7c03d25835e41bb\",\"sort\":25,\"weights\":27,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true},{\"id\":\"26e204b3fe6e4aad848a1aed6cabfcc3\",\"title\":\"测试你的题目\",\"prompt\":\"测试题目\",\"items\":[{\"id\":\"4e956bc79f3541c8a6576f1fc5352c52\",\"sort\":9,\"weights\":9,\"title\":\"选项1\",\"prompt\":\"选项1\",\"mustWriter\":true},{\"id\":\"c9d03ab5835645afad4e8a498e3ceb0d\",\"sort\":18,\"weights\":28,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"90f2669e130a44f697329f164ad92ca5\",\"sort\":22,\"weights\":7,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true},{\"id\":\"8f01ca9856c14b85ab40d201fb3bdaf3\",\"sort\":23,\"weights\":2,\"title\":\"选项2\",\"prompt\":\"选项2\",\"mustWriter\":true}],\"questionnaireType\":\"checkbox\",\"mustWriter\":true}]}";
-//    }
 
     /**
      * 填充用户所回答的问题的分数
@@ -284,10 +272,10 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         for (PublishAttachInfo.QuestionReply questionReply : questionReplies) {
             QuestionnaireEnum questionnaireEnum = questionReply.getQuestionnaireEnum();
-            if (questionnaireEnum.equals(QuestionnaireEnum.text)){
+            if (questionnaireEnum.equals(QuestionnaireEnum.text)) {
                 continue;
             }
-            fillAnswerScore(evaluationQuestionAnswerMap,questionReply);
+            fillAnswerScore(evaluationQuestionAnswerMap, questionReply);
         }
     }
 
@@ -295,7 +283,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      * 给每个答案填充分数
      *
      * @param evaluationQuestionAnswerMap 问题和待回答问题的映射
-     * @param questionReply 用户的答案
+     * @param questionReply               用户的答案
      */
     public void fillAnswerScore(Map<String, BaseQuestion<ChoseQuestionItem>> evaluationQuestionAnswerMap,
                                 PublishAttachInfo.QuestionReply questionReply) {
@@ -309,7 +297,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         List<ChoseQuestionItem> items = choseQuestionItemBaseQuestion.getItems();
         for (ChoseQuestionItem item : items) {
             String itemId = item.getId();
-            for (String answerId : answerChooseIds){
+            for (String answerId : answerChooseIds) {
                 if (itemId.equals(answerId)) {
                     // 获取当前选项的分数,并加上现在的分数（为了满足多选题）
                     Integer score = questionReply.getScore();
@@ -432,7 +420,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      */
     public PublishQuestionVo findPublishQuestionVo(Publishquestionnaire publishquestionnaire) {
         Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherService.findTeacherByAccountId(teacherid);
+        Teacher teacher = teacherService.findTeacherByAccountLoginName(teacherid);
         if (teacher == null) {
             return null;
         }
@@ -440,7 +428,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         // 不显示老师的工作情况
         Integer releaseid = publishquestionnaire.getReleaseid();
-        Teacher release = teacherService.findTeacherByAccountId(releaseid);
+        Teacher release = teacherService.findTeacherByAccountLoginName(releaseid);
         if (release == null) {
             return null;
         }
@@ -517,7 +505,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
             throw new ServiceException("用户未登录");
         }
         String loginName = principal.getName();
-        Teacher teacherByAccountId = teacherService.findTeacherByAccountId(loginName);
+        Teacher teacherByAccountId = teacherService.findTeacherByAccountLoginName(loginName);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacherByAccountId);
         QnaireTask qnaireTask = teacherWork.getQnaireTask();
         if (qnaireTask == null) {
@@ -529,9 +517,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     /**
      * 老师查阅问卷信息
      *
-     * @param publishQuesting
-     * @param principal
-     * @return
+     * @param publishQuesting 发布问卷id
+     * @param principal       用户登陆信息
+     * @return 发布问卷信息
      */
     public Publishquestionnaire teacherCheckPendingQuestion(Integer publishQuesting, Principal principal) {
         QnaireTask qnaireTask = findTeacherQnaireTask(publishQuesting, principal);
@@ -547,13 +535,74 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         }
         qnaireTask.checkedTask(pendingQnaireTaskItem);
 
-        Teacher teacherByAccountId = teacherService.findTeacherByAccountId(loginName);
+        Teacher teacherByAccountId = teacherService.findTeacherByAccountLoginName(loginName);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacherByAccountId);
         teacherWork.setQnaireTask(qnaireTask);
         // 更新老师工作内容
+        teacherByAccountId.setWorkjson(JSON.toJSONString(teacherWork));
         teacherMapper.updateByPrimaryKeySelective(teacherByAccountId);
         return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
     }
 
+    /**
+     * 学生发现问卷问题
+     *
+     * @param publishQuesting 发布问卷id
+     * @param principal       用户信息
+     * @return
+     */
+    public QnaireTask findStudentQnaireTask(Integer publishQuesting, Principal principal) {
+        if (publishQuesting == null) {
+            throw new ServiceException("查询发布问卷信息时id不能为空");
+        }
+        if (principal == null) {
+            throw new ServiceException("用户未登录");
+        }
+        String loginName = principal.getName();
+        StudentVo studentByAccountName = accountService.findStudentByAccountName(loginName);
+        Student student = StudentVo.studentVo2Student(studentByAccountName);
+        if (student == null) {
+            throw new ServiceException("用户不存在");
+        }
+        StudentTask studentTask = StudentTask.str2Bean(student);
+        QnaireTask qnaireTask = studentTask.getQnaireTask();
+        if (qnaireTask == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "用户{}无权限查看问卷{}", loginName, publishQuesting));
+        }
+        return qnaireTask;
+    }
+
+    /**
+     * 学生查看问卷信息，若没有点击过则设置点击
+     *
+     * @param publishQuesting 发布问卷id
+     * @param principal       登陆用户信息
+     * @return 发布问卷信息
+     */
+    public Publishquestionnaire studentCheckPendingQuestion(Integer publishQuesting, Principal principal) {
+        QnaireTask qnaireTask = findStudentQnaireTask(publishQuesting, principal);
+        QnaireTaskItem checkedQnaireTaskItem = qnaireTask.findCheckedQnaireTaskItem(publishQuesting);
+        // 如果已经在查阅过的列表中则直接查出问卷，否则需要将未读移动到已读中
+        if (checkedQnaireTaskItem != null) {
+            return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
+        }
+        String loginName = principal.getName();
+        QnaireTaskItem pendingQnaireTaskItem = qnaireTask.findPendingQnaireTaskItem(publishQuesting);
+        if (pendingQnaireTaskItem == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "在老师{}任务中没有找到发布问卷{}", loginName, publishQuesting));
+        }
+        qnaireTask.checkedTask(pendingQnaireTaskItem);
+
+        StudentVo studentByAccountName = accountService.findStudentByAccountName(loginName);
+        Student student = StudentVo.studentVo2Student(studentByAccountName);
+        if (student == null) {
+            throw new ServiceException("用户不存在");
+        }
+        StudentTask studentTask = StudentTask.str2Bean(student);
+        studentTask.setQnaireTask(qnaireTask);
+        student.setTask(JSON.toJSONString(studentTask));
+        studentMapper.updateByPrimaryKey(student);
+        return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
+    }
 
 }

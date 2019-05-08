@@ -150,6 +150,12 @@ public class StudentService {
         }
     }
 
+    /**
+     * 为学生创建一个账户
+     *
+     * @param student 学生信息
+     * @return 学生账号
+     */
     private Account createAccountToStudent(Student student) {
         if (student == null) {
             return null;
@@ -270,6 +276,7 @@ public class StudentService {
 
     /**
      * 获取没有老师信息的学生信息
+     *
      * @param page
      * @param limit
      * @param sql

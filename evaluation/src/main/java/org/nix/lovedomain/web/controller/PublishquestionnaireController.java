@@ -133,4 +133,30 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
         return RespondsMessage.success("获取发布问卷信息完成", publishquestionnaireService.findPublishQuestionDeatil(ids));
     }
 
+    /**
+     * 老师阅读了发布的问卷信息
+     *
+     * @return
+     */
+    @PutMapping(value = "/teacher/read/publish")
+    public RespondsMessage teacherReadPublishQuestionInfo(@RequestParam(value = "publishQuestingId") Integer publishQuesting,
+                                                       Principal principal) {
+        Publishquestionnaire publishquestionnaire
+                = publishquestionnaireService.teacherCheckPendingQuestion(publishQuesting, principal);
+        return RespondsMessage.success("获取发布问卷信息成功",publishquestionnaire);
+    }
+
+    /**
+     * 学生阅读了发布的问卷信息
+     *
+     * @return
+     */
+    @PutMapping(value = "/student/read/publish")
+    public RespondsMessage studentReadPublishQuestionInfo(@RequestParam(value = "publishQuestingId") Integer publishQuesting,
+                                                       Principal principal) {
+        Publishquestionnaire publishquestionnaire
+                = publishquestionnaireService.studentCheckPendingQuestion(publishQuesting, principal);
+        return RespondsMessage.success("获取发布问卷信息成功",publishquestionnaire);
+    }
+
 }

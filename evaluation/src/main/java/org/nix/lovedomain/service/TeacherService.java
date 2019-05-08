@@ -3,7 +3,6 @@ package org.nix.lovedomain.service;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.dao.business.ProfessionBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
@@ -59,7 +58,7 @@ public class TeacherService extends BaseService<Teacher> {
      * @param loginName 登陆名
      * @return
      */
-    public Teacher findTeacherByAccountId(String loginName) {
+    public Teacher findTeacherByAccountLoginName(String loginName) {
         Account userByAccount = accountService.findUserByAccount(loginName);
         if (userByAccount == null) {
             throw new ServiceException(LogUtil.logInfo(log, "用户{}不存在", loginName));
@@ -82,7 +81,7 @@ public class TeacherService extends BaseService<Teacher> {
      */
     public Teacher addTask(Publishquestionnaire publishquestionnaire) throws Exception {
         Integer teacherByAccountId = publishquestionnaire.getTeacherid();
-        Teacher teacher = findTeacherByAccountId(teacherByAccountId);
+        Teacher teacher = findTeacherByAccountLoginName(teacherByAccountId);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
         QnaireTask qnaireTask = teacherWork.getQnaireTask();
         if (qnaireTask == null) {
@@ -103,7 +102,7 @@ public class TeacherService extends BaseService<Teacher> {
      * @param accountId
      * @return
      */
-    public Teacher findTeacherByAccountId(Integer accountId) {
+    public Teacher findTeacherByAccountLoginName(Integer accountId) {
         TeacherExample releaseExample = new TeacherExample();
         releaseExample.createCriteria().andAccountidEqualTo(accountId);
         List<Teacher> teachers = teacherMapper.selectByExample(releaseExample);

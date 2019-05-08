@@ -222,7 +222,7 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         if (authorid == null) {
             return null;
         }
-        Teacher teacher = teacherService.findTeacherByAccountId(Integer.parseInt(authorid));
+        Teacher teacher = teacherService.findTeacherByAccountLoginName(Integer.parseInt(authorid));
         if (teacher == null) {
             return null;
         }
