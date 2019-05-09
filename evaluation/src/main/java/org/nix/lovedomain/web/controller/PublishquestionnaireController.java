@@ -1,5 +1,6 @@
 package org.nix.lovedomain.web.controller;
 
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -8,6 +9,8 @@ import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.model.Publishquestionnaire;
 import org.nix.lovedomain.service.PublishquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.service.vo.PublishQuestionJsonVo;
+import org.nix.lovedomain.service.vo.PublishQuestionVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
@@ -140,10 +143,11 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
      */
     @PutMapping(value = "/teacher/read/publish")
     public RespondsMessage teacherReadPublishQuestionInfo(@RequestParam(value = "publishQuestingId") Integer publishQuesting,
-                                                       Principal principal) {
+                                                          Principal principal) {
         Publishquestionnaire publishquestionnaire
                 = publishquestionnaireService.teacherCheckPendingQuestion(publishQuesting, principal);
-        return RespondsMessage.success("获取发布问卷信息成功",publishquestionnaire);
+        return RespondsMessage.success("获取发布问卷信息成功", JSON.parseObject(JSON.toJSONString(publishquestionnaire),
+                PublishQuestionJsonVo.class));
     }
 
     /**
@@ -153,10 +157,10 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
      */
     @PutMapping(value = "/student/read/publish")
     public RespondsMessage studentReadPublishQuestionInfo(@RequestParam(value = "publishQuestingId") Integer publishQuesting,
-                                                       Principal principal) {
+                                                          Principal principal) {
         Publishquestionnaire publishquestionnaire
                 = publishquestionnaireService.studentCheckPendingQuestion(publishQuesting, principal);
-        return RespondsMessage.success("获取发布问卷信息成功",publishquestionnaire);
+        return RespondsMessage.success("获取发布问卷信息成功", publishquestionnaire);
     }
 
 }
