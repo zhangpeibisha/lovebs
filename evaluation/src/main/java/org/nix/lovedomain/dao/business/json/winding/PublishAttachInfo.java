@@ -82,6 +82,12 @@ public class PublishAttachInfo {
             black = new HashSet<>();
         }
         int currSize = black.size();
+        studentIds = CollUtil.filter(studentIds, new Filter<Integer>() {
+            @Override
+            public boolean accept(Integer integer) {
+                return integer != null;
+            }
+        });
         int needSize = studentIds.size();
         int have = canFilters - currSize;
         if (have - needSize >= 0) {
@@ -95,7 +101,7 @@ public class PublishAttachInfo {
             black.addAll(studentIds);
             return;
         }
-        throw new ServiceException(LogUtil.logInfo(log, "添加黑名单人数超出限制 max={} currSize={} needSize={}",
+        throw new ServiceException(LogUtil.logInfo(log, "添加黑名单人数超出限制 max={} currSize={} joinSize={}",
                 canFilters, currSize, needSize));
     }
 
