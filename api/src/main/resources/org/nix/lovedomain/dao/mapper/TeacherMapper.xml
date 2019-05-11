@@ -164,25 +164,25 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="jobnumber != null">
-        #{jobnumber,jdbcType=VARCHAR},
+        #{jobnumber},
       </if>
       <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+        #{name},
       </if>
       <if test="accountid != null">
-        #{accountid,jdbcType=INTEGER},
+        #{accountid},
       </if>
       <if test="email != null">
-        #{email,jdbcType=VARCHAR},
+        #{email},
       </if>
       <if test="phone != null">
-        #{phone,jdbcType=VARCHER},
+        #{phone},
       </if>
       <if test="imagerurl != null">
-        #{imagerurl,jdbcType=VARCHAR},
+        #{imagerurl},
       </if>
       <if test="workjson != null">
-        #{workjson,jdbcType=LONGVARCHAR},
+        #{workjson},
       </if>
     </trim>
   </insert>
