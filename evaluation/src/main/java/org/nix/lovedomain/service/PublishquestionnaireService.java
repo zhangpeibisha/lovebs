@@ -145,7 +145,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         bean.addBlackStudent(studentIds);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
         publishquestionnaireMapper.updateByPrimaryKey(byId);
-        return byId;
+        return PublishQuestionJsonVo.publishquestionnaire2Vo(byId);
     }
 
     /**

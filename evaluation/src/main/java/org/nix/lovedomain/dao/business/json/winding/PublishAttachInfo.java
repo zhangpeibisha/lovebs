@@ -78,9 +78,7 @@ public class PublishAttachInfo {
      * @param studentIds 学生id集合，在学生表中的id集合
      */
     public void addBlackStudent(List<Integer> studentIds) {
-        if (black == null) {
-            black = new HashSet<>();
-        }
+        black = new HashSet<>();
         int currSize = black.size();
         studentIds = CollUtil.filter(studentIds, new Filter<Integer>() {
             @Override
@@ -89,8 +87,7 @@ public class PublishAttachInfo {
             }
         });
         int needSize = studentIds.size();
-        int have = canFilters - currSize;
-        if (have - needSize >= 0) {
+        if (canFilters - needSize >= 0) {
             for (Integer s : studentIds) {
                 try {
                     PublishquestionnaireService.checkStudentHavePermissionUse(this, s);

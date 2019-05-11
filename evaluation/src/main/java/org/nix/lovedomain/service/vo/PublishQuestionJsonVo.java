@@ -19,4 +19,11 @@ public class PublishQuestionJsonVo extends Publishquestionnaire {
         return JSON.parseObject(getStatistics());
     }
 
+    public static PublishQuestionJsonVo publishquestionnaire2Vo(Publishquestionnaire publishquestionnaire){
+        if (publishquestionnaire == null){
+            return null;
+        }
+        return JSON.parseObject(JSON.toJSONString(publishquestionnaire),PublishQuestionJsonVo.class);
+    }
+
 }
