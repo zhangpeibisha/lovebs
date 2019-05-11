@@ -1,8 +1,7 @@
-package java.org.nix.lovedomain.service;
+package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
@@ -11,7 +10,6 @@ import org.nix.lovedomain.dao.business.json.question.FillBlankQuestionItem;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
-import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.mapper.AccountMapper;
 import org.nix.lovedomain.model.Account;
@@ -30,9 +28,6 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
-import static org.junit.Assert.*;
 
 @SpringBootTest(classes = EvaluationApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
