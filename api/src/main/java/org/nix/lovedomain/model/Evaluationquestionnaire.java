@@ -3,6 +3,7 @@ package org.nix.lovedomain.model;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -41,12 +42,15 @@ public class Evaluationquestionnaire implements Serializable {
      */
     private String content;
 
+    @Transient
+    private String tempContent;
 
     public JSONObject getContentJson() {
         if (content == null || "".equals(content)) {
             return new JSONObject();
         }
-        return JSON.parseObject(content);
+        tempContent = content;
+        return JSON.parseObject(tempContent);
     }
 
     private static final long serialVersionUID = 1L;
