@@ -1,5 +1,8 @@
 package org.nix.lovedomain.model;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -37,6 +40,14 @@ public class Evaluationquestionnaire implements Serializable {
      * @mbggenerated
      */
     private String content;
+
+
+    public JSONObject getContentJson() {
+        if (content == null || "".equals(content)) {
+            return new JSONObject();
+        }
+        return JSON.parseObject(content);
+    }
 
     private static final long serialVersionUID = 1L;
 

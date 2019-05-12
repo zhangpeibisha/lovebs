@@ -1,22 +1,32 @@
 package org.nix.lovedomain.web.controller;
 
+import cn.hutool.core.collection.CollUtil;
 import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
+import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
+import org.nix.lovedomain.dao.model.PublishquestionnaireModel;
+import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.model.Publishquestionnaire;
+import org.nix.lovedomain.service.AccountService;
 import org.nix.lovedomain.service.PublishquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.service.vo.EvaluationquestionnaireDeatilVo;
 import org.nix.lovedomain.service.vo.PublishQuestionJsonVo;
 import org.nix.lovedomain.service.vo.PublishQuestionVo;
+import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.List;
 
@@ -34,6 +44,14 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
     @Autowired
     private PublishquestionnaireService publishquestionnaireService;
 
+    @Resource
+    public PublishQuestionBusinessMapper publishQuestionBusinessMapper;
+
+    @Resource
+    public EvaluationquestionnaireMapper evaluationquestionnaireMapper;
+
+    @Resource
+    private AccountService accountService;
 
     @ApiOperation(value = "发布评教问卷")
     @PostMapping(value = "/publish")
@@ -161,6 +179,60 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
         Publishquestionnaire publishquestionnaire
                 = publishquestionnaireService.studentCheckPendingQuestion(publishQuesting, principal);
         return RespondsMessage.success("获取发布问卷信息成功", publishquestionnaire);
+    }
+
+    /**
+     * 查询学生在这个问卷中回答的问题
+     *
+     * @param publishId
+     * @param principal
+     * @return
+     */
+    @GetMapping(value = "/answers")
+    public RespondsMessage findStudentAnswers(@RequestParam(value = "publishId") Integer publishId,
+                                              Principal principal) {
+        StudentVo studentByAccountName
+                = accountService.findStudentByAccountName(principal.getName());
+
+        Integer studentId = studentByAccountName.getId();
+
+        Publishquestionnaire publishQuestionId
+                = publishquestionnaireService.findById(publishId);
+
+        if (publishQuestionId == null) {
+            return RespondsMessage.success("问卷不存在");
+        }
+
+        PublishAttachInfo bean = PublishAttachInfo.getBean(publishQuestionId);
+        List<PublishAttachInfo.CompletesQuestion> completesQuestions
+                = bean.getCompletesQuestions();
+        if (CollUtil.isEmpty(completesQuestions)) {
+            return RespondsMessage.success("未作答");
+        }
+
+        for (PublishAttachInfo.CompletesQuestion completesQuestion : completesQuestions) {
+            if (completesQuestion.getStudentId().equals(studentId)) {
+                AnswersView answersView = new AnswersView();
+                answersView.setAnswers(completesQuestion);
+                Evaluationquestionnaire evaluationquestionnaire
+                        = evaluationquestionnaireMapper.selectByPrimaryKey(publishQuestionId.getQuestionnaireid());
+
+                answersView.setEvaluationquestionnaire(evaluationquestionnaire);
+                evaluationquestionnaire.setContent(null);
+                return RespondsMessage.success("获取答案完成", answersView);
+            }
+        }
+        return RespondsMessage.success("未作答");
+    }
+
+
+    @Data
+    public static class AnswersView {
+
+        private Evaluationquestionnaire evaluationquestionnaire;
+
+        private PublishAttachInfo.CompletesQuestion answers;
+
     }
 
 }

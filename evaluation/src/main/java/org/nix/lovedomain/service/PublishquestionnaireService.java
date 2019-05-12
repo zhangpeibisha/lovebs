@@ -212,7 +212,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         bean.writeQuestion(completesQuestion);
         publishquestionnaire.setStatistics(JSONUtil.toJsonStr(bean));
-        publishquestionnaireMapper.updateByPrimaryKey(publishquestionnaire);
+
+        publishQuestionBusinessMapper.updateByPrimaryKeySelective(JSON.parseObject(JSON.toJSONString(publishquestionnaire),
+                PublishquestionnaireModel.class));
         return publishquestionnaire;
     }
 
