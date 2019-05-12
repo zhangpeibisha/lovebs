@@ -42,15 +42,12 @@ public class Evaluationquestionnaire implements Serializable {
      */
     private String content;
 
-    @Transient
-    private String tempContent;
 
     public JSONObject getContentJson() {
         if (content == null || "".equals(content)) {
             return new JSONObject();
         }
-        tempContent = content;
-        return JSON.parseObject(tempContent);
+        return JSON.parseObject(content);
     }
 
     private static final long serialVersionUID = 1L;
