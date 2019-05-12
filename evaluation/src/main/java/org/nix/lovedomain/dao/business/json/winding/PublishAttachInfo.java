@@ -80,21 +80,16 @@ public class PublishAttachInfo {
     public void addBlackStudent(List<Integer> studentIds) {
         black = new HashSet<>();
         int currSize = black.size();
-        studentIds = CollUtil.filter(studentIds, new Filter<Integer>() {
-            @Override
-            public boolean accept(Integer integer) {
-                return integer != null;
-            }
-        });
+        studentIds = CollUtil.filter(studentIds, Objects::nonNull);
         int needSize = studentIds.size();
         if (canFilters - needSize >= 0) {
-            for (Integer s : studentIds) {
-                try {
-                    PublishquestionnaireService.checkStudentHavePermissionUse(this, s);
-                } catch (Exception e) {
-                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本问卷中没有访问权限，不用添加黑名单", s));
-                }
-            }
+//            for (Integer s : studentIds) {
+//                try {
+//                    PublishquestionnaireService.checkStudentHavePermissionUse(this, s);
+//                } catch (Exception e) {
+//                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本问卷中没有访问权限，不用添加黑名单", s));
+//                }
+//            }
             black.addAll(studentIds);
             return;
         }

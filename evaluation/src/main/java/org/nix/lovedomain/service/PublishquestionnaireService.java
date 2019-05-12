@@ -5,6 +5,7 @@ import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.question.ChoseQuestionItem;
 import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
@@ -16,6 +17,7 @@ import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.*;
+import org.nix.lovedomain.dao.model.PublishquestionnaireModel;
 import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.*;
@@ -57,7 +59,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     private CourseMapper courseMapper;
 
     @Resource
-    private EvaluationquestionnaireMapper evaluationquestionnaireMapper;
+    private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
 
     @Autowired
     private TeacherService teacherService;
@@ -138,13 +140,17 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Account userByAccount = accountService.findUserByAccount(principal.getName());
         Integer id = userByAccount.getId();
         Integer teacherid = byId.getTeacherid();
-        if (!id.equals(teacherid)) {
-            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
-        }
+//        if (!id.equals(teacherid)) {
+//            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+//        }
 
         bean.addBlackStudent(studentIds);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
-        publishquestionnaireMapper.updateByPrimaryKey(byId);
+
+        PublishquestionnaireModel publishquestionnaireModel
+                = PublishquestionnaireModel.publishquestionnaire2Model(byId);
+
+        publishQuestionBusinessMapper.updateByPrimaryKeySelective(publishquestionnaireModel);
         return PublishQuestionJsonVo.publishquestionnaire2Vo(byId);
     }
 
@@ -164,9 +170,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Account userByAccount = accountService.findUserByAccount(principal.getName());
         Integer id = userByAccount.getId();
         Integer teacherid = byId.getTeacherid();
-        if (!id.equals(teacherid)) {
-            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
-        }
+//        if (!id.equals(teacherid)) {
+//            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+//        }
         bean.deleteBlackStudent(studentIds);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
         publishquestionnaireMapper.updateByPrimaryKey(byId);

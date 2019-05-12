@@ -27,7 +27,7 @@ security:
 server:
   tomcat:
     uri-encoding: UTF-8
-  port: 8081
+  port: 8080
 love:
   security:
     browser:
