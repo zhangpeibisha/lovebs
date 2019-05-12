@@ -207,7 +207,13 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
         List<PublishAttachInfo.CompletesQuestion> completesQuestions
                 = bean.getCompletesQuestions();
         if (CollUtil.isEmpty(completesQuestions)) {
-            return RespondsMessage.success("未作答");
+            Evaluationquestionnaire evaluationquestionnaire
+                    = evaluationquestionnaireMapper.selectByPrimaryKey(publishQuestionId.getQuestionnaireid());
+            evaluationquestionnaire.setContent(null);
+            AnswersView data = new AnswersView();
+            data.setEvaluationquestionnaire(evaluationquestionnaire);
+            data.setAnswers(new PublishAttachInfo.CompletesQuestion());
+            return RespondsMessage.success("未作答，返回问卷信息", data);
         }
 
         for (PublishAttachInfo.CompletesQuestion completesQuestion : completesQuestions) {
@@ -234,5 +240,19 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
         private PublishAttachInfo.CompletesQuestion answers;
 
     }
+
+    /**
+     * 查看发布问卷的评分
+     * @param publishId
+     * @return
+     */
+    @GetMapping(value = "/score")
+    public RespondsMessage teacherViewStat(@RequestParam(value = "publishId") Integer publishId){
+        return RespondsMessage.success("获取统计结果完成",
+                publishquestionnaireService.getQuestionStatisticalScore(publishId));
+    }
+
+
+
 
 }

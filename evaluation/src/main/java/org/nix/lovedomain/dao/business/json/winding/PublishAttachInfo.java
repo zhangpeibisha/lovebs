@@ -3,6 +3,8 @@ package org.nix.lovedomain.dao.business.json.winding;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Filter;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
+import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
@@ -34,6 +36,7 @@ public class PublishAttachInfo {
      */
     private List<CompletesQuestion> completesQuestions;
 
+
     /**
      * 应该出席多少人:根据实际情况系统填写
      */
@@ -58,7 +61,6 @@ public class PublishAttachInfo {
      * 评卷得分
      */
     private Integer score;
-
     /**
      * 所有的意见
      */
@@ -138,8 +140,16 @@ public class PublishAttachInfo {
         }
 
         if (completesQuestions == null) {
-            completesQuestions = new ArrayList<>();
+            return;
         }
+
+        // 如果已经答卷则不允许答卷了
+        for (CompletesQuestion question : completesQuestions) {
+            if (question.getStudentId().equals(completesQuestion.getStudentId())) {
+                return;
+            }
+        }
+
         completesQuestions.add(completesQuestion);
 
     }
@@ -196,17 +206,23 @@ public class PublishAttachInfo {
 //            if (black.contains(studentId)) {
 //                continue;
 //            }
-            List<QuestionReply> questionReplies = completesQuestion.getQuestionReplies();
+            List<QuestionReply> questionReplies = JSON.parseArray
+                    (JSON.toJSONString(completesQuestion.getQuestionReplies()),QuestionReply.class);
+
+
             if (CollUtil.isEmpty(questionReplies)) {
                 continue;
             }
             for (QuestionReply questionReply : questionReplies) {
                 if (questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)) {
+                    if (advice == null){
+                        advice = new ArrayList<>();
+                    }
                     advice.add(questionReply.suggest);
                 } else {
                     Integer score = questionReply.getScore();
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (score == null || score <= 0 || black.contains(studentId)) {
+                    if (score == null || score <= 0 ||(black!=null && black.contains(studentId)) ) {
                         continue;
                     }
                     this.score += score;
@@ -216,6 +232,56 @@ public class PublishAttachInfo {
         }
     }
 
+    /**
+     * 得到整体的得分
+     *
+     * @return
+     */
+    public StatisticalAnswer statisticalAnswer() {
+        statistical();
+        return StatisticalAnswer.builder()
+                .score(score)
+                .attend(attend)
+                .plan(plan)
+                .black(black == null ? 0 : black.size())
+                .canFilters(canFilters)
+                .advice(advice)
+                .build();
+    }
+
+
+    @Data
+    @Builder
+    public static class StatisticalAnswer {
+
+        /**
+         * 应该出席多少人:根据实际情况系统填写
+         */
+        private Integer plan;
+
+        /**
+         * 实际填写的人数:根据实际情况系统填写
+         */
+        private Integer attend;
+
+        /**
+         * 老师能够配置多少人的答卷不计入分数:发布老师填写
+         */
+        private Integer canFilters;
+
+        /**
+         * 不计入分数的黑名单数量
+         */
+        private Integer black;
+
+        /**
+         * 评卷得分
+         */
+        private Integer score;
+
+        private List<String> advice;
+
+    }
 
     /**
      * 完成问卷信息

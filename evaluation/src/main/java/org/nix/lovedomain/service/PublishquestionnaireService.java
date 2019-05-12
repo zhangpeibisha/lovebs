@@ -613,4 +613,17 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
     }
 
+
+    /**
+     * 通过问卷id获取问卷的统计信息
+     * @param publishId
+     * @return
+     */
+    public PublishAttachInfo.StatisticalAnswer getQuestionStatisticalScore(Integer publishId){
+        Publishquestionnaire publishquestionnaireServiceById
+                = findById(publishId);
+        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaireServiceById);
+        return bean.statisticalAnswer();
+    }
+
 }
