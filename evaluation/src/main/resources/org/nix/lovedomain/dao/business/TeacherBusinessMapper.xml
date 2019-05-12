@@ -19,4 +19,14 @@
         </if>
     </select>
 
+    <select id="findTeacherByCourseId" resultType="org.nix.lovedomain.model.Teacher">
+        SELECT
+	    *
+        FROM
+            `teacher` AS t
+        LEFT JOIN teacher_course AS tc ON t.accountId = tc.teacherId
+        WHERE
+            courseId = #{courseId};
+    </select>
+
 </mapper>

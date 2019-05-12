@@ -105,7 +105,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         // ==================== 下面开始填充发布问卷的附加信息 ==================
 
-        // 根据课程id和老师id找到相应的学生id
+        // 根据课程id和老师账号id找到相应的学生id
         List<StudentVo> studentByTeacherIdAndCourseId
                 = studentBusinessMapper.findStudentByTeacherIdAndCourseId(teacherAccountId, courseId);
 

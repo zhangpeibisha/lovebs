@@ -5,9 +5,14 @@ import cn.hutool.core.lang.Filter;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentCourseBusinessMapper;
+import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
+import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
 import org.nix.lovedomain.dao.mapper.StudentCourseMapper;
+import org.nix.lovedomain.dao.mapper.TeacherCourseMapper;
 import org.nix.lovedomain.dao.model.StudentCourseBusinessModel;
+import org.nix.lovedomain.dao.model.TeacherCourseModel;
 import org.nix.lovedomain.model.StudentCourse;
+import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.service.AccountService;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.vo.StudentVo;
@@ -15,17 +20,11 @@ import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -45,33 +44,51 @@ public class StudentCourseController extends BaseController<StudentCourse> {
     @Autowired
     private AccountService accountService;
 
+    @Resource
+    private TeacherBusinessMapper teacherBusinessMapper;
+
+    @Resource
+    private TeacherCourseBusinessMapper teacherCourseBusinessMapper;
+
     @PostMapping(value = "/course")
-    public RespondsMessage addCourse(@RequestParam(value = "courseIds") List<Integer> courseIds,
+    public RespondsMessage addCourse(@RequestParam(value = "courseId") Integer courseId,
+                                     @RequestParam(value = "teacherAccountId") Integer accountId,
                                      Principal principal) {
 
-        courseIds = CollUtil.filter(courseIds, Objects::nonNull);
+        TeacherCourseModel teacherCourseModel = new TeacherCourseModel();
+        teacherCourseModel.setCourseId(courseId);
+        teacherCourseModel.setTeacherId(accountId);
+        List<TeacherCourseModel> select = teacherCourseBusinessMapper.select(teacherCourseModel);
+
+
+        if (CollUtil.isEmpty(select)) {
+            return RespondsMessage.success(LogUtil.logInfo(log, "老师{}没有传授课程{}"
+                    , accountId, courseId));
+        }
+        select.sort((o1, o2) -> o2.getId() - o1.getId());
+        TeacherCourseModel join = select.get(0);
+
         StudentVo studentByAccountName
                 = accountService.findStudentByAccountName(principal.getName());
         Integer id = studentByAccountName.getId();
-        int size = courseIds.size();
-        List<StudentCourseBusinessModel> insertList = new ArrayList<>(size);
-        courseIds.forEach(integer -> {
-            StudentCourseBusinessModel studentCourseBusinessModel
-                    = new StudentCourseBusinessModel();
-            studentCourseBusinessModel.setCourseId(integer);
-            studentCourseBusinessModel.setStudentId(id);
-            studentCourseBusinessModel.setCreateTime(new Date());
-            studentCourseBusinessModel.setUpdateTime(new Date());
-            insertList.add(studentCourseBusinessModel);
-        });
-        int insertListNumber = studentCourseBusinessMapper.insertList(insertList);
-        if (insertListNumber == size){
-            return RespondsMessage.success(LogUtil
-                    .logInfo(log,"学生{}加课{}个：{}",principal.getName(),size,courseIds));
-        }
-        return RespondsMessage.failure(LogUtil
-                .logInfo(log,"学生{}加课成功{}个，失败{}个：{}",principal.getName(),
-                        insertListNumber,size-insertListNumber,courseIds));
+        StudentCourseBusinessModel studentCourseBusinessModel
+                = new StudentCourseBusinessModel();
+        studentCourseBusinessModel.setCourseId(join.getId());
+        studentCourseBusinessModel.setStudentId(id);
+        studentCourseBusinessModel.setCreateTime(new Date());
+        studentCourseBusinessModel.setUpdateTime(new Date());
+        int addNumber = studentCourseBusinessMapper.insertSelective(studentCourseBusinessModel);
+        return RespondsMessage.success(LogUtil.logInfo(log, "学生{}加入课程完成{},授课老师为：{}"
+                , principal.getName(), courseId, join.getTeacherId()));
+    }
+
+    @GetMapping(value = "/findTeacher")
+    public RespondsMessage findCourseTeachers(@RequestParam(value = "courseId") Integer courseId) {
+
+        List<Teacher> teacherByCourseId = teacherBusinessMapper.findTeacherByCourseId(courseId);
+
+        return RespondsMessage.success(LogUtil.logInfo(log, "通过课程id{}找到了老师：{}"
+                , courseId, teacherByCourseId), teacherByCourseId);
     }
 
 }
