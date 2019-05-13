@@ -48,9 +48,13 @@ public class EmailService {
     /**
      * 发送给发布问卷的老师信息,提醒老师问卷已经开始答卷了
      */
+
     public void sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire) {
+
+    public void  sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire,int type) {
+
         Integer releaseid = publishquestionnaire.getReleaseid();
-        Teacher teacher = teacherMapper.selectByPrimaryKey(releaseid);
+        Teacher teacher = teacherMapper.selectByAccountId(releaseid);
         Integer questionnaireid = publishquestionnaire.getQuestionnaireid();
         Evaluationquestionnaire evaluationquestionnaire
                 = evaluationquestionnaireMapper.selectByPrimaryKey(questionnaireid);
@@ -80,7 +84,7 @@ public class EmailService {
      */
     public void sendReminderTeacher(Publishquestionnaire publishquestionnaire) {
         Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
+        Teacher teacher = teacherMapper.selectByAccountId(teacherid);
         Integer courseid = publishquestionnaire.getCourseid();
         Course course = courseMapper.selectByPrimaryKey(courseid);
 

@@ -40,4 +40,6 @@ public interface TeacherMapper extends BaseMapper<Teacher> {
 
     int updateByPrimaryKey(Teacher record);
 
+    Teacher selectByAccountId(@Param("id") Integer id);
+
 }
