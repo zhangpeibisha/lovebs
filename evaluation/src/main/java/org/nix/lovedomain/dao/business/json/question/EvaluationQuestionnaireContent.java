@@ -139,6 +139,7 @@ public class EvaluationQuestionnaireContent {
     public void addItemId(BaseQuestion<? extends BaseItem> baseQuestion) {
         List<? extends BaseItem> items = baseQuestion.getItems();
         if (items != null) {
+            items = JSON.parseArray(JSON.toJSONString(items),BaseItem.class);
             items.sort((Comparator<BaseItem>) (o1, o2) -> {
                 Integer sort1 = o1.getSort();
                 Integer sort2 = o2.getSort();
