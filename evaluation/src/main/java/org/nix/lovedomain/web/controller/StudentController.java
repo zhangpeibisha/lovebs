@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.model.Student;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.vo.PageVo;
@@ -13,6 +14,7 @@ import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
@@ -31,12 +33,15 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @Resource
+    private StudentBusinessMapper studentBusinessMapper;
+
     @GetMapping(value = "/list")
     public RespondsMessage findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                                @RequestParam(value = "limit", defaultValue = "10") Integer limit,
-                                @RequestParam(value = "quire", required = false) String sql) throws IOException {
+                                           @RequestParam(value = "limit", defaultValue = "10") Integer limit,
+                                           @RequestParam(value = "quire", required = false) String sql) throws IOException {
         PageVo<StudentVo> studentVoPageVo = studentService.studentVODetailListNotHaveTeacher(page, limit, sql);
-        return RespondsMessage.success("获取学生列表成功",studentVoPageVo);
+        return RespondsMessage.success("获取学生列表成功", studentVoPageVo);
     }
 
     /**
@@ -47,8 +52,8 @@ public class StudentController {
      */
     @PutMapping(value = "/info")
     public RespondsMessage updateStudent(@ModelAttribute Student student) {
-        studentService.updateStudent(student);
-        return RespondsMessage.success("更新学生信息成功");
+        int number = studentBusinessMapper.updateByPrimaryKeySelective(student);
+        return RespondsMessage.success("更新学生信息成功:数量=" + number);
     }
 
     /**

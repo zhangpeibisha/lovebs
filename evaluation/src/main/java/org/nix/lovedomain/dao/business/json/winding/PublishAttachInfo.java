@@ -3,6 +3,8 @@ package org.nix.lovedomain.dao.business.json.winding;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Filter;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
+import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
@@ -11,8 +13,8 @@ import org.nix.lovedomain.service.PublishquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author zhangpei
@@ -33,6 +35,7 @@ public class PublishAttachInfo {
      * 填写了问卷的学生的答案信息:根据实际情况系统填写
      */
     private List<CompletesQuestion> completesQuestions;
+
 
     /**
      * 应该出席多少人:根据实际情况系统填写
@@ -58,19 +61,10 @@ public class PublishAttachInfo {
      * 评卷得分
      */
     private Integer score;
-
     /**
      * 所有的意见
      */
     private List<String> advice;
-
-    public List<StudentVo> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<StudentVo> students) {
-        this.students = students;
-    }
 
     public static PublishAttachInfo getBean(Publishquestionnaire publishquestionnaire) {
         if (publishquestionnaire == null || publishquestionnaire.getStatistics() == null) {
@@ -86,24 +80,22 @@ public class PublishAttachInfo {
      * @param studentIds 学生id集合，在学生表中的id集合
      */
     public void addBlackStudent(List<Integer> studentIds) {
-        if (black == null) {
-            black = new HashSet<>();
-        }
+        black = new HashSet<>();
         int currSize = black.size();
+        studentIds = CollUtil.filter(studentIds, Objects::nonNull);
         int needSize = studentIds.size();
-        int have = canFilters - currSize;
-        if (have - needSize >= 0) {
-            for (Integer s : studentIds) {
-                try {
-                    PublishquestionnaireService.checkStudentHavePermissionUse(this, s);
-                } catch (Exception e) {
-                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本问卷中没有访问权限，不用添加黑名单", s));
-                }
-            }
+        if (canFilters - needSize >= 0) {
+//            for (Integer s : studentIds) {
+//                try {
+//                    PublishquestionnaireService.checkStudentHavePermissionUse(this, s);
+//                } catch (Exception e) {
+//                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本问卷中没有访问权限，不用添加黑名单", s));
+//                }
+//            }
             black.addAll(studentIds);
             return;
         }
-        throw new ServiceException(LogUtil.logInfo(log, "添加黑名单人数超出限制 max={} currSize={} needSize={}",
+        throw new ServiceException(LogUtil.logInfo(log, "添加黑名单人数超出限制 max={} currSize={} joinSize={}",
                 canFilters, currSize, needSize));
     }
 
@@ -117,12 +109,8 @@ public class PublishAttachInfo {
         if (CollUtil.isEmpty(black)) {
             return;
         }
-        Collection<Integer> filter = CollUtil.filter(black, new Filter<Integer>() {
-            @Override
-            public boolean accept(Integer integer) {
-                return !black.contains(integer);
-            }
-        });
+        Collection<Integer> filter = CollUtil.filter(studentIds,
+                (Filter<Integer>) integer -> !black.contains(integer));
         black = CollUtil.newHashSet(filter);
     }
 
@@ -152,9 +140,18 @@ public class PublishAttachInfo {
         }
 
         if (completesQuestions == null) {
-            completesQuestions = new ArrayList<>();
+            return;
         }
+
+        // 如果已经答卷则不允许答卷了
+        for (CompletesQuestion question : completesQuestions) {
+            if (question.getStudentId().equals(completesQuestion.getStudentId())) {
+                return;
+            }
+        }
+
         completesQuestions.add(completesQuestion);
+
     }
 
     /**
@@ -192,8 +189,7 @@ public class PublishAttachInfo {
 
     /**
      * 当问卷到达终结时间的时候
-     * 开始统计分数,统计问卷总的分数与收集意见。
-     * 维度为整个问卷
+     * 开始统计分数
      */
     public void statistical() {
         score = 0;
@@ -205,34 +201,28 @@ public class PublishAttachInfo {
         for (CompletesQuestion completesQuestion : completesQuestions) {
             // 不管是否是黑名单，都要计入出勤人数中
             attend++;
+            Integer studentId = completesQuestion.getStudentId();
+            // 黑名单不计入统计
+//            if (black.contains(studentId)) {
+//                continue;
+//            }
+            List<QuestionReply> questionReplies = JSON.parseArray
+                    (JSON.toJSONString(completesQuestion.getQuestionReplies()),QuestionReply.class);
 
-            List<QuestionReply> questionReplies = completesQuestion.getQuestionReplies();
+
             if (CollUtil.isEmpty(questionReplies)) {
                 continue;
             }
-
-            /*统计学生反馈的意见*/
-            List<QuestionReply> limitQuestionReply = questionReplies
-                    .stream()
-                    .filter(qR -> qR.getSuggest() != null || !qR.getSuggest().equals(""))
-                    .collect(Collectors.toList());
-            if(limitQuestionReply != null && limitQuestionReply.size() != 0){
-                advice.add(limitQuestionReply.get(0).suggest);
-            }
-
-            Integer studentId = completesQuestion.getStudentId();
-            // 黑名单不计入统计
-            if (black.contains(studentId)) {
-                continue;
-            }
-
             for (QuestionReply questionReply : questionReplies) {
-                if(questionReply.questionnaireEnum.equals(QuestionnaireEnum.FILL_BLANK_SINGLE)){
-                    continue;
-                }else {
+                if (questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)) {
+                    if (advice == null){
+                        advice = new ArrayList<>();
+                    }
+                    advice.add(questionReply.suggest);
+                } else {
                     Integer score = questionReply.getScore();
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (score == null || score <= 0 || black.contains(studentId)) {
+                    if (score == null || score <= 0 ||(black!=null && black.contains(studentId)) ) {
                         continue;
                     }
                     this.score += score;
@@ -242,6 +232,56 @@ public class PublishAttachInfo {
         }
     }
 
+    /**
+     * 得到整体的得分
+     *
+     * @return
+     */
+    public StatisticalAnswer statisticalAnswer() {
+        statistical();
+        return StatisticalAnswer.builder()
+                .score(score)
+                .attend(attend)
+                .plan(plan)
+                .black(black == null ? 0 : black.size())
+                .canFilters(canFilters)
+                .advice(advice)
+                .build();
+    }
+
+
+    @Data
+    @Builder
+    public static class StatisticalAnswer {
+
+        /**
+         * 应该出席多少人:根据实际情况系统填写
+         */
+        private Integer plan;
+
+        /**
+         * 实际填写的人数:根据实际情况系统填写
+         */
+        private Integer attend;
+
+        /**
+         * 老师能够配置多少人的答卷不计入分数:发布老师填写
+         */
+        private Integer canFilters;
+
+        /**
+         * 不计入分数的黑名单数量
+         */
+        private Integer black;
+
+        /**
+         * 评卷得分
+         */
+        private Integer score;
+
+        private List<String> advice;
+
+    }
 
     /**
      * 完成问卷信息
@@ -275,8 +315,8 @@ public class PublishAttachInfo {
         /**
          * 选择id和分数，用于选择题
          */
-        private String choseId;
-        private Integer score;
+        private String chooseId;
+        private Integer score = 0;
         /**
          * 用于填空题，给老师的建议
          */

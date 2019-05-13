@@ -1,11 +1,12 @@
 package org.nix.lovedomain.dao.business.json.task;
 
-import cn.hutool.json.JSONUtil;
 import lombok.Data;
+import org.nix.lovedomain.model.Publishquestionnaire;
+
+
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -63,7 +64,6 @@ public class QnaireTask {
             pendingDetail = new HashSet<>();
         }
         pendingDetail.add(task);
-        pending = pendingDetail.size();
     }
 
     /**
@@ -82,7 +82,6 @@ public class QnaireTask {
             checkedDetail = new HashSet<>();
         }
         checkedDetail.add(task);
-        checked = checkedDetail.size();
     }
 
     /**
@@ -93,17 +92,14 @@ public class QnaireTask {
      * @param task
      */
     public void completeTask(QnaireTaskItem task) {
-
         if (task == null) {
             return;
         }
         if (pendingDetail.contains(task)) {
             remove2Complete(pendingDetail, task);
-            pending = pendingDetail.size();
         }
         if (checkedDetail.contains(task)) {
             remove2Complete(checkedDetail, task);
-            checked = checkedDetail.size();
         }
     }
 
@@ -119,7 +115,42 @@ public class QnaireTask {
             completeDetail = new HashSet<>();
         }
         completeDetail.add(task);
-        complete = completeDetail.size();
+    }
+
+    /**
+     * 通过id查询集合中的元素
+     *
+     * @param itemSet
+     * @param id
+     * @return
+     */
+    public QnaireTaskItem findQnaireTaskItemById(Set<QnaireTaskItem> itemSet, Integer id) {
+        if (itemSet == null || id == null) {
+            return null;
+        }
+        for (QnaireTaskItem item : itemSet) {
+            if (item.getId().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 发现待查阅的问卷
+     * @param id
+     * @return
+     */
+    public QnaireTaskItem findPendingQnaireTaskItem(Integer id) {
+        return findQnaireTaskItemById(pendingDetail, id);
+    }
+
+    public QnaireTaskItem findCheckedQnaireTaskItem(Integer id) {
+        return findQnaireTaskItemById(checkedDetail, id);
+    }
+
+    public QnaireTaskItem findCompleteQnaireTaskItem(Integer id) {
+        return findQnaireTaskItemById(completeDetail, id);
     }
 
     /**
@@ -131,63 +162,24 @@ public class QnaireTask {
         return checked + pending + complete;
     }
 
-    public static QnaireTask getBean(String str){
-      return   JSONUtil.toBean(str,QnaireTask.class);
+    public Integer getChecked() {
+        if (checkedDetail == null) {
+            return 0;
+        }
+        return checkedDetail.size();
     }
 
-    public  String toJSONStr(){
-        return JSONUtil.toJsonStr(this);
+    public Integer getPending() {
+        if (pendingDetail == null) {
+            return 0;
+        }
+        return pendingDetail.size();
     }
 
-    /**
-     * 当发布问卷的答卷时间到达的时候
-     * 定时任务将处置这些问卷信息，使用
-     * 该方法将任务调剂到已完成的问卷列表中
-     *
-     * @param id
-     */
-    public void completeTask(Integer id) {
-
-        if (null == id) {
-            return;
+    public Integer getComplete() {
+        if (completeDetail == null) {
+            return 0;
         }
-
-        List<QnaireTaskItem> qnaireTaskByLimit = null;
-        // 赛选未阅读集合
-        if(pendingDetail != null){
-            qnaireTaskByLimit = pendingDetail
-                    .stream()
-                    .filter(qnaireTaskItem -> qnaireTaskItem.getId().equals(id))
-                    .collect(Collectors.toList());
-        }
-
-        QnaireTaskItem task = null;
-        if(qnaireTaskByLimit != null && qnaireTaskByLimit.size() != 0){
-            task = qnaireTaskByLimit.get(0);
-        }else {
-
-            // 赛选已阅读集合
-            if(completeDetail != null){
-                qnaireTaskByLimit = completeDetail
-                        .stream()
-                        .filter(qnaireTaskItem -> qnaireTaskItem.getId().equals(id))
-                        .collect(Collectors.toList());
-            }
-
-            if(qnaireTaskByLimit != null && qnaireTaskByLimit.size() != 0){
-                task = qnaireTaskByLimit.get(0);
-            }
-        }
-
-        if (pendingDetail != null && pendingDetail.contains(task)) {
-            remove2Complete(pendingDetail, task);
-            pending = pendingDetail.size();
-        }
-        if (checkedDetail != null && checkedDetail.contains(task)) {
-            remove2Complete(checkedDetail, task);
-            checked = checkedDetail.size();
-        }
+        return completeDetail.size();
     }
-
-
 }

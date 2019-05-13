@@ -32,4 +32,11 @@ public interface TeacherBusinessMapper {
      */
     Long countTeacherBySql(@Param(value = "sql") String sql);
 
+    /**
+     * 通过课程id找到老师信息
+     * @param courseId 课程id
+     * @return 老师信息
+     */
+    List<Teacher> findTeacherByCourseId(@Param(value = "courseId")Integer courseId);
+
 }

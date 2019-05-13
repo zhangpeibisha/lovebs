@@ -1,6 +1,6 @@
 spring:
   datasource:
-      url: jdbc:mysql://59.110.234.213:3306/evaluation_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+      url: jdbc:mysql://59.110.234.213:3306/evaluation_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: kiss4400
@@ -11,6 +11,16 @@ spring:
      enabled: true
   session:
     store-type: redis
+  redis:
+      host: 59.110.234.213
+      # 链接超时
+      timeout: 2000
+      jedis:
+        pool:
+          min-idle: 5
+          max-active: 10
+          max-idle: 10
+          max-wait: 2000
 security:
   basic:
     enabled: true

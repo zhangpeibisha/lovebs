@@ -1,5 +1,6 @@
 package org.nix.lovedomain.service.vo;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import org.nix.lovedomain.model.Course;
 
@@ -49,4 +50,8 @@ public class PublishQuestionVo {
      * 结束答卷时间
      */
     private Date endRespondTime;
+    /**
+     * 统计字段
+     */
+    private JSONObject statistics;
 }

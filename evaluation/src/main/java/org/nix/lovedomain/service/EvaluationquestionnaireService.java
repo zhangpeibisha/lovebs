@@ -16,6 +16,7 @@ import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.model.TeacherExample;
 import org.nix.lovedomain.service.base.BaseService;
+import org.nix.lovedomain.service.vo.EvaluationquestionnaireDeatilVo;
 import org.nix.lovedomain.service.vo.EvaluationquestionnaireSimpleVo;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.TeacherSimpleVo;
@@ -24,6 +25,7 @@ import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.*;
@@ -88,13 +90,13 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
      * @return 问卷全部数据
      */
     public Evaluationquestionnaire addQuestion(Integer questionId,
-                                               BaseQuestion<? extends BaseItem> question,
+                                               List<BaseQuestion> question,
                                                Principal principal) {
         Evaluationquestionnaire evaluationquestionnaire
                 = getEvaluationquestionnaireById(questionId, principal);
         EvaluationQuestionnaireContent contentBean =
                 EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
-        contentBean.addQuestion(question);
+        contentBean.addQuestions(question);
         evaluationquestionnaire.setContent(JSONUtil.toJsonStr(contentBean));
         evaluationquestionnaireMapper.updateByPrimaryKeySelective(evaluationquestionnaire);
         return evaluationquestionnaire;
@@ -155,6 +157,23 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         return evaluationquestionnaire;
     }
 
+    /**
+     * 获取一个详细的问卷信息
+     * @param questionId
+     * @param principal
+     * @return
+     */
+    public EvaluationquestionnaireDeatilVo getEvaluationquestionnaireDeatilVoById(Integer questionId,
+                                                                                  Principal principal){
+        Evaluationquestionnaire evaluationquestionnaireById
+                = getEvaluationquestionnaireById(questionId, principal);
+        EvaluationquestionnaireSimpleVo simpleVoById = findSimpleVoById(questionId);
+        EvaluationquestionnaireDeatilVo evaluationquestionnaireDeatilVo
+                = JSONUtil.toBean(JSONUtil.toJsonStr(simpleVoById), EvaluationquestionnaireDeatilVo.class);
+        evaluationquestionnaireDeatilVo.setContent(evaluationquestionnaireById.getContent());
+        return evaluationquestionnaireDeatilVo;
+    }
+
 
     public PageVo<EvaluationquestionnaireSimpleVo> findOwnEvaluationquestionnairePage(Principal principal,
                                                                                       Integer page,
@@ -203,7 +222,7 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
         if (authorid == null) {
             return null;
         }
-        Teacher teacher = teacherService.findTeacherByAccountId(Integer.parseInt(authorid));
+        Teacher teacher = teacherService.findTeacherByAccountLoginName(Integer.parseInt(authorid));
         if (teacher == null) {
             return null;
         }

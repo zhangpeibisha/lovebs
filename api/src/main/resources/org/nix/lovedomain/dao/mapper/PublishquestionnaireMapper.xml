@@ -75,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, releaseId, courseId, teacherId, questionnaireId, description, releaseTime, startRespondTime, 
-    endRespondTime
+    endRespondTime,statistics
   </sql>
   <sql id="Blob_Column_List">
     statistics

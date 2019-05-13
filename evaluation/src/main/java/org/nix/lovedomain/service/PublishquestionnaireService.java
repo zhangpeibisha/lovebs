@@ -2,14 +2,22 @@ package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
+import org.nix.lovedomain.dao.business.json.question.ChoseQuestionItem;
+import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
+import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
+import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
+import org.nix.lovedomain.dao.business.json.student.StudentTask;
+import org.nix.lovedomain.dao.business.json.task.QnaireTask;
+import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
+import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.*;
-import org.nix.lovedomain.dao.mapper.ClassMapper;
-import org.nix.lovedomain.dao.mapper.PublishquestionnaireMapper;
-import org.nix.lovedomain.dao.mapper.StatisticsscoreMapper;
-import org.nix.lovedomain.dao.mapper.StudentMapper;
+import org.nix.lovedomain.dao.model.PublishquestionnaireModel;
 import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.*;
@@ -17,13 +25,10 @@ import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * @version 1.0
@@ -45,30 +50,22 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     private PublishquestionnaireMapper publishquestionnaireMapper;
 
     @Resource
-
     private TeacherMapper teacherMapper;
-
-    private ClassMapper classMapper;
-
 
     @Resource
     private StudentMapper studentMapper;
 
     @Resource
-
     private CourseMapper courseMapper;
 
     @Resource
-    private EvaluationquestionnaireMapper evaluationquestionnaireMapper;
+    private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
 
     @Autowired
     private TeacherService teacherService;
 
     @Resource
     private EvaluationquestionnaireService evaluationquestionnaireService;
-
-    private StatisticsscoreMapper statisticsscoreMapper;
-
 
     /**
      * 发布问卷
@@ -108,7 +105,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         // ==================== 下面开始填充发布问卷的附加信息 ==================
 
-        // 根据课程id和老师id找到相应的学生id
+        // 根据课程id和老师账号id找到相应的学生id
         List<StudentVo> studentByTeacherIdAndCourseId
                 = studentBusinessMapper.findStudentByTeacherIdAndCourseId(teacherAccountId, courseId);
 
@@ -143,14 +140,18 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Account userByAccount = accountService.findUserByAccount(principal.getName());
         Integer id = userByAccount.getId();
         Integer teacherid = byId.getTeacherid();
-        if (!id.equals(teacherid)) {
-            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
-        }
+//        if (!id.equals(teacherid)) {
+//            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+//        }
 
         bean.addBlackStudent(studentIds);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
-        publishquestionnaireMapper.updateByPrimaryKey(byId);
-        return byId;
+
+        PublishquestionnaireModel publishquestionnaireModel
+                = PublishquestionnaireModel.publishquestionnaire2Model(byId);
+
+        publishQuestionBusinessMapper.updateByPrimaryKeySelective(publishquestionnaireModel);
+        return PublishQuestionJsonVo.publishquestionnaire2Vo(byId);
     }
 
     /**
@@ -169,9 +170,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Account userByAccount = accountService.findUserByAccount(principal.getName());
         Integer id = userByAccount.getId();
         Integer teacherid = byId.getTeacherid();
-        if (!id.equals(teacherid)) {
-            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
-        }
+//        if (!id.equals(teacherid)) {
+//            throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
+//        }
         bean.deleteBlackStudent(studentIds);
         byId.setStatistics(JSONUtil.toJsonStr(bean));
         publishquestionnaireMapper.updateByPrimaryKey(byId);
@@ -181,27 +182,166 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
     /**
      * 提交回答信息，
      *
-     * @param publisId
+     * @param publishId
      * @param completesQuestion
      * @return
      */
-    public Publishquestionnaire writeQuestion(Integer publisId,
+    public Publishquestionnaire writeQuestion(Integer publishId,
                                               PublishAttachInfo.CompletesQuestion completesQuestion,
                                               Principal principal) {
-        Publishquestionnaire byId = findById(publisId);
-        PublishAttachInfo bean = PublishAttachInfo.getBean(byId);
+        Publishquestionnaire publishquestionnaire = findById(publishId);
+        if (publishquestionnaire == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "发布问卷{}不存在", publishId));
+        }
+
+        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaire);
 
         // 检测该学生是否有权限回答问题
-        checkStudentHavePermissionUse(bean,findStudentInStudentTableIdByAccount(principal));
+//        checkStudentHavePermissionUse(bean, findStudentInStudentTableIdByAccount(principal));
+
+        StudentVo studentByAccountName = accountService.findStudentByAccountName(principal.getName());
+        if (studentByAccountName == null) {
+            throw new ServiceException(LogUtil.logWarn(log, "用户未登陆答卷"));
+        }
+        Integer id = studentByAccountName.getId();
+        completesQuestion.setStudentId(id);
+        // 直接设定为提交
+        completesQuestion.setStatus(PublishAttachInfo.CompletesQuestion.STATUS_COMMIT);
+        // 填充分数
+        fillQuestionScore(publishquestionnaire, completesQuestion);
 
         bean.writeQuestion(completesQuestion);
-        byId.setStatistics(JSONUtil.toJsonStr(bean));
-        publishquestionnaireMapper.updateByPrimaryKey(byId);
-        return byId;
+        publishquestionnaire.setStatistics(JSONUtil.toJsonStr(bean));
+
+        publishQuestionBusinessMapper.updateByPrimaryKeySelective(JSON.parseObject(JSON.toJSONString(publishquestionnaire),
+                PublishquestionnaireModel.class));
+        return publishquestionnaire;
     }
 
     /**
+     * 计算该同学所提交的问卷的得分情况
+     *
+     * @param publishquestionnaire
+     * @param completesQuestion
+     */
+    public void fillQuestionScore(Publishquestionnaire publishquestionnaire,
+                                  PublishAttachInfo.CompletesQuestion completesQuestion) {
+        Integer questionnaireid = publishquestionnaire.getQuestionnaireid();
+        Evaluationquestionnaire evaluationquestionnaire
+                = evaluationquestionnaireService.findById(questionnaireid);
+        Map<String, BaseQuestion<ChoseQuestionItem>> evaluationQuestionAnswerMap
+                = findEvaluationQuestionAnswerMap(evaluationquestionnaire);
+        fillAnswerScore(completesQuestion, evaluationQuestionAnswerMap);
+    }
+
+    /**
+     * 将问卷中的问题提取成 问题id 和 问题答案的映射，只包含选择题的
+     *
+     * @param evaluationquestionnaire 问卷信息
+     * @return
+     */
+    public Map<String, BaseQuestion<ChoseQuestionItem>> findEvaluationQuestionAnswerMap(Evaluationquestionnaire evaluationquestionnaire) {
+        String content = evaluationquestionnaire.getContent();
+        System.out.println(content);
+        EvaluationQuestionnaireContent contentBean
+                = EvaluationQuestionnaireContent.getContentBean(evaluationquestionnaire);
+        List<BaseQuestion> questions = contentBean.getQuestions();
+        if (CollUtil.isEmpty(questions)) {
+            return new HashMap<>(0);
+        }
+        Map<String, BaseQuestion<ChoseQuestionItem>> questionMap = new HashMap<>(questions.size());
+        for (BaseQuestion question : questions) {
+            // 如果不是文本题的时候才开始处理
+            if (!question.getQuestionnaireType().equals(QuestionnaireEnum.text)) {
+                String questionId = question.getId();
+                questionMap.put(questionId, JSON.parseObject(JSON.toJSONString(question), new TypeReference<BaseQuestion<ChoseQuestionItem>>() {
+                }));
+            }
+        }
+        return questionMap;
+    }
+
+    /**
+     * 填充用户所回答的问题的分数
+     *
+     * @param completesQuestion
+     * @param evaluationQuestionAnswerMap
+     */
+    public void fillAnswerScore(PublishAttachInfo.CompletesQuestion completesQuestion,
+                                Map<String, BaseQuestion<ChoseQuestionItem>> evaluationQuestionAnswerMap) {
+
+        if (completesQuestion == null) {
+            return;
+        }
+        List<PublishAttachInfo.QuestionReply> questionReplies = completesQuestion.getQuestionReplies();
+        if (CollUtil.isEmpty(questionReplies)) {
+            return;
+        }
+
+        for (PublishAttachInfo.QuestionReply questionReply : questionReplies) {
+            QuestionnaireEnum questionnaireEnum = questionReply.getQuestionnaireEnum();
+            if (questionnaireEnum.equals(QuestionnaireEnum.text)) {
+                continue;
+            }
+            fillAnswerScore(evaluationQuestionAnswerMap, questionReply);
+        }
+    }
+
+    /**
+     * 给每个答案填充分数
+     *
+     * @param evaluationQuestionAnswerMap 问题和待回答问题的映射
+     * @param questionReply               用户的答案
+     */
+    public void fillAnswerScore(Map<String, BaseQuestion<ChoseQuestionItem>> evaluationQuestionAnswerMap,
+                                PublishAttachInfo.QuestionReply questionReply) {
+        String questionId = questionReply.getQuestionId();
+        BaseQuestion<ChoseQuestionItem> choseQuestionItemBaseQuestion = evaluationQuestionAnswerMap.get(questionId);
+        if (choseQuestionItemBaseQuestion == null) {
+            LogUtil.logWarn(log, "问题不存在，却出现在了答案中");
+            return;
+        }
+        Set<String> answerChooseIds = findAnswerChooseIds(questionReply);
+        List<ChoseQuestionItem> items = choseQuestionItemBaseQuestion.getItems();
+        for (ChoseQuestionItem item : items) {
+            String itemId = item.getId();
+            for (String answerId : answerChooseIds) {
+                if (itemId.equals(answerId)) {
+                    // 获取当前选项的分数,并加上现在的分数（为了满足多选题）
+                    Integer score = questionReply.getScore();
+                    if (score == null) {
+                        score = 0;
+                    }
+                    questionReply.setScore(score + item.getWeights());
+                    break;
+                }
+            }
+
+        }
+    }
+
+    /**
+     * 获取选项中所有的id
+     *
+     * @param questionReply
+     * @return
+     */
+    public Set<String> findAnswerChooseIds(PublishAttachInfo.QuestionReply questionReply) {
+        String chooseId = questionReply.getChooseId();
+        if (chooseId.contains(",")) {
+            String[] checkboxs = chooseId.split(",");
+            Set<String> ids = new HashSet<>(checkboxs.length);
+            ids.addAll(Arrays.asList(checkboxs));
+            return ids;
+        } else {
+            return CollUtil.newHashSet(chooseId);
+        }
+    }
+
+
+    /**
      * 通过学生账号信息获取学生信息
+     *
      * @param principal 登陆用户信息
      * @return
      */
@@ -288,7 +428,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      */
     public PublishQuestionVo findPublishQuestionVo(Publishquestionnaire publishquestionnaire) {
         Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherService.findTeacherByAccountId(teacherid);
+        Teacher teacher = teacherService.findTeacherByAccountLoginName(teacherid);
         if (teacher == null) {
             return null;
         }
@@ -296,7 +436,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
         // 不显示老师的工作情况
         Integer releaseid = publishquestionnaire.getReleaseid();
-        Teacher release = teacherService.findTeacherByAccountId(releaseid);
+        Teacher release = teacherService.findTeacherByAccountLoginName(releaseid);
         if (release == null) {
             return null;
         }
@@ -321,6 +461,10 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         publishQuestionVo.setStartRespondTime(publishquestionnaire.getStartrespondtime());
         publishQuestionVo.setEndRespondTime(publishquestionnaire.getEndrespondtime());
         publishQuestionVo.setId(publishquestionnaire.getId());
+        String statistics = publishquestionnaire.getStatistics();
+        if (statistics != null) {
+            publishQuestionVo.setStatistics(JSON.parseObject(statistics));
+        }
         return publishQuestionVo;
     }
 
@@ -329,7 +473,7 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
      * @param id   学生在学生表中的主键id
      */
     public static void checkStudentHavePermissionUse(PublishAttachInfo bean, Integer id) {
-        if (bean == null || id == null){
+        if (bean == null || id == null) {
             throw new ServiceException(LogUtil.logWarn(log, "访问无效，资源所属不正确"));
         }
         List<StudentVo> students = bean.getStudents();
@@ -354,239 +498,132 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         return publishquestionnaireMapper.getAllDataByLimit(dateStr);
     }
 
-
     /**
-     * 统计问卷
-     * @param publishquestionnaire
-     * 维度包含 班级
-     * 维度包含 专业
-     * 维度包含 学院
+     * 老师查阅问卷信息
+     *
+     * @param publishQuesting
+     * @param principal
+     * @return
      */
-    public void statistics(Publishquestionnaire publishquestionnaire){
-        // 所有的统统计数据
-        List<Statisticsscore> allStatistics = new ArrayList<>();
-
-        PublishAttachInfo publishAttachInfo = PublishAttachInfo.getBean(publishquestionnaire);
-
-        // 获取回答该问卷的所有学生
-        List<StudentVo> students = publishAttachInfo.getStudents();
-
-        // 获取该问卷所有的回答
-        List<PublishAttachInfo.CompletesQuestion> completesQuestions = publishAttachInfo.getCompletesQuestions();
-
-        if(completesQuestions != null){
-            //按班级统计
-            statisticsByClass(publishquestionnaire,allStatistics,publishAttachInfo,students,completesQuestions);
-            //按专业统计
-            statisticsByProfession(publishquestionnaire,allStatistics,publishAttachInfo,students,completesQuestions);
-            // 按学院统计
-            statisticsByFaculty(publishquestionnaire,allStatistics,publishAttachInfo,students,completesQuestions);
-            // 持久化所有的统计结果
-            statisticsscoreMapper.Inserts(allStatistics);
+    public QnaireTask findTeacherQnaireTask(Integer publishQuesting, Principal principal) {
+        if (publishQuesting == null) {
+            throw new ServiceException("查询发布问卷信息时id不能为空");
         }
+        if (principal == null) {
+            throw new ServiceException("用户未登录");
+        }
+        String loginName = principal.getName();
+        Teacher teacherByAccountId = teacherService.findTeacherByAccountLoginName(loginName);
+        TeacherWork teacherWork = TeacherWork.str2Bean(teacherByAccountId);
+        QnaireTask qnaireTask = teacherWork.getQnaireTask();
+        if (qnaireTask == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "用户{}无权限查看问卷{}", loginName, publishQuesting));
+        }
+        return qnaireTask;
     }
 
     /**
-     * 统计问卷
-     * @param publishquestionnaire
-     * 维度 班级
+     * 老师查阅问卷信息
+     *
+     * @param publishQuesting 发布问卷id
+     * @param principal       用户登陆信息
+     * @return 发布问卷信息
      */
-    public void statisticsByClass(Publishquestionnaire publishquestionnaire,
-                                  List<Statisticsscore> allStatistics,
-                                  PublishAttachInfo publishAttachInfo,
-                                  List<StudentVo> students,
-                                  List<PublishAttachInfo.CompletesQuestion> completesQuestions){
-
-
-        // 按班级存储总分,班级与总分的映射
-        HashMap<Integer,Integer> classesScores = new HashMap<>();
-        // 学生与班级的映射
-        HashMap<Integer,Integer> stuOfClass = new HashMap<>();
-        // 每个班级的意见
-        HashMap<Integer,List<String>> classesAdvice = new HashMap<>();
-
-        // 初始化映射
-        for (StudentVo stu:
-             students) {
-            classesScores.put(stu.getClasszz().getId(),0);
-            classesAdvice.put(stu.getClasszz().getId(),new ArrayList<>());
-            stuOfClass.put(stu.getId(),stu.getClasszz().getId());
+    public Publishquestionnaire teacherCheckPendingQuestion(Integer publishQuesting, Principal principal) {
+        QnaireTask qnaireTask = findTeacherQnaireTask(publishQuesting, principal);
+        QnaireTaskItem checkedQnaireTaskItem = qnaireTask.findCheckedQnaireTaskItem(publishQuesting);
+        // 如果已经在查阅过的列表中则直接查出问卷，否则需要将未读移动到已读中
+        if (checkedQnaireTaskItem != null) {
+            return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
         }
-
-        /*扫描各个回答并记分*/
-        for (PublishAttachInfo.CompletesQuestion completesQuestion:
-                completesQuestions) {
-
-            if(publishAttachInfo.getBlack().contains(completesQuestion.getStudentId())){
-                continue;
-            }
-            for (PublishAttachInfo.QuestionReply questionReply:
-                 completesQuestion.getQuestionReplies()) {
-                 /*收集意见*/
-                 if(questionReply.getSuggest() != null && !questionReply.getSuggest().equals("")){
-                     List<String>  tempList =  classesAdvice.get(completesQuestion.getStudentId());
-                     tempList.add(questionReply.getSuggest());
-                     classesAdvice.put(completesQuestion.getStudentId(),tempList);
-                 }
-                Integer score = questionReply.getScore();
-                //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                if (score == null || score <= 0) {
-                    continue;
-                }
-                classesScores.put(stuOfClass.get(completesQuestion.getStudentId()),
-                        classesScores.get(completesQuestion.getStudentId())+score);
-            }
+        String loginName = principal.getName();
+        QnaireTaskItem pendingQnaireTaskItem = qnaireTask.findPendingQnaireTaskItem(publishQuesting);
+        if (pendingQnaireTaskItem == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "在老师{}任务中没有找到发布问卷{}", loginName, publishQuesting));
         }
+        qnaireTask.checkedTask(pendingQnaireTaskItem);
 
-        for (Integer key:
-        classesScores.keySet()) {
-            Statisticsscore statisticsscore = new Statisticsscore();
-            statisticsscore.setClassid(key);
-            statisticsscore.setPublishquestionnaireid(publishquestionnaire.getId());
-            statisticsscore.setTeacherid(publishquestionnaire.getTeacherid());
-            statisticsscore.setFraction(classesScores.get(key));
-            PublishAttachInfo publishAttachInfo1 = new PublishAttachInfo();
-            publishAttachInfo1.setScore(classesScores.get(key));
-            publishAttachInfo1.setAdvice(classesAdvice.get(key));
-            statisticsscore.setAttachjson(JSONUtil.toJsonStr(publishAttachInfo1));
-            allStatistics.add(statisticsscore);
-        }
-
+        Teacher teacherByAccountId = teacherService.findTeacherByAccountLoginName(loginName);
+        TeacherWork teacherWork = TeacherWork.str2Bean(teacherByAccountId);
+        teacherWork.setQnaireTask(qnaireTask);
+        // 更新老师工作内容
+        teacherByAccountId.setWorkjson(JSON.toJSONString(teacherWork));
+        teacherMapper.updateByPrimaryKeySelective(teacherByAccountId);
+        return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
     }
 
     /**
-     * 按专业统计
-     * @param publishquestionnaire
-     * @param allStatistics
+     * 学生发现问卷问题
+     *
+     * @param publishQuesting 发布问卷id
+     * @param principal       用户信息
+     * @return
      */
-    public void statisticsByProfession(Publishquestionnaire publishquestionnaire,
-                                       List<Statisticsscore> allStatistics,
-                                       PublishAttachInfo publishAttachInfo,
-                                       List<StudentVo> students,
-                                       List<PublishAttachInfo.CompletesQuestion> completesQuestions){
-        // 获取所有学生的专业,学生与专业的映射
-        HashMap<Integer,Integer> stuOfProssions = studentMapper.selectAllStuOfProfession();
-
-        // 按专业存储总分,班级与总分的映射
-        HashMap<Integer,Integer> professionScores = new HashMap<>();
-
-        // 每个班级的意见
-        HashMap<Integer,List<String>> professionAdvice = new HashMap<>();
-
-        // 初始化映射
-        for (StudentVo stu:
-                students) {
-            professionScores.put(stuOfProssions.get(stu.getId()),0);
-            professionAdvice.put(stu.getClasszz().getId(),new ArrayList<>());
+    public QnaireTask findStudentQnaireTask(Integer publishQuesting, Principal principal) {
+        if (publishQuesting == null) {
+            throw new ServiceException("查询发布问卷信息时id不能为空");
         }
-
-        /*扫描各个回答并记分*/
-        for (PublishAttachInfo.CompletesQuestion completesQuestion:
-                completesQuestions) {
-
-            if(publishAttachInfo.getBlack().contains(completesQuestion.getStudentId())){
-                continue;
-            }
-            for (PublishAttachInfo.QuestionReply questionReply:
-                    completesQuestion.getQuestionReplies()) {
-                /*收集意见*/
-                if(questionReply.getSuggest() != null && !questionReply.getSuggest().equals("")){
-                    List<String>  tempList =  professionAdvice.get(completesQuestion.getStudentId());
-                    tempList.add(questionReply.getSuggest());
-                    professionAdvice.put(completesQuestion.getStudentId(),tempList);
-                }
-                Integer score = questionReply.getScore();
-                //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                if (score == null || score <= 0) {
-                    continue;
-                }
-                professionScores.put(stuOfProssions.get(completesQuestion.getStudentId()),
-                        professionScores.get(completesQuestion.getStudentId())+score);
-            }
+        if (principal == null) {
+            throw new ServiceException("用户未登录");
         }
-
-        for (Integer key:
-                professionScores.keySet()) {
-            Statisticsscore statisticsscore = new Statisticsscore();
-            statisticsscore.setProfessionid(key);
-            statisticsscore.setPublishquestionnaireid(publishquestionnaire.getId());
-            statisticsscore.setTeacherid(publishquestionnaire.getTeacherid());
-            statisticsscore.setFraction(professionScores.get(key));
-            PublishAttachInfo publishAttachInfo1 = new PublishAttachInfo();
-            publishAttachInfo1.setScore(professionScores.get(key));
-            publishAttachInfo1.setAdvice(professionAdvice.get(key));
-            statisticsscore.setAttachjson(JSONUtil.toJsonStr(publishAttachInfo1));
-            allStatistics.add(statisticsscore);
+        String loginName = principal.getName();
+        StudentVo studentByAccountName = accountService.findStudentByAccountName(loginName);
+        Student student = StudentVo.studentVo2Student(studentByAccountName);
+        if (student == null) {
+            throw new ServiceException("用户不存在");
         }
-
-
-
+        StudentTask studentTask = StudentTask.str2Bean(student);
+        QnaireTask qnaireTask = studentTask.getQnaireTask();
+        if (qnaireTask == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "用户{}无权限查看问卷{}", loginName, publishQuesting));
+        }
+        return qnaireTask;
     }
 
     /**
-     * 按学院统计
-     * @param publishquestionnaire
-     * @param allStatistics
+     * 学生查看问卷信息，若没有点击过则设置点击
+     *
+     * @param publishQuesting 发布问卷id
+     * @param principal       登陆用户信息
+     * @return 发布问卷信息
      */
-    public void statisticsByFaculty(Publishquestionnaire publishquestionnaire,
-                                    List<Statisticsscore> allStatistics,
-                                    PublishAttachInfo publishAttachInfo,
-                                    List<StudentVo> students,
-                                    List<PublishAttachInfo.CompletesQuestion> completesQuestions){
-
-        // 获取所有学生的专业,学生与学院的映射
-        HashMap<Integer,Integer> stuOfFaculty = studentMapper.selectAllStuOfFaculty();
-
-        // 按专业存储总分,班级与总分的映射
-        HashMap<Integer,Integer> facultyScores = new HashMap<>();
-
-        // 每个班级的意见
-        HashMap<Integer,List<String>> facultyAdvice = new HashMap<>();
-
-        // 初始化映射
-        for (StudentVo stu:
-                students) {
-            facultyScores.put(stuOfFaculty.get(stu.getId()),0);
-            facultyAdvice.put(stu.getClasszz().getId(),new ArrayList<>());
+    public Publishquestionnaire studentCheckPendingQuestion(Integer publishQuesting, Principal principal) {
+        QnaireTask qnaireTask = findStudentQnaireTask(publishQuesting, principal);
+        QnaireTaskItem checkedQnaireTaskItem = qnaireTask.findCheckedQnaireTaskItem(publishQuesting);
+        // 如果已经在查阅过的列表中则直接查出问卷，否则需要将未读移动到已读中
+        if (checkedQnaireTaskItem != null) {
+            return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
         }
-
-        /*扫描各个回答并记分*/
-        for (PublishAttachInfo.CompletesQuestion completesQuestion:
-                completesQuestions) {
-
-            if(publishAttachInfo.getBlack().contains(completesQuestion.getStudentId())){
-                continue;
-            }
-            for (PublishAttachInfo.QuestionReply questionReply:
-                    completesQuestion.getQuestionReplies()) {
-                /*收集意见*/
-                if(questionReply.getSuggest() != null && !questionReply.getSuggest().equals("")){
-                    List<String>  tempList =  facultyAdvice.get(completesQuestion.getStudentId());
-                    tempList.add(questionReply.getSuggest());
-                    facultyAdvice.put(completesQuestion.getStudentId(),tempList);
-                }
-                Integer score = questionReply.getScore();
-                //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                if (score == null || score <= 0) {
-                    continue;
-                }
-                facultyScores.put(stuOfFaculty.get(completesQuestion.getStudentId()),
-                        facultyScores.get(completesQuestion.getStudentId())+score);
-            }
+        String loginName = principal.getName();
+        QnaireTaskItem pendingQnaireTaskItem = qnaireTask.findPendingQnaireTaskItem(publishQuesting);
+        if (pendingQnaireTaskItem == null) {
+            throw new ServiceException(LogUtil.logInfo(log, "在老师{}任务中没有找到发布问卷{}", loginName, publishQuesting));
         }
+        qnaireTask.checkedTask(pendingQnaireTaskItem);
 
-        for (Integer key:
-                facultyScores.keySet()) {
-            Statisticsscore statisticsscore = new Statisticsscore();
-            statisticsscore.setFacultyid(key);
-            statisticsscore.setPublishquestionnaireid(publishquestionnaire.getId());
-            statisticsscore.setTeacherid(publishquestionnaire.getTeacherid());
-            statisticsscore.setFraction(facultyScores.get(key));
-            PublishAttachInfo publishAttachInfo1 = new PublishAttachInfo();
-            publishAttachInfo1.setScore(facultyScores.get(key));
-            publishAttachInfo1.setAdvice(facultyAdvice.get(key));
-            statisticsscore.setAttachjson(JSONUtil.toJsonStr(publishAttachInfo1));
-            allStatistics.add(statisticsscore);
+        StudentVo studentByAccountName = accountService.findStudentByAccountName(loginName);
+        Student student = StudentVo.studentVo2Student(studentByAccountName);
+        if (student == null) {
+            throw new ServiceException("用户不存在");
         }
+        StudentTask studentTask = StudentTask.str2Bean(student);
+        studentTask.setQnaireTask(qnaireTask);
+        student.setTask(JSON.toJSONString(studentTask));
+        studentMapper.updateByPrimaryKey(student);
+        return publishquestionnaireMapper.selectByPrimaryKey(publishQuesting);
     }
+
+
+    /**
+     * 通过问卷id获取问卷的统计信息
+     * @param publishId
+     * @return
+     */
+    public PublishAttachInfo.StatisticalAnswer getQuestionStatisticalScore(Integer publishId){
+        Publishquestionnaire publishquestionnaireServiceById
+                = findById(publishId);
+        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaireServiceById);
+        return bean.statisticalAnswer();
+    }
+
 }

@@ -2,7 +2,7 @@ package org.nix.lovedomain.dao.business.json.question;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
-import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
@@ -36,8 +36,17 @@ public class EvaluationQuestionnaireContent {
         if (questions == null) {
             questions = new ArrayList<>();
         }
-        setId(question);
+        addId(question);
         questions.add(question);
+    }
+
+    public List<BaseQuestion> getQuestions() {
+        return questions;
+    }
+
+    public void addQuestions(List<BaseQuestion> questions) {
+        questions.forEach(question -> addId(question));
+        this.questions = questions;
     }
 
     /**
@@ -80,7 +89,7 @@ public class EvaluationQuestionnaireContent {
         if (CollUtil.isEmpty(question)) {
             return;
         }
-        question.forEach(this::setId);
+        question.forEach(this::addId);
         questions.addAll(question);
     }
 
@@ -98,7 +107,7 @@ public class EvaluationQuestionnaireContent {
         if (jsonContent == null) {
             return new EvaluationQuestionnaireContent();
         }
-        return JSONUtil.toBean(jsonContent, EvaluationQuestionnaireContent.class);
+        return JSON.parseObject(jsonContent, EvaluationQuestionnaireContent.class);
     }
 
     private Integer getQuestInListIndex(BaseQuestion<? extends BaseItem> baseQuestion) {
@@ -118,16 +127,16 @@ public class EvaluationQuestionnaireContent {
     }
 
 
-    private void setId(BaseQuestion<? extends BaseItem> baseQuestion) {
-        setQuestionId(baseQuestion);
-        setItemId(baseQuestion);
+    private void addId(BaseQuestion<? extends BaseItem> baseQuestion) {
+        addQuestionId(baseQuestion);
+        addItemId(baseQuestion);
     }
 
-    private void setQuestionId(BaseQuestion baseQuestion) {
+    private void addQuestionId(BaseQuestion baseQuestion) {
         baseQuestion.setId(IdUtil.simpleUUID());
     }
 
-    public void setItemId(BaseQuestion<? extends BaseItem> baseQuestion) {
+    public void addItemId(BaseQuestion<? extends BaseItem> baseQuestion) {
         List<? extends BaseItem> items = baseQuestion.getItems();
         if (items != null) {
             items.sort((Comparator<BaseItem>) (o1, o2) -> {

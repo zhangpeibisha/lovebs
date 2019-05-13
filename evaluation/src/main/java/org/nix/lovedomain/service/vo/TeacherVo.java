@@ -46,7 +46,7 @@ public class TeacherVo {
      * @return json对象
      */
     public JSONObject getWorkJson() {
-        if (workJson == null){
+        if (workJson == null || "".equals(workJson)){
             return null;
         }
         return JSONUtil.parseObj(workJson);

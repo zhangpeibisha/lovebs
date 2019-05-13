@@ -7,7 +7,6 @@ import org.nix.lovedomain.component.email.EmailTemplate;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
-import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.mapper.AccountMapper;
 import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
 import org.nix.lovedomain.dao.mapper.TeacherMapper;
@@ -76,21 +75,8 @@ public class PublishQuestionScheduledTask {
      *
      * @param publishquestionnaire
      */
-    public void runRecoverTask(Publishquestionnaire publishquestionnaire) throws Exception {
-        PublishAttachInfo publishAttachInfo = PublishAttachInfo.getBean(publishquestionnaire);
-        //统计分数，收集意见
-        publishAttachInfo.statistical();
-        publishquestionnaire.setStatistics(JSONUtil.toJsonStr(publishAttachInfo));
-        //持久化统计结果
-        publishquestionnaireService.update(publishquestionnaire);
-        // 改变老师的任务
-         teacherService.questionnareFinish(publishquestionnaire);
-        //修改学生的任务
-        studentService.questionnareFinish(publishquestionnaire);
-        // 分数统计，维度包括班级、学院、专业
-        publishquestionnaireService.statistics(publishquestionnaire);
-       //发送邮件提示任务结束
-        emailService.sendFinishQuestionNotice(publishquestionnaire);
+    public void runRecoverTask(Publishquestionnaire publishquestionnaire) {
+
     }
 
 

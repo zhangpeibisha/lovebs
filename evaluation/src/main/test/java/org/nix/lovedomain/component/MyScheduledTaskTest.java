@@ -1,4 +1,3 @@
-
 //package org.nix.lovedomain.component;
 //
 //import org.junit.Test;
@@ -28,6 +27,9 @@
 //                = publishquestionnaireMapper.selectByPrimaryKey(5);
 //        scheduledTask.runDistributionTask(publishquestionnaire);
 //    }
+
+//}
+
 //}
 package org.nix.lovedomain.component;
 

@@ -7,10 +7,6 @@
     <result column="courseId" jdbcType="INTEGER" property="courseid" />
     <result column="publishQuestionnaireId" jdbcType="INTEGER" property="publishquestionnaireid" />
     <result column="fraction" jdbcType="INTEGER" property="fraction" />
-    <result column="avg" jdbcType="DOUBLE" property="avg" />
-    <result column="classId" jdbcType="INTEGER" property="classid" />
-    <result column="professionId" jdbcType="INTEGER" property="professionid" />
-    <result column="facultyId" jdbcType="INTEGER" property="facultyid" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Statisticsscore">
     <result column="attachJson" jdbcType="LONGVARCHAR" property="attachjson" />
@@ -74,8 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, teacherId, courseId, publishQuestionnaireId, fraction, avg, classId, professionId, 
-    facultyId
+    id, teacherId, courseId, publishQuestionnaireId, fraction,`avg`,classCoding,courseCoding,
+    professionCoding,facultyCoding
   </sql>
   <sql id="Blob_Column_List">
     attachJson
@@ -133,13 +129,9 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into statisticsScore (teacherId, courseId, publishQuestionnaireId, 
-      fraction, avg, classId, 
-      professionId, facultyId, attachJson
-      )
+      fraction, attachJson)
     values (#{teacherid,jdbcType=INTEGER}, #{courseid,jdbcType=INTEGER}, #{publishquestionnaireid,jdbcType=INTEGER}, 
-      #{fraction,jdbcType=INTEGER}, #{avg,jdbcType=DOUBLE}, #{classid,jdbcType=INTEGER}, 
-      #{professionid,jdbcType=INTEGER}, #{facultyid,jdbcType=INTEGER}, #{attachjson,jdbcType=LONGVARCHAR}
-      )
+      #{fraction,jdbcType=INTEGER}, #{attachjson,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Statisticsscore">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -159,20 +151,23 @@
       <if test="fraction != null">
         fraction,
       </if>
-      <if test="avg != null">
-        avg,
-      </if>
-      <if test="classid != null">
-        classId,
-      </if>
-      <if test="professionid != null">
-        professionId,
-      </if>
-      <if test="facultyid != null">
-        facultyId,
-      </if>
       <if test="attachjson != null">
         attachJson,
+      </if>
+      <if test="classCoding != null">
+        classCoding,
+      </if>
+      <if test="courseCoding != null">
+        courseCoding,
+      </if>
+      <if test="professionCoding != null">
+        professionCoding,
+      </if>
+      <if test="facultyCoding != null">
+        facultyCoding,
+      </if>
+      <if test="avg != null">
+        avg,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -188,20 +183,23 @@
       <if test="fraction != null">
         #{fraction,jdbcType=INTEGER},
       </if>
-      <if test="avg != null">
-        #{avg,jdbcType=DOUBLE},
-      </if>
-      <if test="classid != null">
-        #{classid,jdbcType=INTEGER},
-      </if>
-      <if test="professionid != null">
-        #{professionid,jdbcType=INTEGER},
-      </if>
-      <if test="facultyid != null">
-        #{facultyid,jdbcType=INTEGER},
-      </if>
       <if test="attachjson != null">
         #{attachjson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="classCoding != null">
+        #{classCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCoding != null">
+        #{courseCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="professionCoding != null">
+        #{professionCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="facultyCoding != null">
+        #{facultyCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="avg != null">
+        #{avg,jdbcType=DOUBLE}
       </if>
     </trim>
   </insert>
@@ -229,20 +227,23 @@
       <if test="record.fraction != null">
         fraction = #{record.fraction,jdbcType=INTEGER},
       </if>
-      <if test="record.avg != null">
-        avg = #{record.avg,jdbcType=DOUBLE},
-      </if>
-      <if test="record.classid != null">
-        classId = #{record.classid,jdbcType=INTEGER},
-      </if>
-      <if test="record.professionid != null">
-        professionId = #{record.professionid,jdbcType=INTEGER},
-      </if>
-      <if test="record.facultyid != null">
-        facultyId = #{record.facultyid,jdbcType=INTEGER},
-      </if>
       <if test="record.attachjson != null">
         attachJson = #{record.attachjson,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.classCoding != null">
+        classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseCoding != null">
+        courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionCoding != null">
+        professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.facultyCoding != null">
+        facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avg != null">
+        `avg` = #{record.avg,jdbcType=DOUBLE}
       </if>
     </set>
     <if test="_parameter != null">
@@ -256,11 +257,12 @@
       courseId = #{record.courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{record.publishquestionnaireid,jdbcType=INTEGER},
       fraction = #{record.fraction,jdbcType=INTEGER},
-      avg = #{record.avg,jdbcType=DOUBLE},
-      classId = #{record.classid,jdbcType=INTEGER},
-      professionId = #{record.professionid,jdbcType=INTEGER},
-      facultyId = #{record.facultyid,jdbcType=INTEGER},
       attachJson = #{record.attachjson,jdbcType=LONGVARCHAR}
+      classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      `avg` = #{record.avg,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -272,10 +274,11 @@
       courseId = #{record.courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{record.publishquestionnaireid,jdbcType=INTEGER},
       fraction = #{record.fraction,jdbcType=INTEGER},
-      avg = #{record.avg,jdbcType=DOUBLE},
-      classId = #{record.classid,jdbcType=INTEGER},
-      professionId = #{record.professionid,jdbcType=INTEGER},
-      facultyId = #{record.facultyid,jdbcType=INTEGER}
+    classCoding = #{record.classCoding,jdbcType=VARCHAR},
+    courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+    professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+    facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+    `avg` = #{record.avg,jdbcType=DOUBLE}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -295,18 +298,6 @@
       <if test="fraction != null">
         fraction = #{fraction,jdbcType=INTEGER},
       </if>
-      <if test="avg != null">
-        avg = #{avg,jdbcType=DOUBLE},
-      </if>
-      <if test="classid != null">
-        classId = #{classid,jdbcType=INTEGER},
-      </if>
-      <if test="professionid != null">
-        professionId = #{professionid,jdbcType=INTEGER},
-      </if>
-      <if test="facultyid != null">
-        facultyId = #{facultyid,jdbcType=INTEGER},
-      </if>
       <if test="attachjson != null">
         attachJson = #{attachjson,jdbcType=LONGVARCHAR},
       </if>
@@ -319,11 +310,12 @@
       courseId = #{courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{publishquestionnaireid,jdbcType=INTEGER},
       fraction = #{fraction,jdbcType=INTEGER},
-      avg = #{avg,jdbcType=DOUBLE},
-      classId = #{classid,jdbcType=INTEGER},
-      professionId = #{professionid,jdbcType=INTEGER},
-      facultyId = #{facultyid,jdbcType=INTEGER},
-      attachJson = #{attachjson,jdbcType=LONGVARCHAR}
+      attachJson = #{attachjson,jdbcType=LONGVARCHAR},
+        classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      `avg` = #{record.avg,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="org.nix.lovedomain.model.Statisticsscore">
@@ -332,27 +324,11 @@
       courseId = #{courseid,jdbcType=INTEGER},
       publishQuestionnaireId = #{publishquestionnaireid,jdbcType=INTEGER},
       fraction = #{fraction,jdbcType=INTEGER},
-      avg = #{avg,jdbcType=DOUBLE},
-      classId = #{classid,jdbcType=INTEGER},
-      professionId = #{professionid,jdbcType=INTEGER},
-      facultyId = #{facultyid,jdbcType=INTEGER}
+        classCoding = #{record.classCoding,jdbcType=VARCHAR},
+      courseCoding = #{record.courseCoding,jdbcType=VARCHAR},
+      professionCoding = #{record.professionCoding,jdbcType=VARCHAR},
+      facultyCoding =  #{record.facultyCoding,jdbcType=VARCHAR},
+      `avg` = #{record.avg,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
-  <!--批量更新-->
-  <insert id="inserts" parameterType="java.util.List">
-    insert into  statisticsScore
-    (teacherId,courseId,publishQuestionnaireId,attachJson,fraction,`avg`,classId,professionId,facultyId)
-    <foreach collection="list" item="item" index="index" separator=",">
-      (#{item.teacherId,jdbcType=INTEGER},
-      #{item.courseId,jdbcType=INTEGER},
-      #{item.publishQuestionnaireId,jdbcType=VARCHER},
-      #{item.attachJson,jdbcType=VARCHER},
-      #{item.fraction,jdbcType=INTEGER},
-      #{item.avg,jdbcType=DOUBLE},
-      #{item.classId,jdbcType=INTEGER},
-      #{item.professionId,jdbcType=INTEGER},
-      #{item.facultyId,jdbcType=INTEGER})
-    </foreach>
-  </insert>
 </mapper>
