@@ -51,6 +51,8 @@ public class EmailService {
 
     public void sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire) {
 
+    }
+
     public void  sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire,int type) {
 
         Integer releaseid = publishquestionnaire.getReleaseid();
