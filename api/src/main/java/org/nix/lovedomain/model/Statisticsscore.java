@@ -3,6 +3,7 @@ package org.nix.lovedomain.model;
 import java.io.Serializable;
 
 public class Statisticsscore implements Serializable {
+
     private Integer id;
 
     /**
@@ -65,53 +66,22 @@ public class Statisticsscore implements Serializable {
      */
     private double avg;
 
+    /**
+     * 专业信息
+     */
+    private Profession profession;
 
 
+    /**
+     * 学院信息
+     */
+    private Faculty faculty;
 
     private static final long serialVersionUID = 1L;
 
-    public double getAvg() {
-        return avg;
-    }
-
-    public void setAvg(double avg) {
-        this.avg = avg;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public String getClassCoding() {
-        return classCoding;
-    }
-
-    public void setClassCoding(String classCoding) {
-        this.classCoding = classCoding;
-    }
-
-    public String getCourseCoding() {
-        return courseCoding;
-    }
-
-    public void setCourseCoding(String courseCoding) {
-        this.courseCoding = courseCoding;
-    }
-
-    public String getProfessionCoding() {
-        return professionCoding;
-    }
-
-    public void setProfessionCoding(String professionCoding) {
-        this.professionCoding = professionCoding;
-    }
-
-    public String getFacultyCoding() {
-        return facultyCoding;
-    }
-
-    public void setFacultyCoding(String facultyCoding) {
-        this.facultyCoding = facultyCoding;
+    public Statisticsscore() {
+        faculty = new Faculty();
+        profession = new Profession();
     }
 
     public Integer getId() {
@@ -162,25 +132,78 @@ public class Statisticsscore implements Serializable {
         this.attachjson = attachjson;
     }
 
+    public String getClassCoding() {
+        return classCoding;
+    }
+
+    public void setClassCoding(String classCoding) {
+        this.classCoding = classCoding;
+    }
+
+    public String getCourseCoding() {
+        return courseCoding;
+    }
+
+    public void setCourseCoding(String courseCoding) {
+        this.courseCoding = courseCoding;
+    }
+
+    public String getProfessionCoding() {
+        return professionCoding;
+    }
+
+    public void setProfessionCoding(String professionCoding) {
+        this.professionCoding = professionCoding;
+    }
+
+    public String getFacultyCoding() {
+        return facultyCoding;
+    }
+
+    public void setFacultyCoding(String facultyCoding) {
+        this.facultyCoding = facultyCoding;
+    }
+
+    public double getAvg() {
+        return avg;
+    }
+
+    public void setAvg(double avg) {
+        this.avg = avg;
+    }
+
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", teacherid=").append(teacherid);
-        sb.append(", courseid=").append(courseid);
-        sb.append(", publishquestionnaireid=").append(publishquestionnaireid);
-        sb.append(", fraction=").append(fraction);
-        sb.append(", attachjson=").append(attachjson);
-        sb.append(", classCoding=").append(classCoding);
-        sb.append(", courseCoding=").append(courseCoding);
-        sb.append(", professionCoding=").append(professionCoding);
-        sb.append(", facultyCoding=").append(facultyCoding);
-        sb.append(", avg=").append(avg);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return "Statisticsscore{" +
+                "id=" + id +
+                ", teacherid=" + teacherid +
+                ", courseid=" + courseid +
+                ", publishquestionnaireid=" + publishquestionnaireid +
+                ", fraction=" + fraction +
+                ", attachjson='" + attachjson + '\'' +
+                ", classCoding='" + classCoding + '\'' +
+                ", courseCoding='" + courseCoding + '\'' +
+                ", professionCoding='" + professionCoding + '\'' +
+                ", facultyCoding='" + facultyCoding + '\'' +
+                ", avg=" + avg +
+                ", profession=" + profession +
+                ", faculty=" + faculty +
+                '}';
     }
 }

@@ -15,6 +15,10 @@
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Publishquestionnaire">
     <result column="statistics" jdbcType="LONGVARCHAR" property="statistics" />
   </resultMap>
+
+  <resultMap id="statisticsResultMap" type="org.nix.lovedomain.model.Statisticsscore">
+
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -388,4 +392,60 @@
       #{id}
     </foreach>
   </delete>
+
+  <!--根据专业id获取整个专业所有问卷的统计-->
+  <select id="professionScore"  resultType="org.nix.lovedomain.model.Statisticsscore">
+      SELECT
+         miniTable.professionId,
+           miniTable.statistics,
+         profession.coding,
+         profession.`name`
+       FROM
+      (SELECT
+          teacher.professionId,
+          publishQuestionnaire.statistics
+      FROM
+          publishQuestionnaire,
+          teacher
+      WHERE
+          publishQuestionnaire.teacherId = teacher.accountId
+      AND teacher.professionId = {professionId,jdbcType=INTEGER}) as miniTable
+       LEFT JOIN profession ON profession.id = miniTable.professionId
+  </select>
+
+  <!--专业维度统计-->
+  <select id="professionScoreStatistics"  resultType="org.nix.lovedomain.model.StatisticsScoreExtra">
+      SELECT
+         miniTable.professionId as id,
+           miniTable.statistics,
+         profession.coding,
+         profession.`name`
+       FROM
+      (SELECT
+          teacher.professionId,
+          publishQuestionnaire.statistics
+      FROM
+          publishQuestionnaire,
+          teacher
+      WHERE
+          publishQuestionnaire.teacherId = teacher.accountId
+      AND teacher.professionId = #{professionId,jdbcType=INTEGER}) as miniTable
+       LEFT JOIN profession ON profession.id = miniTable.professionId
+  </select>
+
+  <!--学院维度统计-->
+  <select id="factoryScoreStatistics"  resultType="org.nix.lovedomain.model.StatisticsScoreExtra">
+        SELECT
+         faculty.id,
+        faculty.coding,
+        faculty.`name`,
+        publishQuestionnaire.statistics
+    FROM
+        publishQuestionnaire
+    LEFT JOIN teacher ON publishQuestionnaire.teacherId = teacher.accountId
+    LEFT JOIN profession ON profession.id = teacher.professionId
+    LEFT JOIN faculty ON faculty.id = profession.facultyId
+    WHERE
+        faculty.id = #{factoryId,jdbcType=INTEGER}
+  </select>
 </mapper>

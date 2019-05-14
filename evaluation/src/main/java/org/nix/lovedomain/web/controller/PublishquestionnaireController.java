@@ -252,6 +252,32 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
                 publishquestionnaireService.getQuestionStatisticalScore(publishId));
     }
 
+    /**
+     * 查看发布问卷的评分
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/profession/score")
+    public RespondsMessage professionScore(@RequestParam(value = "id") Integer id){
+        return RespondsMessage.success("获取统计结果完成",
+                publishquestionnaireService.professionScoreStatistics(id));
+    }
+
+    /**
+     * 查看发布问卷的评分
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/factory/score")
+    public RespondsMessage factoryScore(@RequestParam(value = "id") Integer id){
+        return RespondsMessage.success("获取统计结果完成",
+                publishquestionnaireService.factoryScoreStatistics(id));
+    }
+
+
+
+
+
 
 
 

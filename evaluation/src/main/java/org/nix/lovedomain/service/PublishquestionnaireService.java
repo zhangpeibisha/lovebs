@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.sun.org.glassfish.external.statistics.Statistic;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
@@ -25,7 +26,6 @@ import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.*;
@@ -625,5 +625,83 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaireServiceById);
         return bean.statisticalAnswer();
     }
+
+
+    /**
+     * 根据专业id获取专业为维度的问卷统计
+     * @param professionId
+     * @return
+     */
+    public Statisticsscore professionScoreStatistics(Integer professionId){
+        // 获取该专业下所有问卷统计结果
+        List<StatisticsScoreExtra> statistics = publishquestionnaireMapper.professionScoreStatistics(professionId);
+        Statisticsscore statisticsscore = null;
+        if(statistics != null && statistics.size() != 0){
+            statisticsscore = new Statisticsscore();
+            statisticsscore.getProfession().setId(statistics.get(0).getId());
+            statisticsscore.getProfession().setCoding(statistics.get(0).getCoding());
+            statisticsscore.getProfession().setName(statistics.get(0).getName());
+            statisticsscore.setAvg(averageScore(statistics));
+            statisticsscore.setFraction(totalScore(statistics));
+        }
+
+        return  statisticsscore;
+
+    }
+
+    /**
+     * 按学院维度进行统计
+     * @param factoryId
+     * @return
+     */
+    public Statisticsscore factoryScoreStatistics(Integer factoryId){
+        List<StatisticsScoreExtra> statisticList = publishquestionnaireMapper.factoryScoreStatistics(factoryId);
+        Statisticsscore statisticsscore = null;
+        if(statisticList != null && statisticList.size() != 0){
+            statisticsscore = new Statisticsscore();
+            statisticsscore.getFaculty().setId(statisticList.get(0).getId());
+            statisticsscore.getFaculty().setCoding(statisticList.get(0).getCoding());
+            statisticsscore.getFaculty().setName(statisticList.get(0).getName());
+            statisticsscore.setAvg(averageScore(statisticList));
+            statisticsscore.setFraction(totalScore(statisticList));
+        }
+
+        return statisticsscore;
+    }
+
+    /**
+     * 求问卷集合的平均值
+     * @return
+     */
+    private double  averageScore(List<StatisticsScoreExtra> statistics){
+        int size  = statistics.size();
+        int total = 0;
+        for (StatisticsScoreExtra statisticsScoreExtra:
+             statistics) {
+            PublishAttachInfo publishAttachInfo = JSONUtil.toBean(statisticsScoreExtra.getStatistics(), PublishAttachInfo.class);
+            if(publishAttachInfo.getScore() != null && publishAttachInfo.getScore() != 0){
+                total += publishAttachInfo.getScore();
+            }
+        }
+        return  total/size;
+    }
+
+    /**
+     * 求问卷集合的和
+     * @return
+     */
+    private Integer totalScore(List<StatisticsScoreExtra> statistics){
+        int total = 0;
+        for (StatisticsScoreExtra statisticsScoreExtra:
+                statistics) {
+            PublishAttachInfo publishAttachInfo = JSONUtil.toBean(statisticsScoreExtra.getStatistics(), PublishAttachInfo.class);
+            if(publishAttachInfo.getScore() != null && publishAttachInfo.getScore() != 0){
+                total += publishAttachInfo.getScore();
+            }
+        }
+        return total;
+    }
+
+
 
 }

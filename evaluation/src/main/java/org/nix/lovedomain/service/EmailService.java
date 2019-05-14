@@ -48,11 +48,7 @@ public class EmailService {
     /**
      * 发送给发布问卷的老师信息,提醒老师问卷已经开始答卷了
      */
-
     public void sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire) {
-
-    public void  sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire,int type) {
-
         Integer releaseid = publishquestionnaire.getReleaseid();
         Teacher teacher = teacherMapper.selectByAccountId(releaseid);
         Integer questionnaireid = publishquestionnaire.getQuestionnaireid();
@@ -82,7 +78,7 @@ public class EmailService {
      *
      * @param publishquestionnaire
      */
-    public void sendReminderTeacher(Publishquestionnaire publishquestionnaire) {
+    public void sendReminderTeacher(Publishquestionnaire publishquestionnaire){
         Integer teacherid = publishquestionnaire.getTeacherid();
         Teacher teacher = teacherMapper.selectByAccountId(teacherid);
         Integer courseid = publishquestionnaire.getCourseid();
@@ -144,7 +140,7 @@ public class EmailService {
      * @param courseId  课程id
      * @return
      */
-    private List<Student> getStudentByCourse(Integer teacherId, Integer courseId) {
+    private List<Student> getStudentByCourse(Integer teacherId, Integer courseId)  {
         return studentService.getStudentByCourse(teacherId, courseId);
     }
 
