@@ -16,7 +16,6 @@ public interface PublishquestionnaireMapper {
 
     int insertSelective(Publishquestionnaire record);
 
-    List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
 
     Publishquestionnaire selectByPrimaryKey(Integer id);
 
@@ -25,6 +24,10 @@ public interface PublishquestionnaireMapper {
     int updateByExample(@Param("record") Publishquestionnaire record, @Param("example") PublishquestionnaireExample example);
 
     int updateByPrimaryKeySelective(Publishquestionnaire record);
+
+    List<Publishquestionnaire> getAllDataByLimit(@Param("dateStr") String dateStr);
+
+    List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
 
     int updateByPrimaryKey(Publishquestionnaire record);
 }

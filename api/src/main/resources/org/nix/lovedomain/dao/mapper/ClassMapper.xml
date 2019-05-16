@@ -193,4 +193,42 @@
       professionId = #{professionid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectAllclasIds" parameterType="org.nix.lovedomain.model.Class">
+    select id,clasId
+    from
+    `class`
+  </select>
+
+  <!--供通用接口使用-->
+  <!--根据条件查找数据条数-->
+  <select id="queryAmount" resultType="long" >
+    SELECT
+    count(*)
+    FROM
+    `class`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+  </select>
+
+  <!--根据条件查找数据-->
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    `class`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+    <if test="limit != -1 and limit != -1">
+      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <delete id="deletes" parameterType="Integer[]">
+    delete from `class` where id in
+    <foreach collection="ids" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>

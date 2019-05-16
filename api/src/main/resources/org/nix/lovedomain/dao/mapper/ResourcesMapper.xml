@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, url, `name`, description, `use`, permissionAll, method
+    id, url, name, description, use, permissionAll, method
   </sql>
   <select id="selectByExample" parameterType="org.nix.lovedomain.model.ResourcesExample" resultMap="BaseResultMap">
     select

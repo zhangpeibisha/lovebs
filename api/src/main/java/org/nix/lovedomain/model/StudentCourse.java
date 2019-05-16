@@ -13,7 +13,7 @@ public class StudentCourse implements Serializable {
     private Integer studentid;
 
     /**
-     * 课程id
+     * 课程id，对应着老师——课程id这个表的id
      *
      * @mbggenerated
      */

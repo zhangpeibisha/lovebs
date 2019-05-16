@@ -123,7 +123,7 @@
         SELECT
         *
         FROM
-        `student`
+        student
         LEFT JOIN class ON student.classId = class.id
         LEFT JOIN profession ON class.professionId = profession.id
         LEFT JOIN faculty ON profession.facultyId = faculty.id
@@ -142,4 +142,44 @@
             LIMIT #{pageInquire.startPoint},#{pageInquire.limit}
         </if>
     </select>
+
+
+    <select id="findStudentByTeacherIdAndCourseId" resultMap="studentVoMap">
+
+      SELECT
+        s.id,
+        s.studentId,
+        s.`name`,
+        s.email,
+        s.phone,
+        s.imageUrl
+        FROM
+            student AS s
+        LEFT JOIN student_course AS sc ON s.id = sc.studentId
+        LEFT JOIN teacher_course AS tc ON tc.id = sc.courseId
+        LEFT JOIN teacher AS t ON tc.teacherId = t.accountId
+        WHERE tc.id = (SELECT id FROM teacher_course  WHERE teacher_course.courseId =  #{courseId}
+        AND teacher_course.teacherId=#{teacherAccountId} 	ORDER BY
+			teacher_course.createTime DESC
+		LIMIT 1)
+
+    </select>
+
+    <select id="findStudentBySql" resultMap="studentVoMap">
+        SELECT * FROM `student` WHERE 1=1
+         <if test="sql!=null">
+             ${sql}
+         </if>
+        <if test="page!=null and limit!=null">
+            LIMIT #{page},#{limit};
+        </if>
+    </select>
+
+    <select id="countStudentBySql" resultType="java.lang.Long">
+        SELECT count(*) FROM `student` WHERE 1=1
+        <if test="sql!=null">
+            ${sql}
+        </if>
+    </select>
+
 </mapper>

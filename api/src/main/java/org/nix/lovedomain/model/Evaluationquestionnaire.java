@@ -1,5 +1,9 @@
 package org.nix.lovedomain.model;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,11 +29,11 @@ public class Evaluationquestionnaire implements Serializable {
     private Date updatetime;
 
     /**
-     * 作者id-也就是teacher表中的老师id
+     * 作者id-也就是teacher表中的老师id(可能老师的账号、手机或者邮箱)
      *
      * @mbggenerated
      */
-    private Integer authorid;
+    private String authorid;
 
     /**
      * 评教内容信息，里面包含了评教内容的所有信息
@@ -37,6 +41,14 @@ public class Evaluationquestionnaire implements Serializable {
      * @mbggenerated
      */
     private String content;
+
+
+    public JSONObject getContentJson() {
+        if (content == null || "".equals(content)) {
+            return new JSONObject();
+        }
+        return JSON.parseObject(content);
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -80,11 +92,11 @@ public class Evaluationquestionnaire implements Serializable {
         this.updatetime = updatetime;
     }
 
-    public Integer getAuthorid() {
+    public String getAuthorid() {
         return authorid;
     }
 
-    public void setAuthorid(Integer authorid) {
+    public void setAuthorid(String authorid) {
         this.authorid = authorid;
     }
 

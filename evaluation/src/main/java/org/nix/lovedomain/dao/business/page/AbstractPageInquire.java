@@ -14,32 +14,32 @@ public abstract class AbstractPageInquire {
     /**
      * 查询页面
      */
-    private Integer page;
+    protected Integer page;
     /**
      * 页面大小
      */
-    private Integer limit;
+    protected Integer limit;
     /**
      * 查询的字段值
      */
-    private String quireField;
+    protected String quireField;
     /**
      * 是否是模糊查询
      */
-    private boolean blurry;
+    protected boolean blurry;
     /**
      * 查询的值
      */
-    private Object quireValue;
+    protected Object quireValue;
 
     /**
      * 具体的开始指针
      */
-    private Integer startPoint;
+    protected Integer startPoint;
     /**
      * 结束指针
      */
-    private Integer endPoint;
+    protected Integer endPoint;
 
     /**
      * 定义查询字段，需要在该字段校验是否含有字段值
@@ -47,8 +47,8 @@ public abstract class AbstractPageInquire {
      * @param quireField 需要查询的字段
      */
     public void setQuireField(String quireField) {
-        checkField(quireField);
         this.quireField = quireField;
+        checkField(quireField);
     }
 
     /**

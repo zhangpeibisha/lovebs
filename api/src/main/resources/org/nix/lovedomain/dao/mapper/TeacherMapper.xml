@@ -6,6 +6,8 @@
     <result column="jobNumber" jdbcType="VARCHAR" property="jobnumber" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="accountId" jdbcType="INTEGER" property="accountid" />
+    <result column="email" jdbcType="INTEGER" property="email" />
+    <result column="phone" jdbcType="INTEGER" property="phone"/>
     <result column="imagerUrl" jdbcType="VARCHAR" property="imagerurl" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Teacher">
@@ -70,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, jobNumber, name, accountId, imagerUrl
+    id, jobNumber, `name`, accountId, imagerUrl,email,phone,workJson
   </sql>
   <sql id="Blob_Column_List">
     workJson
@@ -147,6 +149,12 @@
       <if test="accountid != null">
         accountId,
       </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
       <if test="imagerurl != null">
         imagerUrl,
       </if>
@@ -156,19 +164,25 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="jobnumber != null">
-        #{jobnumber,jdbcType=VARCHAR},
+        #{jobnumber},
       </if>
       <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+        #{name},
       </if>
       <if test="accountid != null">
-        #{accountid,jdbcType=INTEGER},
+        #{accountid},
+      </if>
+      <if test="email != null">
+        #{email},
+      </if>
+      <if test="phone != null">
+        #{phone},
       </if>
       <if test="imagerurl != null">
-        #{imagerurl,jdbcType=VARCHAR},
+        #{imagerurl},
       </if>
       <if test="workjson != null">
-        #{workjson,jdbcType=LONGVARCHAR},
+        #{workjson},
       </if>
     </trim>
   </insert>
@@ -239,6 +253,12 @@
       <if test="accountid != null">
         accountId = #{accountid,jdbcType=INTEGER},
       </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
       <if test="imagerurl != null">
         imagerUrl = #{imagerurl,jdbcType=VARCHAR},
       </if>
@@ -265,4 +285,46 @@
       imagerUrl = #{imagerurl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--供通用接口使用-->
+  <!--根据条件查找数据条数-->
+  <select id="queryAmount" resultType="long" >
+    SELECT
+    count(*)
+    FROM
+    `teacher`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+  </select>
+
+  <!--根据条件查找数据-->
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    `teacher`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+    <if test="limit != -1 and limit != -1">
+      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <delete id="deletes" parameterType="Integer[]">
+    delete from `teacher` where id in
+    <foreach collection="ids" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </delete>
+
+  <select id="selectByAccountId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from teacher
+    where accountId = #{id,jdbcType=INTEGER}
+  </select>
 </mapper>

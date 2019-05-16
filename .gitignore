@@ -1,32 +1,44 @@
 ##ignore this file##
-/target/ 
+/target/
 
 .classpath
 .project
-.settings      
- ##filter databfile¡¢sln file##
-*.mdb  
-*.ldb  
-*.sln    
+.settings
+.idea/
+*.iml
+ ##filter databfileï¿½ï¿½sln file##
+*.mdb
+*.ldb
+*.sln
 ##class file##
-*.com  
-*.class  
-*.dll  
-*.exe  
-*.o  
-*.so  
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 # compression file
-*.7z  
-*.dmg  
-*.gz  
-*.iso  
-*.jar  
-*.rar  
-*.tar  
-*.zip  
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 *.via
 *.tmp
-*.err 
+*.err
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.iml
 # OS generated files #  
 .DS_Store  
 .DS_Store?  
@@ -36,3 +48,20 @@
 Icon?  
 ehthumbs.db  
 Thumbs.db
+api/target/classes/org/nix/lovedomain/model/
+api/target/generated-sources/
+evaluation/target/classes/org/nix/lovedomain/component/
+evaluation/target/classes/org/nix/lovedomain/config/
+evaluation/target/classes/org/nix/lovedomain/dao/business/json/
+evaluation/target/classes/org/nix/lovedomain/dao/business/page/
+evaluation/target/classes/org/nix/lovedomain/dao/mapper/
+evaluation/target/classes/org/nix/lovedomain/security/
+evaluation/target/classes/org/nix/lovedomain/service/
+evaluation/target/classes/org/nix/lovedomain/utils/
+evaluation/target/classes/org/nix/lovedomain/web/
+evaluation/target/generated-sources/
+evaluation/target/generated-test-sources/
+evaluation/target/test-classes/
+lovesecurity/love-security-app/target/
+lovesecurity/love-security-browser/target/
+lovesecurity/love-security-core/target/

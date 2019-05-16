@@ -7,7 +7,7 @@
     <result column="descritption" jdbcType="VARCHAR" property="descritption" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="authorId" jdbcType="INTEGER" property="authorid" />
+    <result column="authorId" jdbcType="VARCHAR" property="authorid" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Evaluationquestionnaire">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -132,7 +132,7 @@
       updateTime, authorId, content
       )
     values (#{title,jdbcType=VARCHAR}, #{descritption,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{updatetime,jdbcType=TIMESTAMP}, #{authorid,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      #{updatetime,jdbcType=TIMESTAMP}, #{authorid,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="org.nix.lovedomain.model.Evaluationquestionnaire">
@@ -174,7 +174,7 @@
         #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="authorid != null">
-        #{authorid,jdbcType=INTEGER},
+        #{authorid,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
@@ -206,7 +206,7 @@
         updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.authorid != null">
-        authorId = #{record.authorid,jdbcType=INTEGER},
+        authorId = #{record.authorid,jdbcType=VARCHAR},
       </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=LONGVARCHAR},
@@ -223,7 +223,7 @@
       descritption = #{record.descritption,jdbcType=VARCHAR},
       createTime = #{record.createtime,jdbcType=TIMESTAMP},
       updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
-      authorId = #{record.authorid,jdbcType=INTEGER},
+      authorId = #{record.authorid,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -236,7 +236,7 @@
       descritption = #{record.descritption,jdbcType=VARCHAR},
       createTime = #{record.createtime,jdbcType=TIMESTAMP},
       updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
-      authorId = #{record.authorid,jdbcType=INTEGER}
+      authorId = #{record.authorid,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -257,7 +257,7 @@
         updateTime = #{updatetime,jdbcType=TIMESTAMP},
       </if>
       <if test="authorid != null">
-        authorId = #{authorid,jdbcType=INTEGER},
+        authorId = #{authorid,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
@@ -271,7 +271,7 @@
       descritption = #{descritption,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
       updateTime = #{updatetime,jdbcType=TIMESTAMP},
-      authorId = #{authorid,jdbcType=INTEGER},
+      authorId = #{authorid,jdbcType=VARCHAR},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -281,7 +281,40 @@
       descritption = #{descritption,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
       updateTime = #{updatetime,jdbcType=TIMESTAMP},
-      authorId = #{authorid,jdbcType=INTEGER}
+      authorId = #{authorid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--供通用接口使用-->
+  <!--根据条件查找数据条数-->
+  <select id="queryAmount" resultType="long" >
+    SELECT
+    count(*)
+    FROM
+    `evaluationQuestionnaire`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+  </select>
+
+  <!--根据条件查找数据-->
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    `evaluationQuestionnaire`
+    <if test="conditions != null">
+      where ${conditions}
+    </if>
+    <if test="limit != -1 and limit != -1">
+      limit #{offset,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <delete id="deletes" parameterType="Integer[]">
+    delete from `evaluationQuestionnaire` where id in
+    <foreach collection="ids" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>

@@ -4,15 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.nix.lovedomain</groupId>
+    <parent>
+        <groupId>org.nix.lovedomain</groupId>
+        <artifactId>love-all</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <artifactId>love-security</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <modules>
         <module>love-security-core</module>
         <module>love-security-browser</module>
         <module>love-security-app</module>
-        <module>love-security-authorize</module>
-        <module>love-security-rbac</module>
     </modules>
     <packaging>pom</packaging>
 
