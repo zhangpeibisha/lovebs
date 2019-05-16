@@ -65,7 +65,7 @@ public class PublishQuestionScheduledTask {
         studentService.addPublishQuestionTask(publishquestionnaire);
 
         // 最后发送邮件提醒
-        emailService.sendPublishQuestionNotice(publishquestionnaire);
+        emailService.sendPublishQuestionNotice(publishquestionnaire,1);
     }
 
 
@@ -76,7 +76,8 @@ public class PublishQuestionScheduledTask {
      * @param publishquestionnaire
      */
     public void runRecoverTask(Publishquestionnaire publishquestionnaire) {
-
+        // 最后发送邮件提醒
+        emailService.sendPublishQuestionNotice(publishquestionnaire,2);
     }
 
 
