@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper">
 
-
+    <select id="findTeacherCourseInCurrSemester" resultType="org.nix.lovedomain.dao.model.TeacherCourseModel">
+        SELECT
+        *
+        FROM
+        `teacher_course`
+        WHERE
+        createTime &gt;= #{startTime}
+        AND createTime &lt;=  #{endTime}
+        <if test="courseId!=null and courseId.size()>0">
+            AND courseId  IN
+            <foreach collection="courseId" separator="," open="(" close=")" item="item">
+              #{item}
+          </foreach>
+        </if>
+        <if test="courseId == null">
+            AND courseId = -1
+        </if>
+    </select>
 
 </mapper>
