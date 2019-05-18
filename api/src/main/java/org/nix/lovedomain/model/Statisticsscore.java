@@ -1,6 +1,9 @@
 package org.nix.lovedomain.model;
 
+import com.alibaba.fastjson.JSON;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class Statisticsscore implements Serializable {
 
@@ -37,9 +40,13 @@ public class Statisticsscore implements Serializable {
     /**
      * 统计的一些附加信息
      *
+     * 存储意见
+     *
      * @mbggenerated
      */
     private String attachjson;
+
+    private List<String> advices;
 
     /**
      * 班级编号
@@ -205,5 +212,27 @@ public class Statisticsscore implements Serializable {
                 ", profession=" + profession +
                 ", faculty=" + faculty +
                 '}';
+    }
+
+    public List<String> getAdvices() {
+        return advices;
+    }
+
+    public void setAdvices(List<String> advices) {
+        this.advices = advices;
+    }
+
+    /**
+     * 将<code>advices<code/>转化成<code>attachjson</code>
+     */
+    public void adviceListToStr(){
+        this.attachjson = JSON.toJSONString(this.attachjson);
+    }
+
+    /**
+     * 将<code>attachjson<code/>转化成<code>advices</code>
+     */
+    public void strToAdviceList(){
+        this.advices = JSON.parseArray(this.attachjson,String.class);
     }
 }

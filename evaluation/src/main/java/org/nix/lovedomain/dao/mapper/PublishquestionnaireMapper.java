@@ -5,7 +5,8 @@ import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.mapper.base.BaseMapper;
 import org.nix.lovedomain.model.Publishquestionnaire;
 import org.nix.lovedomain.model.PublishquestionnaireExample;
-import org.nix.lovedomain.model.StatisticsScoreExtra;
+import org.nix.lovedomain.model.Statisticsscore;
+
 import java.util.List;
 
 @Mapper
@@ -15,7 +16,11 @@ public interface PublishquestionnaireMapper extends BaseMapper<Publishquestionna
 
     List<Publishquestionnaire> selectByExample(PublishquestionnaireExample example);
 
-    List<StatisticsScoreExtra> professionScoreStatistics(@Param("professionId") Integer professionId);
+    List<Statisticsscore> professionScoreStatistics(@Param("professionId") Integer professionId);
 
-    List<StatisticsScoreExtra> factoryScoreStatistics(@Param("factoryId") Integer factoryId);
+    List<Statisticsscore> factoryScoreStatistics(@Param("factoryId") Integer factoryId);
+
+    Integer professionAccount(@Param("professionId") Integer professionId);
+
+     Integer factoryAccount(@Param("factoryId") Integer factoryId);
 }

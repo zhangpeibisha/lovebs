@@ -4,10 +4,11 @@ import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
-import org.nix.lovedomain.model.Statisticsscore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Map;
 
 /**
  * @version 1.0
@@ -27,8 +28,18 @@ public class PublishquestionnaireServiceTest {
      */
     @Test
     public void testFactoryScoreStatistics(){
-        Statisticsscore statisticsscore = publishquestionnaireService.factoryScoreStatistics(17);
-        System.out.println(statisticsscore.toString());
+        Map<String,Object> map = publishquestionnaireService.factoryScoreStatistics(17);
+        switch ((Integer) map.get("status")){
+            case 1:
+                System.out.println("该专业未发布问卷");
+                break;
+            case 2:
+                System.out.println("问卷还未完全回收");
+                break;
+            case 3:
+                System.out.println("获取统计结果完成:"+map.get("data").toString());
+                break;
+        }
     }
 
     /**
@@ -36,7 +47,17 @@ public class PublishquestionnaireServiceTest {
      */
     @After
     public void testProfesssionScoreStatistics(){
-        Statisticsscore statisticsscore = publishquestionnaireService.professionScoreStatistics(11);
-        System.out.println(statisticsscore.toString());
+        Map<String,Object> map = publishquestionnaireService.professionScoreStatistics(17);
+        switch ((Integer) map.get("status")){
+            case 1:
+                System.out.println("该专业未发布问卷");
+                break;
+            case 2:
+                System.out.println("问卷还未完全回收");
+                break;
+            case 3:
+                System.out.println("获取统计结果完成:"+map.get("data").toString());
+                break;
+        }
     }
 }

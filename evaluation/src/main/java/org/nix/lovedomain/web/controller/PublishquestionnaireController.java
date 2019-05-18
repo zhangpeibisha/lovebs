@@ -13,6 +13,7 @@ import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
 import org.nix.lovedomain.dao.model.PublishquestionnaireModel;
 import org.nix.lovedomain.model.Evaluationquestionnaire;
 import org.nix.lovedomain.model.Publishquestionnaire;
+import org.nix.lovedomain.model.Statisticsscore;
 import org.nix.lovedomain.service.AccountService;
 import org.nix.lovedomain.service.PublishquestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @version 1.0
@@ -254,29 +256,45 @@ public class PublishquestionnaireController extends BaseController<Publishquesti
 
     /**
      * 查看发布问卷的评分
+     * 专业维度
      * @param id
      * @return
      */
     @GetMapping(value = "/profession/score")
     public RespondsMessage professionScore(@RequestParam(value = "id") Integer id){
-        return RespondsMessage.success("获取统计结果完成",
-                publishquestionnaireService.professionScoreStatistics(id));
+        Map<String,Object> map = publishquestionnaireService.professionScoreStatistics(id);
+        switch ((Integer) map.get("status")){
+            case 1:
+               return RespondsMessage.success("该专业未发布问卷",null);
+            case 2:
+               return   RespondsMessage.success("问卷还未完全回收",null);
+            case 3:
+               return RespondsMessage.success("获取统计结果完成",
+                        map.get("data"));
+        }
+        return  null;
     }
 
     /**
      * 查看发布问卷的评分
+     * 学院维度
      * @param id
      * @return
      */
     @GetMapping(value = "/factory/score")
     public RespondsMessage factoryScore(@RequestParam(value = "id") Integer id){
-        return RespondsMessage.success("获取统计结果完成",
-                publishquestionnaireService.factoryScoreStatistics(id));
+        Map<String,Object> map = publishquestionnaireService.professionScoreStatistics(id);
+        switch ((Integer) map.get("status")){
+            case 1:
+               return RespondsMessage.success("该专业未发布问卷",null);
+            case 2:
+               return RespondsMessage.success("问卷还未完全回收",null);
+            case 3:
+               return RespondsMessage.success("获取统计结果完成",
+                        map.get("data"));
+        }
+        return null;
     }
-
-
-
-
 
 
 

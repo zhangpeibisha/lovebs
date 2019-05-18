@@ -1,30 +1,12 @@
 package org.nix.lovedomain.component;
 
-import cn.hutool.json.JSONUtil;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.JavaType;
-import org.nix.lovedomain.component.email.EmailTemplate;
-import org.nix.lovedomain.dao.business.json.task.QnaireTask;
-import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
-import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
-import org.nix.lovedomain.dao.mapper.AccountMapper;
-import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
-import org.nix.lovedomain.dao.mapper.TeacherMapper;
-import org.nix.lovedomain.model.Account;
+
 import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.model.Student;
-import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -75,7 +57,14 @@ public class PublishQuestionScheduledTask {
      *
      * @param publishquestionnaire
      */
-    public void runRecoverTask(Publishquestionnaire publishquestionnaire) {
+    public void runRecoverTask(Publishquestionnaire publishquestionnaire) throws Exception {
+
+        // 取消老师的任务
+        teacherService.romveTask(publishquestionnaire);
+
+        // 取消学生的任务
+        studentService.removePublishQuestionTask(publishquestionnaire);
+
         // 最后发送邮件提醒
         emailService.sendPublishQuestionNotice(publishquestionnaire,2);
     }
