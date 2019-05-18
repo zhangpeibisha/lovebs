@@ -140,12 +140,12 @@ public class PublishAttachInfo {
         }
 
         if (completesQuestions == null) {
-            completesQuestions = new ArrayList<>();
+            return;
         }
 
         // 如果已经答卷则不允许答卷了
         for (CompletesQuestion question : completesQuestions) {
-                if (question.getStudentId().equals(completesQuestion.getStudentId())) {
+            if (question.getStudentId().equals(completesQuestion.getStudentId())) {
                 return;
             }
         }

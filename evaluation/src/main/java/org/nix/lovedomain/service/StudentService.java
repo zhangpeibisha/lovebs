@@ -234,6 +234,42 @@ public class StudentService {
         }
     }
 
+    /**
+     * 将学生任务移到完成集合中去
+     *
+     * @param publishquestionnaire
+     */
+    public void removePublishQuestionTask(Publishquestionnaire publishquestionnaire) {
+        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaire);
+        List<StudentVo> students = bean.getStudents();
+        if (CollUtil.isEmpty(students)) {
+            return;
+        }
+        List<Integer> stduentIds = new ArrayList<>(students.size());
+        for (StudentVo studentVo : students) {
+            if (studentVo == null) {
+                continue;
+            }
+            stduentIds.add(studentVo.getId());
+        }
+        if (CollUtil.isEmpty(stduentIds)) {
+            return;
+        }
+        StudentExample studentExample = new StudentExample();
+        studentExample.createCriteria().andIdIn(stduentIds);
+        List<Student> studentList = studentMapper.selectByExample(studentExample);
+        Integer publishquestionnaireId = publishquestionnaire.getId();
+        Date endrespondtime = publishquestionnaire.getEndrespondtime();
+        for (Student student : studentList) {
+            StudentTask studentTask = StudentTask.str2Bean(student);
+            QnaireTask qnaireTask = studentTask.getQnaireTask();
+            qnaireTask.completeTask(new QnaireTaskItem(publishquestionnaireId, endrespondtime));
+            studentTask.setQnaireTask(qnaireTask);
+            student.setTask(JSONUtil.toJsonStr(studentTask));
+            studentBusinessMapper.updateByPrimaryKey(student);
+        }
+    }
+
 
     /**
      * 返回一个简约视图给调用者，里面没有用户的班级和账号信息

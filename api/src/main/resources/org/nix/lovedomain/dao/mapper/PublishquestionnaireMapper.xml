@@ -15,6 +15,10 @@
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.nix.lovedomain.model.Publishquestionnaire">
     <result column="statistics" jdbcType="LONGVARCHAR" property="statistics" />
   </resultMap>
+
+  <resultMap id="statisticsResultMap" type="org.nix.lovedomain.model.Statisticsscore">
+
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -388,4 +392,78 @@
       #{id}
     </foreach>
   </delete>
+
+  <!--根据专业id获取整个专业所有问卷的统计-->
+  <select id="professionScore"  resultType="org.nix.lovedomain.model.Statisticsscore">
+      SELECT
+         miniTable.professionId,
+           miniTable.statistics,
+         profession.coding,
+         profession.`name`
+       FROM
+      (SELECT
+          teacher.professionId,
+          publishQuestionnaire.statistics
+      FROM
+          publishQuestionnaire,
+          teacher
+      WHERE
+          publishQuestionnaire.teacherId = teacher.accountId
+      AND teacher.professionId = {professionId,jdbcType=INTEGER}) as miniTable
+       LEFT JOIN profession ON profession.id = miniTable.professionId
+  </select>
+
+  <!--专业维度统计-->
+  <select id="professionScoreStatistics"  resultType="org.nix.lovedomain.model.Statisticsscore">
+      SELECT
+        statisticsScore.id,
+        statisticsScore.publishQuestionnaireId,
+        statisticsScore.attachJson,
+        statisticsScore.fraction
+      FROM
+       statisticsScore
+      LEFT JOIN teacher
+      ON  teacher.accountId = statisticsScore.teacherId
+      WHERE teacher.professionId = #{professionId,jdbcType=INTEGER}
+  </select>
+
+  <!--指定专业已发布的的问卷数-->
+  <select id="professionAccount"  resultType="Integer">
+    SELECT
+     count(*)
+    FROM
+     publishQuestionnaire
+    LEFT JOIN teacher
+    on publishQuestionnaire.teacherId = teacher.accountId
+    WHERE teacher.professionId = #{professionId,jdbcType=INTEGER}
+  </select>
+
+  <!--学院维度统计-->
+  <select id="factoryScoreStatistics"  resultType="org.nix.lovedomain.model.Statisticsscore">
+       SELECT
+         statisticsScore.id,
+         statisticsScore.publishQuestionnaireId,
+         statisticsScore.attachJson,
+         statisticsScore.fraction
+        FROM
+           statisticsScore
+          LEFT JOIN teacher
+          ON  teacher.accountId = statisticsScore.teacherId
+          LEFT JOIN profession
+          on profession.id = teacher.professionId
+          WHERE  profession.facultyId = #{factoryId,jdbcType=INTEGER}
+  </select>
+
+  <!--指定学院已发布的问卷数-->
+  <select id="factoryAccount"  resultType="Integer">
+      SELECT
+       count(*)
+        FROM
+           publishQuestionnaire
+        LEFT JOIN teacher
+        on publishQuestionnaire.teacherId = teacher.accountId
+        LEFT JOIN profession
+        on profession.id = teacher.professionId
+        WHERE profession.facultyId = #{factoryId,jdbcType=INTEGER}
+  </select>
 </mapper>

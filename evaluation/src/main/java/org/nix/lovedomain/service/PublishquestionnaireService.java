@@ -25,7 +25,6 @@ import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.*;
@@ -66,6 +65,9 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
 
     @Resource
     private EvaluationquestionnaireService evaluationquestionnaireService;
+
+    @Resource
+    private StatisticsscoreMapper statisticsscoreMapper;
 
     /**
      * 发布问卷
@@ -213,9 +215,8 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         bean.writeQuestion(completesQuestion);
         publishquestionnaire.setStatistics(JSONUtil.toJsonStr(bean));
 
-        PublishquestionnaireModel updateData = JSON.parseObject(JSON.toJSONString(publishquestionnaire),
-                PublishquestionnaireModel.class);
-        publishQuestionBusinessMapper.updateByPrimaryKeySelective(updateData);
+        publishQuestionBusinessMapper.updateByPrimaryKeySelective(JSON.parseObject(JSON.toJSONString(publishquestionnaire),
+                PublishquestionnaireModel.class));
         return publishquestionnaire;
     }
 
@@ -624,7 +625,106 @@ public class PublishquestionnaireService extends BaseService<Publishquestionnair
         Publishquestionnaire publishquestionnaireServiceById
                 = findById(publishId);
         PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaireServiceById);
+
+        /*将问卷平均成绩持久化到数据库*/
+        Statisticsscore statisticsscore = new Statisticsscore();
+        statisticsscore.setPublishquestionnaireid(publishId);
+        statisticsscore.setFraction(bean.getScore());
+        statisticsscore.setTeacherid(publishquestionnaireServiceById.getTeacherid());
+        statisticsscore.setCourseid(publishquestionnaireServiceById.getCourseid());
+        statisticsscore.adviceListToStr();
+        statisticsscoreMapper.insertSelective(statisticsscore);
+
         return bean.statisticalAnswer();
+
     }
 
+
+    /**
+     * 根据专业id获取专业为维度的问卷统计
+     * @param professionId
+     * @return
+     */
+    public Map<String,Object> professionScoreStatistics(Integer professionId){
+        Map<String,Object> resultMap = new HashMap<>();
+        Statisticsscore statisticsscore;
+
+        // 获取该专业下所有问卷统计结果
+        List<Statisticsscore> statistics = publishquestionnaireMapper.professionScoreStatistics(professionId);
+        // 该专业下已经发布过多少问卷
+        Integer account = publishquestionnaireMapper.professionAccount(professionId);
+
+        if(account == 0){
+            resultMap.put("status",1); // 未发表问卷
+        }
+        if(statistics == null || statistics.size() == 0 || statistics.size() < account){
+            resultMap.put("status",2);  // 问卷未完全回收
+        }else {
+            statisticsscore = statisticsExcute(statistics);
+            resultMap.put("status",3);  // 问卷完全回收
+            resultMap.put("data",statisticsscore);
+        }
+        return  resultMap;
+
+    }
+
+    /**
+     * 按学院维度进行统计
+     * @param factoryId
+     * @return
+     */
+    public Map<String,Object> factoryScoreStatistics(Integer factoryId){
+        Map<String,Object> resultMap  = new HashMap<>();
+        Statisticsscore statisticsscore;
+
+        // 获取该学院下所有的问卷
+        List<Statisticsscore> statisticList = publishquestionnaireMapper.factoryScoreStatistics(factoryId);
+        // 该学院已经发布过的问卷
+        Integer account = publishquestionnaireMapper.factoryAccount(factoryId);
+
+        if(account == 0){
+            resultMap.put("status",1);//该学院下没有发布问卷
+        }
+        if(statisticList == null || statisticList.size() == 0 || statisticList.size() < account){
+            resultMap.put("status",2);//该学院下的问卷没有完全回收
+        }else {
+            statisticsscore = statisticsExcute(statisticList);
+            resultMap.put("status",3);//该学院下的问卷已经完全回收
+            resultMap.put("data",statisticsscore);
+        }
+        return resultMap;
+    }
+
+    /**
+     * 1)计算每张问卷的平均分数
+     * 2)计算所有问卷的总分
+     * 3)收集所有的意见
+     * @return
+     */
+    private Statisticsscore  statisticsExcute(List<Statisticsscore> statistics){
+        Statisticsscore statisticsscore = new Statisticsscore();
+        int size  = statistics.size();
+        // 总分
+        int total = 0;
+        // 所有的意见
+        List<String> advices = new ArrayList<>();
+        for (Statisticsscore s:
+             statistics) {
+            s.strToAdviceList();
+            /*收集意见*/
+            // 单个问卷的所有问题
+            List<String> adv = s.getAdvices();
+            advices.addAll(adv);
+            /*计算总分*/
+            Integer score = s.getFraction();
+            if(score != null && score != 0){
+                total += score;
+            }
+        }
+
+        statisticsscore.setAvg(total/size);
+        statisticsscore.setFraction(total);
+        statisticsscore.setAdvices(advices);
+        return  statisticsscore;
+    }
 }

@@ -97,6 +97,25 @@ public class TeacherService extends BaseService<Teacher> {
     }
 
     /**
+     * 将老师任务中的问卷移到完成集合中
+     *
+     * @param publishquestionnaire
+     * @return
+     */
+    public Teacher romveTask(Publishquestionnaire publishquestionnaire) throws Exception {
+        Integer teacherByAccountId = publishquestionnaire.getTeacherid();
+        Teacher teacher = findTeacherByAccountLoginName(teacherByAccountId);
+        TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
+        QnaireTask qnaireTask = teacherWork.getQnaireTask();
+        qnaireTask.completeTask(new QnaireTaskItem(publishquestionnaire.getId()
+                , publishquestionnaire.getEndrespondtime()));
+        teacherWork.setQnaireTask(qnaireTask);
+        teacher.setWorkjson(JSONUtil.toJsonStr(teacherWork));
+        update(teacher);
+        return teacher;
+    }
+
+    /**
      * 通过老师的账号信息查询到老师的信息
      *
      * @param accountId

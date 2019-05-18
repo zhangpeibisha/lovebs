@@ -69,7 +69,7 @@ public class MyScheduledTaskTest {
     public void statistcisTask() throws Exception {
 
         Publishquestionnaire publishquestionnaire
-                = publishquestionnaireMapper.selectByPrimaryKey(215);
+                = publishquestionnaireMapper.selectByPrimaryKey(827);
         scheduledTask.runRecoverTask(publishquestionnaire);
     }
 }

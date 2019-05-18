@@ -67,6 +67,16 @@ public class QnaireTask {
     }
 
     /**
+     * 删除任务
+     *
+     * @param task 任务
+     */
+    public void removeTask(QnaireTaskItem task){
+        pendingDetail.remove(task);
+        checkedDetail.remove(task);
+    }
+
+    /**
      * 查阅任务后就调用该方法让未读变为
      * 已经阅读
      *

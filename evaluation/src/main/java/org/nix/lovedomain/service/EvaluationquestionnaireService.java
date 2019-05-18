@@ -290,29 +290,28 @@ public class EvaluationquestionnaireService extends BaseService<Evaluationquesti
 
     public String resolveQuireSql(String quireSql,
                                   Boolean like) {
-        return quireSql;
-//        if (quireSql == null || "".equals(quireSql)) {
-//            return "";
-//        }
-//        StringBuilder sql = new StringBuilder("where").append(" ");
-//        Map<String, Object> map = JSONUtil.toBean(quireSql, Map.class);
-//        if (like) {
-//            for (Map.Entry<String, Object> sqlMap : map.entrySet()) {
-//                String key = sqlMap.getKey();
-//                Object value = sqlMap.getValue();
-//                sql.append(key).append(" LIKE ").append("'%").append(value).append("%'").append(" ").append("AND").append(" ");
-//            }
-//        } else {
-//            for (Map.Entry<String, Object> sqlMap : map.entrySet()) {
-//                String key = sqlMap.getKey();
-//                Object value = sqlMap.getValue();
-//                sql.append(key).append(" = ").append(value).append(" ").append("AND").append(" ");
-//            }
-//        }
-//        if (sql.length() > 0) {
-//            sql.delete(sql.lastIndexOf("A"), sql.lastIndexOf(" "));
-//        }
-//        return sql.toString();
+        if (quireSql == null || "".equals(quireSql)) {
+            return "";
+        }
+        StringBuilder sql = new StringBuilder("where").append(" ");
+        Map<String, Object> map = JSONUtil.toBean(quireSql, Map.class);
+        if (like) {
+            for (Map.Entry<String, Object> sqlMap : map.entrySet()) {
+                String key = sqlMap.getKey();
+                Object value = sqlMap.getValue();
+                sql.append(key).append(" LIKE ").append("'%").append(value).append("%'").append(" ").append("AND").append(" ");
+            }
+        } else {
+            for (Map.Entry<String, Object> sqlMap : map.entrySet()) {
+                String key = sqlMap.getKey();
+                Object value = sqlMap.getValue();
+                sql.append(key).append(" = ").append(value).append(" ").append("AND").append(" ");
+            }
+        }
+        if (sql.length() > 0) {
+            sql.delete(sql.lastIndexOf("A"), sql.lastIndexOf(" "));
+        }
+        return sql.toString();
     }
 
 
