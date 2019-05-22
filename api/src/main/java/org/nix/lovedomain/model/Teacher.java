@@ -1,6 +1,7 @@
 package org.nix.lovedomain.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Teacher implements Serializable {
     private Integer id;
@@ -125,5 +126,26 @@ public class Teacher implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Teacher teacher = (Teacher) o;
+        return Objects.equals(id, teacher.id) &&
+                Objects.equals(jobnumber, teacher.jobnumber) &&
+                Objects.equals(name, teacher.name) &&
+                Objects.equals(accountid, teacher.accountid) &&
+                Objects.equals(imagerurl, teacher.imagerurl) &&
+                Objects.equals(workjson, teacher.workjson) &&
+                Objects.equals(email, teacher.email) &&
+                Objects.equals(phone, teacher.phone);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, jobnumber, name, accountid, imagerurl, workjson, email, phone);
     }
 }

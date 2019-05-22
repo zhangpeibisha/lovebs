@@ -29,4 +29,16 @@ public class TeacherCourseModel {
 
     private Date updateTime;
 
+    private Date startTime;
+
+    private String startWeek;
+
+    private Date endTime;
+
+    private String endWeek;
+
+    private Integer schoolYear;
+
+    private String semester;
+
 }

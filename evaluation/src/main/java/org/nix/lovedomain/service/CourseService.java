@@ -1,9 +1,8 @@
 package org.nix.lovedomain.service;
 
-import org.nix.lovedomain.dao.business.CoueseBusinessMapper;
+import org.nix.lovedomain.dao.business.CourseBusinessMapper;
 import org.nix.lovedomain.dao.mapper.CourseMapper;
 import org.nix.lovedomain.model.Course;
-import org.nix.lovedomain.model.Teacher;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.SQLUtil;
@@ -29,7 +28,7 @@ public class CourseService extends BaseService {
 
 
     @Resource
-    private CoueseBusinessMapper coueseBusinessMapper;
+    private CourseBusinessMapper coueseBusinessMapper;
 
     /**
      * 获取老师列表

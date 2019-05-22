@@ -19,4 +19,6 @@ public class CreateTeacherDto {
 
     private String email;
 
+    private Integer professionId;
+
 }

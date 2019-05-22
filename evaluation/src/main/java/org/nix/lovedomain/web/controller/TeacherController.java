@@ -45,37 +45,15 @@ public class TeacherController extends BaseController<Teacher> {
                                            @RequestParam(value = "limit", defaultValue = "10") Integer limit,
                                            @RequestParam(value = "quire", required = false) String sql) throws IOException {
         PageVo<Teacher> studentVoPageVo = teacherService.findTeacherList(page, limit, sql);
-        return RespondsMessage.success("获取老师列表成功",studentVoPageVo);
+        return RespondsMessage.success("获取老师列表成功", studentVoPageVo);
     }
 
     @PostMapping(value = "/create")
-    public RespondsMessage createTeacher(@ModelAttribute CreateTeacherDto dto){
+    public RespondsMessage createTeacher(@ModelAttribute CreateTeacherDto dto) {
 
-        String email = dto.getEmail();
-        String jobNumber = dto.getJobNumber();
-        String name = dto.getName();
-        String phone = dto.getPhone();
+        teacherService.createTeacher(dto);
 
-        Account account = new Account();
-        account.setPassword(jobNumber);
-        account.setEmail(email);
-        account.setPhone(phone);
-        account.setNumbering(jobNumber);
-        accountMapper.insertSelective(account);
-
-        log.info("创建的账号id为{}:",account.getId());
-
-        Teacher teacher = new Teacher();
-        teacher.setAccountid(account.getId());
-
-        teacher.setEmail(email);
-        teacher.setPhone(phone);
-        teacher.setName(name);
-        teacher.setJobnumber(jobNumber);
-
-        teacherMapper.insertSelective(teacher);
-
-        return  RespondsMessage.success("创建老师成功");
+        return RespondsMessage.success("创建老师成功");
     }
 
 }

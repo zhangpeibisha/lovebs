@@ -9,11 +9,13 @@ import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.mapper.AccountMapper;
 import org.nix.lovedomain.dao.mapper.TeacherMapper;
+import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.model.*;
 import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
+import org.nix.lovedomain.web.controller.dto.CreateTeacherDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -160,12 +162,38 @@ public class TeacherService extends BaseService<Teacher> {
 
     }
 
-     /**
-     * 问卷停止做答，改变老师任务
-     * @param publishquestionnaire
+    /**
+     * 创建一个老师
+     *
+     * @param dto 需要的信息
+     * @return 老师信息
      */
-    public void questionnareFinish(Publishquestionnaire publishquestionnaire) throws Exception {
+    public TeacherModel createTeacher(CreateTeacherDto dto) {
+        String email = dto.getEmail();
+        String jobNumber = dto.getJobNumber();
+        String name = dto.getName();
+        String phone = dto.getPhone();
 
+        Account account = new Account();
+        account.setPassword(jobNumber);
+        account.setEmail(email);
+        account.setPhone(phone);
+        account.setNumbering(jobNumber);
+        accountMapper.insertSelective(account);
+
+        log.info("创建的账号id为{}:", account.getId());
+
+        TeacherModel teacherModel = new TeacherModel();
+        teacherModel.setName(name);
+        teacherModel.setAccountId(account.getId());
+        teacherModel.setEmail(email);
+        teacherModel.setPhone(phone);
+        teacherModel.setJobNumber(jobNumber);
+        teacherModel.setProfessionId(dto.getProfessionId());
+
+        teacherBusinessMapper.insertSelective(teacherModel);
+
+        return teacherModel;
     }
 
 }
