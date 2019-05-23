@@ -9,19 +9,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
+import static org.junit.Assert.*;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = EvaluationApplication.class)
-public class CommonServiceTest {
+public class TaskServiceTest {
 
     @Resource
-    private CommonService commonService;
+    private TaskService taskService;
 
     private String basePath = "C:\\Users\\Lenovo\\Desktop\\毕业设计\\论文\\评教系统开发设计资料\\系统基本数据excel\\系统中的规定格式excel\\";
 
+
     @Test
     @Transactional
-    public void init() {
-        commonService.insertFacultyAndProfession(basePath + "学院-专业-班级信息表.xls");
-        commonService.fillInfo(basePath + "老师和-学院-专业-班级的关系表.xlsx");
+    public void insertCourse() {
+
+        taskService.insertCourse(basePath + "导入课程信息.xlsx");
+
     }
 }
