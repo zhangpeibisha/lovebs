@@ -19,25 +19,9 @@ public class CommonServiceTest {
     private String basePath = "C:\\Users\\Lenovo\\Desktop\\毕业设计\\论文\\评教系统开发设计资料\\系统基本数据excel\\";
 
     @Test
-    public void insertTeacher() {
-        commonService.insertTeacher(basePath+"老师信息.xls");
-    }
-
-    @Test
-    public void insertProfession(){
-        commonService.insertProfession(basePath+"专业信息.xls");
-    }
-
-    @Test
-    public void insertClass(){
-        commonService.insertClass(basePath+"班级信息.xls");
-    }
-
-    @Test
-//    @Transactional
-    public void init(){
-        commonService.insertProfession(basePath+"专业信息.xls");
-        commonService.insertTeacher(basePath+"老师信息.xls");
-        commonService.insertClass(basePath+"班级信息.xls");
+    @Transactional
+    public void init() {
+        commonService.insertFacultyAndProfession(basePath + "学院-专业-班级信息表.xls");
+        commonService.fillInfo(basePath + "老师-专业-班级的信息表.xls");
     }
 }

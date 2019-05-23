@@ -2,7 +2,7 @@ package org.nix.lovedomain.dao.business;
 
 import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
-import org.nix.lovedomain.dao.model.Profession;
+import org.nix.lovedomain.dao.model.ProfessionModel;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @description 专业业务类
  * @date 2019/5/1
  */
-public interface ProfessionBusinessMapper extends BaseBusinessMapper<Profession> {
+public interface ProfessionBusinessMapper extends BaseBusinessMapper<ProfessionModel> {
 
 
     List<org.nix.lovedomain.model.Profession>

@@ -1,6 +1,8 @@
 package org.nix.lovedomain.dao.business;
 
 import org.apache.ibatis.annotations.Param;
+import org.nix.lovedomain.dao.base.BaseBusinessMapper;
+import org.nix.lovedomain.dao.model.FacultyModel;
 import org.nix.lovedomain.model.Faculty;
 import org.nix.lovedomain.service.vo.StudentVo;
 
@@ -12,7 +14,7 @@ import java.util.List;
  * @description 学院业务
  * @date 2019/5/1
  */
-public interface FacultyBusinessMapper {
+public interface FacultyBusinessMapper extends BaseBusinessMapper<FacultyModel> {
 
     /**
      * 通过sql查询学院信息
