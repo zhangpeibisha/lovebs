@@ -3,6 +3,7 @@ package org.nix.lovedomain.dao.model;
 import lombok.Data;
 import tk.mybatis.mapper.annotation.NameStyle;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
@@ -19,6 +20,7 @@ import java.util.Date;
 public class RoleModel {
 
     @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer id;
 
     private String name;

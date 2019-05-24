@@ -1,7 +1,6 @@
 package org.nix.lovedomain.service.file.model;
 
 import lombok.Data;
-import org.nix.lovedomain.service.file.CommonService;
 
 import java.util.Objects;
 

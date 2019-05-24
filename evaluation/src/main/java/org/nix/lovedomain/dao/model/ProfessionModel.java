@@ -4,6 +4,7 @@ import lombok.Data;
 import tk.mybatis.mapper.annotation.NameStyle;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ import java.io.Serializable;
 public class ProfessionModel implements Serializable {
 
     @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer id;
 
     /**

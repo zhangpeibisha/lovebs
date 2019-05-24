@@ -1,6 +1,7 @@
 package org.nix.lovedomain.service.file;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
@@ -31,12 +32,12 @@ import java.util.Random;
 /**
  * @author zhangpei
  * @version 1.0
- * @description 上传文件通用方法
+ * @description 上传学校组织信息
  * @date 2019/5/22
  */
-@Transactional
 @Service
-public class CommonService {
+@Transactional(rollbackFor = Exception.class)
+public class OrganizationService {
 
     @Resource
     private TeacherService teacherService;
@@ -78,28 +79,6 @@ public class CommonService {
         return readAll;
     }
 
-    /**
-     * 初始化方法
-     *
-     * @param path
-     */
-    public void insertFacultyAndProfession(String path) {
-        insertFaculty(path);
-        insertProfession(path);
-        insertClass(path);
-    }
-
-    /**
-     * 添加老师和为专业、学院、班级添加老师
-     *
-     * @param path 文件路径
-     */
-    public void fillInfo(String path) {
-        insertTeacher(path);
-        classInsertTeacher(path);
-        professionInsertTeacher(path);
-        facultyInsertTeacher(path);
-    }
 
     /**
      * 通过excel导入学院信息
@@ -271,9 +250,13 @@ public class CommonService {
         createTeacherDto.setEmail(StrUtil.format("{}@163.com", teacherName));
 
         String professionName = teacherExcel.getProfessionName();
-        ProfessionModel professionByName = findProfessionByName(professionName);
-        Integer profession = professionByName.getId();
-        createTeacherDto.setProfessionId(profession);
+        ProfessionModel professionModel = findProfessionByName(professionName);
+
+        // 如果专业存在则把老师分配到这个专业里面去
+        if (Validator.isNotNull(professionModel)){
+            Integer profession = professionModel.getId();
+            createTeacherDto.setProfessionId(profession);
+        }
 
         teacherService.createTeacher(createTeacherDto);
     }
@@ -304,7 +287,7 @@ public class CommonService {
     /**
      * 为班级添加老师
      *
-     * @param classExcel 班级再excel中的信息
+     * @param classExcel 班级在excel中的信息
      */
     public void classInsertTeacher(ClassExcel classExcel) {
         String classId = classExcel.getClassId();

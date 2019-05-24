@@ -171,7 +171,7 @@ public class TeacherService{
         account.setEmail(email);
         account.setPhone(phone);
         account.setNumbering(jobNumber);
-        accountBusinessMapper.insertSelective(account);
+        accountBusinessMapper.insert(account);
 
         TeacherModel teacherModel = new TeacherModel();
         teacherModel.setName(name);

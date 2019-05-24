@@ -22,7 +22,7 @@ import java.util.List;
 public class TaskService {
 
     @Resource
-    private CommonService commonService;
+    private OrganizationService commonService;
 
     @Resource
     private CourseBusinessMapper courseBusinessMapper;
