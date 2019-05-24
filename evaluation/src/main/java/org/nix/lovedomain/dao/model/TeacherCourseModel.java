@@ -23,7 +23,7 @@ public class TeacherCourseModel {
     @GeneratedValue(generator = "JDBC")
     private Integer id;
 
-    private Integer teacherId;
+    private Integer teacherAccountId;
 
     private Integer courseId;
 
@@ -33,14 +33,19 @@ public class TeacherCourseModel {
 
     private Date startTime;
 
-    private String startWeek;
+    private Integer startWeek;
 
     private Date endTime;
 
-    private String endWeek;
+    private Integer endWeek;
 
     private Integer schoolYear;
 
     private String semester;
+
+    /**
+     * 在学校的唯一老师授课，课程号
+     */
+    private String teachCourseId;
 
 }

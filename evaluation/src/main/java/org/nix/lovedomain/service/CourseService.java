@@ -21,8 +21,22 @@ public class CourseService {
     @Resource
     private CourseBusinessMapper courseBusinessMapper;
 
+
     /**
-     * 获取老师列表
+     * 通过课程编号查询到课程信息
+     *
+     * @param coding 课程在学校系统里面的编码
+     * @return 课程信息
+     */
+    public CourseModel findCourseModelByCourseCoding(String coding) {
+        CourseModel courseModel = new CourseModel();
+        courseModel.setCoding(coding);
+        return courseBusinessMapper.selectOne(courseModel);
+    }
+
+
+    /**
+     * 获取课程列表
      *
      * @param page  页码
      * @param limit 数量

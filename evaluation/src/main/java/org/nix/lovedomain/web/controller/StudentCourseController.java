@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentCourseBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
-import org.nix.lovedomain.dao.model.StudentCourseBusinessModel;
+import org.nix.lovedomain.dao.model.StudentCourseModel;
 import org.nix.lovedomain.dao.model.TeacherCourseModel;
 import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.AccountService;
@@ -51,7 +51,7 @@ public class StudentCourseController {
 
         TeacherCourseModel teacherCourseModel = new TeacherCourseModel();
         teacherCourseModel.setCourseId(courseId);
-        teacherCourseModel.setTeacherId(accountId);
+        teacherCourseModel.setTeacherAccountId(accountId);
         List<TeacherCourseModel> select = teacherCourseBusinessMapper.select(teacherCourseModel);
 
 
@@ -65,15 +65,15 @@ public class StudentCourseController {
         StudentVo studentByAccountName
                 = accountService.findStudentByAccountName(principal.getName());
         Integer id = studentByAccountName.getId();
-        StudentCourseBusinessModel studentCourseBusinessModel
-                = new StudentCourseBusinessModel();
-        studentCourseBusinessModel.setCourseId(join.getId());
-        studentCourseBusinessModel.setStudentId(id);
-        studentCourseBusinessModel.setCreateTime(new Date());
-        studentCourseBusinessModel.setUpdateTime(new Date());
-        int addNumber = studentCourseBusinessMapper.insertSelective(studentCourseBusinessModel);
+        StudentCourseModel studentCourseModel
+                = new StudentCourseModel();
+        studentCourseModel.setTeachCourseId(join.getId());
+        studentCourseModel.setStudentId(id);
+        studentCourseModel.setCreateTime(new Date());
+        studentCourseModel.setUpdateTime(new Date());
+        studentCourseBusinessMapper.insertSelective(studentCourseModel);
         return RespondsMessage.success(LogUtil.logInfo(log, "学生{}加入课程完成{},授课老师为：{}"
-                , principal.getName(), courseId, join.getTeacherId()));
+                , principal.getName(), courseId, join.getTeacherAccountId()));
     }
 
     @GetMapping(value = "/findTeacher")

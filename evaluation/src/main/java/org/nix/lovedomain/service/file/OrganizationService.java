@@ -266,6 +266,9 @@ public class OrganizationService {
     public TeacherModel findTeacherModelByName(String teacherName) {
         TeacherModel teacherModel = new TeacherModel();
         teacherModel.setName(teacherName);
+        if (StrUtil.isEmpty(teacherName)){
+            return null;
+        }
         return teacherBusinessMapper.selectOne(teacherModel);
     }
 

@@ -1,6 +1,7 @@
 package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import org.nix.lovedomain.dao.model.AccountModel;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 import org.nix.lovedomain.dao.model.StudentModel;
 import org.nix.lovedomain.service.vo.*;
+import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -89,7 +92,8 @@ public class StudentService {
      * @param students
      */
     public void registerStudent(List<StudentModel> students) {
-
+        Validator.validateNotNull(students, "添加的学生为空");
+        students.forEach(this::createAccountToStudent);
     }
 
     /**
@@ -99,7 +103,22 @@ public class StudentService {
      * @return 学生账号
      */
     private AccountModel createAccountToStudent(StudentModel student) {
-       return null;
+        String studentId = student.getStudentId();
+        String phone = student.getPhone();
+        String email = student.getEmail();
+
+        AccountModel accountModel = new AccountModel();
+        accountModel.setEmail(email);
+        accountModel.setNumbering(studentId);
+        accountModel.setPhone(phone);
+        accountModel.setPassword(studentId);
+
+        accountBusinessMapper.insertSelective(accountModel);
+        student.setAccountId(accountModel.getId());
+
+        studentBusinessMapper.insertSelective(student);
+
+        return accountModel;
     }
 
 
@@ -145,20 +164,8 @@ public class StudentService {
         if (CollUtil.isEmpty(studentIds)) {
             return null;
         }
-        return studentBusinessMapper.selectByIds(list2StrIds(studentIds));
+        return studentBusinessMapper.selectByIds(ListUtils.lsitIdsToString(studentIds));
     }
-
-    /**
-     * 将list的id集合转换成字符串
-     *
-     * @param studentIds
-     * @return
-     */
-    public String list2StrIds(List<Integer> studentIds) {
-        return studentIds.toString().replaceAll("\\[", "")
-                .replaceAll("]", "").replaceAll(" ", "");
-    }
-
 
     /**
      * 将学生任务移到完成集合中去

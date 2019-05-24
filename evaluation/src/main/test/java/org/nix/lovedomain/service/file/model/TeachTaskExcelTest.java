@@ -57,6 +57,21 @@ public class TeachTaskExcelTest {
         assertEquals("2020-05-03 00:00:00", format);
     }
 
+    /**
+     * 一个课程多段时间
+     */
+    @Test
+    public void findTeachEndTimeTwoTime() {
+        teachTaskExcel.setTeachTime("07-09,10-11,12-19");
+        teachTaskExcel.setYear(2019);
+        teachTaskExcel.setSemester("第二学期");
+        Date teachStartTime = teachTaskExcel.findTeachEndTime();
+        String format = DateUtil.format(teachStartTime, "yyyy-MM-dd HH:mm:SS");
+        System.out.println(format);
+        assertEquals("2020-07-12 00:00:00", format);
+    }
+
+
     @Test
     public void findReplyStartTime() {
         teachTaskExcel.setYear(2019);

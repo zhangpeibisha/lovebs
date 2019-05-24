@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 @NameStyle
 @Table(name = "student_course")
-public class StudentCourseBusinessModel {
+public class StudentCourseModel {
 
     @Id
     @GeneratedValue(generator = "JDBC")
@@ -25,7 +25,7 @@ public class StudentCourseBusinessModel {
 
     private Integer studentId;
 
-    private Integer courseId;
+    private Integer teachCourseId;
 
     private Date createTime;
 

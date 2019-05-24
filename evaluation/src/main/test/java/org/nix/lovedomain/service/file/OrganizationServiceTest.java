@@ -38,4 +38,10 @@ public class OrganizationServiceTest {
         organizationService.classInsertTeacher(path);
         organizationService.professionInsertTeacher(path);
     }
+
+    @Test
+//    @Transactional
+    public void simulationStudent(){
+        organizationService.insertStudent(bash+"模拟创建学生信息.xlsx");
+    }
 }

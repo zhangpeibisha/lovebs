@@ -1,7 +1,7 @@
 package org.nix.lovedomain.dao.business;
 
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
-import org.nix.lovedomain.dao.model.StudentCourseBusinessModel;
+import org.nix.lovedomain.dao.model.StudentCourseModel;
 
 /**
  * @author zhangpei
@@ -9,5 +9,5 @@ import org.nix.lovedomain.dao.model.StudentCourseBusinessModel;
  * @description 学生课程业务
  * @date 2019/5/12
  */
-public interface StudentCourseBusinessMapper extends BaseBusinessMapper<StudentCourseBusinessModel> {
+public interface StudentCourseBusinessMapper extends BaseBusinessMapper<StudentCourseModel> {
 }
