@@ -5,11 +5,14 @@ import cn.hutool.core.lang.Validator;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.CourseBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
+import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.model.CourseModel;
+import org.nix.lovedomain.dao.model.StudentCourseModel;
 import org.nix.lovedomain.dao.model.TeacherCourseModel;
 import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.file.model.CourseExcel;
+import org.nix.lovedomain.service.file.model.StduentTaskExcel;
 import org.nix.lovedomain.service.file.model.TeachTaskExcel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,7 +83,7 @@ public class TaskService {
                 log.warn("发生错误：{}", e.getMessage(), e);
             }
         });
-        if (!CollUtil.isEmpty(teacherCourseModels)){
+        if (!CollUtil.isEmpty(teacherCourseModels)) {
             teacherCourseBusinessMapper.insertList(teacherCourseModels);
         }
     }
@@ -137,9 +140,17 @@ public class TaskService {
         teacherCourseModel.setSchoolYear(year);
         // 设置学期
         teacherCourseModel.setSemester(semester);
-
+        // 设置创建时间
+        teacherCourseModel.setCreateTime(new Date());
+        // 设置更新时间
+        teacherCourseModel.setUpdateTime(new Date());
         return teacherCourseModel;
     }
 
+
+    public StudentCourseModel createStudentCourse(StduentTaskExcel stduentTaskExcel) {
+
+        return null;
+    }
 
 }

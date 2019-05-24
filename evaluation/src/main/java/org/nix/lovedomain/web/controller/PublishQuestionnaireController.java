@@ -124,7 +124,7 @@ public class PublishQuestionnaireController {
         }
         teacherCourseInCurrSemester.forEach(teacherCourseModel -> {
             try {
-                Integer teacherAccountId = teacherCourseModel.getTeacherId();
+                Integer teacherAccountId = teacherCourseModel.getTeacherAccountId();
                 publishquestionnaireService.pusblishQuestionnaire(principal,
                         teacherCourseModel.getId(), teacherAccountId,
                         questionnaireId, description,

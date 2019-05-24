@@ -27,7 +27,7 @@ public class TeachTaskExcel {
     /**
      * 班级在学校的编号
      */
-    private String classId;
+    private String classCoding;
     /**
      * 该此教学计划的开始和结束周时间
      * 需要用该时间来确定如何开始做教学测评

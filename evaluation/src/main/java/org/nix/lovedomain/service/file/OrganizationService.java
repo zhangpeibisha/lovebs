@@ -192,12 +192,12 @@ public class OrganizationService {
      * @return 班级信息
      */
     public ClassModel createClassModel(ClassExcel classExcel) {
-        String classId = classExcel.getClassId();
+        String classCoding = classExcel.getClassId();
         String professionName = classExcel.getProfessionName();
 
         ProfessionModel professionByName = findProfessionByName(professionName);
         ClassModel classModel = new ClassModel();
-        classModel.setClassId(classId);
+        classModel.setClassCoding(classCoding);
         if (professionByName == null) {
             return classModel;
         }
@@ -213,7 +213,7 @@ public class OrganizationService {
      */
     public ClassModel findClassByCoding(String coding) {
         ClassModel classModel = new ClassModel();
-        classModel.setClassId(coding);
+        classModel.setClassCoding(coding);
         List<ClassModel> classModels = classBusinessMapper.select(classModel);
         if (CollUtil.isEmpty(classModels)) {
             return null;
@@ -434,7 +434,7 @@ public class OrganizationService {
      */
     public ClassModel findClassByClassCoding(String classCoding) {
         ClassModel classModel = new ClassModel();
-        classModel.setClassId(classCoding);
+        classModel.setClassCoding(classCoding);
         return classBusinessMapper.selectOne(classModel);
     }
 

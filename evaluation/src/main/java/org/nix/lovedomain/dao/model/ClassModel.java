@@ -22,7 +22,7 @@ public class ClassModel {
     @GeneratedValue(generator = "JDBC")
     private Integer id;
 
-    private String classId;
+    private String classCoding;
 
     private Integer teacherId;
 
