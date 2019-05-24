@@ -1,17 +1,14 @@
 package org.nix.lovedomain.dao.business.json.task;
 
 import lombok.Data;
-import org.nix.lovedomain.model.Publishquestionnaire;
-
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
 
 /**
  * @author zhangpei
  * @version 1.0
- * @description 老师的问卷任务, 没有过期的发布问卷
+ * @description 老师的评教卷任务, 没有过期的发布评教卷
  * @date 2019/4/27
  */
 @Data
@@ -34,16 +31,16 @@ public class QnaireTask {
      */
     private Integer complete;
     /**
-     * 已读的问卷信息
+     * 已读的评教卷信息
      */
     private Set<QnaireTaskItem> checkedDetail;
     /**
-     * 待阅读的问卷信息
+     * 待阅读的评教卷信息
      */
     private Set<QnaireTaskItem> pendingDetail;
     /**
-     * 已经到达完成时间的问卷，老师可以通过这里面的发布问卷
-     * id查询到自己的问卷分数等信息
+     * 已经到达完成时间的评教卷，老师可以通过这里面的发布评教卷
+     * id查询到自己的评教卷分数等信息
      */
     private Set<QnaireTaskItem> completeDetail;
 
@@ -54,8 +51,8 @@ public class QnaireTask {
     }
 
     /**
-     * 为老师添加问卷任务，主要用来通知老师自己
-     * 的问卷开始了，和配置问卷
+     * 为老师添加评教卷任务，主要用来通知老师自己
+     * 的评教卷开始了，和配置评教卷
      *
      * @param task 任务
      */
@@ -95,9 +92,9 @@ public class QnaireTask {
     }
 
     /**
-     * 当发布问卷的答卷时间到达的时候
-     * 定时任务将处置这些问卷信息，使用
-     * 该方法将任务调剂到已完成的问卷列表中
+     * 当发布评教卷的答卷时间到达的时候
+     * 定时任务将处置这些评教卷信息，使用
+     * 该方法将任务调剂到已完成的评教卷列表中
      *
      * @param task
      */
@@ -147,7 +144,7 @@ public class QnaireTask {
     }
 
     /**
-     * 发现待查阅的问卷
+     * 发现待查阅的评教卷
      * @param id
      * @return
      */
@@ -164,7 +161,7 @@ public class QnaireTask {
     }
 
     /**
-     * 获取问卷总量
+     * 获取评教卷总量
      *
      * @return
      */

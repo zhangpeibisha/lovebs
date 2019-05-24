@@ -112,9 +112,9 @@ CREATE TABLE `evaluationQuestionnaire` (
 -- ----------------------------
 -- Records of evaluationQuestionnaire
 -- ----------------------------
-INSERT INTO `evaluationQuestionnaire` VALUES ('20', '张沛创建问卷', null, '2019-04-20 18:20:53', '2019-04-27 03:27:14', null, '2');
-INSERT INTO `evaluationQuestionnaire` VALUES ('21', '张沛创建问卷', null, '2019-04-21 03:17:36', '2019-04-27 03:00:27', '{\"questions\":[{\"id\":\"243de1616aef47bd9b53d7d80d6b0da0\",\"title\":\"11111\",\"prompt\":\"22222\",\"items\":[{\"id\":\"b371d2aa-00a6-4a6c-93b1-70b0a9d74e0c\",\"sort\":0,\"title\":\"1xxxxx\",\"prompt\":\"xxxxe\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true},{\"id\":\"e6296ab6625740ea858cc588db4596ff\",\"title\":\"111updatelallala11\",\"prompt\":\"22222\",\"items\":[{\"id\":\"7e7f5e85-d34f-4025-8374-596776b9f88f\",\"sort\":0,\"title\":\"updatexxxxx\",\"prompt\":\"我sssssde\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true}]}', '2');
-INSERT INTO `evaluationQuestionnaire` VALUES ('22', '张沛创建问卷', null, '2019-04-21 03:27:54', '2019-04-27 03:00:30', '{\"questions\":[{\"id\":\"08376e7877a64f23a83547a3ef97e1e7\",\"title\":\"11111\",\"prompt\":\"22222\",\"items\":[{\"id\":\"344a4940-f373-4659-b27a-6119bd7744f6\",\"sort\":0,\"title\":\"1xxxxx\",\"prompt\":\"xxxxe\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true},{\"id\":\"716dd2bc9e8441d59598d54da0c8123f\",\"title\":\"11111\",\"prompt\":\"22222\",\"items\":[{\"id\":\"0e1bf369-0f4d-458b-9af7-dd74c176905b\",\"sort\":0,\"title\":\"1xxxxx\",\"prompt\":\"xxxxe\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true}]}', '2');
+INSERT INTO `evaluationQuestionnaire` VALUES ('20', '张沛创建评教卷', null, '2019-04-20 18:20:53', '2019-04-27 03:27:14', null, '2');
+INSERT INTO `evaluationQuestionnaire` VALUES ('21', '张沛创建评教卷', null, '2019-04-21 03:17:36', '2019-04-27 03:00:27', '{\"questions\":[{\"id\":\"243de1616aef47bd9b53d7d80d6b0da0\",\"title\":\"11111\",\"prompt\":\"22222\",\"items\":[{\"id\":\"b371d2aa-00a6-4a6c-93b1-70b0a9d74e0c\",\"sort\":0,\"title\":\"1xxxxx\",\"prompt\":\"xxxxe\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true},{\"id\":\"e6296ab6625740ea858cc588db4596ff\",\"title\":\"111updatelallala11\",\"prompt\":\"22222\",\"items\":[{\"id\":\"7e7f5e85-d34f-4025-8374-596776b9f88f\",\"sort\":0,\"title\":\"updatexxxxx\",\"prompt\":\"我sssssde\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true}]}', '2');
+INSERT INTO `evaluationQuestionnaire` VALUES ('22', '张沛创建评教卷', null, '2019-04-21 03:27:54', '2019-04-27 03:00:30', '{\"questions\":[{\"id\":\"08376e7877a64f23a83547a3ef97e1e7\",\"title\":\"11111\",\"prompt\":\"22222\",\"items\":[{\"id\":\"344a4940-f373-4659-b27a-6119bd7744f6\",\"sort\":0,\"title\":\"1xxxxx\",\"prompt\":\"xxxxe\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true},{\"id\":\"716dd2bc9e8441d59598d54da0c8123f\",\"title\":\"11111\",\"prompt\":\"22222\",\"items\":[{\"id\":\"0e1bf369-0f4d-458b-9af7-dd74c176905b\",\"sort\":0,\"title\":\"1xxxxx\",\"prompt\":\"xxxxe\",\"mustWriter\":true}],\"questionnaireType\":\"CHOSE_SINGLE\",\"mustWriter\":true}]}', '2');
 
 -- ----------------------------
 -- Table structure for faculty
@@ -159,15 +159,15 @@ INSERT INTO `profession` VALUES ('1', '1150309', '网络工程', '1', '2');
 DROP TABLE IF EXISTS `publishQuestionnaire`;
 CREATE TABLE `publishQuestionnaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `releaseId` int(11) NOT NULL COMMENT '是谁发布这个问卷的-在teachear表的老师，且拥有发布权限的老师',
-  `courseId` int(11) NOT NULL COMMENT '这个问卷是发布给哪个课程的',
+  `releaseId` int(11) NOT NULL COMMENT '是谁发布这个评教卷的-在teachear表的老师，且拥有发布权限的老师',
+  `courseId` int(11) NOT NULL COMMENT '这个评教卷是发布给哪个课程的',
   `teacherId` int(11) NOT NULL COMMENT '这个是授课老师id',
-  `questionnaireId` int(11) NOT NULL COMMENT '问卷id-对应问卷表中的信息',
+  `questionnaireId` int(11) NOT NULL COMMENT '评教卷id-对应评教卷表中的信息',
   `description` varchar(255) DEFAULT NULL COMMENT '对这次发布的解释',
   `releaseTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '什么时候发布的，创建该条数据的时间',
-  `startRespondTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '‘学生什么时候开始回答这个问卷’',
-  `endRespondTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '‘学生什么时候禁止回答该问卷’',
-  `statistics` text COMMENT '用于发布问卷统计使用',
+  `startRespondTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '‘学生什么时候开始回答这个评教卷’',
+  `endRespondTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '‘学生什么时候禁止回答该评教卷’',
+  `statistics` text COMMENT '用于发布评教卷统计使用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -184,8 +184,8 @@ DROP TABLE IF EXISTS `questionnaireAnswer`;
 CREATE TABLE `questionnaireAnswer` (
   `id` int(11) NOT NULL,
   `studentId` int(11) NOT NULL COMMENT '学生id',
-  `questionnaireResults` text NOT NULL COMMENT '问卷调查结果，该结果以json格式存储',
-  `semester` int(11) NOT NULL COMMENT '学生在第几学期回答的问卷',
+  `questionnaireResults` text NOT NULL COMMENT '评教卷调查结果，该结果以json格式存储',
+  `semester` int(11) NOT NULL COMMENT '学生在第几学期回答的评教卷',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -285,7 +285,7 @@ CREATE TABLE `statisticsScore` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `teacherId` int(11) NOT NULL COMMENT '学生id',
   `courseId` int(11) NOT NULL COMMENT '课程id',
-  `publishQuestionnaireId` int(11) NOT NULL COMMENT '问卷发布id',
+  `publishQuestionnaireId` int(11) NOT NULL COMMENT '评教卷发布id',
   `attachJson` text NOT NULL COMMENT '统计的一些附加信息',
   `fraction` int(11) NOT NULL DEFAULT '0' COMMENT '授课老师得到的评分总和',
   `avg` double(10,2) NOT NULL DEFAULT '0.00' COMMENT '平均分数',

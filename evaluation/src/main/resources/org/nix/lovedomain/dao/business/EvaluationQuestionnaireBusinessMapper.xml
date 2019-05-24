@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.nix.lovedomain.dao.business.EvaluationQuestionnaireBusinessMapper">
+
+    <select id="selectPage" resultType="org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel">
+        SELECT * FROM `evaluationQuestionnaire`
+        <if test="querySql != null">
+            ${querySql}
+        </if>
+        <if test="page!=null and limit !=null">
+            LIMIT #{page},#{limit}
+        </if>
+        <if test="page == null or limit == null">
+            LIMIT 0,10
+        </if>
+    </select>
+
+    <select id="selectCountBySql" resultType="java.lang.Long">
+        SELECT count(*) FROM `evaluationQuestionnaire`
+        <if test="querySql != null">
+            ${querySql}
+        </if>
+    </select>
+
+</mapper>

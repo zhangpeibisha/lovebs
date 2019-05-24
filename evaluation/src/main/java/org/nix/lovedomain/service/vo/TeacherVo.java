@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.nix.lovedomain.model.Teacher;
+import org.nix.lovedomain.dao.model.TeacherModel;
 
 
 /**
@@ -58,7 +58,7 @@ public class TeacherVo {
      * @param teacher
      * @return
      */
-    public static TeacherVo teacherToSimpleTeacherVo(Teacher teacher) {
+    public static TeacherVo teacherToSimpleTeacherVo(TeacherModel teacher) {
         if (teacher == null) {
             return null;
         }

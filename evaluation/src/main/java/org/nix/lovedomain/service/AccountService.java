@@ -1,17 +1,18 @@
 package org.nix.lovedomain.service;
 
-import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.Validator;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.dao.mapper.AccountMapper;
-import org.nix.lovedomain.dao.mapper.StudentMapper;
-import org.nix.lovedomain.dao.mapper.TeacherMapper;
-import org.nix.lovedomain.model.*;
+import org.nix.lovedomain.dao.business.AccountBusinessMapper;
+import org.nix.lovedomain.dao.business.StudentBusinessMapper;
+import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
+import org.nix.lovedomain.dao.model.AccountModel;
+import org.nix.lovedomain.dao.model.StudentModel;
+import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.service.vo.TeacherVo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 
 /**
@@ -25,80 +26,49 @@ import java.util.List;
 public class AccountService {
 
     @Resource
-    private AccountMapper accountMapper;
+    private AccountBusinessMapper accountBusinessMapper;
 
     @Resource
-    private StudentMapper studentMapper;
+    private StudentBusinessMapper studentBusinessMapper;
 
     @Resource
-    private TeacherMapper teacherMapper;
+    private TeacherBusinessMapper teacherBusinessMapper;
 
-    public Account findUserByAccount(String username) {
-        if (username == null) {
-            throw new ServiceException("用户名不能为空");
-        }
-        AccountExample example = new AccountExample();
-
-        AccountExample.Criteria numbering = example.createCriteria();
-        numbering.andNumberingEqualTo(username);
-
-        AccountExample.Criteria phone = example.createCriteria();
-        phone.andPhoneEqualTo(username);
-
-        AccountExample.Criteria email = example.createCriteria();
-        email.andEmailEqualTo(username);
-
-        example.or(numbering);
-        example.or(phone);
-        example.or(email);
-
-        List<Account> accounts = accountMapper.selectByExample(example);
-        if (accounts.size() == 1) {
-            return accounts.get(0);
-        }
-        throw new ServiceException("通过用户名" + username + "查询用户信息失败");
+    /**
+     * 通过登陆名找到账户信息
+     *
+     * @param loginName 登陆名（账号、电话、邮箱）
+     * @return 账号信息
+     */
+    public AccountModel findUserByAccount(String loginName) {
+        return accountBusinessMapper.findAccountByNumberOrPhoneOrEmail(loginName);
     }
 
     /**
      * 通过账户信息查找到学生信息
      *
-     * @param userName
-     * @return
+     * @param userName 登陆名（账号、电话、邮箱）
+     * @return 学生信息
      */
     public StudentVo findStudentByAccountName(String userName) {
-        Account userByAccount = findUserByAccount(userName);
-        if (userByAccount == null) {
-            return null;
-        }
-        Integer accountId = userByAccount.getId();
-        StudentExample studentExample = new StudentExample();
-        studentExample.createCriteria().andAccountidEqualTo(accountId);
-        List<Student> students = studentMapper.selectByExample(studentExample);
-        if (CollUtil.isEmpty(students) || students.size() != 1) {
-            return null;
-        }
-        Student student = students.get(0);
-        return StudentVo.studentToSimpleStudentVo(student);
+        AccountModel studentAccount = findUserByAccount(userName);
+        Validator.validateNotNull(studentAccount, "账号{}不存在", userName);
+        StudentModel studentModel = new StudentModel();
+        studentModel.setAccountId(studentAccount.getId());
+        return StudentVo.studentToSimpleStudentVo(studentBusinessMapper.selectOne(studentModel));
     }
 
     /**
      * 通过账号信息查询老师信息
      *
-     * @param userName
-     * @return
+     * @param userName 登陆名（账号、电话、邮箱）
+     * @return 老师信息
      */
     public TeacherVo findTeacherByAccountName(String userName) {
-        Account userByAccount = findUserByAccount(userName);
-        if (userByAccount == null) {
-            return null;
-        }
-        Integer accountId = userByAccount.getId();
-        TeacherExample studentExample = new TeacherExample();
-        studentExample.createCriteria().andAccountidEqualTo(accountId);
-        List<Teacher> teachers = teacherMapper.selectByExample(studentExample);
-        if (CollUtil.isEmpty(teachers) || teachers.size() != 1) {
-            return null;
-        }
-        return TeacherVo.teacherToSimpleTeacherVo(teachers.get(0));
+        AccountModel teacherAccount = findUserByAccount(userName);
+        Validator.validateNotNull(teacherAccount, "账号{}不存在", userName);
+        TeacherModel teacherModel = new TeacherModel();
+        teacherModel.setAccountId(teacherAccount.getId());
+        return TeacherVo.teacherToSimpleTeacherVo(teacherBusinessMapper.selectOne(teacherModel));
     }
 }

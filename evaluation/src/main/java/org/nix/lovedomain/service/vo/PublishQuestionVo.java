@@ -2,14 +2,14 @@ package org.nix.lovedomain.service.vo;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
-import org.nix.lovedomain.model.Course;
+import org.nix.lovedomain.dao.model.CourseModel;
 
 import java.util.Date;
 
 /**
  * @author zhangpei
  * @version 1.0
- * @description 发布问卷展示
+ * @description 发布评教卷展示
  * @date 2019/5/1
  */
 @Data
@@ -23,17 +23,17 @@ public class PublishQuestionVo {
      */
     private TeacherVo teacher;
     /**
-     * 发布问卷老师信息
+     * 发布评教卷老师信息
      */
     private TeacherVo release;
     /**
      * 课程信息
      */
-    private Course course;
+    private CourseModel course;
     /**
-     * 问卷信息
+     * 评教卷信息
      */
-    private EvaluationquestionnaireSimpleVo questionnaire;
+    private EvaluationalSimpleVo questionnaire;
     /**
      * 发布描述
      */

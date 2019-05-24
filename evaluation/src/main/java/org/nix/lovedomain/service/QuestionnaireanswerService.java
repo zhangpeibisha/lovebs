@@ -1,6 +1,5 @@
 package org.nix.lovedomain.service;
 
-import org.nix.lovedomain.service.base.BaseService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,5 +8,5 @@ import org.springframework.stereotype.Service;
  * @since jdk8
  */
 @Service
-public class QuestionnaireanswerService extends BaseService {
+public class QuestionnaireanswerService  {
 }

@@ -1,0 +1,32 @@
+package org.nix.lovedomain.dao.model;
+
+import lombok.Data;
+import tk.mybatis.mapper.annotation.NameStyle;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
+
+/**
+ * @author zhangpei
+ * @version 1.0
+ * @description
+ * @date 2019/5/24
+ */
+@Data
+@NameStyle
+@Table(name = "role")
+public class RoleModel {
+
+    @Id
+    private Integer id;
+
+    private String name;
+
+    private String description;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+}

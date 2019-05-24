@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -28,7 +27,10 @@ public class TaskService {
     @Resource
     private CourseBusinessMapper courseBusinessMapper;
 
-
+    /**
+     * 导入课程信息
+     * @param path
+     */
     public void insertCourse(String path) {
         List<CourseExcel> courseExcels = commonService.readExcel2Bean(path, CourseExcel.class);
         if (CollUtil.isEmpty(courseExcels)) {
@@ -48,5 +50,9 @@ public class TaskService {
         courseModel.setDescription(courseName);
         return courseModel;
     }
+
+
+
+
 
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * @author zhangpei
  * @version 1.0
- * @description 问卷的列表展示对象
+ * @description 评教卷的列表展示对象
  * @date 2019/4/27
  */
 @Data
@@ -35,7 +35,7 @@ public class EvaluationquestionnaireDeatilVo {
 
     private Date updatetime;
     /**
-     * 问卷内容
+     * 评教卷内容
      */
     private String content;
 

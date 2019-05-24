@@ -1,8 +1,8 @@
 package org.nix.lovedomain.security;
 
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.model.Account;
-import org.nix.lovedomain.model.Resources;
+import org.nix.lovedomain.dao.model.AccountModel;
+import org.nix.lovedomain.dao.model.ResourcesModel;
 import org.nix.lovedomain.service.AccountService;
 import org.nix.lovedomain.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,11 +47,11 @@ public class UserDetailServiceImpl implements UserDetailsService, SocialUserDeta
     }
 
     private SocialUserDetails builderUser(String username) {
-        Account userByAccount = accountService.findUserByAccount(username);
+        AccountModel userByAccount = accountService.findUserByAccount(username);
         // 测试的时候不加密,使用默认加密方式
         userByAccount.setPassword(passwordEncoder.encode(userByAccount.getPassword()));
-        List<Resources> resourcesByAccount = resourcesService.findResourcesByAccount(username);
-        return new AuthenUserDetail(userByAccount, resourcesByAccount, username);
+        List<ResourcesModel> resourcesByAccount = resourcesService.findResourcesByAccount(username);
+        return new UserDetail(userByAccount, resourcesByAccount, username);
     }
 
 }

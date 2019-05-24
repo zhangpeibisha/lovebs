@@ -1,31 +1,25 @@
 package org.nix.lovedomain.web.controller;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.lang.Filter;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentCourseBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
-import org.nix.lovedomain.dao.mapper.StudentCourseMapper;
-import org.nix.lovedomain.dao.mapper.TeacherCourseMapper;
 import org.nix.lovedomain.dao.model.StudentCourseBusinessModel;
 import org.nix.lovedomain.dao.model.TeacherCourseModel;
-import org.nix.lovedomain.model.StudentCourse;
-import org.nix.lovedomain.model.Teacher;
+import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.AccountService;
-import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
-import org.nix.lovedomain.web.controller.base.BaseController;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.security.Principal;
-import java.util.*;
-import java.util.function.Consumer;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @version 1.0
@@ -36,7 +30,7 @@ import java.util.function.Consumer;
 @Slf4j
 @RestController
 @RequestMapping(value = "studentCourse")
-public class StudentCourseController extends BaseController<StudentCourse> {
+public class StudentCourseController {
 
     @Resource
     private StudentCourseBusinessMapper studentCourseBusinessMapper;
@@ -85,7 +79,7 @@ public class StudentCourseController extends BaseController<StudentCourse> {
     @GetMapping(value = "/findTeacher")
     public RespondsMessage findCourseTeachers(@RequestParam(value = "courseId") Integer courseId) {
 
-        List<Teacher> teacherByCourseId = teacherBusinessMapper.findTeacherByCourseId(courseId);
+        List<TeacherModel> teacherByCourseId = teacherBusinessMapper.findTeacherByCourseId(courseId);
 
         return RespondsMessage.success(LogUtil.logInfo(log, "通过课程id{}找到了老师：{}"
                 , courseId, teacherByCourseId), teacherByCourseId);

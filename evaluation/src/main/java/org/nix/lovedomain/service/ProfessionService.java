@@ -1,8 +1,7 @@
 package org.nix.lovedomain.service;
 
 import org.nix.lovedomain.dao.business.ProfessionBusinessMapper;
-import org.nix.lovedomain.model.Profession;
-import org.nix.lovedomain.service.base.BaseService;
+import org.nix.lovedomain.dao.model.ProfessionModel;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
@@ -11,30 +10,30 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/4/19
  * @since jdk8
  */
 @Service
-public class ProfessionService extends BaseService<Profession> {
+public class ProfessionService {
 
 
     @Resource
     private ProfessionBusinessMapper professionBusinessMapper;
 
-    public PageVo<Profession> findProfession(Integer page,
-                                             Integer limit,
-                                             String sql) {
+    public PageVo<ProfessionModel> findProfession(Integer page,
+                                                  Integer limit,
+                                                  String sql) {
         if (page == null) {
             page = 1;
         }
         int tempPage = page;
         page = SQLUtil.getOffset(page, limit);
-        List<Profession> professionPageBySql
+        List<ProfessionModel> professionPageBySql
                 = professionBusinessMapper.findProfessionPageBySql(page, limit, sql);
         Long aLong = professionBusinessMapper.countProfessionPageBySql(sql);
 
-        return PageVo.<Profession>builder()
+        return PageVo.<ProfessionModel>builder()
                 .page(tempPage)
                 .limit(limit)
                 .total(aLong)

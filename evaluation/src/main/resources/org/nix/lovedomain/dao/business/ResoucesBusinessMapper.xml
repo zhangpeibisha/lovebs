@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.nix.lovedomain.dao.business.ResoucesBusinessMapper">
+<mapper namespace="org.nix.lovedomain.dao.business.ResourcesBusinessMapper">
 
-    <select id="findResourcesPage" resultType="org.nix.lovedomain.model.Resources">
+    <select id="findResourcesPage" resultType="org.nix.lovedomain.dao.model.ResourcesModel">
         SELECT
         *
         FROM
@@ -37,7 +37,7 @@
     </select>
 
     <!--批量插入-->
-    <insert id="batchInsertResources" parameterType="org.nix.lovedomain.model.Resources">
+    <insert id="batchInsertResources" parameterType="org.nix.lovedomain.dao.model.ResourcesModel">
         insert into resources(url,`name`,description,`use`,permissionAll,method)
         values
         <foreach collection="resources" item="item" open="(" close=")" separator=",">

@@ -1,9 +1,8 @@
 package org.nix.lovedomain.service;
 
+import cn.hutool.core.util.PageUtil;
 import org.nix.lovedomain.dao.business.CourseBusinessMapper;
-import org.nix.lovedomain.dao.mapper.CourseMapper;
-import org.nix.lovedomain.model.Course;
-import org.nix.lovedomain.service.base.BaseService;
+import org.nix.lovedomain.dao.model.CourseModel;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
@@ -12,45 +11,34 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor  on 2019/4/19
  * @since jdk8
  */
 @Service
-public class CourseService extends BaseService {
+public class CourseService {
 
     @Resource
-    CourseMapper courseMapper;
-
-    public int testList(){
-        return  courseMapper.testList();
-    }
-
-
-    @Resource
-    private CourseBusinessMapper coueseBusinessMapper;
+    private CourseBusinessMapper courseBusinessMapper;
 
     /**
      * 获取老师列表
      *
-     * @param page
-     * @param limit
-     * @param sql
+     * @param page  页码
+     * @param limit 数量
+     * @param sql   sql查询
      * @return
      */
-    public PageVo<Course> findCourseList(Integer page,
-                                         Integer limit,
-                                         String sql) {
-        if (page == null) {
-            page = 1;
-        }
-        int tempPage = page;
+    public PageVo<CourseModel> findCourseList(Integer page,
+                                              Integer limit,
+                                              String sql) {
+        int tempPage = PageUtil.getStart(page, limit);
         page = SQLUtil.getOffset(page, limit);
-        List<Course> professionPageBySql
-                = coueseBusinessMapper.findCourseBySql(page, limit, sql);
-        Long aLong = coueseBusinessMapper.countCourseBySql(sql);
+        List<CourseModel> professionPageBySql
+                = courseBusinessMapper.findCourseBySql(page, limit, sql);
+        Long aLong = courseBusinessMapper.countCourseBySql(sql);
 
-        return PageVo.<Course>builder()
+        return PageVo.<CourseModel>builder()
                 .page(tempPage)
                 .limit(limit)
                 .total(aLong)

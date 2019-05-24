@@ -1,11 +1,10 @@
 package org.nix.lovedomain.web.controller;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
-import org.nix.lovedomain.model.Student;
+import org.nix.lovedomain.dao.model.StudentModel;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.StudentVo;
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -51,9 +49,9 @@ public class StudentController {
      * @return
      */
     @PutMapping(value = "/info")
-    public RespondsMessage updateStudent(@ModelAttribute Student student) {
-        int number = studentBusinessMapper.updateByPrimaryKeySelective(student);
-        return RespondsMessage.success("更新学生信息成功:数量=" + number);
+    public RespondsMessage updateStudent(@ModelAttribute StudentModel student) {
+
+        return RespondsMessage.success("更新学生信息成功:数量=");
     }
 
     /**
@@ -63,7 +61,7 @@ public class StudentController {
      * @return
      */
     @PostMapping(value = "/register/list")
-    public RespondsMessage registerStudents(@RequestBody List<Student> students) {
+    public RespondsMessage registerStudents(@RequestBody List<StudentModel> students) {
         if (CollUtil.isEmpty(students)) {
             return RespondsMessage.success("没有需要添加的学生");
         }
@@ -83,7 +81,7 @@ public class StudentController {
         if (CollUtil.isEmpty(studentIds)) {
             return RespondsMessage.success("没有需要删除的学生");
         }
-        studentService.delteStudent(studentIds);
+        studentService.deleteStudent(studentIds);
         return RespondsMessage.success(LogUtil.logInfo(log, "删除学生成功:共：{}人",
                 studentIds.size()));
     }

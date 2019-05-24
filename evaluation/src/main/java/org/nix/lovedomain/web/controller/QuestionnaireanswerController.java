@@ -1,7 +1,5 @@
 package org.nix.lovedomain.web.controller;
 
-import org.nix.lovedomain.model.Questionnaireanswer;
-import org.nix.lovedomain.web.controller.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value = "questionnaireanswer")
-public class QuestionnaireanswerController extends BaseController<Questionnaireanswer> {
+public class QuestionnaireanswerController {
 }

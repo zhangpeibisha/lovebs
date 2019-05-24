@@ -9,7 +9,6 @@
     <modules>
         <module>lovesecurity</module>
         <module>evaluation</module>
-        <module>api</module>
     </modules>
     <packaging>pom</packaging>
 </project>

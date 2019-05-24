@@ -1,7 +1,5 @@
 package org.nix.lovedomain.web.controller;
 
-import org.nix.lovedomain.model.RoleResource;
-import org.nix.lovedomain.web.controller.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value = "roleResource")
-public class RoleResourceController extends BaseController<RoleResource> {
+public class RoleResourceController  {
 }

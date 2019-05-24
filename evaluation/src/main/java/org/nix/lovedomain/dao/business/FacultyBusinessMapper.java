@@ -3,8 +3,6 @@ package org.nix.lovedomain.dao.business;
 import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.model.FacultyModel;
-import org.nix.lovedomain.model.Faculty;
-import org.nix.lovedomain.service.vo.StudentVo;
 
 import java.util.List;
 
@@ -24,7 +22,7 @@ public interface FacultyBusinessMapper extends BaseBusinessMapper<FacultyModel> 
      * @param sql
      * @return
      */
-    List<Faculty> findFacultyBySql(@Param(value = "page") Integer page,
+    List<FacultyModel> findFacultyBySql(@Param(value = "page") Integer page,
                                    @Param(value = "limit") Integer limit,
                                    @Param(value = "sql") String sql);
 

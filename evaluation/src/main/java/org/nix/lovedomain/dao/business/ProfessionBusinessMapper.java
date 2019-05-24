@@ -15,7 +15,7 @@ import java.util.List;
 public interface ProfessionBusinessMapper extends BaseBusinessMapper<ProfessionModel> {
 
 
-    List<org.nix.lovedomain.model.Profession>
+    List<ProfessionModel>
     findProfessionPageBySql(@Param(value = "page") Integer page,
                             @Param(value = "limit") Integer limit,
                             @Param(value = "sql") String sql);

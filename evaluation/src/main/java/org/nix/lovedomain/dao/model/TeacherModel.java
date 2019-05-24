@@ -28,7 +28,7 @@ public class TeacherModel {
 
     private Integer accountId;
 
-    private String imagerUrl;
+    private String imageUrl;
 
     private String phone;
 

@@ -1,6 +1,5 @@
 package org.nix.lovedomain.service;
 
-import org.nix.lovedomain.service.base.BaseService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,6 +8,6 @@ import org.springframework.stereotype.Service;
  * @since jdk8
  */
 @Service
-public class StudentCourseService extends BaseService {
+public class StudentCourseService  {
 
 }

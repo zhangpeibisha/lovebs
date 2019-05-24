@@ -3,7 +3,7 @@ package org.nix.lovedomain.dao.business.json.teacher;
 import cn.hutool.json.JSONUtil;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
-import org.nix.lovedomain.model.Teacher;
+import org.nix.lovedomain.dao.model.TeacherModel;
 
 /**
  * @author zhangpei
@@ -15,24 +15,25 @@ import org.nix.lovedomain.model.Teacher;
 public class TeacherWork {
 
     /**
-     * 老师的问卷任务
+     * 老师的评教卷任务
      */
     private QnaireTask qnaireTask;
 
     /**
      * 将数据库中存储的工作信息转换为json格式
-     * @param teacher
-     * @return
+     *
+     * @param teacher 老师信息
+     * @return 老师的工作信息
      */
-    public static TeacherWork str2Bean(Teacher teacher) {
-        if (teacher == null){
+    public static TeacherWork str2Bean(TeacherModel teacher) {
+        if (teacher == null) {
             return new TeacherWork();
         }
-        String workjson = teacher.getWorkjson();
-        if (workjson == null || "".equals(workjson)) {
+        String workJson = teacher.getWorkJson();
+        if (workJson == null || "".equals(workJson)) {
             return new TeacherWork();
         }
-        return JSONUtil.toBean(workjson, TeacherWork.class);
+        return JSONUtil.toBean(workJson, TeacherWork.class);
     }
 
 }

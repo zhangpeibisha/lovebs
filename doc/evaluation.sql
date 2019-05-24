@@ -149,14 +149,14 @@ CREATE TABLE `profession` (
 DROP TABLE IF EXISTS `publishQuestionnaire`;
 CREATE TABLE `publishQuestionnaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `releaseId` int(11) NOT NULL COMMENT '是谁发布这个问卷的-在teachear表的老师，且拥有发布权限的老师',
-  `courseId` int(11) NOT NULL COMMENT '这个问卷是发布给哪个课程的',
+  `releaseId` int(11) NOT NULL COMMENT '是谁发布这个评教卷的-在teachear表的老师，且拥有发布权限的老师',
+  `courseId` int(11) NOT NULL COMMENT '这个评教卷是发布给哪个课程的',
   `teacherId` int(11) NOT NULL COMMENT '这个是授课老师id',
-  `questionnaireId` int(11) NOT NULL COMMENT '问卷id-对应问卷表中的信息',
+  `questionnaireId` int(11) NOT NULL COMMENT '评教卷id-对应评教卷表中的信息',
   `description` varchar(255) DEFAULT NULL COMMENT '对这次发布的解释',
   `releaseTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '什么时候发布的',
-  `startRespondTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '‘学生什么时候开始回答这个问卷’',
-  `endRespondTime` timestamp NULL DEFAULT NULL COMMENT '‘学生什么时候禁止回答该问卷’',
+  `startRespondTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '‘学生什么时候开始回答这个评教卷’',
+  `endRespondTime` timestamp NULL DEFAULT NULL COMMENT '‘学生什么时候禁止回答该评教卷’',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -171,8 +171,8 @@ DROP TABLE IF EXISTS `questionnaireAnswer`;
 CREATE TABLE `questionnaireAnswer` (
   `id` int(11) NOT NULL,
   `studentId` int(11) NOT NULL COMMENT '学生id',
-  `questionnaireResults` text NOT NULL COMMENT '问卷调查结果，该结果以json格式存储',
-  `semester` int(11) NOT NULL COMMENT '学生在第几学期回答的问卷',
+  `questionnaireResults` text NOT NULL COMMENT '评教卷调查结果，该结果以json格式存储',
+  `semester` int(11) NOT NULL COMMENT '学生在第几学期回答的评教卷',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -264,7 +264,7 @@ CREATE TABLE `statisticsScore` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `teacherId` int(11) NOT NULL COMMENT '学生id',
   `courseId` int(11) NOT NULL COMMENT '课程id',
-  `publishQuestionnaireId` int(11) NOT NULL COMMENT '问卷发布id',
+  `publishQuestionnaireId` int(11) NOT NULL COMMENT '评教卷发布id',
   `attachJson` text NOT NULL COMMENT '统计的一些附加信息',
   `fraction` int(11) NOT NULL COMMENT '授课老师得到的评分总和',
   PRIMARY KEY (`id`)

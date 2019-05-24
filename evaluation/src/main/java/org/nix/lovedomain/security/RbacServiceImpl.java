@@ -2,7 +2,7 @@ package org.nix.lovedomain.security;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.model.Resources;
+import org.nix.lovedomain.dao.model.ResourcesModel;
 import org.nix.lovedomain.security.url.PermissionUrlConfig;
 import org.nix.lovedomain.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class RbacServiceImpl implements RbacService {
     /**
      * 这是不需要鉴权的路径缓存
      */
-    private volatile List<Resources> permissionAllCache;
+    private volatile List<ResourcesModel> permissionAllCache;
 
     @Autowired(required = false)
     private List<PermissionUrlConfig> permissionUrlConfigs;
@@ -65,7 +65,7 @@ public class RbacServiceImpl implements RbacService {
     private boolean isPermissionUrl(HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         String method = request.getMethod();
-        for (Resources next : permissionAllCache) {
+        for (ResourcesModel next : permissionAllCache) {
             if (antPathMatcher.match(next.getUrl(), requestURI)) {
                 String resourceMethod = next.getMethod();
                 if (resourceMethod == null) {
@@ -78,13 +78,19 @@ public class RbacServiceImpl implements RbacService {
         return false;
     }
 
+    /**
+     * 判断用户是否拥有权限
+     * @param httpServletRequest
+     * @param authentication
+     * @return
+     */
     private boolean userHasPermission(HttpServletRequest httpServletRequest, Authentication authentication) {
         String requestURI = httpServletRequest.getRequestURI();
         String method = httpServletRequest.getMethod();
         Object principal = authentication.getPrincipal();
-        if (principal instanceof AuthenUserDetail) {
+        if (principal instanceof UserDetail) {
             log.info("获取用户信息{}", JSONUtil.toJsonStr(principal));
-            List<UrlGrantedAuthority> grantedAuthorities = ((AuthenUserDetail) principal).getGrantedAuthorities();
+            List<UrlGrantedAuthority> grantedAuthorities = ((UserDetail) principal).getGrantedAuthorities();
             for (UrlGrantedAuthority next : grantedAuthorities) {
                 if (antPathMatcher.match(next.getUrl(), requestURI)) {
                     String resourceMethod = next.getHttpMethod();

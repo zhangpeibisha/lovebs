@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 /**
  * 专业信息
+ * @author zhangpei
  */
 @Entity
 @Data

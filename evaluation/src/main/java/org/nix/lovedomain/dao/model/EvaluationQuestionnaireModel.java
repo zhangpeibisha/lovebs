@@ -1,0 +1,36 @@
+package org.nix.lovedomain.dao.model;
+
+import lombok.Data;
+import tk.mybatis.mapper.annotation.NameStyle;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
+
+/**
+ * @author zhangpei
+ * @version 1.0
+ * @description
+ * @date 2019/5/24
+ */
+@Data
+@Table(name = "evaluationQuestionnaire")
+@NameStyle
+public class EvaluationQuestionnaireModel {
+
+    @Id
+    private Integer id;
+
+    private String title;
+
+    private String description;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    private String content;
+
+    private Integer authorId;
+
+}

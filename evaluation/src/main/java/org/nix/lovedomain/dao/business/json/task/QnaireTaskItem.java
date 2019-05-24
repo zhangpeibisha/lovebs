@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 简单的发布问卷信息，用于给用提供统计使用
+ * 简单的发布评教卷信息，用于给用提供统计使用
  * 方便查询
  *
  * @version 1.0
@@ -18,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class QnaireTaskItem implements Serializable {
     /**
-     * 发布的问卷id
+     * 发布的评教卷id
      */
     private Integer id;
 

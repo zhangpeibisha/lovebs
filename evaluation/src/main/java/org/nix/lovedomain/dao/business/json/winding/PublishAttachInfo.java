@@ -8,8 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
-import org.nix.lovedomain.model.Publishquestionnaire;
-import org.nix.lovedomain.service.PublishquestionnaireService;
+import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
@@ -19,7 +18,7 @@ import java.util.*;
 /**
  * @author zhangpei
  * @version 1.0
- * @description 发布问卷中的附加信息
+ * @description 发布评教卷中的附加信息
  * @date 2019/4/22
  */
 @Slf4j
@@ -27,12 +26,12 @@ import java.util.*;
 public class PublishAttachInfo {
 
     /**
-     * 应该参与问卷的学生:根据实际情况系统填写
+     * 应该参与评教卷的学生:根据实际情况系统填写
      */
     private List<StudentVo> students;
 
     /**
-     * 填写了问卷的学生的答案信息:根据实际情况系统填写
+     * 填写了评教卷的学生的答案信息:根据实际情况系统填写
      */
     private List<CompletesQuestion> completesQuestions;
 
@@ -66,11 +65,11 @@ public class PublishAttachInfo {
      */
     private List<String> advice;
 
-    public static PublishAttachInfo getBean(Publishquestionnaire publishquestionnaire) {
-        if (publishquestionnaire == null || publishquestionnaire.getStatistics() == null) {
+    public static PublishAttachInfo getBean(PublishQuestionnaireModel publishQuestionnaireModel) {
+        if (publishQuestionnaireModel == null || publishQuestionnaireModel.getStatistics() == null) {
             return new PublishAttachInfo();
         }
-        String statistics = publishquestionnaire.getStatistics();
+        String statistics = publishQuestionnaireModel.getStatistics();
         return JSONUtil.toBean(statistics, PublishAttachInfo.class);
     }
 
@@ -89,7 +88,7 @@ public class PublishAttachInfo {
 //                try {
 //                    PublishquestionnaireService.checkStudentHavePermissionUse(this, s);
 //                } catch (Exception e) {
-//                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本问卷中没有访问权限，不用添加黑名单", s));
+//                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本评教卷中没有访问权限，不用添加黑名单", s));
 //                }
 //            }
             black.addAll(studentIds);
@@ -127,7 +126,7 @@ public class PublishAttachInfo {
         String status;
         if ((status = completesQuestion.getStatus()) == null
                 || completesQuestion.getStudentId() == null) {
-            throw new ServiceException(LogUtil.logInfo(log, "填写的问卷没有提交状态或者学生id"));
+            throw new ServiceException(LogUtil.logInfo(log, "填写的评教卷没有提交状态或者学生id"));
         }
         /**
          * 状态类型是否标准
@@ -136,7 +135,7 @@ public class PublishAttachInfo {
                 || status.equals(CompletesQuestion.STATUS_KEEP));
 
         if (!haveStatus) {
-            throw new ServiceException(LogUtil.logInfo(log, "问卷状态值不符合要求：{}", status));
+            throw new ServiceException(LogUtil.logInfo(log, "评教卷状态值不符合要求：{}", status));
         }
 
         if (completesQuestions == null) {
@@ -166,11 +165,11 @@ public class PublishAttachInfo {
         String status = completesQuestion.getStatus();
         // 可能操作不当，默认保存为keep
         if (status == null) {
-            throw new ServiceException(LogUtil.logInfo(log, "该问卷状态为空，视为异常答案，删除:{}"
+            throw new ServiceException(LogUtil.logInfo(log, "该评教卷状态为空，视为异常答案，删除:{}"
                     , JSONUtil.toJsonStr(completesQuestion)));
         }
         if (CompletesQuestion.STATUS_COMMIT.equals(status)) {
-            throw new ServiceException(LogUtil.logInfo(log, "问卷已经提交，不可修改"));
+            throw new ServiceException(LogUtil.logInfo(log, "评教卷已经提交，不可修改"));
         }
         Integer studentId = completesQuestion.getStudentId();
         if (studentId == null) {
@@ -188,7 +187,7 @@ public class PublishAttachInfo {
     }
 
     /**
-     * 当问卷到达终结时间的时候
+     * 当评教卷到达终结时间的时候
      * 开始统计分数
      */
     public void statistical() {
@@ -284,7 +283,7 @@ public class PublishAttachInfo {
     }
 
     /**
-     * 完成问卷信息
+     * 完成评教卷信息
      */
     @Data
     public static class CompletesQuestion {

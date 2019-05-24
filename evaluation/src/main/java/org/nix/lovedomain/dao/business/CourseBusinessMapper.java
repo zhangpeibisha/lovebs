@@ -1,10 +1,9 @@
 package org.nix.lovedomain.dao.business;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.model.CourseModel;
-import org.nix.lovedomain.model.Course;
-import org.nix.lovedomain.model.Teacher;
 
 import java.util.List;
 
@@ -24,15 +23,31 @@ public interface CourseBusinessMapper extends BaseBusinessMapper<CourseModel> {
      * @param sql
      * @return
      */
-    List<Course> findCourseBySql(@Param(value = "page") Integer page,
-                                 @Param(value = "limit") Integer limit,
-                                 @Param(value = "sql") String sql);
+    List<CourseModel> findCourseBySql(@Param(value = "page") Integer page,
+                                      @Param(value = "limit") Integer limit,
+                                      @Param(value = "sql") String sql);
 
     /**
      * 通过sql查询老师数量
+     *
      * @param sql
      * @return
      */
     Long countCourseBySql(@Param(value = "sql") String sql);
+
+    /**
+     * 通过授课id查询到课程信息
+     *
+     * @param teachCourseId teacher_course表里的自增主键
+     * @return 课程信息
+     */
+    @Select(value = "SELECT\n" +
+            "\t*\n" +
+            "FROM\n" +
+            "\tcourse AS c\n" +
+            "LEFT JOIN teacher_course AS tc ON c.id = tc.courseId\n" +
+            "WHERE\n" +
+            "\ttc.id = #{teachCourseId};")
+    CourseModel findCourseByTeachCourse(Integer teachCourseId);
 
 }

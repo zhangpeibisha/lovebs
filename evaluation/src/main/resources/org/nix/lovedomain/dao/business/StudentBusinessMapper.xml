@@ -76,7 +76,7 @@
     <!--发现学生的原始信息，分页查询-->
     <select id="findStudentPage"
             parameterType="org.nix.lovedomain.dao.business.page.StudentPageInquire"
-            resultType="org.nix.lovedomain.model.Student">
+            resultType="org.nix.lovedomain.dao.model.StudentModel">
         SELECT * FROM `student`
         <if test="pageInquire.quireField!=null and pageInquire.quireValue!=null">
             <bind name="blurrySelect" value="'%'+pageInquire.quireValue+'%'"></bind>
@@ -181,5 +181,19 @@
             ${sql}
         </if>
     </select>
+
+    <!--发现一个课程中所有的学生 -->
+    <select id="getStudentByTeachCourse" resultMap="studentVoMap">
+        SELECT
+        student.studentId AS studentid,
+        student.`name`,
+        email,
+        phone
+          FROM
+              student LEFT JOIN student_course ON student.id = student_course.studentId
+            LEFT JOIN teacher_course ON student_course.courseId = teacher_course.id
+          WHERE teacher_course.courseId = #{courseId,jdbcType=INTEGER}
+          AND teacher_course.teacherId = #{teacherId,jdbcType=INTEGER}
+  </select>
 
 </mapper>

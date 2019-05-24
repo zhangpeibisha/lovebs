@@ -3,9 +3,7 @@ package org.nix.lovedomain.dao.business.json.student;
 import cn.hutool.json.JSONUtil;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
-import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
-import org.nix.lovedomain.model.Student;
-import org.nix.lovedomain.model.Teacher;
+import org.nix.lovedomain.dao.model.StudentModel;
 
 /**
  * @author zhangpei
@@ -17,12 +15,12 @@ import org.nix.lovedomain.model.Teacher;
 public class StudentTask {
 
     /**
-     * 学生的问卷任务
+     * 学生的评教卷任务
      */
     private QnaireTask qnaireTask;
 
 
-    public static StudentTask str2Bean(Student student) {
+    public static StudentTask str2Bean(StudentModel student) {
         String task = student.getTask();
         if (task == null || "".equals(task)){
             return new StudentTask();

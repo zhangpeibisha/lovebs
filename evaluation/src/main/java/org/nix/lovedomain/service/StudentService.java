@@ -4,19 +4,19 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.AccountBusinessMapper;
+import org.nix.lovedomain.dao.business.AccountRoleBusinessMapper;
+import org.nix.lovedomain.dao.business.RoleBusinessMapper;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
-import org.nix.lovedomain.dao.mapper.AccountMapper;
-import org.nix.lovedomain.dao.mapper.AccountRoleMapper;
-import org.nix.lovedomain.dao.mapper.RoleMapper;
-import org.nix.lovedomain.dao.mapper.StudentMapper;
-import org.nix.lovedomain.model.*;
+import org.nix.lovedomain.dao.model.AccountModel;
+import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
+import org.nix.lovedomain.dao.model.StudentModel;
 import org.nix.lovedomain.service.vo.*;
-import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,22 +40,19 @@ import java.util.List;
 public class StudentService {
 
     @Resource
-    private StudentMapper studentMapper;
-
-    @Resource
     private StudentBusinessMapper studentBusinessMapper;
 
     @Resource
-    private AccountMapper accountMapper;
+    private AccountBusinessMapper accountBusinessMapper;
 
     @Resource
-    private RoleMapper roleMapper;
+    private RoleBusinessMapper roleBusinessMapper;
 
     @Resource
     private StudentService studentService;
 
     @Resource
-    private AccountRoleMapper accountRoleMapper;
+    private AccountRoleBusinessMapper accountRoleBusinessMapper;
 
     /**
      * 分页查询简约学生信息,后台使用
@@ -63,12 +60,12 @@ public class StudentService {
      * @param pageInquire 查询参数
      * @return 查询到的学生列表
      */
-    public PageVo<Student> studentSimpleList(StudentPageInquire pageInquire) {
-        List<Student> studentPage = studentBusinessMapper.findStudentPage(pageInquire);
+    public PageVo<StudentModel> studentSimpleList(StudentPageInquire pageInquire) {
+        List<StudentModel> studentPage = studentBusinessMapper.findStudentPage(pageInquire);
         long studentCount = studentBusinessMapper.findStudentCount(pageInquire);
         Integer limit = pageInquire.getLimit();
         Integer page = pageInquire.getPage();
-        return PageVo.<Student>builder()
+        return PageVo.<StudentModel>builder()
                 .data(studentPage)
                 .limit(limit == null ? (int) studentCount : limit)
                 .page(page == null ? 1 : page)
@@ -76,53 +73,14 @@ public class StudentService {
                 .build();
     }
 
-    /**
-     * 更新学生信息
-     *
-     * @param student
-     */
-    public void updateStudent(Student student) {
-        if (student == null) {
-            return;
-        }
-        int i = studentMapper.updateByPrimaryKey(student);
-        if (i <= 0) {
-            throw new ServiceException(LogUtil.logInfo(log, "更新学生{}信息错误：{}", JSONUtil.toJsonStr(student), i));
-        }
-    }
 
     /**
      * 删除学生信息
      *
      * @param studentIds
      */
-    public void delteStudent(List<Integer> studentIds) {
-        if (CollUtil.isEmpty(studentIds)) {
-            return;
-        }
-        StudentExample studentExample = new StudentExample();
-        studentExample.createCriteria().andIdIn(studentIds);
-        List<Student> students = studentMapper.selectByExample(studentExample);
-        if (CollUtil.isEmpty(students)) {
-            return;
-        }
-        // 首先删除学生的账户信息
-        List<Integer> accountIds = new ArrayList<>();
-        for (Student student : students) {
-            accountIds.add(student.getAccountid());
-        }
-        int size = students.size();
-        AccountExample accountExample = new AccountExample();
-        accountExample.createCriteria().andIdIn(accountIds);
-        Integer deletes = accountMapper.deleteByExample(accountExample);
-        if (deletes != size) {
-            throw new ServiceException(LogUtil.logWarn(log, "删除学生{}集合失败：delete={}  complete={}",
-                    JSONUtil.toJsonStr(studentIds), deletes, size));
-        }
-        // 删除学生信息
-        StudentExample deleteStudent = new StudentExample();
-        deleteStudent.createCriteria().andIdIn(studentIds);
-        studentMapper.deleteByExample(deleteStudent);
+    public void deleteStudent(List<Integer> studentIds) {
+
     }
 
     /**
@@ -130,24 +88,8 @@ public class StudentService {
      *
      * @param students
      */
-    public void registerStudent(List<Student> students) {
-        if (CollUtil.isEmpty(students)) {
-            return;
-        }
-        for (Student student : students) {
-            try {
-                Account accountToStudent = createAccountToStudent(student);
-                if (accountToStudent == null) {
-                    return;
-                }
-                student.setAccountid(accountToStudent.getId());
-                studentMapper.insertSelective(student);
-            } catch (Exception e) {
-                String logInfo = LogUtil.logInfo(log, "添加学生{}失败：{}",
-                        JSONUtil.toJsonStr(student), e.getMessage());
-                throw new ServiceException(logInfo);
-            }
-        }
+    public void registerStudent(List<StudentModel> students) {
+
     }
 
     /**
@@ -156,140 +98,85 @@ public class StudentService {
      * @param student 学生信息
      * @return 学生账号
      */
-    private Account createAccountToStudent(Student student) {
-        if (student == null) {
-            return null;
-        }
-        Account account = new Account();
-        account.setPhone(student.getPhone());
-        account.setNumbering(student.getStudentid());
-        // 默认密码未学生学号
-        account.setPassword(student.getStudentid());
-        account.setEmail(student.getEmail());
-        studentService.getAccountMapper().insertSelective(account);
-        // 设置角色
-        Integer integer = checkStudentRole();
-        AccountRole accountRole = new AccountRole();
-        accountRole.setAccountid(account.getId());
-        accountRole.setRoleid(integer);
-        accountRoleMapper.insertSelective(accountRole);
-        return account;
+    private AccountModel createAccountToStudent(StudentModel student) {
+       return null;
     }
 
-    /**
-     * 检查学生的角色是否存在
-     *
-     * @return
-     */
-    public Integer checkStudentRole() {
-        String roleName = "在校学生";
-        RoleExample example = new RoleExample();
-        example.createCriteria().andNameEqualTo(roleName);
-        List<Role> roles = roleMapper.selectByExample(example);
-        if (CollUtil.isEmpty(roles)) {
-            Role e = new Role();
-            e.setName(roleName);
-            roleMapper.insertSelective(e);
-            return e.getId();
-        }
-        return roles.get(0).getId();
-    }
 
     /**
-     * 为学生添加问卷回答任务
+     * 为学生添加评教卷回答任务
      *
-     * @param publishquestionnaire
+     * @param publishQuestionnaireModel
      */
-    public void addPublishQuestionTask(Publishquestionnaire publishquestionnaire) {
-        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaire);
-        List<StudentVo> students = bean.getStudents();
-        if (CollUtil.isEmpty(students)) {
-            return;
-        }
-        List<Integer> stduentIds = new ArrayList<>(students.size());
-        for (StudentVo studentVo : students) {
-            if (studentVo == null) {
-                continue;
-            }
-            stduentIds.add(studentVo.getId());
-        }
-        if (CollUtil.isEmpty(stduentIds)) {
-            return;
-        }
-        StudentExample studentExample = new StudentExample();
-        studentExample.createCriteria().andIdIn(stduentIds);
-        List<Student> studentList = studentMapper.selectByExample(studentExample);
-        Integer publishquestionnaireId = publishquestionnaire.getId();
-        Date endrespondtime = publishquestionnaire.getEndrespondtime();
-        for (Student student : studentList) {
+    public void addPublishQuestionTask(PublishQuestionnaireModel publishQuestionnaireModel) {
+        Integer publishId = publishQuestionnaireModel.getId();
+        Date endTime = publishQuestionnaireModel.getEndRespondTime();
+        for (StudentModel student : findPublishStudent(publishQuestionnaireModel)) {
             StudentTask studentTask = StudentTask.str2Bean(student);
             QnaireTask qnaireTask = studentTask.getQnaireTask();
             if (qnaireTask == null) {
                 qnaireTask = new QnaireTask();
             }
-            qnaireTask.addTask(new QnaireTaskItem(publishquestionnaireId, endrespondtime));
+            qnaireTask.addTask(new QnaireTaskItem(publishId, endTime));
             studentTask.setQnaireTask(qnaireTask);
             student.setTask(JSONUtil.toJsonStr(studentTask));
             studentBusinessMapper.updateByPrimaryKey(student);
         }
     }
+
+    /**
+     * 发现这次评教卷中的所有学生
+     *
+     * @param publishquestionnaire
+     * @return
+     */
+    public List<StudentModel> findPublishStudent(PublishQuestionnaireModel publishquestionnaire) {
+        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaire);
+        List<StudentVo> students = bean.getStudents();
+        if (CollUtil.isEmpty(students)) {
+            return null;
+        }
+        List<Integer> studentIds = new ArrayList<>(students.size());
+        for (StudentVo studentVo : students) {
+            if (studentVo != null) {
+                studentIds.add(studentVo.getId());
+            }
+        }
+        if (CollUtil.isEmpty(studentIds)) {
+            return null;
+        }
+        return studentBusinessMapper.selectByIds(list2StrIds(studentIds));
+    }
+
+    /**
+     * 将list的id集合转换成字符串
+     *
+     * @param studentIds
+     * @return
+     */
+    public String list2StrIds(List<Integer> studentIds) {
+        return studentIds.toString().replaceAll("\\[", "")
+                .replaceAll("]", "").replaceAll(" ", "");
+    }
+
 
     /**
      * 将学生任务移到完成集合中去
      *
-     * @param publishquestionnaire
+     * @param publishQuestionnaireModel
      */
-    public void removePublishQuestionTask(Publishquestionnaire publishquestionnaire) {
-        PublishAttachInfo bean = PublishAttachInfo.getBean(publishquestionnaire);
-        List<StudentVo> students = bean.getStudents();
-        if (CollUtil.isEmpty(students)) {
-            return;
-        }
-        List<Integer> stduentIds = new ArrayList<>(students.size());
-        for (StudentVo studentVo : students) {
-            if (studentVo == null) {
-                continue;
-            }
-            stduentIds.add(studentVo.getId());
-        }
-        if (CollUtil.isEmpty(stduentIds)) {
-            return;
-        }
-        StudentExample studentExample = new StudentExample();
-        studentExample.createCriteria().andIdIn(stduentIds);
-        List<Student> studentList = studentMapper.selectByExample(studentExample);
-        Integer publishquestionnaireId = publishquestionnaire.getId();
-        Date endrespondtime = publishquestionnaire.getEndrespondtime();
-        for (Student student : studentList) {
+    public void removePublishQuestionTask(PublishQuestionnaireModel publishQuestionnaireModel) {
+        Integer publishId = publishQuestionnaireModel.getId();
+        Date endTime = publishQuestionnaireModel.getEndRespondTime();
+        for (StudentModel student : findPublishStudent(publishQuestionnaireModel)) {
             StudentTask studentTask = StudentTask.str2Bean(student);
             QnaireTask qnaireTask = studentTask.getQnaireTask();
-            qnaireTask.completeTask(new QnaireTaskItem(publishquestionnaireId, endrespondtime));
+            qnaireTask.completeTask(new QnaireTaskItem(publishId, endTime));
             studentTask.setQnaireTask(qnaireTask);
             student.setTask(JSONUtil.toJsonStr(studentTask));
             studentBusinessMapper.updateByPrimaryKey(student);
         }
     }
-
-
-    /**
-     * 返回一个简约视图给调用者，里面没有用户的班级和账号信息
-     *
-     * @param pageInquire 请求参数
-     * @return 查询分页列表
-     */
-    public PageVo<StudentVo> studentVoSimpleList(StudentPageInquire pageInquire) {
-        PageVo<Student> studentPageVo = studentSimpleList(pageInquire);
-        List<Student> data = studentPageVo.getData();
-        if (data != null && data.size() > 0) {
-            List<StudentVo> studentVos = new ArrayList<>(data.size());
-            for (Student student : data) {
-                studentVos.add(StudentVo.studentToSimpleStudentVo(student));
-            }
-            return studentPageVo.changeDataType(studentVos);
-        }
-        return null;
-    }
-
 
     public PageVo<StudentVo> studentVODetailList(Integer page,
                                                  Integer limit,
@@ -349,21 +236,14 @@ public class StudentService {
 
     /**
      * 根据课程读取所有的学生
+     * //TODO 需要修改
      *
-     * @param teacherId 老师id
-     * @param courseId  课程id
+     * @param teacherAccountId 老师id
+     * @param courseId         课程id
      * @return
      */
-    public List<Student> getStudentByCourse(Integer teacherId, Integer courseId) {
-        return studentMapper.getStudentByCourse(teacherId, courseId);
+    public List<StudentModel> getStudentByTeachCourse(Integer teacherAccountId, Integer courseId) {
+        return studentBusinessMapper.getStudentByTeachCourse(teacherAccountId, courseId);
     }
 
-    /**
-     * 将用户的任务写回数据库
-     *
-     * @param students
-     */
-    public void writeStudentTask(List<Student> students) {
-        studentMapper.writeStudentTask(students);
-    }
 }

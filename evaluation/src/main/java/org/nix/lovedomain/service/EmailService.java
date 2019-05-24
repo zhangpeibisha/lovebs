@@ -1,12 +1,11 @@
 package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.StrUtil;
 import org.nix.lovedomain.component.email.EmailTemplate;
-import org.nix.lovedomain.dao.mapper.CourseMapper;
-import org.nix.lovedomain.dao.mapper.EvaluationquestionnaireMapper;
-import org.nix.lovedomain.dao.mapper.TeacherMapper;
-import org.nix.lovedomain.model.*;
+import org.nix.lovedomain.dao.business.CourseBusinessMapper;
+import org.nix.lovedomain.dao.business.EvaluationQuestionnaireBusinessMapper;
+import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
+import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.utils.EmailContent;
 import org.nix.lovedomain.utils.EmailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,52 +26,42 @@ import java.util.List;
 public class EmailService {
 
     @Autowired
-    private EmailTemplate emailTemplate;
-
-    @Autowired
-    private TeacherService teacherService;
-
-    @Autowired
     private StudentService studentService;
 
     @Resource
-    private TeacherMapper teacherMapper;
+    private TeacherBusinessMapper teacherBusinessMapper;
 
     @Resource
-    private CourseMapper courseMapper;
+    private CourseBusinessMapper courseMapper;
 
     @Resource
-    private EvaluationquestionnaireMapper evaluationquestionnaireMapper;
-
-    public void sendQuestionTask(EmailTemplate.EmailText emailText) {
-        emailTemplate.sendTextEmail(emailText);
-    }
+    private EvaluationQuestionnaireBusinessMapper evaluationQuestionnaireBusinessMapper;
 
     /**
      * 发送提示信息给发布的老师
      *
-     * @param publishquestionnaire
-     * @param type 值为1代表问卷开始做答，值为2代表问卷结束做答
+     * @param publishQuestionnaireModel
+     * @param type 值为1代表评教卷开始做答，值为2代表评教卷结束做答
      */
-    public void sendReminderAnnouncerQuestionStart(Publishquestionnaire publishquestionnaire,Integer type) {
-        Integer releaseid = publishquestionnaire.getReleaseid();
-        Teacher teacher = teacherMapper.selectByAccountId(releaseid);
-        Integer questionnaireid = publishquestionnaire.getQuestionnaireid();
-        Evaluationquestionnaire evaluationquestionnaire
-                = evaluationquestionnaireMapper.selectByPrimaryKey(questionnaireid);
-        if (evaluationquestionnaire == null){
+    public void sendReminderAnnouncerQuestionStart(PublishQuestionnaireModel publishQuestionnaireModel,Integer type) {
+        Integer releaseAccountId = publishQuestionnaireModel.getReleaseId();
+        TeacherModel teacher = teacherBusinessMapper.selectByAccountId(releaseAccountId);
+        Integer questionnaireId = publishQuestionnaireModel.getQuestionnaireId();
+        EvaluationQuestionnaireModel evaluational
+                = evaluationQuestionnaireBusinessMapper.selectByPrimaryKey(questionnaireId);
+        if (evaluational == null){
             return;
         }
-        String title = evaluationquestionnaire.getTitle();
+        String title = evaluational.getTitle();
         String email = teacher.getEmail();
 
         if(type == 1){
-            //发送邮件给发布问卷的老师
-            EmailUtil.sendEmail(EmailContent.SEND_PT_START.toContent(teacher.getName(),title,publishquestionnaire.getDescription()),
+            //发送邮件给发布评教卷的老师
+            EmailUtil.sendEmail(EmailContent.SEND_PT_START.toContent(teacher.getName(),title,publishQuestionnaireModel.getDescription()),
                     Arrays.asList(email));
         }else if(type == 2){
-            //发送邮件给发布问卷的老师
-            EmailUtil.sendEmail(EmailContent.SEND_PT_END.toContent(teacher.getName(),title,publishquestionnaire.getDescription()),
+            //发送邮件给发布评教卷的老师
+            EmailUtil.sendEmail(EmailContent.SEND_PT_END.toContent(teacher.getName(),title,publishQuestionnaireModel.getDescription()),
                     Arrays.asList(email));
         }
 
@@ -82,15 +71,15 @@ public class EmailService {
     /**
      * 发送提示邮件给授课老师
      *
-     * @param publishquestionnaire
-     * @param type 值为1代表问卷开始做答，值为2代表问卷结束做答
+     * @param publishQuestionnaireModel
+     * @param type 值为1代表评教卷开始做答，值为2代表评教卷结束做答
      */
-    public void sendReminderTeacher(Publishquestionnaire publishquestionnaire,Integer type){
-        Integer teacherid = publishquestionnaire.getTeacherid();
-        Teacher teacher = teacherMapper.selectByAccountId(teacherid);
-        Integer courseid = publishquestionnaire.getCourseid();
-        Course course = courseMapper.selectByPrimaryKey(courseid);
-
+    public void sendReminderTeacher(PublishQuestionnaireModel publishQuestionnaireModel,Integer type){
+        Integer teacherAccountId = publishQuestionnaireModel.getTeacherId();
+        TeacherModel teacher = teacherBusinessMapper.selectByAccountId(teacherAccountId);
+        Integer teachCourseId = publishQuestionnaireModel.getCourseId();
+        // 通过授课课程找到课程信息
+        CourseModel course = courseMapper.findCourseByTeachCourse(teachCourseId);
         if(type == 1){
             //发送邮件给授课老师
             EmailUtil.sendEmail(EmailContent.SEND_T_START.toContent(teacher.getName(),course.getName()),
@@ -107,28 +96,30 @@ public class EmailService {
     /**
      * 发送提示邮件给学生
      *
-     * @param publishquestionnaire
-     * @param type 值为1代表问卷开始做答，值为2代表问卷结束做答
+     * @param publishQuestionnaireModel
+     * @param type 值为1代表评教卷开始做答，值为2代表评教卷结束做答
      */
-    public void sendReminderStudent(Publishquestionnaire publishquestionnaire,Integer type) {
-        if (publishquestionnaire == null) {
+    public void sendReminderStudent(PublishQuestionnaireModel publishQuestionnaireModel,Integer type) {
+        if (publishQuestionnaireModel == null) {
             return;
         }
-        Integer courseid = publishquestionnaire.getCourseid();
-        Integer teacherid = publishquestionnaire.getTeacherid();
-        if (courseid == null || teacherid == null) {
+        Integer teachCourseId = publishQuestionnaireModel.getCourseId();
+        Integer teacherAccountId = publishQuestionnaireModel.getTeacherId();
+        if (teachCourseId == null || teacherAccountId == null) {
             return;
         }
-        List<Student> studentByCourse
-                = getStudentByCourse(teacherid,
-                courseid);
+        List<StudentModel> studentByCourse
+                = getStudentByTeachCourse(teacherAccountId,
+                teachCourseId);
         if (CollUtil.isEmpty(studentByCourse)) {
             return;
         }
-        Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
-        Course course = courseMapper.selectByPrimaryKey(courseid);
+        TeacherModel teacher = teacherBusinessMapper.selectByPrimaryKey(teacherAccountId);
+
+        // 通过授课课程找到课程信息
+        CourseModel course = courseMapper.findCourseByTeachCourse(teachCourseId);
         List<String> address = new ArrayList<>(studentByCourse.size());
-        for (Student student : studentByCourse) {
+        for (StudentModel student : studentByCourse) {
             String email = student.getEmail();
             address.add(email);
         }
@@ -147,24 +138,25 @@ public class EmailService {
     /**
      * 发送他提示邮件
      *
-     * @param publishquestionnaire
-     * @param tyepe  值为1代表问卷开始，2代表问卷结束
+     * @param publishQuestionnaireModel
+     * @param tyepe  值为1代表评教卷开始，2代表评教卷结束
      */
-    public void sendPublishQuestionNotice(Publishquestionnaire publishquestionnaire,Integer tyepe){
-        sendReminderAnnouncerQuestionStart(publishquestionnaire,tyepe);
-        sendReminderTeacher(publishquestionnaire,tyepe);
-        sendReminderStudent(publishquestionnaire,tyepe);
+    public void sendPublishQuestionNotice(PublishQuestionnaireModel publishQuestionnaireModel, Integer tyepe){
+        sendReminderAnnouncerQuestionStart(publishQuestionnaireModel,tyepe);
+        sendReminderTeacher(publishQuestionnaireModel,tyepe);
+        sendReminderStudent(publishQuestionnaireModel,tyepe);
     }
 
     /**
      * 根据课程读取所有的学生
      *
      * @param teacherId 老师id
-     * @param courseId  课程id
+     * @param teachCourseId  授课课程id ： teacher_course自增主键
      * @return
      */
-    private List<Student> getStudentByCourse(Integer teacherId, Integer courseId)  {
-        return studentService.getStudentByCourse(teacherId, courseId);
+    private List<StudentModel> getStudentByTeachCourse(Integer teacherId,
+                                                       Integer teachCourseId)  {
+        return studentService.getStudentByTeachCourse(teacherId, teachCourseId);
     }
 
 }

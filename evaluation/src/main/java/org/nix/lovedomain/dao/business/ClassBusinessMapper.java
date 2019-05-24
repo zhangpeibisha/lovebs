@@ -3,8 +3,6 @@ package org.nix.lovedomain.dao.business;
 import org.apache.ibatis.annotations.Param;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.model.ClassModel;
-import org.nix.lovedomain.model.Class;
-import org.nix.lovedomain.model.Faculty;
 
 import java.util.List;
 

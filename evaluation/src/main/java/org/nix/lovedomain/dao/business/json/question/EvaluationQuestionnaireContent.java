@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
-import org.nix.lovedomain.model.Evaluationquestionnaire;
+import org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,7 +28,7 @@ public class EvaluationQuestionnaireContent {
     private List<BaseQuestion> questions;
 
     /**
-     * 想问卷中添加问题
+     * 想评教卷中添加问题
      *
      * @param question 问题
      */
@@ -50,7 +50,7 @@ public class EvaluationQuestionnaireContent {
     }
 
     /**
-     * 更新问卷中的一个问题，必须携带id进入
+     * 更新评教卷中的一个问题，必须携带id进入
      *
      * @param baseQuestion 问题信息
      */
@@ -94,16 +94,16 @@ public class EvaluationQuestionnaireContent {
     }
 
     /**
-     * 通过问卷对象获取到问卷内容的bean形式
+     * 通过评教卷对象获取到评教卷内容的bean形式
      *
-     * @param evaluationquestionnaire 问卷信息
-     * @return 问卷内容的bean
+     * @param evaluationQuestionnaireModel 评教卷信息
+     * @return 评教卷内容的bean
      */
-    public static EvaluationQuestionnaireContent getContentBean(Evaluationquestionnaire evaluationquestionnaire) {
-        if (evaluationquestionnaire == null) {
+    public static EvaluationQuestionnaireContent getContentBean(EvaluationQuestionnaireModel evaluationQuestionnaireModel) {
+        if (evaluationQuestionnaireModel == null) {
             return null;
         }
-        String jsonContent = evaluationquestionnaire.getContent();
+        String jsonContent = evaluationQuestionnaireModel.getContent();
         if (jsonContent == null) {
             return new EvaluationQuestionnaireContent();
         }

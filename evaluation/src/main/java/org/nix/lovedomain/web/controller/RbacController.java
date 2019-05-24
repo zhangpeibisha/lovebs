@@ -2,9 +2,9 @@ package org.nix.lovedomain.web.controller;
 
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.RoleBusinessMapper;
 import org.nix.lovedomain.dao.business.RoleResourceBusinessMapper;
-import org.nix.lovedomain.dao.mapper.RoleMapper;
-import org.nix.lovedomain.model.Role;
+import org.nix.lovedomain.dao.model.RoleModel;
 import org.nix.lovedomain.web.dto.ResultDto;
 import org.nix.lovedomain.web.dto.RoleDto;
 import org.springframework.http.HttpStatus;
@@ -25,10 +25,10 @@ import java.util.List;
 public class RbacController {
 
     @Resource
-    private RoleMapper roleMapper;
+    private RoleBusinessMapper roleBusinessMapper;
 
     @Resource
-    RoleResourceBusinessMapper roleResourceBusinessMapper;
+    private RoleResourceBusinessMapper roleResourceBusinessMapper;
 
     /**
      * 添加角色
@@ -39,8 +39,8 @@ public class RbacController {
     @PostMapping(value = "/role")
     public ResultDto addRole(RoleDto role) {
         String name = role.getName();
-        int i = roleMapper.insertSelective(
-                JSONUtil.toBean(JSONUtil.toJsonStr(role), Role.class));
+        int i = roleBusinessMapper.insertSelective(
+                JSONUtil.toBean(JSONUtil.toJsonStr(role), RoleModel.class));
         if (i > 0) {
             ResultDto resultDto = new ResultDto();
             resultDto.setStatus(HttpStatus.OK);

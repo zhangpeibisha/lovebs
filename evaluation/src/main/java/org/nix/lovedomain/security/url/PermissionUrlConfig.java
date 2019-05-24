@@ -1,6 +1,6 @@
 package org.nix.lovedomain.security.url;
 
-import org.nix.lovedomain.model.Resources;
+import org.nix.lovedomain.dao.model.ResourcesModel;
 
 import java.util.List;
 
@@ -18,6 +18,6 @@ public interface PermissionUrlConfig {
      * @author zhangpe0312@qq.com
      * @date 2019/3/14
      */
-    void config(List<Resources> urls);
+    void config(List<ResourcesModel> urls);
 
 }

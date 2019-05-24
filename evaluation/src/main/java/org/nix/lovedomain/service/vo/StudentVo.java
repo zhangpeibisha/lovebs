@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.nix.lovedomain.model.Student;
+import org.nix.lovedomain.dao.model.StudentModel;
 
 /**
  * @author zhangpei
@@ -55,7 +55,7 @@ public class StudentVo {
         return JSONUtil.parseObj(task);
     }
 
-    public static StudentVo studentToSimpleStudentVo(Student student) {
+    public static StudentVo studentToSimpleStudentVo(StudentModel student) {
         if (student == null){
             return  null;
         }
@@ -63,11 +63,11 @@ public class StudentVo {
     }
 
 
-    public static Student studentVo2Student(StudentVo studentVo){
+    public static StudentModel studentVo2Student(StudentVo studentVo){
         if (studentVo == null){
             return null;
         }
-        return JSON.parseObject(JSON.toJSONString(studentVo),Student.class);
+        return JSON.parseObject(JSON.toJSONString(studentVo),StudentModel.class);
     }
 
 }

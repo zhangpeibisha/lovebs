@@ -23,7 +23,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 
 /**
  * @author zhangpei
@@ -55,7 +58,7 @@ public class CommonService {
      *
      * @param file 文件流
      * @param type 数据转换的类型
-     * @param <T>  问卷中存储的问卷类型
+     * @param <T>  评教卷中存储的评教卷类型
      * @return 文件中的数据list
      */
     public <T> List<T> readExcel2Bean(InputStream file, Class<T> type) {
@@ -284,11 +287,7 @@ public class CommonService {
     public TeacherModel findTeacherModelByName(String teacherName) {
         TeacherModel teacherModel = new TeacherModel();
         teacherModel.setName(teacherName);
-        List<TeacherModel> select = teacherBusinessMapper.select(teacherModel);
-        if (!CollUtil.isEmpty(select)) {
-            return select.get(0);
-        }
-        return null;
+        return teacherBusinessMapper.selectOne(teacherModel);
     }
 
     /**
@@ -312,7 +311,7 @@ public class CommonService {
         String teacherName = classExcel.getTeacherName();
         TeacherModel teacherModelByName = findTeacherModelByName(teacherName);
         ClassModel classByCoding = findClassByCoding(classId);
-        if (teacherModelByName == null || classByCoding == null){
+        if (teacherModelByName == null || classByCoding == null) {
             return;
         }
         classByCoding.setTeacherId(teacherModelByName.getAccountId());

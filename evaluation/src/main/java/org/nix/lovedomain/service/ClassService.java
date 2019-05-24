@@ -1,10 +1,6 @@
 package org.nix.lovedomain.service;
 
 import org.nix.lovedomain.dao.business.ClassBusinessMapper;
-import org.nix.lovedomain.dao.business.FacultyBusinessMapper;
-import org.nix.lovedomain.model.Class;
-import org.nix.lovedomain.model.Faculty;
-import org.nix.lovedomain.service.base.BaseService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.springframework.stereotype.Service;
@@ -18,7 +14,7 @@ import java.util.List;
  * @since jdk8
  */
 @Service
-public class ClassService extends BaseService {
+public class ClassService  {
 
     @Resource
     private ClassBusinessMapper classBusinessMapper;
