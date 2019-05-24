@@ -25,4 +25,10 @@ public class TaskServiceTest {
     public void insertTeachTask() {
         taskService.insertTeachTask(bash+"18-19(2)任务书1205.xls");
     }
+
+    @Test
+    @Transactional
+    public void insertStudentTask(){
+        taskService.insertStudentTask(bash+"18-19(2)任务书1205.xls");
+    }
 }

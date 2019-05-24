@@ -5,16 +5,14 @@ import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.dao.business.AccountBusinessMapper;
-import org.nix.lovedomain.dao.business.AccountRoleBusinessMapper;
-import org.nix.lovedomain.dao.business.RoleBusinessMapper;
-import org.nix.lovedomain.dao.business.StudentBusinessMapper;
+import org.nix.lovedomain.dao.business.*;
 import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
 import org.nix.lovedomain.dao.model.AccountModel;
+import org.nix.lovedomain.dao.model.ClassModel;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 import org.nix.lovedomain.dao.model.StudentModel;
 import org.nix.lovedomain.service.vo.*;
@@ -56,6 +54,34 @@ public class StudentService {
 
     @Resource
     private AccountRoleBusinessMapper accountRoleBusinessMapper;
+
+    @Resource
+    private ClassService classService;
+
+    /**
+     * 通过班级编码发现这个班级的所有学生
+     *
+     * @param classCoding 班级编码
+     * @return 这个班级的所有学生
+     */
+    public List<StudentModel> findStudentModelsByClassCoding(String classCoding) {
+        ClassModel classModel = classService.findClassByClassCoding(classCoding);
+        Integer classModelId = classModel.getId();
+        return findStudentModelsByClassId(classModelId);
+    }
+
+    /**
+     * 通过班级的自增主键查询该班级的学生信息信息
+     *
+     * @param classId 班级自增主键
+     * @return 班级信息
+     */
+    public List<StudentModel> findStudentModelsByClassId(Integer classId) {
+        StudentModel studentModel = new StudentModel();
+        studentModel.setClassId(classId);
+        return studentBusinessMapper.select(studentModel);
+    }
+
 
     /**
      * 分页查询简约学生信息,后台使用

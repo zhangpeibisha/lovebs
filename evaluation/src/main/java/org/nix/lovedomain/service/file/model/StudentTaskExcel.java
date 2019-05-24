@@ -9,7 +9,7 @@ import lombok.Data;
  * @date 2019/5/24
  */
 @Data
-public class StduentTaskExcel {
+public class StudentTaskExcel {
 
     /**
      * 班级在学校的唯一编码

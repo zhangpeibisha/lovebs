@@ -23,9 +23,9 @@ public class StudentCourseModel {
     @GeneratedValue(generator = "JDBC")
     private Integer id;
 
-    private Integer studentId;
+    private Integer studentAccountId;
 
-    private Integer teachCourseId;
+    private String teachCourseId;
 
     private Date createTime;
 

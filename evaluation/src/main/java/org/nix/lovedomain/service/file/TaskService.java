@@ -4,15 +4,14 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Validator;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.CourseBusinessMapper;
+import org.nix.lovedomain.dao.business.StudentCourseBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
-import org.nix.lovedomain.dao.business.json.student.StudentTask;
-import org.nix.lovedomain.dao.model.CourseModel;
-import org.nix.lovedomain.dao.model.StudentCourseModel;
-import org.nix.lovedomain.dao.model.TeacherCourseModel;
-import org.nix.lovedomain.dao.model.TeacherModel;
+import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.CourseService;
+import org.nix.lovedomain.service.StudentService;
+import org.nix.lovedomain.service.TeacherCourseService;
 import org.nix.lovedomain.service.file.model.CourseExcel;
-import org.nix.lovedomain.service.file.model.StduentTaskExcel;
+import org.nix.lovedomain.service.file.model.StudentTaskExcel;
 import org.nix.lovedomain.service.file.model.TeachTaskExcel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +20,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -44,6 +44,15 @@ public class TaskService {
 
     @Resource
     private TeacherCourseBusinessMapper teacherCourseBusinessMapper;
+
+    @Resource
+    private TeacherCourseService teacherCourseService;
+
+    @Resource
+    private StudentService studentService;
+
+    @Resource
+    private StudentCourseBusinessMapper studentCourseBusinessMapper;
 
     /**
      * 导入课程信息
@@ -148,9 +157,58 @@ public class TaskService {
     }
 
 
-    public StudentCourseModel createStudentCourse(StduentTaskExcel stduentTaskExcel) {
+    /**
+     * 上传为学生配置的教学任务信息
+     *
+     * @param path
+     */
+    public void insertStudentTask(String path) {
+        List<StudentTaskExcel> studentTaskExcels
+                = organizationService.readExcel2Bean(path, StudentTaskExcel.class);
+        Validator.validateNotNull(studentTaskExcels, "为学生配置的教学任务为空");
+        List<StudentCourseModel> studentCourseList = new ArrayList<>(studentTaskExcels.size());
+        studentTaskExcels.forEach(studentTaskExcel -> {
+            try {
+                List<StudentCourseModel> studentCourse = createStudentCourse(studentTaskExcel);
+                studentCourseList.addAll(studentCourse);
+            } catch (Exception e) {
+                log.warn("为学生配置教学任务失败:{}", e.getMessage(), e);
+            }
+        });
+        studentCourseBusinessMapper.insertList(studentCourseList);
+    }
 
-        return null;
+
+    /**
+     * 为这个班级的学生配置教学任务
+     *
+     * @param studentTaskExcel 学生的上课任务
+     * @return 为这个班级的所有学生配置这个教学任务
+     */
+    public List<StudentCourseModel> createStudentCourse(StudentTaskExcel studentTaskExcel) {
+
+        String classCoding = studentTaskExcel.getClassCoding();
+        String teachCourseId = studentTaskExcel.getTeachCourseId();
+
+        TeacherCourseModel teacherCourseModel
+                = teacherCourseService.findTeachTaskByTeachCourseId(teachCourseId);
+        Validator.validateNotNull(teacherCourseModel, "教学任务{}不存在", teachCourseId);
+        List<StudentModel> studentModels
+                = studentService.findStudentModelsByClassCoding(classCoding);
+        Validator.validateNotNull(studentModels, "该班级{}没有学生", teachCourseId);
+
+        List<StudentCourseModel> result = new ArrayList<>(studentModels.size());
+
+        studentModels.forEach(studentModel -> {
+            Integer accountId = studentModel.getAccountId();
+            StudentCourseModel studentCourseModel = new StudentCourseModel();
+            studentCourseModel.setStudentAccountId(accountId);
+            studentCourseModel.setTeachCourseId(teachCourseId);
+            studentCourseModel.setCreateTime(new Date());
+            studentCourseModel.setUpdateTime(new Date());
+            result.add(studentCourseModel);
+        });
+        return result;
     }
 
 }
