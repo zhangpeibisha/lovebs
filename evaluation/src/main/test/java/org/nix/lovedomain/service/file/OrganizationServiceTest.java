@@ -22,7 +22,7 @@ public class OrganizationServiceTest {
     private String bash = "C:/WorkPace/GIT/lovebs/lovebs/doc/excel/";
 
     @Test
-//    @Transactional
+    @Transactional
     public void insertFacultyAndProfession() {
         organizationService.insertFaculty(bash + "学院.xlsx");
         organizationService.insertProfession(bash + "专业.xlsx");
@@ -32,7 +32,7 @@ public class OrganizationServiceTest {
     }
 
     @Test
-//    @Transactional
+    @Transactional
     public void fillInfo() {
         String path = bash + "学院、专业、班级添加老师.xlsx";
         organizationService.classInsertTeacher(path);
