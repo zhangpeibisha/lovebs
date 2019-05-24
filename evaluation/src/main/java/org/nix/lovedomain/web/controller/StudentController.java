@@ -69,20 +69,4 @@ public class StudentController {
         return RespondsMessage.success(LogUtil.logInfo(log, "添加学生成功:共：{}人",
                 students.size()));
     }
-
-    /**
-     * 通过学生id批量删除
-     *
-     * @param studentIds
-     * @return
-     */
-    @DeleteMapping(value = "/list")
-    public RespondsMessage deleteStudentByIds(@RequestParam(value = "ids") List<Integer> studentIds) {
-        if (CollUtil.isEmpty(studentIds)) {
-            return RespondsMessage.success("没有需要删除的学生");
-        }
-        studentService.deleteStudent(studentIds);
-        return RespondsMessage.success(LogUtil.logInfo(log, "删除学生成功:共：{}人",
-                studentIds.size()));
-    }
 }

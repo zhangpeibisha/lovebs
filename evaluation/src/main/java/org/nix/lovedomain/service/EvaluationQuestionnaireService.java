@@ -49,9 +49,6 @@ public class EvaluationQuestionnaireService {
     @Resource
     private TeacherBusinessMapper teacherBusinessMapper;
 
-    @Resource
-    private AccountBusinessMapper accountBusinessMapper;
-
     /**
      * 添加评教卷，主要用于老师创建评教卷开始的步骤
      *
@@ -69,7 +66,7 @@ public class EvaluationQuestionnaireService {
 
         // 创建评教卷的用户
         AccountModel authorAccount = accountService.findUserByAccount(userName);
-        evaluationQuestionnaireModel.setAuthorId(authorAccount.getId());
+        evaluationQuestionnaireModel.setAuthorAccountId(authorAccount.getId());
 
         evaluationQuestionnaireModel.setDescription(description);
 
@@ -146,7 +143,7 @@ public class EvaluationQuestionnaireService {
         if (evaluationQuestionnaireModel == null) {
             return null;
         }
-        Integer authorAccountId = evaluationQuestionnaireModel.getAuthorId();
+        Integer authorAccountId = evaluationQuestionnaireModel.getAuthorAccountId();
 
         TeacherModel teacher = teacherBusinessMapper.selectByAccountId(authorAccountId);
         if (teacher == null) {

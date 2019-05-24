@@ -2,17 +2,19 @@ package org.nix.lovedomain.service.file;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Validator;
+import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.dao.business.CourseBusinessMapper;
-import org.nix.lovedomain.dao.business.StudentCourseBusinessMapper;
-import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
+import org.nix.lovedomain.dao.business.*;
+import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.StudentService;
-import org.nix.lovedomain.service.TeacherCourseService;
+import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
 import org.nix.lovedomain.service.file.model.CourseExcel;
+import org.nix.lovedomain.service.file.model.PublishQuestionnaireExcel;
 import org.nix.lovedomain.service.file.model.StudentTaskExcel;
 import org.nix.lovedomain.service.file.model.TeachTaskExcel;
+import org.nix.lovedomain.service.time.SemesterEnum;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,6 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -46,13 +47,17 @@ public class TaskService {
     private TeacherCourseBusinessMapper teacherCourseBusinessMapper;
 
     @Resource
-    private TeacherCourseService teacherCourseService;
-
-    @Resource
     private StudentService studentService;
 
     @Resource
     private StudentCourseBusinessMapper studentCourseBusinessMapper;
+
+    @Resource
+    private StudentBusinessMapper studentBusinessMapper;
+
+    @Resource
+    private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
+
 
     /**
      * 导入课程信息
@@ -79,7 +84,11 @@ public class TaskService {
         return courseModel;
     }
 
-
+    /**
+     * 为老师分配教学任务
+     *
+     * @param path
+     */
     public void insertTeachTask(String path) {
         List<TeachTaskExcel> teachTaskExcels
                 = organizationService.readExcel2Bean(path, TeachTaskExcel.class);
@@ -189,16 +198,11 @@ public class TaskService {
 
         String classCoding = studentTaskExcel.getClassCoding();
         String teachCourseId = studentTaskExcel.getTeachCourseId();
-
-        TeacherCourseModel teacherCourseModel
-                = teacherCourseService.findTeachTaskByTeachCourseId(teachCourseId);
-        Validator.validateNotNull(teacherCourseModel, "教学任务{}不存在", teachCourseId);
         List<StudentModel> studentModels
                 = studentService.findStudentModelsByClassCoding(classCoding);
         Validator.validateNotNull(studentModels, "该班级{}没有学生", teachCourseId);
 
         List<StudentCourseModel> result = new ArrayList<>(studentModels.size());
-
         studentModels.forEach(studentModel -> {
             Integer accountId = studentModel.getAccountId();
             StudentCourseModel studentCourseModel = new StudentCourseModel();
@@ -209,6 +213,133 @@ public class TaskService {
             result.add(studentCourseModel);
         });
         return result;
+    }
+
+
+    /**
+     * 插入发布的评教卷信息，通过教学任务
+     *
+     * @param path
+     * @param authorAccountId 登陆的用户的账户id
+     */
+    public void insertPublishQuestionnaire(String path,
+                                           Integer authorAccountId) {
+        List<PublishQuestionnaireExcel> excelList
+                = organizationService.readExcel2Bean(path, PublishQuestionnaireExcel.class);
+        Validator.validateNotNull(excelList, "上传的评教任务为空");
+        List<PublishQuestionnaireModel> result = new ArrayList<>(excelList.size());
+        excelList.forEach(publishQuestionnaireExcel -> {
+            try {
+                PublishQuestionnaireArgs publishArgs = createPublishArgs(publishQuestionnaireExcel);
+                result.add(createPublishQuestionnaire(publishArgs, authorAccountId));
+            } catch (Exception e) {
+                log.warn("发布评教卷发生异常：{}", e.getMessage(), e);
+            }
+
+        });
+        publishQuestionBusinessMapper.insertList(result);
+    }
+
+
+    /**
+     * 创建一个发布评教卷的参数信息
+     *
+     * @return 评教卷的参数信息
+     */
+    public PublishQuestionnaireArgs createPublishArgs(PublishQuestionnaireExcel excel) {
+
+        PublishQuestionnaireArgs args = new PublishQuestionnaireArgs();
+
+        // 配置黑名单数量，需要从excel中读取
+        args.setBlacks(excel.getBlacks());
+        // 具体的评教卷id需要从excel中获取
+        args.setQuestionnaireId(excel.getQuestionnaireId());
+        // 通过excel获取教学任务的唯一id
+        args.setTeachCourseId(excel.getTeachCourseId());
+        // 课程id可以通过coding获取
+        String courseCoding = excel.getCourseCoding();
+        CourseModel courseModel = courseService.findCourseModelByCourseCoding(courseCoding);
+        Validator.validateNotNull(courseModel, "编号为{}的课程不存在无法发布评教卷", courseCoding);
+        args.setCourseId(courseModel.getId());
+        // 授课老师的唯一id可以通过老师名字获取
+        String teacherName = excel.getTeacherName();
+        TeacherModel teacherModel = organizationService.findTeacherModelByName(teacherName);
+        Validator.validateNotNull(teacherModel, "编号为{}的课程的授课老师{}信息不存在", courseCoding, teacherName);
+        args.setTeacherAccountId(teacherModel.getAccountId());
+        // 发布描述，使用课程名字代替
+        args.setDescription(courseModel.getName());
+        // 结束回答时间为期末
+        String semester = excel.getSemester();
+        Integer year = excel.getYear();
+        args.setEndRespondTime(SemesterEnum.findFinalPeriodTime(year, semester));
+        // 开始回答通过 结束周-evaluationTime = 开始回答的周，然后再计算出来时间戳
+        args.setStartRespondTime(SemesterEnum.semesterWeekTime(year, semester, excel.getEvaluationTime()));
+        // 学年信息从excel中获取
+        args.setYear(year);
+        // 学期信息从excel中获取
+        args.setSemester(semester);
+
+        return args;
+    }
+
+
+    /**
+     * 给一个教学任务配置一个测评卷用来考量
+     * 老师的教学质量
+     *
+     * @param authorAccountId 登陆的用户
+     * @param args            发布参数
+     * @return 一个生成的发布卷
+     */
+    public PublishQuestionnaireModel createPublishQuestionnaire(PublishQuestionnaireArgs args,
+                                                                Integer authorAccountId) {
+
+
+        PublishQuestionnaireModel publication = new PublishQuestionnaireModel();
+        // 教学课程的自增id
+        publication.setCourseId(args.getCourseId());
+        // 配置描述
+        publication.setDescription(args.getDescription());
+        // 配置回答结束时间
+        publication.setEndRespondTime(args.getEndRespondTime());
+        // 配置回答开始时间
+        publication.setStartRespondTime(args.getStartRespondTime());
+        // 配置评教卷信息
+        publication.setQuestionnaireId(args.getQuestionnaireId());
+        // 授课老师的账号id
+        publication.setTeacherAccountId(args.getTeacherAccountId());
+        // 配置发布人的账户id
+        publication.setReleaseAccountId(authorAccountId);
+
+        // 配置创建时间
+        publication.setReleaseTime(new Date());
+        // 配置学年信息
+        publication.setYear(args.getYear());
+        // 配置学期信息
+        publication.setSemester(args.getSemester());
+        // 配置教学任务id
+        String teachCourseId = args.getTeachCourseId();
+        publication.setTeachCourseId(teachCourseId);
+
+        // ==================== 下面开始填充发布评教卷的附加信息 ==================
+
+        // 根据教学任务id查询到学生信息
+
+        List<StudentModel> studentModels
+                = studentBusinessMapper.findStudentModelByTeachTaskId(teachCourseId);
+        Validator.validateNotNull(studentModels, "教学任务{}没有学生参与", teachCourseId);
+        List<Integer> studentModelIds
+                = studentService.findStudentAccountIdsByStudentModel(studentModels);
+
+        PublishAttachInfo publishAttachInfo = new PublishAttachInfo();
+        publishAttachInfo.setPlan(studentModelIds.size());
+        publishAttachInfo.setStudents(studentModelIds);
+        // 配置黑名单信息
+        publishAttachInfo.setCanFilters(args.getBlacks());
+        // 设置统计信息
+        publication.setStatistics(JSONUtil.toJsonStr(publishAttachInfo));
+
+        return publication;
     }
 
 }

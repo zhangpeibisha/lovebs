@@ -44,7 +44,7 @@ public class EmailService {
      * @param type 值为1代表评教卷开始做答，值为2代表评教卷结束做答
      */
     public void sendReminderAnnouncerQuestionStart(PublishQuestionnaireModel publishQuestionnaireModel,Integer type) {
-        Integer releaseAccountId = publishQuestionnaireModel.getReleaseId();
+        Integer releaseAccountId = publishQuestionnaireModel.getReleaseAccountId();
         TeacherModel teacher = teacherBusinessMapper.selectByAccountId(releaseAccountId);
         Integer questionnaireId = publishQuestionnaireModel.getQuestionnaireId();
         EvaluationQuestionnaireModel evaluational
@@ -75,7 +75,7 @@ public class EmailService {
      * @param type 值为1代表评教卷开始做答，值为2代表评教卷结束做答
      */
     public void sendReminderTeacher(PublishQuestionnaireModel publishQuestionnaireModel,Integer type){
-        Integer teacherAccountId = publishQuestionnaireModel.getTeacherId();
+        Integer teacherAccountId = publishQuestionnaireModel.getTeacherAccountId();
         TeacherModel teacher = teacherBusinessMapper.selectByAccountId(teacherAccountId);
         Integer teachCourseId = publishQuestionnaireModel.getCourseId();
         // 通过授课课程找到课程信息
@@ -104,7 +104,7 @@ public class EmailService {
             return;
         }
         Integer teachCourseId = publishQuestionnaireModel.getCourseId();
-        Integer teacherAccountId = publishQuestionnaireModel.getTeacherId();
+        Integer teacherAccountId = publishQuestionnaireModel.getTeacherAccountId();
         if (teachCourseId == null || teacherAccountId == null) {
             return;
         }

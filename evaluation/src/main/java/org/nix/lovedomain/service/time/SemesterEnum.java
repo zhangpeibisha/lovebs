@@ -72,7 +72,7 @@ public enum SemesterEnum {
         SemesterEnum semesterByName = findSemesterByName(semesterName);
         int startMonth = semesterByName.getStartMonth();
         String strTime = StrUtil.format("{}-{}-01 00:00:00", findStartTimeYear(year, semesterName), startMonth);
-        return DateUtil.parse(strTime,"yyyy-MM-dd HH:mm:SS");
+        return DateUtil.parse(strTime, "yyyy-MM-dd HH:mm:SS");
     }
 
     /**
@@ -86,6 +86,31 @@ public enum SemesterEnum {
     public static Date semesterWeekTime(int year, String semesterName, int week) {
         Date schoolYearStartTime = findSchoolYearStartTime(year, semesterName);
         return DateUtil.offsetWeek(schoolYearStartTime, week);
+    }
+
+    /**
+     * 发现这学期的期末时间。
+     * 如果是2019年第一学期，那么期末应该是2020年
+     * 如果2019年时第二学期，那么也应该时2020年
+     *
+     * @return
+     */
+    public static int findEndTimeYear(int year) {
+        return year + 1;
+    }
+
+    /**
+     * 发现一学期的期末时间
+     *
+     * @param year         学年
+     * @param semesterName 学期
+     * @return 返回当前学年的期末时间
+     */
+    public static Date findFinalPeriodTime(int year, String semesterName) {
+        SemesterEnum semesterByName = findSemesterByName(semesterName);
+        int endMonth = semesterByName.getEndMonth();
+        String strTime = StrUtil.format("{}-{}-01 00:00:00", findEndTimeYear(year), endMonth);
+        return DateUtil.parse(strTime, "yyyy-MM-dd HH:mm:SS");
     }
 
     public int getStartMonth() {

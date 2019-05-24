@@ -25,25 +25,65 @@ public class PublishQuestionnaireModel {
     @GeneratedValue(generator = "JDBC")
     private Integer id;
 
-    private Integer releaseId;
+    /**
+     * 该次发布的执行者的账号id
+     */
+    private Integer releaseAccountId;
 
+    /**
+     * 课程自增主键id
+     */
     private Integer courseId;
 
-    private Integer teacherId;
+    /**
+     * 授课老师的账号id
+     */
+    private Integer teacherAccountId;
 
+    /**
+     * 评教卷id
+     */
     private Integer questionnaireId;
 
+    /**
+     * 发布的意义或者说明
+     */
     private String description;
 
+    /**
+     * 创建时间
+     */
     private Date releaseTime;
-
+    /**
+     * 开始回答时间
+     */
     private Date startRespondTime;
-
+    /**
+     * 结束回答时间
+     */
     private Date endRespondTime;
-
+    /**
+     * 数据临时统计
+     */
     private String statistics;
+    /**
+     * 学年
+     */
+    private Integer year;
+    /**
+     * 学期
+     */
+    private String semester;
+    /**
+     * 对应的教学任务id
+     */
+    private String teachCourseId;
 
-
+    /**
+     * 统计信息转json
+     *
+     * @return
+     */
     public JSONObject getStatisticsJson() {
         if (statistics == null) {
             return new JSONObject();

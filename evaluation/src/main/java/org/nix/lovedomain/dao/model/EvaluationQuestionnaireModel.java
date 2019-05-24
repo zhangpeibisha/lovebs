@@ -33,6 +33,6 @@ public class EvaluationQuestionnaireModel {
 
     private String content;
 
-    private Integer authorId;
+    private Integer authorAccountId;
 
 }

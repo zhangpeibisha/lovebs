@@ -17,6 +17,7 @@ import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.model.*;
+import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.LogUtil;
@@ -51,9 +52,6 @@ public class PublishQuestionnaireService {
     private TeacherBusinessMapper teacherBusinessMapper;
 
     @Resource
-    private StudentBusinessMapper studentBusinessMapper1;
-
-    @Resource
     private CourseBusinessMapper courseBusinessMapper;
 
     @Autowired
@@ -69,73 +67,14 @@ public class PublishQuestionnaireService {
     private EvaluationQuestionnaireBusinessMapper evaluationQuestionnaireBusinessMapper;
 
     /**
-     * 发布评教卷
-     *
-     * @param principal        登陆的用户
-     * @param teachCourseId    teacher_course自增主键
-     * @param teacherAccountId 老师id
-     * @param questionnaireId  评教卷id
-     * @param description      发布描述
-     * @param startRespondTime 开始答卷时间-老师可以在答卷期间编辑黑名单
-     * @param endRespondTime   结束答卷时间-任何人禁止修改内容，开始统计数据
-     * @return 发布详情
-     */
-    public PublishQuestionnaireModel pusblishQuestionnaire(Principal principal,
-                                                           Integer teachCourseId,
-                                                           Integer teacherAccountId,
-                                                           Integer questionnaireId,
-                                                           String description,
-                                                           Long startRespondTime,
-                                                           Long endRespondTime,
-                                                           Integer balcks) {
-
-        PublishQuestionnaireModel publication = new PublishQuestionnaireModel();
-        publication.setCourseId(teachCourseId);
-        publication.setDescription(description);
-
-        publication.setEndRespondTime(new Date(endRespondTime));
-        publication.setStartRespondTime(new Date(startRespondTime));
-        publication.setQuestionnaireId(questionnaireId);
-
-        // 授课老师的账号id
-        publication.setTeacherId(teacherAccountId);
-
-        // 获取发布人的账号id
-        String loginName = principal.getName();
-        AccountModel userByAccount = accountService.findUserByAccount(loginName);
-        publication.setReleaseId(userByAccount.getId());
-
-        // ==================== 下面开始填充发布评教卷的附加信息 ==================
-
-        // 根据课程id和老师账号id找到相应的学生id
-        List<StudentVo> studentByTeacherIdAndCourseId
-                = studentBusinessMapper.findStudentByTeacherIdAndCourseId(teacherAccountId,
-                teachCourseId);
-
-        int size = studentByTeacherIdAndCourseId.size();
-        PublishAttachInfo publishAttachInfo = new PublishAttachInfo();
-        publishAttachInfo.setPlan(size);
-        publishAttachInfo.setStudents(studentByTeacherIdAndCourseId);
-        publishAttachInfo.setCanFilters(balcks);
-
-
-        // 设置统计信息
-        publication.setStatistics(JSONUtil.toJsonStr(publishAttachInfo));
-
-        // 执行保存动作
-        publishQuestionBusinessMapper.insertSelective(publication);
-        return publication;
-    }
-
-    /**
      * 添加黑名单学生
      *
-     * @param publishId  发布id
-     * @param studentIds 学生账户id集合
+     * @param publishId         发布id
+     * @param studentAccountIds 学生账户id集合
      * @return 处理后的数据
      */
     public PublishQuestionnaireModel addBlack(Integer publishId,
-                                              List<Integer> studentIds,
+                                              List<Integer> studentAccountIds,
                                               Principal principal) {
         PublishQuestionnaireModel questionnaireModel
                 = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
@@ -143,7 +82,7 @@ public class PublishQuestionnaireService {
         checkPermission(questionnaireModel, principal);
 
         PublishAttachInfo bean = PublishAttachInfo.getBean(questionnaireModel);
-        bean.addBlackStudent(studentIds);
+        bean.addBlackStudent(studentAccountIds);
         questionnaireModel.setStatistics(JSONUtil.toJsonStr(bean));
         publishQuestionBusinessMapper.updateByPrimaryKeySelective(questionnaireModel);
         return PublishQuestionJsonVo.publishquestionnaire2Vo(questionnaireModel);
@@ -181,7 +120,7 @@ public class PublishQuestionnaireService {
                                 Principal principal) {
         AccountModel teacherAccount = accountService.findUserByAccount(principal.getName());
         Integer teacherAccountId = teacherAccount.getId();
-        Validator.validateTrue(teacherAccountId.equals(questionnaireModel.getTeacherId()),
+        Validator.validateTrue(teacherAccountId.equals(questionnaireModel.getTeacherAccountId()),
                 "问卷{}不应该有授课老师{}来进行操作", questionnaireModel.getId(), teacherAccountId);
     }
 
@@ -221,7 +160,7 @@ public class PublishQuestionnaireService {
 
         publishQuestionBusinessMapper
                 .updateByPrimaryKeySelective(JSON.parseObject(JSON.toJSONString(questionnaireModel),
-                PublishQuestionnaireModel.class));
+                        PublishQuestionnaireModel.class));
         return questionnaireModel;
     }
 
@@ -387,7 +326,7 @@ public class PublishQuestionnaireService {
      * @return 评教卷信息
      */
     public PublishQuestionVo findPublishQuestionVo(PublishQuestionnaireModel publication) {
-        Integer teacherAccountId = publication.getTeacherId();
+        Integer teacherAccountId = publication.getTeacherAccountId();
         TeacherModel teacher = teacherBusinessMapper.selectByAccountId(teacherAccountId);
         if (teacher == null) {
             return null;
@@ -395,7 +334,7 @@ public class PublishQuestionnaireService {
         teacher.setWorkJson(null);
 
         // 不显示老师的工作情况
-        Integer releaseAccountId = publication.getReleaseId();
+        Integer releaseAccountId = publication.getReleaseAccountId();
         TeacherModel release = teacherBusinessMapper.selectByAccountId(releaseAccountId);
         if (release == null) {
             return null;
@@ -533,7 +472,7 @@ public class PublishQuestionnaireService {
         StudentTask studentTask = StudentTask.str2Bean(student);
         studentTask.setQnaireTask(qnaireTask);
         student.setTask(JSON.toJSONString(studentTask));
-        studentBusinessMapper1.updateByPrimaryKey(student);
+        studentBusinessMapper.updateByPrimaryKey(student);
         return publishQuestionBusinessMapper.selectByPrimaryKey(publishQuesting);
     }
 
@@ -553,7 +492,7 @@ public class PublishQuestionnaireService {
         StatisticsScoreModel statistics = new StatisticsScoreModel();
         statistics.setPublishQuestionnaireId(publishId);
         statistics.setFraction(bean.getScore());
-        statistics.setTeacherId(publishQuestionnaireModel.getTeacherId());
+        statistics.setTeacherId(publishQuestionnaireModel.getTeacherAccountId());
         statistics.setCourseId(publishQuestionnaireModel.getCourseId());
         statisticsScoreBusinessMapper.insertSelective(statistics);
         return bean.statisticalAnswer();

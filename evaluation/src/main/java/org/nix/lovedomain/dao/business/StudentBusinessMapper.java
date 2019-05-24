@@ -1,6 +1,7 @@
 package org.nix.lovedomain.dao.business;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.business.page.StudentPageInquire;
 import org.nix.lovedomain.dao.model.StudentModel;
@@ -32,16 +33,6 @@ public interface StudentBusinessMapper extends BaseBusinessMapper<StudentModel> 
     long findStudentCount(@Param(value = "pageInquire") StudentPageInquire pageInquire);
 
     /**
-     * 通过老师id和课程id获取到学生信息
-     *
-     * @param teacherAccountId 老师账号id
-     * @param courseId  课程id
-     * @return 学生信息列表
-     */
-    List<StudentVo> findStudentByTeacherIdAndCourseId(@Param(value = "teacherAccountId") Integer teacherAccountId,
-                                                      @Param(value = "courseId") Integer courseId);
-
-    /**
      * 通过sql查询学生信息
      *
      * @param page
@@ -69,4 +60,25 @@ public interface StudentBusinessMapper extends BaseBusinessMapper<StudentModel> 
      */
     List<StudentModel> getStudentByTeachCourse(Integer teacherAccountId,
                                                Integer courseId);
+
+    /**
+     * 查看该教学任务有哪些学生参加
+     * @param teachCourseId 教学任务id
+     * @return 参加这个教学任务的学生信息
+     */
+    @Select(value = "SELECT\n" +
+            "\t*\n" +
+            "FROM\n" +
+            "\tstudent AS s\n" +
+            "LEFT JOIN student_course AS sc ON s.accountId = sc.studentAccountId\n" +
+            "WHERE sc.teachCourseId = #{teachCourseId}")
+    List<StudentModel> findStudentModelByTeachTaskId(@Param(value = "teachCourseId") String teachCourseId);
+
+    /**
+     * 通过学生的账号id获取到学生的信息
+     * @param accountIds 学生的账号id集合
+     * @return 学生信息
+     */
+    @Select(value = "SELECT * FROM student WHERE accountId IN(#{accountIds})")
+    List<StudentModel> findStudentModelByAccountIds(@Param(value = "accountIds") String accountIds);
 }

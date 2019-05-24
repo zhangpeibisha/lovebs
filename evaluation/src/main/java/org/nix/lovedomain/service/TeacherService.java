@@ -81,7 +81,7 @@ public class TeacherService{
      * @return 老师信息，已经添加了入参的发布信息
      */
     public TeacherModel addTask(PublishQuestionnaireModel publishQuestionnaireModel) throws Exception {
-        Integer teacherAccountId = publishQuestionnaireModel.getTeacherId();
+        Integer teacherAccountId = publishQuestionnaireModel.getTeacherAccountId();
         TeacherModel teacher = findTeacherByAccountLoginName(teacherAccountId);
         Validator.validateNotNull(teacher, "账号id为：{}的老师不存在", teacherAccountId);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
@@ -104,7 +104,7 @@ public class TeacherService{
      * @return 老师信息，评教卷调查信息移入到结束集合中
      */
     public TeacherModel task2Complete(PublishQuestionnaireModel publishQuestionnaireModel) throws Exception {
-        Integer teacherAccountId = publishQuestionnaireModel.getTeacherId();
+        Integer teacherAccountId = publishQuestionnaireModel.getTeacherAccountId();
         TeacherModel teacher = findTeacherByAccountLoginName(teacherAccountId);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
         QnaireTask qnaireTask = teacherWork.getQnaireTask();

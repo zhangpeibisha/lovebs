@@ -2,6 +2,7 @@ package org.nix.lovedomain.dao.business.json.winding;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Filter;
+import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import lombok.Builder;
@@ -10,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 import org.nix.lovedomain.service.ServiceException;
-import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
 
 import java.util.*;
@@ -27,8 +27,9 @@ public class PublishAttachInfo {
 
     /**
      * 应该参与评教卷的学生:根据实际情况系统填写
+     * 存储参与学生的账户id信息
      */
-    private List<StudentVo> students;
+    private List<Integer> students;
 
     /**
      * 填写了评教卷的学生的答案信息:根据实际情况系统填写
@@ -76,22 +77,23 @@ public class PublishAttachInfo {
     /**
      * 添加一个黑名单
      *
-     * @param studentIds 学生id集合，在学生表中的id集合
+     * @param studentAccountIds 学生的账户id
      */
-    public void addBlackStudent(List<Integer> studentIds) {
+    public void addBlackStudent(List<Integer> studentAccountIds) {
         black = new HashSet<>();
         int currSize = black.size();
-        studentIds = CollUtil.filter(studentIds, Objects::nonNull);
-        int needSize = studentIds.size();
+        studentAccountIds = CollUtil.filter(studentAccountIds, Objects::nonNull);
+        int needSize = studentAccountIds.size();
         if (canFilters - needSize >= 0) {
-//            for (Integer s : studentIds) {
-//                try {
-//                    PublishquestionnaireService.checkStudentHavePermissionUse(this, s);
-//                } catch (Exception e) {
-//                    throw new ServiceException(LogUtil.logInfo(log, "学生{}在本评教卷中没有访问权限，不用添加黑名单", s));
-//                }
-//            }
-            black.addAll(studentIds);
+            for (Integer blackId : studentAccountIds) {
+                try {
+                    Validator.validateTrue(students.contains(blackId),
+                            "准备设置学生{}的评卷不计入总分，但是该学生并不参与该评教卷的回答:参与学生->{}", blackId, students);
+                } catch (Exception e) {
+                    log.warn("参与评教卷发生异常：{}", e.getMessage(), e);
+                }
+            }
+            black.addAll(studentAccountIds);
             return;
         }
         throw new ServiceException(LogUtil.logInfo(log, "添加黑名单人数超出限制 max={} currSize={} joinSize={}",
@@ -206,7 +208,7 @@ public class PublishAttachInfo {
 //                continue;
 //            }
             List<QuestionReply> questionReplies = JSON.parseArray
-                    (JSON.toJSONString(completesQuestion.getQuestionReplies()),QuestionReply.class);
+                    (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
 
 
             if (CollUtil.isEmpty(questionReplies)) {
@@ -214,14 +216,14 @@ public class PublishAttachInfo {
             }
             for (QuestionReply questionReply : questionReplies) {
                 if (questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)) {
-                    if (advice == null){
+                    if (advice == null) {
                         advice = new ArrayList<>();
                     }
                     advice.add(questionReply.suggest);
                 } else {
                     Integer score = questionReply.getScore();
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (score == null || score <= 0 ||(black!=null && black.contains(studentId)) ) {
+                    if (score == null || score <= 0 || (black != null && black.contains(studentId))) {
                         continue;
                     }
                     this.score += score;
