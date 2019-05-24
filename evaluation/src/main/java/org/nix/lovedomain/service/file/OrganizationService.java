@@ -9,15 +9,10 @@ import org.nix.lovedomain.dao.business.ClassBusinessMapper;
 import org.nix.lovedomain.dao.business.FacultyBusinessMapper;
 import org.nix.lovedomain.dao.business.ProfessionBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
-import org.nix.lovedomain.dao.model.ClassModel;
-import org.nix.lovedomain.dao.model.FacultyModel;
-import org.nix.lovedomain.dao.model.ProfessionModel;
-import org.nix.lovedomain.dao.model.TeacherModel;
+import org.nix.lovedomain.dao.model.*;
+import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.TeacherService;
-import org.nix.lovedomain.service.file.model.ClassExcel;
-import org.nix.lovedomain.service.file.model.FacultyExcel;
-import org.nix.lovedomain.service.file.model.ProfessionExcel;
-import org.nix.lovedomain.service.file.model.TeacherExcel;
+import org.nix.lovedomain.service.file.model.*;
 import org.nix.lovedomain.web.controller.dto.CreateTeacherDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -253,7 +249,7 @@ public class OrganizationService {
         ProfessionModel professionModel = findProfessionByName(professionName);
 
         // 如果专业存在则把老师分配到这个专业里面去
-        if (Validator.isNotNull(professionModel)){
+        if (Validator.isNotNull(professionModel)) {
             Integer profession = professionModel.getId();
             createTeacherDto.setProfessionId(profession);
         }
@@ -292,24 +288,27 @@ public class OrganizationService {
     public void classInsertTeacher(ClassExcel classExcel) {
         String classId = classExcel.getClassId();
         String teacherName = classExcel.getTeacherName();
-        TeacherModel teacherModelByName = findTeacherModelByName(teacherName);
+        TeacherModel teacherModel = findTeacherModelByName(teacherName);
         ClassModel classByCoding = findClassByCoding(classId);
-        if (teacherModelByName == null || classByCoding == null) {
+        if (teacherModel == null || classByCoding == null) {
             return;
         }
-        classByCoding.setTeacherId(teacherModelByName.getAccountId());
+        classByCoding.setTeacherId(teacherModel.getAccountId());
         classBusinessMapper.updateByPrimaryKey(classByCoding);
     }
 
 
     /**
-     * excel导入班级信息为班级添加老师
+     * excel导入专业老师信息，并为该专业所属学院添加领导
      *
-     * @param path
+     * @param path 文件
      */
     public void professionInsertTeacher(String path) {
-        List<ProfessionExcel> classExcels = readExcel2Bean(path, ProfessionExcel.class);
-        classExcels.forEach(this::professionInsertTeacher);
+        List<ProfessionExcel> professionExcels = readExcel2Bean(path, ProfessionExcel.class);
+        if (CollUtil.isEmpty(professionExcels)) {
+            return;
+        }
+        professionExcels.forEach(this::professionInsertTeacher);
     }
 
     /**
@@ -320,38 +319,120 @@ public class OrganizationService {
     public void professionInsertTeacher(ProfessionExcel professionExcel) {
         String teacherName = professionExcel.getTeacherName();
         TeacherModel teacherModelByName = findTeacherModelByName(teacherName);
-        ProfessionModel professionByName
+        ProfessionModel professionModel
                 = findProfessionByName(professionExcel.getProfessionName());
-        if (teacherModelByName == null || professionByName == null) {
+        if (teacherModelByName == null || professionModel == null) {
             return;
         }
-        professionByName.setDepartmentId(teacherModelByName.getAccountId());
-        professionBusinessMapper.updateByPrimaryKey(professionByName);
-    }
-
-
-    /**
-     * excel导入班级信息为班级添加老师
-     *
-     * @param path
-     */
-    public void facultyInsertTeacher(String path) {
-        List<FacultyExcel> classExcels = readExcel2Bean(path, FacultyExcel.class);
-        classExcels.forEach(this::facultyInsertTeacher);
+        facultyInsertTeacher(professionExcel);
+        professionModel.setDepartmentId(teacherModelByName.getAccountId());
+        professionBusinessMapper.updateByPrimaryKey(professionModel);
     }
 
     /**
      * 为学院添加老师
+     * 通过专业信息给学院添加老师、因为现有数据不全，只能如此代替
      *
-     * @param facultyExcel
+     * @param professionExcel 从excel导入的专业信息
      */
-    public void facultyInsertTeacher(FacultyExcel facultyExcel) {
-        String facultyName = facultyExcel.getFacultyName();
-        FacultyModel facultyByName = findFacultyByName(facultyName);
-        String teacherName = facultyExcel.getTeacherName();
-        TeacherModel teacherModelByName = findTeacherModelByName(teacherName);
-        facultyByName.setDean(teacherModelByName.getAccountId());
-        facultyBusinessMapper.updateByPrimaryKeySelective(facultyByName);
+    public void facultyInsertTeacher(ProfessionExcel professionExcel) {
+        String teacherName = professionExcel.getTeacherName();
+        TeacherModel teacherModel = findTeacherModelByName(teacherName);
+        ProfessionModel professionModel
+                = findProfessionByName(professionExcel.getProfessionName());
+        FacultyModel facultyModel
+                = facultyBusinessMapper.selectByPrimaryKey(professionModel.getFacultyId());
+        facultyModel.setDean(teacherModel.getAccountId());
+        facultyBusinessMapper.updateByPrimaryKeySelective(facultyModel);
+    }
+
+
+    @Resource
+    private StudentService studentService;
+
+    /**
+     * 批量为所有班级导入模拟学生
+     *
+     * @param path
+     */
+    public void insertStudent(String path) {
+        List<StudentExcel> studentExcels
+                = readExcel2Bean(path, StudentExcel.class);
+        Validator.validateNotNull(studentExcels, "导入模拟学生的信息为空");
+        studentExcels.forEach(this::simulationStudent);
+    }
+
+    /**
+     * 为一个班级模拟生成学生
+     *
+     * @param studentExcel
+     */
+    public void simulationStudent(StudentExcel studentExcel) {
+        String classCoding = studentExcel.getClassId();
+        String studentNumber = studentExcel.getStudentNumber();
+
+        // 找到班级
+        ClassModel classModel = findClassByClassCoding(classCoding);
+        Integer professionId = classModel.getProfessionId();
+
+        // 找到专业
+        ProfessionModel professionModel
+                = professionBusinessMapper.selectByPrimaryKey(professionId);
+        FacultyModel facultyModel = new FacultyModel();
+        if (professionModel != null) {
+            // 找到学院
+            Integer facultyId = professionModel.getFacultyId();
+            facultyModel = facultyBusinessMapper.selectByPrimaryKey(facultyId);
+        } else {
+            professionModel = new ProfessionModel();
+        }
+        // 创建学生信息
+        int number = Integer.parseInt(studentNumber);
+        List<StudentModel> studentModels = new ArrayList<>(number);
+        for (int i = 1; i < number + 1; i++) {
+            String studentId = createStudentId(classCoding, i);
+            StudentModel studentModel = new StudentModel();
+            studentModel.setEmail(StrUtil.format("{}@163.com", studentId));
+            studentModel.setPhone(studentId);
+            studentModel.setClassId(classModel.getId());
+            studentModel.setProfessionId(professionModel.getId());
+            studentModel.setFacultyId(facultyModel.getId());
+            studentModel.setName(studentId);
+            studentModel.setStudentId(studentId);
+
+            studentModels.add(studentModel);
+        }
+        studentService.registerStudent(studentModels);
+    }
+
+    /**
+     * 创建学号
+     *
+     * @param classCoding 班级编号
+     * @param number      当前学生数量
+     * @return 学生编号
+     */
+    public String createStudentId(String classCoding, int number) {
+        String studentCoding;
+        if (number < 10) {
+            studentCoding = "0" + number;
+        } else {
+            studentCoding = number + "";
+        }
+        return classCoding + studentCoding;
+    }
+
+
+    /**
+     * 通过一个班级的编码找到这个班级的信息
+     *
+     * @param classCoding 班级在学校的编码
+     * @return 班级信息
+     */
+    public ClassModel findClassByClassCoding(String classCoding) {
+        ClassModel classModel = new ClassModel();
+        classModel.setClassId(classCoding);
+        return classBusinessMapper.selectOne(classModel);
     }
 
 }
