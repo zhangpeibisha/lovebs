@@ -72,7 +72,7 @@ public enum SemesterEnum {
         SemesterEnum semesterByName = findSemesterByName(semesterName);
         int startMonth = semesterByName.getStartMonth();
         String strTime = StrUtil.format("{}-{}-01 00:00:00", findStartTimeYear(year, semesterName), startMonth);
-        return DateUtil.parse(strTime);
+        return DateUtil.parse(strTime,"yyyy-MM-dd HH:mm:SS");
     }
 
     /**
