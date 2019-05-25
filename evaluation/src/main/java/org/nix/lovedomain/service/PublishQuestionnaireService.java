@@ -17,7 +17,6 @@ import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.model.*;
-import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.LogUtil;
@@ -85,7 +84,7 @@ public class PublishQuestionnaireService {
         bean.addBlackStudent(studentAccountIds);
         questionnaireModel.setStatistics(JSONUtil.toJsonStr(bean));
         publishQuestionBusinessMapper.updateByPrimaryKeySelective(questionnaireModel);
-        return PublishQuestionJsonVo.publishquestionnaire2Vo(questionnaireModel);
+        return PublishQuestionJsonVo.publication2Vo(questionnaireModel);
     }
 
     /**
@@ -135,29 +134,28 @@ public class PublishQuestionnaireService {
     public PublishQuestionnaireModel fillInTheAnswer(Integer publishId,
                                                      PublishAttachInfo.CompletesQuestion completesQuestion,
                                                      Principal principal) {
+
+        // 找到这个评教卷
         PublishQuestionnaireModel questionnaireModel
                 = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
         Validator.validateNotNull(questionnaireModel, "评教卷{}不存在", publishId);
-
+        // 获取该评教卷的附加信息
         PublishAttachInfo bean = PublishAttachInfo.getBean(questionnaireModel);
-
         // 检测该学生是否有权限回答问题
-
-
-        StudentVo studentByAccountName = accountService.findStudentByAccountName(principal.getName());
-        if (studentByAccountName == null) {
-            throw new ServiceException(LogUtil.logWarn(log, "用户未登陆答卷"));
-        }
-        Integer id = studentByAccountName.getId();
-        completesQuestion.setStudentId(id);
+        String loginName = principal.getName();
+        AccountModel account = accountService.findUserByAccount(loginName);
+        Integer accountId = account.getId();
+        Validator.validateTrue(bean.getStudents().contains(accountId),"学生{}不用参与评教任务{}的测评",
+                loginName,questionnaireModel.getTeachCourseId());
+        // 设置完成了的学生账号
+        completesQuestion.setStudentAccountId(accountId);
         // 直接设定为提交
         completesQuestion.setStatus(PublishAttachInfo.CompletesQuestion.STATUS_COMMIT);
         // 填充分数
         fillQuestionScore(questionnaireModel, completesQuestion);
-
         bean.writeQuestion(completesQuestion);
         questionnaireModel.setStatistics(JSONUtil.toJsonStr(bean));
-
+        // 更新数据入库
         publishQuestionBusinessMapper
                 .updateByPrimaryKeySelective(JSON.parseObject(JSON.toJSONString(questionnaireModel),
                         PublishQuestionnaireModel.class));
@@ -187,8 +185,6 @@ public class PublishQuestionnaireService {
      * @return
      */
     public Map<String, BaseQuestion<ChoseQuestionItem>> findEvaluationQuestionAnswerMap(EvaluationQuestionnaireModel evaluational) {
-        String content = evaluational.getContent();
-        System.out.println(content);
         EvaluationQuestionnaireContent contentBean
                 = EvaluationQuestionnaireContent.getContentBean(evaluational);
         List<BaseQuestion> questions = contentBean.getQuestions();
@@ -226,7 +222,7 @@ public class PublishQuestionnaireService {
 
         for (PublishAttachInfo.QuestionReply questionReply : questionReplies) {
             QuestionnaireEnum questionnaireEnum = questionReply.getQuestionnaireEnum();
-            if (questionnaireEnum.equals(QuestionnaireEnum.text)) {
+            if (QuestionnaireEnum.text.equals(questionnaireEnum)) {
                 continue;
             }
             fillAnswerScore(evaluationQuestionAnswerMap, questionReply);

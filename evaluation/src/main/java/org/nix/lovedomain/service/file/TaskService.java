@@ -64,7 +64,7 @@ public class TaskService {
      *
      * @param path
      */
-    public void inserTeachTask(String path, Integer authorAccountId) {
+    public void insertTeachTask(String path, Integer authorAccountId) {
         // 为老师添加教学任务
         insertTeachTask(path);
         // 为学生添加课程

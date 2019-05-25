@@ -1,6 +1,8 @@
 package org.nix.lovedomain.dao.model;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
+import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import tk.mybatis.mapper.annotation.NameStyle;
 
 import javax.persistence.GeneratedValue;
@@ -34,5 +36,6 @@ public class EvaluationQuestionnaireModel {
     private String content;
 
     private Integer authorAccountId;
+
 
 }

@@ -84,7 +84,7 @@ public class PublishQuestionnaireModel {
      *
      * @return
      */
-    public JSONObject getStatisticsJson() {
+    public JSONObject getQuestionnaireStatisticsJson() {
         if (statistics == null) {
             return new JSONObject();
         }
