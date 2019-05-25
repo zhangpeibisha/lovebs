@@ -24,7 +24,7 @@ import java.util.List;
 public class ResourcesService {
 
     @Resource
-    private ResourcesBusinessMapper resoucesBusinessMapper;
+    private ResourcesBusinessMapper resourcesBusinessMapper;
 
     /**
      * 批量插入资源
@@ -48,8 +48,8 @@ public class ResourcesService {
                                     Integer page,
                                     Integer limit) {
         List<ResourcesModel> resources
-                = resoucesBusinessMapper.findResourcesPage(key, SQLUtil.getOffset(page, limit), limit);
-        Integer integer = resoucesBusinessMapper.countResources(key, SQLUtil.getOffset(page, limit), limit);
+                = resourcesBusinessMapper.findResourcesPage(key, SQLUtil.getOffset(page, limit), limit);
+        Integer integer = resourcesBusinessMapper.countResources(key, SQLUtil.getOffset(page, limit), limit);
 
         return PageVo.<ResourcesModel>builder()
                 .data(resources)
@@ -63,12 +63,11 @@ public class ResourcesService {
     /**
      * 查询一个用户的所有权限信息
      *
-     * @param account 账户名字（手机、邮箱、账户）
+     * @param loginName 账户名字（手机、邮箱、账户）
      * @return 权限集合
      */
-    public List<ResourcesModel> findResourcesByAccount(String account) {
-
-        return null;
+    public List<ResourcesModel> findResourcesByAccount(String loginName) {
+        return resourcesBusinessMapper.findResourcesByLoginName(loginName);
     }
 
     /**
