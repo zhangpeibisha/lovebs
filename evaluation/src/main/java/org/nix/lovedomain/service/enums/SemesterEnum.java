@@ -1,4 +1,4 @@
-package org.nix.lovedomain.service.time;
+package org.nix.lovedomain.service.enums;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;

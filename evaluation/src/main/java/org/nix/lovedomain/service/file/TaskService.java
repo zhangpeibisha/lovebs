@@ -14,7 +14,7 @@ import org.nix.lovedomain.service.file.model.CourseExcel;
 import org.nix.lovedomain.service.file.model.PublishQuestionnaireExcel;
 import org.nix.lovedomain.service.file.model.StudentTaskExcel;
 import org.nix.lovedomain.service.file.model.TeachTaskExcel;
-import org.nix.lovedomain.service.time.SemesterEnum;
+import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

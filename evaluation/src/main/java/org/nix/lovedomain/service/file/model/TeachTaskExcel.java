@@ -2,7 +2,7 @@ package org.nix.lovedomain.service.file.model;
 
 import cn.hutool.core.lang.Validator;
 import lombok.Data;
-import org.nix.lovedomain.service.time.SemesterEnum;
+import org.nix.lovedomain.service.enums.SemesterEnum;
 
 import java.util.Date;
 import java.util.Objects;

@@ -10,6 +10,8 @@ import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
 import org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel;
 import org.nix.lovedomain.service.EvaluationQuestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.EvaluationalSimpleVo;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
@@ -34,6 +36,7 @@ public class EvaluationQuestionnaireController {
     @Resource
     private EvaluationQuestionnaireService evaluationquestionnaireService;
 
+    @Permission(name = "创建空评教卷",role = RoleEnum.MANGER)
     @ApiOperation(value = "创建空评教卷", notes = "一般在老师创建评教卷的时候使用")
     @PostMapping(value = "/create")
     public RespondsMessage createQuestionnaire(
@@ -51,6 +54,7 @@ public class EvaluationQuestionnaireController {
     }
 
 
+    @Permission(name = "一次性添加多个问题",role = RoleEnum.MANGER)
     @ApiOperation(value = "一次性添加多个问题", notes = "提供一个评教卷id，为该评教卷添加多个问题内容")
     @PostMapping(value = "/batch/add/question")
     public RespondsMessage addQuestion(@RequestParam(value = "evaluationId") Integer evaluationId,
@@ -86,8 +90,9 @@ public class EvaluationQuestionnaireController {
         throw new ServiceException(LogUtil.logInfo(log, "用户{}查询所有评教卷失败", userName));
     }
 
+    @Permission(name = "获取评教卷信息")
     @GetMapping(value = "/question/by/id")
-    public RespondsMessage findEvaluationquestionnaireById(@RequestParam(value = "evaluationId") Integer evaluationId,
+    public RespondsMessage findEvaluationQuestionnaireById(@RequestParam(value = "evaluationId") Integer evaluationId,
                                                            Principal principal) {
         return RespondsMessage.success("获取评教卷信息成功",
                 evaluationquestionnaireService.getEvaluationsDeathVoById(evaluationId, principal));
