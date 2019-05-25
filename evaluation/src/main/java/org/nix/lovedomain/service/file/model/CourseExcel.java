@@ -16,7 +16,7 @@ public class CourseExcel {
     /**
      * 课程在学校的课程id
      */
-    private String courseId;
+    private String courseCoding;
     /**
      * 课程名字
      */
@@ -31,12 +31,12 @@ public class CourseExcel {
             return false;
         }
         CourseExcel that = (CourseExcel) o;
-        return Objects.equals(courseId, that.courseId);
+        return Objects.equals(courseCoding, that.courseCoding);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(courseId);
+        return Objects.hash(courseCoding);
     }
 }

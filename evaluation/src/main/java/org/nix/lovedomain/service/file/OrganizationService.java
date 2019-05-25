@@ -175,11 +175,11 @@ public class OrganizationService {
     /**
      * 通过excel导入班级信息
      *
-     * @param filePath
+     * @param path
      */
-    public void insertClass(String filePath) {
+    public void insertClass(String path) {
         List<ClassExcel> professionExcels
-                = readExcel2Bean(filePath, ClassExcel.class);
+                = readExcel2Bean(path, ClassExcel.class);
         List<ClassModel> classModels = new ArrayList<>();
         professionExcels.forEach(classExcel -> classModels.add(createClassModel(classExcel)));
         classBusinessMapper.insertList(classModels);
@@ -224,10 +224,10 @@ public class OrganizationService {
     /**
      * 通过excel添加老师信息
      *
-     * @param filePath
+     * @param path
      */
-    public void insertTeacher(String filePath) {
-        List<TeacherExcel> all = readExcel2Bean(filePath, TeacherExcel.class);
+    public void insertTeacher(String path) {
+        List<TeacherExcel> all = readExcel2Bean(path, TeacherExcel.class);
         all.forEach(this::createTeacher);
     }
 

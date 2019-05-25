@@ -60,6 +60,21 @@ public class TaskService {
 
 
     /**
+     * 开始添加教学任务
+     *
+     * @param path
+     */
+    public void inserTeachTask(String path, Integer authorAccountId) {
+        // 为老师添加教学任务
+        insertTeachTask(path);
+        // 为学生添加课程
+        insertStudentTask(path);
+        // 生成评教卷信息
+        insertPublishQuestionnaire(path, authorAccountId);
+    }
+
+
+    /**
      * 导入课程信息
      *
      * @param path
@@ -75,7 +90,7 @@ public class TaskService {
     }
 
     public CourseModel createCourseModel(CourseExcel courseExcel) {
-        String courseId = courseExcel.getCourseId();
+        String courseId = courseExcel.getCourseCoding();
         String courseName = courseExcel.getCourseName();
         CourseModel courseModel = new CourseModel();
         courseModel.setName(courseName);

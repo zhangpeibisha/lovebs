@@ -29,19 +29,9 @@ public class OrganizationServiceTest {
         organizationService.insertClass(bash + "班级.xlsx");
         organizationService.insertTeacher(bash + "老师.xlsx");
         taskService.insertCourse(bash+"课程.xlsx");
-    }
-
-    @Test
-    @Transactional
-    public void fillInfo() {
         String path = bash + "学院、专业、班级添加老师.xlsx";
         organizationService.classInsertTeacher(path);
         organizationService.professionInsertTeacher(path);
-    }
-
-    @Test
-//    @Transactional
-    public void simulationStudent(){
         organizationService.insertStudent(bash+"模拟创建学生信息.xlsx");
     }
 }
