@@ -78,7 +78,7 @@ public class ResourcesModel {
         if (StrUtil.isEmpty(methods)) {
             return;
         }
-        this.method = method == null ? "" : method + "," + methods;
+        method = (method == null || "".equals(method) ? "" : method + ",") + methods;
     }
 
 

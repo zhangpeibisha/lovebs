@@ -17,7 +17,7 @@ public class RbacServiceTest {
     private RbacAccessService rbacAccessService;
 
     @Test
-    @Transactional
+//    @Transactional
     public void list() {
         rbacAccessService.list();
     }
