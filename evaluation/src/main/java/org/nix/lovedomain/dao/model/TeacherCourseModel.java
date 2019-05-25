@@ -6,6 +6,7 @@ import tk.mybatis.mapper.annotation.NameStyle;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Date;
 @NameStyle
 @Table(name = "teacher_course")
 @Data
-public class TeacherCourseModel {
+public class TeacherCourseModel implements Serializable {
 
     @Id
     @GeneratedValue(generator = "JDBC")

@@ -10,6 +10,7 @@ import tk.mybatis.mapper.annotation.NameStyle;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.function.Consumer;
 @Data
 @NameStyle
 @Table(name = "resources")
-public class ResourcesModel {
+public class ResourcesModel implements Serializable {
 
     @Id
     @GeneratedValue(generator = "JDBC")

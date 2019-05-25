@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Select;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.model.AccountModel;
 
+import java.util.List;
+
 /**
  * @author zhangpei
  * @version 1.0
@@ -21,5 +23,21 @@ public interface AccountBusinessMapper extends BaseBusinessMapper<AccountModel> 
      */
     @Select(value = "SELECT * FROM `account` WHERE numbering = #{loginName} OR phone = #{loginName} OR email = #{loginName};")
     AccountModel findAccountByNumberOrPhoneOrEmail(@Param(value = "loginName") String loginName);
+
+    /**
+     * 通过 id的范围查询账号id（测试是使用）
+     * @param start
+     * @param end
+     * @return
+     */
+    @Select(value = "SELECT\n" +
+            "\tid\n" +
+            "FROM\n" +
+            "\taccount\n" +
+            "WHERE\n" +
+            "\tid <= #{end}\n" +
+            "AND id > #{start}")
+    List<Integer> findAccountIdByIdRange(@Param(value = "start") Integer start,
+                                         @Param(value = "end")Integer end);
 
 }

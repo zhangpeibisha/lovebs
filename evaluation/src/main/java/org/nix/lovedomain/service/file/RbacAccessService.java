@@ -2,14 +2,13 @@ package org.nix.lovedomain.service.file;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Validator;
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.ResourcesBusinessMapper;
 import org.nix.lovedomain.dao.business.RoleBusinessMapper;
 import org.nix.lovedomain.dao.business.RoleResourceBusinessMapper;
 import org.nix.lovedomain.dao.model.ResourcesModel;
 import org.nix.lovedomain.dao.model.RoleModel;
-import org.nix.lovedomain.dao.model.RoleRescourseModel;
+import org.nix.lovedomain.dao.model.RoleRecourseModel;
 import org.nix.lovedomain.service.RoleService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
@@ -162,7 +161,7 @@ public class RbacAccessService {
             for (RoleEnum roleEnum : role) {
                 RoleModel roleModel = checkAndInsertRole(roleEnum);
                 Integer roleModelId = roleModel.getId();
-                RoleRescourseModel roleRescourseModel = new RoleRescourseModel();
+                RoleRecourseModel roleRescourseModel = new RoleRecourseModel();
                 roleRescourseModel.setResourceId(resourcesModelId);
                 roleRescourseModel.setRoleId(roleModelId);
                 roleResourceBusinessMapper.insertSelective(roleRescourseModel);
