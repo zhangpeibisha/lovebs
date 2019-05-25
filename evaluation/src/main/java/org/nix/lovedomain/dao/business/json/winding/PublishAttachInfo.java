@@ -127,7 +127,7 @@ public class PublishAttachInfo {
         }
         String status;
         if ((status = completesQuestion.getStatus()) == null
-                || completesQuestion.getStudentId() == null) {
+                || completesQuestion.getStudentAccountId() == null) {
             throw new ServiceException(LogUtil.logInfo(log, "填写的评教卷没有提交状态或者学生id"));
         }
         /**
@@ -141,50 +141,15 @@ public class PublishAttachInfo {
         }
 
         if (completesQuestions == null) {
-            return;
+            completesQuestions = new ArrayList<>();
         }
 
         // 如果已经答卷则不允许答卷了
         for (CompletesQuestion question : completesQuestions) {
-            if (question.getStudentId().equals(completesQuestion.getStudentId())) {
+            if (question.getStudentAccountId().equals(completesQuestion.getStudentAccountId())) {
                 return;
             }
         }
-
-        completesQuestions.add(completesQuestion);
-
-    }
-
-    /**
-     * 更新回答，如果已经提交则抛出异常
-     *
-     * @param completesQuestion
-     */
-    public void updateQuestion(CompletesQuestion completesQuestion) {
-        if (completesQuestion == null) {
-            return;
-        }
-        String status = completesQuestion.getStatus();
-        // 可能操作不当，默认保存为keep
-        if (status == null) {
-            throw new ServiceException(LogUtil.logInfo(log, "该评教卷状态为空，视为异常答案，删除:{}"
-                    , JSONUtil.toJsonStr(completesQuestion)));
-        }
-        if (CompletesQuestion.STATUS_COMMIT.equals(status)) {
-            throw new ServiceException(LogUtil.logInfo(log, "评教卷已经提交，不可修改"));
-        }
-        Integer studentId = completesQuestion.getStudentId();
-        if (studentId == null) {
-            return;
-        }
-        int i = 0;
-        for (CompletesQuestion temp : completesQuestions) {
-            if (temp.getStudentId().equals(studentId)) {
-                break;
-            }
-            i++;
-        }
-        completesQuestions.remove(i);
         completesQuestions.add(completesQuestion);
     }
 
@@ -202,7 +167,7 @@ public class PublishAttachInfo {
         for (CompletesQuestion completesQuestion : completesQuestions) {
             // 不管是否是黑名单，都要计入出勤人数中
             attend++;
-            Integer studentId = completesQuestion.getStudentId();
+            Integer studentId = completesQuestion.getStudentAccountId();
             // 黑名单不计入统计
 //            if (black.contains(studentId)) {
 //                continue;
@@ -297,7 +262,7 @@ public class PublishAttachInfo {
          * 提交则不可以修改，计入统计
          */
         private String status;
-        private Integer studentId;
+        private Integer studentAccountId;
         private List<QuestionReply> questionReplies;
     }
 

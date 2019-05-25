@@ -162,20 +162,20 @@ public class PublishQuestionnaireController {
                     .selectByPrimaryKey(publishQuestionId.getQuestionnaireId());
             evaluational.setContent(null);
             AnswersView data = new AnswersView();
-            data.setEvaluationquestionnaire(evaluational);
+            data.setEvaluationQuestionnaire(evaluational);
             data.setAnswers(new PublishAttachInfo.CompletesQuestion());
             return RespondsMessage.success("未作答，返回评教卷信息", data);
         }
 
         for (PublishAttachInfo.CompletesQuestion completesQuestion : completesQuestions) {
-            if (completesQuestion.getStudentId().equals(accountModel.getId())) {
+            if (completesQuestion.getStudentAccountId().equals(accountModel.getId())) {
                 AnswersView answersView = new AnswersView();
                 answersView.setAnswers(completesQuestion);
                 EvaluationQuestionnaireModel evaluational
                         = evaluationQuestionnaireBusinessMapper
                         .selectByPrimaryKey(publishQuestionId.getQuestionnaireId());
 
-                answersView.setEvaluationquestionnaire(evaluational);
+                answersView.setEvaluationQuestionnaire(evaluational);
                 evaluational.setContent(null);
                 return RespondsMessage.success("获取答案完成", answersView);
             }
@@ -187,7 +187,7 @@ public class PublishQuestionnaireController {
     @Data
     public static class AnswersView {
 
-        private EvaluationQuestionnaireModel evaluationquestionnaire;
+        private EvaluationQuestionnaireModel evaluationQuestionnaire;
 
         private PublishAttachInfo.CompletesQuestion answers;
 

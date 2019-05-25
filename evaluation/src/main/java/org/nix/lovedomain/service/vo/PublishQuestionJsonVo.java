@@ -12,15 +12,8 @@ import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
  */
 public class PublishQuestionJsonVo extends PublishQuestionnaireModel {
 
-    @Override
-    public JSONObject getStatisticsJson() {
-        if (getStatistics() == null) {
-            return new JSONObject();
-        }
-        return JSON.parseObject(getStatistics());
-    }
 
-    public static PublishQuestionJsonVo publishquestionnaire2Vo(PublishQuestionnaireModel publishquestionnaire){
+    public static PublishQuestionJsonVo publication2Vo(PublishQuestionnaireModel publishquestionnaire){
         if (publishquestionnaire == null){
             return null;
         }
