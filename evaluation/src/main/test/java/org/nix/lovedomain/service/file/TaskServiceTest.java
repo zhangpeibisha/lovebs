@@ -31,9 +31,9 @@ public class TaskServiceTest {
     @Transactional
     public void insertTeachTask() {
         String path = bash + "18-19(2)任务书1205.xls";
-        taskService.insertTeachTask(path);
-        taskService.insertStudentTask(path);
-        List<AccountModel> accountModels = accountBusinessMapper.selectAll();
-        taskService.insertPublishQuestionnaire(path,accountModels.get(0).getId());
+//        taskService.insertTeachTask(path);
+//        taskService.insertStudentTask(path);
+//        List<AccountModel> accountModels = accountBusinessMapper.selectAll();
+//        taskService.insertPublishQuestionnaire(path,accountModels.get(0).getId());
     }
 }

@@ -78,7 +78,7 @@ public class EvaluationQuestionnaireServiceTest {
 //        publishQuestionBusinessMapper.updateQuestionId(questionnaireModelId);
 //        System.err.println("生成的发布Id" + questionnaireModelId);
         // 回答问题
-        answer();
+//        answer();
     }
 
     /**
