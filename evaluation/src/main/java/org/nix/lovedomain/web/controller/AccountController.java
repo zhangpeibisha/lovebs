@@ -26,9 +26,6 @@ import java.security.Principal;
 @RequestMapping(value = "/account")
 public class AccountController {
 
-    @Autowired
-    private AccountService accountService;
-
     /**
      * 通过账户获取用户信息
      *
@@ -37,21 +34,7 @@ public class AccountController {
      */
     @GetMapping(value = "/user/info")
     public RespondsMessage findUserDetailInfo(Principal principal) {
-        if (principal == null) {
-            return RespondsMessage.failurePermission("用户未登陆");
-        }
-        String name = principal.getName();
-        StudentVo studentByAccountName = accountService.findStudentByAccountName(name);
-        if (studentByAccountName != null) {
-            return RespondsMessage.success(LogUtil.logInfo(log, "学生{}的信息获取成功", name),
-                    new PersonalCenterDto(PersonalCenterDto.UserType.STUDENT, studentByAccountName));
-        }
-        TeacherVo teacherByAccountName = accountService.findTeacherByAccountName(name);
-        if (teacherByAccountName != null) {
-            return RespondsMessage.success(LogUtil.logInfo(log, "老师{}的信息获取成功", name),
-                    new PersonalCenterDto(PersonalCenterDto.UserType.TEACHER, teacherByAccountName));
-        }
-        return RespondsMessage.failure("未找到用户信息");
+        return RespondsMessage.success("获取用户信息",principal);
     }
 
 }

@@ -5,16 +5,22 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.model.AccountModel;
 import org.nix.lovedomain.dao.model.ResourcesModel;
+import org.nix.lovedomain.dao.model.RoleModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.social.security.SocialUserDetails;
 
+import javax.management.relation.Role;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author zhangpei
+ */
 @Slf4j
 @Data
-public class UserDetail implements SocialUserDetails {
+public class UserDetail implements SocialUserDetails,Serializable {
 
     @JsonIgnore
     private AccountModel account;
@@ -23,9 +29,17 @@ public class UserDetail implements SocialUserDetails {
 
     private final List<UrlGrantedAuthority> grantedAuthorities;
 
+    private final List<RoleModel> roleModels;
+
     private String userName;
 
-    public UserDetail(AccountModel account, List<ResourcesModel> resources, String userName) {
+    private String image;
+
+    public UserDetail(AccountModel account,
+                      List<ResourcesModel> resources,
+                      List<RoleModel> roleModels,
+                      String userName,
+                      String image) {
         this.account = account;
         this.grantedAuthorities = resources.stream().map(it -> {
             String method = it.getMethod();
@@ -33,6 +47,8 @@ public class UserDetail implements SocialUserDetails {
         }).collect(Collectors.toList());
         this.resources = resources;
         this.userName = userName;
+        this.roleModels = roleModels;
+        this.image = image;
     }
 
     @Override
