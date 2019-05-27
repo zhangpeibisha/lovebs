@@ -71,16 +71,4 @@ public class TeacherController {
         log.info("上传的文件名字为{}",teacher.getOriginalFilename());
         log.info("上传的文件的大小为{}",teacher.getSize());
     }
-
-    /**
-     * 上传学生课程分数，授课老师上传
-     * @param teachCourScore
-     */
-    @Permission(name = "excel上传学生的课程得分信息",
-            role = RoleEnum.TEACHER)
-    @PostMapping(value = "/excel/teachCourScore")
-    public void teachCourScore(MultipartFile teachCourScore){
-        log.info("上传的文件名字为{}",teachCourScore.getOriginalFilename());
-        log.info("上传的文件的大小为{}",teachCourScore.getSize());
-    }
 }
