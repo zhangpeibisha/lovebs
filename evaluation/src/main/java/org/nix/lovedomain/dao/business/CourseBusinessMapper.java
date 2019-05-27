@@ -23,6 +23,15 @@ public interface CourseBusinessMapper extends BaseBusinessMapper<CourseModel> {
      * @param sql
      * @return
      */
+    @Select(value = "<script>"
+            + " SELECT * FROM `course` WHERE 1=1\n" +
+            "        <if test=\"sql!=null\">\n" +
+            "            ${sql}\n" +
+            "        </if>\n" +
+            "        <if test=\"page!=null and limit!=null\">\n" +
+            "            LIMIT #{page},#{limit};\n" +
+            "        </if>"
+            + "</script>")
     List<CourseModel> findCourseBySql(@Param(value = "page") Integer page,
                                       @Param(value = "limit") Integer limit,
                                       @Param(value = "sql") String sql);
@@ -33,6 +42,12 @@ public interface CourseBusinessMapper extends BaseBusinessMapper<CourseModel> {
      * @param sql
      * @return
      */
+    @Select(value = "<script>" +
+            " SELECT count(*) FROM `course` WHERE 1=1\n" +
+            "        <if test=\"sql!=null\">\n" +
+            "            ${sql}\n" +
+            "        </if>"
+            + "</script>")
     Long countCourseBySql(@Param(value = "sql") String sql);
 
     /**

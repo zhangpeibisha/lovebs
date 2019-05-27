@@ -4,7 +4,7 @@ spring:
   profiles:
     active: testing
 mybatis:
-  mapper-locations: classpath:org.nix.lovedomain.dao.mapper/*Mapper.xml,classpath:org.nix.lovedomain.dao.business/*Mapper.xml
+  mapper-locations: classpath:org.nix.lovedomain.dao.business/*Mapper.xml
   mappers: org.nix.lovedomain.dao.base.BaseBusinessMapper
   configuration:
     cache-enabled: false
