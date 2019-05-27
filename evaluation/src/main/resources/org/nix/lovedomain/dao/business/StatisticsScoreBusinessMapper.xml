@@ -2,6 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.dao.business.StatisticsScoreBusinessMapper">
 
+    <!--统计信息查询-->
+   <select id="getPQNa" resultType="org.nix.lovedomain.dao.model.StatisticsScoreModel">
+       select
+          *
+       from
+          statisticsScore
+        where
+          publishQuestionnaireId = #{id,jdbcType=INTEGER}
+          AND `type` = #{type,jdbcType=INTEGER}
+   </select>
 
-
+    <!--用于排名统计-->
+    <select id="selectByCollection" resultType="org.nix.lovedomain.dao.model.StatisticsScoreModel">
+        SELECT
+          teacherAccountId,score
+        from statisticsScore
+        WHERE publishQuestionnaireId IN
+        <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        and `type` = 2
+    </select>
 </mapper>

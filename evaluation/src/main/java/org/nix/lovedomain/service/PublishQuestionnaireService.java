@@ -473,26 +473,26 @@ public class PublishQuestionnaireService {
     }
 
 
-    /**
-     * 通过评教卷id获取评教卷的统计信息
-     *
-     * @param publishId
-     * @return
-     */
-    public PublishAttachInfo.StatisticalAnswer getQuestionStatisticalScore(Integer publishId) {
-        PublishQuestionnaireModel publishQuestionnaireModel
-                = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
-        PublishAttachInfo bean = PublishAttachInfo.getBean(publishQuestionnaireModel);
-
-        /*将评教卷平均成绩持久化到数据库*/
-        StatisticsScoreModel statistics = new StatisticsScoreModel();
-        statistics.setPublishQuestionnaireId(publishId);
-        statistics.setFraction(bean.getScore());
-        statistics.setTeacherId(publishQuestionnaireModel.getTeacherAccountId());
-        statistics.setCourseId(publishQuestionnaireModel.getCourseId());
-        statisticsScoreBusinessMapper.insertSelective(statistics);
-        return bean.statisticalAnswer();
-    }
+//    /**
+//     * 通过评教卷id获取评教卷的统计信息
+//     *
+//     * @param publishId
+//     * @return
+//     */
+//    public PublishAttachInfo.StatisticalAnswer getQuestionStatisticalScore(Integer publishId) {
+//        PublishQuestionnaireModel publishQuestionnaireModel
+//                = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
+//        PublishAttachInfo bean = PublishAttachInfo.getBean(publishQuestionnaireModel);
+//
+//        /*将评教卷平均成绩持久化到数据库*/
+//        StatisticsScoreModel statistics = new StatisticsScoreModel();
+//        statistics.setPublishQuestionnaireId(publishId);
+//        statistics.setFraction(bean.getScore());
+//        statistics.setTeacherId(publishQuestionnaireModel.getTeacherAccountId());
+//        statistics.setCourseId(publishQuestionnaireModel.getCourseId());
+//        statisticsScoreBusinessMapper.insertSelective(statistics);
+//        return bean.statisticalAnswer();
+//    }
 
 
     /**
@@ -501,58 +501,58 @@ public class PublishQuestionnaireService {
      * @param professionId
      * @return
      */
-    public Map<String, Object> professionScoreStatistics(Integer professionId) {
-        Map<String, Object> resultMap = new HashMap<>();
-        StatisticsScoreModel statistic;
-
-        // 获取该专业下所有评教卷统计结果
-        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
-        statisticsScoreModel.setProfessionId(professionId);
-        List<StatisticsScoreModel> statistics
-                = statisticsScoreBusinessMapper.select(statisticsScoreModel);
-        // 该专业下已经发布过多少评教卷
-
-
-        return null;
-
-    }
-
-    /**
-     * 按学院维度进行统计
-     *
-     * @param factoryId
-     * @return
-     */
-    public Map<String, Object> factoryScoreStatistics(Integer factoryId) {
-        return null;
-    }
-
-    /**
-     * 1)计算每张评教卷的平均分数
-     * 2)计算所有评教卷的总分
-     * 3)收集所有的意见
-     *
-     * @return
-     */
-    private StatisticsScoreModel statisticsExcute(List<StatisticsScoreModel> statistics) {
-        StatisticsScoreModel statisticsscore = new StatisticsScoreModel();
-        int size = statistics.size();
-        // 总分
-        int total = 0;
-        // 所有的意见
-        List<String> advices = new ArrayList<>();
-        for (StatisticsScoreModel s :
-                statistics) {
-            /*收集意见*/
-            // 单个评教卷的所有问题
-
-
-            /*计算总分*/
-            Integer score = s.getFraction();
-            if (score != null && score != 0) {
-                total += score;
-            }
-        }
-        return statisticsscore;
-    }
+//    public Map<String, Object> professionScoreStatistics(Integer professionId) {
+//        Map<String, Object> resultMap = new HashMap<>();
+//        StatisticsScoreModel statistic;
+//
+//        // 获取该专业下所有评教卷统计结果
+//        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+//        statisticsScoreModel.setProfessionId(professionId);
+//        List<StatisticsScoreModel> statistics
+//                = statisticsScoreBusinessMapper.select(statisticsScoreModel);
+//        // 该专业下已经发布过多少评教卷
+//
+//
+//        return null;
+//
+//    }
+//
+//    /**
+//     * 按学院维度进行统计
+//     *
+//     * @param factoryId
+//     * @return
+//     */
+//    public Map<String, Object> factoryScoreStatistics(Integer factoryId) {
+//        return null;
+//    }
+//
+//    /**
+//     * 1)计算每张评教卷的平均分数
+//     * 2)计算所有评教卷的总分
+//     * 3)收集所有的意见
+//     *
+//     * @return
+//     */
+//    private StatisticsScoreModel statisticsExcute(List<StatisticsScoreModel> statistics) {
+//        StatisticsScoreModel statisticsscore = new StatisticsScoreModel();
+//        int size = statistics.size();
+//        // 总分
+//        int total = 0;
+//        // 所有的意见
+//        List<String> advices = new ArrayList<>();
+//        for (StatisticsScoreModel s :
+//                statistics) {
+//            /*收集意见*/
+//            // 单个评教卷的所有问题
+//
+//
+//            /*计算总分*/
+//            Integer score = s.getScore();
+//            if (score != null && score != 0) {
+//                total += score;
+//            }
+//        }
+//        return statisticsscore;
+//    }
 }

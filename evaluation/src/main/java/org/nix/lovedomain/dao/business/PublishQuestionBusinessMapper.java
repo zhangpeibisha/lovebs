@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Update;
 import org.nix.lovedomain.dao.base.BaseBusinessMapper;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 
+import java.util.List;
+
 /**
  * @author zhangpei
  * @version 1.0
@@ -21,5 +23,16 @@ public interface PublishQuestionBusinessMapper extends BaseBusinessMapper<Publis
      */
     @Update(value = "UPDATE publishQuestionnaire SET questionnaireId = #{questionId}")
     int updateQuestionId(@Param(value = "questionId") Integer questionId);
+
+    /**
+     * 根据条件获取该学院下所有发布的问卷id
+     * @param facultyId 学院id
+     * @param year 发布问卷你的年份
+     * @param semester 发布问卷你的学期
+     * @return list
+     */
+    List<Integer> selectIdsByCondition(@Param("facultyId") Integer facultyId,
+                                       @Param("year") String year,
+                                       @Param("semester") String semester);
 
 }

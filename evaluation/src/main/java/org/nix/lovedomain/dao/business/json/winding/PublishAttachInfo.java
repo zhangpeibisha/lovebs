@@ -5,11 +5,14 @@ import cn.hutool.core.lang.Filter;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.UnhandledException;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
-import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
+import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.utils.LogUtil;
 
@@ -155,7 +158,7 @@ public class PublishAttachInfo {
 
     /**
      * 当评教卷到达终结时间的时候
-     * 开始统计分数
+     * 开始统计总共的分数
      */
     public void statistical() {
         score = 0;
@@ -168,10 +171,7 @@ public class PublishAttachInfo {
             // 不管是否是黑名单，都要计入出勤人数中
             attend++;
             Integer studentId = completesQuestion.getStudentAccountId();
-            // 黑名单不计入统计
-//            if (black.contains(studentId)) {
-//                continue;
-//            }
+
             List<QuestionReply> questionReplies = JSON.parseArray
                     (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
 
@@ -180,7 +180,7 @@ public class PublishAttachInfo {
                 continue;
             }
             for (QuestionReply questionReply : questionReplies) {
-                if (questionReply.questionnaireEnum.equals(QuestionnaireEnum.text)) {
+                if (questionReply.getScore() == 0) {
                     if (advice == null) {
                         advice = new ArrayList<>();
                     }
@@ -203,16 +203,188 @@ public class PublishAttachInfo {
      *
      * @return
      */
-    public StatisticalAnswer statisticalAnswer() {
+    public StatisticsScoreModel statisticalAnswer(PublishQuestionnaireModel publishQuestionnaireModel) {
+        // 计算总体分数
         statistical();
-        return StatisticalAnswer.builder()
-                .score(score)
-                .attend(attend)
-                .plan(plan)
-                .black(black == null ? 0 : black.size())
-                .canFilters(canFilters)
-                .advice(advice)
-                .build();
+        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
+        /*统计信息*/
+        statisticsScoreModel.setScore(Double.valueOf(this.score+""));
+        statisticsScoreModel.setType(1);
+        /*统计的相关信息*/
+        statisticsAttachInfor.setAdviseList(advice);
+        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
+        return  statisticsScoreModel;
+    }
+
+    /**
+     * 统一问卷的平均分
+     * 公式：总分数/应填写人数
+     * @return
+     */
+    public  StatisticsScoreModel statisticsAvgScore(PublishQuestionnaireModel publishQuestionnaireModel){
+        //计算总分
+        statistical();
+        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
+        /*统计信息*/
+        double avgScore = (double) (this.score)/this.plan;
+        statisticsScoreModel.setScore(avgScore);
+        statisticsScoreModel.setType(2);
+        /*统计的相关信息*/
+        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
+        return  statisticsScoreModel;
+    }
+
+    /**
+     * 计算每个选项的平均分
+     * 公式：选项的总分/填写该项的人数
+     * @param publishQuestionnaireModel
+     * @return
+     */
+    public StatisticsScoreModel statisticsItemScore(PublishQuestionnaireModel publishQuestionnaireModel,QuestionList questionList) throws UnhandledException, JsonProcessingException {
+        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
+        // 每道题的统计信息，包含平均分、总分、选择人次
+        Map<String,StatisticsItem> statisticsItemMap = calculateEachItemAvScore(questionList);
+        statisticsAttachInfor.setStatisticsItem(new ObjectMapper().writeValueAsString(statisticsItemMap));
+        statisticsScoreModel.setType(3);
+        /*统计的相关信息*/
+        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
+        return  statisticsScoreModel;
+    }
+
+    /**
+     * 计算每个选项的平均分
+     *
+     * 统计单选和多选的分数
+     * @return
+     */
+    public  Map<String,StatisticsItem> calculateEachItemAvScore(QuestionList questionList){
+
+        //每个选项的统计信息
+        Map<String,StatisticsItem> statisticsItemHashMap = new HashMap<>();
+        attend = 0;
+        if (CollUtil.isEmpty(completesQuestions)) {
+            return null;
+        }
+        // 统计的时候不管提交和保存，都计入统计中
+        for (CompletesQuestion completesQuestion : completesQuestions) {
+            // 不管是否是黑名单，都要计入出勤人数中
+            attend++;
+            Integer studentId = completesQuestion.getStudentAccountId();
+
+            List<QuestionReply> questionReplies = JSON.parseArray
+                    (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
+
+            if (CollUtil.isEmpty(questionReplies)) {
+                continue;
+            }
+            for (QuestionReply questionReply : questionReplies) {
+                // 获取题目统计实体
+                StatisticsItem statisticsItem = statisticsItemHashMap.get(questionReply.getQuestionId());
+                if(statisticsItem == null){
+                    statisticsItem = new StatisticsItem(questionReply.getQuestionId(),questionList.getQuestionTitleMap().get(questionReply.getQuestionId()));
+                }
+                if (questionReply.getScore() > 0) {
+                    statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose()+1);
+                    Integer score = questionReply.getScore();
+                    //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
+                    if (score == null || score <= 0 || (black != null && black.contains(studentId))) {
+                        continue;
+                    }
+                    statisticsItem.setTotalScore(statisticsItem.getTotalScore()+score);
+                }
+                statisticsItemHashMap.put(questionReply.getQuestionId(),statisticsItem);
+            }
+        }
+
+        /*求选项的平均分*/
+        for (StatisticsItem s:
+                statisticsItemHashMap.values()) {
+            s.setAvg((double)(s.getTotalScore())/s.getNumberOfChose());
+        }
+
+        return statisticsItemHashMap;
+    }
+
+    /**
+     * 添加统计的相关信息
+     *
+     * @param statisticsScoreModel
+     */
+    public void addScoreInfor(PublishQuestionnaireModel publishQuestionnaireModel,
+                              StatisticsScoreModel statisticsScoreModel,
+                              StatisticsAttachInfor statisticsAttachInfor){
+        /*主要信息*/
+        statisticsScoreModel.setCourseId(publishQuestionnaireModel.getCourseId());
+        statisticsScoreModel.setPublishQuestionnaireId(publishQuestionnaireModel.getId());
+        statisticsScoreModel.setTeacherAccountId(publishQuestionnaireModel.getTeacherAccountId());
+        /*附加信息*/
+        statisticsAttachInfor.setShouldAnswer(this.plan);
+        statisticsAttachInfor.setRealityAnswer(this.attend);
+        statisticsAttachInfor.setBlack(this.canFilters);
+        statisticsScoreModel.setAttachJson(JSONUtil.toJsonStr(statisticsAttachInfor));
+    }
+
+    /**
+     * 统计每个题目的每个选项的人数
+     * @param publishQuestionnaireModel
+     * @return
+     */
+    public StatisticsScoreModel statisticsItemChose(PublishQuestionnaireModel publishQuestionnaireModel,QuestionList  questionList) throws JsonProcessingException {
+
+        //每个选项的统计信息
+        Map<String,StatisticsItem> statisticsItemHashMap = new HashMap<>();
+        attend = 0;
+        if (CollUtil.isEmpty(completesQuestions)) {
+            return null;
+        }
+        // 统计的时候不管提交和保存，都计入统计中
+        for (CompletesQuestion completesQuestion : completesQuestions) {
+            // 不管是否是黑名单，都要计入出勤人数中
+            attend++;
+            Integer studentId = completesQuestion.getStudentAccountId();
+
+            List<QuestionReply> questionReplies = JSON.parseArray
+                    (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
+
+
+            if (CollUtil.isEmpty(questionReplies)) {
+                continue;
+            }
+            for (QuestionReply questionReply : questionReplies) {
+                // 获取题目统计实体
+                StatisticsItem statisticsItem = statisticsItemHashMap.get(questionReply.getQuestionId());
+                if(statisticsItem == null){
+                    statisticsItem = new StatisticsItem(questionReply.getQuestionId(),questionList.getQuestionTitleMap().get(questionReply.getQuestionId()));
+                }
+                int score = questionReply.getScore();
+                if (score > 0) {
+                    // 获取选项统计实体
+                    StatisticsItemChose statisticsItemChose = statisticsItem.getChoseMap().get(questionReply.getChooseId());
+                    if(statisticsItemChose == null){
+                        statisticsItemChose = new StatisticsItemChose(questionReply.getChooseId(),questionList.getOptionDescrpMap().get(questionReply.getChooseId()));
+                    }
+                    statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose()+1);
+                    //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
+                    if (black != null && black.contains(studentId)) {
+                        continue;
+                    }
+                    statisticsItemChose.setAccount(statisticsItemChose.getAccount()+1);
+                    statisticsItem.getChoseMap().put(questionReply.getQuestionId(),statisticsItemChose);
+                    statisticsItemHashMap.put(questionReply.getQuestionId(),statisticsItem);
+                }
+            }
+        }
+        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
+        statisticsAttachInfor.setStatisticsItem(new ObjectMapper().writeValueAsString(statisticsItemHashMap));
+        statisticsScoreModel.setType(4);
+        /*统计的相关信息*/
+        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
+        return  statisticsScoreModel;
+
     }
 
 
