@@ -232,7 +232,9 @@ public class StudentService {
                 ProfessionVo profession = classzz.getProfession();
                 if (profession != null) {
                     TeacherVo teacher = profession.getTeacher();
-                    teacher.setWorkJson(null);
+                    if (teacher != null) {
+                        teacher.setWorkJson(null);
+                    }
                     FacultyVo facultyVo = profession.getFacultyVo();
                     if (facultyVo != null) {
                         facultyVo.setDean(null);
