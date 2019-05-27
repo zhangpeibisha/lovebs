@@ -3,6 +3,7 @@ package org.nix.lovedomain.dao.business.json.question;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
@@ -137,22 +138,11 @@ public class EvaluationQuestionnaireContent {
     }
 
     public void addItemId(BaseQuestion<? extends BaseItem> baseQuestion) {
-        List<? extends BaseItem> items = baseQuestion.getItems();
+        baseQuestion = JSON.parseObject(JSON.toJSONString(baseQuestion),
+                new TypeReference<BaseQuestion<? extends BaseItem>>(){});
+        List<? extends BaseItem> items = JSON.parseObject(JSON.toJSONString(baseQuestion.getItems()),
+                new TypeReference<List<BaseItem>>(){});
         if (items != null) {
-            items.sort((Comparator<BaseItem>) (o1, o2) -> {
-                Integer sort1 = o1.getSort();
-                Integer sort2 = o2.getSort();
-                if (sort1 == null && sort2 != null) {
-                    return sort2;
-                }
-                if (sort1 != null && sort2 == null) {
-                    return sort1;
-                }
-                if (sort1 != null) {
-                    return sort1 - sort2;
-                }
-                return 0;
-            });
             for (BaseItem baseItem : items) {
                 if (baseItem.getId() == null) {
                     baseItem.setId(IdUtil.simpleUUID());

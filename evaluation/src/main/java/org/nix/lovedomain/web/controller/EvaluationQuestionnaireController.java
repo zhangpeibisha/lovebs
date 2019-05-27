@@ -30,7 +30,7 @@ import java.util.List;
 @Api(value = "评教卷相关接口", description = "描述了评教卷在本系统中的所有业务操作(测试通过)")
 @Slf4j
 @RestController
-@RequestMapping(value = "/evaluationQuestionnaire")
+@RequestMapping(value = "evaluationQuestionnaire")
 public class EvaluationQuestionnaireController {
 
     @Resource
@@ -46,6 +46,9 @@ public class EvaluationQuestionnaireController {
             @RequestParam(value = "description", required = false) String description,
             @ApiParam(value = "认证用户信息")
                     Principal principal) throws Exception {
+        if (StrUtil.isEmpty(description)){
+            description = title;
+        }
         EvaluationQuestionnaireModel simpleQuestion = evaluationquestionnaireService.createSimpleQuestion(
                 title, description, principal);
         return RespondsMessage.success(LogUtil
