@@ -1,12 +1,13 @@
 package org.nix.lovedomain.web.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.service.TeacherCourseService;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.security.Principal;
@@ -16,6 +17,7 @@ import java.security.Principal;
  * @version 1.0
  * @since jdk8
  */
+@Slf4j
 @RestController
 @RequestMapping(value = "teacherCourse")
 public class TeacherCourseController {
@@ -50,6 +52,19 @@ public class TeacherCourseController {
     @GetMapping(value = "/school/year")
     public RespondsMessage findUserTeachTaskHaveYear(Principal principal) {
         return RespondsMessage.success("获取用户学年列表成功", teacherCourseService.findSchoolYearByTaskList(principal));
+    }
+
+    /**
+     * 上传教学任务信息，管理员使用
+     * @param teachTask
+     */
+    @Permission(name = "excel上传教学任务",
+            description = "管理员通过上传格式化的excel文件，可以达到批量上传教学任务的目的",
+            role = RoleEnum.MANGER)
+    @PostMapping(value = "/excel/teachTask")
+    public void uploadTeachTask(MultipartFile teachTask){
+        log.info("上传的文件名字为{}",teachTask.getOriginalFilename());
+        log.info("上传的文件的大小为{}",teachTask.getSize());
     }
 
 }

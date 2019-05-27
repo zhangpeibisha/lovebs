@@ -5,11 +5,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.TeacherService;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.web.controller.dto.CreateTeacherDto;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -56,4 +59,28 @@ public class TeacherController {
                 teacherBusinessMapper.selectOne(teacherModel));
     }
 
+    /**
+     * 上传老师信息，管理员使用
+     * @param teacher
+     */
+    @Permission(name = "excel上传老师信息",
+            description = "通过excel上传老师信息（模拟学生）",
+            role = RoleEnum.MANGER)
+    @PostMapping(value = "/excel")
+    public void uploadTeachTask(MultipartFile teacher){
+        log.info("上传的文件名字为{}",teacher.getOriginalFilename());
+        log.info("上传的文件的大小为{}",teacher.getSize());
+    }
+
+    /**
+     * 上传学生课程分数，授课老师上传
+     * @param teachCourScore
+     */
+    @Permission(name = "excel上传学生的课程得分信息",
+            role = RoleEnum.TEACHER)
+    @PostMapping(value = "/excel/teachCourScore")
+    public void teachCourScore(MultipartFile teachCourScore){
+        log.info("上传的文件名字为{}",teachCourScore.getOriginalFilename());
+        log.info("上传的文件的大小为{}",teachCourScore.getSize());
+    }
 }

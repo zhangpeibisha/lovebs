@@ -6,12 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.model.StudentModel;
 import org.nix.lovedomain.service.StudentService;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -68,5 +71,20 @@ public class StudentController {
         studentService.registerStudent(students);
         return RespondsMessage.success(LogUtil.logInfo(log, "添加学生成功:共：{}人",
                 students.size()));
+    }
+
+
+    /**
+     * 上传学生信息，管理员使用
+     *
+     * @param student
+     */
+    @Permission(name = "excel上传学生信息",
+            description = "通过excel上传学生信息（模拟学生）",
+            role = RoleEnum.MANGER)
+    @PostMapping(value = "/excel")
+    public void uploadTeachTask(MultipartFile student) {
+        log.info("上传的文件名字为{}", student.getOriginalFilename());
+        log.info("上传的文件的大小为{}", student.getSize());
     }
 }
