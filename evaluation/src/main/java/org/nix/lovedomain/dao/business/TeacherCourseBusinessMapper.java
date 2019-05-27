@@ -15,18 +15,91 @@ import java.util.List;
  */
 public interface TeacherCourseBusinessMapper extends BaseBusinessMapper<TeacherCourseModel> {
 
+
     /**
-     * 查询指定课程在指定时间老师的授课情况
+     * 查询学生的教学任务信息，按课程结束时间倒序排序
      *
-     * @param courseId  课程id集合
-     * @param startTime 开始搜索时间
-     * @param endTime   开始结束时间
-     * @return 老师+课程定位老师的授课课程
+     * @param offset    数据偏移量
+     * @param limit     查询数量
+     * @param accountId 学生账号id
+     * @param year      学年
+     * @param semester  学期
+     * @return 教学任务
      */
-    List<TeacherCourseModel> findTeacherCourseInCurrSemester(
-            @Param(value = "courseId") List<Integer> courseId,
-            @Param(value = "startTime") String startTime,
-            @Param(value = "endTime") String endTime
-    );
+    List<TeacherCourseModel> findStudentTeachTaskPage(@Param(value = "offset") Integer offset,
+                                                      @Param(value = "limit") Integer limit,
+                                                      @Param(value = "accountId") Integer accountId,
+                                                      @Param(value = "schoolYear") Integer year,
+                                                      @Param(value = "semester") String semester);
+
+
+    /**
+     * 查询学生的教学任务信息，获取数量
+     *
+     * @param accountId 学生账号id
+     * @param year      学年
+     * @param semester  学期
+     * @return 教学任务
+     */
+    Long findStudentTeachTaskCount(
+            @Param(value = "accountId") Integer accountId,
+            @Param(value = "schoolYear") Integer year,
+            @Param(value = "semester") String semester);
+
+
+    /**
+     * 查询老师的教学任务信息，按课程结束时间倒序排序
+     *
+     * @param offset    数据偏移量
+     * @param limit     数量
+     * @param accountId 授课老师的账号id
+     * @param year      学年
+     * @param semester  学期
+     * @return 教学任务
+     */
+    List<TeacherCourseModel> findTeacherTeachTaskPage(@Param(value = "offset") Integer offset,
+                                                      @Param(value = "limit") Integer limit,
+                                                      @Param(value = "accountId") Integer accountId,
+                                                      @Param(value = "schoolYear") Integer year,
+                                                      @Param(value = "semester") String semester);
+
+    /**
+     * 查询老师的教学任务信息，获取数量
+     *
+     * @param accountId 学生账号id
+     * @param year      学年
+     * @param semester  学期
+     * @return 教学任务
+     */
+    Long findTeacherTeachTaskCount(
+            @Param(value = "accountId") Integer accountId,
+            @Param(value = "schoolYear") Integer year,
+            @Param(value = "semester") String semester);
+
+
+    /**
+     * 在所有教学任务中查询教学任务信息
+     *
+     * @param offset   数据偏移量
+     * @param limit    数据数量
+     * @param year     学年
+     * @param semester 学期
+     * @return 教学任务
+     */
+    List<TeacherCourseModel> findAllTeachTaskPage(@Param(value = "offset") Integer offset,
+                                                  @Param(value = "limit") Integer limit,
+                                                  @Param(value = "schoolYear") Integer year,
+                                                  @Param(value = "semester") String semester);
+
+    /**
+     * 查询所有的教学任务信息，获取数量
+     *
+     * @param year      学年
+     * @param semester  学期
+     * @return 教学任务
+     */
+    Long findAllTeachTaskCount(
+            @Param(value = "schoolYear") Integer year,
+            @Param(value = "semester") String semester);
 
 }

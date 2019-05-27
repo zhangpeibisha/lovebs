@@ -82,7 +82,7 @@ public class TeacherService{
      */
     public TeacherModel addTask(PublishQuestionnaireModel publishQuestionnaireModel) throws Exception {
         Integer teacherAccountId = publishQuestionnaireModel.getTeacherAccountId();
-        TeacherModel teacher = findTeacherByAccountLoginName(teacherAccountId);
+        TeacherModel teacher = findTeacherByAccountId(teacherAccountId);
         Validator.validateNotNull(teacher, "账号id为：{}的老师不存在", teacherAccountId);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
         QnaireTask qnaireTask = teacherWork.getQnaireTask();
@@ -105,7 +105,7 @@ public class TeacherService{
      */
     public TeacherModel task2Complete(PublishQuestionnaireModel publishQuestionnaireModel) throws Exception {
         Integer teacherAccountId = publishQuestionnaireModel.getTeacherAccountId();
-        TeacherModel teacher = findTeacherByAccountLoginName(teacherAccountId);
+        TeacherModel teacher = findTeacherByAccountId(teacherAccountId);
         TeacherWork teacherWork = TeacherWork.str2Bean(teacher);
         QnaireTask qnaireTask = teacherWork.getQnaireTask();
         qnaireTask.completeTask(new QnaireTaskItem(publishQuestionnaireModel.getId()
@@ -122,7 +122,7 @@ public class TeacherService{
      * @param accountId 老师的账号id
      * @return 老师信息
      */
-    public TeacherModel findTeacherByAccountLoginName(Integer accountId) {
+    public TeacherModel findTeacherByAccountId(Integer accountId) {
         TeacherModel teacherModel = new TeacherModel();
         teacherModel.setAccountId(accountId);
         return teacherBusinessMapper.selectOne(teacherModel);

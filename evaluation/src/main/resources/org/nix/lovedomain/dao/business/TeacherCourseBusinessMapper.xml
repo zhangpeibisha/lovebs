@@ -2,22 +2,113 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper">
 
-    <select id="findTeacherCourseInCurrSemester" resultType="org.nix.lovedomain.dao.model.TeacherCourseModel">
+    <select id="findStudentTeachTaskPage" resultType="org.nix.lovedomain.dao.model.TeacherCourseModel">
         SELECT
         *
         FROM
-        `teacher_course`
-        WHERE
-        createTime &gt;= #{startTime}
-        AND createTime &lt;=  #{endTime}
-        <if test="courseId!=null and courseId.size()>0">
-            AND courseId  IN
-            <foreach collection="courseId" separator="," open="(" close=")" item="item">
-              #{item}
-          </foreach>
+        `teacher_course` AS tc
+        LEFT JOIN student_course AS sc ON tc.teachCourseId = sc.teachCourseId
+        WHERE sc.studentAccountId = #{accountId}
+        <if test="schoolYear!=null">
+            AND tc.schoolYear = #{schoolYear}
         </if>
-        <if test="courseId == null">
-            AND courseId = -1
+        <if test="semester!=null">
+            AND tc.semester = #{semester}
+        </if>
+        ORDER BY endTime DESC
+        <if test="offset!=null and limit!=null">
+            LIMIT #{offset},#{limit}
+        </if>
+    </select>
+
+
+    <select id="findStudentTeachTaskCount" resultType="java.lang.Long">
+        SELECT
+        count(*)
+        FROM
+        `teacher_course` AS tc
+        LEFT JOIN student_course AS sc ON tc.teachCourseId = sc.teachCourseId
+        WHERE sc.studentAccountId = #{accountId}
+        <if test="schoolYear!=null">
+            AND tc.schoolYear = #{schoolYear}
+        </if>
+        <if test="semester!=null">
+            AND tc.semester = #{semester}
+        </if>
+    </select>
+
+
+
+
+    <select id="findTeacherTeachTaskPage" resultType="org.nix.lovedomain.dao.model.TeacherCourseModel">
+        SELECT
+        *
+        FROM
+        teacher_course
+        WHERE
+        teacherAccountId =#{accountId}
+        <if test="schoolYear!=null">
+            AND tc.schoolYear = #{schoolYear}
+        </if>
+        <if test="semester!=null">
+            AND tc.semester = #{semester}
+        </if>
+        ORDER BY endTime DESC
+        <if test="offset!=null and limit!=null">
+            LIMIT #{offset},#{limit}
+        </if>
+    </select>
+
+
+    <select id="findTeacherTeachTaskCount" resultType="java.lang.Long">
+        SELECT
+        count(*)
+        FROM
+        teacher_course
+        WHERE
+        teacherAccountId =#{accountId}
+        <if test="schoolYear!=null">
+            AND tc.schoolYear = #{schoolYear}
+        </if>
+        <if test="semester!=null">
+            AND tc.semester = #{semester}
+        </if>
+    </select>
+
+
+
+
+    <select id="findAllTeachTaskPage" resultType="org.nix.lovedomain.dao.model.TeacherCourseModel">
+        SELECT
+        *
+        FROM
+        teacher_course
+        WHERE 1=1
+        <if test="schoolYear!=null">
+            AND tc.schoolYear = #{schoolYear}
+        </if>
+        <if test="semester!=null">
+            AND tc.semester = #{semester}
+        </if>
+        ORDER BY endTime DESC
+        <if test="offset!=null and limit!=null">
+            LIMIT #{offset},#{limit}
+        </if>
+    </select>
+
+
+
+    <select id="findAllTeachTaskCount" resultType="java.lang.Long">
+        SELECT
+        count(*)
+        FROM
+        teacher_course
+        WHERE 1=1
+        <if test="schoolYear!=null">
+            AND tc.schoolYear = #{schoolYear}
+        </if>
+        <if test="semester!=null">
+            AND tc.semester = #{semester}
         </if>
     </select>
 
