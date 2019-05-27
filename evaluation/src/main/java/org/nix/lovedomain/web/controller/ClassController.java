@@ -2,6 +2,7 @@ package org.nix.lovedomain.web.controller;
 
 import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.Api;
+import org.nix.lovedomain.dao.model.ClassModel;
 import org.nix.lovedomain.service.ClassService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
@@ -32,7 +33,7 @@ public class ClassController  {
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
                                 @RequestParam(value = "quire", required = false) String sql,
                                 HttpServletResponse response) throws IOException {
-        PageVo<Class> studentVoPageVo = classService.findClassPage(page, limit, sql);
+        PageVo<ClassModel> studentVoPageVo = classService.findClassPage(page, limit, sql);
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(JSONUtil.toJsonStr(RespondsMessage.success("获取班级列表成功",
                 studentVoPageVo)));

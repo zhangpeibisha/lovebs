@@ -10,12 +10,12 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/4/19
  * @since jdk8
  */
 @Service
-public class FacultyService  {
+public class FacultyService {
 
     @Resource
     private FacultyBusinessMapper facultyBusinessMapper;

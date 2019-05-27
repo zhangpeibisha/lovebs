@@ -2,6 +2,7 @@ package org.nix.lovedomain.web.controller;
 
 import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.Api;
+import org.nix.lovedomain.dao.business.FacultyBusinessMapper;
 import org.nix.lovedomain.dao.model.FacultyModel;
 import org.nix.lovedomain.service.FacultyService;
 import org.nix.lovedomain.service.vo.PageVo;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -28,6 +30,9 @@ public class FacultyController  {
     @Autowired
     private FacultyService facultyService;
 
+    @Resource
+    private FacultyBusinessMapper facultyBusinessMapper;
+
     @GetMapping(value = "/quire/list")
     public void findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -37,6 +42,13 @@ public class FacultyController  {
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(JSONUtil.toJsonStr(RespondsMessage.success("获取学院列表成功",
                 studentVoPageVo)));
+    }
+
+
+    @GetMapping(value = "/findById")
+    public RespondsMessage findById(@RequestParam(value = "id")Integer id){
+        return RespondsMessage.success("通过id查询完成",
+                facultyBusinessMapper.selectByPrimaryKey(id));
     }
 
 }

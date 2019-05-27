@@ -22,7 +22,7 @@ public interface ClassBusinessMapper extends BaseBusinessMapper<ClassModel> {
      * @param sql
      * @return
      */
-    List<Class> findClassBySql(@Param(value = "page") Integer page,
+    List<ClassModel> findClassBySql(@Param(value = "page") Integer page,
                                  @Param(value = "limit") Integer limit,
                                  @Param(value = "sql") String sql);
 

@@ -2,6 +2,7 @@ package org.nix.lovedomain.web.controller;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.TeacherService;
 import org.nix.lovedomain.service.vo.PageVo;
@@ -10,6 +11,7 @@ import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 
 /**
@@ -22,11 +24,13 @@ import java.io.IOException;
 @Api(value = "老师控制器(测试通过)")
 @RestController
 @RequestMapping(value = "/teacher")
-public class TeacherController  {
+public class TeacherController {
 
     @Autowired
     private TeacherService teacherService;
 
+    @Resource
+    private TeacherBusinessMapper teacherBusinessMapper;
 
     @GetMapping(value = "/quire/list")
     public RespondsMessage findTeacherPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -42,6 +46,14 @@ public class TeacherController  {
         teacherService.createTeacher(dto);
 
         return RespondsMessage.success("创建老师成功");
+    }
+
+    @GetMapping(value = "/findById")
+    public RespondsMessage findById(@RequestParam Integer id) {
+        TeacherModel teacherModel = new TeacherModel();
+        teacherModel.setAccountId(id);
+        return RespondsMessage.success("查询老师成功",
+                teacherBusinessMapper.selectOne(teacherModel));
     }
 
 }
