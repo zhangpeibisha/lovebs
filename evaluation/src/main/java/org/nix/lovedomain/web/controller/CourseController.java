@@ -52,15 +52,15 @@ public class CourseController{
 
     /**
      * 上传课程信息，管理员使用
-     * @param faculty
+     * @param course
      */
     @Permission(name = "excel上传课程信息",
             description = "管理员通过上传格式化的excel文件，可以达到批量上传课程信息目的",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel")
-    public void uploadCourse(MultipartFile faculty){
-        log.info("上传的文件名字为{}",faculty.getOriginalFilename());
-        log.info("上传的文件的大小为{}",faculty.getSize());
+    public void uploadCourse(MultipartFile course){
+        log.info("上传的文件名字为{}",course.getOriginalFilename());
+        log.info("上传的文件的大小为{}",course.getSize());
     }
 
 

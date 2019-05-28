@@ -12,8 +12,8 @@ spring:
   session:
     store-type: redis
   redis:
-#      host: 59.110.234.213
-      host: 127.0.0.1
+      host: 59.110.234.213
+#      host: 127.0.0.1
       # 链接超时
       timeout: 2000
       jedis:
