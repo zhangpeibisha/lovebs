@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/5/25
  * @since jdk8
  *
  * 统计的附加信息

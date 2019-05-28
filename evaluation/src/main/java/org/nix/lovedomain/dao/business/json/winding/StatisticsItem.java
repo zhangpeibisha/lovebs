@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/5/26
  * @since jdk8
  *
  * 题目统计

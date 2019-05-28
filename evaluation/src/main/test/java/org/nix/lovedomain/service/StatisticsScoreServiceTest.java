@@ -20,7 +20,7 @@ import java.util.List;
 public class StatisticsScoreServiceTest {
 
     @Autowired
-    StatisticsScoreService statisticsScoreService;
+    StatisticsScoreService2 statisticsScoreService;
 
     @Autowired
     PublishQuestionnaireService publishQuestionnaireService;

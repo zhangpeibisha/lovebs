@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/5/27
  * @since jdk8
  *
  * 存储所有的题目的描述

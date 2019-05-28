@@ -3,8 +3,8 @@ package org.nix.lovedomain.dao.business.json.winding;
 import lombok.Data;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/5/26
  * @since jdk8
  *
  * 每个题目的每个选项选择次数实体
