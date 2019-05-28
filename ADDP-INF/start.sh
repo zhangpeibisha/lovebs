@@ -5,6 +5,8 @@ APP=$1
 ENV=$2
 # 应用端口
 port=$3
+# 应用端口设置端口
+inPort=$4
 
 # 启动应用镜像
 #container="$(docker ps -a |grep ${APP}-${ENV})"
@@ -18,4 +20,4 @@ port=$3
 
 docker stop ${APP}-${ENV}
 docker rm ${APP}-${ENV}
-docker run  --name ${APP}-${ENV}  -p ${port}:80 -v /tmp:/tmp -dit ${APP}:${ENV}
+docker run  --name ${APP}-${ENV}  -p ${port}:${inPort} -v /tmp:/tmp -dit ${APP}:${ENV}
