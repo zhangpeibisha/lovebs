@@ -16,26 +16,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/4/19
  * @since jdk8
  */
-@Api(value = "问卷统计管理",description = "问卷统计信息查询")
+@Api(value = "问卷统计管理", description = "问卷统计信息查询")
 @Controller
-@RequestMapping(value = "statisticsscore")
-public class StatisticsscoreController {
+@RequestMapping(value = "statisticsScore")
+public class StatisticsScoreController {
 
     @Autowired
     StatisticsScoreService statisticsScoreService;
 
     /**
      * 根据发布问卷的id和统计类型获取问卷的统计信息
+     *
      * @return
      */
     @ApiOperation("查询统计信息")
-    @RequestMapping(value = "pqna",method = RequestMethod.GET)
+    @RequestMapping(value = "pqna", method = RequestMethod.GET)
     public void getPQNa(@RequestParam("id") Integer id, @RequestParam("type") Integer type, HttpServletResponse response) throws IOException {
-          StatisticsScoreModel statisticsScoreModel = statisticsScoreService.getPQNa(id,type);
+        StatisticsScoreModel statisticsScoreModel = statisticsScoreService.getPQNa(id, type);
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(JSONUtil.toJsonStr(RespondsMessage.success("获取数据成功",
                 statisticsScoreModel)));
