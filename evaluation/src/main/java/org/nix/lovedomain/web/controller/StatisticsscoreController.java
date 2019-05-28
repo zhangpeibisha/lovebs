@@ -4,7 +4,7 @@ import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.nix.lovedomain.dao.model.StatisticsScoreModel;
-import org.nix.lovedomain.service.StatisticsScoreService2;
+import org.nix.lovedomain.service.StatisticsScoreService;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import java.io.IOException;
 public class StatisticsscoreController {
 
     @Autowired
-    StatisticsScoreService2 statisticsScoreService;
+    StatisticsScoreService statisticsScoreService;
 
     /**
      * 根据发布问卷的id和统计类型获取问卷的统计信息
