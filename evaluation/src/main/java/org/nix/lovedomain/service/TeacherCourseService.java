@@ -43,6 +43,9 @@ public class TeacherCourseService {
     @Resource
     private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
 
+    @Resource
+    private StatisticsScoreService statisticsScoreService;
+
     /**
      * 通过教学任务id查询到教学任务的详细信息
      *
@@ -76,7 +79,7 @@ public class TeacherCourseService {
         if (semesterEnum != null) {
             semesterName = semesterEnum.getName();
         }
-        if (page != null && limit != null){
+        if (page != null && limit != null) {
             page = PageUtil.getStart(page, limit);
         }
         if (haveRole(RoleEnum.MANGER, roleModels)) {
@@ -153,7 +156,8 @@ public class TeacherCourseService {
             PublishQuestionnaireModel questionnaireModel = new PublishQuestionnaireModel();
             questionnaireModel.setTeachCourseId(courseModel.getTeachCourseId());
             PublishQuestionnaireModel model = publishQuestionBusinessMapper.selectOne(questionnaireModel);
-            teachTaskVos.add(TeachTaskVo.teacherCourseModel2TaskVo(courseModel, teacherModel, course,model));
+            StatisticsScoreModel scoreModel = statisticsScoreService.getPQNa(questionnaireModel.getId(), 1);
+            teachTaskVos.add(TeachTaskVo.teacherCourseModel2TaskVo(courseModel, teacherModel, course, model, scoreModel));
         });
         return teachTaskVos;
     }

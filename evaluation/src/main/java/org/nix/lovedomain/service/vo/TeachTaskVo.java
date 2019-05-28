@@ -2,10 +2,7 @@ package org.nix.lovedomain.service.vo;
 
 import cn.hutool.core.date.DateUtil;
 import lombok.Data;
-import org.nix.lovedomain.dao.model.CourseModel;
-import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
-import org.nix.lovedomain.dao.model.TeacherCourseModel;
-import org.nix.lovedomain.dao.model.TeacherModel;
+import org.nix.lovedomain.dao.model.*;
 
 import java.util.Date;
 
@@ -63,11 +60,16 @@ public class TeachTaskVo {
      * 评教卷根本id
      */
     private Integer questionnaireId;
+    /**
+     * 教学所得分数，若评教未结束则为0
+     */
+    private Double teachScore = 0D;
 
     public static TeachTaskVo teacherCourseModel2TaskVo(TeacherCourseModel teachCourseModel,
                                                         TeacherModel teacherModel,
                                                         CourseModel courseModel,
-                                                        PublishQuestionnaireModel publishQuestionnaireModel) {
+                                                        PublishQuestionnaireModel publishQuestionnaireModel,
+                                                        StatisticsScoreModel statisticsScoreModel) {
         TeachTaskVo teachTaskVo = new TeachTaskVo();
 
 
@@ -99,6 +101,10 @@ public class TeachTaskVo {
         Integer questionnaireId = publishQuestionnaireModel.getQuestionnaireId();
         teachTaskVo.setQuestionnaireId(questionnaireId);
 
+        // 设置分数
+        if (statisticsScoreModel != null) {
+            teachTaskVo.setTeachScore(statisticsScoreModel.getScore());
+        }
         return teachTaskVo;
     }
 

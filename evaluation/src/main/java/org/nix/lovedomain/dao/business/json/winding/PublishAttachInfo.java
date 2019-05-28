@@ -371,7 +371,7 @@ public class PublishAttachInfo {
                     if (black != null && black.contains(studentId)) {
                         continue;
                     }
-                    statisticsItemChose.setAccount(statisticsItemChose.getAccount()+1);
+                    statisticsItemChose.setCount(statisticsItemChose.getCount()+1);
                     statisticsItem.getChoseMap().put(questionReply.getQuestionId(),statisticsItemChose);
                     statisticsItemHashMap.put(questionReply.getQuestionId(),statisticsItem);
                 }
