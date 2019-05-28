@@ -197,11 +197,11 @@ public class PublishQuestionnaireController {
      * @param publishId
      * @return
      */
-    @GetMapping(value = "/score")
-    public RespondsMessage teacherViewStat(@RequestParam(value = "publishId") Integer publishId) {
-        return RespondsMessage.success("获取统计结果完成",
-                publishquestionnaireService.getQuestionStatisticalScore(publishId));
-    }
+//    @GetMapping(value = "/score")
+//    public RespondsMessage teacherViewStat(@RequestParam(value = "publishId") Integer publishId) {
+//        return RespondsMessage.success("获取统计结果完成",
+//                publishquestionnaireService.getQuestionStatisticalScore(publishId));
+//    }
 
     /**
      * 查看发布评教卷的评分
@@ -209,21 +209,21 @@ public class PublishQuestionnaireController {
      *
      * @param id
      * @return
-     */
-    @GetMapping(value = "/profession/score")
-    public RespondsMessage professionScore(@RequestParam(value = "id") Integer id) {
-        Map<String, Object> map = publishquestionnaireService.professionScoreStatistics(id);
-        switch ((Integer) map.get("status")) {
-            case 1:
-                return RespondsMessage.success("该专业未发布评教卷", null);
-            case 2:
-                return RespondsMessage.success("评教卷还未完全回收", null);
-            case 3:
-                return RespondsMessage.success("获取统计结果完成",
-                        map.get("data"));
-        }
-        return null;
-    }
+//     */
+//    @GetMapping(value = "/profession/score")
+//    public RespondsMessage professionScore(@RequestParam(value = "id") Integer id) {
+//        Map<String, Object> map = publishquestionnaireService.professionScoreStatistics(id);
+//        switch ((Integer) map.get("status")) {
+//            case 1:
+//                return RespondsMessage.success("该专业未发布评教卷", null);
+//            case 2:
+//                return RespondsMessage.success("评教卷还未完全回收", null);
+//            case 3:
+//                return RespondsMessage.success("获取统计结果完成",
+//                        map.get("data"));
+//        }
+//        return null;
+//    }
 
     /**
      * 查看发布评教卷的评分
@@ -231,21 +231,21 @@ public class PublishQuestionnaireController {
      *
      * @param id
      * @return
-     */
-    @GetMapping(value = "/factory/score")
-    public RespondsMessage factoryScore(@RequestParam(value = "id") Integer id) {
-        Map<String, Object> map = publishquestionnaireService.professionScoreStatistics(id);
-        switch ((Integer) map.get("status")) {
-            case 1:
-                return RespondsMessage.success("该专业未发布评教卷", null);
-            case 2:
-                return RespondsMessage.success("评教卷还未完全回收", null);
-            case 3:
-                return RespondsMessage.success("获取统计结果完成",
-                        map.get("data"));
-        }
-        return null;
-    }
+//     */
+//    @GetMapping(value = "/factory/score")
+//    public RespondsMessage factoryScore(@RequestParam(value = "id") Integer id) {
+//        Map<String, Object> map = publishquestionnaireService.professionScoreStatistics(id);
+//        switch ((Integer) map.get("status")) {
+//            case 1:
+//                return RespondsMessage.success("该专业未发布评教卷", null);
+//            case 2:
+//                return RespondsMessage.success("评教卷还未完全回收", null);
+//            case 3:
+//                return RespondsMessage.success("获取统计结果完成",
+//                        map.get("data"));
+//        }
+//        return null;
+//    }
 
 
 }

@@ -2,6 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper">
 
-
+  <select id="selectIdsByCondition" resultType="Integer">
+       SELECT
+          publishQuestionnaire.id
+        FROM
+        publishQuestionnaire
+        LEFT JOIN
+        teacher
+        ON publishQuestionnaire.teacherAccountId = teacher.accountId
+        LEFT JOIN
+        profession
+        ON profession.id = teacher.professionId
+        WHERE profession.facultyId = #{facultyId,jdbcType=INTEGER}
+         AND   publishQuestionnaire.`year` = #{year,jdbcType=VARCHAR}
+        AND  publishQuestionnaire.semester = #{semester,jdbcType=VARCHAR}
+  </select>
 
 </mapper>
