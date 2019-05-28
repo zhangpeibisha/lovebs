@@ -177,7 +177,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>evaluation</finalName>
+        <finalName>evaluation-start</finalName>
     </build>
 
 </project>
