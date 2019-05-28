@@ -2,6 +2,7 @@ package org.nix.lovedomain.web.controller;
 
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -36,7 +37,7 @@ public class EvaluationQuestionnaireController {
     @Resource
     private EvaluationQuestionnaireService evaluationquestionnaireService;
 
-    @Permission(name = "创建空评教卷",role = RoleEnum.MANGER)
+    @Permission(name = "创建空评教卷", role = RoleEnum.MANGER)
     @ApiOperation(value = "创建空评教卷", notes = "一般在老师创建评教卷的时候使用")
     @PostMapping(value = "/create")
     public RespondsMessage createQuestionnaire(
@@ -46,7 +47,7 @@ public class EvaluationQuestionnaireController {
             @RequestParam(value = "description", required = false) String description,
             @ApiParam(value = "认证用户信息")
                     Principal principal) throws Exception {
-        if (StrUtil.isEmpty(description)){
+        if (StrUtil.isEmpty(description)) {
             description = title;
         }
         EvaluationQuestionnaireModel simpleQuestion = evaluationquestionnaireService.createSimpleQuestion(
@@ -57,14 +58,15 @@ public class EvaluationQuestionnaireController {
     }
 
 
-    @Permission(name = "一次性添加多个问题",role = RoleEnum.MANGER)
+    @Permission(name = "一次性添加多个问题", role = RoleEnum.MANGER)
     @ApiOperation(value = "一次性添加多个问题", notes = "提供一个评教卷id，为该评教卷添加多个问题内容")
     @PostMapping(value = "/batch/add/question")
     public RespondsMessage addQuestion(@RequestParam(value = "evaluationId") Integer evaluationId,
-                                       @RequestBody List<BaseQuestion> question,
+                                       @RequestBody String question,
                                        Principal principal) {
+        List<BaseQuestion> baseQuestions = JSON.parseArray(question, BaseQuestion.class);
         EvaluationQuestionnaireModel evaluationquestionnaire
-                = evaluationquestionnaireService.addQuestion(evaluationId, question, principal);
+                = evaluationquestionnaireService.addQuestion(evaluationId, baseQuestions, principal);
         if (evaluationquestionnaire != null) {
             return RespondsMessage.success(LogUtil
                     .logInfo(log, "用户{}在评教卷【{}】中添加问题成功", principal.getName(),
