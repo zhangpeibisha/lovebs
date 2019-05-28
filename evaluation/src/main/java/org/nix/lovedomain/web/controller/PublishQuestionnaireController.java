@@ -78,13 +78,14 @@ public class PublishQuestionnaireController {
      * @param completesQuestion 回答的问题
      * @return
      */
-    @Permission(name = "添加黑名单学生", role = {RoleEnum.STUDENT})
+    @Permission(name = "提交回答信息", role = {RoleEnum.STUDENT})
     @ApiOperation(value = "提交回答信息")
     @PostMapping(value = "/writeQuestion")
     public RespondsMessage writeQuestion(@RequestParam(value = "publishId") Integer publishId,
-                                         @RequestBody PublishAttachInfo.CompletesQuestion completesQuestion,
+                                         @RequestBody String completesQuestion,
                                          Principal principal) {
-        PublishQuestionnaireModel publication = publishquestionnaireService.fillInTheAnswer(publishId, completesQuestion, principal);
+        PublishAttachInfo.CompletesQuestion question = JSON.parseObject(completesQuestion,PublishAttachInfo.CompletesQuestion.class);
+        PublishQuestionnaireModel publication = publishquestionnaireService.fillInTheAnswer(publishId, question, principal);
         return RespondsMessage.success(LogUtil.logInfo(log, "用户{}更新的问题成功", principal.getName()), publication);
     }
 
@@ -191,61 +192,11 @@ public class PublishQuestionnaireController {
 
     }
 
-    /**
-     * 查看发布评教卷的评分
-     *
-     * @param publishId
-     * @return
-     */
-//    @GetMapping(value = "/score")
-//    public RespondsMessage teacherViewStat(@RequestParam(value = "publishId") Integer publishId) {
-//        return RespondsMessage.success("获取统计结果完成",
-//                publishquestionnaireService.getQuestionStatisticalScore(publishId));
-//    }
-
-    /**
-     * 查看发布评教卷的评分
-     * 专业维度
-     *
-     * @param id
-     * @return
-//     */
-//    @GetMapping(value = "/profession/score")
-//    public RespondsMessage professionScore(@RequestParam(value = "id") Integer id) {
-//        Map<String, Object> map = publishquestionnaireService.professionScoreStatistics(id);
-//        switch ((Integer) map.get("status")) {
-//            case 1:
-//                return RespondsMessage.success("该专业未发布评教卷", null);
-//            case 2:
-//                return RespondsMessage.success("评教卷还未完全回收", null);
-//            case 3:
-//                return RespondsMessage.success("获取统计结果完成",
-//                        map.get("data"));
-//        }
-//        return null;
-//    }
-
-    /**
-     * 查看发布评教卷的评分
-     * 学院维度
-     *
-     * @param id
-     * @return
-//     */
-//    @GetMapping(value = "/factory/score")
-//    public RespondsMessage factoryScore(@RequestParam(value = "id") Integer id) {
-//        Map<String, Object> map = publishquestionnaireService.professionScoreStatistics(id);
-//        switch ((Integer) map.get("status")) {
-//            case 1:
-//                return RespondsMessage.success("该专业未发布评教卷", null);
-//            case 2:
-//                return RespondsMessage.success("评教卷还未完全回收", null);
-//            case 3:
-//                return RespondsMessage.success("获取统计结果完成",
-//                        map.get("data"));
-//        }
-//        return null;
-//    }
+    @GetMapping(value = "/findById")
+    public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
+        PublishQuestionnaireModel model = publishQuestionBusinessMapper.selectByPrimaryKey(id);
+        return RespondsMessage.success("获取发布的评教卷成功", model);
+    }
 
 
 }

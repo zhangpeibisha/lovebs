@@ -20,9 +20,13 @@ import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.LogUtil;
+import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.security.Principal;
@@ -145,8 +149,8 @@ public class PublishQuestionnaireService {
         String loginName = principal.getName();
         AccountModel account = accountService.findUserByAccount(loginName);
         Integer accountId = account.getId();
-        Validator.validateTrue(bean.getStudents().contains(accountId),"学生{}不用参与评教任务{}的测评",
-                loginName,questionnaireModel.getTeachCourseId());
+        Validator.validateTrue(bean.getStudents().contains(accountId), "学生{}不用参与评教任务{}的测评",
+                loginName, questionnaireModel.getTeachCourseId());
         // 设置完成了的学生账号
         completesQuestion.setStudentAccountId(accountId);
         // 直接设定为提交
@@ -471,88 +475,4 @@ public class PublishQuestionnaireService {
         studentBusinessMapper.updateByPrimaryKey(student);
         return publishQuestionBusinessMapper.selectByPrimaryKey(publishQuesting);
     }
-
-
-//    /**
-//     * 通过评教卷id获取评教卷的统计信息
-//     *
-//     * @param publishId
-//     * @return
-//     */
-//    public PublishAttachInfo.StatisticalAnswer getQuestionStatisticalScore(Integer publishId) {
-//        PublishQuestionnaireModel publishQuestionnaireModel
-//                = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
-//        PublishAttachInfo bean = PublishAttachInfo.getBean(publishQuestionnaireModel);
-//
-//        /*将评教卷平均成绩持久化到数据库*/
-//        StatisticsScoreModel statistics = new StatisticsScoreModel();
-//        statistics.setPublishQuestionnaireId(publishId);
-//        statistics.setFraction(bean.getScore());
-//        statistics.setTeacherId(publishQuestionnaireModel.getTeacherAccountId());
-//        statistics.setCourseId(publishQuestionnaireModel.getCourseId());
-//        statisticsScoreBusinessMapper.insertSelective(statistics);
-//        return bean.statisticalAnswer();
-//    }
-
-
-    /**
-     * 根据专业id获取专业为维度的评教卷统计
-     *
-     * @param professionId
-     * @return
-     */
-//    public Map<String, Object> professionScoreStatistics(Integer professionId) {
-//        Map<String, Object> resultMap = new HashMap<>();
-//        StatisticsScoreModel statistic;
-//
-//        // 获取该专业下所有评教卷统计结果
-//        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
-//        statisticsScoreModel.setProfessionId(professionId);
-//        List<StatisticsScoreModel> statistics
-//                = statisticsScoreBusinessMapper.select(statisticsScoreModel);
-//        // 该专业下已经发布过多少评教卷
-//
-//
-//        return null;
-//
-//    }
-//
-//    /**
-//     * 按学院维度进行统计
-//     *
-//     * @param factoryId
-//     * @return
-//     */
-//    public Map<String, Object> factoryScoreStatistics(Integer factoryId) {
-//        return null;
-//    }
-//
-//    /**
-//     * 1)计算每张评教卷的平均分数
-//     * 2)计算所有评教卷的总分
-//     * 3)收集所有的意见
-//     *
-//     * @return
-//     */
-//    private StatisticsScoreModel statisticsExcute(List<StatisticsScoreModel> statistics) {
-//        StatisticsScoreModel statisticsscore = new StatisticsScoreModel();
-//        int size = statistics.size();
-//        // 总分
-//        int total = 0;
-//        // 所有的意见
-//        List<String> advices = new ArrayList<>();
-//        for (StatisticsScoreModel s :
-//                statistics) {
-//            /*收集意见*/
-//            // 单个评教卷的所有问题
-//
-//
-//            /*计算总分*/
-//            Integer score = s.getScore();
-//            if (score != null && score != 0) {
-//                total += score;
-//            }
-//        }
-//        return statisticsscore;
-//    }
 }

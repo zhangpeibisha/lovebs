@@ -3,6 +3,7 @@ package org.nix.lovedomain.dao.business.json.question;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.question.base.BaseItem;
@@ -11,7 +12,6 @@ import org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -137,17 +137,15 @@ public class EvaluationQuestionnaireContent {
         baseQuestion.setId(IdUtil.simpleUUID());
     }
 
-    public void addItemId(BaseQuestion<? extends BaseItem> baseQuestion) {
-        baseQuestion = JSON.parseObject(JSON.toJSONString(baseQuestion),
-                new TypeReference<BaseQuestion<? extends BaseItem>>(){});
-        List<? extends BaseItem> items = JSON.parseObject(JSON.toJSONString(baseQuestion.getItems()),
-                new TypeReference<List<BaseItem>>(){});
+    public List<? extends BaseItem> addItemId(BaseQuestion<? extends BaseItem> baseQuestion) {
+        List<? extends BaseItem> items = baseQuestion.getItems();
         if (items != null) {
-            for (BaseItem baseItem : items) {
-                if (baseItem.getId() == null) {
-                    baseItem.setId(IdUtil.simpleUUID());
+            for (Object baseItem : items) {
+                if (baseItem instanceof JSONObject){
+                    ((JSONObject) baseItem).put("id",IdUtil.simpleUUID());
                 }
             }
         }
+        return items;
     }
 }
