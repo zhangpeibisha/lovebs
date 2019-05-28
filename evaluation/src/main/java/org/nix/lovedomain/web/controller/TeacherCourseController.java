@@ -1,15 +1,18 @@
 package org.nix.lovedomain.web.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.security.UserDetail;
 import org.nix.lovedomain.service.TeacherCourseService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.enums.SemesterEnum;
+import org.nix.lovedomain.service.file.TaskService;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.security.Principal;
 
 /**
@@ -24,6 +27,9 @@ public class TeacherCourseController {
 
     @Resource
     private TeacherCourseService teacherCourseService;
+
+    @Resource
+    private TaskService taskService;
 
     /**
      * @param page         页码
@@ -62,9 +68,9 @@ public class TeacherCourseController {
             description = "管理员通过上传格式化的excel文件，可以达到批量上传教学任务的目的",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel/teachTask")
-    public void uploadTeachTask(MultipartFile teachTask){
-        log.info("上传的文件名字为{}",teachTask.getOriginalFilename());
-        log.info("上传的文件的大小为{}",teachTask.getSize());
+    public void uploadTeachTask(MultipartFile teachTask,Principal principal) throws IOException {
+        Integer accountId = UserDetail.analysisUserAccountId(principal);
+        taskService.insertTeachTask(teachTask.getInputStream(),accountId);
     }
 
     /**

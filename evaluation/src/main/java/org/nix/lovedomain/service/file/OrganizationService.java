@@ -81,7 +81,7 @@ public class OrganizationService {
      *
      * @param path
      */
-    public void insertFaculty(String path) {
+    public void insertFaculty(InputStream path) {
         List<FacultyExcel> facultyExcels = readExcel2Bean(path, FacultyExcel.class);
         if (CollUtil.isEmpty(facultyExcels)) {
             return;
@@ -127,7 +127,7 @@ public class OrganizationService {
      *
      * @param path
      */
-    public void insertProfession(String path) {
+    public void insertProfession(InputStream path) {
         List<ProfessionExcel> professionExcels
                 = readExcel2Bean(path, ProfessionExcel.class);
         List<ProfessionModel> professions = new ArrayList<>();
@@ -177,7 +177,7 @@ public class OrganizationService {
      *
      * @param path
      */
-    public void insertClass(String path) {
+    public void insertClass(InputStream path) {
         List<ClassExcel> professionExcels
                 = readExcel2Bean(path, ClassExcel.class);
         List<ClassModel> classModels = new ArrayList<>();
@@ -226,7 +226,7 @@ public class OrganizationService {
      *
      * @param path
      */
-    public void insertTeacher(String path) {
+    public void insertTeacher(InputStream path) {
         List<TeacherExcel> all = readExcel2Bean(path, TeacherExcel.class);
         all.forEach(this::createTeacher);
     }
@@ -277,7 +277,7 @@ public class OrganizationService {
      *
      * @param path
      */
-    public void classInsertTeacher(String path) {
+    public void classInsertTeacher(InputStream path) {
         List<ClassExcel> classExcels = readExcel2Bean(path, ClassExcel.class);
         classExcels.forEach(this::classInsertTeacher);
     }
@@ -306,7 +306,7 @@ public class OrganizationService {
      *
      * @param path 文件
      */
-    public void professionInsertTeacher(String path) {
+    public void professionInsertTeacher(InputStream path) {
         List<ProfessionExcel> professionExcels = readExcel2Bean(path, ProfessionExcel.class);
         if (CollUtil.isEmpty(professionExcels)) {
             return;
@@ -358,7 +358,7 @@ public class OrganizationService {
      *
      * @param path
      */
-    public void insertStudent(String path) {
+    public void insertStudent(InputStream path) {
         List<StudentExcel> studentExcels
                 = readExcel2Bean(path, StudentExcel.class);
         Validator.validateNotNull(studentExcels, "导入模拟学生的信息为空");

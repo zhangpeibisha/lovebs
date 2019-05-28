@@ -7,6 +7,7 @@ import org.nix.lovedomain.dao.model.ProfessionModel;
 import org.nix.lovedomain.service.ProfessionService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
+import org.nix.lovedomain.service.file.OrganizationService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 /**
  * @author zhangpei
@@ -32,8 +34,12 @@ public class ProfessionController {
     @Resource
     private ProfessionBusinessMapper professionBusinessMapper;
 
+    @Resource
+    private OrganizationService organizationService;
+
     /**
      * 获取专业信息的接口
+     *
      * @param page
      * @param limit
      * @param sql
@@ -42,28 +48,28 @@ public class ProfessionController {
     @GetMapping(value = "/quire/list")
     public RespondsMessage findProfession(@RequestParam(value = "page", required = false) Integer page,
                                           @RequestParam(value = "limit", required = false) Integer limit,
-                                          @RequestParam(value = "quire", required = false) String sql){
+                                          @RequestParam(value = "quire", required = false) String sql) {
         PageVo<ProfessionModel> profession = professionService.findProfession(page, limit, sql);
-        return RespondsMessage.success("获取专业信息成功",profession);
+        return RespondsMessage.success("获取专业信息成功", profession);
     }
 
     @GetMapping(value = "/findById")
-    public RespondsMessage findById(@RequestParam(value = "id")Integer id){
-        return RespondsMessage.success("通过id查询完成",professionBusinessMapper.selectByPrimaryKey(id));
+    public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
+        return RespondsMessage.success("通过id查询完成", professionBusinessMapper.selectByPrimaryKey(id));
     }
 
 
     /**
      * 上传专业信息，管理员使用
+     *
      * @param faculty
      */
     @Permission(name = "excel上传专业信息",
             description = "管理员通过上传格式化的excel文件，可以达到批量上传专业信息目的",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel")
-    public void uploadProfession(MultipartFile faculty){
-        log.info("上传的文件名字为{}",faculty.getOriginalFilename());
-        log.info("上传的文件的大小为{}",faculty.getSize());
+    public void uploadProfession(MultipartFile faculty) throws IOException {
+        organizationService.insertProfession(faculty.getInputStream());
     }
 
 

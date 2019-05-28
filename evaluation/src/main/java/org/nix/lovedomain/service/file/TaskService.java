@@ -1,6 +1,7 @@
 package org.nix.lovedomain.service.file;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -10,15 +11,16 @@ import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
+import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.service.file.model.CourseExcel;
 import org.nix.lovedomain.service.file.model.PublishQuestionnaireExcel;
 import org.nix.lovedomain.service.file.model.StudentTaskExcel;
 import org.nix.lovedomain.service.file.model.TeachTaskExcel;
-import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +33,6 @@ import java.util.List;
  */
 @Slf4j
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class TaskService {
 
     @Resource
@@ -64,13 +65,15 @@ public class TaskService {
      *
      * @param path
      */
-    public void insertTeachTask(String path, Integer authorAccountId) {
+    @Transactional(rollbackFor = Exception.class)
+    public void insertTeachTask(InputStream path, Integer authorAccountId) {
+        byte[] bytes = IoUtil.readBytes(path);
         // 为老师添加教学任务
-        insertTeachTask(path);
+        insertTeachTask(IoUtil.toStream(bytes));
         // 为学生添加课程
-        insertStudentTask(path);
+        insertStudentTask(IoUtil.toStream(bytes));
         // 生成评教卷信息
-        insertPublishQuestionnaire(path, authorAccountId);
+        insertPublishQuestionnaire(IoUtil.toStream(bytes), authorAccountId);
     }
 
 
@@ -79,7 +82,7 @@ public class TaskService {
      *
      * @param path
      */
-    public void insertCourse(String path) {
+    public void insertCourse(InputStream path) {
         List<CourseExcel> courseExcels = organizationService.readExcel2Bean(path, CourseExcel.class);
         if (CollUtil.isEmpty(courseExcels)) {
             return;
@@ -104,7 +107,7 @@ public class TaskService {
      *
      * @param path
      */
-    public void insertTeachTask(String path) {
+    public void insertTeachTask(InputStream path) {
         List<TeachTaskExcel> teachTaskExcels
                 = organizationService.readExcel2Bean(path, TeachTaskExcel.class);
         Validator.validateNotNull(teachTaskExcels, "课程任务不存在");
@@ -186,7 +189,7 @@ public class TaskService {
      *
      * @param path
      */
-    public void insertStudentTask(String path) {
+    public void insertStudentTask(InputStream path) {
         List<StudentTaskExcel> studentTaskExcels
                 = organizationService.readExcel2Bean(path, StudentTaskExcel.class);
         Validator.validateNotNull(studentTaskExcels, "为学生配置的教学任务为空");
@@ -237,7 +240,7 @@ public class TaskService {
      * @param path
      * @param authorAccountId 登陆的用户的账户id
      */
-    public void insertPublishQuestionnaire(String path,
+    public void insertPublishQuestionnaire(InputStream path,
                                            Integer authorAccountId) {
         List<PublishQuestionnaireExcel> excelList
                 = organizationService.readExcel2Bean(path, PublishQuestionnaireExcel.class);

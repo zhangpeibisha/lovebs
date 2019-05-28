@@ -8,6 +8,7 @@ import org.nix.lovedomain.dao.model.FacultyModel;
 import org.nix.lovedomain.service.FacultyService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
+import org.nix.lovedomain.service.file.OrganizationService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class FacultyController  {
 
     @Autowired
     private FacultyService facultyService;
+
+    @Resource
+    private OrganizationService organizationService;
 
     @Resource
     private FacultyBusinessMapper facultyBusinessMapper;
@@ -62,9 +66,8 @@ public class FacultyController  {
             description = "管理员通过上传格式化的excel文件，可以达到批量上传学院信息目的",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel")
-    public void uploadFaculty(MultipartFile faculty){
-        log.info("上传的文件名字为{}",faculty.getOriginalFilename());
-        log.info("上传的文件的大小为{}",faculty.getSize());
+    public void uploadFaculty(MultipartFile faculty) throws IOException {
+        organizationService.insertFaculty(faculty.getInputStream());
     }
 
 }

@@ -7,6 +7,8 @@ import org.nix.lovedomain.dao.model.CourseModel;
 import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
+import org.nix.lovedomain.service.file.OrganizationService;
+import org.nix.lovedomain.service.file.TaskService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
@@ -26,6 +28,9 @@ import java.io.IOException;
 @RestController
 @RequestMapping(value = "course")
 public class CourseController{
+
+    @Resource
+    private TaskService taskService;
 
     @Autowired
     CourseService courseService;
@@ -58,9 +63,8 @@ public class CourseController{
             description = "管理员通过上传格式化的excel文件，可以达到批量上传课程信息目的",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel")
-    public void uploadCourse(MultipartFile course){
-        log.info("上传的文件名字为{}",course.getOriginalFilename());
-        log.info("上传的文件的大小为{}",course.getSize());
+    public void uploadCourse(MultipartFile course) throws IOException {
+        taskService.insertCourse(course.getInputStream());
     }
 
 

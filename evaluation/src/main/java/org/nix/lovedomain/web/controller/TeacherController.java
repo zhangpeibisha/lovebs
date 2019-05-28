@@ -7,6 +7,7 @@ import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.TeacherService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
+import org.nix.lovedomain.service.file.OrganizationService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.web.controller.dto.CreateTeacherDto;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
@@ -31,6 +32,9 @@ public class TeacherController {
 
     @Autowired
     private TeacherService teacherService;
+
+    @Resource
+    private OrganizationService organizationService;
 
     @Resource
     private TeacherBusinessMapper teacherBusinessMapper;
@@ -67,8 +71,22 @@ public class TeacherController {
             description = "通过excel上传老师信息（模拟学生）",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel")
-    public void uploadTeachTask(MultipartFile teacher){
-        log.info("上传的文件名字为{}",teacher.getOriginalFilename());
-        log.info("上传的文件的大小为{}",teacher.getSize());
+    public void uploadTeachTask(MultipartFile teacher) throws IOException {
+        organizationService.insertTeacher(teacher.getInputStream());
+    }
+
+
+    /**
+     * 为班级、专业、学院分配老师
+     *
+     * @param configTeacher
+     */
+    @Permission(name = "excel为班级、专业、学院分配老师",
+            description = "管理员通过上传格式化的excel文件，可以达到批量为班级、专业、学院分配老师目的",
+            role = RoleEnum.MANGER)
+    @PostMapping(value = "/excel/config")
+    public void uploadClass(MultipartFile configTeacher) throws IOException {
+        organizationService.professionInsertTeacher(configTeacher.getInputStream());
+        organizationService.classInsertTeacher(configTeacher.getInputStream());
     }
 }
