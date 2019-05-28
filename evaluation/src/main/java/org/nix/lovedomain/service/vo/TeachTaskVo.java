@@ -3,6 +3,7 @@ package org.nix.lovedomain.service.vo;
 import cn.hutool.core.date.DateUtil;
 import lombok.Data;
 import org.nix.lovedomain.dao.model.CourseModel;
+import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 import org.nix.lovedomain.dao.model.TeacherCourseModel;
 import org.nix.lovedomain.dao.model.TeacherModel;
 
@@ -54,10 +55,19 @@ public class TeachTaskVo {
      */
     private CourseInfo course;
 
+    /**
+     * 发布的评教表id
+     */
+    private Integer publishQuestionnaireId;
+    /**
+     * 评教卷根本id
+     */
+    private Integer questionnaireId;
 
     public static TeachTaskVo teacherCourseModel2TaskVo(TeacherCourseModel teachCourseModel,
                                                         TeacherModel teacherModel,
-                                                        CourseModel courseModel) {
+                                                        CourseModel courseModel,
+                                                        PublishQuestionnaireModel publishQuestionnaireModel) {
         TeachTaskVo teachTaskVo = new TeachTaskVo();
 
 
@@ -84,6 +94,10 @@ public class TeachTaskVo {
         courseInfo.setCourseId(courseModel.getId());
         courseInfo.setName(courseModel.getName());
         teachTaskVo.setCourse(courseInfo);
+
+        teachTaskVo.setPublishQuestionnaireId(publishQuestionnaireModel.getId());
+        Integer questionnaireId = publishQuestionnaireModel.getQuestionnaireId();
+        teachTaskVo.setQuestionnaireId(questionnaireId);
 
         return teachTaskVo;
     }

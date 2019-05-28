@@ -4,11 +4,9 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.PageUtil;
 import org.nix.lovedomain.dao.business.CourseBusinessMapper;
+import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
-import org.nix.lovedomain.dao.model.CourseModel;
-import org.nix.lovedomain.dao.model.RoleModel;
-import org.nix.lovedomain.dao.model.TeacherCourseModel;
-import org.nix.lovedomain.dao.model.TeacherModel;
+import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.security.UserDetail;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.enums.SemesterEnum;
@@ -41,6 +39,9 @@ public class TeacherCourseService {
 
     @Resource
     private CourseBusinessMapper courseBusinessMapper;
+
+    @Resource
+    private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
 
     /**
      * 通过教学任务id查询到教学任务的详细信息
@@ -149,7 +150,10 @@ public class TeacherCourseService {
             TeacherModel teacherModel = teacherService.findTeacherByAccountId(teacherAccountId);
             CourseModel course
                     = courseBusinessMapper.selectByPrimaryKey(courseId);
-            teachTaskVos.add(TeachTaskVo.teacherCourseModel2TaskVo(courseModel, teacherModel, course));
+            PublishQuestionnaireModel questionnaireModel = new PublishQuestionnaireModel();
+            questionnaireModel.setTeachCourseId(courseModel.getTeachCourseId());
+            PublishQuestionnaireModel model = publishQuestionBusinessMapper.selectOne(questionnaireModel);
+            teachTaskVos.add(TeachTaskVo.teacherCourseModel2TaskVo(courseModel, teacherModel, course,model));
         });
         return teachTaskVos;
     }
