@@ -156,7 +156,7 @@ public class TeacherCourseService {
             PublishQuestionnaireModel questionnaireModel = new PublishQuestionnaireModel();
             questionnaireModel.setTeachCourseId(courseModel.getTeachCourseId());
             PublishQuestionnaireModel model = publishQuestionBusinessMapper.selectOne(questionnaireModel);
-            StatisticsScoreModel scoreModel = statisticsScoreService.getPQNa(questionnaireModel.getId(), 1);
+            StatisticsScoreModel scoreModel = statisticsScoreService.getPQNa(model.getId(), 1);
             teachTaskVos.add(TeachTaskVo.teacherCourseModel2TaskVo(courseModel, teacherModel, course, model, scoreModel));
         });
         return teachTaskVos;
