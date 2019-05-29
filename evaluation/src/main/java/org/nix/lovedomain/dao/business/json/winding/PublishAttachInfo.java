@@ -189,7 +189,9 @@ public class PublishAttachInfo {
         }
         // 统计的时候不管提交和保存，都计入统计中
         for (CompletesQuestion completesQuestion : completesQuestions) {
+
             Integer studentId = completesQuestion.getStudentAccountId();
+            addAttend(studentId);
 
             List<QuestionReply> questionReplies = JSON.parseArray
                     (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
@@ -209,7 +211,7 @@ public class PublishAttachInfo {
                 } else {
                     Integer score = questionReply.getScore();
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (score == null || score <= 0 || addAttend(studentId)) {
+                    if (score == null || score <= 0 || isBlackStudent(studentId)) {
                         continue;
                     }
                     this.score += score;
