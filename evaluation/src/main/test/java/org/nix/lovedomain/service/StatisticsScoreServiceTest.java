@@ -96,10 +96,10 @@ public class StatisticsScoreServiceTest {
 
     //    @Test
     public void findTopicInfo() {
-        StatisticsAttachInfor topicAttachInfor = statisticsScoreService.findTopicAttachInfor(106);
-        System.out.println("===============发现评教卷的题目的信息======================");
-        System.err.println(JSON.toJSONString(topicAttachInfor));
-        System.out.println("===============发现评教卷的题目的信息======================");
+//        StatisticsAttachInfor topicAttachInfor = statisticsScoreService.findTopicAttachInfor(106);
+//        System.out.println("===============发现评教卷的题目的信息======================");
+//        System.err.println(JSON.toJSONString(topicAttachInfor));
+//        System.out.println("===============发现评教卷的题目的信息======================");
 
 
         // 查看自己的分数
@@ -109,9 +109,9 @@ public class StatisticsScoreServiceTest {
 
 
         // 统计题目分数
-        topicAttachInfor = statisticsScoreService.findOptionAttachInfor(106);
-        System.out.println("==============发现评教卷的题目的选项统计信息=======================");
-        System.err.println(JSON.toJSONString(topicAttachInfor));
+//        topicAttachInfor = statisticsScoreService.findOptionAttachInfor(106);
+//        System.out.println("==============发现评教卷的题目的选项统计信息=======================");
+//        System.err.println(JSON.toJSONString(topicAttachInfor));
 
 
     }

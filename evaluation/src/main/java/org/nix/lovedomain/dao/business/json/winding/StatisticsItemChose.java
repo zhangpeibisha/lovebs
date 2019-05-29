@@ -30,12 +30,18 @@ public class StatisticsItemChose {
      */
     private Integer count = 0;
 
+    /**
+     * 该选项在评卷中算多少分
+     */
+    private Integer score;
+
     public StatisticsItemChose() {
     }
 
-    public StatisticsItemChose(String choseId, String description) {
+    public StatisticsItemChose(String choseId, String description, Integer score) {
         this.choseId = choseId;
         this.description = description;
+        this.score = score;
     }
 
     public static StatisticsItemChose toBean(String json) {

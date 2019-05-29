@@ -383,7 +383,7 @@ public class PublishAttachInfo {
                     StatisticsItemChose statisticsItemChose = statisticsItem.getChoseMap().get(chooseId);
                     if (statisticsItemChose == null) {
                         statisticsItemChose = new StatisticsItemChose(chooseId,
-                                questionList.getOptionDescrpMap().get(chooseId));
+                                questionList.getOptionDescrpMap().get(chooseId),questionReply.getScore());
                     }
                     // 记录这个题目被选了好多次
                     statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose() + 1);

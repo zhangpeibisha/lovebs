@@ -2,8 +2,14 @@ package org.nix.lovedomain.service.vo;
 
 import lombok.Data;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
+import org.nix.lovedomain.dao.business.json.winding.StatisticsAttachInfor;
+import org.nix.lovedomain.dao.business.json.winding.StatisticsItem;
+import org.nix.lovedomain.dao.business.json.winding.StatisticsItemChose;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
 
 /**
  * @author zhangpei
@@ -113,5 +119,77 @@ public class StatisticsQuestionVo {
         private String studentId;
         private String name;
     }
+
+    /**
+     * 创建一个评教卷的所有题目的统计信息
+     *
+     * @param topic  题目统计集合
+     * @param option 选项统计集合
+     * @return 一个评教卷的所有题目的统计信息
+     */
+    public static List<TopicStatistics> createTopicStatisticsList(StatisticsAttachInfor topic, StatisticsAttachInfor option) {
+        // 这个信息为  StatisticsItem 为有效数据 ===== 题目统计信息
+        Map<String, StatisticsItem> topicItemMap = topic.toItemStatsiticsMap();
+        // 这个信息为 StatisticsItem->choseMap 为有效数据 ===== 题目选项统计信息
+        Map<String, StatisticsItem> optionMap = option.toItemStatsiticsMap();
+
+        List<TopicStatistics> topicStatistics = new ArrayList<>(topicItemMap.size());
+        topicItemMap.forEach((topicId, statisticsItem) -> {
+            StatisticsItem optionInfo = optionMap.get(topicId);
+            topicStatistics.add(createTopicStatistics(statisticsItem, optionInfo));
+        });
+        return topicStatistics;
+    }
+
+    /**
+     * 创建一个题目的展示信息
+     *
+     * @param topic  题目的有效统计信息
+     * @param option 选项的有效统计信息
+     * @return 题目的整体有效展示信息
+     */
+    public static TopicStatistics createTopicStatistics(StatisticsItem topic, StatisticsItem option) {
+        TopicStatistics topicStatistics = new TopicStatistics();
+        // 处理题目的信息
+        topicStatistics.setAvgScore(topic.getAvg());
+        topicStatistics.setChooseOfNumber(topic.getNumberOfChose());
+        topicStatistics.setTitle(topic.getTitle());
+        topicStatistics.setTotalScore(topic.getTotalScore().doubleValue());
+
+        // 处理该题目的信息
+        topicStatistics.setOptionStatistics(createOptionStatisticsList(option));
+        return topicStatistics;
+    }
+
+    /**
+     * 创建一个题目的所有选项信息
+     *
+     * @param option 一个题目的选项集合
+     * @return 选项的统计集合
+     */
+    public static List<OptionStatistics> createOptionStatisticsList(StatisticsItem option) {
+        if (option == null) {
+            return new ArrayList<>();
+        }
+        Map<String, StatisticsItemChose> choseMap = option.getChoseMap();
+        List<OptionStatistics> optionStatistics = new ArrayList<>(choseMap.size());
+        choseMap.forEach((choseId, statisticsItemChose) -> optionStatistics.add(createOptionStatistics(statisticsItemChose)));
+        return optionStatistics;
+    }
+
+    /**
+     * 创建一个选项数据
+     *
+     * @param option
+     * @return
+     */
+    public static OptionStatistics createOptionStatistics(StatisticsItemChose option) {
+        OptionStatistics optionStatistics = new OptionStatistics();
+        optionStatistics.setChooseOfNumber(option.getCount());
+        optionStatistics.setScore(option.getScore());
+        optionStatistics.setTitle(option.getDescription());
+        return optionStatistics;
+    }
+
 
 }
