@@ -1,7 +1,9 @@
 package org.nix.lovedomain.web.controller;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.Data;
@@ -15,9 +17,11 @@ import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
 import org.nix.lovedomain.service.AccountService;
 import org.nix.lovedomain.service.PublishQuestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
+import org.nix.lovedomain.service.StatisticsScoreService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.PublishQuestionJsonVo;
+import org.nix.lovedomain.service.vo.StatisticsQuestionVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +88,7 @@ public class PublishQuestionnaireController {
     public RespondsMessage writeQuestion(@RequestParam(value = "publishId") Integer publishId,
                                          @RequestBody String completesQuestion,
                                          Principal principal) {
-        PublishAttachInfo.CompletesQuestion question = JSON.parseObject(completesQuestion,PublishAttachInfo.CompletesQuestion.class);
+        PublishAttachInfo.CompletesQuestion question = JSON.parseObject(completesQuestion, PublishAttachInfo.CompletesQuestion.class);
         PublishQuestionnaireModel publication = publishquestionnaireService.fillInTheAnswer(publishId, question, principal);
         return RespondsMessage.success(LogUtil.logInfo(log, "用户{}更新的问题成功", principal.getName()), publication);
     }
@@ -107,7 +111,7 @@ public class PublishQuestionnaireController {
      *
      * @return
      */
-    @Permission(name = "批量获取发布评教卷的信息",role = RoleEnum.TEACHER)
+    @Permission(name = "批量获取发布评教卷的信息", role = RoleEnum.TEACHER)
     @PutMapping(value = "/teacher/read/publish")
     public RespondsMessage teacherReadPublishQuestionInfo(@RequestParam(value = "publishQuestingId") Integer publishQuesting,
                                                           Principal principal) {
@@ -122,7 +126,7 @@ public class PublishQuestionnaireController {
      *
      * @return
      */
-    @Permission(name = "批量获取发布评教卷的信息",role = RoleEnum.STUDENT)
+    @Permission(name = "批量获取发布评教卷的信息", role = RoleEnum.STUDENT)
     @PutMapping(value = "/student/read/publish")
     public RespondsMessage studentReadPublishQuestionInfo(@RequestParam(value = "publishQuestingId") Integer publishQuesting,
                                                           Principal principal) {
@@ -138,7 +142,7 @@ public class PublishQuestionnaireController {
      * @param principal
      * @return
      */
-    @Permission(name = "批量获取发布评教卷的信息",role = RoleEnum.STUDENT)
+    @Permission(name = "批量获取发布评教卷的信息", role = RoleEnum.STUDENT)
     @GetMapping(value = "/answers")
     public RespondsMessage findStudentAnswers(@RequestParam(value = "publishId") Integer publishId,
                                               Principal principal) {
@@ -198,5 +202,20 @@ public class PublishQuestionnaireController {
         return RespondsMessage.success("获取发布的评教卷成功", model);
     }
 
+
+    @Resource
+    private StatisticsScoreService statisticsScoreService;
+
+    /**
+     * 通过发布的评教卷id查询统计分数
+     *
+     * @param publishId 发布的评教卷id
+     * @return 统计信息
+     */
+    @GetMapping(value = "/statisticsScore")
+    public RespondsMessage statisticsScore(@RequestParam(value = "publishId") Integer publishId) throws JsonProcessingException {
+        StatisticsQuestionVo questionVo = statisticsScoreService.findQuestionVo(publishId);
+        return RespondsMessage.success(StrUtil.format("查询发布的评教卷{}信息成功", publishId), questionVo);
+    }
 
 }

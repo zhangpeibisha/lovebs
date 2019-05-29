@@ -89,13 +89,13 @@ public class StatisticsScoreServiceTest {
     }
 
     //    @Test
-    public void statistics() {
+    public void statistics() throws JsonProcessingException {
         StatisticsQuestionVo questionVo = statisticsScoreService.findQuestionVo(107);
         System.out.println(JSON.toJSONString(questionVo));
     }
 
     //    @Test
-    public void findTopicInfo() {
+    public void findTopicInfo() throws JsonProcessingException {
 //        StatisticsAttachInfor topicAttachInfor = statisticsScoreService.findTopicAttachInfor(106);
 //        System.out.println("===============发现评教卷的题目的信息======================");
 //        System.err.println(JSON.toJSONString(topicAttachInfor));
