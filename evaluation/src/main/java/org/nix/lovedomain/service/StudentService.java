@@ -3,6 +3,7 @@ package org.nix.lovedomain.service;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.AccountBusinessMapper;
@@ -13,10 +14,8 @@ import org.nix.lovedomain.dao.business.json.student.StudentTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
-import org.nix.lovedomain.dao.model.AccountModel;
-import org.nix.lovedomain.dao.model.ClassModel;
-import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
-import org.nix.lovedomain.dao.model.StudentModel;
+import org.nix.lovedomain.dao.model.*;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.SQLUtil;
@@ -62,6 +61,7 @@ public class StudentService {
     @Resource
     private TeacherCourseService teacherCourseService;
 
+
     /**
      * 通过班级编码发现这个班级的所有学生
      *
@@ -93,7 +93,9 @@ public class StudentService {
      */
     public void registerStudent(List<StudentModel> students) {
         Validator.validateNotNull(students, "添加的学生为空");
-        students.forEach(this::createAccountToStudent);
+        for (StudentModel student : students) {
+            studentService.createAccountToStudent(student);
+        }
     }
 
     /**
@@ -102,7 +104,8 @@ public class StudentService {
      * @param student 学生信息
      * @return 学生账号
      */
-    private AccountModel createAccountToStudent(StudentModel student) {
+    @Transactional(rollbackFor = Exception.class)
+    public AccountModel createAccountToStudent(StudentModel student) {
         String studentId = student.getStudentId();
         String phone = student.getPhone();
         String email = student.getEmail();
@@ -117,6 +120,16 @@ public class StudentService {
         student.setAccountId(accountModel.getId());
 
         studentBusinessMapper.insertSelective(student);
+
+        // 找到学生角色的id
+        RoleModel roleModel = new RoleModel();
+        roleModel.setName(RoleEnum.STUDENT.getName());
+        RoleModel selectOne = roleBusinessMapper.selectOne(roleModel);
+
+        AccountRoleModel accountRoleModel = new AccountRoleModel();
+        accountRoleModel.setAccountId(accountModel.getId());
+        accountRoleModel.setRoleId(selectOne.getId());
+        accountRoleBusinessMapper.insertSelective(accountRoleModel);
 
         return accountModel;
     }

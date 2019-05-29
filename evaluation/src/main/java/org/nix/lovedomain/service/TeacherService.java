@@ -5,13 +5,14 @@ import cn.hutool.core.util.PageUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.AccountBusinessMapper;
+import org.nix.lovedomain.dao.business.AccountRoleBusinessMapper;
+import org.nix.lovedomain.dao.business.RoleBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.business.json.task.QnaireTask;
 import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
-import org.nix.lovedomain.dao.model.AccountModel;
-import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
-import org.nix.lovedomain.dao.model.TeacherModel;
+import org.nix.lovedomain.dao.model.*;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
@@ -31,7 +32,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class TeacherService{
+public class TeacherService {
 
     @Resource
     private TeacherBusinessMapper teacherBusinessMapper;
@@ -41,6 +42,12 @@ public class TeacherService{
 
     @Autowired
     private AccountService accountService;
+
+    @Resource
+    private RoleBusinessMapper roleBusinessMapper;
+
+    @Resource
+    private AccountRoleBusinessMapper accountRoleBusinessMapper;
 
     /**
      * 通过老师表里面的老师id找到老师的账号信息
@@ -160,6 +167,7 @@ public class TeacherService{
      * @param dto 需要的信息
      * @return 老师信息
      */
+    @Transactional(rollbackFor = Exception.class)
     public TeacherModel createTeacher(CreateTeacherDto dto) {
         String email = dto.getEmail();
         String jobNumber = dto.getJobNumber();
@@ -180,8 +188,20 @@ public class TeacherService{
         teacherModel.setPhone(phone);
         teacherModel.setJobNumber(jobNumber);
         teacherModel.setProfessionId(dto.getProfessionId());
-
         teacherBusinessMapper.insertSelective(teacherModel);
+
+
+        // 找到老师角色的id
+        RoleModel roleModel = new RoleModel();
+        roleModel.setName(RoleEnum.TEACHER.getName());
+        RoleModel selectOne = roleBusinessMapper.selectOne(roleModel);
+
+        AccountRoleModel accountRoleModel = new AccountRoleModel();
+        accountRoleModel.setAccountId(account.getId());
+        accountRoleModel.setRoleId(selectOne.getId());
+        accountRoleBusinessMapper.insertSelective(accountRoleModel);
+
+
         return teacherModel;
     }
 
