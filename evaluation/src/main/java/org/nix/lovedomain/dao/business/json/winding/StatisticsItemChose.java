@@ -30,6 +30,9 @@ public class StatisticsItemChose {
      */
     private Integer count = 0;
 
+    public StatisticsItemChose() {
+    }
+
     public StatisticsItemChose(String choseId, String description) {
         this.choseId = choseId;
         this.description = description;

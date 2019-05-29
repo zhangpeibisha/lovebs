@@ -6,13 +6,13 @@ import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.UnhandledException;
 import org.nix.lovedomain.dao.business.json.question.QuestionnaireEnum;
-import org.nix.lovedomain.dao.model.*;
+import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
+import org.nix.lovedomain.dao.model.StatisticsScoreModel;
 import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.utils.LogUtil;
 
@@ -67,7 +67,7 @@ public class PublishAttachInfo {
     /**
      * 所有的意见
      */
-    private List<String> advice;
+    private List<Advice> advice;
 
     public static PublishAttachInfo getBean(PublishQuestionnaireModel publishQuestionnaireModel) {
         if (publishQuestionnaireModel == null || publishQuestionnaireModel.getStatistics() == null) {
@@ -156,47 +156,6 @@ public class PublishAttachInfo {
         completesQuestions.add(completesQuestion);
     }
 
-    /**
-     * 当评教卷到达终结时间的时候
-     * 开始统计总共的分数
-     */
-    public void statistical() {
-        score = 0;
-        attend = 0;
-        if (CollUtil.isEmpty(completesQuestions)) {
-            return;
-        }
-        // 统计的时候不管提交和保存，都计入统计中
-        for (CompletesQuestion completesQuestion : completesQuestions) {
-            // 不管是否是黑名单，都要计入出勤人数中
-            attend++;
-            Integer studentId = completesQuestion.getStudentAccountId();
-
-            List<QuestionReply> questionReplies = JSON.parseArray
-                    (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
-
-
-            if (CollUtil.isEmpty(questionReplies)) {
-                continue;
-            }
-            for (QuestionReply questionReply : questionReplies) {
-                if (questionReply.getScore() == 0) {
-                    if (advice == null) {
-                        advice = new ArrayList<>();
-                    }
-                    advice.add(questionReply.suggest);
-                } else {
-                    Integer score = questionReply.getScore();
-                    //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (score == null || score <= 0 || (black != null && black.contains(studentId))) {
-                        continue;
-                    }
-                    this.score += score;
-                }
-
-            }
-        }
-    }
 
     /**
      * 得到整体的得分
@@ -209,69 +168,27 @@ public class PublishAttachInfo {
         StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
         StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
         /*统计信息*/
-        statisticsScoreModel.setScore(Double.valueOf(this.score+""));
+        statisticsScoreModel.setScore(Double.valueOf(this.score + ""));
         statisticsScoreModel.setType(1);
         /*统计的相关信息*/
         statisticsAttachInfor.setAdviseList(advice);
-        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
-        return  statisticsScoreModel;
+        addScoreInfor(publishQuestionnaireModel, statisticsScoreModel, statisticsAttachInfor);
+        return statisticsScoreModel;
     }
 
-    /**
-     * 统一问卷的平均分
-     * 公式：总分数/应填写人数
-     * @return
-     */
-    public  StatisticsScoreModel statisticsAvgScore(PublishQuestionnaireModel publishQuestionnaireModel){
-        //计算总分
-        statistical();
-        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
-        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
-        /*统计信息*/
-        double avgScore = (double) (this.score)/this.plan;
-        statisticsScoreModel.setScore(avgScore);
-        statisticsScoreModel.setType(2);
-        /*统计的相关信息*/
-        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
-        return  statisticsScoreModel;
-    }
 
     /**
-     * 计算每个选项的平均分
-     * 公式：选项的总分/填写该项的人数
-     * @param publishQuestionnaireModel
-     * @return
+     * 当评教卷到达终结时间的时候
+     * 开始统计总共的分数
      */
-    public StatisticsScoreModel statisticsItemScore(PublishQuestionnaireModel publishQuestionnaireModel,QuestionList questionList) throws UnhandledException, JsonProcessingException {
-        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
-        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
-        // 每道题的统计信息，包含平均分、总分、选择人次
-        Map<String,StatisticsItem> statisticsItemMap = calculateEachItemAvScore(questionList);
-        statisticsAttachInfor.setStatisticsItem(new ObjectMapper().writeValueAsString(statisticsItemMap));
-        statisticsScoreModel.setType(3);
-        /*统计的相关信息*/
-        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
-        return  statisticsScoreModel;
-    }
-
-    /**
-     * 计算每个选项的平均分
-     *
-     * 统计单选和多选的分数
-     * @return
-     */
-    public  Map<String,StatisticsItem> calculateEachItemAvScore(QuestionList questionList){
-
-        //每个选项的统计信息
-        Map<String,StatisticsItem> statisticsItemHashMap = new HashMap<>();
+    public void statistical() {
+        score = 0;
         attend = 0;
         if (CollUtil.isEmpty(completesQuestions)) {
-            return null;
+            return;
         }
         // 统计的时候不管提交和保存，都计入统计中
         for (CompletesQuestion completesQuestion : completesQuestions) {
-            // 不管是否是黑名单，都要计入出勤人数中
-            attend++;
             Integer studentId = completesQuestion.getStudentAccountId();
 
             List<QuestionReply> questionReplies = JSON.parseArray
@@ -281,30 +198,125 @@ public class PublishAttachInfo {
                 continue;
             }
             for (QuestionReply questionReply : questionReplies) {
-                // 获取题目统计实体
-                StatisticsItem statisticsItem = statisticsItemHashMap.get(questionReply.getQuestionId());
-                if(statisticsItem == null){
-                    statisticsItem = new StatisticsItem(questionReply.getQuestionId(),questionList.getQuestionTitleMap().get(questionReply.getQuestionId()));
-                }
-                if (questionReply.getScore() > 0) {
-                    statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose()+1);
+                if (questionReply.getScore() == 0) {
+                    if (advice == null) {
+                        advice = new ArrayList<>();
+                    }
+                    String suggest = questionReply.suggest;
+                    if (suggest != null) {
+                        advice.add(new Advice(questionReply.getTitle(), suggest, studentId));
+                    }
+                } else {
                     Integer score = questionReply.getScore();
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (score == null || score <= 0 || (black != null && black.contains(studentId))) {
+                    if (score == null || score <= 0 || addAttend(studentId)) {
                         continue;
                     }
-                    statisticsItem.setTotalScore(statisticsItem.getTotalScore()+score);
+                    this.score += score;
                 }
-                statisticsItemHashMap.put(questionReply.getQuestionId(),statisticsItem);
+
+            }
+        }
+    }
+
+
+    /**
+     * 统一问卷的平均分
+     * 公式：总分数/填写的人数（出席人数）
+     *
+     * @return
+     */
+    public StatisticsScoreModel statisticsAvgScore(PublishQuestionnaireModel publishQuestionnaireModel) {
+        //计算总分
+        statistical();
+        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
+        /*统计信息*/
+        double avgScore = (double) (this.score) / this.attend;
+        statisticsScoreModel.setScore(avgScore);
+        statisticsScoreModel.setType(2);
+        /*统计的相关信息*/
+        addScoreInfor(publishQuestionnaireModel, statisticsScoreModel, statisticsAttachInfor);
+        return statisticsScoreModel;
+    }
+
+    /**
+     * 计算每个选项的平均分
+     * 公式：选项的总分/填写该项的人数
+     *
+     * @param publishQuestionnaireModel
+     * @return
+     */
+    public StatisticsScoreModel statisticsItemScore(PublishQuestionnaireModel publishQuestionnaireModel, QuestionList questionList) throws UnhandledException, JsonProcessingException {
+        StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
+        StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
+        // 每道题的统计信息，包含平均分、总分、选择人次
+        Map<String, StatisticsItem> statisticsItemMap = calculateEachItemAvScore(questionList);
+        statisticsAttachInfor.setStatisticsItem(JSON.toJSONString(statisticsItemMap));
+        statisticsScoreModel.setType(3);
+        /*统计的相关信息*/
+        addScoreInfor(publishQuestionnaireModel, statisticsScoreModel, statisticsAttachInfor);
+        return statisticsScoreModel;
+    }
+
+    /**
+     * 计算每个选项的平均分
+     * <p>
+     * 统计单选和多选的分数
+     *
+     * @return
+     */
+    public Map<String, StatisticsItem> calculateEachItemAvScore(QuestionList questionList) {
+
+        //每个选项的统计信息   问题id--->问题的统计信息
+        Map<String, StatisticsItem> statisticsItemHashMap = new HashMap<>();
+        int attend = 0;
+        if (CollUtil.isEmpty(completesQuestions)) {
+            return null;
+        }
+        // 统计的时候不管提交和保存，都计入统计中,得到每个学生的回答
+        for (CompletesQuestion completesQuestion : completesQuestions) {
+            Integer studentId = completesQuestion.getStudentAccountId();
+
+            List<QuestionReply> questionReplies = JSON.parseArray
+                    (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
+
+            if (CollUtil.isEmpty(questionReplies)) {
+                continue;
+            }
+            // 遍历每个学生的回答，回答中有问题id和选择id，咦问题id为标准进行扫描学生回答
+            for (QuestionReply questionReply : questionReplies) {
+                // 获取题目统计实体
+                StatisticsItem statisticsItem = statisticsItemHashMap.get(questionReply.getQuestionId());
+                if (statisticsItem == null) {
+                    // 初始化统计实体，注入问题id和问题的题目
+                    statisticsItem = new StatisticsItem(questionReply.getQuestionId(),
+                            questionList.getQuestionTitleMap().get(questionReply.getQuestionId()));
+                }
+
+                // 开始得到回答信息
+                if (questionReply.getScore() > 0) {
+                    statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose() + 1);
+                    Integer score = questionReply.getScore();
+                    //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
+                    if (score == null || score <= 0 || isBlackStudent(studentId)) {
+                        continue;
+                    }
+                    attend++;
+                    // 每次都进行总分和平均分计算
+                    statisticsItem.setTotalScore(statisticsItem.getTotalScore() + score);
+                }
+                // 更新数据
+                statisticsItemHashMap.put(questionReply.getQuestionId(), statisticsItem);
             }
         }
 
         /*求选项的平均分*/
-        for (StatisticsItem s:
+        for (StatisticsItem s :
                 statisticsItemHashMap.values()) {
-            s.setAvg((double)(s.getTotalScore())/s.getNumberOfChose());
+            s.setAvg((double) (s.getTotalScore()) / s.getNumberOfChose());
         }
-
+        // 返回这个统计的数据
         return statisticsItemHashMap;
     }
 
@@ -315,7 +327,7 @@ public class PublishAttachInfo {
      */
     public void addScoreInfor(PublishQuestionnaireModel publishQuestionnaireModel,
                               StatisticsScoreModel statisticsScoreModel,
-                              StatisticsAttachInfor statisticsAttachInfor){
+                              StatisticsAttachInfor statisticsAttachInfor) {
         /*主要信息*/
         statisticsScoreModel.setCourseId(publishQuestionnaireModel.getCourseId());
         statisticsScoreModel.setPublishQuestionnaireId(publishQuestionnaireModel.getId());
@@ -329,96 +341,110 @@ public class PublishAttachInfo {
 
     /**
      * 统计每个题目的每个选项的人数
+     *
      * @param publishQuestionnaireModel
      * @return
      */
-    public StatisticsScoreModel statisticsItemChose(PublishQuestionnaireModel publishQuestionnaireModel,QuestionList  questionList) throws JsonProcessingException {
+    public StatisticsScoreModel statisticsItemChose(PublishQuestionnaireModel publishQuestionnaireModel,
+                                                    QuestionList questionList) {
 
         //每个选项的统计信息
-        Map<String,StatisticsItem> statisticsItemHashMap = new HashMap<>();
-        attend = 0;
+        Map<String, StatisticsItem> statisticsItemHashMap = new HashMap<>();
         if (CollUtil.isEmpty(completesQuestions)) {
             return null;
         }
-        // 统计的时候不管提交和保存，都计入统计中
+        // 统计的时候不管提交和保存，都计入统计中，获取到所有回答
         for (CompletesQuestion completesQuestion : completesQuestions) {
-            // 不管是否是黑名单，都要计入出勤人数中
-            attend++;
             Integer studentId = completesQuestion.getStudentAccountId();
-
             List<QuestionReply> questionReplies = JSON.parseArray
                     (JSON.toJSONString(completesQuestion.getQuestionReplies()), QuestionReply.class);
-
-
             if (CollUtil.isEmpty(questionReplies)) {
                 continue;
             }
+            // 得到每个用户的所有
             for (QuestionReply questionReply : questionReplies) {
+                // 获取问题id
+                String questionId = questionReply.getQuestionId();
                 // 获取题目统计实体
-                StatisticsItem statisticsItem = statisticsItemHashMap.get(questionReply.getQuestionId());
-                if(statisticsItem == null){
-                    statisticsItem = new StatisticsItem(questionReply.getQuestionId(),questionList.getQuestionTitleMap().get(questionReply.getQuestionId()));
+                StatisticsItem statisticsItem = statisticsItemHashMap.get(questionId);
+                if (statisticsItem == null) {
+                    // 初始化信息,
+                    Map<String, String> questionTitleMap = questionList.getQuestionTitleMap();
+                    statisticsItem = new StatisticsItem(questionId,
+                            questionTitleMap.get(questionId));
                 }
                 int score = questionReply.getScore();
                 if (score > 0) {
                     // 获取选项统计实体
-                    StatisticsItemChose statisticsItemChose = statisticsItem.getChoseMap().get(questionReply.getChooseId());
-                    if(statisticsItemChose == null){
-                        statisticsItemChose = new StatisticsItemChose(questionReply.getChooseId(),questionList.getOptionDescrpMap().get(questionReply.getChooseId()));
+                    String chooseId = questionReply.getChooseId();
+                    // 获取这个问题的选择id，若有人选了，则直接获取，若无选，则创建一个统计对象
+                    StatisticsItemChose statisticsItemChose = statisticsItem.getChoseMap().get(chooseId);
+                    if (statisticsItemChose == null) {
+                        statisticsItemChose = new StatisticsItemChose(chooseId,
+                                questionList.getOptionDescrpMap().get(chooseId));
                     }
-                    statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose()+1);
+                    // 记录这个题目被选了好多次
+                    statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose() + 1);
+
                     //不计入总分的情况：1）分数字段为空，2）分数小于0,3）该学生被列入黑名单
-                    if (black != null && black.contains(studentId)) {
+                    if (isBlackStudent(studentId)) {
                         continue;
                     }
-                    statisticsItemChose.setCount(statisticsItemChose.getCount()+1);
-                    statisticsItem.getChoseMap().put(questionReply.getQuestionId(),statisticsItemChose);
-                    statisticsItemHashMap.put(questionReply.getQuestionId(),statisticsItem);
+                    // 记录选项次数
+                    statisticsItemChose.setCount(statisticsItemChose.getCount() + 1);
+
+                    statisticsItem.getChoseMap().put(chooseId, statisticsItemChose);
+                    statisticsItemHashMap.put(questionId, statisticsItem);
                 }
             }
         }
+
+        // 录入信息
         StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
         StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
-        statisticsAttachInfor.setStatisticsItem(new ObjectMapper().writeValueAsString(statisticsItemHashMap));
+        statisticsAttachInfor.setStatisticsItem(JSON.toJSONString(statisticsItemHashMap));
         statisticsScoreModel.setType(4);
         /*统计的相关信息*/
-        addScoreInfor(publishQuestionnaireModel,statisticsScoreModel,statisticsAttachInfor);
-        return  statisticsScoreModel;
+        addScoreInfor(publishQuestionnaireModel, statisticsScoreModel, statisticsAttachInfor);
+        return statisticsScoreModel;
 
     }
 
 
+    /**
+     * 判断是否记录学生出席
+     * 如果是黑名单中的学生将不计入出勤人数中
+     */
+    public boolean addAttend(Integer studentAccountId) {
+        if (!isBlackStudent(studentAccountId)) {
+            attend++;
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 判断学生是否再黑名单中
+     *
+     * @param studentId
+     * @return
+     */
+    public boolean isBlackStudent(Integer studentId) {
+        return black != null && black.contains(studentId);
+    }
+
+    /**
+     * 存放建议信息
+     */
     @Data
-    @Builder
-    public static class StatisticalAnswer {
-
+    @AllArgsConstructor
+    public static class Advice {
+        private String title;
+        private String advice;
         /**
-         * 应该出席多少人:根据实际情况系统填写
+         * 学生账号id
          */
-        private Integer plan;
-
-        /**
-         * 实际填写的人数:根据实际情况系统填写
-         */
-        private Integer attend;
-
-        /**
-         * 老师能够配置多少人的答卷不计入分数:发布老师填写
-         */
-        private Integer canFilters;
-
-        /**
-         * 不计入分数的黑名单数量
-         */
-        private Integer black;
-
-        /**
-         * 评卷得分
-         */
-        private Integer score;
-
-        private List<String> advice;
-
+        private Integer studentAccountId;
     }
 
     /**

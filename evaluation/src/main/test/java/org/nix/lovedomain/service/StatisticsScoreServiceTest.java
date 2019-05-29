@@ -1,12 +1,18 @@
 package org.nix.lovedomain.service;
 
+import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
+import org.nix.lovedomain.dao.business.json.winding.StatisticsAttachInfor;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
+import org.nix.lovedomain.service.vo.StatisticsQuestionVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +36,7 @@ public class StatisticsScoreServiceTest {
      * 测试问卷总分统计
      */
 //    @Test
-    public void statisticsTotalScoreTest(){
+    public void statisticsTotalScoreTest() {
         List<PublishQuestionnaireModel> pqlist = publishQuestionnaireService.batchQuireQuestion(Arrays.asList(107));
         statisticsScoreService.statisticsTotalScore(pqlist.get(0));
         statisticsAvgScoreTest();
@@ -42,7 +48,7 @@ public class StatisticsScoreServiceTest {
     /**
      * 测试问卷平均分统计
      */
-    public void statisticsAvgScoreTest(){
+    public void statisticsAvgScoreTest() {
         List<PublishQuestionnaireModel> pqlist = publishQuestionnaireService.batchQuireQuestion(Arrays.asList(107));
         statisticsScoreService.statisticsAvgScore(pqlist.get(0));
     }
@@ -51,11 +57,11 @@ public class StatisticsScoreServiceTest {
      * 测试问卷每项平均分统计
      */
 //    @Test
-    public void statisticsItemAvgScoreTest(){
+    public void statisticsItemAvgScoreTest() {
         try {
             List<PublishQuestionnaireModel> pqlist = publishQuestionnaireService.batchQuireQuestion(Arrays.asList(107));
             statisticsScoreService.statisticsItemAvgScore(pqlist.get(0));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -64,11 +70,11 @@ public class StatisticsScoreServiceTest {
      * 每道题的每个选项选择人次
      */
 //    @Test
-    public void itemChoseAccount(){
+    public void itemChoseAccount() {
         try {
             List<PublishQuestionnaireModel> pqlist = publishQuestionnaireService.batchQuireQuestion(Arrays.asList(107));
             statisticsScoreService.itemChoseAccount(pqlist.get(0));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -77,8 +83,35 @@ public class StatisticsScoreServiceTest {
     /**
      * 统计排名
      */
+//    @Test
+    public void statisticsDegree() {
+        statisticsScoreService.statisticsDegree(202, "2019", "第二学期");
+    }
+
+    //    @Test
+    public void statistics() {
+        StatisticsQuestionVo questionVo = statisticsScoreService.findQuestionVo(107);
+        System.out.println(JSON.toJSONString(questionVo));
+    }
+
+    //    @Test
+    public void findTopicInfo() {
+        StatisticsAttachInfor topicAttachInfor = statisticsScoreService.findTopicInfo(106);
+        System.out.println("=====================================");
+        System.err.println(JSON.toJSONString(topicAttachInfor));
+        System.out.println("=====================================");
+        System.err.println(JSON.toJSONString(topicAttachInfor.toItemStatsiticsMap()));
+        System.out.println("=====================================");
+
+        System.out.println("===============================================");
+        StatisticsQuestionVo questionVo = statisticsScoreService.findQuestionVo(106);
+        System.err.println(JSON.toJSONString(questionVo));
+    }
+
     @Test
-    public void statisticsDegree(){
-           statisticsScoreService.statisticsDegree(202,"2019","第二学期");
+    @Transactional
+    public void statisticsByTeachCourse() throws JsonProcessingException {
+        statisticsScoreService.statisticsByTeachCourse("20170809");
+        findTopicInfo();
     }
 }
