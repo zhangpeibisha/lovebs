@@ -4,7 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
 import org.nix.lovedomain.dao.business.AccountBusinessMapper;
+import org.nix.lovedomain.dao.business.StudentCourseBusinessMapper;
 import org.nix.lovedomain.dao.model.AccountModel;
+import org.nix.lovedomain.dao.model.StudentCourseModel;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,9 @@ public class TaskServiceTest {
     @Resource
     private AccountBusinessMapper accountBusinessMapper;
 
+    @Resource
+    private StudentCourseBusinessMapper studentCourseBusinessMapper;
+
     private String bash = "C:/WorkPace/GIT/lovebs/lovebs/doc/excel/";
 
     @Test
@@ -35,5 +40,14 @@ public class TaskServiceTest {
 //        taskService.insertStudentTask(path);
 //        List<AccountModel> accountModels = accountBusinessMapper.selectAll();
 //        taskService.insertPublishQuestionnaire(path,accountModels.get(0).getId());
+    }
+
+    @Test
+    @Transactional
+    public void updateStudentCourseScore(){
+        String path = bash + "给学生的课程上分.xlsx";
+//        taskService.updateStudentCourseScore(path);
+//        StudentCourseModel studentCourseModel = studentCourseBusinessMapper.selectByPrimaryKey(3793);
+//        System.out.println(studentCourseModel);
     }
 }

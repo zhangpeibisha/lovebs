@@ -32,4 +32,5 @@ public class StudentCourseModel implements Serializable {
 
     private Date updateTime;
 
+    private Integer score;
 }

@@ -12,10 +12,7 @@ import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
 import org.nix.lovedomain.service.enums.SemesterEnum;
-import org.nix.lovedomain.service.file.model.CourseExcel;
-import org.nix.lovedomain.service.file.model.PublishQuestionnaireExcel;
-import org.nix.lovedomain.service.file.model.StudentTaskExcel;
-import org.nix.lovedomain.service.file.model.TeachTaskExcel;
+import org.nix.lovedomain.service.file.model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +21,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @author zhangpei
@@ -360,4 +358,30 @@ public class TaskService {
         return publication;
     }
 
+
+    /**
+     * 通过上传的文件更新学生的课程信息
+     *
+     * @param path
+     */
+    public void updateStudentCourseScore(InputStream path) {
+        List<StudentCourseScoreExcel> scoreExcels
+                = organizationService.readExcel2Bean(path, StudentCourseScoreExcel.class);
+        Validator.validateFalse(CollUtil.isEmpty(scoreExcels), "上传的分数信息为空");
+        scoreExcels.forEach(this::updateStudentCourseScore);
+    }
+
+    /**
+     * 更新一个学生的在一个课程中的学习成绩
+     *
+     * @param studentCourseScoreExcel
+     */
+    public void updateStudentCourseScore(StudentCourseScoreExcel studentCourseScoreExcel) {
+        Integer score = studentCourseScoreExcel.getScore();
+        String studentId = studentCourseScoreExcel.getStudentId();
+        StudentModel student = studentService.findStudentByStudentId(studentId);
+        Integer accountId = student.getAccountId();
+        String teachCourseId = studentCourseScoreExcel.getTeachCourseId();
+        studentCourseBusinessMapper.updateStudentScore(score, accountId, teachCourseId);
+    }
 }

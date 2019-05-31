@@ -75,6 +75,17 @@ public class StudentService {
     }
 
     /**
+     * 通过学号查询到学生信息
+     * @param studentId 学号
+     * @return 学生信息
+     */
+    public StudentModel findStudentByStudentId(String studentId){
+        StudentModel studentModel = new StudentModel();
+        studentModel.setStudentId(studentId);
+        return studentBusinessMapper.selectOne(studentModel);
+    }
+
+    /**
      * 通过班级的自增主键查询该班级的学生信息信息
      *
      * @param classId 班级自增主键

@@ -88,9 +88,10 @@ public class TeacherCourseController {
     @Permission(name = "excel上传学生的课程得分信息",
             role = RoleEnum.TEACHER)
     @PostMapping(value = "/excel/teachCourScore")
-    public void teachCourScore(MultipartFile teachCourScore) {
+    public void teachCourScore(MultipartFile teachCourScore) throws IOException {
         log.info("上传的文件名字为{}", teachCourScore.getOriginalFilename());
         log.info("上传的文件的大小为{}", teachCourScore.getSize());
+        taskService.updateStudentCourseScore(teachCourScore.getInputStream());
     }
 
 
