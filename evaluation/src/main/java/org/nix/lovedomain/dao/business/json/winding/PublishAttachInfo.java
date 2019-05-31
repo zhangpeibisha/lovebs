@@ -234,7 +234,12 @@ public class PublishAttachInfo {
         StatisticsScoreModel statisticsScoreModel = new StatisticsScoreModel();
         StatisticsAttachInfor statisticsAttachInfor = new StatisticsAttachInfor();
         /*统计信息*/
-        double avgScore = (double) (this.score) / this.attend;
+        double avgScore;
+        if (attend == 0) {
+            avgScore = 0;
+        } else {
+            avgScore = (double) (this.score) / this.attend;
+        }
         statisticsScoreModel.setScore(avgScore);
         statisticsScoreModel.setType(2);
         /*统计的相关信息*/
@@ -383,7 +388,7 @@ public class PublishAttachInfo {
                     StatisticsItemChose statisticsItemChose = statisticsItem.getChoseMap().get(chooseId);
                     if (statisticsItemChose == null) {
                         statisticsItemChose = new StatisticsItemChose(chooseId,
-                                questionList.getOptionDescrpMap().get(chooseId),questionReply.getScore());
+                                questionList.getOptionDescrpMap().get(chooseId), questionReply.getScore());
                     }
                     // 记录这个题目被选了好多次
                     statisticsItem.setNumberOfChose(statisticsItem.getNumberOfChose() + 1);
