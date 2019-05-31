@@ -16,7 +16,7 @@
     <!--用于排名统计-->
     <select id="selectByCollection" resultType="org.nix.lovedomain.dao.model.StatisticsScoreModel">
         SELECT
-          teacherAccountId,score
+          *
         from statisticsScore
         WHERE publishQuestionnaireId IN
         <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">

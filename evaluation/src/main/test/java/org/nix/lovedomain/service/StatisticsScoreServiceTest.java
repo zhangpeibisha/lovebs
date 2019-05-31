@@ -5,14 +5,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nix.lovedomain.EvaluationApplication;
+import org.nix.lovedomain.dao.business.RankBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.StatisticsAttachInfor;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
+import org.nix.lovedomain.dao.model.RankModel;
 import org.nix.lovedomain.service.vo.StatisticsQuestionVo;
+import org.nix.lovedomain.service.vo.TeachRankVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,11 +30,13 @@ import java.util.List;
 public class StatisticsScoreServiceTest {
 
     @Autowired
-    StatisticsScoreService statisticsScoreService;
+    private StatisticsScoreService statisticsScoreService;
 
     @Autowired
-    PublishQuestionnaireService publishQuestionnaireService;
+    private PublishQuestionnaireService publishQuestionnaireService;
 
+    @Resource
+    private RankBusinessMapper rankBusinessMapper;
 
     /**
      * 测试问卷总分统计
@@ -83,9 +89,12 @@ public class StatisticsScoreServiceTest {
     /**
      * 统计排名
      */
-//    @Test
+    @Test
+    @Transactional
     public void statisticsDegree() {
-        statisticsScoreService.statisticsDegree(202, "2019", "第二学期");
+        TeachRankVo facultyTeachRankVo
+                = statisticsScoreService.findFacultyTeachRankVo(202,2019,"第二学期");
+        System.out.println(JSON.toJSONString(facultyTeachRankVo));
     }
 
     //    @Test
@@ -122,4 +131,5 @@ public class StatisticsScoreServiceTest {
         statisticsScoreService.statisticsByTeachCourse("20170809");
         findTopicInfo();
     }
+
 }

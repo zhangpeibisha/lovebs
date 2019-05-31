@@ -32,7 +32,7 @@ public interface PublishQuestionBusinessMapper extends BaseBusinessMapper<Publis
      * @return list
      */
     List<Integer> selectIdsByCondition(@Param("facultyId") Integer facultyId,
-                                       @Param("year") String year,
+                                       @Param("year") Integer year,
                                        @Param("semester") String semester);
 
 }

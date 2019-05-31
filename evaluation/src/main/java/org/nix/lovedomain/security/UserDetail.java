@@ -13,8 +13,10 @@ import org.springframework.social.security.SocialUserDetails;
 
 import java.io.Serializable;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
@@ -88,6 +90,12 @@ public class UserDetail implements SocialUserDetails, Serializable {
         return roleModels;
     }
 
+    public static List<String> analysisUserStrRoles(Principal principal){
+        List<RoleModel> roleModels = analysisUserRoles(principal);
+        List<String> role = new ArrayList<>(roleModels.size());
+        roleModels.forEach(roleModel -> role.add(roleModel.getName()));
+        return role;
+    }
 
     @Override
     public String getUserId() {

@@ -1,6 +1,9 @@
 package org.nix.lovedomain.dao.model;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import tk.mybatis.mapper.annotation.NameStyle;
 
@@ -11,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/5/27
  * @since jdk8
- *
+ * <p>
  * 一个学院下发布的问卷排名统计
  */
 @Table(name = "rank")
@@ -23,7 +26,7 @@ import java.util.List;
 public class RankModel {
 
     /**
-     * 排名id
+     * 排名自增id
      */
     @Id
     @GeneratedValue(generator = "JDBC")
@@ -37,7 +40,7 @@ public class RankModel {
     /**
      * 年份
      */
-    private String year;
+    private Integer year;
 
     /**
      * 学期
@@ -52,36 +55,66 @@ public class RankModel {
     /**
      * 排名内容
      */
-    private List<Integer> degree;
+    private List<RankItem> degree;
 
     /**
      * 排名信息，字符串形式
+     *
      * @return
      */
-    public String toContent(){
-       content = JSONUtil.toJsonStr(degree);
-       return content;
+    public String toContent() {
+        content = JSONUtil.toJsonStr(degree);
+        return content;
     }
 
-    /**
-     * 排名信息，数组类型
-     * @return
-     */
-    public List<Integer> toDegree(){
-        degree = (List<Integer>) JSONUtil.toBean(content,List.class);
+    public List<RankItem> getRank() {
+        if (!StrUtil.isEmpty(content)) {
+            return JSON.parseArray(content, RankItem.class);
+        }
         return degree;
     }
 
     /**
      * 教师账号id提取
+     *
      * @param list
      */
-    public void changeList(List<StatisticsScoreModel>  list){
-        degree = new ArrayList<>();
-        for (StatisticsScoreModel s:
-             list) {
-         degree.add(s.getTeacherAccountId());
+    public void addRankItem(List<RankItem> list) {
+        if (degree == null) {
+            degree = new ArrayList<>();
         }
+        degree.addAll(list);
     }
 
+    @Data
+    public static class RankItem {
+        /**
+         * 教师账号id
+         */
+        private Integer teacherAccountId;
+        /**
+         * 教师名字
+         */
+        private String teacherName;
+        /**
+         * 教学任务Id
+         */
+        private String teachCourseId;
+        /**
+         * 课程id
+         */
+        private Integer courseId;
+        /**
+         * 课程名字
+         */
+        private String courseName;
+        /**
+         * 总分
+         */
+        private Double avgScore;
+        /**
+         * 发布的评教卷id
+         */
+        private Integer publishQuestionId;
+    }
 }

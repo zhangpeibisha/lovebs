@@ -1,12 +1,15 @@
 package org.nix.lovedomain.web.controller;
 
+import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.UserDetail;
+import org.nix.lovedomain.service.StatisticsScoreService;
 import org.nix.lovedomain.service.TeacherCourseService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.service.file.TaskService;
+import org.nix.lovedomain.service.vo.TeachRankVo;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,6 +33,9 @@ public class TeacherCourseController {
 
     @Resource
     private TaskService taskService;
+
+    @Resource
+    private StatisticsScoreService statisticsScoreService;
 
     /**
      * @param page         页码
@@ -62,27 +68,46 @@ public class TeacherCourseController {
 
     /**
      * 上传教学任务信息，管理员使用
+     *
      * @param teachTask
      */
     @Permission(name = "excel上传教学任务",
             description = "管理员通过上传格式化的excel文件，可以达到批量上传教学任务的目的",
             role = RoleEnum.MANGER)
     @PostMapping(value = "/excel/teachTask")
-    public void uploadTeachTask(MultipartFile teachTask,Principal principal) throws IOException {
+    public void uploadTeachTask(MultipartFile teachTask, Principal principal) throws IOException {
         Integer accountId = UserDetail.analysisUserAccountId(principal);
-        taskService.insertTeachTask(teachTask.getInputStream(),accountId);
+        taskService.insertTeachTask(teachTask.getInputStream(), accountId);
     }
 
     /**
      * 上传学生课程分数，授课老师上传
+     *
      * @param teachCourScore
      */
     @Permission(name = "excel上传学生的课程得分信息",
             role = RoleEnum.TEACHER)
     @PostMapping(value = "/excel/teachCourScore")
-    public void teachCourScore(MultipartFile teachCourScore){
-        log.info("上传的文件名字为{}",teachCourScore.getOriginalFilename());
-        log.info("上传的文件的大小为{}",teachCourScore.getSize());
+    public void teachCourScore(MultipartFile teachCourScore) {
+        log.info("上传的文件名字为{}", teachCourScore.getOriginalFilename());
+        log.info("上传的文件的大小为{}", teachCourScore.getSize());
+    }
+
+
+    /**
+     * 查询一个学院在学年+学期的排名统计
+     *
+     * @param facultyId 学院自增id
+     * @param year      学年
+     * @param semester  学期
+     * @return
+     */
+    @GetMapping(value = "/faculty/rank")
+    public RespondsMessage findRankByFacultyAndYearAndSemester(@RequestParam(value = "facultyId") Integer facultyId,
+                                                               @RequestParam(value = "year") Integer year,
+                                                               @RequestParam(value = "semester") String semester) {
+        TeachRankVo rankVo = statisticsScoreService.findFacultyTeachRankVo(facultyId, year, semester);
+        return RespondsMessage.success(StrUtil.format("获取{}学院-{}学年-{}的排名信息完成", facultyId, year, semester), rankVo);
     }
 
 }

@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Principal;
 
 /**
  * @author zhangpei
@@ -28,7 +29,7 @@ import java.io.IOException;
 @Api(value = "学院服务控制器(测试通过)")
 @RestController
 @RequestMapping(value = "faculty")
-public class FacultyController  {
+public class FacultyController {
 
     @Autowired
     private FacultyService facultyService;
@@ -52,7 +53,7 @@ public class FacultyController  {
 
 
     @GetMapping(value = "/findById")
-    public RespondsMessage findById(@RequestParam(value = "id")Integer id){
+    public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
         return RespondsMessage.success("通过id查询完成",
                 facultyBusinessMapper.selectByPrimaryKey(id));
     }
@@ -60,6 +61,7 @@ public class FacultyController  {
 
     /**
      * 上传学院信息，管理员使用
+     *
      * @param faculty
      */
     @Permission(name = "excel上传学院信息",
@@ -68,6 +70,18 @@ public class FacultyController  {
     @PostMapping(value = "/excel")
     public void uploadFaculty(MultipartFile faculty) throws IOException {
         organizationService.insertFaculty(faculty.getInputStream());
+    }
+
+    /**
+     * 查看用户能够获取的学院列表，管理员获取
+     * 所有的，老师获取自己所属的学院，学生暂时没有配置
+     * @param principal
+     * @return
+     */
+    @GetMapping(value = "/user/faculty")
+    public RespondsMessage findUserFaculty(Principal principal) {
+        return RespondsMessage.success("获取用户可以查看的学院列表成功",
+                facultyService.findUserFaculty(principal));
     }
 
 }
