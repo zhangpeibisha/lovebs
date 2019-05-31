@@ -10,6 +10,7 @@ import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.StudentService;
+import org.nix.lovedomain.service.TeacherCourseService;
 import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
 import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.service.file.model.*;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,6 +59,8 @@ public class TaskService {
     @Resource
     private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
 
+    @Resource
+    private TeacherCourseService teacherCourseService;
 
     /**
      * 开始添加教学任务
@@ -364,11 +368,12 @@ public class TaskService {
      *
      * @param path
      */
-    public void updateStudentCourseScore(InputStream path) {
+    @Transactional(rollbackFor = Exception.class)
+    public void updateStudentCourseScore(InputStream path, Principal principal) {
         List<StudentCourseScoreExcel> scoreExcels
                 = organizationService.readExcel2Bean(path, StudentCourseScoreExcel.class);
         Validator.validateFalse(CollUtil.isEmpty(scoreExcels), "上传的分数信息为空");
-        scoreExcels.forEach(this::updateStudentCourseScore);
+        scoreExcels.forEach(studentCourseScoreExcel -> updateStudentCourseScore(studentCourseScoreExcel, principal));
     }
 
     /**
@@ -376,12 +381,13 @@ public class TaskService {
      *
      * @param studentCourseScoreExcel
      */
-    public void updateStudentCourseScore(StudentCourseScoreExcel studentCourseScoreExcel) {
+    public void updateStudentCourseScore(StudentCourseScoreExcel studentCourseScoreExcel, Principal principal) {
+        String teachCourseId = studentCourseScoreExcel.getTeachCourseId();
+        teacherCourseService.checkTeacherIsTeachCourse(principal, teachCourseId);
         Integer score = studentCourseScoreExcel.getScore();
         String studentId = studentCourseScoreExcel.getStudentId();
         StudentModel student = studentService.findStudentByStudentId(studentId);
         Integer accountId = student.getAccountId();
-        String teachCourseId = studentCourseScoreExcel.getTeachCourseId();
         studentCourseBusinessMapper.updateStudentScore(score, accountId, teachCourseId);
     }
 }

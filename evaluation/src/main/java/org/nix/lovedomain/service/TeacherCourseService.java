@@ -202,4 +202,19 @@ public class TeacherCourseService {
         teacherCourseModels.forEach(courseModel -> years.add(courseModel.getSchoolYear()));
         return years;
     }
+
+    /**
+     * 检测登陆人员是否负责该课程的教学
+     *
+     * @param principal     登陆用户
+     * @param teachCourseId 教学任务id
+     */
+    public void checkTeacherIsTeachCourse(Principal principal, String teachCourseId) {
+        Integer accountId = UserDetail.analysisUserAccountId(principal);
+        TeacherCourseModel teacherCourseModel = new TeacherCourseModel();
+        teacherCourseModel.setTeacherAccountId(accountId);
+        teacherCourseModel.setTeachCourseId(teachCourseId);
+        TeacherCourseModel courseModel = teacherCourseBusinessMapper.selectOne(teacherCourseModel);
+        Validator.validateNotNull(courseModel, "教学任务{}不是属于你负责", teachCourseId);
+    }
 }
