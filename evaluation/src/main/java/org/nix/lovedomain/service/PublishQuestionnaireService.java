@@ -20,13 +20,9 @@ import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.LogUtil;
-import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.security.Principal;
@@ -474,5 +470,17 @@ public class PublishQuestionnaireService {
         student.setTask(JSON.toJSONString(studentTask));
         studentBusinessMapper.updateByPrimaryKey(student);
         return publishQuestionBusinessMapper.selectByPrimaryKey(publishQuesting);
+    }
+
+    /**
+     * 通过教学任务id查询到发布的评教卷信息
+     *
+     * @param teachCourseId 教学任务id
+     * @return 发布的信息
+     */
+    public PublishQuestionnaireModel findPublishQuestionnaireModelByTeachCourseId(String teachCourseId) {
+        PublishQuestionnaireModel questionnaireModel = new PublishQuestionnaireModel();
+        questionnaireModel.setTeachCourseId(teachCourseId);
+        return publishQuestionBusinessMapper.selectOne(questionnaireModel);
     }
 }

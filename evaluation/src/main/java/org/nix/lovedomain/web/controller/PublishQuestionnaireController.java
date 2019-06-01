@@ -1,23 +1,18 @@
 package org.nix.lovedomain.web.controller;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.dao.business.EvaluationQuestionnaireBusinessMapper;
 import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
-import org.nix.lovedomain.dao.model.AccountModel;
-import org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel;
 import org.nix.lovedomain.dao.model.PublishQuestionnaireModel;
-import org.nix.lovedomain.service.AccountService;
 import org.nix.lovedomain.service.PublishQuestionnaireService;
 import org.nix.lovedomain.service.ServiceException;
 import org.nix.lovedomain.service.StatisticsScoreService;
+import org.nix.lovedomain.service.StudentCourseService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.PublishQuestionJsonVo;
@@ -30,7 +25,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author zhangpei
@@ -47,10 +41,7 @@ public class PublishQuestionnaireController {
     private PublishQuestionnaireService publishquestionnaireService;
 
     @Resource
-    private EvaluationQuestionnaireBusinessMapper evaluationQuestionnaireBusinessMapper;
-
-    @Resource
-    private AccountService accountService;
+    private StudentCourseService studentCourseService;
 
     @Resource
     private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
@@ -142,59 +133,14 @@ public class PublishQuestionnaireController {
      * @param principal
      * @return
      */
-    @Permission(name = "批量获取发布评教卷的信息", role = RoleEnum.STUDENT)
+    @Permission(name = "查询学生在这个评教卷中回答的问题", role = RoleEnum.STUDENT)
     @GetMapping(value = "/answers")
     public RespondsMessage findStudentAnswers(@RequestParam(value = "publishId") Integer publishId,
                                               Principal principal) {
-        AccountModel accountModel
-                = accountService.findUserByAccount(principal.getName());
-
-        PublishQuestionnaireModel publishQuestionId
-                = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
-
-        if (publishQuestionId == null) {
-            return RespondsMessage.success("评教卷不存在");
-        }
-
-        PublishAttachInfo bean = PublishAttachInfo.getBean(publishQuestionId);
-        List<PublishAttachInfo.CompletesQuestion> completesQuestions
-                = bean.getCompletesQuestions();
-        if (CollUtil.isEmpty(completesQuestions)) {
-            EvaluationQuestionnaireModel evaluational
-                    = evaluationQuestionnaireBusinessMapper
-                    .selectByPrimaryKey(publishQuestionId.getQuestionnaireId());
-            evaluational.setContent(null);
-            AnswersView data = new AnswersView();
-            data.setEvaluationQuestionnaire(evaluational);
-            data.setAnswers(new PublishAttachInfo.CompletesQuestion());
-            return RespondsMessage.success("未作答，返回评教卷信息", data);
-        }
-
-        for (PublishAttachInfo.CompletesQuestion completesQuestion : completesQuestions) {
-            if (completesQuestion.getStudentAccountId().equals(accountModel.getId())) {
-                AnswersView answersView = new AnswersView();
-                answersView.setAnswers(completesQuestion);
-                EvaluationQuestionnaireModel evaluational
-                        = evaluationQuestionnaireBusinessMapper
-                        .selectByPrimaryKey(publishQuestionId.getQuestionnaireId());
-
-                answersView.setEvaluationQuestionnaire(evaluational);
-                evaluational.setContent(null);
-                return RespondsMessage.success("获取答案完成", answersView);
-            }
-        }
-        return RespondsMessage.success("未作答");
+        StudentCourseService.AnswersView answersView = studentCourseService.createStudentAnsersView(publishId, principal);
+        return RespondsMessage.success("获取学生回答完成", answersView);
     }
 
-
-    @Data
-    public static class AnswersView {
-
-        private EvaluationQuestionnaireModel evaluationQuestionnaire;
-
-        private PublishAttachInfo.CompletesQuestion answers;
-
-    }
 
     @GetMapping(value = "/findById")
     public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
