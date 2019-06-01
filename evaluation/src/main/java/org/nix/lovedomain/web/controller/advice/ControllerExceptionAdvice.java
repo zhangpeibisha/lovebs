@@ -26,6 +26,7 @@ public class ControllerExceptionAdvice {
     public String handleValidateException(ValidateException e) {
         String message = e.getMessage();
         log.info("用户使用错误", message);
+        e.printStackTrace();
         return message;
     }
 
@@ -34,6 +35,7 @@ public class ControllerExceptionAdvice {
     public String handleException(Exception e) {
         String message = e.getMessage();
         log.warn("系统未知错误", message);
+        e.printStackTrace();
         return message;
     }
 

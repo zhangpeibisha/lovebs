@@ -56,8 +56,8 @@ public class StatisticsAttachInfor {
      * @return
      */
     public static StatisticsAttachInfor toStatisticsAttachInfor(StatisticsScoreModel statisticsScoreModel) {
-        String attachJson = statisticsScoreModel.getAttachJson();
-        if (StrUtil.isEmpty(attachJson)) {
+        String attachJson;
+        if (statisticsScoreModel == null || (attachJson = statisticsScoreModel.getAttachJson()) == null) {
             return null;
         }
         return JSONUtil.toBean(attachJson, StatisticsAttachInfor.class);

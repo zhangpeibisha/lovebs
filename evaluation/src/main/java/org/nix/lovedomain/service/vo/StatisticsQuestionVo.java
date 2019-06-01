@@ -128,17 +128,23 @@ public class StatisticsQuestionVo {
      * @return 一个评教卷的所有题目的统计信息
      */
     public static List<TopicStatistics> createTopicStatisticsList(StatisticsAttachInfor topic, StatisticsAttachInfor option) {
-        // 这个信息为  StatisticsItem 为有效数据 ===== 题目统计信息
-        Map<String, StatisticsItem> topicItemMap = topic.toItemStatsiticsMap();
-        // 这个信息为 StatisticsItem->choseMap 为有效数据 ===== 题目选项统计信息
-        Map<String, StatisticsItem> optionMap = option.toItemStatsiticsMap();
-
-        List<TopicStatistics> topicStatistics = new ArrayList<>(topicItemMap.size());
-        topicItemMap.forEach((topicId, statisticsItem) -> {
-            StatisticsItem optionInfo = optionMap.get(topicId);
-            topicStatistics.add(createTopicStatistics(statisticsItem, optionInfo));
-        });
-        return topicStatistics;
+        if (topic != null) {
+            // 这个信息为  StatisticsItem 为有效数据 ===== 题目统计信息
+            Map<String, StatisticsItem> topicItemMap = topic.toItemStatsiticsMap();
+            // 这个信息为 StatisticsItem->choseMap 为有效数据 ===== 题目选项统计信息
+            if (option != null) {
+                Map<String, StatisticsItem> optionMap = option.toItemStatsiticsMap();
+                List<TopicStatistics> topicStatistics = new ArrayList<>(topicItemMap.size());
+                topicItemMap.forEach((topicId, statisticsItem) -> {
+                    StatisticsItem optionInfo = optionMap.get(topicId);
+                    if (optionInfo != null) {
+                        topicStatistics.add(createTopicStatistics(statisticsItem, optionInfo));
+                    }
+                });
+                return topicStatistics;
+            }
+        }
+        return null;
     }
 
     /**
