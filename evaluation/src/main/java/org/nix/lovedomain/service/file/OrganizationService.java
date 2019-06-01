@@ -14,6 +14,7 @@ import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.TeacherService;
 import org.nix.lovedomain.service.file.model.*;
 import org.nix.lovedomain.web.controller.dto.CreateTeacherDto;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -226,6 +227,7 @@ public class OrganizationService {
      *
      * @param path
      */
+    @Async
     public void insertTeacher(InputStream path) {
         List<TeacherExcel> all = readExcel2Bean(path, TeacherExcel.class);
         all.forEach(this::createTeacher);
@@ -358,6 +360,7 @@ public class OrganizationService {
      *
      * @param path
      */
+    @Async
     public void insertStudent(InputStream path) {
         List<StudentExcel> studentExcels
                 = readExcel2Bean(path, StudentExcel.class);

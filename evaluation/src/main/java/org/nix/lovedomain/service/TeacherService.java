@@ -18,6 +18,7 @@ import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.nix.lovedomain.web.controller.dto.CreateTeacherDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +49,9 @@ public class TeacherService {
 
     @Resource
     private AccountRoleBusinessMapper accountRoleBusinessMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * 通过老师表里面的老师id找到老师的账号信息
@@ -175,7 +179,7 @@ public class TeacherService {
         String phone = dto.getPhone();
 
         AccountModel account = new AccountModel();
-        account.setPassword(jobNumber);
+        account.setPassword(passwordEncoder.encode(jobNumber));
         account.setEmail(email);
         account.setPhone(phone);
         account.setNumbering(jobNumber);
@@ -195,7 +199,11 @@ public class TeacherService {
         RoleModel roleModel = new RoleModel();
         roleModel.setName(RoleEnum.TEACHER.getName());
         RoleModel selectOne = roleBusinessMapper.selectOne(roleModel);
-
+        if (selectOne == null) {
+            roleModel.setDescription(RoleEnum.TEACHER.getDescription());
+            roleBusinessMapper.insertSelective(roleModel);
+            selectOne = roleModel;
+        }
         AccountRoleModel accountRoleModel = new AccountRoleModel();
         accountRoleModel.setAccountId(account.getId());
         accountRoleModel.setRoleId(selectOne.getId());

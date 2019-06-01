@@ -19,6 +19,8 @@ import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.SQLUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,6 +63,8 @@ public class StudentService {
     @Resource
     private TeacherCourseService teacherCourseService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * 通过班级编码发现这个班级的所有学生
@@ -125,7 +129,7 @@ public class StudentService {
         accountModel.setEmail(email);
         accountModel.setNumbering(studentId);
         accountModel.setPhone(phone);
-        accountModel.setPassword(studentId);
+        accountModel.setPassword(passwordEncoder.encode(studentId));
 
         accountBusinessMapper.insertSelective(accountModel);
         student.setAccountId(accountModel.getId());
@@ -136,7 +140,11 @@ public class StudentService {
         RoleModel roleModel = new RoleModel();
         roleModel.setName(RoleEnum.STUDENT.getName());
         RoleModel selectOne = roleBusinessMapper.selectOne(roleModel);
-
+        if (selectOne == null) {
+            roleModel.setDescription(RoleEnum.STUDENT.getDescription());
+            roleBusinessMapper.insertSelective(roleModel);
+            selectOne = roleModel;
+        }
         AccountRoleModel accountRoleModel = new AccountRoleModel();
         accountRoleModel.setAccountId(accountModel.getId());
         accountRoleModel.setRoleId(selectOne.getId());

@@ -1,17 +1,17 @@
 package org.nix.lovedomain.service;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.nix.lovedomain.dao.business.AccountBusinessMapper;
 import org.nix.lovedomain.dao.business.EvaluationQuestionnaireBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.business.json.question.EvaluationQuestionnaireContent;
 import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
-import org.nix.lovedomain.dao.model.AccountModel;
 import org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel;
 import org.nix.lovedomain.dao.model.TeacherModel;
+import org.nix.lovedomain.security.UserDetail;
 import org.nix.lovedomain.service.vo.EvaluationalSimpleVo;
 import org.nix.lovedomain.service.vo.EvaluationquestionnaireDeatilVo;
 import org.nix.lovedomain.service.vo.PageVo;
@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,9 +40,6 @@ public class EvaluationQuestionnaireService {
 
     @Resource
     private EvaluationQuestionnaireBusinessMapper evaluationQuestionnaireBusinessMapper;
-
-    @Autowired
-    private AccountService accountService;
 
     @Resource
     private EvaluationQuestionnaireBusinessMapper evaluationquestionnaireBusinessMapper;
@@ -62,11 +60,9 @@ public class EvaluationQuestionnaireService {
                                                              Principal principal) {
         EvaluationQuestionnaireModel evaluationQuestionnaireModel = new EvaluationQuestionnaireModel();
         evaluationQuestionnaireModel.setTitle(title);
-        String userName = principal.getName();
 
         // 创建评教卷的用户
-        AccountModel authorAccount = accountService.findUserByAccount(userName);
-        evaluationQuestionnaireModel.setAuthorAccountId(authorAccount.getId());
+        evaluationQuestionnaireModel.setAuthorAccountId(UserDetail.analysisUserAccountId(principal));
 
         evaluationQuestionnaireModel.setDescription(description);
 
@@ -169,6 +165,10 @@ public class EvaluationQuestionnaireService {
 
         // 设置作者信息
         evaluationalSimpleVo.setAuthor(teacherSimpleVo);
+
+        // 设置创建时间
+        Date createTime = evaluationQuestionnaireModel.getCreateTime();
+        evaluationalSimpleVo.setCreateTime(DateUtil.format(createTime,"yyyy-MM-dd HH:mm:SS"));
 
         return evaluationalSimpleVo;
     }

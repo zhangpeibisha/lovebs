@@ -59,7 +59,7 @@ public class UserDetailServiceImpl implements UserDetailsService, SocialUserDeta
     private SocialUserDetails builderUser(String username) {
         AccountModel userByAccount = accountService.findUserByAccount(username);
         // 测试的时候不加密,使用默认加密方式
-        userByAccount.setPassword(passwordEncoder.encode(userByAccount.getPassword()));
+//        userByAccount.setPassword(passwordEncoder.encode(userByAccount.getPassword()));
         List<ResourcesModel> resourcesByAccount = resourcesService.findResourcesByAccount(username);
         List<RoleModel> roleModels = roleBusinessMapper.findRoleModelsByLoginName(username);
         return new UserDetail(userByAccount, resourcesByAccount, roleModels, username, image);
