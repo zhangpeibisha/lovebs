@@ -3,8 +3,10 @@ package org.nix.lovedomain.web.controller;
 import cn.hutool.json.JSONUtil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.ClassBusinessMapper;
 import org.nix.lovedomain.dao.model.ClassModel;
 import org.nix.lovedomain.service.ClassService;
+import org.nix.lovedomain.service.dto.ClassUpdateDto;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.file.OrganizationService;
@@ -31,6 +33,9 @@ public class ClassController {
 
     @Autowired
     private ClassService classService;
+
+    @Resource
+    private ClassBusinessMapper classBusinessMapper;
 
     @Resource
     private OrganizationService organizationService;
@@ -60,5 +65,16 @@ public class ClassController {
         organizationService.insertClass(classFile.getInputStream());
     }
 
+    @PutMapping(value = "/update")
+    public RespondsMessage update(@ModelAttribute ClassUpdateDto classUpdateDto) {
+        classService.updateClass(classUpdateDto);
+        return RespondsMessage.success("更新班级信息完成");
+    }
+
+    @PostMapping(value = "/add")
+    public RespondsMessage add(ClassModel classModel) {
+        classBusinessMapper.insertSelective(classModel);
+        return RespondsMessage.success("创建班级完成");
+    }
 
 }
