@@ -176,7 +176,7 @@ public class StudentService {
     public List<StudentModel> findPublishStudent(PublishQuestionnaireModel publishQuestionnaireModel) {
         PublishAttachInfo bean = PublishAttachInfo.getBean(publishQuestionnaireModel);
         List<Integer> students = bean.getStudents();
-        return studentBusinessMapper.findStudentModelByAccountIds(ListUtils.lsitIdsToString(students));
+        return studentBusinessMapper.findStudentModelByAccountIds(students);
     }
 
     /**

@@ -3,6 +3,7 @@ package org.nix.lovedomain.web.controller;
 import cn.hutool.core.collection.CollUtil;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.nix.lovedomain.dao.business.StudentBusinessMapper;
 import org.nix.lovedomain.dao.model.StudentModel;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.enums.Permission;
@@ -10,6 +11,7 @@ import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.file.OrganizationService;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.StudentVo;
+import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +33,15 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/student")
 public class StudentController {
+
     @Autowired
     private StudentService studentService;
 
     @Resource
     private OrganizationService organizationService;
+
+    @Resource
+    private StudentBusinessMapper studentBusinessMapper;
 
     @GetMapping(value = "/list")
     public RespondsMessage findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -73,7 +79,6 @@ public class StudentController {
                 students.size()));
     }
 
-
     /**
      * 上传学生信息，管理员使用
      *
@@ -86,4 +91,18 @@ public class StudentController {
     public void uploadTeachTask(MultipartFile student) throws IOException {
         organizationService.insertStudent(student.getInputStream());
     }
+
+    /**
+     * 通过学生账户id集合，获取到学生信息
+     *
+     * @param studentAccountIds 学生账户id集合
+     * @return 响应信息
+     */
+    @GetMapping(value = "/find/by/ids")
+    public RespondsMessage findStudentByIds(@RequestParam(value = "ids") List<Integer> studentAccountIds) {
+        List<StudentModel> accountIds
+                = studentBusinessMapper.findStudentModelByAccountIds(studentAccountIds);
+        return RespondsMessage.success("获取学生信息完成", accountIds);
+    }
+
 }

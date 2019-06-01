@@ -167,9 +167,9 @@
 
     <select id="findStudentBySql" resultMap="studentVoMap">
         SELECT * FROM `student` WHERE 1=1
-         <if test="sql!=null">
-             ${sql}
-         </if>
+        <if test="sql!=null">
+            ${sql}
+        </if>
         <if test="page!=null and limit!=null">
             LIMIT #{page},#{limit};
         </if>
@@ -195,5 +195,18 @@
           WHERE teacher_course.courseId = #{courseId,jdbcType=INTEGER}
           AND teacher_course.teacherId = #{teacherId,jdbcType=INTEGER}
   </select>
+
+    <select id="findStudentModelByAccountIds" resultType="org.nix.lovedomain.dao.model.StudentModel">
+        SELECT * FROM student WHERE 1=1
+        <if test="accountIds!=null and accountIds.size()>0">
+           AND accountId IN
+            <foreach collection="accountIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="accountIds == null or accountIds.size()==0">
+            AND accountId IN(-1)
+        </if>
+    </select>
 
 </mapper>

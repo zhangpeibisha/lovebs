@@ -79,6 +79,5 @@ public interface StudentBusinessMapper extends BaseBusinessMapper<StudentModel> 
      * @param accountIds 学生的账号id集合
      * @return 学生信息
      */
-    @Select(value = "SELECT * FROM student WHERE accountId IN(#{accountIds})")
-    List<StudentModel> findStudentModelByAccountIds(@Param(value = "accountIds") String accountIds);
+    List<StudentModel> findStudentModelByAccountIds(@Param(value = "accountIds") List<Integer> accountIds);
 }
