@@ -46,6 +46,9 @@ public class PublishQuestionnaireController {
     @Resource
     private PublishQuestionBusinessMapper publishQuestionBusinessMapper;
 
+    @Resource
+    private StatisticsScoreService statisticsScoreService;
+
     /**
      * 添加黑名单学生
      *
@@ -148,10 +151,6 @@ public class PublishQuestionnaireController {
         return RespondsMessage.success("获取发布的评教卷成功", model);
     }
 
-
-    @Resource
-    private StatisticsScoreService statisticsScoreService;
-
     /**
      * 通过发布的评教卷id查询统计分数
      *
@@ -162,6 +161,20 @@ public class PublishQuestionnaireController {
     public RespondsMessage statisticsScore(@RequestParam(value = "publishId") Integer publishId) throws JsonProcessingException {
         StatisticsQuestionVo questionVo = statisticsScoreService.findQuestionVo(publishId);
         return RespondsMessage.success(StrUtil.format("查询发布的评教卷{}信息成功", publishId), questionVo);
+    }
+
+    /**
+     * 查询学生是否回答了评教卷
+     *
+     * @param publishId
+     * @param principal
+     * @return
+     */
+    @GetMapping(value = "/check/answer")
+    public RespondsMessage checkStudentAnswer(@RequestParam(value = "publishId") Integer publishId,
+                                              Principal principal) {
+        boolean answerQuestion = studentCourseService.checkStudentAnswerQuestion(principal, publishId);
+        return RespondsMessage.success("判断学生是否回答了问题了", answerQuestion);
     }
 
 }
