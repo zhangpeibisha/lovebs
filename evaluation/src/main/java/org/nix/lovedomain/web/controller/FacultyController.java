@@ -5,10 +5,12 @@ import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.FacultyBusinessMapper;
 import org.nix.lovedomain.dao.model.FacultyModel;
+import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.FacultyService;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.file.OrganizationService;
+import org.nix.lovedomain.service.vo.FacultyTeacherVo;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +47,7 @@ public class FacultyController {
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
                                 @RequestParam(value = "quire", required = false) String sql,
                                 HttpServletResponse response) throws IOException {
-        PageVo<FacultyModel> studentVoPageVo = facultyService.findFacultyPage(page, limit, sql);
+        PageVo<FacultyTeacherVo> studentVoPageVo = facultyService.findFacultyPage(page, limit, sql);
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(JSONUtil.toJsonStr(RespondsMessage.success("获取学院列表成功",
                 studentVoPageVo)));
@@ -84,4 +86,9 @@ public class FacultyController {
                 facultyService.findUserFaculty(principal));
     }
 
+    @PutMapping(value = "/update")
+    public RespondsMessage update(@ModelAttribute FacultyModel facultyModel){
+        facultyBusinessMapper.updateByPrimaryKeySelective(facultyModel);
+        return RespondsMessage.success("更新学院信息成功");
+    }
 }
