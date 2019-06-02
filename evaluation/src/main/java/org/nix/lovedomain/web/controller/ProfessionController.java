@@ -73,4 +73,17 @@ public class ProfessionController {
     }
 
 
+    @PutMapping(value = "/update")
+    public RespondsMessage update(@ModelAttribute ProfessionModel professionModel) {
+        professionBusinessMapper.updateByPrimaryKeySelective(professionModel);
+        return RespondsMessage.success("更新专业信息完成");
+    }
+
+
+    @PostMapping(value = "/add")
+    public RespondsMessage add(@ModelAttribute ProfessionModel professionModel){
+        professionBusinessMapper.insertSelective(professionModel);
+        return RespondsMessage.success("添加专业信息完成");
+    }
+
 }
