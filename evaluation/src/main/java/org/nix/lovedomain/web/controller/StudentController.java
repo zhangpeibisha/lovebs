@@ -52,18 +52,6 @@ public class StudentController {
     }
 
     /**
-     * 更新学生信息
-     *
-     * @param student
-     * @return
-     */
-    @PutMapping(value = "/info")
-    public RespondsMessage updateStudent(@ModelAttribute StudentModel student) {
-
-        return RespondsMessage.success("更新学生信息成功:数量=");
-    }
-
-    /**
      * 批量添加学生
      *
      * @param students
@@ -105,4 +93,9 @@ public class StudentController {
         return RespondsMessage.success("获取学生信息完成", accountIds);
     }
 
+    @PutMapping(value = "/info")
+    public RespondsMessage update(@ModelAttribute StudentModel studentModel){
+        studentBusinessMapper.updateByPrimaryKeySelective(studentModel);
+        return RespondsMessage.success("更新学生信息完成");
+    }
 }
