@@ -28,4 +28,12 @@ public interface CacheConstant {
      * 查询统计信息缓存
      */
     String STATISTICS_QUESTION_VO = "system:statistics:question:vo";
+    /**
+     * 用户能够查看的教学任务
+     */
+    String USER_TEACH_TASK = "system:user:teach:task";
+    /**
+     * 用户能够查看的教学任务数量
+     */
+    String USER_TEACH_TASK_NUMBER = "system:user:teach:task:number";
 }

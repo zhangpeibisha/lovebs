@@ -5,12 +5,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.security.UserDetail;
 import org.nix.lovedomain.service.StatisticsScoreService;
 import org.nix.lovedomain.service.TeacherCourseService;
+import org.nix.lovedomain.service.constant.CacheConstant;
 import org.nix.lovedomain.service.enums.Permission;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.service.file.TaskService;
 import org.nix.lovedomain.service.vo.TeachRankVo;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -68,9 +70,11 @@ public class TeacherCourseController {
 
     /**
      * 上传教学任务信息，管理员使用
+     * 需要删除用户任务的数量缓存
      *
      * @param teachTask
      */
+    @CacheEvict(cacheNames = CacheConstant.USER_TEACH_TASK_NUMBER, allEntries = true)
     @Permission(name = "excel上传教学任务",
             description = "管理员通过上传格式化的excel文件，可以达到批量上传教学任务的目的",
             role = RoleEnum.MANGER)

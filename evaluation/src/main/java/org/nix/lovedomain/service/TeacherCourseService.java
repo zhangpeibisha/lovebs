@@ -8,10 +8,12 @@ import org.nix.lovedomain.dao.business.PublishQuestionBusinessMapper;
 import org.nix.lovedomain.dao.business.TeacherCourseBusinessMapper;
 import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.security.UserDetail;
+import org.nix.lovedomain.service.constant.CacheConstant;
 import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.TeachTaskVo;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -46,6 +48,9 @@ public class TeacherCourseService {
     @Resource
     private StatisticsScoreService statisticsScoreService;
 
+    @Resource
+    private TeacherCourseService teacherCourseService;
+
     /**
      * 通过教学任务id查询到教学任务的详细信息
      *
@@ -60,6 +65,7 @@ public class TeacherCourseService {
 
     /**
      * 找到用户能够查看的教学任务
+     * 一般任务不会改变，除非管理员导入
      *
      * @param page         页码
      * @param limit        数量
@@ -68,6 +74,8 @@ public class TeacherCourseService {
      * @param semesterEnum 学期
      * @return 教学任务
      */
+    @Cacheable(cacheNames = CacheConstant.USER_TEACH_TASK,
+            key = "#principal.name+'-'+#year+'-'+#semesterEnum+'-'+#page+'-'+#limit")
     public List<TeacherCourseModel> findUserTeachTaskList(Integer page,
                                                           Integer limit,
                                                           Principal principal,
@@ -103,7 +111,9 @@ public class TeacherCourseService {
      * @param semesterEnum 学期
      * @return 教学任务
      */
-    public Long findUserTeachTaskCount(
+    @Cacheable(cacheNames = CacheConstant.USER_TEACH_TASK_NUMBER,
+            key = "#principal.name+'-'+#year+'-'+#semesterEnum")
+    public int findUserTeachTaskCount(
             Principal principal,
             Integer year,
             SemesterEnum semesterEnum) {
@@ -114,15 +124,15 @@ public class TeacherCourseService {
             semesterName = semesterEnum.getName();
         }
         if (haveRole(RoleEnum.MANGER, roleModels)) {
-            return teacherCourseBusinessMapper.findAllTeachTaskCount(year, semesterName);
+            return teacherCourseBusinessMapper.findAllTeachTaskCount(year, semesterName).intValue();
         }
         if (haveRole(RoleEnum.STUDENT, roleModels)) {
-            return teacherCourseBusinessMapper.findStudentTeachTaskCount(accountId, year, semesterName);
+            return teacherCourseBusinessMapper.findStudentTeachTaskCount(accountId, year, semesterName).intValue();
         }
         if (haveRole(RoleEnum.TEACHER, roleModels)) {
-            return teacherCourseBusinessMapper.findTeacherTeachTaskCount(accountId, year, semesterName);
+            return teacherCourseBusinessMapper.findTeacherTeachTaskCount(accountId, year, semesterName).intValue();
         }
-        return null;
+        return 0;
     }
 
 
@@ -178,11 +188,11 @@ public class TeacherCourseService {
                                 Integer year,
                                 SemesterEnum semesterEnum) {
         List<TeachTaskVo> teachTaskVos
-                = teachTask2TeachTaskVo(findUserTeachTaskList(page, limit, principal, year, semesterEnum));
-        Long teachTaskCount = findUserTeachTaskCount(principal, year, semesterEnum);
+                = teachTask2TeachTaskVo(teacherCourseService.findUserTeachTaskList(page, limit, principal, year, semesterEnum));
+        int teachTaskCount =teacherCourseService.findUserTeachTaskCount(principal, year, semesterEnum);
         return PageVo.<TeachTaskVo>builder()
                 .data(teachTaskVos)
-                .total(teachTaskCount)
+                .total((long) teachTaskCount)
                 .limit(limit)
                 .page(page)
                 .build();
@@ -196,7 +206,7 @@ public class TeacherCourseService {
      */
     public Set<Integer> findSchoolYearByTaskList(Principal principal) {
         List<TeacherCourseModel> teacherCourseModels
-                = findUserTeachTaskList(null, null, principal, null, null);
+                = teacherCourseService.findUserTeachTaskList(null, null, principal, null, null);
         Validator.validateNotNull(teacherCourseModels, "没有教学任务");
         Set<Integer> years = new HashSet<>();
         teacherCourseModels.forEach(courseModel -> years.add(courseModel.getSchoolYear()));

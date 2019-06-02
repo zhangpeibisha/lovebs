@@ -11,9 +11,11 @@ import org.nix.lovedomain.dao.model.*;
 import org.nix.lovedomain.service.CourseService;
 import org.nix.lovedomain.service.StudentService;
 import org.nix.lovedomain.service.TeacherCourseService;
+import org.nix.lovedomain.service.constant.CacheConstant;
 import org.nix.lovedomain.service.dto.PublishQuestionnaireArgs;
 import org.nix.lovedomain.service.enums.SemesterEnum;
 import org.nix.lovedomain.service.file.model.*;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -64,9 +66,10 @@ public class TaskService {
 
     /**
      * 开始添加教学任务
-     *
+     * 删除用户任务缓存
      * @param path
      */
+    @CacheEvict(cacheNames = CacheConstant.USER_TEACH_TASK,allEntries = true)
     @Transactional(rollbackFor = Exception.class)
     public void insertTeachTask(InputStream path, Integer authorAccountId) {
         byte[] bytes = IoUtil.readBytes(path);
