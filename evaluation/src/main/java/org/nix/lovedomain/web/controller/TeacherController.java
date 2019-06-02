@@ -65,6 +65,7 @@ public class TeacherController {
 
     /**
      * 上传老师信息，管理员使用
+     *
      * @param teacher
      */
     @Permission(name = "excel上传老师信息",
@@ -89,4 +90,12 @@ public class TeacherController {
         organizationService.professionInsertTeacher(configTeacher.getInputStream());
         organizationService.classInsertTeacher(configTeacher.getInputStream());
     }
+
+    @PutMapping(value = "/update")
+    public RespondsMessage update(@ModelAttribute TeacherModel teacherModel) {
+        teacherBusinessMapper.updateByPrimaryKeySelective(teacherModel);
+        return RespondsMessage.success("更新老师信息完成");
+    }
+
+
 }
