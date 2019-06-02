@@ -3,9 +3,11 @@ package org.nix.lovedomain.service;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.ResourcesBusinessMapper;
 import org.nix.lovedomain.dao.model.ResourcesModel;
+import org.nix.lovedomain.service.constant.CacheConstant;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.utils.SQLUtil;
 import org.nix.lovedomain.web.controller.dto.ResourcesDto;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,8 +30,9 @@ public class ResourcesService {
 
     /**
      * 分页查询资源信息
-     * @param key 关键字
-     * @param page 页码
+     *
+     * @param key   关键字
+     * @param page  页码
      * @param limit 数量
      * @return
      */
@@ -64,6 +67,7 @@ public class ResourcesService {
      *
      * @return
      */
+    @Cacheable(cacheNames = CacheConstant.ALL_DISABLE_URL, key = "'disable-all'")
     public List<ResourcesModel> findDisableUrl() {
         ResourcesModel resourcesModel = new ResourcesModel();
         resourcesModel.setEnable(false);

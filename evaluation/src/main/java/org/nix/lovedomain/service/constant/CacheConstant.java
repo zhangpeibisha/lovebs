@@ -36,4 +36,6 @@ public interface CacheConstant {
      * 用户能够查看的教学任务数量
      */
     String USER_TEACH_TASK_NUMBER = "system:user:teach:task:number";
+
+    String ALL_DISABLE_URL = "system:all:disable:url";
 }

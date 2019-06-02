@@ -72,5 +72,17 @@ public class CourseController {
         taskService.insertCourse(course.getInputStream());
     }
 
+    @Permission(name = "添加课程信息",role = RoleEnum.MANGER)
+    @PostMapping(value = "/add")
+    public RespondsMessage addCourse(@ModelAttribute CourseModel courseModel){
+        courseBusinessMapper.insertSelective(courseModel);
+        return RespondsMessage.success("添加课程信息完成");
+    }
 
+    @Permission(name = "修改课程信息",role = RoleEnum.MANGER)
+    @PutMapping(value = "/update")
+    public RespondsMessage updateCourse(@ModelAttribute CourseModel courseModel){
+        courseBusinessMapper.updateByPrimaryKeySelective(courseModel);
+        return RespondsMessage.success("修改课程信息完成");
+    }
 }

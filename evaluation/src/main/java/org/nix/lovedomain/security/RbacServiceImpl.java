@@ -74,7 +74,6 @@ public class RbacServiceImpl implements RbacService {
         String method = httpServletRequest.getMethod();
         Object principal = authentication.getPrincipal();
         if (principal instanceof UserDetail) {
-            log.info("获取用户信息{}", JSONUtil.toJsonStr(principal));
             List<UrlGrantedAuthority> grantedAuthorities = ((UserDetail) principal).getGrantedAuthorities();
             for (UrlGrantedAuthority next : grantedAuthorities) {
                 if (antPathMatcher.match(next.getUrl(), requestURI)) {
