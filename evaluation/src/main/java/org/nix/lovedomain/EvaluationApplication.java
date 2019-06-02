@@ -3,6 +3,7 @@ package org.nix.lovedomain;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -12,9 +13,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @description 评教系统
  * @date 2019/3/4
  */
+@EnableCaching
 @SpringBootApplication
 @EnableAsync
-@MapperScan(value = {"org.nix.lovedomain.dao.mapper", "org.nix.lovedomain.dao.business"})
+@MapperScan(value = {"org.nix.lovedomain.dao.business"})
 @tk.mybatis.spring.annotation.MapperScan(basePackages  = {"org.nix.lovedomain.dao.business.*BusinessMapper"})
 @EnableTransactionManagement
 public class EvaluationApplication {

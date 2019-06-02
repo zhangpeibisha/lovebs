@@ -12,13 +12,15 @@ import org.nix.lovedomain.dao.business.json.question.base.BaseQuestion;
 import org.nix.lovedomain.dao.model.EvaluationQuestionnaireModel;
 import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.security.UserDetail;
+import org.nix.lovedomain.service.constant.CacheConstant;
 import org.nix.lovedomain.service.vo.EvaluationalSimpleVo;
 import org.nix.lovedomain.service.vo.EvaluationquestionnaireDeatilVo;
 import org.nix.lovedomain.service.vo.PageVo;
 import org.nix.lovedomain.service.vo.TeacherSimpleVo;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.utils.SQLUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,6 +57,7 @@ public class EvaluationQuestionnaireService {
      * @param principal   用户信息
      * @return 添加数量
      */
+    @CacheEvict(cacheNames = CacheConstant.EVALUATIONAL_PAGE, allEntries = true)
     public EvaluationQuestionnaireModel createSimpleQuestion(String title,
                                                              String description,
                                                              Principal principal) {
@@ -111,11 +114,12 @@ public class EvaluationQuestionnaireService {
 
     /**
      * 获取一个详细的评教卷信息
-     *
+     * 由于评教卷不会被更新和删除，所以只需要缓存就可以了
      * @param questionId
      * @param principal
      * @return
      */
+    @Cacheable(cacheNames = CacheConstant.EVALUATIONAL_DETAIL, key = "#questionId")
     public EvaluationquestionnaireDeatilVo getEvaluationsDeathVoById(Integer questionId,
                                                                      Principal principal) {
         EvaluationQuestionnaireModel questionnaireModel
@@ -168,19 +172,22 @@ public class EvaluationQuestionnaireService {
 
         // 设置创建时间
         Date createTime = evaluationQuestionnaireModel.getCreateTime();
-        evaluationalSimpleVo.setCreateTime(DateUtil.format(createTime,"yyyy-MM-dd HH:mm:SS"));
+        evaluationalSimpleVo.setCreateTime(DateUtil.format(createTime, "yyyy-MM-dd HH:mm:SS"));
 
         return evaluationalSimpleVo;
     }
 
     /**
      * 分页查询评教卷信息
+     * 评教卷不会被删除，且查询频率足够，因此应该添加缓存
+     * 在添加的时候需要删除所有缓存{@link EvaluationQuestionnaireService#createSimpleQuestion(String, String, Principal)}
      *
      * @param page     当前页（以1开始）
      * @param limit    每页数量
      * @param querySql 查询sql(where后面的语句)
      * @return 返回结果
      */
+    @Cacheable(cacheNames = CacheConstant.EVALUATIONAL_PAGE, key = "#page+'-'+#limit+'-'+#querySql")
     public PageVo<EvaluationalSimpleVo> findAllEvaluationalPage(Integer page,
                                                                 Integer limit,
                                                                 String querySql) {
