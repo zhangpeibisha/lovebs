@@ -194,8 +194,55 @@ public class TeacherService {
         teacherModel.setProfessionId(dto.getProfessionId());
         teacherBusinessMapper.insertSelective(teacherModel);
 
+        AccountRoleModel accountRoleModel = new AccountRoleModel();
+        accountRoleModel.setAccountId(account.getId());
+        accountRoleModel.setRoleId(selectTeacherRoleNullCreate().getId());
+        accountRoleBusinessMapper.insertSelective(accountRoleModel);
+        
+        return teacherModel;
+    }
+
+
+    /**
+     * 创建一个老师
+     *
+     * @param dto 需要的信息
+     * @return 老师信息
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public TeacherModel createTeacher(CreateTeacherDto dto, Integer roleId) {
+        String email = dto.getEmail();
+        String jobNumber = dto.getJobNumber();
+        String name = dto.getName();
+        String phone = dto.getPhone();
+
+        AccountModel account = new AccountModel();
+        account.setPassword(passwordEncoder.encode(jobNumber));
+        account.setEmail(email);
+        account.setPhone(phone);
+        account.setNumbering(jobNumber);
+        accountBusinessMapper.insert(account);
+
+        TeacherModel teacherModel = new TeacherModel();
+        teacherModel.setName(name);
+        teacherModel.setAccountId(account.getId());
+        teacherModel.setEmail(email);
+        teacherModel.setPhone(phone);
+        teacherModel.setJobNumber(jobNumber);
+        teacherModel.setProfessionId(dto.getProfessionId());
+        teacherBusinessMapper.insertSelective(teacherModel);
 
         // 找到老师角色的id
+        AccountRoleModel accountRoleModel = new AccountRoleModel();
+        accountRoleModel.setAccountId(account.getId());
+        accountRoleModel.setRoleId(roleId);
+        accountRoleBusinessMapper.insertSelective(accountRoleModel);
+
+
+        return teacherModel;
+    }
+
+    public RoleModel selectTeacherRoleNullCreate(){
         RoleModel roleModel = new RoleModel();
         roleModel.setName(RoleEnum.TEACHER.getName());
         RoleModel selectOne = roleBusinessMapper.selectOne(roleModel);
@@ -204,13 +251,7 @@ public class TeacherService {
             roleBusinessMapper.insertSelective(roleModel);
             selectOne = roleModel;
         }
-        AccountRoleModel accountRoleModel = new AccountRoleModel();
-        accountRoleModel.setAccountId(account.getId());
-        accountRoleModel.setRoleId(selectOne.getId());
-        accountRoleBusinessMapper.insertSelective(accountRoleModel);
-
-
-        return teacherModel;
+        return selectOne;
     }
 
 }

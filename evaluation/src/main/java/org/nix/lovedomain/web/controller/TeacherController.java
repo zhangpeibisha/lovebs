@@ -48,9 +48,10 @@ public class TeacherController {
     }
 
     @PostMapping(value = "/create")
-    public RespondsMessage createTeacher(@ModelAttribute CreateTeacherDto dto) {
+    public RespondsMessage createTeacher(@ModelAttribute CreateTeacherDto dto,
+                                         @RequestParam(value = "roleId") Integer roleId) {
 
-        teacherService.createTeacher(dto);
+        teacherService.createTeacher(dto, roleId);
 
         return RespondsMessage.success("创建老师成功");
     }
