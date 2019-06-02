@@ -44,7 +44,7 @@
         SELECT
         *
         FROM
-        teacher_course
+        teacher_course AS tc
         WHERE
         teacherAccountId =#{accountId}
         <if test="schoolYear!=null">
@@ -64,7 +64,7 @@
         SELECT
         count(*)
         FROM
-        teacher_course
+        teacher_course AS tc
         WHERE
         teacherAccountId =#{accountId}
         <if test="schoolYear!=null">
@@ -82,7 +82,7 @@
         SELECT
         *
         FROM
-        teacher_course
+        teacher_course AS tc
         WHERE 1=1
         <if test="schoolYear!=null">
             AND tc.schoolYear = #{schoolYear}
@@ -102,7 +102,7 @@
         SELECT
         count(*)
         FROM
-        teacher_course
+        teacher_course AS tc
         WHERE 1=1
         <if test="schoolYear!=null">
             AND tc.schoolYear = #{schoolYear}
