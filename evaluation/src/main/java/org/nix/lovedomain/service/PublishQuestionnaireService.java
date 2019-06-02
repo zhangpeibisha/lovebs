@@ -17,10 +17,13 @@ import org.nix.lovedomain.dao.business.json.task.QnaireTaskItem;
 import org.nix.lovedomain.dao.business.json.teacher.TeacherWork;
 import org.nix.lovedomain.dao.business.json.winding.PublishAttachInfo;
 import org.nix.lovedomain.dao.model.*;
+import org.nix.lovedomain.service.constant.CacheConstant;
 import org.nix.lovedomain.service.vo.*;
 import org.nix.lovedomain.utils.ListUtils;
 import org.nix.lovedomain.utils.LogUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,9 +63,6 @@ public class PublishQuestionnaireService {
     private EvaluationQuestionnaireService evaluationquestionnaireService;
 
     @Resource
-    private StatisticsScoreBusinessMapper statisticsScoreBusinessMapper;
-
-    @Resource
     private EvaluationQuestionnaireBusinessMapper evaluationQuestionnaireBusinessMapper;
 
     /**
@@ -88,33 +88,12 @@ public class PublishQuestionnaireService {
     }
 
     /**
-     * 删除黑名单学生
-     *
-     * @param publishId  发布id
-     * @param studentIds 学生账户id集合
-     * @return 处理后的数据
-     */
-    public PublishQuestionnaireModel deleteBlack(Integer publishId,
-                                                 List<Integer> studentIds,
-                                                 Principal principal) {
-        PublishQuestionnaireModel questionnaireModel
-                = publishQuestionBusinessMapper.selectByPrimaryKey(publishId);
-        Validator.validateNotNull(questionnaireModel, "评教卷{}不存在", publishId);
-        checkPermission(questionnaireModel, principal);
-
-        PublishAttachInfo bean = PublishAttachInfo.getBean(questionnaireModel);
-        bean.deleteBlackStudent(studentIds);
-        questionnaireModel.setStatistics(JSONUtil.toJsonStr(bean));
-        publishQuestionBusinessMapper.updateByPrimaryKey(questionnaireModel);
-        return questionnaireModel;
-    }
-
-    /**
      * 检测这个老师是否可以配置这个发布评教卷
      *
      * @param questionnaireModel 发布的评教卷西悉尼
      * @param principal          登陆用户信息
      */
+    @Cacheable(cacheNames = CacheConstant.CHECK_TEACHER_CONFIG_PUBLISH_EVALUATIONAL, key = "#questionnaireModel.id")
     public void checkPermission(PublishQuestionnaireModel questionnaireModel,
                                 Principal principal) {
         AccountModel teacherAccount = accountService.findUserByAccount(principal.getName());
@@ -125,12 +104,13 @@ public class PublishQuestionnaireService {
 
 
     /**
-     * 提交回答信息，
-     *
+     * 提交回答信息
+     * 在统计的时候，若这里产生了数据，则缓存失效
      * @param publishId
      * @param completesQuestion
      * @return
      */
+    @CacheEvict(cacheNames = CacheConstant.STATISTICS_QUESTION_VO,key = "#publishId+'-vo'")
     public PublishQuestionnaireModel fillInTheAnswer(Integer publishId,
                                                      PublishAttachInfo.CompletesQuestion completesQuestion,
                                                      Principal principal) {
@@ -299,14 +279,14 @@ public class PublishQuestionnaireService {
      * @param ids
      * @return
      */
-    public List<PublishQuestionVo> findPublishQuestionDeatil(List<Integer> ids) {
-        List<PublishQuestionnaireModel> publishquestionnaires = batchQuireQuestion(ids);
-        if (CollUtil.isEmpty(publishquestionnaires)) {
+    public List<PublishQuestionVo> findPublishQuestionDetail(List<Integer> ids) {
+        List<PublishQuestionnaireModel> models = batchQuireQuestion(ids);
+        if (CollUtil.isEmpty(models)) {
             return new ArrayList<>();
         }
         List<PublishQuestionVo> result = new ArrayList<>(ids.size());
-        for (PublishQuestionnaireModel publishquestionnaire : publishquestionnaires) {
-            PublishQuestionVo publishQuestionVo = findPublishQuestionVo(publishquestionnaire);
+        for (PublishQuestionnaireModel model : models) {
+            PublishQuestionVo publishQuestionVo = findPublishQuestionVo(model);
             if (publishQuestionVo == null) {
                 continue;
             }
@@ -321,6 +301,7 @@ public class PublishQuestionnaireService {
      * @param publication 发布的评教卷信息
      * @return 评教卷信息
      */
+    @Cacheable(cacheNames = CacheConstant.FIND_PUBLISH_QUESTION_VO, key = "#publication.id")
     public PublishQuestionVo findPublishQuestionVo(PublishQuestionnaireModel publication) {
         Integer teacherAccountId = publication.getTeacherAccountId();
         TeacherModel teacher = teacherBusinessMapper.selectByAccountId(teacherAccountId);

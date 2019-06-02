@@ -97,7 +97,7 @@ public class PublishQuestionnaireController {
     @ApiOperation(value = "批量获取发布评教卷的信息")
     @GetMapping(value = "/list/by/ids")
     public RespondsMessage batchFindPublishQuestionInfo(@RequestParam(value = "ids") List<Integer> ids) {
-        return RespondsMessage.success("获取发布评教卷信息完成", publishquestionnaireService.findPublishQuestionDeatil(ids));
+        return RespondsMessage.success("获取发布评教卷信息完成", publishquestionnaireService.findPublishQuestionDetail(ids));
     }
 
     /**
