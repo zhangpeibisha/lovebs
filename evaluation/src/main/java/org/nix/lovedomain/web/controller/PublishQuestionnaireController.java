@@ -144,7 +144,7 @@ public class PublishQuestionnaireController {
         return RespondsMessage.success("获取学生回答完成", answersView);
     }
 
-
+    @Permission(name = "通过id查询评教卷信息")
     @GetMapping(value = "/findById")
     public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
         PublishQuestionnaireModel model = publishQuestionBusinessMapper.selectByPrimaryKey(id);
@@ -157,6 +157,8 @@ public class PublishQuestionnaireController {
      * @param publishId 发布的评教卷id
      * @return 统计信息
      */
+    @Permission(name = "查询统计信息", description = "查询发布的评教卷的统计信息",
+            role = {RoleEnum.MANGER, RoleEnum.TEACHER})
     @GetMapping(value = "/statisticsScore")
     public RespondsMessage statisticsScore(@RequestParam(value = "publishId") Integer publishId) throws JsonProcessingException {
         StatisticsQuestionVo questionVo = statisticsScoreService.findQuestionVo(publishId);
@@ -170,6 +172,7 @@ public class PublishQuestionnaireController {
      * @param principal
      * @return
      */
+    @Permission(name = "检测学院是否回答了评教卷", role = RoleEnum.STUDENT)
     @GetMapping(value = "/check/answer")
     public RespondsMessage checkStudentAnswer(@RequestParam(value = "publishId") Integer publishId,
                                               Principal principal) {

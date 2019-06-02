@@ -47,6 +47,7 @@ public class TeacherCourseController {
      * @param semesterEnum 学期
      * @return 响应信息
      */
+    @Permission(name = "查询教学任务",description = "查询自己权限能获取到的教学任务")
     @GetMapping(value = "/teachTask")
     public RespondsMessage findUserTeachTask(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                              @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -63,6 +64,7 @@ public class TeacherCourseController {
      * @param principal 登陆用户
      * @return 相应信息
      */
+    @Permission(name = "查询学年",description = "查询自己权限能获取到的教学任务的学年集合")
     @GetMapping(value = "/school/year")
     public RespondsMessage findUserTeachTaskHaveYear(Principal principal) {
         return RespondsMessage.success("获取用户学年列表成功", teacherCourseService.findSchoolYearByTaskList(principal));
@@ -107,6 +109,7 @@ public class TeacherCourseController {
      * @param semester  学期
      * @return
      */
+    @Permission(name = "查询排名",description = "老师和管理员可以查看排名信息",role = {RoleEnum.MANGER,RoleEnum.TEACHER})
     @GetMapping(value = "/faculty/rank")
     public RespondsMessage findRankByFacultyAndYearAndSemester(@RequestParam(value = "facultyId") Integer facultyId,
                                                                @RequestParam(value = "year") Integer year,

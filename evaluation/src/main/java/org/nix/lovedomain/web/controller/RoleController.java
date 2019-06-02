@@ -34,14 +34,14 @@ public class RoleController {
      */
     @Permission(name = "excel上传系统角色信息",
             description = "管理员通过上传格式化的excel文件，可以达到批量上传角色信息目的",
-            role = RoleEnum.MANGER)
+            role = RoleEnum.MANGER, enable = false)
     @PostMapping(value = "/excel")
     public void uploadRole(MultipartFile role) {
         log.info("上传的文件名字为{}", role.getOriginalFilename());
         log.info("上传的文件的大小为{}", role.getSize());
     }
 
-
+    @Permission(name = "获取所有的角色信息", role = RoleEnum.MANGER)
     @GetMapping(value = "/all")
     public RespondsMessage findAllRole() {
         return RespondsMessage.success("获取角色信息完成", roleBusinessMapper.selectAll());

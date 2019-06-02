@@ -1,18 +1,16 @@
 package org.nix.lovedomain.security;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.model.ResourcesModel;
-import org.nix.lovedomain.security.url.PermissionUrlConfig;
 import org.nix.lovedomain.service.ResourcesService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,13 +25,6 @@ public class RbacServiceImpl implements RbacService {
 
     @Resource
     private ResourcesService resourcesService;
-    /**
-     * 这是不需要鉴权的路径缓存
-     */
-    private volatile List<ResourcesModel> permissionAllCache;
-
-    @Autowired(required = false)
-    private List<PermissionUrlConfig> permissionUrlConfigs;
 
     /**
      * 路径匹配工具
@@ -42,37 +33,30 @@ public class RbacServiceImpl implements RbacService {
 
     @Override
     public boolean hasPermission(HttpServletRequest httpServletRequest, Authentication authentication) {
-        return true;
-//        loadPermissionAllUrl();
-//        if (isPermissionUrl(httpServletRequest)) {
-//            return true;
-//        }
-//        return userHasPermission(httpServletRequest, authentication);
-    }
-
-    private void loadPermissionAllUrl() {
-        if (permissionAllCache == null) {
-            synchronized (this) {
-                permissionAllCache = new ArrayList<>();
-                if (permissionUrlConfigs != null) {
-                    permissionUrlConfigs.forEach(permissionUrlConfig -> permissionUrlConfig.config(permissionAllCache));
-                }
-                permissionAllCache.addAll(resourcesService.findPermissionAllResources());
-            }
+        if (isDisable(httpServletRequest)) {
+            return false;
         }
+        return userHasPermission(httpServletRequest, authentication);
     }
 
-    private boolean isPermissionUrl(HttpServletRequest request) {
-        String requestURI = request.getRequestURI();
-        String method = request.getMethod();
-        for (ResourcesModel next : permissionAllCache) {
-            if (antPathMatcher.match(next.getUrl(), requestURI)) {
-                String resourceMethod = next.getMethod();
-                if (resourceMethod == null) {
-                    return true;
-                }
-                return resourceMethod.toUpperCase()
-                        .equals(method.toUpperCase());
+    /**
+     * 判断该资源是否禁用
+     *
+     * @param httpServletRequest
+     * @return
+     */
+    private boolean isDisable(HttpServletRequest httpServletRequest) {
+        String requestURI = httpServletRequest.getRequestURI();
+        String method = httpServletRequest.getMethod();
+        List<ResourcesModel> disableUrl = resourcesService.findDisableUrl();
+        if (CollUtil.isEmpty(disableUrl)) {
+            return false;
+        }
+        for (ResourcesModel resourcesModel : disableUrl) {
+            boolean access = antPathMatcher.match(resourcesModel.getUrl(), requestURI)
+                    && methodMatch(method,resourcesModel.getMethod());
+            if (access) {
+                return true;
             }
         }
         return false;
@@ -80,6 +64,7 @@ public class RbacServiceImpl implements RbacService {
 
     /**
      * 判断用户是否拥有权限
+     *
      * @param httpServletRequest
      * @param authentication
      * @return
@@ -97,13 +82,23 @@ public class RbacServiceImpl implements RbacService {
                     if (resourceMethod == null) {
                         return true;
                     }
-                    return resourceMethod.toUpperCase()
-                            .equals(method.toUpperCase());
+                    return methodMatch(method,resourceMethod);
                 }
             }
             return false;
         }
         log.info("不是指定类型的用户{},class={}", JSONUtil.toJsonStr(principal), principal.getClass());
         return false;
+    }
+
+    private boolean methodMatch(String expectation,String match){
+        return findMethods(match).contains(expectation);
+    }
+
+    private List<String> findMethods(String methods) {
+        if (methods.contains(",")) {
+            return CollUtil.newArrayList(methods.split(","));
+        }
+        return CollUtil.newArrayList(methods);
     }
 }

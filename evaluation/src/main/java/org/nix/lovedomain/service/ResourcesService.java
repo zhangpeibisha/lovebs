@@ -27,17 +27,6 @@ public class ResourcesService {
     private ResourcesBusinessMapper resourcesBusinessMapper;
 
     /**
-     * 批量插入资源
-     *
-     * @param resourcesDos
-     */
-    public void batchAddResource(List<ResourcesDto> resourcesDos) {
-
-    }
-
-
-
-    /**
      * 分页查询资源信息
      * @param key 关键字
      * @param page 页码
@@ -75,7 +64,9 @@ public class ResourcesService {
      *
      * @return
      */
-    public List<ResourcesModel> findPermissionAllResources() {
-        return null;
+    public List<ResourcesModel> findDisableUrl() {
+        ResourcesModel resourcesModel = new ResourcesModel();
+        resourcesModel.setEnable(false);
+        return resourcesBusinessMapper.select(resourcesModel);
     }
 }

@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.RoleBusinessMapper;
 import org.nix.lovedomain.dao.business.RoleResourceBusinessMapper;
 import org.nix.lovedomain.dao.model.RoleModel;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.web.dto.ResultDto;
 import org.nix.lovedomain.web.dto.RoleDto;
 import org.springframework.http.HttpStatus;
@@ -36,6 +38,7 @@ public class RbacController {
      * @param role 角色信息
      * @return 处理结果
      */
+    @Permission(name = "创建角色",role = RoleEnum.MANGER,enable = false)
     @PostMapping(value = "/role")
     public ResultDto addRole(RoleDto role) {
         String name = role.getName();
@@ -60,6 +63,7 @@ public class RbacController {
      * @param resourceIds 资源id集合
      * @return 操作结果
      */
+    @Permission(name = "分配资源",role = RoleEnum.MANGER,enable = false)
     @PostMapping(value = "/role/{id}")
     public ResultDto addResourcesToRole(@PathVariable(value = "id") Integer roleId
             , @RequestParam(value = "resourceIds") List<Integer> resourceIds) {

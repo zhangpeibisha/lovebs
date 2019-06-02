@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.dao.business.TeacherBusinessMapper;
 import org.nix.lovedomain.dao.model.TeacherModel;
 import org.nix.lovedomain.service.StudentCourseService;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.utils.LogUtil;
 import org.nix.lovedomain.web.controller.dto.RespondsMessage;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,7 @@ public class StudentCourseController {
     @Resource
     private StudentCourseService studentCourseService;
 
+    @Permission(name = "通过课程id查询到老师信息", role = RoleEnum.MANGER, enable = false)
     @GetMapping(value = "/findTeacher")
     public RespondsMessage findCourseTeachers(@RequestParam(value = "courseId") Integer courseId) {
 
@@ -45,10 +48,12 @@ public class StudentCourseController {
 
     /**
      * 学生查询自己课程的分数
+     *
      * @param teachCourseId
      * @param principal
      * @return
      */
+    @Permission(name = "查询分数",description = "学生查询自己教学任务中的分数",role = RoleEnum.STUDENT)
     @GetMapping(value = "/teachCourser/score")
     public RespondsMessage findTeachCourseScore(@RequestParam(value = "teachCourseId") String teachCourseId,
                                                 Principal principal) {

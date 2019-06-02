@@ -3,6 +3,8 @@ package org.nix.lovedomain.web.controller;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.nix.lovedomain.service.AccountService;
+import org.nix.lovedomain.service.enums.Permission;
+import org.nix.lovedomain.service.enums.RoleEnum;
 import org.nix.lovedomain.service.vo.StudentVo;
 import org.nix.lovedomain.service.vo.TeacherVo;
 import org.nix.lovedomain.utils.LogUtil;
@@ -32,6 +34,7 @@ public class AccountController {
      * @param principal
      * @return
      */
+    @Permission(name = "获取用户信息")
     @GetMapping(value = "/user/info")
     public RespondsMessage findUserDetailInfo(Principal principal) {
         return RespondsMessage.success("获取用户信息",principal);

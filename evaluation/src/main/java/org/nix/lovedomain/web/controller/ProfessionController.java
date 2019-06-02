@@ -45,6 +45,7 @@ public class ProfessionController {
      * @param sql
      * @return
      */
+    @Permission(name = "获取专业信息列表", role = RoleEnum.MANGER)
     @GetMapping(value = "/quire/list")
     public RespondsMessage findProfession(@RequestParam(value = "page", required = false) Integer page,
                                           @RequestParam(value = "limit", required = false) Integer limit,
@@ -53,6 +54,7 @@ public class ProfessionController {
         return RespondsMessage.success("获取专业信息成功", profession);
     }
 
+    @Permission(name = "通过id查询专业信息")
     @GetMapping(value = "/findById")
     public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
         return RespondsMessage.success("通过id查询完成", professionBusinessMapper.selectByPrimaryKey(id));
@@ -72,16 +74,16 @@ public class ProfessionController {
         organizationService.insertProfession(faculty.getInputStream());
     }
 
-
+    @Permission(name = "更新专业信息", role = RoleEnum.MANGER)
     @PutMapping(value = "/update")
     public RespondsMessage update(@ModelAttribute ProfessionModel professionModel) {
         professionBusinessMapper.updateByPrimaryKeySelective(professionModel);
         return RespondsMessage.success("更新专业信息完成");
     }
 
-
+    @Permission(name = "添加专业信息", role = RoleEnum.MANGER)
     @PostMapping(value = "/add")
-    public RespondsMessage add(@ModelAttribute ProfessionModel professionModel){
+    public RespondsMessage add(@ModelAttribute ProfessionModel professionModel) {
         professionBusinessMapper.insertSelective(professionModel);
         return RespondsMessage.success("添加专业信息完成");
     }

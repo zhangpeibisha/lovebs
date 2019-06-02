@@ -43,6 +43,7 @@ public class StudentController {
     @Resource
     private StudentBusinessMapper studentBusinessMapper;
 
+    @Permission(name = "查询学生列表", role = RoleEnum.MANGER)
     @GetMapping(value = "/list")
     public RespondsMessage findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                            @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -57,6 +58,7 @@ public class StudentController {
      * @param students
      * @return
      */
+    @Permission(name = "批量添加学生", role = RoleEnum.MANGER)
     @PostMapping(value = "/register/list")
     public RespondsMessage registerStudents(@RequestBody List<StudentModel> students) {
         if (CollUtil.isEmpty(students)) {
@@ -86,6 +88,7 @@ public class StudentController {
      * @param studentAccountIds 学生账户id集合
      * @return 响应信息
      */
+    @Permission(name = "通过学生id集合查询学生信息", role = RoleEnum.MANGER)
     @GetMapping(value = "/find/by/ids")
     public RespondsMessage findStudentByIds(@RequestParam(value = "ids") List<Integer> studentAccountIds) {
         List<StudentModel> accountIds
@@ -93,8 +96,9 @@ public class StudentController {
         return RespondsMessage.success("获取学生信息完成", accountIds);
     }
 
+    @Permission(name = "更新学生信息", role = RoleEnum.MANGER)
     @PutMapping(value = "/info")
-    public RespondsMessage update(@ModelAttribute StudentModel studentModel){
+    public RespondsMessage update(@ModelAttribute StudentModel studentModel) {
         studentBusinessMapper.updateByPrimaryKeySelective(studentModel);
         return RespondsMessage.success("更新学生信息完成");
     }

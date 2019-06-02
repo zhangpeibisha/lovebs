@@ -39,6 +39,7 @@ public class TeacherController {
     @Resource
     private TeacherBusinessMapper teacherBusinessMapper;
 
+    @Permission(name = "查询老师列表",role = RoleEnum.MANGER)
     @GetMapping(value = "/quire/list")
     public RespondsMessage findTeacherPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                            @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -47,6 +48,7 @@ public class TeacherController {
         return RespondsMessage.success("获取老师列表成功", studentVoPageVo);
     }
 
+    @Permission(name = "单个添加老师",role = RoleEnum.MANGER)
     @PostMapping(value = "/create")
     public RespondsMessage createTeacher(@ModelAttribute CreateTeacherDto dto,
                                          @RequestParam(value = "roleId") Integer roleId) {
@@ -56,6 +58,7 @@ public class TeacherController {
         return RespondsMessage.success("创建老师成功");
     }
 
+    @Permission(name = "查询老师信息")
     @GetMapping(value = "/findById")
     public RespondsMessage findById(@RequestParam Integer id) {
         TeacherModel teacherModel = new TeacherModel();
@@ -92,6 +95,7 @@ public class TeacherController {
         organizationService.classInsertTeacher(configTeacher.getInputStream());
     }
 
+    @Permission(name = "更新老师信息",role = RoleEnum.MANGER)
     @PutMapping(value = "/update")
     public RespondsMessage update(@ModelAttribute TeacherModel teacherModel) {
         teacherBusinessMapper.updateByPrimaryKeySelective(teacherModel);

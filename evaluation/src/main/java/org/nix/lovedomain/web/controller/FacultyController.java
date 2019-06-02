@@ -42,6 +42,7 @@ public class FacultyController {
     @Resource
     private FacultyBusinessMapper facultyBusinessMapper;
 
+    @Permission(name = "查询学院信息列表", role = RoleEnum.MANGER)
     @GetMapping(value = "/quire/list")
     public void findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -54,6 +55,7 @@ public class FacultyController {
     }
 
 
+    @Permission(name = "通过学院id查询学院信息")
     @GetMapping(value = "/findById")
     public RespondsMessage findById(@RequestParam(value = "id") Integer id) {
         return RespondsMessage.success("通过id查询完成",
@@ -77,23 +79,27 @@ public class FacultyController {
     /**
      * 查看用户能够获取的学院列表，管理员获取
      * 所有的，老师获取自己所属的学院，学生暂时没有配置
+     *
      * @param principal
      * @return
      */
+    @Permission(name = "查询用户自己可以查看的学院列表")
     @GetMapping(value = "/user/faculty")
     public RespondsMessage findUserFaculty(Principal principal) {
         return RespondsMessage.success("获取用户可以查看的学院列表成功",
                 facultyService.findUserFaculty(principal));
     }
 
+    @Permission(name = "更新学院信息", role = RoleEnum.MANGER)
     @PutMapping(value = "/update")
-    public RespondsMessage update(@ModelAttribute FacultyModel facultyModel){
+    public RespondsMessage update(@ModelAttribute FacultyModel facultyModel) {
         facultyBusinessMapper.updateByPrimaryKeySelective(facultyModel);
         return RespondsMessage.success("更新学院信息成功");
     }
 
+    @Permission(name = "添加学院信息", role = RoleEnum.MANGER)
     @PostMapping(value = "/add")
-    public RespondsMessage add(@ModelAttribute FacultyModel facultyModel){
+    public RespondsMessage add(@ModelAttribute FacultyModel facultyModel) {
         facultyBusinessMapper.insertSelective(facultyModel);
         return RespondsMessage.success("添加学院信息成功");
     }

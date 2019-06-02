@@ -40,6 +40,7 @@ public class ClassController {
     @Resource
     private OrganizationService organizationService;
 
+    @Permission(name = "查询班级列表信息",description = "分页查询班级信息",role = RoleEnum.MANGER)
     @GetMapping(value = "/quire/list")
     public void findStudentPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "limit", defaultValue = "10") Integer limit,
@@ -65,12 +66,14 @@ public class ClassController {
         organizationService.insertClass(classFile.getInputStream());
     }
 
+    @Permission(name = "更新班级信息",role = RoleEnum.MANGER)
     @PutMapping(value = "/update")
     public RespondsMessage update(@ModelAttribute ClassUpdateDto classUpdateDto) {
         classService.updateClass(classUpdateDto);
         return RespondsMessage.success("更新班级信息完成");
     }
 
+    @Permission(name = "增加班级信息",role = RoleEnum.MANGER)
     @PostMapping(value = "/add")
     public RespondsMessage add(ClassModel classModel) {
         classBusinessMapper.insertSelective(classModel);

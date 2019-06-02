@@ -75,7 +75,7 @@ public class EvaluationQuestionnaireController {
         throw new ServiceException(StrUtil.format("请检查评教卷{}是否存在", evaluationId));
     }
 
-
+    @Permission(name = "查询所有在册的评教卷",role = RoleEnum.MANGER)
     @ApiOperation(value = "查询所有在册的评教卷", notes = "用户登陆后，且拥有权限时可以查看所有创建的评教卷")
     @GetMapping(value = "/all/list")
     public RespondsMessage findAllEvaluationalPage(Principal principal,

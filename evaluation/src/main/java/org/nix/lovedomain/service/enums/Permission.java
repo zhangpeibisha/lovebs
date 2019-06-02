@@ -26,11 +26,11 @@ public @interface Permission {
     String description() default NO_DESCRIPTION;
 
     /**
-     * 默认无人可以访问
+     * 默认所有人可以访问
      *
      * @return
      */
-    RoleEnum[] role() default {};
+    RoleEnum[] role() default {RoleEnum.STUDENT,RoleEnum.TEACHER,RoleEnum.MANGER};
 
     /**
      * 是否使用
