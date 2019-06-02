@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 /**
- * Created by 11723 on 2017/5/4.
+ * @author zhangpei
  */
 @Component
 public class SpringContextHolder implements ApplicationContextAware {
@@ -53,7 +53,7 @@ public class SpringContextHolder implements ApplicationContextAware {
         applicationContext = null;
     }
 
-    public static String[] getBeans(){
+    public static String[] getBeans() {
         return applicationContext.getBeanNamesForAnnotation(Controller.class);
     }
 

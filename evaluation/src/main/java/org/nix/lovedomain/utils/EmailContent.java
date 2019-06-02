@@ -3,8 +3,8 @@ package org.nix.lovedomain.utils;
 import cn.hutool.core.util.StrUtil;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/5/16
  * @since jdk8
  *
  *邮件内容

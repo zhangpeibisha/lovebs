@@ -10,8 +10,8 @@ import java.util.Date;
  * 简单的发布评教卷信息，用于给用提供统计使用
  * 方便查询
  *
+ * @author zhangpei
  * @version 1.0
- * @anthor on 2019/4/24
  * @since jdk8
  */
 @Data

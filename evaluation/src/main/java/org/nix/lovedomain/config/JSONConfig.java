@@ -6,8 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author keray
- * @date 2019/05/02 14:10
+ * @author zhangpei
  */
 @Configuration
 public class JSONConfig {

@@ -11,8 +11,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
+ * @author zhangpei
  * @version 1.0
- * @anthor  on 2019/4/19
  * @since jdk8
  */
 @Configuration

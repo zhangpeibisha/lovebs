@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * SQL工具类
  *
- * @author Ming
+ * @author zhangpei
  */
 public class SQLUtil {
 
