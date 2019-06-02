@@ -88,7 +88,7 @@ public class StudentController {
      * @param studentAccountIds 学生账户id集合
      * @return 响应信息
      */
-    @Permission(name = "通过学生id集合查询学生信息", role = RoleEnum.MANGER)
+    @Permission(name = "通过学生id集合查询学生信息", role = {RoleEnum.MANGER,RoleEnum.TEACHER})
     @GetMapping(value = "/find/by/ids")
     public RespondsMessage findStudentByIds(@RequestParam(value = "ids") List<Integer> studentAccountIds) {
         List<StudentModel> accountIds

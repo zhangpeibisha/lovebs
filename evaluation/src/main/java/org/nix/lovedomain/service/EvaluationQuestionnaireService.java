@@ -119,7 +119,6 @@ public class EvaluationQuestionnaireService {
      * @param principal
      * @return
      */
-    @Cacheable(cacheNames = CacheConstant.EVALUATIONAL_DETAIL, key = "#questionId")
     public EvaluationquestionnaireDeatilVo getEvaluationsDeathVoById(Integer questionId,
                                                                      Principal principal) {
         EvaluationQuestionnaireModel questionnaireModel
