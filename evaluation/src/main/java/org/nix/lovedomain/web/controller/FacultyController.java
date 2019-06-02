@@ -91,4 +91,10 @@ public class FacultyController {
         facultyBusinessMapper.updateByPrimaryKeySelective(facultyModel);
         return RespondsMessage.success("更新学院信息成功");
     }
+
+    @PostMapping(value = "/add")
+    public RespondsMessage add(@ModelAttribute FacultyModel facultyModel){
+        facultyBusinessMapper.insertSelective(facultyModel);
+        return RespondsMessage.success("添加学院信息成功");
+    }
 }
