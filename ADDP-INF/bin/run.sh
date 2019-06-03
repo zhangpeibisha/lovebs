@@ -9,5 +9,3 @@ env=$(echo ${env%.env*})
 # 启动命令
 echo $APP
 java -jar /home/admin/${APP}/${APP}.jar --spring.profiles.active=${env}
-
-#tail -f /tmp/${APP}.log
