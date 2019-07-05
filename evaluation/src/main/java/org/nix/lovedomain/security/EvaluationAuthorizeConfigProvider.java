@@ -16,6 +16,7 @@ public class EvaluationAuthorizeConfigProvider implements AuthorizeConfigProvide
     @Override
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry urlRegistry) {
         urlRegistry.antMatchers(HttpMethod.OPTIONS,"/**").permitAll();
+        urlRegistry.antMatchers("/index.html","/static/**").permitAll();
         urlRegistry.antMatchers("/**")
                 .access("@rbacService.hasPermission(request,authentication)");
     }
