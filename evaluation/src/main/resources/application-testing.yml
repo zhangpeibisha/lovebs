@@ -12,7 +12,7 @@ spring:
   session:
     store-type: redis
   redis:
-      host: 59.110.234.213
+      host: wds001
       # 链接超时
       timeout: 2000
       jedis:
@@ -21,6 +21,7 @@ spring:
           max-active: 10
           max-idle: 10
           max-wait: 2000
+      port: 6379
 security:
   basic:
     enabled: true
