@@ -102,18 +102,18 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        ValidateCodeType type = getValidateCodeType(request);
-        if (type != null) {
-            log.info("校验请求(" + request.getRequestURI() + ")中的验证码,验证码类型" + type);
-            try {
-                validateCodeProcessorHolder.findValidateCodeProcessor(type)
-                        .validate(new ServletWebRequest(request, response));
-                log.info("验证码校验通过");
-            } catch (ValidateCodeException exception) {
-                authenticationFailureHandler.onAuthenticationFailure(request, response, exception);
-                return;
-            }
-        }
+//        ValidateCodeType type = getValidateCodeType(request);
+//        if (type != null) {
+//            log.info("校验请求(" + request.getRequestURI() + ")中的验证码,验证码类型" + type);
+//            try {
+//                validateCodeProcessorHolder.findValidateCodeProcessor(type)
+//                        .validate(new ServletWebRequest(request, response));
+//                log.info("验证码校验通过");
+//            } catch (ValidateCodeException exception) {
+//                authenticationFailureHandler.onAuthenticationFailure(request, response, exception);
+//                return;
+//            }
+//        }
         filterChain.doFilter(request, response);
     }
 
